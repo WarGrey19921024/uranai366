@@ -29,9 +29,8 @@ def kin(d: dt.date) -> int:
     if d >= REF:
         days = (d - REF).days - _leaps_between(REF, d)
     else:
+        # d 自身が 2/29 のときは (d, REF] に含まれないので数えられ、結果は 2/28 と同じになる
         days = -((REF - d).days - _leaps_between(d, REF))
-        if d.month == 2 and d.day == 29:
-            days += 1  # 2/29 は 2/28 と同じ
     return (163 + days) % 260 + 1
 
 
