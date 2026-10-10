@@ -19,6 +19,7 @@ def load():
     pages = {}
     for f in sorted(glob.glob(os.path.join(W, "text", "*.json"))):
         sign = os.path.basename(f)[:-5]
+        if sign.startswith("_"): continue
         if SIGNS_EN and sign not in SIGNS_EN: continue
         for k, v in json.load(open(f, encoding="utf-8")).items():
             pages[k] = (sign, v)
