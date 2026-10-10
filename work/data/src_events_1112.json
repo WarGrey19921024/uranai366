@@ -139,6 +139,14 @@
    "text": "秋に収穫したそば粉で打つ新そば。香りが高く、この時期ならではの味",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ソースの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "揚げ物やお好み焼きに欠かせない、香り豊かなソースを味わう日。",
+   "source_url": "https://zatsuneta.com/archives/11107a.html",
+   "confirmed": true
   }
  ],
  "1108": [
@@ -255,6 +263,14 @@
    "text": "秋の果物の代表。甘柿は生で、渋柿は干し柿にして冬の保存食に",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "茨城県民の日",
+   "kind": "記念日",
+   "year": 1871,
+   "text": "「茨城」という県の名前が生まれた日にちなむ、県の誕生日。",
+   "source_url": "https://netlab.click/todayis/1113",
+   "confirmed": true
   }
  ],
  "1114": [
@@ -273,6 +289,22 @@
    "text": "イチョウの実。炒ったり茶碗蒸しに入れたりして秋の味覚を楽しむ",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "世界糖尿病デー",
+   "kind": "記念日",
+   "year": null,
+   "text": "毎日の食事と運動を見直し、体の健康を守ろうと呼びかける国連の国際デー。",
+   "source_url": "https://netlab.click/todayis/1114",
+   "confirmed": true
+  },
+  {
+   "title": "埼玉県民の日",
+   "kind": "記念日",
+   "year": 1871,
+   "text": "埼玉県が誕生した日にちなみ、ふるさとの良さを見つめ直す県の日。",
+   "source_url": "https://netlab.click/todayis/1114",
+   "confirmed": true
   }
  ],
  "1115": [
@@ -399,6 +431,14 @@
    "text": "寒さで甘みが増す冬野菜。鍋や漬物に欠かせない食卓の主役",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "かきフライの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "牡蠣がおいしくなる季節に、さくっと揚げたかきフライを味わう日。",
+   "source_url": "https://netlab.click/todayis/1121",
+   "confirmed": true
   }
  ],
  "1122": [
@@ -417,6 +457,14 @@
    "text": "山や庭園が赤や黄に染まる晩秋。景色を眺めて歩く昔からの楽しみ",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "回転寿司記念日",
+   "kind": "記念日",
+   "year": null,
+   "text": "お皿が目の前を回る、日本生まれの楽しい回転寿司にちなむ日。",
+   "source_url": "https://netlab.click/todayis/1122",
+   "confirmed": true
   }
  ],
  "1123": [
@@ -435,6 +483,14 @@
    "text": "その年に収穫した新しいお米。つやと香りがよく、秋の実りを実感できる",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "お赤飯の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "収穫に感謝する季節に、お祝いの席を彩るお赤飯をいただく日。",
+   "source_url": "https://zatsuneta.com/archives/11123e.html",
+   "confirmed": true
   }
  ],
  "1124": [
@@ -479,6 +535,14 @@
    "text": "香り高い冬の柑橘。皮を料理に散らしたり、お風呂に浮かべたりして楽しむ",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "金型の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "身の回りの製品の形をつくる「金型」の技術に光を当てる、ものづくりの日。",
+   "source_url": "https://netlab.click/todayis/1125",
+   "confirmed": true
   }
  ],
  "1126": [
@@ -491,12 +555,12 @@
    "confirmed": true
   },
   {
-   "title": "牡蠣",
-   "kind": "旬",
-   "year": null,
-   "text": "冬に身がふっくら太る「海のミルク」。鍋やフライで旬を味わう",
-   "source_url": "",
-   "confirmed": false
+   "title": "ペンの日",
+   "kind": "記念日",
+   "year": 1935,
+   "text": "日本ペンクラブの創立にちなみ、書くことと言葉の力を見つめる日。",
+   "source_url": "https://netlab.click/todayis/1126",
+   "confirmed": true
   }
  ],
  "1127": [
@@ -515,6 +579,14 @@
    "text": "ねっとりした食感の秋冬の芋。煮っころがしや芋煮で体が温まる",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "組立家具の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "自分の手で組み立てる家具の楽しさと、暮らしの工夫を味わう日。",
+   "source_url": "https://netlab.click/todayis/1127",
+   "confirmed": true
   }
  ],
  "1128": [
@@ -603,8 +675,8 @@
    "kind": "できごと",
    "year": 1990,
    "text": "日本人が初めて宇宙へ飛び立った日とされる",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1202",
+   "confirmed": true
   },
   {
    "title": "大根",
@@ -621,8 +693,8 @@
    "kind": "できごと",
    "year": 1872,
    "text": "太陰太陽暦から太陽暦への切り替えにちなむ日とされる",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1203",
+   "confirmed": true
   },
   {
    "title": "蕪（かぶ）",
@@ -631,6 +703,14 @@
    "text": "やわらかく甘い冬のかぶ。千枚漬けやスープでやさしい味を楽しむ",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "奇術の日",
+   "kind": "記念日",
+   "year": 1990,
+   "text": "「ワン(1)・ツー(2)・スリー(3)」のかけ声から生まれた、手品を楽しむ日。",
+   "source_url": "https://zatsuneta.com/archives/112032.html",
+   "confirmed": true
   }
  ],
  "1204": [
@@ -639,8 +719,8 @@
    "kind": "できごと",
    "year": 1890,
    "text": "日本人研究者らによる血清療法の論文発表にちなむ日とされる",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1204",
+   "confirmed": true
   },
   {
    "title": "春菊",
@@ -649,6 +729,14 @@
    "text": "香りのよい冬の青菜。鍋に入れるとぐっと季節感が増す",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "E.T.の日",
+   "kind": "記念日",
+   "year": 1982,
+   "text": "映画『E.T.』が日本で公開されたことにちなむ、心温まる友情を思う日。",
+   "source_url": "https://netlab.click/todayis/1204",
+   "confirmed": true
   }
  ],
  "1205": [
@@ -657,8 +745,8 @@
    "kind": "記念日",
    "year": null,
    "text": "年末に一年の写真を整理しようと呼びかける日とされる",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/112053.html",
+   "confirmed": true
   },
   {
    "title": "ふろふき大根",
@@ -667,6 +755,14 @@
    "text": "やわらかく煮た大根に味噌をのせる冬の家庭料理",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "国際ボランティア・デー",
+   "kind": "記念日",
+   "year": null,
+   "text": "誰かのために動くボランティアの力をたたえ、広げていこうという国際デー。",
+   "source_url": "https://netlab.click/todayis/1205",
+   "confirmed": true
   }
  ],
  "1206": [
@@ -674,9 +770,9 @@
    "title": "音の日",
    "kind": "記念日",
    "year": 1877,
-   "text": "録音機の発明にちなみ、音の文化を考える日とされる",
-   "source_url": "",
-   "confirmed": false
+   "text": "エジソンが音を記録して再生できる蓄音機を発明した日にちなむ、音の文化の日。",
+   "source_url": "https://netlab.click/todayis/1206",
+   "confirmed": true
   },
   {
    "title": "ズワイガニ",
@@ -685,16 +781,24 @@
    "text": "冬の日本海の味覚。地域ごとの呼び名で親しまれる冬のごちそう",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "シンフォニー記念日",
+   "kind": "記念日",
+   "year": null,
+   "text": "オーケストラが奏でる交響曲に耳をかたむけ、音楽の豊かさを味わう日。",
+   "source_url": "https://netlab.click/todayis/1206",
+   "confirmed": true
   }
  ],
  "1207": [
   {
    "title": "クリスマスツリーの日",
    "kind": "できごと",
-   "year": null,
-   "text": "日本で初めてクリスマスツリーが飾られたとされる日",
-   "source_url": "",
-   "confirmed": false
+   "year": 1886,
+   "text": "横浜の明治屋に、記録に残る日本初のクリスマスツリーが飾られた日。",
+   "source_url": "https://tabi-mag.jp/day1207/",
+   "confirmed": true
   },
   {
    "title": "ポインセチア",
@@ -703,6 +807,14 @@
    "text": "赤と緑で冬を彩る鉢花。年末の部屋を華やかにしてくれる",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "神戸港開港記念日",
+   "kind": "できごと",
+   "year": null,
+   "text": "神戸の港が海外に開かれ、異国の文化が行き交う港町の歩みが始まった日。",
+   "source_url": "https://tabi-mag.jp/day1207/",
+   "confirmed": true
   }
  ],
  "1208": [
@@ -711,8 +823,8 @@
    "kind": "行事",
    "year": null,
    "text": "折れた針に感謝し、やわらかい豆腐などに刺して供養する行事（地域による）",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://tabi-mag.jp/day1208/",
+   "confirmed": true
   },
   {
    "title": "寒ブリ",
@@ -721,6 +833,14 @@
    "text": "脂がのって身が締まる冬のブリ。刺身や照り焼きで旬を味わう",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "有機農業の日",
+   "kind": "記念日",
+   "year": 2006,
+   "text": "有機農業を進める法律の成立にちなみ、土と作物にやさしい農業を考える日。",
+   "source_url": "https://netlab.click/todayis/1208",
+   "confirmed": true
   }
  ],
  "1209": [
@@ -739,6 +859,14 @@
    "text": "空気が澄んで星がよく見える季節。オリオン座が夜空にのぼる",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "障害者の日",
+   "kind": "記念日",
+   "year": 1975,
+   "text": "国連で障害者の権利宣言が採択されたことにちなみ、共に暮らす社会を考える日。",
+   "source_url": "https://netlab.click/todayis/1209",
+   "confirmed": true
   }
  ],
  "1210": [
@@ -747,8 +875,8 @@
    "kind": "記念日",
    "year": 1948,
    "text": "世界人権宣言が採択された日とされ、人の尊さを考える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1210",
+   "confirmed": true
   },
   {
    "title": "ふぐ",
@@ -763,10 +891,10 @@
   {
    "title": "胃腸の日",
    "kind": "記念日",
-   "year": null,
+   "year": 2002,
    "text": "「いい胃腸」の語呂合わせで、年末の胃腸をいたわる日とされる",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/112112.html",
+   "confirmed": true
   },
   {
    "title": "葛湯",
@@ -775,6 +903,14 @@
    "text": "とろりと甘い温かい飲み物。寒い夜に体をほっと温める",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "国際山岳デー",
+   "kind": "記念日",
+   "year": null,
+   "text": "山の自然とふもとの暮らしを大切にし、守っていこうという国連の国際デー。",
+   "source_url": "https://zatsuneta.com/archives/112114.html",
+   "confirmed": true
   }
  ],
  "1212": [
@@ -783,8 +919,8 @@
    "kind": "記念日",
    "year": 1995,
    "text": "「いい字一字」の語呂合わせ。一年を表す漢字が発表される日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/112122.html",
+   "confirmed": true
   },
   {
    "title": "シクラメン",
@@ -793,6 +929,14 @@
    "text": "冬の鉢花の代表。赤や白、ピンクの花が窓辺を明るくする",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "バッテリーの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "車や家電を陰で支える電池・バッテリーの役割を知ってもらう日。",
+   "source_url": "https://zatsuneta.com/archives/112121.html",
+   "confirmed": true
   }
  ],
  "1213": [
@@ -801,8 +945,8 @@
    "kind": "行事",
    "year": null,
    "text": "お正月を迎える準備を始め、家のすすを払う昔からの習わし",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1213",
+   "confirmed": true
   },
   {
    "title": "金目鯛",
@@ -811,6 +955,14 @@
    "text": "冬に脂がのる赤い魚。煮付けにすると華やかな食卓になる",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "双子の日",
+   "kind": "記念日",
+   "year": 1874,
+   "text": "双子に関わる明治の政令にちなみ、双子の誕生とその絆を祝う日。",
+   "source_url": "https://netlab.click/todayis/1213",
+   "confirmed": true
   }
  ],
  "1214": [
@@ -819,8 +971,8 @@
    "kind": "できごと",
    "year": 1911,
    "text": "人類が初めて南極点にたどり着いたとされる冒険の記念日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/112142.html",
+   "confirmed": true
   },
   {
    "title": "雪吊り",
@@ -833,12 +985,12 @@
  ],
  "1215": [
   {
-   "title": "年賀状の受付開始",
+   "title": "年賀郵便の受付開始",
    "kind": "行事",
    "year": null,
-   "text": "元日に届けるための年賀状の受付が始まる時期",
-   "source_url": "",
-   "confirmed": false
+   "text": "元日に届ける年賀状の特別な受付が始まる日。今年の締めくくりの便りを書く頃。",
+   "source_url": "https://tabi-mag.jp/day1215/",
+   "confirmed": true
   },
   {
    "title": "落花生",
@@ -847,6 +999,14 @@
    "text": "秋に収穫し乾燥させた落花生。香ばしく炒って冬のおつまみに",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "観光バス記念日",
+   "kind": "記念日",
+   "year": null,
+   "text": "窓の外の景色を楽しみながら名所をめぐる、観光バスの旅に親しむ日。",
+   "source_url": "https://tabi-mag.jp/day1215/",
+   "confirmed": true
   }
  ],
  "1216": [
@@ -855,8 +1015,8 @@
    "kind": "できごと",
    "year": 1890,
    "text": "東京と横浜の間で日本初の電話サービスが始まったとされる日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://tabi-mag.jp/day1216/",
+   "confirmed": true
   },
   {
    "title": "牡丹鍋",
@@ -865,6 +1025,14 @@
    "text": "猪肉を味噌で煮込む冬の鍋。山里の伝統的なごちそう",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "紙の記念日",
+   "kind": "記念日",
+   "year": 1875,
+   "text": "東京・王子の製紙工場が操業を始めたことにちなみ、紙のありがたさを思う日。",
+   "source_url": "https://zatsuneta.com/archives/112162.html",
+   "confirmed": true
   }
  ],
  "1217": [
@@ -873,8 +1041,8 @@
    "kind": "できごと",
    "year": 1903,
    "text": "ライト兄弟が動力飛行に初めて成功したとされる日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1217",
+   "confirmed": true
   },
   {
    "title": "あんこう鍋",
@@ -891,8 +1059,8 @@
    "kind": "できごと",
    "year": 1914,
    "text": "赤レンガの東京駅が完成し開業したとされる日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary12.html",
+   "confirmed": true
   },
   {
    "title": "蓮根",
@@ -919,6 +1087,14 @@
    "text": "こたつにみかんが似合う季節。冬の団らんの定番風景",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "日本人初飛行の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "日本人の操縦する飛行機が、日本の空を初めて公式に飛んだことにちなむ日。",
+   "source_url": "https://zatsuneta.com/archives/112191.html",
+   "confirmed": true
   }
  ],
  "1220": [
@@ -937,6 +1113,22 @@
    "text": "街が光で彩られる季節。夜の散歩が楽しくなる",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ブリの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「ぶ(2)り(輪=0)」の語呂から、脂ののった冬のブリを味わう日。",
+   "source_url": "https://zatsuneta.com/archives/112204.html",
+   "confirmed": true
+  },
+  {
+   "title": "デパート開業の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "日本のデパートの始まりにちなむ日。年末の華やかな売り場が似合う頃。",
+   "source_url": "https://tabi-mag.jp/day1220/",
+   "confirmed": true
   }
  ],
  "1221": [
@@ -945,8 +1137,8 @@
    "kind": "記念日",
    "year": null,
    "text": "数字の1221の形を、離れた二人が向き合う姿に見立てた日とされる",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/112211.html",
+   "confirmed": true
   },
   {
    "title": "小豆",
@@ -955,6 +1147,14 @@
    "text": "冬至前後に小豆がゆやいとこ煮で食べる習わしのある豆",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "回文の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「1221」が前から読んでも後ろから読んでも同じことにちなむ言葉遊びの日。",
+   "source_url": "https://zatsuneta.com/archives/112213.html",
+   "confirmed": true
   }
  ],
  "1222": [
@@ -981,16 +1181,16 @@
    "kind": "できごと",
    "year": 1958,
    "text": "東京タワーが完成し、街の新しいシンボルが生まれたとされる日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1223",
+   "confirmed": true
   },
   {
    "title": "テレホンカードの日",
    "kind": "できごと",
    "year": 1982,
    "text": "日本でテレホンカードが初めて発売されたとされる日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1223",
+   "confirmed": true
   }
  ],
  "1224": [
@@ -999,8 +1199,8 @@
    "kind": "行事",
    "year": null,
    "text": "家族や友人とごちそうやケーキを囲む、冬のにぎやかな夜",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1224",
+   "confirmed": true
   },
   {
    "title": "ブッシュ・ド・ノエル",
@@ -1017,8 +1217,8 @@
    "kind": "行事",
    "year": null,
    "text": "プレゼントを贈り合い、冬の楽しいひとときを過ごす日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/112251.html",
+   "confirmed": true
   },
   {
    "title": "柊（ひいらぎ）",
@@ -1027,6 +1227,14 @@
    "text": "とがった葉と赤い実が冬の飾りに使われる木",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "スケートの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "冬の氷の上をすいすいと滑る、スケートの楽しさに親しむ日。",
+   "source_url": "https://netlab.click/todayis/1225",
+   "confirmed": true
   }
  ],
  "1226": [
@@ -1035,8 +1243,8 @@
    "kind": "できごと",
    "year": 1934,
    "text": "日本初のプロ野球チームが結成されたとされる日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1226",
+   "confirmed": true
   },
   {
    "title": "年越し準備",
@@ -1045,6 +1253,14 @@
    "text": "大掃除や買い出しで、新しい年を迎える準備が進むころ",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ボクシング・デー",
+   "kind": "記念日",
+   "year": null,
+   "text": "イギリスなどでクリスマスの翌日に祝う休日。日ごろの感謝を贈り物で伝える日。",
+   "source_url": "https://zatsuneta.com/archives/112262.html",
+   "confirmed": true
   }
  ],
  "1227": [
@@ -1053,8 +1269,8 @@
    "kind": "できごと",
    "year": 1904,
    "text": "劇『ピーター・パン』が初めて上演されたとされる日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1227",
+   "confirmed": true
   },
   {
    "title": "お餅つき",
@@ -1063,6 +1279,14 @@
    "text": "年末に家族や地域で餅をつき、鏡餅やお雑煮の準備をする",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "浅草仲見世記念日",
+   "kind": "記念日",
+   "year": null,
+   "text": "浅草寺へ続くにぎやかな商店街・仲見世の歩みにちなむ記念日。",
+   "source_url": "https://zatsuneta.com/archives/112271.html",
+   "confirmed": true
   }
  ],
  "1228": [
@@ -1081,6 +1305,22 @@
    "text": "お正月に年神様を迎えるために飾るお餅。28日に飾るとよいとされる",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "シネマトグラフの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "映画の原点とされるシネマトグラフにちなみ、スクリーンの物語を楽しむ日。",
+   "source_url": "https://netlab.click/todayis/1228",
+   "confirmed": true
+  },
+  {
+   "title": "ディスクジョッキーの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "ラジオから流れる語りと音楽で、聴く人の心をつなぐDJに親しむ日。",
+   "source_url": "https://netlab.click/todayis/1228",
+   "confirmed": true
   }
  ],
  "1229": [
@@ -1099,6 +1339,22 @@
    "text": "子孫繁栄を願うおせちの定番。年末に塩抜きして準備する",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "シャンソンの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "フランスの歌・シャンソンの、語りかけるような調べに耳をかたむける日。",
+   "source_url": "https://netlab.click/todayis/1229",
+   "confirmed": true
+  },
+  {
+   "title": "クレープの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "薄く焼いた生地でクリームや果物を包む、甘いクレープを楽しむ日。",
+   "source_url": "https://netlab.click/todayis/1229",
+   "confirmed": true
   }
  ],
  "1230": [
@@ -1107,8 +1363,8 @@
    "kind": "できごと",
    "year": 1927,
    "text": "上野〜浅草間に日本初の地下鉄が開通したとされる日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1230",
+   "confirmed": true
   },
   {
    "title": "黒豆",
@@ -1125,8 +1381,8 @@
    "kind": "行事",
    "year": null,
    "text": "一年の最後の日。家族で過ごし、新しい年を迎える準備をする",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1231",
+   "confirmed": true
   },
   {
    "title": "年越しそば",

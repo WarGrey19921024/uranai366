@@ -35,14 +35,6 @@
    "confirmed": true
   },
   {
-   "title": "靴の日",
-   "kind": "記念日",
-   "year": null,
-   "text": "「く(9)つ(2)」の語呂から。足元をととのえ、お気に入りの靴を手入れする日",
-   "source_url": "https://netlab.click/todayis/0902",
-   "confirmed": true
-  },
-  {
    "title": "牛乳の日（那須塩原）",
    "kind": "記念日",
    "year": null,
@@ -257,8 +249,8 @@
    "kind": "できごと",
    "year": 1900,
    "text": "上野駅と新橋駅に、日本初の自動公衆電話が置かれた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0911",
+   "confirmed": true
   },
   {
    "title": "旬：梨",
@@ -267,6 +259,14 @@
    "text": "みずみずしい和梨が出そろう時期。しゃりっとした歯ざわりが楽しい",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "たんぱく質の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "体をつくるたんぱく質の大切さを知り、毎日の食事を見直す日。",
+   "source_url": "https://netlab.click/todayis/0911",
+   "confirmed": true
   }
  ],
  "0912": [
@@ -275,16 +275,16 @@
    "kind": "記念日",
    "year": 1992,
    "text": "日本人宇宙飛行士がスペースシャトルで宇宙へ飛び立った日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0912",
+   "confirmed": true
   },
   {
    "title": "マラソンの日",
    "kind": "記念日",
    "year": null,
    "text": "古代ギリシャの伝令の走りにちなむ、長い道のりに挑む人を応援する日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0912",
+   "confirmed": true
   }
  ],
  "0913": [
@@ -293,8 +293,8 @@
    "kind": "記念日",
    "year": null,
    "text": "法の力で世界の平和を守ろうと、国際会議で定められた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0913",
+   "confirmed": true
   },
   {
    "title": "旬：ぶどう",
@@ -311,8 +311,8 @@
    "kind": "記念日",
    "year": null,
    "text": "秋桜の花に気持ちを込めて、大切な人へ思いを伝える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0914",
+   "confirmed": true
   },
   {
    "title": "旬：すだち",
@@ -321,6 +321,14 @@
    "text": "香り高い青い柑橘が出回るころ。焼き魚や秋の料理に添えて",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "食いしん坊の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "おいしいものを味わう喜びを、ちょっと欲張りに楽しもうという日。",
+   "source_url": "https://netlab.click/todayis/0914",
+   "confirmed": true
   }
  ],
  "0915": [
@@ -329,16 +337,16 @@
    "kind": "記念日",
    "year": null,
    "text": "人生の先輩に感謝を伝え、長い歩みをたたえる日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0915",
+   "confirmed": true
   },
   {
    "title": "ひじきの日",
    "kind": "記念日",
    "year": null,
    "text": "健康長寿にちなみ、栄養たっぷりのひじきを食べようという日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0915",
+   "confirmed": true
   }
  ],
  "0916": [
@@ -347,8 +355,8 @@
    "kind": "記念日",
    "year": null,
    "text": "地球を包むオゾン層を守る取り決めを記念する、国連の国際デー",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://tabi-mag.jp/day0916/",
+   "confirmed": true
   },
   {
    "title": "旬：栗",
@@ -357,6 +365,14 @@
    "text": "いがから顔を出した新栗が並ぶ季節。栗ご飯がうれしい",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "マッチの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "シュッと擦れば火がともる、昔ながらの道具マッチに親しむ日。",
+   "source_url": "https://tabi-mag.jp/day0916/",
+   "confirmed": true
   }
  ],
  "0917": [
@@ -383,16 +399,16 @@
    "kind": "記念日",
    "year": null,
    "text": "沖縄の島ことばを受け継ぎ、話して楽しもうと県が定めた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0918",
+   "confirmed": true
   },
   {
    "title": "かいわれ大根の日",
    "kind": "記念日",
    "year": null,
    "text": "ピリッと辛いかいわれ大根の魅力を伝える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0918",
+   "confirmed": true
   }
  ],
  "0919": [
@@ -401,8 +417,8 @@
    "kind": "できごと",
    "year": 1870,
    "text": "一般の人々も苗字を名乗ってよいとする布告が出された日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0919",
+   "confirmed": true
   },
   {
    "title": "旬：秋鮭",
@@ -419,16 +435,16 @@
    "kind": "記念日",
    "year": null,
    "text": "空と飛行機に親しみ、航空の役割を知ってもらうための日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0920",
+   "confirmed": true
   },
   {
    "title": "バスの日",
    "kind": "できごと",
    "year": 1903,
    "text": "京都で日本初の営業用乗合バスが走った日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/109202.html",
+   "confirmed": true
   }
  ],
  "0921": [
@@ -445,8 +461,8 @@
    "kind": "記念日",
    "year": null,
    "text": "世界中で争いをやめ、平和について考えようと国連が定めた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0921",
+   "confirmed": true
   }
  ],
  "0922": [
@@ -455,8 +471,8 @@
    "kind": "記念日",
    "year": null,
    "text": "車を置いて歩きや自転車で街を楽しもうと呼びかける日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0922",
+   "confirmed": true
   },
   {
    "title": "旬：まつたけ",
@@ -473,8 +489,8 @@
    "kind": "できごと",
    "year": 1809,
    "text": "インクを内蔵したペンの特許がイギリスで認められた日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/109235.html",
+   "confirmed": true
   },
   {
    "title": "海王星が見つかった日",
@@ -483,6 +499,14 @@
    "text": "計算で予言された場所に、新しい惑星・海王星が発見された日",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "手話言語の国際デー",
+   "kind": "記念日",
+   "year": null,
+   "text": "手話も大切な言語のひとつ。手で語る言葉への理解を広げる国際デー。",
+   "source_url": "https://netlab.click/todayis/0923",
+   "confirmed": true
   }
  ],
  "0924": [
@@ -491,8 +515,8 @@
    "kind": "記念日",
    "year": null,
    "text": "ごみの処理と街の清潔を定めた法律の施行にちなむ、きれいを考える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0924",
+   "confirmed": true
   },
   {
    "title": "旬：新米",
@@ -501,6 +525,14 @@
    "text": "実りの秋。炊きたての新米のつやと甘みを味わう季節",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "世界ゴリラの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "森でくらすゴリラと、そのすみかの森を守ることを考える日。",
+   "source_url": "https://netlab.click/todayis/0924",
+   "confirmed": true
   }
  ],
  "0925": [
@@ -527,8 +559,8 @@
    "kind": "できごと",
    "year": 1978,
    "text": "日本語ワードプロセッサーが初めて発表された日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0926",
+   "confirmed": true
   },
   {
    "title": "旬：いちじく",
@@ -537,6 +569,14 @@
    "text": "やわらかく甘いいちじくが店先に並ぶ、秋口の果物",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "くつろぎの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "忙しい毎日の中で、ほっとくつろぐ時間を大切にしようという日。",
+   "source_url": "https://netlab.click/todayis/0926",
+   "confirmed": true
   }
  ],
  "0927": [
@@ -545,16 +585,16 @@
    "kind": "記念日",
    "year": null,
    "text": "旅と観光が人や文化をつなぐことを広く伝える国際デー",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0927",
+   "confirmed": true
   },
   {
    "title": "女性ドライバーの日",
    "kind": "できごと",
    "year": 1917,
    "text": "日本で初めて女性に自動車の運転免許が交付された日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0927",
+   "confirmed": true
   }
  ],
  "0928": [
@@ -562,9 +602,9 @@
    "title": "パソコン記念日",
    "kind": "できごと",
    "year": 1979,
-   "text": "国産パソコンの先がけとなる機種が発表され、家庭への普及が始まった日",
-   "source_url": "",
-   "confirmed": false
+   "text": "パソコンの普及を後押しした国産機が発売されたことにちなむ日。",
+   "source_url": "https://netlab.click/todayis/0928",
+   "confirmed": true
   },
   {
    "title": "旬：落花生",
@@ -581,8 +621,8 @@
    "kind": "記念日",
    "year": null,
    "text": "「く(9)る(2)ふ(9)く」の語呂。福を呼ぶ招き猫に親しむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/109293.html",
+   "confirmed": true
   },
   {
    "title": "クリーニングの日",
@@ -591,6 +631,14 @@
    "text": "9と29の語呂から。衣替えに合わせて服を手入れする日",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "洋菓子の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "フランスで菓子職人の守り神とされる聖人の祝日にちなむ、洋菓子を楽しむ日。",
+   "source_url": "https://zatsuneta.com/archives/109294.html",
+   "confirmed": true
   }
  ],
  "0930": [
@@ -599,16 +647,16 @@
    "kind": "記念日",
    "year": null,
    "text": "言葉の壁をこえて人と文化をつなぐ翻訳者をたたえる国際デー",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0930",
+   "confirmed": true
   },
   {
    "title": "くるみの日",
    "kind": "記念日",
    "year": null,
-   "text": "9と30の語呂から。栄養豊かなくるみを味わう日",
-   "source_url": "",
-   "confirmed": false
+   "text": "「く(9)るみ(3)のまる(0)」の語呂から、栄養豊かなくるみを味わう日。",
+   "source_url": "https://netlab.click/todayis/0930",
+   "confirmed": true
   }
  ],
  "1001": [
@@ -625,16 +673,16 @@
    "kind": "記念日",
    "year": null,
    "text": "コーヒー豆の新年度が始まる日。一杯の香りでひと息つく日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1001",
+   "confirmed": true
   },
   {
    "title": "都民の日",
    "kind": "記念日",
    "year": null,
    "text": "東京都の前身・東京市の誕生にちなむ、都民のための日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1001",
+   "confirmed": true
   }
  ],
  "1002": [
@@ -643,8 +691,8 @@
    "kind": "記念日",
    "year": null,
    "text": "「とう(10)ふ(2)」の語呂。毎日の食卓を支える豆腐を味わう日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1002",
+   "confirmed": true
   },
   {
    "title": "望遠鏡の日",
@@ -653,16 +701,24 @@
    "text": "オランダで望遠鏡の特許が申請された日にちなむ",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "とんこつラーメンの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "福岡・久留米のラーメン店の会が「とん(10)こつ(2)」の語呂から定めた日。",
+   "source_url": "https://netlab.click/todayis/1002",
+   "confirmed": true
   }
  ],
  "1003": [
   {
    "title": "登山の日",
    "kind": "記念日",
-   "year": null,
+   "year": 1992,
    "text": "「と(10)ざん(3)」の語呂。山の魅力と安全な山歩きを考える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110031.html",
+   "confirmed": true
   },
   {
    "title": "旬：柿",
@@ -677,18 +733,18 @@
   {
    "title": "イワシの日",
    "kind": "記念日",
-   "year": null,
+   "year": 1985,
    "text": "「い(1)わ(0)し(4)」の語呂。身近な魚の栄養とおいしさを知る日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110041.html",
+   "confirmed": true
   },
   {
    "title": "天使の日",
    "kind": "記念日",
    "year": null,
    "text": "「テン(10)シ(4)」の語呂から。やさしい心を思い出す日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/a1004.html",
+   "confirmed": true
   }
  ],
  "1005": [
@@ -715,8 +771,8 @@
    "kind": "できごと",
    "year": 1954,
    "text": "日本が途上国支援の枠組みに加わり、国際協力を始めた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/a1006.html",
+   "confirmed": true
   },
   {
    "title": "旬：新そば",
@@ -749,10 +805,10 @@
   {
    "title": "木の日",
    "kind": "記念日",
-   "year": null,
+   "year": 1977,
    "text": "「十」と「八」を組み合わせると「木」。木と暮らしのつながりを考える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110084.html",
+   "confirmed": true
   },
   {
    "title": "骨と関節の日",
@@ -761,6 +817,14 @@
    "text": "「骨」の字が十と八に見えることから。体の土台をいたわる日",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "足袋の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "着物の足元を引き立てる足袋に親しみ、和装の楽しさを見直す日。",
+   "source_url": "https://netlab.click/todayis/1008",
+   "confirmed": true
   }
  ],
  "1009": [
@@ -769,16 +833,16 @@
    "kind": "記念日",
    "year": null,
    "text": "万国郵便連合の設立を記念し、手紙が世界をつなぐことを伝える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110092.html",
+   "confirmed": true
   },
   {
    "title": "トラックの日",
    "kind": "記念日",
-   "year": null,
+   "year": 1992,
    "text": "「ト(10)ラック(9)」の語呂。物流を支えるトラックに感謝する日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110091.html",
+   "confirmed": true
   },
   {
    "title": "道具の日",
@@ -803,16 +867,16 @@
    "kind": "記念日",
    "year": null,
    "text": "10と10を横に倒すと眉と目に見えることから。目を大切にする日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110101.html",
+   "confirmed": true
   },
   {
    "title": "銭湯の日",
    "kind": "記念日",
    "year": null,
    "text": "「せん(1010)とう」の語呂。広い湯船でゆったり温まる日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110104.html",
+   "confirmed": true
   }
  ],
  "1011": [
@@ -821,8 +885,8 @@
    "kind": "記念日",
    "year": null,
    "text": "1011を横から見るとウインクしている顔に見えることから",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1011",
+   "confirmed": true
   },
   {
    "title": "旬：りんご",
@@ -831,6 +895,14 @@
    "text": "赤く色づいた秋りんごが出回る時期。甘酸っぱさが魅力",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "国際ガールズ・デー",
+   "kind": "記念日",
+   "year": null,
+   "text": "世界の女の子たちが夢を持って学び、生きられるよう応援する国際デー。",
+   "source_url": "https://netlab.click/todayis/1011",
+   "confirmed": true
   }
  ],
  "1012": [
@@ -839,8 +911,8 @@
    "kind": "記念日",
    "year": null,
    "text": "大豆からできる豆乳の良さを伝え、毎日の習慣にしようという日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary10.html",
+   "confirmed": true
   },
   {
    "title": "旬：かぶ",
@@ -857,8 +929,8 @@
    "kind": "記念日",
    "year": null,
    "text": "「栗(九里)より(四里)うまい十三里」にちなむ、焼きいもを味わう日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary10.html",
+   "confirmed": true
   },
   {
    "title": "麻酔の日",
@@ -875,8 +947,8 @@
    "kind": "できごと",
    "year": 1872,
    "text": "新橋と横浜の間に、日本初の鉄道が開業した日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110141.html",
+   "confirmed": true
   },
   {
    "title": "旬：ぎんなん",
@@ -885,6 +957,14 @@
    "text": "黄葉したいちょうの下で実るぎんなん。茶わん蒸しの名脇役",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "くまのプーさん原作デビューの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "世界中で愛されるくまのプーさんが、物語の本で初めて世に出たことにちなむ日。",
+   "source_url": "https://zatsuneta.com/archives/110144.html",
+   "confirmed": true
   }
  ],
  "1015": [
@@ -893,16 +973,16 @@
    "kind": "記念日",
    "year": null,
    "text": "きのこの消費が増える秋に、その魅力と栄養を知ってもらう日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1015",
+   "confirmed": true
   },
   {
    "title": "世界手洗いの日",
    "kind": "記念日",
    "year": null,
    "text": "正しい手洗いの大切さを世界に広める国際デー",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1015",
+   "confirmed": true
   }
  ],
  "1016": [
@@ -911,16 +991,16 @@
    "kind": "記念日",
    "year": null,
    "text": "世界の食べものの問題を考え、食の大切さを見直す国際デー",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1016",
+   "confirmed": true
   },
   {
    "title": "ボスの日",
    "kind": "記念日",
    "year": null,
    "text": "日ごろお世話になっている上司に、感謝の気持ちを伝える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1016",
+   "confirmed": true
   }
  ],
  "1017": [
@@ -929,8 +1009,8 @@
    "kind": "できごと",
    "year": 1978,
    "text": "「沖縄そば」の名前が正式に認められた日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1017",
+   "confirmed": true
   },
   {
    "title": "貯蓄の日",
@@ -945,18 +1025,18 @@
   {
    "title": "冷凍食品の日",
    "kind": "記念日",
-   "year": null,
+   "year": 1986,
    "text": "冷凍の目安マイナス18度と、冷凍の「とう(10)」から生まれた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110182.html",
+   "confirmed": true
   },
   {
    "title": "統計の日",
    "kind": "記念日",
    "year": null,
    "text": "暮らしを支える統計の大切さを知ってもらうための日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110181.html",
+   "confirmed": true
   },
   {
    "title": "ミニスカートの日",
@@ -973,8 +1053,8 @@
    "kind": "できごと",
    "year": 1895,
    "text": "大阪の呉服店が、日本で初めて大売り出しを行った日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1019",
+   "confirmed": true
   },
   {
    "title": "旬：鮭いくら",
@@ -983,6 +1063,14 @@
    "text": "秋の鮭から取れる、粒の大きな生いくらが味わえる季節",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "海外旅行の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "見知らぬ国の街並みや食べものに思いをはせ、旅の計画を立てたくなる日。",
+   "source_url": "https://netlab.click/todayis/1019",
+   "confirmed": true
   }
  ],
  "1020": [
@@ -991,16 +1079,16 @@
    "kind": "記念日",
    "year": null,
    "text": "「とう(10)はつ(20)」の語呂。髪と頭皮の健康を見直す日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110203.html",
+   "confirmed": true
   },
   {
    "title": "新聞広告の日",
    "kind": "記念日",
    "year": null,
    "text": "新聞週間にちなみ、新聞広告の役割を知ってもらう日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1020",
+   "confirmed": true
   }
  ],
  "1021": [
@@ -1009,8 +1097,8 @@
    "kind": "できごと",
    "year": 1879,
    "text": "エジソンの白熱電球が長時間ともり続けた日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110211.html",
+   "confirmed": true
   },
   {
    "title": "旬：れんこん",
@@ -1027,8 +1115,8 @@
    "kind": "行事",
    "year": null,
    "text": "京都・平安神宮の祭り。各時代の装いをした行列が都大路を進む",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary10.html",
+   "confirmed": true
   },
   {
    "title": "パラシュートの日",
@@ -1037,6 +1125,14 @@
    "text": "フランスで人類初のパラシュート降下に成功した日にちなむ",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "アニメの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "世界に愛される日本のアニメーション文化を、あらためて楽しむ日。",
+   "source_url": "https://zatsuneta.com/category/anniversary10.html",
+   "confirmed": true
   }
  ],
  "1023": [
@@ -1044,17 +1140,17 @@
    "title": "電信電話記念日",
    "kind": "できごと",
    "year": 1869,
-   "text": "東京と横浜の間で、日本初の電信が始まった日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "text": "横浜に電信機役所が置かれ、日本の電信の歩みが始まったことにちなむ日。",
+   "source_url": "https://zatsuneta.com/archives/110231.html",
+   "confirmed": true
   },
   {
    "title": "津軽弁の日",
    "kind": "記念日",
    "year": null,
    "text": "津軽の言葉の味わいを、詩や語りで楽しむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1023",
+   "confirmed": true
   }
  ],
  "1024": [
@@ -1063,16 +1159,16 @@
    "kind": "記念日",
    "year": null,
    "text": "「手(10)に幸せ(4)」の語呂。手乗り文鳥のかわいさを伝える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1024",
+   "confirmed": true
   },
   {
    "title": "国連デー",
    "kind": "記念日",
    "year": 1945,
    "text": "国際連合が発足した日。世界の協力について考える国際デー",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110241.html",
+   "confirmed": true
   }
  ],
  "1025": [
@@ -1081,16 +1177,16 @@
    "kind": "できごと",
    "year": 1951,
    "text": "戦後初めて、日本の民間航空会社の定期便が飛んだ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110253.html",
+   "confirmed": true
   },
   {
    "title": "世界パスタデー",
    "kind": "記念日",
-   "year": null,
+   "year": 1995,
    "text": "世界のパスタ関係者が集った会議にちなむ、パスタを楽しむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1025",
+   "confirmed": true
   }
  ],
  "1026": [
@@ -1099,8 +1195,8 @@
    "kind": "できごと",
    "year": 1895,
    "text": "正岡子規が「柿くへば」の句を詠む旅に出た日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://tabi-mag.jp/day1026/",
+   "confirmed": true
   },
   {
    "title": "旬：里いも",
@@ -1109,6 +1205,14 @@
    "text": "ねっとりした里いもがおいしい季節。秋の煮物の主役",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "きしめんの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「つ(2)る(6)」の語呂から、名古屋名物のつるりと平たいきしめんを味わう日。",
+   "source_url": "https://netlab.click/todayis/1026",
+   "confirmed": true
   }
  ],
  "1027": [
@@ -1117,8 +1221,8 @@
    "kind": "記念日",
    "year": null,
    "text": "文化の日をはさむ2週間の始まり。秋の夜長に本を開く日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1027",
+   "confirmed": true
   },
   {
    "title": "文字・活字文化の日",
@@ -1135,8 +1239,8 @@
    "kind": "できごと",
    "year": 1882,
    "text": "日本式の速記法を教える講習会が初めて開かれた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110281.html",
+   "confirmed": true
   },
   {
    "title": "旬：菊の花",
@@ -1145,6 +1249,14 @@
    "text": "食用菊が出回る季節。おひたしにすると秋らしい彩り",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "群馬県民の日",
+   "kind": "記念日",
+   "year": 1871,
+   "text": "廃藩置県で「群馬県」という名前が初めて使われたことにちなむ県の日。",
+   "source_url": "https://netlab.click/todayis/1028",
+   "confirmed": true
   }
  ],
  "1029": [
@@ -1153,16 +1265,16 @@
    "kind": "できごと",
    "year": 1969,
    "text": "アメリカで、のちのインターネットにつながる最初の通信が行われた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1029",
+   "confirmed": true
   },
   {
    "title": "おしぼりの日",
    "kind": "記念日",
    "year": null,
    "text": "おしぼりのおもてなしの心を伝える、日本らしい記念日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1029",
+   "confirmed": true
   }
  ],
  "1030": [
@@ -1179,8 +1291,16 @@
    "kind": "できごと",
    "year": 1896,
    "text": "島崎藤村の詩「初恋」が雑誌に発表された日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://tabi-mag.jp/day1030/",
+   "confirmed": true
+  },
+  {
+   "title": "たまごかけごはんの日",
+   "kind": "記念日",
+   "year": 2005,
+   "text": "島根県雲南市で開かれた催しにちなむ日。新米と卵がおいしい季節。",
+   "source_url": "https://zatsuneta.com/archives/110303.html",
+   "confirmed": true
   }
  ],
  "1031": [
@@ -1189,24 +1309,24 @@
    "kind": "行事",
    "year": null,
    "text": "秋の実りを祝う欧米由来の行事。仮装やかぼちゃの飾りを楽しむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110311.html",
+   "confirmed": true
   },
   {
    "title": "日本茶の日",
    "kind": "できごと",
    "year": 1191,
    "text": "栄西が中国から茶の種を持ち帰ったと伝わる日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110314.html",
+   "confirmed": true
   },
   {
    "title": "ガス記念日",
    "kind": "できごと",
    "year": 1872,
    "text": "横浜の街に日本初のガス灯がともった日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/1031",
+   "confirmed": true
   }
  ]
 }

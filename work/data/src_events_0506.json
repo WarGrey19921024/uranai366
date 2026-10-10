@@ -359,8 +359,8 @@
    "kind": "記念日",
    "year": null,
    "text": "博物館の役割を知り、身近な展示に足を運んでみようと呼びかける日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0518",
+   "confirmed": true
   }
  ],
  "0519": [
@@ -563,8 +563,8 @@
    "kind": "記念日",
    "year": 1733,
    "text": "隅田川の川開きで花火が打ち上げられたことにちなむ、夏の夜空を思う日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://tabi-mag.jp/day0528/",
+   "confirmed": true
   },
   {
    "title": "さくらんぼ",
@@ -573,24 +573,32 @@
    "text": "赤い実がつやつやと色づき、初夏のさくらんぼが店先に並び始める頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ゴルフの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "ゴルフの楽しさを広めようという記念日。緑の芝の上で体を動かしたくなる日。",
+   "source_url": "https://tabi-mag.jp/day0528/",
+   "confirmed": true
   }
  ],
  "0529": [
   {
    "title": "こんにゃくの日",
    "kind": "記念日",
-   "year": null,
+   "year": 1989,
    "text": "「こ(5)んに(2)ゃく(9)」の語呂から、ヘルシーなこんにゃくを味わう日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://bestcalendar.jp/articles/2461",
+   "confirmed": true
   },
   {
    "title": "呉服の日",
    "kind": "記念日",
    "year": null,
    "text": "「ご(5)ふ(2)く(9)」の語呂から、着物の美しさに親しもうという日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://www.bestcalendar.jp/dates/kinenbi/2460",
+   "confirmed": true
   }
  ],
  "0530": [
@@ -599,8 +607,8 @@
    "kind": "記念日",
    "year": null,
    "text": "「ご(5)み(3)ゼロ(0)」の語呂から、街をきれいにしようと呼びかける日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary05.html",
+   "confirmed": true
   },
   {
    "title": "消費者の日",
@@ -609,16 +617,24 @@
    "text": "暮らしの買い物を安心なものにするための法律ができたことにちなむ日。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "女子将棋の日",
+   "kind": "記念日",
+   "year": 2007,
+   "text": "日本女子プロ将棋協会の設立にちなみ、女性棋士の活躍を応援する日。",
+   "source_url": "https://netlab.click/todayis/0530",
+   "confirmed": true
   }
  ],
  "0531": [
   {
    "title": "世界禁煙デー",
    "kind": "記念日",
-   "year": null,
+   "year": 1989,
    "text": "たばこの害を知り、健康的な暮らしを考えようと世界保健機関が定めた日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://bestcalendar.jp/dates/kinenbi/2477",
+   "confirmed": true
   },
   {
    "title": "新茶",
@@ -627,6 +643,14 @@
    "text": "みずみずしい香りの新茶が出そろい、一年でいちばん爽やかなお茶が楽しめる頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "藻岩山の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "札幌の藻岩山の標高531メートルにちなむ日。山頂から街を見渡したくなる日。",
+   "source_url": "https://netlab.click/todayis/0531",
+   "confirmed": true
   }
  ],
  "0601": [
@@ -642,17 +666,17 @@
    "title": "気象記念日",
    "kind": "記念日",
    "year": 1875,
-   "text": "東京で日本初の気象観測が始まったことにちなみ、天気予報の歩みを思う日。",
-   "source_url": "",
-   "confirmed": false
+   "text": "東京気象台が設けられたことにちなみ、天気予報の歩みを思う日。",
+   "source_url": "https://bestcalendar.jp/dates/kinenbi/2485",
+   "confirmed": true
   },
   {
    "title": "写真の日",
    "kind": "記念日",
    "year": 1841,
    "text": "日本で初めて写真が撮影されたと伝わることにちなむ、写真を楽しむ日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://www.bestcalendar.jp/dates/kinenbi/2487",
+   "confirmed": true
   }
  ],
  "0602": [
@@ -661,8 +685,8 @@
    "kind": "記念日",
    "year": 1859,
    "text": "横浜港が開かれ、海外との交流と新しい文化の入口となった日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://tabi-mag.jp/day0602",
+   "confirmed": true
   },
   {
    "title": "らっきょう",
@@ -671,6 +695,14 @@
    "text": "らっきょうが出回り、甘酢漬けなどの保存食づくりが始まる頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ローズの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "初夏に見ごろを迎えるバラの花を、大切な人に贈りたくなる日。",
+   "source_url": "https://zatsuneta.com/category/anniversary06.html",
+   "confirmed": true
   }
  ],
  "0603": [
@@ -679,16 +711,16 @@
    "kind": "記念日",
    "year": 1949,
    "text": "地図づくりを支える測量の大切さを伝えるため定められた日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0603",
+   "confirmed": true
   },
   {
    "title": "世界自転車デー",
    "kind": "記念日",
    "year": 2018,
    "text": "手軽で環境にやさしい自転車の良さを広めようと国連が定めた日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0603",
+   "confirmed": true
   }
  ],
  "0604": [
@@ -697,16 +729,16 @@
    "kind": "記念日",
    "year": 1928,
    "text": "「む(6)し(4)」の語呂から、歯みがきと歯の健康を見直す日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary06.html",
+   "confirmed": true
   },
   {
    "title": "虫の日",
    "kind": "記念日",
    "year": 1988,
    "text": "「む(6)し(4)」の語呂から、小さな虫たちと自然の大切さを考える日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary06.html",
+   "confirmed": true
   }
  ],
  "0605": [
@@ -715,8 +747,8 @@
    "kind": "記念日",
    "year": 1972,
    "text": "地球の環境を守るため、一人ひとりができることを考えるよう国連が定めた日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://www.env.go.jp/guide/ecolife-fair/enviday.html",
+   "confirmed": true
   },
   {
    "title": "そら豆",
@@ -725,6 +757,14 @@
    "text": "さやの中にふっくらした豆が育ち、塩ゆでのそら豆がおいしい頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "落語の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「ろくご」を繰り返すと「らくご」に聞こえることから生まれた、寄席を楽しむ日。",
+   "source_url": "https://netlab.click/todayis/0605",
+   "confirmed": true
   }
  ],
  "0606": [
@@ -733,16 +773,16 @@
    "kind": "記念日",
    "year": null,
    "text": "「6歳の6月6日に習い事を始めると上達する」という言い伝えにちなむ日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary06.html",
+   "confirmed": true
   },
   {
    "title": "梅の日",
    "kind": "記念日",
    "year": 1545,
    "text": "雨乞いのお礼に神社へ梅が奉納されたと伝わることにちなみ、梅を味わう日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary06.html",
+   "confirmed": true
   }
  ],
  "0607": [
@@ -769,8 +809,8 @@
    "kind": "記念日",
    "year": null,
    "text": "豊かな海の恵みに感謝し、海を守ることを考えるよう国連が定めた日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0608",
+   "confirmed": true
   },
   {
    "title": "ほたる狩り",
@@ -779,6 +819,14 @@
    "text": "水辺にほたるの光が舞い始め、夕涼みを兼ねてほたるを見に行く頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "大鳴門橋開通記念日",
+   "kind": "できごと",
+   "year": 1985,
+   "text": "淡路島と四国を結ぶ大鳴門橋が開通し、渦潮の上を渡れるようになった日。",
+   "source_url": "https://zatsuneta.com/archives/a0608.html",
+   "confirmed": true
   }
  ],
  "0609": [
@@ -787,8 +835,8 @@
    "kind": "記念日",
    "year": null,
    "text": "「ロッ(6)ク(9)」の語呂から、ロック音楽を楽しもうという日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0609",
+   "confirmed": true
   },
   {
    "title": "鮎の解禁",
@@ -797,6 +845,14 @@
    "text": "各地の川で鮎釣りが始まり、香り高い若鮎の塩焼きが楽しめる頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ドナルドダックの誕生日",
+   "kind": "記念日",
+   "year": 1934,
+   "text": "おなじみのアヒルのキャラクター、ドナルドダックの公式の誕生日とされる日。",
+   "source_url": "https://netlab.click/todayis/0609",
+   "confirmed": true
   }
  ],
  "0610": [
@@ -805,26 +861,26 @@
    "kind": "記念日",
    "year": 1920,
    "text": "日本で初めて水時計で時を知らせた故事にちなみ、時間を大切にする日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/106101.html",
+   "confirmed": true
   },
   {
    "title": "路面電車の日",
    "kind": "記念日",
    "year": 1995,
    "text": "「ろ(6)でん(10)」の語呂から、街を走る路面電車に親しむ日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/106103.html",
+   "confirmed": true
   }
  ],
  "0611": [
   {
    "title": "傘の日",
    "kind": "記念日",
-   "year": 1989,
-   "text": "梅雨入りの頃に合わせ、雨の日を明るくする傘に親しもうという日。",
-   "source_url": "",
-   "confirmed": false
+   "year": null,
+   "text": "梅雨入りの頃にあたることから、雨の日を明るくする傘に親しもうという日。",
+   "source_url": "https://netlab.click/todayis/0611",
+   "confirmed": true
   },
   {
    "title": "国立銀行ができた日",
@@ -833,6 +889,14 @@
    "text": "日本初の銀行「第一国立銀行」が設立され、近代の金融が始まった日。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "学校図書館の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "子どもたちが本と出会う場所、学校の図書館の役割を見つめ直す日。",
+   "source_url": "https://bestcalendar.jp/2025/6/11",
+   "confirmed": true
   }
  ],
  "0612": [
@@ -841,8 +905,8 @@
    "kind": "記念日",
    "year": null,
    "text": "恋人どうしが写真立てなどを贈り合うブラジルの習わしにちなむ日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/106121.html",
+   "confirmed": true
   },
   {
    "title": "さくらんぼの収穫",
@@ -851,6 +915,14 @@
    "text": "山形などで佐藤錦の収穫が最盛期を迎え、つややかな実が摘まれる頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "エスペラントの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "国を越えて話せる言葉をめざして作られた、エスペラント語に親しむ日。",
+   "source_url": "https://zatsuneta.com/archives/a0612.html",
+   "confirmed": true
   }
  ],
  "0613": [
@@ -877,8 +949,8 @@
    "kind": "記念日",
    "year": 2004,
    "text": "献血に協力する人々に感謝し、献血の大切さを伝えるよう定められた日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0614",
+   "confirmed": true
   },
   {
    "title": "早苗の田んぼ",
@@ -887,6 +959,14 @@
    "text": "田植えを終えた田んぼに若い苗がそろい、水面に緑が映える頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "球音を楽しむ日",
+   "kind": "記念日",
+   "year": null,
+   "text": "球場に響く打球やミットの音に耳をすませ、野球を楽しもうという日。",
+   "source_url": "https://netlab.click/todayis/0614",
+   "confirmed": true
   }
  ],
  "0615": [
@@ -895,16 +975,16 @@
    "kind": "記念日",
    "year": 1984,
    "text": "千葉県の誕生をみんなで祝い、郷土を見つめ直す県の記念日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary06.html",
+   "confirmed": true
   },
   {
    "title": "暑中見舞いの日",
    "kind": "記念日",
    "year": 1950,
    "text": "暑中見舞い用のはがきが初めて発売されたことにちなむ日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary06.html",
+   "confirmed": true
   }
  ],
  "0616": [
@@ -913,16 +993,16 @@
    "kind": "記念日",
    "year": 1979,
    "text": "昔、この日に菓子を供えて健康を願った「嘉祥」の行事にちなむ日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://bestcalendar.jp/dates/kinenbi/2687",
+   "confirmed": true
   },
   {
    "title": "麦とろの日",
    "kind": "記念日",
    "year": null,
    "text": "「む(6)ぎ(1)とろ(6)」の語呂から、麦ごはんととろろで元気をつける日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0616",
+   "confirmed": true
   }
  ],
  "0617": [
@@ -941,24 +1021,40 @@
    "text": "雨続きの合間にのぞく青空がまぶしく、洗濯物がよく乾く貴重な日和。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "いなりの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "甘く煮た油揚げにご飯を詰めた、おなじみのいなり寿司を味わう日。",
+   "source_url": "https://zatsuneta.com/category/anniversary06.html",
+   "confirmed": true
+  },
+  {
+   "title": "減塩の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "毎日の食事の塩分を少し控えて、体にやさしい味つけを見直す日。",
+   "source_url": "https://zatsuneta.com/category/anniversary06.html",
+   "confirmed": true
   }
  ],
  "0618": [
   {
    "title": "おにぎりの日",
    "kind": "記念日",
-   "year": 2002,
-   "text": "日本最古級のおにぎりの化石が出土した石川県の町が定めた日。",
-   "source_url": "",
-   "confirmed": false
+   "year": null,
+   "text": "石川県で日本最古級のおにぎりの化石が見つかったことにちなむ日。",
+   "source_url": "https://zatsuneta.com/archives/106183.html",
+   "confirmed": true
   },
   {
    "title": "海外移住の日",
    "kind": "できごと",
    "year": 1908,
    "text": "移民船「笠戸丸」がブラジルに着き、日系社会の歩みが始まった日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0618",
+   "confirmed": true
   }
  ],
  "0619": [
@@ -967,26 +1063,26 @@
    "kind": "記念日",
    "year": null,
    "text": "「ろう(6)どく(19)」の語呂から、声に出して読む楽しさを広める日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/a0619.html",
+   "confirmed": true
   },
   {
    "title": "ベースボール記念日",
    "kind": "できごと",
    "year": 1846,
    "text": "アメリカで今のルールに近い初の野球の試合が行われたことにちなむ日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0619",
+   "confirmed": true
   }
  ],
  "0620": [
   {
    "title": "ペパーミントデー",
    "kind": "記念日",
-   "year": 1987,
+   "year": null,
    "text": "ハッカの産地・北海道北見市が、さわやかな香りを届けようと定めた日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0620",
+   "confirmed": true
   },
   {
    "title": "くちなし",
@@ -995,6 +1091,14 @@
    "text": "白いくちなしの花が甘く香り、梅雨の空気をやわらげる頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "健康住宅の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "毎日を過ごす住まいの空気や明るさを見直し、心地よい家を考える日。",
+   "source_url": "https://bestcalendar.jp/2026/6/20",
+   "confirmed": true
   }
  ],
  "0621": [
@@ -1013,6 +1117,14 @@
    "text": "皮の薄い新じゃがいもが出回り、皮ごと味わえる料理が楽しめる頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "国際ヨガの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "心と体を整えるヨガの良さを世界で分かち合おうという国連の国際デー。",
+   "source_url": "https://netlab.click/todayis/0621",
+   "confirmed": true
   }
  ],
  "0622": [
@@ -1020,9 +1132,9 @@
    "title": "ボウリングの日",
    "kind": "記念日",
    "year": 1861,
-   "text": "長崎の外国人居留地に日本初のボウリング場ができたことにちなむ日。",
-   "source_url": "",
-   "confirmed": false
+   "text": "長崎の外国人居留地に日本初のボウリング場が開かれたことにちなむ日。",
+   "source_url": "https://netlab.click/todayis/0622",
+   "confirmed": true
   },
   {
    "title": "夏至のころの長い夕暮れ",
@@ -1031,6 +1143,14 @@
    "text": "一年でいちばん日が長く、夕方遅くまで明るさが残る頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "かにの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "かに座の始まりの頃にあたる日。かに料理をみんなで囲みたくなる日。",
+   "source_url": "https://netlab.click/todayis/0622",
+   "confirmed": true
   }
  ],
  "0623": [
@@ -1039,8 +1159,8 @@
    "kind": "記念日",
    "year": 1894,
    "text": "国際オリンピック委員会が生まれた日にちなみ、スポーツの喜びを分かち合う日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0623",
+   "confirmed": true
   },
   {
    "title": "枝豆",
@@ -1057,16 +1177,16 @@
    "kind": "記念日",
    "year": 1947,
    "text": "空飛ぶ円盤の目撃が話題になったことにちなむ、空を見上げる日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://bestcalendar.jp/dates/kinenbi/2742",
+   "confirmed": true
   },
   {
    "title": "ドレミの日",
    "kind": "記念日",
    "year": 1024,
    "text": "「ドレミ」の階名が生まれたと伝わることにちなむ、音楽の日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/106242.html",
+   "confirmed": true
   }
  ],
  "0625": [
@@ -1085,16 +1205,24 @@
    "text": "朝早く池に蓮の花が開き始め、涼やかな景色が広がる頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "住宅デー",
+   "kind": "記念日",
+   "year": null,
+   "text": "毎日を過ごす住まいの手入れや住み心地を、あらためて見直してみる日。",
+   "source_url": "https://zatsuneta.com/category/anniversary06.html",
+   "confirmed": true
   }
  ],
  "0626": [
   {
    "title": "露天風呂の日",
    "kind": "記念日",
-   "year": 1987,
-   "text": "「ろ(6)てんぶ(2)ろ(6)」の語呂から、岡山の温泉地が定めた日。",
-   "source_url": "",
-   "confirmed": false
+   "year": null,
+   "text": "岡山・湯原温泉の人たちが「ろ(6)てんぶ(2)ろ(6)」の語呂から定めた日。",
+   "source_url": "https://zatsuneta.com/archives/a0626.html",
+   "confirmed": true
   },
   {
    "title": "きゅうり",
@@ -1111,26 +1239,26 @@
    "kind": "記念日",
    "year": 1874,
    "text": "福沢諭吉が日本で初めて「演説」を広めた会が開かれたことにちなむ日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0627",
+   "confirmed": true
   },
   {
    "title": "ちらし寿司の日",
    "kind": "記念日",
    "year": null,
    "text": "岡山の名物ばら寿司にちなみ、彩り豊かなちらし寿司を楽しむ日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/106273.html",
+   "confirmed": true
   }
  ],
  "0628": [
   {
-   "title": "パーフェクトゲームの日",
+   "title": "パフェの日",
    "kind": "できごと",
    "year": 1950,
-   "text": "日本のプロ野球で初めての完全試合が達成された日。",
-   "source_url": "",
-   "confirmed": false
+   "text": "プロ野球で初の完全試合が達成された日にちなみ、パフェを味わう日。",
+   "source_url": "https://zatsuneta.com/archives/106282.html",
+   "confirmed": true
   },
   {
    "title": "すもも",
@@ -1139,6 +1267,14 @@
    "text": "甘ずっぱいすももが色づき、初夏から盛夏へ移る季節を知らせる頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "貿易記念日",
+   "kind": "記念日",
+   "year": null,
+   "text": "海外とのものの行き来を支える貿易の大切さを、あらためて考える日。",
+   "source_url": "https://netlab.click/todayis/0628",
+   "confirmed": true
   }
  ],
  "0629": [
@@ -1147,16 +1283,16 @@
    "kind": "できごと",
    "year": 1966,
    "text": "ビートルズが来日し、日本中が熱狂に包まれた日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0629",
+   "confirmed": true
   },
   {
    "title": "佃煮の日",
    "kind": "記念日",
    "year": null,
    "text": "保存食として親しまれてきた佃煮のおいしさを伝える日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0629",
+   "confirmed": true
   }
  ],
  "0630": [
@@ -1165,8 +1301,8 @@
    "kind": "行事",
    "year": null,
    "text": "一年の折り返しに心身を清め、残り半年の健康を祈る伝統行事。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0630",
+   "confirmed": true
   },
   {
    "title": "水無月の和菓子",
@@ -1175,6 +1311,14 @@
    "text": "白いういろうに小豆をのせた和菓子「水無月」が店先に並ぶ頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "アインシュタイン記念日",
+   "kind": "記念日",
+   "year": 1905,
+   "text": "アインシュタインが相対性理論の最初の論文を提出したことにちなむ日。",
+   "source_url": "https://netlab.click/todayis/0630",
+   "confirmed": true
   }
  ]
 }

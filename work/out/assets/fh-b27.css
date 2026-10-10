@@ -1,0 +1,250 @@
+/* 人生予報 2027年版 誕生日占い 共通CSS（fh-b27）。試作 docs/prototype/birthday-0101-2027_試作.html から切り出し。生成元: work/scripts/templates/fh-b27.css */
+/* ===== ここから本文用（fh-b27 接頭辞） ===== */
+.fh-b27{--ink:#ECE7DA;--sub:#C9C3B4;--mute:#A9A497;--paper:#1F2638;--deep:#1A2030;--line:#4A5878;--gold:#E3C77E;--cream:#F7F1E3;--cream-ink:#2E2A26;
+  color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;font-size:16px;line-height:2;padding:28px 12px 56px;box-sizing:border-box}
+.fh-b27 *{box-sizing:border-box}
+.fh-b27 a{color:var(--gold)}
+.fh-b27 a:hover{color:#F4DFA6}
+.fh-b27-note{max-width:760px;margin:0 auto;background-color:var(--paper);background-image:radial-gradient(#33405C 1.2px,transparent 1.2px);background-size:22px 22px;border-radius:4px 10px 10px 4px;border-left:14px solid #3A2A22;box-shadow:0 10px 30px rgba(0,0,0,.4);padding:40px 30px;display:flex;flex-direction:column;gap:44px}
+.fh-b27 p{margin:0}
+.fh-b27 h1,.fh-b27 h2,.fh-b27 h3{margin:0;color:var(--ink)}
+.fh-b27-hand{font-family:'Klee One',cursive}
+.fh-b27-min{font-family:'Shippori Mincho',serif}
+
+/* ヒーロー */
+.fh-b27-hero{display:flex;gap:26px;align-items:stretch;flex-wrap:wrap}
+.fh-b27-kou{writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;font-size:40px;font-weight:800;letter-spacing:.16em;color:var(--gold);line-height:1.1}
+.fh-b27-hero-body{flex:1 1 360px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.fh-b27-tape{align-self:flex-start;padding:4px 16px;background:var(--gold);color:var(--paper);font-family:'Klee One',cursive;font-size:14px;font-weight:600;transform:rotate(-2deg);line-height:1.6}
+.fh-b27-hero h1{font-family:'Klee One',cursive;font-size:30px;font-weight:600;line-height:1.5}
+.fh-b27-lead{font-size:15px;color:var(--sub)}
+
+/* 目次 */
+.fh-b27-toc{border:1.5px dashed var(--line);border-radius:8px;padding:16px 20px;background:var(--deep)}
+.fh-b27-toc strong{font-family:'Klee One',cursive;font-size:17px}
+.fh-b27-toc ol{margin:6px 0 0;padding-left:1.4em;font-size:15px;line-height:1.9}
+.fh-b27-toc ol ol{padding-left:1.2em;font-size:14px}
+.fh-b27-toc a{text-decoration:none}
+
+/* 誕生日カード */
+.fh-b27-cardwrap{display:flex;justify-content:center}
+.fh-b27-card-outer{position:relative;width:100%;max-width:420px;transform:rotate(-1.5deg)}
+.fh-b27-card-outer:before{content:"";position:absolute;top:-12px;left:50%;margin-left:-50px;width:100px;height:24px;background:var(--gold);opacity:.8}
+.fh-b27-card{background:var(--cream);color:var(--cream-ink);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.35);line-height:1.6}
+.fh-b27-card-top{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:#6B645B}
+.fh-b27-card-name{display:flex;align-items:baseline;gap:10px}
+.fh-b27-card-name .d{font-family:'Shippori Mincho',serif;font-size:44px;font-weight:800;line-height:1}
+.fh-b27-card-name .t{font-family:'Klee One',cursive;font-size:20px;font-weight:600}
+.fh-b27-card dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px;margin:0;font-size:13px}
+.fh-b27-card dl div{display:flex;justify-content:space-between;border-bottom:1px dashed #CFC6B5;padding:4px 0}
+.fh-b27-card dt{color:#6B645B}
+.fh-b27-card dd{margin:0;font-weight:700}
+.fh-b27-card .fh-b27-btn{background:var(--paper);color:var(--cream)}
+
+/* 見出し */
+.fh-b27-part{display:flex;flex-direction:column;gap:22px}
+.fh-b27-partlabel{display:flex;align-items:center;gap:12px;font-family:'Klee One',cursive;font-size:14px;color:var(--gold)}
+.fh-b27-partlabel:after{content:"";flex:1;border-top:1.5px dashed var(--line)}
+.fh-b27 h2{font-family:'Klee One',cursive;font-size:25px;font-weight:600;line-height:1.5;display:flex;align-items:center;gap:12px}
+.fh-b27 h2 .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1}
+.fh-b27 h3{font-family:'Klee One',cursive;font-size:19px;font-weight:600;line-height:1.5;padding-bottom:4px;border-bottom:1.5px dashed var(--line)}
+.fh-b27-sec{display:flex;flex-direction:column;gap:14px}
+.fh-b27-sec p{color:#DDD7C8}
+.fh-b27-em{color:var(--gold);font-weight:700}
+
+/* 付箋 */
+.fh-b27-stickies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fh-b27-sticky{padding:16px;color:var(--cream-ink);display:flex;flex-direction:column;gap:6px;line-height:1.8}
+.fh-b27-sticky strong{font-family:'Klee One',cursive;font-size:17px}
+.fh-b27-sticky.y{background:#E8D9A8;transform:rotate(-1deg)}
+.fh-b27-sticky.b{background:#B9CDE0;transform:rotate(1deg)}
+
+/* 暦の表 */
+.fh-b27-koyomi{display:flex;flex-direction:column;border-top:1.5px dashed var(--line)}
+.fh-b27-koyomi div{display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1.5px dashed var(--line)}
+.fh-b27-koyomi dt{font-size:13px;color:var(--mute);line-height:1.6}
+.fh-b27-koyomi dt b{display:block;font-family:'Klee One',cursive;font-size:18px;color:var(--ink);font-weight:600}
+.fh-b27-koyomi dd{margin:0;font-size:15px;line-height:1.85;color:#DDD7C8}
+
+/* リスト系 */
+.fh-b27-rows{display:flex;flex-direction:column;gap:10px}
+.fh-b27-row{display:flex;gap:14px;align-items:center;padding:12px 14px;background:var(--deep);border:1.5px dashed var(--line);border-radius:8px;flex-wrap:wrap;line-height:1.6}
+.fh-b27-row .who{flex:1 1 220px;display:flex;flex-direction:column;gap:2px}
+.fh-b27-row .who small{font-size:12px;color:var(--mute)}
+.fh-b27-mark{font-family:'Klee One',cursive;font-size:24px;font-weight:600;width:36px;text-align:center;flex:0 0 auto}
+.fh-b27-mark.good{color:var(--gold)}
+.fh-b27-mark.ok{color:#A9C8E8}
+.fh-b27-mark.care{color:#8A8678}
+
+/* 分野別 */
+.fh-b27-field{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1.5px dashed var(--line)}
+.fh-b27-field:first-child{border-top:1.5px dashed var(--line)}
+.fh-b27-field .k{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.fh-b27-field .k b{font-family:'Klee One',cursive;font-size:18px;font-weight:600}
+.fh-b27-field p{font-size:15px;line-height:1.95}
+
+/* 季節タイムライン */
+.fh-b27-tl{display:flex;flex-direction:column;border-left:2px dashed var(--line);margin-left:10px}
+.fh-b27-tl div{position:relative;padding:0 0 20px 22px;display:flex;flex-direction:column;gap:4px}
+.fh-b27-tl i{position:absolute;left:-9px;top:8px;width:14px;height:14px;border-radius:50%}
+.fh-b27-tl b{font-family:'Klee One',cursive;font-size:18px;font-weight:600}
+.fh-b27-tl small{font-size:12px;color:var(--mute);margin-left:8px;font-weight:400;font-family:'Zen Kaku Gothic New',sans-serif}
+.fh-b27-tl p{font-size:15px;line-height:1.9}
+
+/* 12か月 */
+.fh-b27-months{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.fh-b27-months div{padding:8px 2px;border:1.5px solid var(--line);border-radius:8px;background:var(--deep);display:flex;flex-direction:column;align-items:center;gap:0;line-height:1.4}
+.fh-b27-months span{font-size:12px;color:var(--sub)}
+.fh-b27-months b{font-family:'Klee One',cursive;font-size:24px;font-weight:600}
+.fh-b27-months small{font-size:11px;color:var(--mute)}
+.fh-b27-monthlist{display:flex;flex-direction:column}
+.fh-b27-monthlist div{display:grid;grid-template-columns:56px 30px minmax(0,1fr);gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px;line-height:1.8;align-items:baseline}
+.fh-b27-monthlist b{font-family:'Klee One',cursive;font-size:17px}
+.fh-b27-small{font-size:12px;color:var(--mute);line-height:1.7}
+
+/* 開運アクション */
+.fh-b27-acts{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;counter-reset:a}
+.fh-b27-acts li{counter-increment:a;display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;line-height:1.85;font-size:15px;color:#DDD7C8}
+.fh-b27-acts li:before{content:counter(a);width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--paper);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin-top:2px}
+.fh-b27-acts b{color:var(--ink);display:block}
+
+/* お守りリスト */
+.fh-b27-sw{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--ink);flex:0 0 auto}
+.fh-b27-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 16px;border-radius:999px;background:var(--gold);color:var(--paper);text-decoration:none;font-size:14px;font-weight:700;line-height:1.4}
+.fh-b27 a.fh-b27-btn{color:var(--paper)}
+.fh-b27 .fh-b27-card a.fh-b27-btn{color:var(--cream)}
+.fh-b27-btn.ghost{background:transparent;border:1.5px solid var(--gold)}
+.fh-b27 a.fh-b27-btn.ghost{color:var(--gold)}
+.fh-b27-pr{font-size:11px;color:var(--mute)}
+.fh-b27-nums{display:flex;gap:10px;flex-wrap:wrap}
+.fh-b27-nums span{width:56px;height:56px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Klee One',cursive;font-size:24px;font-weight:600;color:var(--gold)}
+
+/* 相性・有名人 */
+.fh-b27-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fh-b27-box{background:var(--deep);border:1.5px dashed var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.fh-b27-box ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.7}
+.fh-b27-box li small{color:var(--mute);font-size:12px;margin-left:6px}
+.fh-b27-box strong{font-family:'Klee One',cursive;font-size:17px}
+
+/* 誕生日当日（クリーム紙） */
+.fh-b27-today{background:var(--cream);color:var(--cream-ink);padding:20px;transform:rotate(-.5deg);display:flex;flex-direction:column;gap:10px}
+.fh-b27-today h2{color:var(--cream-ink);font-size:22px}
+.fh-b27-today p{color:var(--cream-ink);font-size:15px;line-height:1.95}
+
+/* 生まれ年パネル */
+.fh-b27-panel{background:var(--deep);border:1.5px solid var(--gold);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.fh-b27-pick label{font-weight:700}
+.fh-b27 select{min-height:44px;padding:0 12px;border-radius:8px;background:var(--paper);color:var(--ink);border:1.5px solid var(--line);font-size:16px;font-family:inherit}
+.fh-b27 select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.fh-b27-pick{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.fh-b27-res{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fh-b27-res div{background:var(--paper);border:1.5px dashed var(--line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;line-height:1.6}
+.fh-b27-res small{font-size:12px;color:var(--mute)}
+.fh-b27-res b{font-family:'Klee One',cursive;font-size:20px;font-weight:600}
+.fh-b27-res span{font-size:13px;color:var(--sub)}
+.fh-b27-bio{font-size:14px;line-height:1.85;color:var(--sub)}
+.fh-b27-bio b{color:var(--ink)}
+
+/* リンク */
+.fh-b27-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fh-b27-links a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1.5px dashed var(--line);border-radius:8px;text-decoration:none;background:var(--deep);line-height:1.6}
+.fh-b27-links small{color:var(--mute);font-size:12px}
+.fh-b27-foot{font-size:12px;color:var(--mute);line-height:1.8;border-top:1.5px dashed var(--line);padding-top:14px}
+
+
+/* 誕生日もの・記念日 */
+.fh-b27-mono{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fh-b27-mono-card{background:var(--deep);border:1.5px dashed var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;line-height:1.6;position:relative}
+.fh-b27-mono-card .sw{position:absolute;top:14px;right:14px;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink)}
+.fh-b27-mono-card small{font-size:12px;color:var(--mute)}
+.fh-b27-mono-card b{font-family:'Klee One',cursive;font-size:20px;font-weight:600}
+.fh-b27-mono-card b em{font-style:normal;font-size:11px;color:var(--mute);font-family:'Zen Kaku Gothic New',sans-serif;margin-left:4px}
+.fh-b27-mono-card p{font-size:14px;line-height:1.8}
+.fh-b27-year{flex:0 0 auto;min-width:64px;font-family:'Klee One',cursive;font-size:16px;font-weight:600;color:var(--gold)}
+/* 回遊・広告 */
+.fh-b27-next{display:flex;flex-direction:column;gap:2px;padding:12px 16px;border:1.5px solid var(--gold);border-radius:8px;text-decoration:none;line-height:1.6;background:var(--deep)}
+.fh-b27-next small{font-size:12px;color:var(--mute)}
+.fh-b27-nexts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.fh-b27-ad{border:1.5px dashed var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;background:var(--deep)}
+.fh-b27-ad small{font-family:'Klee One',cursive;font-size:16px;color:var(--gold)}
+.fh-b27-ad p{font-size:14px;line-height:1.85}
+.fh-b27-gifts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fh-b27-gift{background:var(--cream);color:var(--cream-ink);padding:14px;display:flex;flex-direction:column;gap:4px;line-height:1.6}
+.fh-b27-gift:nth-child(odd){transform:rotate(-.6deg)}
+.fh-b27-gift:nth-child(even){transform:rotate(.6deg)}
+.fh-b27-gift small{font-size:11px;color:#6B645B}
+.fh-b27-gift b{font-family:'Klee One',cursive;font-size:17px}
+.fh-b27-gift span{font-size:12px;color:#6B645B;margin-bottom:6px}
+.fh-b27 .fh-b27-gift a.fh-b27-btn{background:var(--paper);color:var(--cream);align-self:flex-start}
+.fh-b27-promo{display:flex;flex-direction:column;gap:4px;padding:20px;border-radius:10px;background:var(--gold);color:var(--paper);text-decoration:none;line-height:1.6;transform:rotate(-.5deg)}
+.fh-b27 a.fh-b27-promo{color:var(--paper)}
+.fh-b27-promo small{font-size:12px}
+.fh-b27-promo b{font-family:'Klee One',cursive;font-size:22px}
+.fh-b27-promo span{font-size:14px}
+.fh-b27-letter{border-top:1.5px dashed var(--line);padding-top:24px}
+.fh-b27-res div.wide{grid-column:1/-1}
+.fh-b27-res a{font-size:13px;margin-top:4px}
+
+.fh-b27-yearbar{border:1.5px solid var(--gold);border-radius:10px;padding:16px 18px;background:var(--deep);display:flex;flex-direction:column;gap:8px}
+.fh-b27-yearnote{font-size:13px;color:var(--sub);padding:8px 12px;border-left:3px solid var(--gold);background:var(--paper)}
+.fh-b27-mk{background:linear-gradient(transparent 58%,rgba(227,199,126,.38) 58%)}
+.fh-b27 strong{color:var(--ink)}
+.fh-b27-why{font-size:13px;color:var(--sub)}
+.fh-b27 h3 .fh-b27-mark{font-size:20px;width:auto;margin-left:6px}
+.fh-b27-sticky h3.fh-b27-sth{font-family:'Klee One',cursive;font-size:17px;color:var(--cream-ink);border:0;padding:0}
+.fh-b27-btab td.s5{color:var(--gold);font-weight:700}
+.fh-b27-btab td.s1{color:#8A8678}
+
+/* 月別グラフ・バイオリズムグラフ */
+.fh-b27-leg{display:flex;flex-wrap:wrap;gap:8px}
+.fh-b27-legbtn{min-height:40px;display:inline-flex;align-items:center;gap:8px;padding:0 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--deep);color:var(--ink);font-family:inherit;font-size:13px;cursor:pointer}
+.fh-b27-legbtn i{width:18px;height:3px;border-radius:2px;display:inline-block}
+.fh-b27-legbtn[aria-pressed="false"]{opacity:.45;text-decoration:line-through}
+.fh-b27-legbtn:disabled{cursor:default}
+.fh-b27-legbtn:focus-visible,.fh-b27-mb:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.fh-b27-chart{position:relative;background:var(--deep);border:1.5px dashed var(--line);border-radius:8px;padding:6px 4px;overflow:hidden}
+.fh-b27-chart svg{display:block}
+.fh-b27-tip{position:absolute;z-index:2;min-width:150px;background:var(--cream);color:var(--cream-ink);font-size:12px;line-height:1.6;padding:8px 10px;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.35);pointer-events:none;display:flex;flex-direction:column;gap:2px}
+.fh-b27-tip[hidden]{display:none}
+.fh-b27-tip b{font-size:13px}
+.fh-b27-tip span{display:flex;align-items:center;gap:6px}
+.fh-b27-tip i{width:10px;height:3px;border-radius:2px;display:inline-block}
+.fh-b27-tip em{margin-left:auto;font-style:normal;font-weight:700;padding-left:10px}
+.fh-b27-table summary{cursor:pointer;font-size:14px;color:var(--gold)}
+.fh-b27-table table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px;line-height:1.6}
+.fh-b27-table th,.fh-b27-table td{border-bottom:1px dashed var(--line);padding:4px 6px;text-align:center}
+.fh-b27-table div{overflow-x:auto}
+.fh-b27-bleg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--sub)}
+.fh-b27-bleg span{display:inline-flex;align-items:center;gap:6px}
+.fh-b27-bleg i{width:18px;height:3px;border-radius:2px;display:inline-block}
+.fh-b27-bleg i.band{height:12px;width:14px;border-radius:2px}
+.fh-b27-bleg i.g{background:rgba(227,199,126,.45)}
+.fh-b27-bleg i.c{background:rgba(138,134,120,.5)}
+.fh-b27-mbtn{display:flex;flex-wrap:wrap;gap:6px}
+.fh-b27-mb{min-width:48px;min-height:40px;border-radius:8px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font-family:inherit;font-size:13px;cursor:pointer}
+.fh-b27-mb[aria-pressed="true"]{background:var(--gold);color:var(--paper);border-color:var(--gold);font-weight:700}
+
+@media (max-width:600px){
+  .fh-b27-note{padding:30px 18px;border-left-width:8px}
+  .fh-b27-kou{font-size:30px}
+  .fh-b27-hero h1{font-size:24px}
+  .fh-b27 h2{font-size:21px}
+  .fh-b27-stickies,.fh-b27-two,.fh-b27-res,.fh-b27-links,.fh-b27-mono,.fh-b27-nexts,.fh-b27-gifts{grid-template-columns:1fr}
+  .fh-b27-koyomi div,.fh-b27-field{grid-template-columns:1fr;gap:4px}
+  .fh-b27-months{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+/* ===== 本番で追加した部品 ===== */
+.fh-b27-missing{font-size:13px;color:var(--mute);font-style:normal}
+.fh-b27-src{font-size:11px;color:var(--mute);line-height:1.6}
+.fh-b27-fieldmeta{font-size:13px;color:var(--sub);margin-top:-6px}
+.fh-b27-signnote{font-size:13px;color:var(--sub);padding:8px 12px;border-left:3px solid var(--gold);background:var(--deep)}
+.fh-b27-about{border:1.5px dashed var(--line);border-radius:8px;padding:16px 18px;background:var(--deep)}
+.fh-b27-about ul{margin:6px 0 0;padding-left:1.2em;font-size:13px;line-height:1.85;color:var(--sub)}
+.fh-b27-about li{margin:2px 0}
+.fh-b27-res .fh-b27-calcnote{font-size:12px;color:var(--mute)}
+.fh-b27-sec p b,.fh-b27-koyomi dd b,.fh-b27-tl p b,.fh-b27-monthlist span b{color:var(--ink)}
+.fh-b27 mark.fh-b27-mk{color:inherit;padding:0}
+.fh-b27-today p b{color:inherit}
+.fh-b27-mono-card b em{display:inline-block}
+.fh-b27-sticky strong{color:var(--cream-ink)}

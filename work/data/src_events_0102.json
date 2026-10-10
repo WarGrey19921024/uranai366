@@ -511,16 +511,16 @@
    "kind": "記念日",
    "year": 1982,
    "text": "全国の学校給食でいっせいにカレーが出たことにちなむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/101221.html",
+   "confirmed": true
   },
   {
    "title": "ジャズの日",
    "kind": "記念日",
    "year": null,
    "text": "JAZZの文字が「1・22」に見えることから。ジャズを楽しむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0122",
+   "confirmed": true
   }
  ],
  "0123": [
@@ -529,8 +529,8 @@
    "kind": "記念日",
    "year": null,
    "text": "「1・2・3」を「いい文(ふみ)」と読み、メールの活用を考える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/101231.html",
+   "confirmed": true
   },
   {
    "title": "寒ぶり",
@@ -539,6 +539,14 @@
    "text": "冬の荒波で脂がのった寒ぶりが一番おいしくなる季節",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "アーモンドの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "1日の目安とされる約23粒にちなみ、香ばしいアーモンドを味わう日。",
+   "source_url": "https://zatsuneta.com/archives/101235.html",
+   "confirmed": true
   }
  ],
  "0124": [
@@ -547,8 +555,8 @@
    "kind": "できごと",
    "year": 1871,
    "text": "前島密の考えた近代郵便のしくみが、国の制度として始まった日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0124",
+   "confirmed": true
   },
   {
    "title": "寒仕込み",
@@ -557,6 +565,14 @@
    "text": "寒さで雑菌が少ない時期に、みそや酒を仕込む昔ながらの知恵",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ボーイスカウト創立記念日",
+   "kind": "記念日",
+   "year": null,
+   "text": "野外活動を通じて子どもたちを育てる、ボーイスカウトの始まりにちなむ日。",
+   "source_url": "https://netlab.click/todayis/0124",
+   "confirmed": true
   }
  ],
  "0125": [
@@ -565,8 +581,8 @@
    "kind": "記念日",
    "year": null,
    "text": "一年で最も寒いころ。ほかほかの中華まんで温まろうという日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/101254.html",
+   "confirmed": true
   },
   {
    "title": "初天神",
@@ -583,8 +599,8 @@
    "kind": "できごと",
    "year": 1959,
    "text": "東京で日本初とされる有料駐車場ができたことにちなむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0126",
+   "confirmed": true
   },
   {
    "title": "寒稽古",
@@ -609,8 +625,8 @@
    "kind": "できごと",
    "year": 1883,
    "text": "新聞に日本で初めてとされる結婚相手募集の広告が載った日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary01.html",
+   "confirmed": true
   }
  ],
  "0128": [
@@ -637,8 +653,8 @@
    "kind": "できごと",
    "year": 1957,
    "text": "日本の南極観測隊が東オングル島に上陸し、昭和基地を開いた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/101291.html",
+   "confirmed": true
   },
   {
    "title": "ふきのとう",
@@ -655,8 +671,8 @@
    "kind": "できごと",
    "year": 1970,
    "text": "公衆電話の市内通話が3分10円になったことにちなむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary01.html",
+   "confirmed": true
   },
   {
    "title": "牡蠣",
@@ -673,8 +689,8 @@
    "kind": "記念日",
    "year": null,
    "text": "「1(アイ)31(さい)」の語呂合わせ。妻に感謝を伝える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/101313.html",
+   "confirmed": true
   },
   {
    "title": "生命保険の日",
@@ -691,8 +707,8 @@
    "kind": "できごと",
    "year": 1953,
    "text": "NHKが日本で初めてテレビの本放送を始めた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0201",
+   "confirmed": true
   },
   {
    "title": "寒椿",
@@ -701,6 +717,14 @@
    "text": "冬枯れの庭を赤や白で彩る寒椿が見ごろを迎える",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "琉球王国建国記念の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "かつて沖縄に栄えた琉球王国の歴史と文化に思いをはせる記念日。",
+   "source_url": "https://netlab.click/todayis/0201",
+   "confirmed": true
   }
  ],
  "0202": [
@@ -709,8 +733,8 @@
    "kind": "記念日",
    "year": null,
    "text": "「ず(2)つう(2)」の語呂合わせ。頭痛について正しく知る日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0202",
+   "confirmed": true
   },
   {
    "title": "夫婦の日",
@@ -719,6 +743,14 @@
    "text": "「ふう(2)ふ(2)」の語呂合わせ。夫婦でいたわり合う日",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "くちびるの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "乾燥しやすい冬に、くちびるのうるおいを守るケアを見直す日。",
+   "source_url": "https://zatsuneta.com/archives/10202a4.html",
+   "confirmed": true
   }
  ],
  "0203": [
@@ -727,8 +759,8 @@
    "kind": "記念日",
    "year": null,
    "text": "「にゅう(2)さん(3)」の語呂合わせ。おなかの健康を考える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/102035.html",
+   "confirmed": true
   },
   {
    "title": "みかん",
@@ -763,8 +795,8 @@
    "kind": "できごと",
    "year": 1936,
    "text": "日本職業野球連盟ができ、日本のプロ野球が歩み始めた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0205",
+   "confirmed": true
   },
   {
    "title": "寒しじみ",
@@ -773,6 +805,14 @@
    "text": "冬のしじみは身が締まり、みそ汁にするとうまみが濃い",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "笑顔の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「ニ(2)コ(5)ニコ」の語呂にちなみ、笑顔をみんなで分け合う日。",
+   "source_url": "https://zatsuneta.com/archives/102055.html",
+   "confirmed": true
   }
  ],
  "0206": [
@@ -781,16 +821,16 @@
    "kind": "記念日",
    "year": null,
    "text": "大宝律令で海苔が献上品に定められたことにちなむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/102061.html",
+   "confirmed": true
   },
   {
    "title": "抹茶の日",
    "kind": "記念日",
    "year": null,
    "text": "茶道で使う「風炉」にちなむ語呂合わせ。抹茶を味わう日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/102062.html",
+   "confirmed": true
   }
  ],
  "0207": [
@@ -809,6 +849,14 @@
    "text": "暖かい地方から梅の便りが届き始め、春の歩みを感じる頃",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "長野の日（オリンピックメモリアルデー）",
+   "kind": "記念日",
+   "year": null,
+   "text": "長野で冬季オリンピックが開幕した日にちなみ、雪と氷の祭典を思い出す日。",
+   "source_url": "https://netlab.click/todayis/0207",
+   "confirmed": true
   }
  ],
  "0208": [
@@ -817,16 +865,16 @@
    "kind": "できごと",
    "year": 1887,
    "text": "郵便のマーク「〒」が定められたことにちなむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/102083.html",
+   "confirmed": true
   },
   {
-   "title": "針供養",
-   "kind": "行事",
+   "title": "つばきの日",
+   "kind": "記念日",
    "year": null,
-   "text": "折れた針を豆腐やこんにゃくに刺して労い、裁縫の上達を願う",
-   "source_url": "",
-   "confirmed": false
+   "text": "冬から春にかけて赤や白の花を咲かせる、つばきの美しさに親しむ日。",
+   "source_url": "https://zatsuneta.com/archives/102084.html",
+   "confirmed": true
   }
  ],
  "0209": [
@@ -843,8 +891,16 @@
    "kind": "記念日",
    "year": null,
    "text": "「に(2)く(9)」の語呂合わせ。お肉を食べて元気をつける日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0209",
+   "confirmed": true
+  },
+  {
+   "title": "服の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「ふ(2)く(9)」の語呂から、毎日着る服の楽しみ方や手入れを見直す日。",
+   "source_url": "https://zatsuneta.com/archives/102092.html",
+   "confirmed": true
   }
  ],
  "0210": [
@@ -853,16 +909,16 @@
    "kind": "記念日",
    "year": null,
    "text": "「ニ(2)ット(10)」の語呂合わせ。暖かなニットの良さを知る日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0210",
+   "confirmed": true
   },
   {
    "title": "ふとんの日",
    "kind": "記念日",
    "year": null,
    "text": "「ふ(2)とん(10)」の語呂合わせ。寝具を見直してよく眠る日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0210",
+   "confirmed": true
   }
  ],
  "0211": [
@@ -881,6 +937,22 @@
    "text": "香り高くジューシーないよかんが出回る、愛媛の冬の味覚",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "わんこそば記念日",
+   "kind": "記念日",
+   "year": null,
+   "text": "岩手名物、おかわりが次々と注がれるわんこそばを楽しむ記念日。",
+   "source_url": "https://netlab.click/todayis/0211",
+   "confirmed": true
+  },
+  {
+   "title": "文化勲章制定記念日",
+   "kind": "記念日",
+   "year": null,
+   "text": "学問や芸術で大きな功績をあげた人をたたえる、文化勲章の始まりにちなむ日。",
+   "source_url": "https://netlab.click/todayis/0211",
+   "confirmed": true
   }
  ],
  "0212": [
@@ -888,9 +960,9 @@
    "title": "レトルトカレー発売の日",
    "kind": "できごと",
    "year": 1968,
-   "text": "日本初の市販レトルトカレーが発売され、手軽な食事が広まった",
-   "source_url": "",
-   "confirmed": false
+   "text": "日本初のレトルト食品のカレーが発売され、温めるだけの食事が広まった日。",
+   "source_url": "https://zatsuneta.com/archives/102122.html",
+   "confirmed": true
   },
   {
    "title": "菜の花",
@@ -917,6 +989,22 @@
    "text": "凍った湖に穴をあけて釣るわかさぎ釣りが盛りを迎える",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "日本遺産の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "各地に受け継がれる歴史や文化の物語、日本遺産に親しむ日。",
+   "source_url": "https://netlab.click/todayis/0213",
+   "confirmed": true
+  },
+  {
+   "title": "世界ラジオデー",
+   "kind": "記念日",
+   "year": null,
+   "text": "声と音楽で人をつなぐラジオの役割を見つめる、ユネスコの国際デー。",
+   "source_url": "https://netlab.click/todayis/0213",
+   "confirmed": true
   }
  ],
  "0214": [
@@ -925,8 +1013,8 @@
    "kind": "行事",
    "year": null,
    "text": "大切な人へチョコレートや贈り物で気持ちを伝える日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/category/anniversary02.html",
+   "confirmed": true
   },
   {
    "title": "ぽんかん",
@@ -953,6 +1041,22 @@
    "text": "雪や氷の像が並ぶ雪国のまつりで、冬の景色を楽しめる時期",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "全日本スキー連盟設立の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "日本のスキー競技をまとめる連盟の設立にちなみ、雪山の季節を楽しむ日。",
+   "source_url": "https://netlab.click/todayis/0215",
+   "confirmed": true
+  },
+  {
+   "title": "春一番名付けの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "春先に吹く強い南風を「春一番」と呼ぶようになったことにちなむ日。",
+   "source_url": "https://netlab.click/todayis/0215",
+   "confirmed": true
   }
  ],
  "0216": [
@@ -961,8 +1065,8 @@
    "kind": "できごと",
    "year": 1883,
    "text": "日本で初めて天気図が作られたことにちなむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/102161.html",
+   "confirmed": true
   },
   {
    "title": "春キャベツ",
@@ -971,6 +1075,14 @@
    "text": "巻きがゆるくやわらかな春キャベツが出回り始める",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "寒天の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "冬の寒さを生かしてつくられる寒天。ヘルシーで身近な和の食材を味わう日。",
+   "source_url": "https://netlab.click/todayis/0216",
+   "confirmed": true
   }
  ],
  "0217": [
@@ -989,6 +1101,22 @@
    "text": "木々の芽がふくらみ始め、山に春の気配が満ちてくる",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "天使の囁きの日",
+   "kind": "記念日",
+   "year": 1978,
+   "text": "北海道の厳しい冷え込みで見られる、きらめくダイヤモンドダストにちなむ日。",
+   "source_url": "https://netlab.click/todayis/0217",
+   "confirmed": true
+  },
+  {
+   "title": "ガチャの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "カプセルが転がり出る楽しさ、日本で親しまれるカプセル玩具にちなむ日。",
+   "source_url": "https://netlab.click/todayis/0217",
+   "confirmed": true
   }
  ],
  "0218": [
@@ -997,16 +1125,16 @@
    "kind": "できごと",
    "year": 1930,
    "text": "アメリカの天文学者トンボーが冥王星を発見した日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/102183.html",
+   "confirmed": true
   },
   {
-   "title": "新わかめ",
-   "kind": "旬",
+   "title": "エアメールの日",
+   "kind": "記念日",
    "year": null,
-   "text": "やわらかく香りのよい新わかめが出回る、早春の海の恵み",
-   "source_url": "",
-   "confirmed": false
+   "text": "海を越えて手紙を運ぶ航空郵便の始まりにちなみ、遠くの人へ便りを出す日。",
+   "source_url": "https://netlab.click/todayis/0218",
+   "confirmed": true
   }
  ],
  "0219": [
@@ -1015,8 +1143,8 @@
    "kind": "できごと",
    "year": 1954,
    "text": "日本で初めて本格的なプロレスの国際試合が開かれた日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0219",
+   "confirmed": true
   },
   {
    "title": "ブロッコリー",
@@ -1033,8 +1161,8 @@
    "kind": "できごと",
    "year": 1607,
    "text": "出雲の阿国が歌舞伎踊りを披露したことにちなむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0220",
+   "confirmed": true
   },
   {
    "title": "春の嵐",
@@ -1043,6 +1171,14 @@
    "text": "強い南風が吹き、季節が冬から春へ動き出すのを感じる頃",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "旅券の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "海外旅行に欠かせないパスポートの制度にちなみ、旅の準備を考える日。",
+   "source_url": "https://netlab.click/todayis/0220",
+   "confirmed": true
   }
  ],
  "0221": [
@@ -1051,8 +1187,8 @@
    "kind": "できごと",
    "year": 1872,
    "text": "東京で最初の日刊新聞「東京日日新聞」が創刊された日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0221",
+   "confirmed": true
   },
   {
    "title": "たらの芽",
@@ -1061,6 +1197,14 @@
    "text": "山菜の王様とも呼ばれるたらの芽が出回り始める",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "漱石の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "夏目漱石が博士の称号を辞退する手紙を送った日にちなむ、文豪を思う日。",
+   "source_url": "https://netlab.click/todayis/0221",
+   "confirmed": true
   }
  ],
  "0222": [
@@ -1069,8 +1213,8 @@
    "kind": "記念日",
    "year": 1987,
    "text": "「ニャン(2)ニャン(2)ニャン(2)」の語呂合わせ。猫に感謝する日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/102221.html",
+   "confirmed": true
   },
   {
    "title": "沈丁花",
@@ -1079,6 +1223,14 @@
    "text": "甘くさわやかな香りで、春がすぐそこと教えてくれる花",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "おでんの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "湯気の立つ鍋でことこと煮込んだおでんで、冬の夜に温まる日。",
+   "source_url": "https://zatsuneta.com/archives/102227.html",
+   "confirmed": true
   }
  ],
  "0223": [
@@ -1087,16 +1239,16 @@
    "kind": "記念日",
    "year": null,
    "text": "「ふ(2)じ(2)さん(3)」の語呂合わせ。富士山の美しさを守る日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0223",
+   "confirmed": true
   },
   {
-   "title": "新玉ねぎ",
-   "kind": "旬",
+   "title": "ふろしきの日",
+   "kind": "記念日",
    "year": null,
-   "text": "みずみずしく辛みの少ない新玉ねぎが出回り始める",
-   "source_url": "",
-   "confirmed": false
+   "text": "一枚の布でなんでも包める、日本の知恵・ふろしきを見直す日。",
+   "source_url": "https://netlab.click/todayis/0223",
+   "confirmed": true
   }
  ],
  "0224": [
@@ -1105,8 +1257,8 @@
    "kind": "できごと",
    "year": 1958,
    "text": "国産テレビヒーロー番組『月光仮面』の放送が始まった日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://netlab.click/todayis/0224",
+   "confirmed": true
   },
   {
    "title": "うぐいすの初鳴き",
@@ -1115,6 +1267,14 @@
    "text": "暖かい地方から、うぐいすの「ホーホケキョ」が聞こえ始める",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "クロスカントリーの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "野山を駆けたり雪原を滑ったりする、クロスカントリーの魅力にふれる日。",
+   "source_url": "https://netlab.click/todayis/0224",
+   "confirmed": true
   }
  ],
  "0225": [
@@ -1123,8 +1283,8 @@
    "kind": "できごと",
    "year": 1969,
    "text": "日本初の駅売り専門の夕刊紙が創刊されたことにちなむ日",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/102251.html",
+   "confirmed": true
   },
   {
    "title": "ほうれん草",
@@ -1151,6 +1311,14 @@
    "text": "細身で上品な味わいのさよりが、早春においしくなる",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "咸臨丸の日",
+   "kind": "できごと",
+   "year": 1860,
+   "text": "太平洋を渡った咸臨丸がサンフランシスコに着いたことにちなむ日。",
+   "source_url": "https://netlab.click/todayis/0226",
+   "confirmed": true
   }
  ],
  "0227": [
@@ -1169,6 +1337,14 @@
    "text": "春に向けて身がふくらみ、うまみが増すあさりの季節",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "Pokémon Day",
+   "kind": "記念日",
+   "year": 1996,
+   "text": "最初のポケモンのゲームが発売された日にちなむ、世界中で愛される冒険の日。",
+   "source_url": "https://zatsuneta.com/archives/102274.html",
+   "confirmed": true
   }
  ],
  "0228": [
@@ -1177,16 +1353,16 @@
    "kind": "記念日",
    "year": 1855,
    "text": "水戸藩の医師が保存食としてビスケットの製法を記したことにちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/102281.html",
+   "confirmed": true
   },
   {
-   "title": "つくし",
-   "kind": "旬",
+   "title": "織部の日",
+   "kind": "記念日",
    "year": null,
-   "text": "暖かい地方の土手につくしが顔を出し、春の散歩が楽しくなる頃",
-   "source_url": "",
-   "confirmed": false
+   "text": "茶人・古田織部にちなみ、緑の釉が印象的な器・織部焼に親しむ日。",
+   "source_url": "https://netlab.click/todayis/0228",
+   "confirmed": true
   }
  ]
 }

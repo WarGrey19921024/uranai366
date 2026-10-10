@@ -10512,7 +10512,20 @@
    "name": "柳染",
    "note": "やなぎぞめ／#93B881／柳の葉の淡い緑。いち早く春を告げる芽吹き（款冬華にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "カレーの日",
+    "kind": "記念日",
+    "text": "1982年。全国の学校給食でいっせいにカレーが出たことにちなむ日",
+    "source": "https://zatsuneta.com/archives/101221.html"
+   },
+   {
+    "title": "ジャズの日",
+    "kind": "記念日",
+    "text": "JAZZの文字が「1・22」に見えることから。ジャズを楽しむ日",
+    "source": "https://netlab.click/todayis/0122"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0522",
@@ -10984,7 +10997,20 @@
    "name": "薄萌葱",
    "note": "うすもえぎ／#BADCAD／淡い萌葱色。ふきのとうを包む柔らかな苞の色（款冬華にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "電子メールの日",
+    "kind": "記念日",
+    "text": "「1・2・3」を「いい文(ふみ)」と読み、メールの活用を考える日",
+    "source": "https://zatsuneta.com/archives/101231.html"
+   },
+   {
+    "title": "アーモンドの日",
+    "kind": "記念日",
+    "text": "1日の目安とされる約23粒にちなみ、香ばしいアーモンドを味わう日。",
+    "source": "https://zatsuneta.com/archives/101235.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0523",
@@ -11455,7 +11481,20 @@
    "name": "青白橡",
    "note": "あおしろつるばみ／#9BA88D／青みの白橡。雪解けの土にのぞく小さな芽の色（款冬華にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "郵便制度施行記念日",
+    "kind": "できごと",
+    "text": "1871年。前島密の考えた近代郵便のしくみが、国の制度として始まった日にちなむ",
+    "source": "https://netlab.click/todayis/0124"
+   },
+   {
+    "title": "ボーイスカウト創立記念日",
+    "kind": "記念日",
+    "text": "野外活動を通じて子どもたちを育てる、ボーイスカウトの始まりにちなむ日。",
+    "source": "https://netlab.click/todayis/0124"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0524",
@@ -11928,7 +11967,14 @@
    "name": "瑠璃色",
    "note": "るりいろ／#1E50A2／瑠璃の深い青。厚く凍りついた山の沢の氷の色（水沢腹堅にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "中華まんの日",
+    "kind": "記念日",
+    "text": "一年で最も寒いころ。ほかほかの中華まんで温まろうという日",
+    "source": "https://zatsuneta.com/archives/101254.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0525",
@@ -12400,7 +12446,14 @@
    "name": "瑠璃紺",
    "note": "るりこん／#19448E／紺に近い瑠璃色。芯まで凍りつく沢の水の深さ（水沢腹堅にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "有料駐車場の日",
+    "kind": "できごと",
+    "text": "1959年。東京で日本初とされる有料駐車場ができたことにちなむ日",
+    "source": "https://netlab.click/todayis/0126"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0526",
@@ -12879,6 +12932,12 @@
     "kind": "できごと",
     "text": "1870年。日の丸が日本の船の印として定められたことにちなむ日",
     "source": "https://zatsuneta.com/archives/101271.html"
+   },
+   {
+    "title": "求婚の日",
+    "kind": "できごと",
+    "text": "1883年。新聞に日本で初めてとされる結婚相手募集の広告が載った日",
+    "source": "https://zatsuneta.com/category/anniversary01.html"
    }
   ],
   "compat_good": [
@@ -13833,7 +13892,14 @@
    "name": "紺色",
    "note": "こんいろ／#223A70／濃い青。ゆるがない信念を表す落ち着いた色（水沢腹堅にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "昭和基地開設記念日",
+    "kind": "できごと",
+    "text": "1957年。日本の南極観測隊が東オングル島に上陸し、昭和基地を開いた日",
+    "source": "https://zatsuneta.com/archives/101291.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1002",
@@ -14313,7 +14379,14 @@
    "name": "卵色",
    "note": "たまごいろ／#FCD575／卵の黄身の色。鶏が卵を産み始める季節の色（鶏始乳にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "3分間電話の日",
+    "kind": "できごと",
+    "text": "1970年。公衆電話の市内通話が3分10円になったことにちなむ日",
+    "source": "https://zatsuneta.com/category/anniversary01.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1003",
@@ -14793,6 +14866,12 @@
    "note": "べにひ／#E83929／黄みの紅。鶏のとさかの鮮やかな赤にちなむ（鶏始乳にちなむ）"
   },
   "events": [
+   {
+    "title": "愛妻の日",
+    "kind": "記念日",
+    "text": "「1(アイ)31(さい)」の語呂合わせ。妻に感謝を伝える日",
+    "source": "https://zatsuneta.com/archives/101313.html"
+   },
    {
     "title": "生命保険の日",
     "kind": "できごと",
@@ -15278,7 +15357,20 @@
    "name": "淡黄",
    "note": "たんこう／#F8E58C／淡い黄色。生まれたばかりのひよこの羽の色（鶏始乳にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "テレビ放送記念日",
+    "kind": "できごと",
+    "text": "1953年。NHKが日本で初めてテレビの本放送を始めた日",
+    "source": "https://netlab.click/todayis/0201"
+   },
+   {
+    "title": "琉球王国建国記念の日",
+    "kind": "記念日",
+    "text": "かつて沖縄に栄えた琉球王国の歴史と文化に思いをはせる記念日。",
+    "source": "https://netlab.click/todayis/0201"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1005",
@@ -15756,7 +15848,20 @@
    "name": "浅黄",
    "note": "うすき／#EDD3A1／ごく淡い黄。春の近さを感じる大寒の日差しの色（鶏始乳にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "頭痛の日",
+    "kind": "記念日",
+    "text": "「ず(2)つう(2)」の語呂合わせ。頭痛について正しく知る日",
+    "source": "https://netlab.click/todayis/0202"
+   },
+   {
+    "title": "くちびるの日",
+    "kind": "記念日",
+    "text": "乾燥しやすい冬に、くちびるのうるおいを守るケアを見直す日。",
+    "source": "https://zatsuneta.com/archives/10202a4.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0602",
@@ -16231,7 +16336,14 @@
    "name": "杏色",
    "note": "あんずいろ／#F7B977／杏の実の色。新しい命を育む巣の温かさの色（鶏始乳にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "乳酸菌の日",
+    "kind": "記念日",
+    "text": "「にゅう(2)さん(3)」の語呂合わせ。おなかの健康を考える日",
+    "source": "https://zatsuneta.com/archives/102035.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0603",
@@ -17189,7 +17301,20 @@
    "name": "瓶覗",
    "note": "かめのぞき／#A2D7DD／解けはじめた池の水面に、うっすら映りこむ早春の空（東風解凍にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "プロ野球の日",
+    "kind": "できごと",
+    "text": "1936年。日本職業野球連盟ができ、日本のプロ野球が歩み始めた日",
+    "source": "https://netlab.click/todayis/0205"
+   },
+   {
+    "title": "笑顔の日",
+    "kind": "記念日",
+    "text": "「ニ(2)コ(5)ニコ」の語呂にちなみ、笑顔をみんなで分け合う日。",
+    "source": "https://zatsuneta.com/archives/102055.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0607",
@@ -17666,7 +17791,20 @@
    "name": "水浅葱",
    "note": "みずあさぎ／#80ABA9／東風に揺れはじめた水面が見せる、ひんやりした青緑（東風解凍にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "海苔の日",
+    "kind": "記念日",
+    "text": "大宝律令で海苔が献上品に定められたことにちなむ日",
+    "source": "https://zatsuneta.com/archives/102061.html"
+   },
+   {
+    "title": "抹茶の日",
+    "kind": "記念日",
+    "text": "茶道で使う「風炉」にちなむ語呂合わせ。抹茶を味わう日",
+    "source": "https://zatsuneta.com/archives/102062.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0606",
@@ -18143,7 +18281,14 @@
    "name": "東雲色",
    "note": "しののめいろ／#F19072／東の空から春風が吹く夜明けの、ほのかな朝焼け色（東風解凍にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "長野の日（オリンピックメモリアルデー）",
+    "kind": "記念日",
+    "text": "長野で冬季オリンピックが開幕した日にちなみ、雪と氷の祭典を思い出す日。",
+    "source": "https://netlab.click/todayis/0207"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0607",
@@ -18623,7 +18768,20 @@
    "name": "白群",
    "note": "びゃくぐん／#83CCD2／雪解け水が流れ出した川の、澄みきった明るい青（東風解凍にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "郵便マークの日",
+    "kind": "できごと",
+    "text": "1887年。郵便のマーク「〒」が定められたことにちなむ日",
+    "source": "https://zatsuneta.com/archives/102083.html"
+   },
+   {
+    "title": "つばきの日",
+    "kind": "記念日",
+    "text": "冬から春にかけて赤や白の花を咲かせる、つばきの美しさに親しむ日。",
+    "source": "https://zatsuneta.com/archives/102084.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0608",
@@ -19105,7 +19263,20 @@
    "name": "鶯色",
    "note": "うぐいすいろ／#928C36／山里で鳴きはじめたうぐいすの、羽そのものの渋い緑（黄鶯睍睆にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "肉の日",
+    "kind": "記念日",
+    "text": "「に(2)く(9)」の語呂合わせ。お肉を食べて元気をつける日",
+    "source": "https://netlab.click/todayis/0209"
+   },
+   {
+    "title": "服の日",
+    "kind": "記念日",
+    "text": "「ふ(2)く(9)」の語呂から、毎日着る服の楽しみ方や手入れを見直す日。",
+    "source": "https://zatsuneta.com/archives/102092.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0609",
@@ -19586,7 +19757,20 @@
    "name": "紅梅色",
    "note": "こうばいいろ／#F2A0A1／うぐいすが声を聞かせに訪れる、紅梅の明るい花（黄鶯睍睆にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ニットの日",
+    "kind": "記念日",
+    "text": "「ニ(2)ット(10)」の語呂合わせ。暖かなニットの良さを知る日",
+    "source": "https://netlab.click/todayis/0210"
+   },
+   {
+    "title": "ふとんの日",
+    "kind": "記念日",
+    "text": "「ふ(2)とん(10)」の語呂合わせ。寝具を見直してよく眠る日",
+    "source": "https://netlab.click/todayis/0210"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1014",
@@ -20067,7 +20251,20 @@
    "name": "梅鼠",
    "note": "うめねず／#C099A0／春先のかすんだ空気の中に咲く、梅の灰がかった紅（黄鶯睍睆にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "わんこそば記念日",
+    "kind": "記念日",
+    "text": "岩手名物、おかわりが次々と注がれるわんこそばを楽しむ記念日。",
+    "source": "https://netlab.click/todayis/0211"
+   },
+   {
+    "title": "文化勲章制定記念日",
+    "kind": "記念日",
+    "text": "学問や芸術で大きな功績をあげた人をたたえる、文化勲章の始まりにちなむ日。",
+    "source": "https://netlab.click/todayis/0211"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0613",
@@ -20552,7 +20749,14 @@
    "name": "青丹",
    "note": "あおに／#99AB4E／うぐいすが鳴く芽吹き前の山里の、くすんだ若緑（黄鶯睍睆にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "レトルトカレー発売の日",
+    "kind": "できごと",
+    "text": "1968年。日本初のレトルト食品のカレーが発売され、温めるだけの食事が広まった日。",
+    "source": "https://zatsuneta.com/archives/102122.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0612",
@@ -21040,7 +21244,20 @@
    "name": "薄紅梅",
    "note": "うすこうばい／#E597B2／寒さの残る庭先でほころびはじめる、淡い梅の花（黄鶯睍睆にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "日本遺産の日",
+    "kind": "記念日",
+    "text": "各地に受け継がれる歴史や文化の物語、日本遺産に親しむ日。",
+    "source": "https://netlab.click/todayis/0213"
+   },
+   {
+    "title": "世界ラジオデー",
+    "kind": "記念日",
+    "text": "声と音楽で人をつなぐラジオの役割を見つめる、ユネスコの国際デー。",
+    "source": "https://netlab.click/todayis/0213"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1017",
@@ -21530,7 +21747,14 @@
    "name": "銀鼠",
    "note": "ぎんねず／#AFAFB0／割れた氷のすき間で跳ねる、魚のうろこが放つ銀（魚上氷にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "バレンタインデー",
+    "kind": "行事",
+    "text": "大切な人へチョコレートや贈り物で気持ちを伝える日",
+    "source": "https://zatsuneta.com/category/anniversary02.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0616",
@@ -22016,7 +22240,20 @@
    "name": "錆浅葱",
    "note": "さびあさぎ／#5C9291／氷の下で魚がゆっくり動き出す、深い水の青緑（魚上氷にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "全日本スキー連盟設立の日",
+    "kind": "記念日",
+    "text": "日本のスキー競技をまとめる連盟の設立にちなみ、雪山の季節を楽しむ日。",
+    "source": "https://netlab.click/todayis/0215"
+   },
+   {
+    "title": "春一番名付けの日",
+    "kind": "記念日",
+    "text": "春先に吹く強い南風を「春一番」と呼ぶようになったことにちなむ日。",
+    "source": "https://netlab.click/todayis/0215"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0618",
@@ -22501,7 +22738,20 @@
    "name": "浅葱色",
    "note": "あさぎいろ／#00A3AF／氷を破って跳ね上がった魚のまわりの、澄んだしぶき（魚上氷にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "天気図記念日",
+    "kind": "できごと",
+    "text": "1883年。日本で初めて天気図が作られたことにちなむ日",
+    "source": "https://zatsuneta.com/archives/102161.html"
+   },
+   {
+    "title": "寒天の日",
+    "kind": "記念日",
+    "text": "冬の寒さを生かしてつくられる寒天。ヘルシーで身近な和の食材を味わう日。",
+    "source": "https://netlab.click/todayis/0216"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0619",
@@ -22983,7 +23233,20 @@
    "name": "藍鼠",
    "note": "あいねず／#6C848D／氷がところどころ残る川面に映る、冬の名残の灰青（魚上氷にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "天使の囁きの日",
+    "kind": "記念日",
+    "text": "1978年。北海道の厳しい冷え込みで見られる、きらめくダイヤモンドダストにちなむ日。",
+    "source": "https://netlab.click/todayis/0217"
+   },
+   {
+    "title": "ガチャの日",
+    "kind": "記念日",
+    "text": "カプセルが転がり出る楽しさ、日本で親しまれるカプセル玩具にちなむ日。",
+    "source": "https://netlab.click/todayis/0217"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1022",
@@ -23469,7 +23732,20 @@
    "name": "鉛色",
    "note": "なまりいろ／#7B7C7D／魚が下から押し上げる、割れかけた厚い氷の灰色（魚上氷にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "冥王星の日",
+    "kind": "できごと",
+    "text": "1930年。アメリカの天文学者トンボーが冥王星を発見した日",
+    "source": "https://zatsuneta.com/archives/102183.html"
+   },
+   {
+    "title": "エアメールの日",
+    "kind": "記念日",
+    "text": "海を越えて手紙を運ぶ航空郵便の始まりにちなみ、遠くの人へ便りを出す日。",
+    "source": "https://netlab.click/todayis/0218"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0621",
@@ -23953,7 +24229,14 @@
    "name": "土器色",
    "note": "かわらけいろ／#C37854／春の雨をたっぷり吸ってやわらいだ、田畑の土の色（土脉潤起にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "プロレスの日",
+    "kind": "できごと",
+    "text": "1954年。日本で初めて本格的なプロレスの国際試合が開かれた日",
+    "source": "https://netlab.click/todayis/0219"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1023",
@@ -24434,7 +24717,20 @@
    "name": "黄土色",
    "note": "おうどいろ／#C39143／雪が雨に変わり、ふたたび顔を出した大地の黄土（土脉潤起にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "歌舞伎の日",
+    "kind": "できごと",
+    "text": "1607年。出雲の阿国が歌舞伎踊りを披露したことにちなむ日",
+    "source": "https://netlab.click/todayis/0220"
+   },
+   {
+    "title": "旅券の日",
+    "kind": "記念日",
+    "text": "海外旅行に欠かせないパスポートの制度にちなみ、旅の準備を考える日。",
+    "source": "https://netlab.click/todayis/0220"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0622",
@@ -24910,7 +25206,20 @@
    "name": "涅色",
    "note": "くりいろ／#554738／しっとり潤った川底にたまる、黒みを帯びた泥の色（土脉潤起にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "日刊新聞創刊の日",
+    "kind": "できごと",
+    "text": "1872年。東京で最初の日刊新聞「東京日日新聞」が創刊された日",
+    "source": "https://netlab.click/todayis/0221"
+   },
+   {
+    "title": "漱石の日",
+    "kind": "記念日",
+    "text": "夏目漱石が博士の称号を辞退する手紙を送った日にちなむ、文豪を思う日。",
+    "source": "https://netlab.click/todayis/0221"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0624",
@@ -25387,7 +25696,20 @@
    "name": "枯茶",
    "note": "からちゃ／#8D6449／冬枯れの草の下で静かに力をためている、土の茶（土脉潤起にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "猫の日",
+    "kind": "記念日",
+    "text": "1987年。「ニャン(2)ニャン(2)ニャン(2)」の語呂合わせ。猫に感謝する日",
+    "source": "https://zatsuneta.com/archives/102221.html"
+   },
+   {
+    "title": "おでんの日",
+    "kind": "記念日",
+    "text": "湯気の立つ鍋でことこと煮込んだおでんで、冬の夜に温まる日。",
+    "source": "https://zatsuneta.com/archives/102227.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1026",
@@ -25869,7 +26191,20 @@
    "name": "生壁色",
    "note": "なまかべいろ／#94846A／湿り気を帯びて色を深めた、塗りたての土壁の色（土脉潤起にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "富士山の日",
+    "kind": "記念日",
+    "text": "「ふ(2)じ(2)さん(3)」の語呂合わせ。富士山の美しさを守る日",
+    "source": "https://netlab.click/todayis/0223"
+   },
+   {
+    "title": "ふろしきの日",
+    "kind": "記念日",
+    "text": "一枚の布でなんでも包める、日本の知恵・ふろしきを見直す日。",
+    "source": "https://netlab.click/todayis/0223"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1028",
@@ -26352,7 +26687,20 @@
    "name": "藤鼠",
    "note": "ふじねず／#A6A5C4／遠くの山すそにたなびく、紫がかった春霞の色（霞始靆にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "月光仮面登場の日",
+    "kind": "できごと",
+    "text": "1958年。国産テレビヒーロー番組『月光仮面』の放送が始まった日",
+    "source": "https://netlab.click/todayis/0224"
+   },
+   {
+    "title": "クロスカントリーの日",
+    "kind": "記念日",
+    "text": "野山を駆けたり雪原を滑ったりする、クロスカントリーの魅力にふれる日。",
+    "source": "https://netlab.click/todayis/0224"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0627",
@@ -26832,7 +27180,14 @@
    "name": "鳩羽色",
    "note": "はとばいろ／#95859C／霞の向こうにかすんで見える夕方の野の、灰紫（霞始靆にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "夕刊紙の日",
+    "kind": "できごと",
+    "text": "1969年。日本初の駅売り専門の夕刊紙が創刊されたことにちなむ日",
+    "source": "https://zatsuneta.com/archives/102251.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0628",
@@ -27313,7 +27668,14 @@
    "name": "薄鼠",
    "note": "うすねず／#9790A4／景色の輪郭をやわらかくぼかす、淡い霞の灰色（霞始靆にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "咸臨丸の日",
+    "kind": "できごと",
+    "text": "1860年。太平洋を渡った咸臨丸がサンフランシスコに着いたことにちなむ日。",
+    "source": "https://netlab.click/todayis/0226"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0629",
@@ -27796,7 +28158,14 @@
    "name": "白鼠",
    "note": "しろねず／#DCDDDD／野にたなびく霞が見せる、白くけむった明るさ（霞始靆にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "Pokémon Day",
+    "kind": "記念日",
+    "text": "1996年。最初のポケモンのゲームが発売された日にちなむ、世界中で愛される冒険の日。",
+    "source": "https://zatsuneta.com/archives/102274.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0630",
@@ -28281,7 +28650,20 @@
    "name": "紅藤色",
    "note": "べにふじいろ／#CCA6BF／朝日に染まった春霞がほんのり見せる、淡い紅紫（霞始靆にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ビスケットの日",
+    "kind": "記念日",
+    "text": "1855年。水戸藩の医師が保存食としてビスケットの製法を記したことにちなむ",
+    "source": "https://zatsuneta.com/archives/102281.html"
+   },
+   {
+    "title": "織部の日",
+    "kind": "記念日",
+    "text": "茶人・古田織部にちなみ、緑の釉が印象的な器・織部焼に親しむ日。",
+    "source": "https://netlab.click/todayis/0228"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0701",
@@ -31233,6 +31615,12 @@
     "kind": "できごと",
     "text": "1908年。新聞社が写真で美人を募り、日本初とされる美人コンテストの結果を発表した日。",
     "source": "https://zatsuneta.com/archives/103052.html"
+   },
+   {
+    "title": "日本初のスクランブル交差点",
+    "kind": "できごと",
+    "text": "四方から人が一斉に渡れるスクランブル交差点が、日本で初めて設けられた日。",
+    "source": "https://netlab.click/todayis/0305"
    }
   ],
   "compat_good": [
@@ -33667,6 +34055,12 @@
     "kind": "記念日",
     "text": "「さ(3)とう(10)」の語呂から、甘さとエネルギー源としての砂糖を見直す日。",
     "source": "https://zatsuneta.com/archives/103106.html"
+   },
+   {
+    "title": "山陽新幹線が博多まで全通",
+    "kind": "できごと",
+    "text": "1975年。山陽新幹線が博多まで延び、東京から九州まで新幹線でつながった日。",
+    "source": "https://netlab.click/todayis/0310"
    }
   ],
   "compat_good": [
@@ -35115,6 +35509,12 @@
     "kind": "記念日",
     "text": "「1」が「3」にはさまれた日付から、具をはさむサンドイッチを楽しむ日。",
     "source": "https://zatsuneta.com/archives/103134.html"
+   },
+   {
+    "title": "青函トンネルが開業",
+    "kind": "できごと",
+    "text": "1988年。本州と北海道が海の底のトンネルで結ばれ、列車で行き来できるようになった日。",
+    "source": "https://netlab.click/todayis/0313"
    }
   ],
   "compat_good": [
@@ -44379,6 +44779,12 @@
     "kind": "行事",
     "text": "罪のない小さなうそで、まわりを笑顔にすることが許される日。",
     "source": "https://netlab.click/todayis/0401"
+   },
+   {
+    "title": "500円硬貨の発行",
+    "kind": "できごと",
+    "text": "1982年。500円玉が初めて発行された日。いまでは貯金箱の主役にもなった硬貨の誕生日。",
+    "source": "https://netlab.click/todayis/0401"
    }
   ],
   "compat_good": [
@@ -44861,7 +45267,20 @@
    "name": "群青色",
    "note": "ぐんじょういろ／#4C6CB3／雷鳴が響いたあとに晴れわたる、深い空の青（雷乃発声にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "国際こどもの本の日",
+    "kind": "記念日",
+    "text": "1967年。童話作家アンデルセンの誕生日にちなみ、子どもと本の出会いを応援する日。",
+    "source": "https://netlab.click/todayis/0402"
+   },
+   {
+    "title": "世界自閉症啓発デー",
+    "kind": "記念日",
+    "text": "自閉症について知り、周りの理解を深めていこうという国連の国際デー。",
+    "source": "https://dic.nicovideo.jp/a/4%E6%9C%882%E6%97%A5"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1204",
@@ -45347,6 +45766,12 @@
     "kind": "できごと",
     "text": "1934年。日本初の中央植樹行事が開かれたことにちなむ、木を植え森を育てる日。",
     "source": "https://netlab.click/todayis/0403"
+   },
+   {
+    "title": "シーサーの日",
+    "kind": "記念日",
+    "text": "「シー(4)サー(3)」の語呂から、沖縄の守り神シーサーに親しむ日。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/1794"
    }
   ],
   "compat_good": [
@@ -45831,7 +46256,20 @@
    "name": "金色",
    "note": "きんいろ／#E6B422／雲を裂いて走り、目覚めを告げる稲光のまばゆい金（雷乃発声にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "あんぱんの日",
+    "kind": "できごと",
+    "text": "1875年。桜の花の塩漬けをのせたあんぱんが献上されたことにちなむ日。",
+    "source": "https://netlab.click/todayis/0404"
+   },
+   {
+    "title": "ピアノ調律の日",
+    "kind": "記念日",
+    "text": "Aprilの「A」と基準音ラの440ヘルツを4月4日に重ねた、音を整える日。",
+    "source": "https://netlab.click/todayis/0404"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1204",
@@ -46313,7 +46751,14 @@
    "name": "濡羽色",
    "note": "ぬればいろ／#000B00／海を越えて渡ってきたつばめの、つやのある黒い羽（玄鳥至にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "横丁の日",
+    "kind": "記念日",
+    "text": "「よ(4)こ(5)ちょう」の語呂から、路地裏の小さな横丁の味わいを楽しむ日。",
+    "source": "https://zatsuneta.com/category/anniversary04.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1207",
@@ -46792,7 +47237,14 @@
    "name": "鉄紺",
    "note": "てつこん／#17184B／軒先を素早く飛び交うつばめの翼の、黒に近い紺（玄鳥至にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "城の日",
+    "kind": "記念日",
+    "text": "「し(4)ろ(6)」の語呂から、各地の城とその歴史に親しむ日。",
+    "source": "https://zatsuneta.com/category/anniversary04.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0809",
@@ -47271,7 +47723,20 @@
    "name": "勿忘草色",
    "note": "わすれなぐさいろ／#89C3EB／つばめが季節を運んでくる、春の空の明るい青（玄鳥至にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界保健デー",
+    "kind": "記念日",
+    "text": "1948年。世界保健機関の発足にちなみ、みんなの健康を考える国際デー。",
+    "source": "https://netlab.click/todayis/0407"
+   },
+   {
+    "title": "鉄腕アトムの誕生日",
+    "kind": "記念日",
+    "text": "手塚治虫の漫画で、心やさしいロボット・アトムが生まれたとされる日。",
+    "source": "https://netlab.click/todayis/0407"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0810",
@@ -47756,6 +48221,12 @@
     "kind": "行事",
     "text": "甘茶をかけ花で飾ったお堂を用意して、春の訪れとともに祝う伝統行事。",
     "source": "https://zatsuneta.com/category/anniversary04.html"
+   },
+   {
+    "title": "忠犬ハチ公の日",
+    "kind": "記念日",
+    "text": "渋谷駅で主人の帰りを待ち続けたハチ公をしのび、人と犬の絆を思う日。",
+    "source": "https://netlab.click/todayis/0408"
    }
   ],
   "compat_good": [
@@ -48244,6 +48715,12 @@
     "kind": "できごと",
     "text": "752年。奈良・東大寺の大仏の完成を祝う、盛大な式典が開かれたことにちなむ日。",
     "source": "https://zatsuneta.com/category/anniversary04.html"
+   },
+   {
+    "title": "フォークソングの日",
+    "kind": "記念日",
+    "text": "ギター1本で思いを歌うフォークソングの、素朴な魅力を味わう日。",
+    "source": "https://zatsuneta.com/category/anniversary04.html"
    }
   ],
   "compat_good": [
@@ -48725,7 +49202,20 @@
    "name": "鼠色",
    "note": "ねずみいろ／#949495／隊列を組んで北へ帰っていく、雁の群れの灰色の羽（鴻雁北にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "駅弁の日",
+    "kind": "記念日",
+    "text": "1993年。「4」と「十」を重ねると「弁」の字に見えることから生まれた、駅弁を味わう日。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/1922"
+   },
+   {
+    "title": "四万十の日",
+    "kind": "記念日",
+    "text": "旧中村市と旧西土佐村が合併し、四万十市が生まれたことにちなむ日。",
+    "source": "https://tabi-mag.jp/day0410/"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1210",
@@ -49206,7 +49696,14 @@
    "name": "利休鼠",
    "note": "りきゅうねずみ／#888E7E／雁が飛び立っていく春の湿地の、緑がかった灰色（鴻雁北にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "メートル法公布記念日",
+    "kind": "できごと",
+    "text": "1921年。長さや重さをメートル法で測る決まりが公布され、単位がそろい始めた日。",
+    "source": "https://zatsuneta.com/archives/104111.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1213",
@@ -49687,7 +50184,20 @@
    "name": "錆鼠",
    "note": "さびねず／#47585C／北の空を目指して進む雁の、くすんだ背の色（鴻雁北にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "パンの日",
+    "kind": "記念日",
+    "text": "1842年。江川英龍が兵糧パンを焼いた記録にちなむ、日本のパンの始まりの日。",
+    "source": "https://netlab.click/todayis/0412"
+   },
+   {
+    "title": "世界宇宙飛行の日",
+    "kind": "できごと",
+    "text": "1961年。人類が初めて宇宙を飛び、地球は青かったと伝えた日。",
+    "source": "https://zatsuneta.com/archives/104121.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0815",
@@ -50171,7 +50681,14 @@
    "name": "薄花色",
    "note": "うすはないろ／#698AAB／雁の隊列が小さく遠ざかっていく、春の空の青（鴻雁北にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "喫茶店の日",
+    "kind": "できごと",
+    "text": "1888年。東京・上野に日本初の喫茶店「可否茶館」が開かれたことにちなむ日。",
+    "source": "https://gendai.media/articles/-/63896"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1213",
@@ -50658,7 +51175,20 @@
    "name": "素鼠",
    "note": "すねず／#9FA0A0／別れの空を静かに渡っていく雁の、飾らない灰色（鴻雁北にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "オレンジデー",
+    "kind": "記念日",
+    "text": "愛媛の柑橘農家が定めた日。バレンタイン、ホワイトデーに続きオレンジを贈り合う。",
+    "source": "https://netlab.click/todayis/0414"
+   },
+   {
+    "title": "良い年の日",
+    "kind": "記念日",
+    "text": "「よ(4)い(1)とし(4)」の語呂から、これからの一年が良い年になるよう願う日。",
+    "source": "https://zatsuneta.com/archives/104146.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1216",
@@ -51148,7 +51678,20 @@
    "name": "山吹色",
    "note": "やまぶきいろ／#F8B500／雨上がりの虹の中ほどに輝く、明るい黄金色（虹始見にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "東京ディズニーランドが開園",
+    "kind": "できごと",
+    "text": "千葉・舞浜に東京ディズニーランドが開園したことにちなむ記念日。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/1989"
+   },
+   {
+    "title": "ヘリコプターの日",
+    "kind": "記念日",
+    "text": "ヘリコプターの原理を考えたダ・ヴィンチの誕生日にちなむ、空の乗り物の日。",
+    "source": "https://netlab.click/todayis/0415"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0818",
@@ -51634,7 +52177,14 @@
    "name": "露草色",
    "note": "つゆくさいろ／#38A1DB／雨に洗われた空と、虹の中に見える澄んだ青の帯（虹始見にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "えのすいの日",
+    "kind": "記念日",
+    "text": "2004年。神奈川・藤沢に新江ノ島水族館がグランドオープンしたことにちなむ日。",
+    "source": "https://netlab.click/todayis/0416"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0819",
@@ -52119,7 +52669,20 @@
    "name": "桔梗色",
    "note": "ききょういろ／#5654A2／雨上がりの虹のいちばん内側に見える、深い青紫（虹始見にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "恐竜の日",
+    "kind": "できごと",
+    "text": "1923年。恐竜の卵の化石発見につながる探検隊が出発したことにちなむ日。",
+    "source": "https://zatsuneta.com/archives/104171.html"
+   },
+   {
+    "title": "クイーンの日",
+    "kind": "記念日",
+    "text": "1975年。英国のロックバンド・クイーンが初めて来日したことにちなむ、名曲を聴きたくなる日。",
+    "source": "https://netlab.click/todayis/0417"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0820",
@@ -52609,6 +53172,12 @@
     "kind": "記念日",
     "text": "595年。淡路島に香木が流れ着いたという言い伝えにちなむ、香りを楽しむ日。",
     "source": "https://netlab.click/todayis/0418"
+   },
+   {
+    "title": "発明の日",
+    "kind": "できごと",
+    "text": "1885年。日本で特許の制度が始まったことにちなみ、発明と工夫をたたえる日。",
+    "source": "https://gendai.media/articles/-/63930"
    }
   ],
   "compat_good": [
@@ -53097,7 +53666,20 @@
    "name": "桔梗色",
    "note": "ききょういろ／#5654A2／雨上がりの虹のいちばん内側に見える、深い青紫（虹始見にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "地図の日",
+    "kind": "できごと",
+    "text": "1800年。伊能忠敬が日本地図づくりの測量の旅に出発したことにちなむ日。",
+    "source": "https://tabi-mag.jp/day0419/"
+   },
+   {
+    "title": "飼育の日",
+    "kind": "記念日",
+    "text": "2009年。「し(4)いく(19)」の語呂から、動物園や水族館の飼育の仕事を知る日。",
+    "source": "https://netlab.click/todayis/0419"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1219",
@@ -53584,7 +54166,20 @@
    "name": "木賊色",
    "note": "とくさいろ／#3B7960／水辺にすっと伸びる葦の、若くまっすぐな茎の緑（葭始生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "郵政記念日",
+    "kind": "できごと",
+    "text": "1871年。日本で近代的な郵便制度が始まり、手紙が全国へ届くようになった日。",
+    "source": "https://precious.jp/articles/-/60376"
+   },
+   {
+    "title": "ジャムの日",
+    "kind": "記念日",
+    "text": "果物の甘みをぎゅっと閉じ込めたジャムを、トーストにのせて味わう日。",
+    "source": "https://zatsuneta.com/archives/a0420.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1222",
@@ -54068,7 +54663,20 @@
    "name": "青磁色",
    "note": "せいじいろ／#7EBEA5／葦の芽が顔を出しはじめる浅瀬の、澄んだ青緑（葭始生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "民放の日",
+    "kind": "できごと",
+    "text": "1951年。民間放送のラジオ局に初めて予備免許が与えられたことにちなむ日。",
+    "source": "https://zatsuneta.com/archives/104211.html"
+   },
+   {
+    "title": "創造性とイノベーションの世界デー",
+    "kind": "記念日",
+    "text": "新しいアイデアを生み出す力を大切にし、育てていこうという国連の国際デー。",
+    "source": "https://netlab.click/todayis/0421"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0824",
@@ -54547,7 +55155,14 @@
    "name": "青朽葉",
    "note": "あおくちば／#ADA250／去年の枯れ葦と新しい芽がまじる、黄みの緑（葭始生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "アースデー",
+    "kind": "記念日",
+    "text": "1970年。地球の環境について考え、身近なことから行動しようという日。",
+    "source": "https://dic.nicovideo.jp/a/4%E6%9C%8822%E6%97%A5"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1222",
@@ -55027,7 +55642,20 @@
    "name": "錆青磁",
    "note": "さびせいじ／#A6C8B2／風を受けても折れない葦原の、落ち着いた灰緑（葭始生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "子ども読書の日",
+    "kind": "記念日",
+    "text": "2001年。子どもが本に親しむきっかけをつくろうと定められた、読書の日。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/2070"
+   },
+   {
+    "title": "世界図書・著作権デー",
+    "kind": "記念日",
+    "text": "1995年。本と著作権を大切にするユネスコの国際デー。スペインでは本と花を贈り合う。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/2068"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1225",
@@ -55507,7 +56135,20 @@
    "name": "柳煤竹",
    "note": "やなぎすすたけ／#5B6356／新芽の足もとに残る枯れ葦の、暗い緑がかった茶（葭始生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "日本ダービー記念日",
+    "kind": "できごと",
+    "text": "1932年。第1回の東京優駿が開かれ、日本の競馬の大舞台が始まった日。",
+    "source": "https://zatsuneta.com/archives/a0424.html"
+   },
+   {
+    "title": "植物学の日",
+    "kind": "記念日",
+    "text": "植物学者・牧野富太郎博士の誕生日にちなみ、身近な草花に目を向ける日。",
+    "source": "https://netlab.click/todayis/0424"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0827",
@@ -55988,7 +56629,20 @@
    "name": "若苗色",
    "note": "わかなえいろ／#C7DC68／安心して伸びはじめた若い苗の、明るい黄緑（霜止出苗にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界ペンギンの日",
+    "kind": "記念日",
+    "text": "ペンギンが南極の基地近くに現れる時期にちなむ、ペンギンを見守る日。",
+    "source": "https://tabi-mag.jp/day0425/"
+   },
+   {
+    "title": "歩道橋の日",
+    "kind": "できごと",
+    "text": "1963年。大阪駅前に本格的な横断歩道橋が完成したことにちなむ日。",
+    "source": "https://dic.nicovideo.jp/t/a/4%E6%9C%8825%E6%97%A5"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0828",
@@ -56469,7 +57123,14 @@
    "name": "千草色",
    "note": "ちぐさいろ／#92B5A9／苗代の水と育ちゆく苗が重なって見える、青みの緑（霜止出苗にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "よい風呂の日",
+    "kind": "記念日",
+    "text": "「よ(4)い風(2)呂(6)」の語呂から、お風呂でのんびり疲れを癒す日。",
+    "source": "https://allabout.co.jp/gm/gc/454141/"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0829",
@@ -56949,7 +57610,14 @@
    "name": "秘色色",
    "note": "ひそくいろ／#ABCED8／霜が降りなくなった朝の、澄んだ空の淡い青（霜止出苗にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "駅伝誕生の日",
+    "kind": "できごと",
+    "text": "1917年。京都から東京までたすきをつなぐ、日本初の駅伝が始まった日。",
+    "source": "https://zatsuneta.com/archives/104272.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0830",
@@ -57431,7 +58099,14 @@
    "name": "青緑",
    "note": "あおみどり／#00A497／水を張った苗代に空と苗が映りこむ、深い青緑（霜止出苗にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "象の日",
+    "kind": "できごと",
+    "text": "1729年。徳川吉宗が取り寄せた象が、京の都で天皇の前に披露されたことにちなむ日。",
+    "source": "https://tabi-mag.jp/day0428/"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0901",
@@ -58411,7 +59086,14 @@
    "name": "牡丹色",
    "note": "ぼたんいろ／#E7609E／百花の王・牡丹が大輪に咲いた、華やかな紅紫（牡丹華にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "図書館記念日",
+    "kind": "できごと",
+    "text": "1950年。図書館法が公布され、誰でも本に触れられる図書館が広がった日。",
+    "source": "https://netlab.click/todayis/0430"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0903",
@@ -67296,6 +67978,12 @@
     "kind": "記念日",
     "text": "「こ(5)と(10)ば(8)」の語呂から、言葉を正しく、大切に使おうという日。",
     "source": "https://bestcalendar.jp/2027/5/18"
+   },
+   {
+    "title": "国際博物館の日",
+    "kind": "記念日",
+    "text": "博物館の役割を知り、身近な展示に足を運んでみようと呼びかける日。",
+    "source": "https://netlab.click/todayis/0518"
    }
   ],
   "compat_good": [
@@ -72222,7 +72910,20 @@
    "name": "真紅",
    "note": "しんく／#A22041／紅花だけで染め上げた、まじりけのない深い紅（紅花栄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "花火の日",
+    "kind": "記念日",
+    "text": "1733年。隅田川の川開きで花火が打ち上げられたことにちなむ、夏の夜空を思う日。",
+    "source": "https://tabi-mag.jp/day0528/"
+   },
+   {
+    "title": "ゴルフの日",
+    "kind": "記念日",
+    "text": "ゴルフの楽しさを広めようという記念日。緑の芝の上で体を動かしたくなる日。",
+    "source": "https://tabi-mag.jp/day0528/"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1001",
@@ -72704,7 +73405,20 @@
    "name": "深緋",
    "note": "こきあけ／#C9171E／紅花をたっぷり使って深く染めた、黒みのある緋（紅花栄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "こんにゃくの日",
+    "kind": "記念日",
+    "text": "1989年。「こ(5)んに(2)ゃく(9)」の語呂から、ヘルシーなこんにゃくを味わう日。",
+    "source": "https://bestcalendar.jp/articles/2461"
+   },
+   {
+    "title": "呉服の日",
+    "kind": "記念日",
+    "text": "「ご(5)ふ(2)く(9)」の語呂から、着物の美しさに親しもうという日。",
+    "source": "https://www.bestcalendar.jp/dates/kinenbi/2460"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1002",
@@ -73188,7 +73902,20 @@
    "name": "黄丹",
    "note": "おうに／#EE7948／咲き誇る紅花の、黄から赤へと移ろう花びらの色（紅花栄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ごみゼロの日",
+    "kind": "記念日",
+    "text": "「ご(5)み(3)ゼロ(0)」の語呂から、街をきれいにしようと呼びかける日。",
+    "source": "https://zatsuneta.com/category/anniversary05.html"
+   },
+   {
+    "title": "女子将棋の日",
+    "kind": "記念日",
+    "text": "2007年。日本女子プロ将棋協会の設立にちなみ、女性棋士の活躍を応援する日。",
+    "source": "https://netlab.click/todayis/0530"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1003",
@@ -73674,7 +74401,20 @@
    "name": "紅色",
    "note": "べにいろ／#D7003A／一面に咲く紅花から染め出される、鮮やかな紅（紅花栄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界禁煙デー",
+    "kind": "記念日",
+    "text": "1989年。たばこの害を知り、健康的な暮らしを考えようと世界保健機関が定めた日。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/2477"
+   },
+   {
+    "title": "藻岩山の日",
+    "kind": "記念日",
+    "text": "札幌の藻岩山の標高531メートルにちなむ日。山頂から街を見渡したくなる日。",
+    "source": "https://netlab.click/todayis/0531"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1004",
@@ -74159,7 +74899,20 @@
    "name": "小麦色",
    "note": "こむぎいろ／#E49E61／収穫の時を迎えた麦畑の、日に焼けた明るい色（麦秋至にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "気象記念日",
+    "kind": "記念日",
+    "text": "1875年。東京気象台が設けられたことにちなみ、天気予報の歩みを思う日。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/2485"
+   },
+   {
+    "title": "写真の日",
+    "kind": "記念日",
+    "text": "1841年。日本で初めて写真が撮影されたと伝わることにちなむ、写真を楽しむ日。",
+    "source": "https://www.bestcalendar.jp/dates/kinenbi/2487"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0201",
@@ -74646,7 +75399,20 @@
    "name": "金茶",
    "note": "きんちゃ／#F39800／刈り入れを待って実った麦の穂の、金色がかった茶（麦秋至にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "横浜開港記念日",
+    "kind": "記念日",
+    "text": "1859年。横浜港が開かれ、海外との交流と新しい文化の入口となった日。",
+    "source": "https://tabi-mag.jp/day0602"
+   },
+   {
+    "title": "ローズの日",
+    "kind": "記念日",
+    "text": "初夏に見ごろを迎えるバラの花を、大切な人に贈りたくなる日。",
+    "source": "https://zatsuneta.com/category/anniversary06.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0202",
@@ -75133,7 +75899,20 @@
    "name": "黄朽葉",
    "note": "きくちば／#D3A243／刈り取りを前にすっかり色づいた、麦の葉の深い黄（麦秋至にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "測量の日",
+    "kind": "記念日",
+    "text": "1949年。地図づくりを支える測量の大切さを伝えるため定められた日。",
+    "source": "https://netlab.click/todayis/0603"
+   },
+   {
+    "title": "世界自転車デー",
+    "kind": "記念日",
+    "text": "2018年。手軽で環境にやさしい自転車の良さを広めようと国連が定めた日。",
+    "source": "https://netlab.click/todayis/0603"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0203",
@@ -75617,7 +76396,20 @@
    "name": "山吹茶",
    "note": "やまぶきちゃ／#C89932／初夏の風を受けて黄金色に波打つ、麦畑の深い黄（麦秋至にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "虫歯予防デー",
+    "kind": "記念日",
+    "text": "1928年。「む(6)し(4)」の語呂から、歯みがきと歯の健康を見直す日。",
+    "source": "https://zatsuneta.com/category/anniversary06.html"
+   },
+   {
+    "title": "虫の日",
+    "kind": "記念日",
+    "text": "1988年。「む(6)し(4)」の語呂から、小さな虫たちと自然の大切さを考える日。",
+    "source": "https://zatsuneta.com/category/anniversary06.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0204",
@@ -76100,7 +76892,20 @@
    "name": "芥子色",
    "note": "からしいろ／#D0AF4C／刈り取ってよく乾かした麦わらの、くすんだ黄色（麦秋至にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界環境デー",
+    "kind": "記念日",
+    "text": "1972年。地球の環境を守るため、一人ひとりができることを考えるよう国連が定めた日。",
+    "source": "https://www.env.go.jp/guide/ecolife-fair/enviday.html"
+   },
+   {
+    "title": "落語の日",
+    "kind": "記念日",
+    "text": "「ろくご」を繰り返すと「らくご」に聞こえることから生まれた、寄席を楽しむ日。",
+    "source": "https://netlab.click/todayis/0605"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0205",
@@ -76581,7 +77386,20 @@
    "name": "千歳緑",
    "note": "ちとせみどり／#316745／小さなかまきりの子が身を隠す、葉かげの深い緑（螳螂生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "楽器の日",
+    "kind": "記念日",
+    "text": "「6歳の6月6日に習い事を始めると上達する」という言い伝えにちなむ日。",
+    "source": "https://zatsuneta.com/category/anniversary06.html"
+   },
+   {
+    "title": "梅の日",
+    "kind": "記念日",
+    "text": "1545年。雨乞いのお礼に神社へ梅が奉納されたと伝わることにちなみ、梅を味わう日。",
+    "source": "https://zatsuneta.com/category/anniversary06.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1009",
@@ -77534,7 +78352,20 @@
    "name": "海松色",
    "note": "みるいろ／#726D40／かまきりの子がじっとひそむ草むらの、渋い緑（螳螂生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界海洋デー",
+    "kind": "記念日",
+    "text": "豊かな海の恵みに感謝し、海を守ることを考えるよう国連が定めた日。",
+    "source": "https://netlab.click/todayis/0608"
+   },
+   {
+    "title": "大鳴門橋開通記念日",
+    "kind": "できごと",
+    "text": "1985年。淡路島と四国を結ぶ大鳴門橋が開通し、渦潮の上を渡れるようになった日。",
+    "source": "https://zatsuneta.com/archives/a0608.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1011",
@@ -78013,7 +78844,20 @@
    "name": "萌葱色",
    "note": "もえぎいろ／#006E54／初夏の若葉に紛れるかまきりの、青みのある緑（螳螂生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ロックの日",
+    "kind": "記念日",
+    "text": "「ロッ(6)ク(9)」の語呂から、ロック音楽を楽しもうという日。",
+    "source": "https://netlab.click/todayis/0609"
+   },
+   {
+    "title": "ドナルドダックの誕生日",
+    "kind": "記念日",
+    "text": "1934年。おなじみのアヒルのキャラクター、ドナルドダックの公式の誕生日とされる日。",
+    "source": "https://netlab.click/todayis/0609"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1012",
@@ -78497,7 +79341,20 @@
    "name": "裏葉色",
    "note": "うらはいろ／#C1D8AC／卵から一斉に生まれたかまきりの子の、淡い緑（螳螂生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "時の記念日",
+    "kind": "記念日",
+    "text": "1920年。日本で初めて水時計で時を知らせた故事にちなみ、時間を大切にする日。",
+    "source": "https://zatsuneta.com/archives/106101.html"
+   },
+   {
+    "title": "路面電車の日",
+    "kind": "記念日",
+    "text": "1995年。「ろ(6)でん(10)」の語呂から、街を走る路面電車に親しむ日。",
+    "source": "https://zatsuneta.com/archives/106103.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0210",
@@ -78980,7 +79837,20 @@
    "name": "濃藍",
    "note": "こいあい／#0F2350／ほたるが飛びはじめる初夏の夜空の、深い藍（腐草為螢にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "傘の日",
+    "kind": "記念日",
+    "text": "梅雨入りの頃にあたることから、雨の日を明るくする傘に親しもうという日。",
+    "source": "https://netlab.click/todayis/0611"
+   },
+   {
+    "title": "学校図書館の日",
+    "kind": "記念日",
+    "text": "子どもたちが本と出会う場所、学校の図書館の役割を見つめ直す日。",
+    "source": "https://bestcalendar.jp/2025/6/11"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1013",
@@ -79459,7 +80329,20 @@
    "name": "紺青",
    "note": "こんじょう／#192F60／水辺の闇にほたるの光が浮かぶ、深い夜の青（腐草為螢にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "恋人の日",
+    "kind": "記念日",
+    "text": "恋人どうしが写真立てなどを贈り合うブラジルの習わしにちなむ日。",
+    "source": "https://zatsuneta.com/archives/106121.html"
+   },
+   {
+    "title": "エスペラントの日",
+    "kind": "記念日",
+    "text": "国を越えて話せる言葉をめざして作られた、エスペラント語に親しむ日。",
+    "source": "https://zatsuneta.com/archives/a0612.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1015",
@@ -80425,7 +81308,20 @@
    "name": "黄緑",
    "note": "きみどり／#B8D200／暗がりで静かに光る、ほたるの灯そのものの黄緑（腐草為螢にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界献血者デー",
+    "kind": "記念日",
+    "text": "2004年。献血に協力する人々に感謝し、献血の大切さを伝えるよう定められた日。",
+    "source": "https://netlab.click/todayis/0614"
+   },
+   {
+    "title": "球音を楽しむ日",
+    "kind": "記念日",
+    "text": "球場に響く打球やミットの音に耳をすませ、野球を楽しもうという日。",
+    "source": "https://netlab.click/todayis/0614"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1016",
@@ -80911,7 +81807,20 @@
    "name": "消炭色",
    "note": "けしずみいろ／#524E4D／ほたるの小さな光を引き立てる、暗がりの色（腐草為螢にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "千葉県民の日",
+    "kind": "記念日",
+    "text": "1984年。千葉県の誕生をみんなで祝い、郷土を見つめ直す県の記念日。",
+    "source": "https://zatsuneta.com/category/anniversary06.html"
+   },
+   {
+    "title": "暑中見舞いの日",
+    "kind": "記念日",
+    "text": "1950年。暑中見舞い用のはがきが初めて発売されたことにちなむ日。",
+    "source": "https://zatsuneta.com/category/anniversary06.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1018",
@@ -81400,7 +82309,20 @@
    "name": "梅染",
    "note": "うめぞめ／#B48A76／梅の木で染めた、熟した梅の実のような赤茶（梅子黄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "和菓子の日",
+    "kind": "記念日",
+    "text": "1979年。昔、この日に菓子を供えて健康を願った「嘉祥」の行事にちなむ日。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/2687"
+   },
+   {
+    "title": "麦とろの日",
+    "kind": "記念日",
+    "text": "「む(6)ぎ(1)とろ(6)」の語呂から、麦ごはんととろろで元気をつける日。",
+    "source": "https://netlab.click/todayis/0616"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0214",
@@ -81886,7 +82808,20 @@
    "name": "梅幸茶",
    "note": "ばいこうちゃ／#887938／梅雨空の下でゆっくり色づく梅の、渋い黄緑（梅子黄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "いなりの日",
+    "kind": "記念日",
+    "text": "甘く煮た油揚げにご飯を詰めた、おなじみのいなり寿司を味わう日。",
+    "source": "https://zatsuneta.com/category/anniversary06.html"
+   },
+   {
+    "title": "減塩の日",
+    "kind": "記念日",
+    "text": "毎日の食事の塩分を少し控えて、体にやさしい味つけを見直す日。",
+    "source": "https://zatsuneta.com/category/anniversary06.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1020",
@@ -82372,7 +83307,20 @@
    "name": "柑子色",
    "note": "こうじいろ／#F6AD49／梅雨の晴れ間の日を受けて色づく、梅の実の橙（梅子黄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "おにぎりの日",
+    "kind": "記念日",
+    "text": "石川県で日本最古級のおにぎりの化石が見つかったことにちなむ日。",
+    "source": "https://zatsuneta.com/archives/106183.html"
+   },
+   {
+    "title": "海外移住の日",
+    "kind": "できごと",
+    "text": "1908年。移民船「笠戸丸」がブラジルに着き、日系社会の歩みが始まった日。",
+    "source": "https://netlab.click/todayis/0618"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0215",
@@ -82855,7 +83803,20 @@
    "name": "支子色",
    "note": "くちなしいろ／#FBCA4D／時間をかけて黄色く熟していく、梅の実の色（梅子黄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "朗読の日",
+    "kind": "記念日",
+    "text": "「ろう(6)どく(19)」の語呂から、声に出して読む楽しさを広める日。",
+    "source": "https://zatsuneta.com/archives/a0619.html"
+   },
+   {
+    "title": "ベースボール記念日",
+    "kind": "できごと",
+    "text": "1846年。アメリカで今のルールに近い初の野球の試合が行われたことにちなむ日。",
+    "source": "https://netlab.click/todayis/0619"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0216",
@@ -83337,7 +84298,20 @@
    "name": "鳥の子色",
    "note": "とりのこいろ／#FFF1CF／青い梅が黄色へと移るときの、実の淡い肌色（梅子黄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ペパーミントデー",
+    "kind": "記念日",
+    "text": "ハッカの産地・北海道北見市が、さわやかな香りを届けようと定めた日。",
+    "source": "https://netlab.click/todayis/0620"
+   },
+   {
+    "title": "健康住宅の日",
+    "kind": "記念日",
+    "text": "毎日を過ごす住まいの空気や明るさを見直し、心地よい家を考える日。",
+    "source": "https://bestcalendar.jp/2026/6/20"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1022",
@@ -83823,7 +84797,14 @@
    "name": "紫苑色",
    "note": "しおんいろ／#867BA9／夏至のころに枯れていく夏枯草の、花穂のくすんだ紫（乃東枯にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "国際ヨガの日",
+    "kind": "記念日",
+    "text": "心と体を整えるヨガの良さを世界で分かち合おうという国連の国際デー。",
+    "source": "https://netlab.click/todayis/0621"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0218",
@@ -84302,7 +85283,20 @@
    "name": "葡萄鼠",
    "note": "ぶどうねずみ／#705B67／夏枯草の枯れゆく花穂に残る、灰色がかった紫（乃東枯にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ボウリングの日",
+    "kind": "記念日",
+    "text": "1861年。長崎の外国人居留地に日本初のボウリング場が開かれたことにちなむ日。",
+    "source": "https://netlab.click/todayis/0622"
+   },
+   {
+    "title": "かにの日",
+    "kind": "記念日",
+    "text": "かに座の始まりの頃にあたる日。かに料理をみんなで囲みたくなる日。",
+    "source": "https://netlab.click/todayis/0622"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0220",
@@ -84778,7 +85772,14 @@
    "name": "茶鼠",
    "note": "ちゃねずみ／#A99E93／みなが茂る夏至に一人枯れる草の、穂の灰茶（乃東枯にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "オリンピック・デー",
+    "kind": "記念日",
+    "text": "1894年。国際オリンピック委員会が生まれた日にちなみ、スポーツの喜びを分かち合う日。",
+    "source": "https://netlab.click/todayis/0623"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1025",
@@ -85252,7 +86253,20 @@
    "name": "栗色",
    "note": "くりいろ／#762F07／自分の時を終えて枯れた夏枯草の、深い茶色（乃東枯にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "UFOの日",
+    "kind": "記念日",
+    "text": "1947年。空飛ぶ円盤の目撃が話題になったことにちなむ、空を見上げる日。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/2742"
+   },
+   {
+    "title": "ドレミの日",
+    "kind": "記念日",
+    "text": "1024年。「ドレミ」の階名が生まれたと伝わることにちなむ、音楽の日。",
+    "source": "https://zatsuneta.com/archives/106242.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0221",
@@ -85724,7 +86738,14 @@
    "name": "藤煤竹",
    "note": "ふじすすたけ／#5A5359／夏枯草の花の紫が、枯れて茶へと移ろう途中の色（乃東枯にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "住宅デー",
+    "kind": "記念日",
+    "text": "毎日を過ごす住まいの手入れや住み心地を、あらためて見直してみる日。",
+    "source": "https://zatsuneta.com/category/anniversary06.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1025",
@@ -86201,7 +87222,14 @@
    "name": "銀煤竹",
    "note": "ぎんすすたけ／#856859／緑の茂る夏の野に枯れて立つ、草の穂の淡い茶（乃東枯にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "露天風呂の日",
+    "kind": "記念日",
+    "text": "岡山・湯原温泉の人たちが「ろ(6)てんぶ(2)ろ(6)」の語呂から定めた日。",
+    "source": "https://zatsuneta.com/archives/a0626.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1026",
@@ -86680,7 +87708,20 @@
    "name": "菖蒲色",
    "note": "あやめいろ／#CC7EB1／すっと伸びた茎の先に咲く、あやめの花の紫（菖蒲華にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "演説の日",
+    "kind": "記念日",
+    "text": "1874年。福沢諭吉が日本で初めて「演説」を広めた会が開かれたことにちなむ日。",
+    "source": "https://netlab.click/todayis/0627"
+   },
+   {
+    "title": "ちらし寿司の日",
+    "kind": "記念日",
+    "text": "岡山の名物ばら寿司にちなみ、彩り豊かなちらし寿司を楽しむ日。",
+    "source": "https://zatsuneta.com/archives/106273.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0224",
@@ -87162,7 +88203,20 @@
    "name": "杜若色",
    "note": "かきつばたいろ／#3E62AD／あやめと並んで梅雨の水辺に咲く、杜若の青紫（菖蒲華にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "パフェの日",
+    "kind": "できごと",
+    "text": "1950年。プロ野球で初の完全試合が達成された日にちなみ、パフェを味わう日。",
+    "source": "https://zatsuneta.com/archives/106282.html"
+   },
+   {
+    "title": "貿易記念日",
+    "kind": "記念日",
+    "text": "海外とのものの行き来を支える貿易の大切さを、あらためて考える日。",
+    "source": "https://netlab.click/todayis/0628"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0225",
@@ -87644,7 +88698,20 @@
    "name": "江戸紫",
    "note": "えどむらさき／#745399／江戸の人に愛された、あやめにも似た凛とした紫（菖蒲華にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ビートルズ記念日",
+    "kind": "できごと",
+    "text": "1966年。ビートルズが来日し、日本中が熱狂に包まれた日。",
+    "source": "https://netlab.click/todayis/0629"
+   },
+   {
+    "title": "佃煮の日",
+    "kind": "記念日",
+    "text": "保存食として親しまれてきた佃煮のおいしさを伝える日。",
+    "source": "https://netlab.click/todayis/0629"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0226",
@@ -88128,7 +89195,20 @@
    "name": "京紫",
    "note": "きょうむらさき／#9D5B8B／梅雨の雨に濡れたあやめの、赤みを帯びた紫（菖蒲華にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "夏越の祓",
+    "kind": "行事",
+    "text": "一年の折り返しに心身を清め、残り半年の健康を祈る伝統行事。",
+    "source": "https://netlab.click/todayis/0630"
+   },
+   {
+    "title": "アインシュタイン記念日",
+    "kind": "記念日",
+    "text": "1905年。アインシュタインが相対性理論の最初の論文を提出したことにちなむ日。",
+    "source": "https://netlab.click/todayis/0630"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0227",
@@ -90135,6 +91215,12 @@
     "kind": "記念日",
     "text": "「な(7)し(4)」の語呂合わせ。二十世紀梨の産地・鳥取の人たちが定めた日",
     "source": "https://netlab.click/todayis/0704"
+   },
+   {
+    "title": "シーザーサラダの日",
+    "kind": "記念日",
+    "text": "ロメインレタスにチーズのドレッシングをからめた、シーザーサラダを味わう日。",
+    "source": "https://netlab.click/todayis/0704"
    }
   ],
   "compat_good": [
@@ -90622,6 +91708,12 @@
     "title": "穴子の日",
     "kind": "記念日",
     "text": "「あ・な(7)ご(5)」の語呂合わせ。夏が旬の穴子をおいしく味わおうという日",
+    "source": "https://netlab.click/todayis/0705"
+   },
+   {
+    "title": "江戸切子の日",
+    "kind": "記念日",
+    "text": "光を受けてきらめく伝統のガラス細工、江戸切子の美しさに親しむ日。",
     "source": "https://netlab.click/todayis/0705"
    }
   ],
@@ -94068,6 +95160,12 @@
     "kind": "できごと",
     "text": "1925年。東京放送局がラジオの本放送をスタート。家にいながら声と音楽が届く時代へ",
     "source": "https://netlab.click/todayis/0712"
+   },
+   {
+    "title": "人間ドックの日",
+    "kind": "記念日",
+    "text": "1954年。日本で初めて短期入院による総合健診が行われたことにちなむ、健康を見直す日",
+    "source": "https://netlab.click/todayis/0712"
    }
   ],
   "compat_good": [
@@ -94553,6 +95651,12 @@
     "kind": "記念日",
     "text": "1886年。東経135度の時刻を日本の基準と決めた日。全国の時計が一つにそろった",
     "source": "https://netlab.click/todayis/0713"
+   },
+   {
+    "title": "ナイスの日",
+    "kind": "記念日",
+    "text": "「ナ(7)イ(1)ス(3)」の語呂から、周りの人の良いところをほめ合う日。",
+    "source": "https://zatsuneta.com/archives/107133.html"
    }
   ],
   "compat_good": [
@@ -98490,6 +99594,12 @@
     "kind": "記念日",
     "text": "松島・天橋立・宮島の三景をたたえた儒学者・林鵞峰にちなむ日",
     "source": "https://netlab.click/todayis/0721"
+   },
+   {
+    "title": "自然公園の日",
+    "kind": "記念日",
+    "text": "1957年。自然公園法の制定にちなみ、山や海辺の美しい景色を守り楽しむ日。",
+    "source": "https://netlab.click/todayis/0721"
    }
   ],
   "compat_good": [
@@ -98976,6 +100086,12 @@
     "kind": "記念日",
     "text": "1899年。日本で近代的な著作権の決まりができた日。作る人の努力を守る仕組み",
     "source": "https://netlab.click/todayis/0722"
+   },
+   {
+    "title": "下駄の日",
+    "kind": "記念日",
+    "text": "下駄の寸法の表し方や歯の跡の形にちなむ日。浴衣に下駄で夏の夜を歩く頃。",
+    "source": "https://netlab.click/todayis/0722"
    }
   ],
   "compat_good": [
@@ -99461,6 +100577,12 @@
     "title": "文月ふみの日",
     "kind": "記念日",
     "text": "「ふ(2)み(3)」の語呂合わせ。7月は文月、手紙で思いを伝えようという日",
+    "source": "https://netlab.click/todayis/0723"
+   },
+   {
+    "title": "天ぷらの日",
+    "kind": "記念日",
+    "text": "夏の暑さに負けないよう、からりと揚げた天ぷらで元気をつける日。",
     "source": "https://netlab.click/todayis/0723"
    }
   ],
@@ -101403,6 +102525,12 @@
     "kind": "記念日",
     "text": "縞模様を綱に見立て「な(7)つのよこづ(2)な(7)」と読む語呂合わせの日",
     "source": "https://netlab.click/todayis/0727"
+   },
+   {
+    "title": "ツナの日",
+    "kind": "記念日",
+    "text": "サンドイッチやおにぎりの具でおなじみ、ツナを味わう日。",
+    "source": "https://zatsuneta.com/category/anniversary07.html"
    }
   ],
   "compat_good": [
@@ -102375,6 +103503,12 @@
     "kind": "記念日",
     "text": "1952年。禁止されていたアマチュア無線が解禁された日。電波で人とつながる楽しみ",
     "source": "https://netlab.click/?p=3731"
+   },
+   {
+    "title": "七福神の日",
+    "kind": "記念日",
+    "text": "「しち(7)ふ(2)く(9)」の語呂から、福を運ぶ七福神にあやかる日。",
+    "source": "https://netlab.click/todayis/0729"
    }
   ],
   "compat_good": [
@@ -103845,12 +104979,6 @@
    "note": "かきしぶいろ／#9F563A／じめじめした夏の暮らしを支えた柿渋の、赤茶（土潤溽暑にちなむ）"
   },
   "events": [
-   {
-    "title": "花火の日",
-    "kind": "記念日",
-    "text": "1948年。戦後に花火が再びゆるされた日にちなむ。夜空を彩る夏の楽しみ",
-    "source": "https://news.allabout.co.jp/articles/o/64784/"
-   },
    {
     "title": "水の日",
     "kind": "記念日",
@@ -107291,7 +108419,14 @@
    "name": "瓶覗",
    "note": "かめのぞき／#A2D7DD／藍甕を覗いたほどの淡い青。暑さの中にふと立つ涼しさの色（涼風至にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "そろばんの日",
+    "kind": "記念日",
+    "text": "玉をはじく「パチパチ」の音を8と8に見立てた日。計算の力を育む道具",
+    "source": "https://zatsuneta.com/category/anniversary08.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1208",
@@ -108261,7 +109396,20 @@
    "name": "水浅葱",
    "note": "みずあさぎ／#80ABA9／水で薄めたような浅葱色。熱気をやわらげる涼風の気配（涼風至にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "道の日",
+    "kind": "記念日",
+    "text": "1920年。日本で初めて道路整備の長期計画が始まったことにちなむ日",
+    "source": "https://zatsuneta.com/archives/108101.html"
+   },
+   {
+    "title": "焼き鳥の日",
+    "kind": "記念日",
+    "text": "「や(8)きと(10)り」の語呂合わせ。香ばしい焼き鳥で元気をつける日",
+    "source": "https://zatsuneta.com/archives/108106.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1210",
@@ -109235,6 +110383,12 @@
     "kind": "記念日",
     "text": "「ハ(8)イジ(12)」の語呂合わせ。アルプスの少女ハイジを思い出す日",
     "source": "https://news.allabout.co.jp/articles/o/65331/"
+   },
+   {
+    "title": "国際青少年デー",
+    "kind": "記念日",
+    "text": "未来をつくる若い世代の声と力を大切にしようという国連の国際デー。",
+    "source": "https://netlab.click/todayis/0812"
    }
   ],
   "compat_good": [
@@ -110214,7 +111368,14 @@
    "name": "洗柿",
    "note": "あらいがき／#F2C9AC／洗いざらした柿色。夕方の西日がやわらいだ穏やかな色（寒蝉鳴にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "水泳の日",
+    "kind": "記念日",
+    "text": "夏の水辺で泳ぐ楽しさと、水に親しむことの大切さを見直す日。",
+    "source": "https://zatsuneta.com/category/anniversary08.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1214",
@@ -111684,6 +112845,12 @@
     "kind": "記念日",
     "text": "「パ(8)イ(1)ナ(7)ップル」の語呂合わせ。南国の甘酸っぱさを味わう日",
     "source": "https://news.allabout.co.jp/articles/o/65356/"
+   },
+   {
+    "title": "プロ野球ナイター記念日",
+    "kind": "できごと",
+    "text": "1948年。横浜で日本初のプロ野球ナイターが行われた日。夜空の下の熱戦が始まった",
+    "source": "https://zatsuneta.com/archives/108171.html"
    }
   ],
   "compat_good": [
@@ -112176,7 +113343,20 @@
    "name": "薄墨色",
    "note": "うすずみいろ／#A3A3A2／薄く溶いた墨の色。霧の向こうにかすむ山影を思わせる（蒙霧升降にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "米の日",
+    "kind": "記念日",
+    "text": "「米」の字を分けると「八十八」になることから。日本人の主食に感謝する日",
+    "source": "https://netlab.click/todayis/0818"
+   },
+   {
+    "title": "高校野球記念日",
+    "kind": "できごと",
+    "text": "1915年。全国中等学校優勝野球大会の第1回が始まった日。夏の甲子園の原点",
+    "source": "https://netlab.click/todayis/0818"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1218",
@@ -113158,7 +114338,14 @@
    "name": "灰色",
    "note": "はいいろ／#7D7D7D／灰の色。すべてを見せない霧の神秘を素直に表す色（蒙霧升降にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "交通信号の日",
+    "kind": "記念日",
+    "text": "1931年。東京・銀座に日本初の3色の自動信号機が置かれたことにちなむ日",
+    "source": "https://netlab.click/todayis/0820"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1220",
@@ -115132,7 +116319,14 @@
    "name": "乳白色",
    "note": "にゅうはくしょく／#F3F3F3／乳のような白。人を包みこむ綿のやわらかさを映す色（綿柎開にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ドレッシングの日",
+    "kind": "記念日",
+    "text": "夏野菜のサラダをいろいろなドレッシングで、もっとおいしく楽しむ日。",
+    "source": "https://netlab.click/todayis/0824"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0421",
@@ -115610,7 +116804,20 @@
    "name": "象牙色",
    "note": "ぞうげいろ／#F8F4E6／象牙のような温かい白。手に取った綿花のなめらかさ（綿柎開にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "即席ラーメン記念日",
+    "kind": "できごと",
+    "text": "1958年。お湯をかけるだけで食べられる世界初の即席ラーメンが発売された日",
+    "source": "https://netlab.click/todayis/0825"
+   },
+   {
+    "title": "川柳発祥の日",
+    "kind": "記念日",
+    "text": "五・七・五で暮らしの機微を軽やかに詠む、川柳の始まりにちなむ日。",
+    "source": "https://tabi-mag.jp/day0825/"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1225",
@@ -116090,7 +117297,20 @@
    "name": "鳥の子色",
    "note": "とりのこいろ／#FFF1CF／卵の殻のような淡い黄。綿にくるまれる安心感の色（綿柎開にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "レインボーブリッジが開通",
+    "kind": "できごと",
+    "text": "1993年。東京湾をまたぐレインボーブリッジが開通し、新しい夜景の名所が生まれた",
+    "source": "https://zatsuneta.com/archives/108261.html"
+   },
+   {
+    "title": "世界犬の日",
+    "kind": "記念日",
+    "text": "人のそばで暮らす大切な相棒、犬たちへの感謝と愛情を伝える日。",
+    "source": "https://netlab.click/todayis/0826"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1226",
@@ -116568,7 +117788,20 @@
    "name": "胡粉色",
    "note": "ごふんいろ／#FFFFFC／貝殻から作る白い顔料の色。がくから覗く綿の純白（綿柎開にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "映画『男はつらいよ』公開",
+    "kind": "できごと",
+    "text": "1969年。寅さんでおなじみの映画シリーズ第1作が公開された日。のちに「寅さんの日」に",
+    "source": "https://zatsuneta.com/archives/108272.html"
+   },
+   {
+    "title": "ジェラートの日",
+    "kind": "記念日",
+    "text": "夏の終わりに、なめらかで果物の香るイタリアの氷菓ジェラートを味わう日。",
+    "source": "https://netlab.click/todayis/0827"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0424",
@@ -117047,7 +118280,20 @@
    "name": "灰汁色",
    "note": "あくいろ／#9E9478／灰汁のような黄みの灰。浮ついた夏から地に足つく季節（天地始粛にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "民放テレビの本放送開始",
+    "kind": "できごと",
+    "text": "1953年。日本で初めて民間放送のテレビが本放送を始めた日。娯楽の幅が広がった",
+    "source": "https://tabi-mag.jp/day0828/"
+   },
+   {
+    "title": "気象予報士の日",
+    "kind": "記念日",
+    "text": "毎日の天気を読み解き伝える、気象予報士の仕事に光を当てる日。",
+    "source": "https://tabi-mag.jp/day0828/"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0425",
@@ -119508,12 +120754,6 @@
     "title": "宝くじの日",
     "kind": "記念日",
     "text": "「く(9)じ(2)」の語呂合わせ。夢を買う楽しみに思いをはせる日",
-    "source": "https://netlab.click/todayis/0902"
-   },
-   {
-    "title": "靴の日",
-    "kind": "記念日",
-    "text": "「く(9)つ(2)」の語呂から。足元をととのえ、お気に入りの靴を手入れする日",
     "source": "https://netlab.click/todayis/0902"
    },
    {
@@ -123977,7 +125217,20 @@
    "name": "水色",
    "note": "みずいろ／#BCE2E8／澄んだ水の色。小さな露の粒に映る秋空の青（草露白にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "公衆電話の日",
+    "kind": "できごと",
+    "text": "1900年。上野駅と新橋駅に、日本初の自動公衆電話が置かれた日",
+    "source": "https://netlab.click/todayis/0911"
+   },
+   {
+    "title": "たんぱく質の日",
+    "kind": "記念日",
+    "text": "体をつくるたんぱく質の大切さを知り、毎日の食事を見直す日。",
+    "source": "https://netlab.click/todayis/0911"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0108",
@@ -124451,7 +125704,20 @@
    "name": "薄花色",
    "note": "うすはないろ／#698AAB／淡い縹色。露が光る朝の澄みきった空気を映す（草露白にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "宇宙の日",
+    "kind": "記念日",
+    "text": "1992年。日本人宇宙飛行士がスペースシャトルで宇宙へ飛び立った日にちなむ",
+    "source": "https://netlab.click/todayis/0912"
+   },
+   {
+    "title": "マラソンの日",
+    "kind": "記念日",
+    "text": "古代ギリシャの伝令の走りにちなむ、長い道のりに挑む人を応援する日",
+    "source": "https://netlab.click/todayis/0912"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0109",
@@ -124923,7 +126189,14 @@
    "name": "薄鈍",
    "note": "うすにび／#ADADAD／淡い鈍色。せきれいが尾を振る川原の石の色（鶺鴒鳴にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界の法の日",
+    "kind": "記念日",
+    "text": "法の力で世界の平和を守ろうと、国際会議で定められた日",
+    "source": "https://netlab.click/todayis/0913"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0511",
@@ -125394,7 +126667,20 @@
    "name": "鉛色",
    "note": "なまりいろ／#7B7C7D／鉛のような青みの灰。水辺を歩くせきれいの羽色（鶺鴒鳴にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "コスモスの日",
+    "kind": "記念日",
+    "text": "秋桜の花に気持ちを込めて、大切な人へ思いを伝える日",
+    "source": "https://netlab.click/todayis/0914"
+   },
+   {
+    "title": "食いしん坊の日",
+    "kind": "記念日",
+    "text": "おいしいものを味わう喜びを、ちょっと欲張りに楽しもうという日。",
+    "source": "https://netlab.click/todayis/0914"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0514",
@@ -125866,7 +127152,20 @@
    "name": "消炭色",
    "note": "けしずみいろ／#524E4D／消し炭の黒に近い灰。せきれいの胸元の黒い模様（鶺鴒鳴にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "老人の日",
+    "kind": "記念日",
+    "text": "人生の先輩に感謝を伝え、長い歩みをたたえる日",
+    "source": "https://netlab.click/todayis/0915"
+   },
+   {
+    "title": "ひじきの日",
+    "kind": "記念日",
+    "text": "健康長寿にちなみ、栄養たっぷりのひじきを食べようという日",
+    "source": "https://netlab.click/todayis/0915"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0112",
@@ -126340,7 +127639,20 @@
    "name": "鶸色",
    "note": "ひわいろ／#D7CF3A／鶸の羽の黄緑。黄色い腹をもつ黄せきれいを思わせる（鶺鴒鳴にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "オゾン層保護のための国際デー",
+    "kind": "記念日",
+    "text": "地球を包むオゾン層を守る取り決めを記念する、国連の国際デー",
+    "source": "https://tabi-mag.jp/day0916/"
+   },
+   {
+    "title": "マッチの日",
+    "kind": "記念日",
+    "text": "シュッと擦れば火がともる、昔ながらの道具マッチに親しむ日。",
+    "source": "https://tabi-mag.jp/day0916/"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0514",
@@ -127298,7 +128610,20 @@
    "name": "留紺",
    "note": "とめこん／#1C305C／これ以上濃くできない紺。つばめの背の深い色（玄鳥去にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "しまくとぅばの日",
+    "kind": "記念日",
+    "text": "沖縄の島ことばを受け継ぎ、話して楽しもうと県が定めた日",
+    "source": "https://netlab.click/todayis/0918"
+   },
+   {
+    "title": "かいわれ大根の日",
+    "kind": "記念日",
+    "text": "ピリッと辛いかいわれ大根の魅力を伝える日",
+    "source": "https://netlab.click/todayis/0918"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0115",
@@ -127771,7 +129096,14 @@
    "name": "褐色",
    "note": "かちいろ／#4D4C61／黒に近い濃紺。旅立ちを「勝ち」に通じる縁起の色（玄鳥去にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "苗字の日",
+    "kind": "できごと",
+    "text": "1870年。一般の人々も苗字を名乗ってよいとする布告が出された日",
+    "source": "https://netlab.click/todayis/0919"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0116",
@@ -128244,7 +129576,20 @@
    "name": "臙脂色",
    "note": "えんじいろ／#B94047／深い紅。つばめの喉元にある赤い羽にちなむ色（玄鳥去にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "空の日",
+    "kind": "記念日",
+    "text": "空と飛行機に親しみ、航空の役割を知ってもらうための日",
+    "source": "https://netlab.click/todayis/0920"
+   },
+   {
+    "title": "バスの日",
+    "kind": "できごと",
+    "text": "1903年。京都で日本初の営業用乗合バスが走った日にちなむ",
+    "source": "https://zatsuneta.com/archives/109202.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0117",
@@ -128717,7 +130062,14 @@
    "name": "褐色",
    "note": "かちいろ／#4D4C61／黒に近い濃紺。旅立ちを「勝ち」に通じる縁起の色（玄鳥去にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "国際平和デー",
+    "kind": "記念日",
+    "text": "世界中で争いをやめ、平和について考えようと国連が定めた日",
+    "source": "https://netlab.click/todayis/0921"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0118",
@@ -129193,7 +130545,14 @@
    "name": "臙脂色",
    "note": "えんじいろ／#B94047／深い紅。つばめの喉元にある赤い羽にちなむ色（玄鳥去にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "カーフリーデー",
+    "kind": "記念日",
+    "text": "車を置いて歩きや自転車で街を楽しもうと呼びかける日",
+    "source": "https://netlab.click/todayis/0922"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0520",
@@ -129669,7 +131028,20 @@
    "name": "薄色",
    "note": "うすいろ／#A89DAC／淡い紫。稲光のなごりをそっと残す秋の夕空（雷乃収声にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "万年筆の日",
+    "kind": "できごと",
+    "text": "1809年。インクを内蔵したペンの特許がイギリスで認められた日にちなむ",
+    "source": "https://zatsuneta.com/archives/109235.html"
+   },
+   {
+    "title": "手話言語の国際デー",
+    "kind": "記念日",
+    "text": "手話も大切な言語のひとつ。手で語る言葉への理解を広げる国際デー。",
+    "source": "https://netlab.click/todayis/0923"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0523",
@@ -130139,7 +131511,20 @@
    "name": "紅藤",
    "note": "べにふじ／#CCA6BF／赤みの藤色。雷雨のあと晴れ間にさす柔らかな光（雷乃収声にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "清掃の日",
+    "kind": "記念日",
+    "text": "ごみの処理と街の清潔を定めた法律の施行にちなむ、きれいを考える日",
+    "source": "https://netlab.click/todayis/0924"
+   },
+   {
+    "title": "世界ゴリラの日",
+    "kind": "記念日",
+    "text": "森でくらすゴリラと、そのすみかの森を守ることを考える日。",
+    "source": "https://netlab.click/todayis/0924"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0121",
@@ -131086,7 +132471,20 @@
    "name": "薄色",
    "note": "うすいろ／#A89DAC／淡い紫。稲光のなごりをそっと残す秋の夕空（雷乃収声にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ワープロの日",
+    "kind": "できごと",
+    "text": "1978年。日本語ワードプロセッサーが初めて発表された日にちなむ",
+    "source": "https://netlab.click/todayis/0926"
+   },
+   {
+    "title": "くつろぎの日",
+    "kind": "記念日",
+    "text": "忙しい毎日の中で、ほっとくつろぐ時間を大切にしようという日。",
+    "source": "https://netlab.click/todayis/0926"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0526",
@@ -131558,7 +132956,20 @@
    "name": "葡萄鼠",
    "note": "ぶどうねずみ／#705B67／赤紫を帯びた鼠色。雷が鳴りをひそめた重い雲（雷乃収声にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界観光の日",
+    "kind": "記念日",
+    "text": "旅と観光が人や文化をつなぐことを広く伝える国際デー",
+    "source": "https://netlab.click/todayis/0927"
+   },
+   {
+    "title": "女性ドライバーの日",
+    "kind": "できごと",
+    "text": "1917年。日本で初めて女性に自動車の運転免許が交付された日にちなむ",
+    "source": "https://netlab.click/todayis/0927"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0124",
@@ -132032,7 +133443,14 @@
    "name": "丁子茶",
    "note": "ちょうじちゃ／#B4866B／丁子で染めた茶色。冬支度を整える温かな巣の色（蟄虫坏戸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "パソコン記念日",
+    "kind": "できごと",
+    "text": "1979年。パソコンの普及を後押しした国産機が発売されたことにちなむ日。",
+    "source": "https://netlab.click/todayis/0928"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0125",
@@ -132509,7 +133927,20 @@
    "name": "焦茶",
    "note": "こげちゃ／#6F4B3E／焦げたような濃い茶。冬ごもりする土の中の暗さ（蟄虫坏戸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "招き猫の日",
+    "kind": "記念日",
+    "text": "「く(9)る(2)ふ(9)く」の語呂。福を呼ぶ招き猫に親しむ日",
+    "source": "https://zatsuneta.com/archives/109293.html"
+   },
+   {
+    "title": "洋菓子の日",
+    "kind": "記念日",
+    "text": "フランスで菓子職人の守り神とされる聖人の祝日にちなむ、洋菓子を楽しむ日。",
+    "source": "https://zatsuneta.com/archives/109294.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0126",
@@ -132987,7 +134418,20 @@
    "name": "土器色",
    "note": "かわらけいろ／#C37854／素焼きの土器の色。虫がふさぐ土の戸を思わせる（蟄虫坏戸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界翻訳の日",
+    "kind": "記念日",
+    "text": "言葉の壁をこえて人と文化をつなぐ翻訳者をたたえる国際デー",
+    "source": "https://netlab.click/todayis/0930"
+   },
+   {
+    "title": "くるみの日",
+    "kind": "記念日",
+    "text": "「く(9)るみ(3)のまる(0)」の語呂から、栄養豊かなくるみを味わう日。",
+    "source": "https://netlab.click/todayis/0930"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0127",
@@ -133467,7 +134911,20 @@
    "name": "涅色",
    "note": "くりいろ／#554738／川底の黒い泥の色。虫たちの眠る湿った土の色（蟄虫坏戸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "コーヒーの日",
+    "kind": "記念日",
+    "text": "コーヒー豆の新年度が始まる日。一杯の香りでひと息つく日",
+    "source": "https://netlab.click/todayis/1001"
+   },
+   {
+    "title": "都民の日",
+    "kind": "記念日",
+    "text": "東京都の前身・東京市の誕生にちなむ、都民のための日",
+    "source": "https://netlab.click/todayis/1001"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0128",
@@ -133949,7 +135406,20 @@
    "name": "丁子茶",
    "note": "ちょうじちゃ／#B4866B／丁子で染めた茶色。冬支度を整える温かな巣の色（蟄虫坏戸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "豆腐の日",
+    "kind": "記念日",
+    "text": "「とう(10)ふ(2)」の語呂。毎日の食卓を支える豆腐を味わう日",
+    "source": "https://netlab.click/todayis/1002"
+   },
+   {
+    "title": "とんこつラーメンの日",
+    "kind": "記念日",
+    "text": "福岡・久留米のラーメン店の会が「とん(10)こつ(2)」の語呂から定めた日。",
+    "source": "https://netlab.click/todayis/1002"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0129",
@@ -134432,7 +135902,14 @@
    "name": "枯草色",
    "note": "かれくさいろ／#E4DC8A／枯れた草の淡い黄。水を抜いて乾いていく田の色（水始涸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "登山の日",
+    "kind": "記念日",
+    "text": "1992年。「と(10)ざん(3)」の語呂。山の魅力と安全な山歩きを考える日",
+    "source": "https://zatsuneta.com/archives/110031.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0130",
@@ -134913,7 +136390,20 @@
    "name": "砥粉色",
    "note": "とのこいろ／#F4DDA5／砥石の粉のような淡い茶。水が引いた田の土の色（水始涸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "イワシの日",
+    "kind": "記念日",
+    "text": "1985年。「い(1)わ(0)し(4)」の語呂。身近な魚の栄養とおいしさを知る日",
+    "source": "https://zatsuneta.com/archives/110041.html"
+   },
+   {
+    "title": "天使の日",
+    "kind": "記念日",
+    "text": "「テン(10)シ(4)」の語呂から。やさしい心を思い出す日",
+    "source": "https://zatsuneta.com/archives/a1004.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0131",
@@ -135875,7 +137365,14 @@
    "name": "香色",
    "note": "こういろ／#EFCD9A／香木で染めた淡い黄茶。実りを収める前の穏やかさ（水始涸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "国際協力の日",
+    "kind": "できごと",
+    "text": "1954年。日本が途上国支援の枠組みに加わり、国際協力を始めた日",
+    "source": "https://zatsuneta.com/archives/a1006.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0603",
@@ -136829,7 +138326,20 @@
    "name": "空色",
    "note": "そらいろ／#A0D8EF／晴れた空の色。雁が列をなして渡ってくる秋空（鴻雁来にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "木の日",
+    "kind": "記念日",
+    "text": "1977年。「十」と「八」を組み合わせると「木」。木と暮らしのつながりを考える日",
+    "source": "https://zatsuneta.com/archives/110084.html"
+   },
+   {
+    "title": "足袋の日",
+    "kind": "記念日",
+    "text": "着物の足元を引き立てる足袋に親しみ、和装の楽しさを見直す日。",
+    "source": "https://netlab.click/todayis/1008"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0204",
@@ -137308,7 +138818,20 @@
    "name": "天色",
    "note": "あまいろ／#2CA9E1／澄みわたる天の青。遠くの便りを運ぶ雁が飛ぶ空（鴻雁来にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界郵便デー",
+    "kind": "記念日",
+    "text": "万国郵便連合の設立を記念し、手紙が世界をつなぐことを伝える日",
+    "source": "https://zatsuneta.com/archives/110092.html"
+   },
+   {
+    "title": "トラックの日",
+    "kind": "記念日",
+    "text": "1992年。「ト(10)ラック(9)」の語呂。物流を支えるトラックに感謝する日",
+    "source": "https://zatsuneta.com/archives/110091.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0606",
@@ -137784,7 +139307,20 @@
    "name": "納戸色",
    "note": "なんどいろ／#008899／深い青緑。雁が越えてくる北の海を思わせる色（鴻雁来にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "目の愛護デー",
+    "kind": "記念日",
+    "text": "10と10を横に倒すと眉と目に見えることから。目を大切にする日",
+    "source": "https://zatsuneta.com/archives/110101.html"
+   },
+   {
+    "title": "銭湯の日",
+    "kind": "記念日",
+    "text": "「せん(1010)とう」の語呂。広い湯船でゆったり温まる日",
+    "source": "https://zatsuneta.com/archives/110104.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0607",
@@ -138259,7 +139795,20 @@
    "name": "舛花色",
    "note": "ますはないろ／#5B7E91／灰みの青。雁が渡る夕暮れの少し曇った空の色（鴻雁来にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ウインクの日",
+    "kind": "記念日",
+    "text": "1011を横から見るとウインクしている顔に見えることから",
+    "source": "https://netlab.click/todayis/1011"
+   },
+   {
+    "title": "国際ガールズ・デー",
+    "kind": "記念日",
+    "text": "世界の女の子たちが夢を持って学び、生きられるよう応援する国際デー。",
+    "source": "https://netlab.click/todayis/1011"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0608",
@@ -138739,7 +140288,14 @@
    "name": "灰茶",
    "note": "はいちゃ／#98623C／灰みの茶。雁の羽のくすんだ茶色にちなむ色（鴻雁来にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "豆乳の日",
+    "kind": "記念日",
+    "text": "大豆からできる豆乳の良さを伝え、毎日の習慣にしようという日",
+    "source": "https://zatsuneta.com/category/anniversary10.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0609",
@@ -139216,7 +140772,14 @@
    "name": "麹塵",
    "note": "きくじん／#6E7955／天皇の袍の灰緑。気品と格式を備えた菊の葉の色（菊花開にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "サツマイモの日",
+    "kind": "記念日",
+    "text": "「栗(九里)より(四里)うまい十三里」にちなむ、焼きいもを味わう日",
+    "source": "https://zatsuneta.com/category/anniversary10.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0611",
@@ -139696,7 +141259,20 @@
    "name": "古代紫",
    "note": "こだいむらさき／#895B8A／くすんだ紫。高貴の象徴である菊の御紋に通じる色（菊花開にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "鉄道の日",
+    "kind": "できごと",
+    "text": "1872年。新橋と横浜の間に、日本初の鉄道が開業した日",
+    "source": "https://zatsuneta.com/archives/110141.html"
+   },
+   {
+    "title": "くまのプーさん原作デビューの日",
+    "kind": "記念日",
+    "text": "世界中で愛されるくまのプーさんが、物語の本で初めて世に出たことにちなむ日。",
+    "source": "https://zatsuneta.com/archives/110144.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0210",
@@ -140176,7 +141752,20 @@
    "name": "支子色",
    "note": "くちなしいろ／#FBCA4D／梔子の実で染めた黄。菊の花びらの温かな黄色（菊花開にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "きのこの日",
+    "kind": "記念日",
+    "text": "きのこの消費が増える秋に、その魅力と栄養を知ってもらう日",
+    "source": "https://netlab.click/todayis/1015"
+   },
+   {
+    "title": "世界手洗いの日",
+    "kind": "記念日",
+    "text": "正しい手洗いの大切さを世界に広める国際デー",
+    "source": "https://netlab.click/todayis/1015"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0612",
@@ -140655,7 +142244,20 @@
    "name": "麹塵",
    "note": "きくじん／#6E7955／天皇の袍の灰緑。気品と格式を備えた菊の葉の色（菊花開にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界食料デー",
+    "kind": "記念日",
+    "text": "世界の食べものの問題を考え、食の大切さを見直す国際デー",
+    "source": "https://netlab.click/todayis/1016"
+   },
+   {
+    "title": "ボスの日",
+    "kind": "記念日",
+    "text": "日ごろお世話になっている上司に、感謝の気持ちを伝える日",
+    "source": "https://netlab.click/todayis/1016"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0614",
@@ -141138,7 +142740,14 @@
    "name": "古代紫",
    "note": "こだいむらさき／#895B8A／くすんだ紫。高貴の象徴である菊の御紋に通じる色（菊花開にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "沖縄そばの日",
+    "kind": "できごと",
+    "text": "1978年。「沖縄そば」の名前が正式に認められた日にちなむ",
+    "source": "https://netlab.click/todayis/1017"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0213",
@@ -141626,7 +143235,20 @@
    "name": "蒸栗色",
    "note": "むしくりいろ／#EBE1A9／蒸した栗の淡い黄。こおろぎが鳴く夜の灯りの色（蟋蟀在戸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "冷凍食品の日",
+    "kind": "記念日",
+    "text": "1986年。冷凍の目安マイナス18度と、冷凍の「とう(10)」から生まれた日",
+    "source": "https://zatsuneta.com/archives/110182.html"
+   },
+   {
+    "title": "統計の日",
+    "kind": "記念日",
+    "text": "暮らしを支える統計の大切さを知ってもらうための日",
+    "source": "https://zatsuneta.com/archives/110181.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0615",
@@ -142112,7 +143734,20 @@
    "name": "狐色",
    "note": "きつねいろ／#C38743／狐の毛の茶色。囲炉裏端のこんがりとした温もり（蟋蟀在戸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "バーゲンの日",
+    "kind": "できごと",
+    "text": "1895年。大阪の呉服店が、日本で初めて大売り出しを行った日にちなむ",
+    "source": "https://netlab.click/todayis/1019"
+   },
+   {
+    "title": "海外旅行の日",
+    "kind": "記念日",
+    "text": "見知らぬ国の街並みや食べものに思いをはせ、旅の計画を立てたくなる日。",
+    "source": "https://netlab.click/todayis/1019"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0214",
@@ -142597,7 +144232,20 @@
    "name": "榛色",
    "note": "はしばみいろ／#BFA46F／榛の実の黄みの茶。戸口の木の柱のような素朴さ（蟋蟀在戸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "頭髪の日",
+    "kind": "記念日",
+    "text": "「とう(10)はつ(20)」の語呂。髪と頭皮の健康を見直す日",
+    "source": "https://zatsuneta.com/archives/110203.html"
+   },
+   {
+    "title": "新聞広告の日",
+    "kind": "記念日",
+    "text": "新聞週間にちなみ、新聞広告の役割を知ってもらう日",
+    "source": "https://netlab.click/todayis/1020"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0617",
@@ -143080,7 +144728,14 @@
    "name": "狐色",
    "note": "きつねいろ／#C38743／狐の毛の茶色。囲炉裏端のこんがりとした温もり（蟋蟀在戸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "あかりの日",
+    "kind": "できごと",
+    "text": "1879年。エジソンの白熱電球が長時間ともり続けた日にちなむ",
+    "source": "https://zatsuneta.com/archives/110211.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0618",
@@ -143562,7 +145217,20 @@
    "name": "榛色",
    "note": "はしばみいろ／#BFA46F／榛の実の黄みの茶。戸口の木の柱のような素朴さ（蟋蟀在戸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "時代祭",
+    "kind": "行事",
+    "text": "京都・平安神宮の祭り。各時代の装いをした行列が都大路を進む",
+    "source": "https://zatsuneta.com/category/anniversary10.html"
+   },
+   {
+    "title": "アニメの日",
+    "kind": "記念日",
+    "text": "世界に愛される日本のアニメーション文化を、あらためて楽しむ日。",
+    "source": "https://zatsuneta.com/category/anniversary10.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0620",
@@ -144047,7 +145715,20 @@
    "name": "檜皮色",
    "note": "ひわだいろ／#965036／檜の樹皮の茶色。虫の声を聞く家の屋根の色（蟋蟀在戸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "電信電話記念日",
+    "kind": "できごと",
+    "text": "1869年。横浜に電信機役所が置かれ、日本の電信の歩みが始まったことにちなむ日。",
+    "source": "https://zatsuneta.com/archives/110231.html"
+   },
+   {
+    "title": "津軽弁の日",
+    "kind": "記念日",
+    "text": "津軽の言葉の味わいを、詩や語りで楽しむ日",
+    "source": "https://netlab.click/todayis/1023"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0219",
@@ -144528,7 +146209,20 @@
    "name": "錫色",
    "note": "すずいろ／#9EA1A3／錫のような灰色。霜で冷えきった空気の硬さ（霜始降にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "文鳥の日",
+    "kind": "記念日",
+    "text": "「手(10)に幸せ(4)」の語呂。手乗り文鳥のかわいさを伝える日",
+    "source": "https://netlab.click/todayis/1024"
+   },
+   {
+    "title": "国連デー",
+    "kind": "記念日",
+    "text": "1945年。国際連合が発足した日。世界の協力について考える国際デー",
+    "source": "https://zatsuneta.com/archives/110241.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0624",
@@ -145007,7 +146701,20 @@
    "name": "藍白",
    "note": "あいじろ／#EBF6F7／藍染の最も淡い色。霜の白にかすかに青みが差す（霜始降にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "民間航空記念日",
+    "kind": "できごと",
+    "text": "1951年。戦後初めて、日本の民間航空会社の定期便が飛んだ日",
+    "source": "https://zatsuneta.com/archives/110253.html"
+   },
+   {
+    "title": "世界パスタデー",
+    "kind": "記念日",
+    "text": "1995年。世界のパスタ関係者が集った会議にちなむ、パスタを楽しむ日",
+    "source": "https://netlab.click/todayis/1025"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0623",
@@ -145484,7 +147191,20 @@
    "name": "錫色",
    "note": "すずいろ／#9EA1A3／錫のような灰色。霜で冷えきった空気の硬さ（霜始降にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "柿の日",
+    "kind": "できごと",
+    "text": "1895年。正岡子規が「柿くへば」の句を詠む旅に出た日にちなむ",
+    "source": "https://tabi-mag.jp/day1026/"
+   },
+   {
+    "title": "きしめんの日",
+    "kind": "記念日",
+    "text": "「つ(2)る(6)」の語呂から、名古屋名物のつるりと平たいきしめんを味わう日。",
+    "source": "https://netlab.click/todayis/1026"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0222",
@@ -145959,7 +147679,14 @@
    "name": "藍白",
    "note": "あいじろ／#EBF6F7／藍染の最も淡い色。霜の白にかすかに青みが差す（霜始降にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "読書週間の始まり（読書の日）",
+    "kind": "記念日",
+    "text": "文化の日をはさむ2週間の始まり。秋の夜長に本を開く日",
+    "source": "https://netlab.click/todayis/1027"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0627",
@@ -146439,7 +148166,20 @@
    "name": "灰白色",
    "note": "かいはくしょく／#E9E4D4／灰みの白。初霜が降りて白く変わった野原の色（霜始降にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "速記記念日",
+    "kind": "できごと",
+    "text": "1882年。日本式の速記法を教える講習会が初めて開かれた日",
+    "source": "https://zatsuneta.com/archives/110281.html"
+   },
+   {
+    "title": "群馬県民の日",
+    "kind": "記念日",
+    "text": "1871年。廃藩置県で「群馬県」という名前が初めて使われたことにちなむ県の日。",
+    "source": "https://netlab.click/todayis/1028"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0223",
@@ -146914,7 +148654,20 @@
    "name": "深川鼠",
    "note": "ふかがわねず／#97A791／青緑みの鼠色。時雨に濡れる町並みの粋な色（霎時施にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "インターネットの始まり",
+    "kind": "できごと",
+    "text": "1969年。アメリカで、のちのインターネットにつながる最初の通信が行われた日",
+    "source": "https://netlab.click/todayis/1029"
+   },
+   {
+    "title": "おしぼりの日",
+    "kind": "記念日",
+    "text": "おしぼりのおもてなしの心を伝える、日本らしい記念日",
+    "source": "https://netlab.click/todayis/1029"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0629",
@@ -147394,7 +149147,20 @@
    "name": "鉄御納戸",
    "note": "てつおなんど／#455765／暗い青灰色。雨雲が流れていく時雨の空模様（霎時施にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "初恋の日",
+    "kind": "できごと",
+    "text": "1896年。島崎藤村の詩「初恋」が雑誌に発表された日にちなむ",
+    "source": "https://tabi-mag.jp/day1030/"
+   },
+   {
+    "title": "たまごかけごはんの日",
+    "kind": "記念日",
+    "text": "2005年。島根県雲南市で開かれた催しにちなむ日。新米と卵がおいしい季節。",
+    "source": "https://zatsuneta.com/archives/110303.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0630",
@@ -147876,7 +149642,26 @@
    "name": "錆鼠",
    "note": "さびねず／#47585C／暗い青緑の鼠色。しとしと降る小雨の湿った重み（霎時施にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ハロウィン",
+    "kind": "行事",
+    "text": "秋の実りを祝う欧米由来の行事。仮装やかぼちゃの飾りを楽しむ",
+    "source": "https://zatsuneta.com/archives/110311.html"
+   },
+   {
+    "title": "日本茶の日",
+    "kind": "できごと",
+    "text": "1191年。栄西が中国から茶の種を持ち帰ったと伝わる日にちなむ",
+    "source": "https://zatsuneta.com/archives/110314.html"
+   },
+   {
+    "title": "ガス記念日",
+    "kind": "できごと",
+    "text": "1872年。横浜の街に日本初のガス灯がともった日にちなむ",
+    "source": "https://netlab.click/todayis/1031"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0629",
@@ -151329,6 +153114,12 @@
     "kind": "記念日",
     "text": "立冬のころで冬の訪れを感じる時期。家族で鍋を囲もうと定められた日",
     "source": "https://bestcalendar.jp/dates/kinenbi/4586"
+   },
+   {
+    "title": "ソースの日",
+    "kind": "記念日",
+    "text": "揚げ物やお好み焼きに欠かせない、香り豊かなソースを味わう日。",
+    "source": "https://zatsuneta.com/archives/11107a.html"
    }
   ],
   "compat_good": [
@@ -154272,6 +156063,12 @@
     "kind": "記念日",
     "text": "漆の製法が伝わったという言い伝えにちなみ、漆器の美しさを伝える日",
     "source": "https://bestcalendar.jp/dates/kinenbi/4737"
+   },
+   {
+    "title": "茨城県民の日",
+    "kind": "記念日",
+    "text": "1871年。「茨城」という県の名前が生まれた日にちなむ、県の誕生日。",
+    "source": "https://netlab.click/todayis/1113"
    }
   ],
   "compat_good": [
@@ -154752,7 +156549,20 @@
    "name": "黒茶",
    "note": "くろちゃ／#583822／黒に近い茶。凍てついた畑の土の色にちなむ（地始凍にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界糖尿病デー",
+    "kind": "記念日",
+    "text": "毎日の食事と運動を見直し、体の健康を守ろうと呼びかける国連の国際デー。",
+    "source": "https://netlab.click/todayis/1114"
+   },
+   {
+    "title": "埼玉県民の日",
+    "kind": "記念日",
+    "text": "1871年。埼玉県が誕生した日にちなみ、ふるさとの良さを見つめ直す県の日。",
+    "source": "https://netlab.click/todayis/1114"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0714",
@@ -158190,6 +160000,12 @@
     "kind": "できごと",
     "text": "1970年。フライドチキン専門店の日本1号店が名古屋に開店した日",
     "source": "https://bestcalendar.jp/articles/4837"
+   },
+   {
+    "title": "かきフライの日",
+    "kind": "記念日",
+    "text": "牡蠣がおいしくなる季節に、さくっと揚げたかきフライを味わう日。",
+    "source": "https://netlab.click/todayis/1121"
    }
   ],
   "compat_good": [
@@ -158677,6 +160493,12 @@
     "kind": "記念日",
     "text": "「いいふうふ」の語呂合わせで、夫婦でゆとりある時間を楽しもうという日",
     "source": "https://bestcalendar.jp/articles/4844"
+   },
+   {
+    "title": "回転寿司記念日",
+    "kind": "記念日",
+    "text": "お皿が目の前を回る、日本生まれの楽しい回転寿司にちなむ日。",
+    "source": "https://netlab.click/todayis/1122"
    }
   ],
   "compat_good": [
@@ -159161,6 +160983,12 @@
     "kind": "行事",
     "text": "1948年。働くことを尊び、互いに感謝し合う祝日。もとは収穫に感謝する日",
     "source": "https://hugkum.sho.jp/170165"
+   },
+   {
+    "title": "お赤飯の日",
+    "kind": "記念日",
+    "text": "収穫に感謝する季節に、お祝いの席を彩るお赤飯をいただく日。",
+    "source": "https://zatsuneta.com/archives/11123e.html"
    }
   ],
   "compat_good": [
@@ -160135,6 +161963,12 @@
     "kind": "記念日",
     "text": "1987年。ハイビジョンの走査線1125本にちなむ、高画質テレビの記念日",
     "source": "https://bestcalendar.jp/dates/kinenbi/135236"
+   },
+   {
+    "title": "金型の日",
+    "kind": "記念日",
+    "text": "身の回りの製品の形をつくる「金型」の技術に光を当てる、ものづくりの日。",
+    "source": "https://netlab.click/todayis/1125"
    }
   ],
   "compat_good": [
@@ -160618,6 +162452,12 @@
     "kind": "記念日",
     "text": "「いいふろ」の語呂合わせで、入浴でゆっくり温まろうという日",
     "source": "https://zatsuneta.com/archives/111262.html"
+   },
+   {
+    "title": "ペンの日",
+    "kind": "記念日",
+    "text": "1935年。日本ペンクラブの創立にちなみ、書くことと言葉の力を見つめる日。",
+    "source": "https://netlab.click/todayis/1126"
    }
   ],
   "compat_good": [
@@ -161103,6 +162943,12 @@
     "kind": "できごと",
     "text": "1895年。人類に貢献した人をたたえる賞を設けるとした遺言が書かれた日",
     "source": "https://bestcalendar.jp/dates/kinenbi/4919"
+   },
+   {
+    "title": "組立家具の日",
+    "kind": "記念日",
+    "text": "自分の手で組み立てる家具の楽しさと、暮らしの工夫を味わう日。",
+    "source": "https://netlab.click/todayis/1127"
    }
   ],
   "compat_good": [
@@ -163571,7 +165417,14 @@
    "name": "萱草色",
    "note": "かんぞういろ／#F8B862／萱草の花の黄橙。黄色く色づき始めた橘の実（橘始黄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "日本人宇宙飛行記念日",
+    "kind": "できごと",
+    "text": "1990年。日本人が初めて宇宙へ飛び立った日とされる",
+    "source": "https://netlab.click/todayis/1202"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0802",
@@ -164058,7 +165911,20 @@
    "name": "蜜柑色",
    "note": "みかんいろ／#F08300／蜜柑の実の色。冬に色づく柑橘の明るさと実り（橘始黄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "カレンダーの日",
+    "kind": "できごと",
+    "text": "1872年。太陰太陽暦から太陽暦への切り替えにちなむ日とされる",
+    "source": "https://netlab.click/todayis/1203"
+   },
+   {
+    "title": "奇術の日",
+    "kind": "記念日",
+    "text": "1990年。「ワン(1)・ツー(2)・スリー(3)」のかけ声から生まれた、手品を楽しむ日。",
+    "source": "https://zatsuneta.com/archives/112032.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0803",
@@ -164545,7 +166411,20 @@
    "name": "柑子色",
    "note": "こうじいろ／#F6AD49／柑子みかんの黄橙。橘に近い日本古来の柑橘の色（橘始黄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "血清療法の日",
+    "kind": "できごと",
+    "text": "1890年。日本人研究者らによる血清療法の論文発表にちなむ日とされる",
+    "source": "https://netlab.click/todayis/1204"
+   },
+   {
+    "title": "E.T.の日",
+    "kind": "記念日",
+    "text": "1982年。映画『E.T.』が日本で公開されたことにちなむ、心温まる友情を思う日。",
+    "source": "https://netlab.click/todayis/1204"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0804",
@@ -165030,7 +166909,20 @@
    "name": "黄丹",
    "note": "おうに／#EE7948／皇太子の袍の色。永遠を象徴する橘の高貴さ（橘始黄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "アルバムの日",
+    "kind": "記念日",
+    "text": "年末に一年の写真を整理しようと呼びかける日とされる",
+    "source": "https://zatsuneta.com/archives/112053.html"
+   },
+   {
+    "title": "国際ボランティア・デー",
+    "kind": "記念日",
+    "text": "誰かのために動くボランティアの力をたたえ、広げていこうという国際デー。",
+    "source": "https://netlab.click/todayis/1205"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0805",
@@ -165514,7 +167406,20 @@
    "name": "萱草色",
    "note": "かんぞういろ／#F8B862／萱草の花の黄橙。黄色く色づき始めた橘の実（橘始黄にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "音の日",
+    "kind": "記念日",
+    "text": "1877年。エジソンが音を記録して再生できる蓄音機を発明した日にちなむ、音の文化の日。",
+    "source": "https://netlab.click/todayis/1206"
+   },
+   {
+    "title": "シンフォニー記念日",
+    "kind": "記念日",
+    "text": "オーケストラが奏でる交響曲に耳をかたむけ、音楽の豊かさを味わう日。",
+    "source": "https://netlab.click/todayis/1206"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0806",
@@ -165997,7 +167902,20 @@
    "name": "墨",
    "note": "すみ／#595857／墨の色。天地の気がふさがる本格的な冬の重い空気（閉塞成冬にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "クリスマスツリーの日",
+    "kind": "できごと",
+    "text": "1886年。横浜の明治屋に、記録に残る日本初のクリスマスツリーが飾られた日。",
+    "source": "https://tabi-mag.jp/day1207/"
+   },
+   {
+    "title": "神戸港開港記念日",
+    "kind": "できごと",
+    "text": "神戸の港が海外に開かれ、異国の文化が行き交う港町の歩みが始まった日。",
+    "source": "https://tabi-mag.jp/day1207/"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0807",
@@ -166477,7 +168395,20 @@
    "name": "黒橡",
    "note": "くろつるばみ／#544A47／団栗で染めた黒。内にこもり静かに力を蓄える色（閉塞成冬にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "針供養",
+    "kind": "行事",
+    "text": "折れた針に感謝し、やわらかい豆腐などに刺して供養する行事（地域による）",
+    "source": "https://tabi-mag.jp/day1208/"
+   },
+   {
+    "title": "有機農業の日",
+    "kind": "記念日",
+    "text": "2006年。有機農業を進める法律の成立にちなみ、土と作物にやさしい農業を考える日。",
+    "source": "https://netlab.click/todayis/1208"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0808",
@@ -166956,7 +168887,14 @@
    "name": "鉄黒",
    "note": "てつぐろ／#281A14／鉄のような黒。ひとりで自分を深める静けさ（閉塞成冬にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "障害者の日",
+    "kind": "記念日",
+    "text": "1975年。国連で障害者の権利宣言が採択されたことにちなみ、共に暮らす社会を考える日。",
+    "source": "https://netlab.click/todayis/1209"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0809",
@@ -167439,7 +169377,14 @@
    "name": "憲法色",
    "note": "けんぽういろ／#543F32／黒みの茶。吉岡憲法に由来し内省の落ち着き（閉塞成冬にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "世界人権デー",
+    "kind": "記念日",
+    "text": "1948年。世界人権宣言が採択された日とされ、人の尊さを考える日",
+    "source": "https://netlab.click/todayis/1210"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0810",
@@ -167925,7 +169870,20 @@
    "name": "鉄黒",
    "note": "てつぐろ／#281A14／鉄のような黒。ひとりで自分を深める静けさ（閉塞成冬にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "胃腸の日",
+    "kind": "記念日",
+    "text": "2002年。「いい胃腸」の語呂合わせで、年末の胃腸をいたわる日とされる",
+    "source": "https://zatsuneta.com/archives/112112.html"
+   },
+   {
+    "title": "国際山岳デー",
+    "kind": "記念日",
+    "text": "山の自然とふもとの暮らしを大切にし、守っていこうという国連の国際デー。",
+    "source": "https://zatsuneta.com/archives/112114.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0811",
@@ -168407,7 +170365,20 @@
    "name": "黒",
    "note": "くろ／#2B2B2B／深い黒色。穴にこもって冬を越す熊の毛並み（熊蟄穴にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "漢字の日",
+    "kind": "記念日",
+    "text": "1995年。「いい字一字」の語呂合わせ。一年を表す漢字が発表される日",
+    "source": "https://zatsuneta.com/archives/112122.html"
+   },
+   {
+    "title": "バッテリーの日",
+    "kind": "記念日",
+    "text": "車や家電を陰で支える電池・バッテリーの役割を知ってもらう日。",
+    "source": "https://zatsuneta.com/archives/112121.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0812",
@@ -168890,7 +170861,20 @@
    "name": "漆黒",
    "note": "しっこく／#0D0015／漆のような艶のある黒。熊が眠る冬の穴の深い闇（熊蟄穴にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "正月事始め（すす払い）",
+    "kind": "行事",
+    "text": "お正月を迎える準備を始め、家のすすを払う昔からの習わし",
+    "source": "https://netlab.click/todayis/1213"
+   },
+   {
+    "title": "双子の日",
+    "kind": "記念日",
+    "text": "1874年。双子に関わる明治の政令にちなみ、双子の誕生とその絆を祝う日。",
+    "source": "https://netlab.click/todayis/1213"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0813",
@@ -169374,7 +171358,14 @@
    "name": "琥珀色",
    "note": "こはくいろ／#BF783A／琥珀の色。熊の好む蜂蜜と内に蓄えた力の象徴（熊蟄穴にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "南極の日",
+    "kind": "できごと",
+    "text": "1911年。人類が初めて南極点にたどり着いたとされる冒険の記念日",
+    "source": "https://zatsuneta.com/archives/112142.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0814",
@@ -169862,7 +171853,20 @@
    "name": "赤銅色",
    "note": "しゃくどういろ／#752100／赤みの銅色。月の輪熊の毛の赤みを思わせる（熊蟄穴にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "年賀郵便の受付開始",
+    "kind": "行事",
+    "text": "元日に届ける年賀状の特別な受付が始まる日。今年の締めくくりの便りを書く頃。",
+    "source": "https://tabi-mag.jp/day1215/"
+   },
+   {
+    "title": "観光バス記念日",
+    "kind": "記念日",
+    "text": "窓の外の景色を楽しみながら名所をめぐる、観光バスの旅に親しむ日。",
+    "source": "https://tabi-mag.jp/day1215/"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0815",
@@ -170353,7 +172357,20 @@
    "name": "茶色",
    "note": "ちゃいろ／#965042／茶の色。ひぐまの温かく豊かな毛並みにちなむ色（熊蟄穴にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "電話創業の日",
+    "kind": "できごと",
+    "text": "1890年。東京と横浜の間で日本初の電話サービスが始まったとされる日",
+    "source": "https://tabi-mag.jp/day1216/"
+   },
+   {
+    "title": "紙の記念日",
+    "kind": "記念日",
+    "text": "1875年。東京・王子の製紙工場が操業を始めたことにちなみ、紙のありがたさを思う日。",
+    "source": "https://zatsuneta.com/archives/112162.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0816",
@@ -170844,7 +172861,14 @@
    "name": "甚三紅",
    "note": "じんざもみ／#EE827C／紅花の代わりに染めた紅。原点に戻る鮭の色（鱖魚群にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "飛行機の日",
+    "kind": "できごと",
+    "text": "1903年。ライト兄弟が動力飛行に初めて成功したとされる日",
+    "source": "https://netlab.click/todayis/1217"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0817",
@@ -171329,7 +173353,14 @@
    "name": "珊瑚色",
    "note": "さんごいろ／#F5B1AA／珊瑚の淡い桃色。鮭が大きく育った遠い海の色（鱖魚群にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "東京駅完成記念日",
+    "kind": "できごと",
+    "text": "1914年。赤レンガの東京駅が完成し開業したとされる日",
+    "source": "https://zatsuneta.com/category/anniversary12.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0818",
@@ -171814,7 +173845,14 @@
    "name": "洗朱",
    "note": "あらいしゅ／#D0826C／淡い朱色。産卵期に赤く婚姻色に染まる鮭の体（鱖魚群にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "日本人初飛行の日",
+    "kind": "記念日",
+    "text": "日本人の操縦する飛行機が、日本の空を初めて公式に飛んだことにちなむ日。",
+    "source": "https://zatsuneta.com/archives/112191.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0819",
@@ -172299,7 +174337,20 @@
    "name": "退紅",
    "note": "あらぞめ／#D69090／薄い紅。流れに逆らう鮭の銀に差す紅みの色（鱖魚群にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ブリの日",
+    "kind": "記念日",
+    "text": "「ぶ(2)り(輪=0)」の語呂から、脂ののった冬のブリを味わう日。",
+    "source": "https://zatsuneta.com/archives/112204.html"
+   },
+   {
+    "title": "デパート開業の日",
+    "kind": "記念日",
+    "text": "日本のデパートの始まりにちなむ日。年末の華やかな売り場が似合う頃。",
+    "source": "https://tabi-mag.jp/day1220/"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0820",
@@ -172785,7 +174836,20 @@
    "name": "藍色",
    "note": "あいいろ／#165E83／濃い青。生まれた川へ戻る鮭が泳ぐ冷たい水（鱖魚群にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "遠距離恋愛の日",
+    "kind": "記念日",
+    "text": "数字の1221の形を、離れた二人が向き合う姿に見立てた日とされる",
+    "source": "https://zatsuneta.com/archives/112211.html"
+   },
+   {
+    "title": "回文の日",
+    "kind": "記念日",
+    "text": "「1221」が前から読んでも後ろから読んでも同じことにちなむ言葉遊びの日。",
+    "source": "https://zatsuneta.com/archives/112213.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0821",
@@ -173752,7 +175816,20 @@
    "name": "松葉色",
    "note": "まつばいろ／#839B5C／松の葉の緑。皆が眠る冬に宿る静かな生命力（乃東生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "東京タワー完工",
+    "kind": "できごと",
+    "text": "1958年。東京タワーが完成し、街の新しいシンボルが生まれたとされる日",
+    "source": "https://netlab.click/todayis/1223"
+   },
+   {
+    "title": "テレホンカードの日",
+    "kind": "できごと",
+    "text": "1982年。日本でテレホンカードが初めて発売されたとされる日",
+    "source": "https://netlab.click/todayis/1223"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0823",
@@ -174231,7 +176308,14 @@
    "name": "江戸紫",
    "note": "えどむらさき／#745399／青みの紫。夏に咲く夏枯草の紫の花にちなむ（乃東生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "クリスマス・イブ",
+    "kind": "行事",
+    "text": "家族や友人とごちそうやケーキを囲む、冬のにぎやかな夜",
+    "source": "https://netlab.click/todayis/1224"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0824",
@@ -174707,7 +176791,20 @@
    "name": "青丹",
    "note": "あおに／#99AB4E／くすんだ青緑。冬の野にそっと芽吹く若葉の色（乃東生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "クリスマス",
+    "kind": "行事",
+    "text": "プレゼントを贈り合い、冬の楽しいひとときを過ごす日",
+    "source": "https://zatsuneta.com/archives/112251.html"
+   },
+   {
+    "title": "スケートの日",
+    "kind": "記念日",
+    "text": "冬の氷の上をすいすいと滑る、スケートの楽しさに親しむ日。",
+    "source": "https://netlab.click/todayis/1225"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0825",
@@ -175185,7 +177282,20 @@
    "name": "深緑",
    "note": "ふかみどり／#00552E／深い緑。冬に力を発揮する独自の生命力の色（乃東生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "プロ野球誕生の日",
+    "kind": "できごと",
+    "text": "1934年。日本初のプロ野球チームが結成されたとされる日",
+    "source": "https://netlab.click/todayis/1226"
+   },
+   {
+    "title": "ボクシング・デー",
+    "kind": "記念日",
+    "text": "イギリスなどでクリスマスの翌日に祝う休日。日ごろの感謝を贈り物で伝える日。",
+    "source": "https://zatsuneta.com/archives/112262.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0826",
@@ -175665,7 +177775,20 @@
    "name": "樺色",
    "note": "かばいろ／#CD5E3C／樺桜の樹皮の赤茶。大鹿の毛並みの色にちなむ（麋角解にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ピーターパンの日",
+    "kind": "できごと",
+    "text": "1904年。劇『ピーター・パン』が初めて上演されたとされる日",
+    "source": "https://netlab.click/todayis/1227"
+   },
+   {
+    "title": "浅草仲見世記念日",
+    "kind": "記念日",
+    "text": "浅草寺へ続くにぎやかな商店街・仲見世の歩みにちなむ記念日。",
+    "source": "https://zatsuneta.com/archives/112271.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0427",
@@ -176146,7 +178269,20 @@
    "name": "肉桂色",
    "note": "にっけいいろ／#DD7A56／肉桂の樹皮の色。抜け落ちた古い角の温かな色（麋角解にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "シネマトグラフの日",
+    "kind": "記念日",
+    "text": "映画の原点とされるシネマトグラフにちなみ、スクリーンの物語を楽しむ日。",
+    "source": "https://netlab.click/todayis/1228"
+   },
+   {
+    "title": "ディスクジョッキーの日",
+    "kind": "記念日",
+    "text": "ラジオから流れる語りと音楽で、聴く人の心をつなぐDJに親しむ日。",
+    "source": "https://netlab.click/todayis/1228"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0428",
@@ -176628,7 +178764,20 @@
    "name": "枇杷茶",
    "note": "びわちゃ／#AE7C4F／枇杷の実を思わせる茶。冬毛になった鹿の毛の色（麋角解にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "シャンソンの日",
+    "kind": "記念日",
+    "text": "フランスの歌・シャンソンの、語りかけるような調べに耳をかたむける日。",
+    "source": "https://netlab.click/todayis/1229"
+   },
+   {
+    "title": "クレープの日",
+    "kind": "記念日",
+    "text": "薄く焼いた生地でクリームや果物を包む、甘いクレープを楽しむ日。",
+    "source": "https://netlab.click/todayis/1229"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0429",
@@ -177112,7 +179261,14 @@
    "name": "伽羅色",
    "note": "きゃらいろ／#D8A373／伽羅の香木の色。古いものを手放す静かな気品（麋角解にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "地下鉄記念日",
+    "kind": "できごと",
+    "text": "1927年。上野〜浅草間に日本初の地下鉄が開通したとされる日",
+    "source": "https://netlab.click/todayis/1230"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0830",
@@ -177600,7 +179756,14 @@
    "name": "白橡",
    "note": "しろつるばみ／#CBB994／白っぽい橡色。これから生まれ変わる新しい角の色（麋角解にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "大晦日",
+    "kind": "行事",
+    "text": "一年の最後の日。家族で過ごし、新しい年を迎える準備をする",
+    "source": "https://netlab.click/todayis/1231"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0902",
