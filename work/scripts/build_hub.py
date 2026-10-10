@@ -25,6 +25,7 @@ OUT = os.path.join(WORK, "out")
 SITE = "https://www.uranai.epoch-compass.com"
 HUB = "/366uranai/"
 WP_ASSET = "/wp-content/uploads/fh-b27/"
+ASSET_VER = "20261011"  # build_html.py の ASSET_VER と同じにする
 FONTS = ("https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Shippori+Mincho:wght@600;800"
          "&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap")
 SIGNS = ["牡羊座", "牡牛座", "双子座", "蟹座", "獅子座", "乙女座", "天秤座", "蠍座", "射手座", "山羊座", "水瓶座", "魚座"]
@@ -67,12 +68,13 @@ def shell(title, desc, url, body, sample, scripts=()):
     先頭に [no_toc]（Table of Contents Plus の目次を出さない）、本文はカスタムHTMLブロックで包む。
     <!--OffDef--> で WP QUADS の自動挿入を止める（広告の位置は本文の <!--Ads1--> などで決める）。"""
     pre = "../assets/" if sample else WP_ASSET
-    tail = "".join(f'\n<script src="{pre}{s}"></script>' for s in scripts)
+    v = "" if sample else f"?v={ASSET_VER}"  # 共通CSS/JSの版（build_html.py と同じ）
+    tail = "".join(f'\n<script src="{pre}{s}{v}"></script>' for s in scripts)
     inner = f'''<!--OffDef-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{FONTS}" rel="stylesheet">
-<link rel="stylesheet" href="{pre}fh-b27.css">
+<link rel="stylesheet" href="{pre}fh-b27.css{v}">
 {body}{tail}'''
     wp = inner if sample else f"[no_toc]\n<!-- wp:html -->\n{inner}\n<!-- /wp:html -->"
     note = "確認用（WordPress には out/ の同名ページの中身を貼る）" if sample else f"WordPress の本文に貼るのはここから（URL: {url}）"

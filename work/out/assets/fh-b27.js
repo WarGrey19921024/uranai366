@@ -261,7 +261,8 @@
     var mb=document.getElementById('fh-b27-mbtn');if(mb)mb.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',Number(x.value)===state.bioMonth?'true':'false')});
     root.querySelectorAll('[data-fh-view]').forEach(function(x){var v=x.getAttribute('data-fh-view');x.setAttribute('aria-pressed',v===state.view?'true':'false');if(v==='graph')x.disabled=!state.year;});
     var cal=document.getElementById('fh-b27-cal'),box=document.getElementById('fh-b27-bchart');
-    if(state.view==='graph'&&!state.year)state.view='cal';
+    if(!cal)state.view='graph';/* 古い本文（カレンダーの無いページ）でもグラフを出す */
+    else if(state.view==='graph'&&!state.year)state.view='cal';
     if(cal)cal.hidden=state.view!=='cal';var cb=root.querySelector('.fh-b27-calbox');if(cb)cb.setAttribute('data-view',state.view);if(box)box.hidden=state.view!=='graph';
     drawCal();drawDay();
     if(!box)return;if(!state.year){box.innerHTML='';return;}

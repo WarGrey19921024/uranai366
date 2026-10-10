@@ -24,6 +24,8 @@ const SAMPLE = path.join(__dirname, '..', 'out', 'sample');
       const before = await page.evaluate(() => ({
         overflow: document.documentElement.scrollWidth - window.innerWidth,
         chart: !!document.querySelector('#fh-b27-chart svg'),
+        calDays: document.querySelectorAll('#fh-b27-cal .fh-b27-cday').length,
+        dayout: (document.getElementById('fh-b27-dayout') || {}).textContent || '',
         legend: document.querySelectorAll('#fh-b27-leg button').length,
       }));
       await page.screenshot({ path: path.join(SAMPLE, `${mmdd}_${name}.png`), fullPage: true });
@@ -46,7 +48,24 @@ const SAMPLE = path.join(__dirname, '..', 'out', 'sample');
       await panel.screenshot({ path: path.join(SAMPLE, `${mmdd}_${name}_year${year}.png`) });
       const bio = await page.$('#b27-bio');
       await bio.screenshot({ path: path.join(SAMPLE, `${mmdd}_${name}_bio${year}.png`) });
-      const ok = !errors.length && before.overflow <= 0 && after.overflow <= 0 && before.chart && after.legend === before.legend + 2 && after.bioRows >= 28;
+      // カレンダーの日付を押す → その日のひとこと／グラフ表示に切り替え
+      await page.click('#fh-b27-cal .fh-b27-cday[data-d="15"]');
+      await page.waitForTimeout(100);
+      const day = await page.evaluate(() => document.getElementById('fh-b27-dayout').textContent);
+      await page.click('[data-fh-view="graph"]');
+      await page.waitForTimeout(100);
+      const graph = await page.evaluate(() => !!document.querySelector('#fh-b27-bchart svg') && !document.getElementById('fh-b27-bchart').hidden);
+      await page.click('[data-fh-view="cal"]');
+      // 2029年生まれ（赤ちゃん）：生まれる前の2027年はバイオリズムを出さない
+      const baby = mmdd === '0229' ? '2028' : '2029';
+      await page.selectOption('#fh-b27-y', baby);
+      await page.waitForTimeout(150);
+      const babyRes = await page.evaluate(() => ({ star: document.getElementById('fh-b27-star').textContent,
+        before: document.querySelectorAll('#fh-b27-btable td[colspan]').length, overflow: document.documentElement.scrollWidth - window.innerWidth }));
+      const okDay = /日の数 \d/.test(day) && /日の干支/.test(day) && /バイオリズム/.test(day) && /おみくじ/.test(day);
+      const ok = !errors.length && before.overflow <= 0 && after.overflow <= 0 && before.chart && after.legend === before.legend + 2 && after.bioRows >= 28
+        && before.calDays >= 28 && /日の数/.test(before.dayout) && okDay && graph && babyRes.star !== '—' && babyRes.before >= 28 && babyRes.overflow <= 0;
+      Object.assign(after, { day: day.slice(0, 80), graph, baby, babyRes });
       if (!ok) bad++;
       console.log(JSON.stringify({ mmdd, name, ok, errors, before, after }, null, 0));
       await page.close();

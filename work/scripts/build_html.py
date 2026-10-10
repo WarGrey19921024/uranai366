@@ -38,6 +38,8 @@ import calc_kanshi_kyusei as KK  # noqa: E402
 from item_cat import item_cat  # noqa: E402
 
 WP_ASSET = "/wp-content/uploads/fh-b27/"
+# 共通CSS/JSの版（作り直してファイルを上書きしたら変える）。URL に ?v= をつけて、閲覧者のブラウザに古いCSS/JSが残らないようにする
+ASSET_VER = "20261011"
 FONTS = "https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
 YEAR_MIN, YEAR_MAX = 1930, 2030  # 2030年まで（改善第1弾：親が赤ちゃんの分を見る）。節入り・旧暦の表も2030年まである
 SIGN_EN = {"牡羊座": "aries", "牡牛座": "taurus", "双子座": "gemini", "蟹座": "cancer", "獅子座": "leo",
@@ -983,12 +985,13 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
 
     body = "\n".join(H)
     pre = "../assets/" if sample else WP_ASSET
+    v = "" if sample else f"?v={ASSET_VER}"
     head_assets = (f'<link rel="preconnect" href="https://fonts.googleapis.com">\n'
                    f'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
                    f'<link href="{FONTS}" rel="stylesheet">\n'
-                   f'<link rel="stylesheet" href="{pre}fh-b27.css">')
-    tail_assets = (f'<script src="{pre}fh-b27-setsuiri.js"></script>\n<script src="{pre}fh-b27-kyureki.js"></script>\n'
-                   f'<script src="{pre}fh-b27.js"></script>')
+                   f'<link rel="stylesheet" href="{pre}fh-b27.css{v}">')
+    tail_assets = (f'<script src="{pre}fh-b27-setsuiri.js{v}"></script>\n<script src="{pre}fh-b27-kyureki.js{v}"></script>\n'
+                   f'<script src="{pre}fh-b27.js{v}"></script>')
     page = f'''<!DOCTYPE html>
 <html lang="ja">
 <head>
