@@ -801,6 +801,14 @@
    "text": "青い梅で梅酒や梅シロップを仕込む、季節の手仕事が始まる頃。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "日本初の本格的な自動車レース",
+   "kind": "できごと",
+   "year": 1936,
+   "text": "多摩川スピードウェイで第1回全国自動車競走大会が開かれ、国産車も速さを競った日。",
+   "source_url": "https://gendai.media/articles/-/73093",
+   "confirmed": true
   }
  ],
  "0608": [
@@ -930,17 +938,17 @@
    "title": "小さな親切運動スタートの日",
    "kind": "記念日",
    "year": 1963,
-   "text": "「できる親切はみんなでしよう」という運動が始まったことにちなむ日。",
-   "source_url": "",
-   "confirmed": false
+   "text": "東大総長の卒業式での言葉をきっかけに、「小さな親切」運動が始まった日。",
+   "source_url": "https://zatsuneta.com/archives/106131.html",
+   "confirmed": true
   },
   {
    "title": "鉄人の日",
    "kind": "できごと",
    "year": 1987,
    "text": "衣笠祥雄さんがプロ野球の連続試合出場の世界記録を打ち立てた日。",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/106132.html",
+   "confirmed": true
   }
  ],
  "0614": [

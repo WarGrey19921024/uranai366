@@ -540,9 +540,9 @@
    "title": "主婦休みの日",
    "kind": "記念日",
    "year": null,
-   "text": "家事を担う人がひと休みし、家族で役割を分け合う日",
-   "source_url": "",
-   "confirmed": false
+   "text": "家事を担う人がひと休みし、家族で家事を分け合う日。1月・5月・9月の25日",
+   "source_url": "https://bestcalendar.jp/dates/kinenbi/130806",
+   "confirmed": true
   },
   {
    "title": "旬：かぼす",
@@ -752,17 +752,17 @@
    "title": "時刻表記念日",
    "kind": "できごと",
    "year": 1894,
-   "text": "日本で初めて本格的な時刻表が発行された日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "text": "日本初の本格的な全国時刻表『汽車汽船旅行案内』が刊行された日にちなむ",
+   "source_url": "https://bestcalendar.jp/dates/kinenbi/4077",
+   "confirmed": true
   },
   {
    "title": "旬：さつまいも",
    "kind": "旬",
    "year": null,
-   "text": "ほくほくのさつまいもが掘られる季節。焼きいもが恋しくなる",
-   "source_url": "",
-   "confirmed": false
+   "text": "一年中出回るさつまいもも、10月が本当の旬。焼きいもが恋しくなる季節",
+   "source_url": "https://www.city.isa.kagoshima.jp/wp-content/uploads/2023/12/05b5744f5069401f40abe17030ebbf97.pdf",
+   "confirmed": true
   }
  ],
  "1006": [
@@ -788,17 +788,17 @@
    "title": "長崎くんち",
    "kind": "行事",
    "year": null,
-   "text": "毎年10月7日から9日に行われる長崎の秋祭り。豪快な奉納踊りが見どころ",
-   "source_url": "",
-   "confirmed": false
+   "text": "毎年10月7日から9日に開かれる長崎の秋祭り。国の重要無形民俗文化財",
+   "source_url": "https://www.city.nagasaki.lg.jp/site/kodomo/66343.html",
+   "confirmed": true
   },
   {
    "title": "バーコードの日",
    "kind": "できごと",
    "year": 1952,
-   "text": "バーコードの特許がアメリカで認められた日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "text": "いまはレジに欠かせないバーコードの特許が、アメリカで認められた日にちなむ",
+   "source_url": "https://zatsuneta.com/archives/110073.html",
+   "confirmed": true
   }
  ],
  "1008": [

@@ -14359,7 +14359,14 @@
    "name": "青藍",
    "note": "せいらん／#274A78／藍よりも濃い青。一年でもっとも寒い大寒の時期（水沢腹堅にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "セレンディピティの日",
+    "kind": "記念日",
+    "text": "1754年。思いがけない幸運を見つける力「セレンディピティ」という言葉が生まれた日にちなむ",
+    "source": "https://netlab.click/todayis/0128"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1001",
@@ -18013,7 +18020,14 @@
    "name": "白藍",
    "note": "しらあい／#C1E4E9／春風にゆるんだ氷の下からのぞく、ごく淡い水の青（東風解凍にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "銀閣寺の日",
+    "kind": "記念日",
+    "text": "1482年。足利義政が京都・東山で、のちの銀閣寺となる山荘を造り始めた日にちなむ",
+    "source": "https://bestcalendar.jp/dates/kinenbi/140496"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1008",
@@ -46908,7 +46922,20 @@
    "name": "一斤染",
    "note": "いっこんぞめ／#F5B199／桜のつぼみがほころぶ瞬間の、やわらかな紅（桜始開にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "新わかめ",
+    "kind": "旬",
+    "text": "3月から5月に採れる新わかめの季節。やわらかな歯ざわりは春だけの味。",
+    "source": "https://www.edu.city.yokohama.lg.jp/school/es/sobuyama/index.cfm/1,3219,c,html/3219/R8.5.25.pdf"
+   },
+   {
+    "title": "国立競技場落成記念日",
+    "kind": "できごと",
+    "text": "1958年。のちに東京五輪の舞台となる国立霞ヶ丘陸上競技場が完成した日にちなむ。",
+    "source": "https://zatsuneta.com/archives/103301.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0803",
@@ -50603,6 +50630,12 @@
     "kind": "記念日",
     "text": "「し(4)ろ(6)」の語呂から、各地の城とその歴史に親しむ日。",
     "source": "https://zatsuneta.com/category/anniversary04.html"
+   },
+   {
+    "title": "コンビーフの日",
+    "kind": "記念日",
+    "text": "1875年。コンビーフを詰める台形の缶の特許が、アメリカで登録された日にちなむ日。",
+    "source": "https://zatsuneta.com/archives/104064.html"
    }
   ],
   "compat_good": [
@@ -53237,6 +53270,12 @@
     "kind": "できごと",
     "text": "1921年。長さや重さをメートル法で測る決まりが公布され、単位がそろい始めた日。",
     "source": "https://zatsuneta.com/archives/104111.html"
+   },
+   {
+    "title": "ガッツポーズの日",
+    "kind": "できごと",
+    "text": "1974年。ガッツ石松さんが世界王者になった喜びのポーズが「ガッツポーズ」と呼ばれた日。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/1955"
    }
   ],
   "compat_good": [
@@ -54292,6 +54331,12 @@
     "kind": "できごと",
     "text": "1888年。東京・上野に日本初の喫茶店「可否茶館」が開かれたことにちなむ日。",
     "source": "https://gendai.media/articles/-/63896"
+   },
+   {
+    "title": "水産デー",
+    "kind": "記念日",
+    "text": "1901年。日本で初めての漁業法が定められた日にちなみ、海の恵みと水産業を考える日。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/1966"
    }
   ],
   "compat_good": [
@@ -61189,6 +61234,12 @@
     "kind": "記念日",
     "text": "「よ(4)い風(2)呂(6)」の語呂から、お風呂でのんびり疲れを癒す日。",
     "source": "https://allabout.co.jp/gm/gc/454141/"
+   },
+   {
+    "title": "七人の侍の日",
+    "kind": "できごと",
+    "text": "1954年。黒澤明監督の映画『七人の侍』が公開され、のちに海外でも高く評価された日。",
+    "source": "https://zatsuneta.com/archives/104264.html"
    }
   ],
   "compat_good": [
@@ -61711,6 +61762,12 @@
     "kind": "できごと",
     "text": "1917年。京都から東京までたすきをつなぐ、日本初の駅伝が始まった日。",
     "source": "https://zatsuneta.com/archives/104272.html"
+   },
+   {
+    "title": "婦人警官記念日",
+    "kind": "できごと",
+    "text": "1946年。警視庁で日本初の女性警察官62人が採用され、勤務を始めた日にちなむ。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/2103"
    }
   ],
   "compat_good": [
@@ -62235,6 +62292,12 @@
     "kind": "できごと",
     "text": "1729年。徳川吉宗が取り寄せた象が、京の都で天皇の前に披露されたことにちなむ日。",
     "source": "https://tabi-mag.jp/day0428/"
+   },
+   {
+    "title": "缶ジュース発売記念日",
+    "kind": "できごと",
+    "text": "1954年。明治製菓が日本で初めての缶入りオレンジジュースを発売した日にちなむ。",
+    "source": "https://bestcalendar.jp/dates/kinenbi/2118"
    }
   ],
   "compat_good": [
@@ -83406,7 +83469,14 @@
    "name": "深緑",
    "note": "ふかみどり／#00552E／小さくても鎌を構える、かまきりの体の濃い緑（螳螂生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "日本初の本格的な自動車レース",
+    "kind": "できごと",
+    "text": "1936年。多摩川スピードウェイで第1回全国自動車競走大会が開かれ、国産車も速さを競った日。",
+    "source": "https://gendai.media/articles/-/73093"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0205",
@@ -86563,7 +86633,20 @@
    "name": "鉄色",
    "note": "てついろ／#005243／ほたるが生まれる水辺の草むらの、夜の暗い緑（腐草為螢にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "小さな親切運動スタートの日",
+    "kind": "記念日",
+    "text": "1963年。東大総長の卒業式での言葉をきっかけに、「小さな親切」運動が始まった日。",
+    "source": "https://zatsuneta.com/archives/106131.html"
+   },
+   {
+    "title": "鉄人の日",
+    "kind": "できごと",
+    "text": "1987年。衣笠祥雄さんがプロ野球の連続試合出場の世界記録を打ち立てた日。",
+    "source": "https://zatsuneta.com/archives/106132.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0211",
@@ -119802,7 +119885,14 @@
    "name": "薄柿",
    "note": "うすがき／#D4ACAD／淡くくすんだ柿色。カナカナの声に重なる夕焼けの名残（寒蝉鳴にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "阿波おどり",
+    "kind": "行事",
+    "text": "徳島市で毎年8月12日から15日に開かれ、100万人以上が訪れる踊りの祭り",
+    "source": "https://www.mlit.go.jp/tagengo-db/common/001557901.pdf"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "1215",
@@ -141376,7 +141466,14 @@
    "name": "半色",
    "note": "はしたいろ／#A69ABD／紫と薄紫の中間の色。激しさを収めた雷雲の名残（雷乃収声にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "主婦休みの日",
+    "kind": "記念日",
+    "text": "家事を担う人がひと休みし、家族で家事を分け合う日。1月・5月・9月の25日",
+    "source": "https://bestcalendar.jp/dates/kinenbi/130806"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0523",
@@ -146614,7 +146711,20 @@
    "name": "枯野色",
    "note": "かれのいろ／#D3CBC6／枯れ野の灰みの色。水が涸れて静まった田の風景（水始涸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "時刻表記念日",
+    "kind": "できごと",
+    "text": "1894年。日本初の本格的な全国時刻表『汽車汽船旅行案内』が刊行された日にちなむ",
+    "source": "https://bestcalendar.jp/dates/kinenbi/4077"
+   },
+   {
+    "title": "旬：さつまいも",
+    "kind": "旬",
+    "text": "一年中出回るさつまいもも、10月が本当の旬。焼きいもが恋しくなる季節",
+    "source": "https://www.city.isa.kagoshima.jp/wp-content/uploads/2023/12/05b5744f5069401f40abe17030ebbf97.pdf"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0201",
@@ -147646,7 +147756,20 @@
    "name": "枯野色",
    "note": "かれのいろ／#D3CBC6／枯れ野の灰みの色。水が涸れて静まった田の風景（水始涸にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "長崎くんち",
+    "kind": "行事",
+    "text": "毎年10月7日から9日に開かれる長崎の秋祭り。国の重要無形民俗文化財",
+    "source": "https://www.city.nagasaki.lg.jp/site/kodomo/66343.html"
+   },
+   {
+    "title": "バーコードの日",
+    "kind": "できごと",
+    "text": "1952年。いまはレジに欠かせないバーコードの特許が、アメリカで認められた日にちなむ",
+    "source": "https://zatsuneta.com/archives/110073.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0605",
@@ -187794,7 +187917,20 @@
    "name": "苔色",
    "note": "こけいろ／#69821B／苔の深い緑。冬至のころ芽を出す夏枯草の色（乃東生にちなむ）"
   },
-  "events": [],
+  "events": [
+   {
+    "title": "ねぎ",
+    "kind": "旬",
+    "text": "冬が旬のねぎ。産地の千葉では12月から2月が食べごろで、鍋に欠かせない",
+    "source": "https://www.pref.chiba.lg.jp/ryuhan/pbmgm/zukan/yasai/negi.html"
+   },
+   {
+    "title": "スープの日",
+    "kind": "記念日",
+    "text": "「いつ(12)もフーフー(22)」の語呂から、温かいスープを味わう日",
+    "source": "https://zatsuneta.com/archives/112226.html"
+   }
+  ],
   "compat_good": [
    {
     "mmdd": "0822",

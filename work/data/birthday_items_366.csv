@@ -185,6 +185,7 @@
 0128,誕生花,ネモフィラ,花ことば：他人思い,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0128,記念日・できごと（旬）,水仙,寒さの中で凛と咲き、甘い香りを放つ水仙が見ごろの時期,,False
 0128,記念日・できごと（旬）,寒の水,寒の内に汲む水は腐りにくいとされ、薬や酒造りに重宝された,,False
+0128,記念日・できごと（記念日）,セレンディピティの日,1754年。思いがけない幸運を見つける力「セレンディピティ」という言葉が生まれた日にちなむ,https://netlab.click/todayis/0128,True
 0129,誕生石（月）,ガーネット,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0129,誕生色,紺色,こんいろ／#223A70／濃い青。ゆるがない信念を表す落ち着いた色（水沢腹堅にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2071,True
 0129,誕生日石,ホークスアイ,デーカンの支配星・天王星の石・誕生色（紺色）に近い藍系。鷹の目のように広く遠くを見渡す力を授け、冷静な判断を助ける石と言われる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/15619401/detail,True
@@ -229,6 +230,7 @@
 0204,誕生花,ボケ,花ことば：魅惑的な恋,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0204,記念日・できごと（旬）,にしん,「春告魚」とも呼ばれ、北の海に春の訪れを知らせる魚,,False
 0204,記念日・できごと（旬）,寒梅,寒さの中でいち早くほころぶ梅のつぼみが、春の近さを知らせる,,False
+0204,記念日・できごと（記念日）,銀閣寺の日,1482年。足利義政が京都・東山で、のちの銀閣寺となる山荘を造り始めた日にちなむ,https://bestcalendar.jp/dates/kinenbi/140496,True
 0205,誕生石（月）,アメシスト・クリソベリル・キャッツアイ,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0205,誕生色,瓶覗,かめのぞき／#A2D7DD／解けはじめた池の水面に、うっすら映りこむ早春の空（東風解凍にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2090,True
 0205,誕生日石,オパール,デーカンの支配星・水星の石。虹のような遊色を持ち、ローマではあらゆる宝石の美しさを併せ持つ石とたたえられた。希望の石とされる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://store.karatz.jp/products/12525814,True
@@ -576,7 +578,8 @@
 0330,誕生日石,カーネリアン,デーカンの支配星・火星の石・誕生色（一斤染）に近い橙系。古代エジプトで勇気の石とされ、行動する力や意欲を高めると言われる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://item.rakuten.co.jp/gravel/brac-amtw-or01/,True
 0330,誕生花,サクランボ,花ことば：上品,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0330,記念日・できごと（旬）,つくし,土手や野原にひょっこり伸びる、春の訪れを知らせる小さな芽。,,False
-0330,記念日・できごと（旬）,新わかめ,春に摘まれたやわらかいわかめ。湯通しすると鮮やかな緑に変わる。,,False
+0330,記念日・できごと（旬）,新わかめ,3月から5月に採れる新わかめの季節。やわらかな歯ざわりは春だけの味。,"https://www.edu.city.yokohama.lg.jp/school/es/sobuyama/index.cfm/1,3219,c,html/3219/R8.5.25.pdf",True
+0330,記念日・できごと（できごと）,国立競技場落成記念日,1958年。のちに東京五輪の舞台となる国立霞ヶ丘陸上競技場が完成した日にちなむ。,https://zatsuneta.com/archives/103301.html,True
 0331,誕生石（月）,アクアマリン・サンゴ・ブラッドストーン・アイオライト,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0331,誕生色,鈍色,にびいろ／#727171／春の雷を連れてくる、重たく垂れこめた雲の灰色（雷乃発声にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2292,True
 0331,誕生日石,ルビー,デーカンの支配星・太陽の石。燃えるような赤から情熱と勇気の象徴とされ、インドでは『宝石の王』と呼ばれた。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://store.karatz.jp/en/collections/ruby,True
@@ -620,6 +623,7 @@
 0406,誕生日石,モルガナイト,4月の誕生石。やわらかな桃色から、優しさや思いやり、愛情を育てる石と言われる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://booth.pm/ja/items/7931205,True
 0406,誕生花,キンレンカ,花ことば：期待,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0406,記念日・できごと（記念日）,城の日,「し(4)ろ(6)」の語呂から、各地の城とその歴史に親しむ日。,https://zatsuneta.com/category/anniversary04.html,True
+0406,記念日・できごと（記念日）,コンビーフの日,1875年。コンビーフを詰める台形の缶の特許が、アメリカで登録された日にちなむ日。,https://zatsuneta.com/archives/104064.html,True
 0407,誕生石（月）,ダイヤモンド・モルガナイト,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0407,誕生色,勿忘草色,わすれなぐさいろ／#89C3EB／つばめが季節を運んでくる、春の空の明るい青（玄鳥至にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2085,True
 0407,誕生日石,ルビー,デーカンの支配星・太陽の石。燃えるような赤から情熱と勇気の象徴とされ、インドでは『宝石の王』と呼ばれた。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://store.karatz.jp/en/collections/ruby,True
@@ -649,6 +653,7 @@
 0411,誕生日石,サファイア,デーカンの支配星・木星の石。天の青を映す石とされ、誠実さと慈愛の象徴。中世の聖職者が身につけたと伝わる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/3016761/detail,True
 0411,誕生花,ヤグルマソウ,花ことば：繊細な心,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0411,記念日・できごと（できごと）,メートル法公布記念日,1921年。長さや重さをメートル法で測る決まりが公布され、単位がそろい始めた日。,https://zatsuneta.com/archives/104111.html,True
+0411,記念日・できごと（できごと）,ガッツポーズの日,1974年。ガッツ石松さんが世界王者になった喜びのポーズが「ガッツポーズ」と呼ばれた日。,https://bestcalendar.jp/dates/kinenbi/1955,True
 0412,誕生石（月）,ダイヤモンド・モルガナイト,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0412,誕生色,錆鼠,さびねず／#47585C／北の空を目指して進む雁の、くすんだ背の色（鴻雁北にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2097,True
 0412,誕生日石,ターコイズ,デーカンの支配星・木星の石。世界で最も古くから使われた宝石の一つで、旅の安全や身を守るお守りとされてきた。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://store.shopping.yahoo.co.jp/beadsner/turcno11b.html,True
@@ -660,6 +665,7 @@
 0413,誕生日石,サファイア,デーカンの支配星・木星の石・誕生色（薄花色）に近い青系。天の青を映す石とされ、誠実さと慈愛の象徴。中世の聖職者が身につけたと伝わる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/3016761/detail,True
 0413,誕生花,レンゲソウ,花ことば：私の幸福,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0413,記念日・できごと（できごと）,喫茶店の日,1888年。東京・上野に日本初の喫茶店「可否茶館」が開かれたことにちなむ日。,https://gendai.media/articles/-/63896,True
+0413,記念日・できごと（記念日）,水産デー,1901年。日本で初めての漁業法が定められた日にちなみ、海の恵みと水産業を考える日。,https://bestcalendar.jp/dates/kinenbi/1966,True
 0414,誕生石（月）,ダイヤモンド・モルガナイト,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0414,誕生色,素鼠,すねず／#9FA0A0／別れの空を静かに渡っていく雁の、飾らない灰色（鴻雁北にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2395,True
 0414,誕生日石,ラピスラズリ,デーカンの支配星・木星の石。古代エジプトで聖なる石とされ、日本でも仏教の七宝の一つ『瑠璃』として尊ばれた。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://item.rakuten.co.jp/carat/c/0000000412/,True
@@ -737,16 +743,19 @@
 0426,誕生日石,エメラルド,デーカンの支配星・金星の石・誕生色（千草色）に近い緑系。若葉のような緑から再生と希望の象徴とされ、クレオパトラが愛した石と伝わる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/18576293/detail,True
 0426,誕生花,アズマギク,花ことば：尊い愛,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0426,記念日・できごと（記念日）,よい風呂の日,「よ(4)い風(2)呂(6)」の語呂から、お風呂でのんびり疲れを癒す日。,https://allabout.co.jp/gm/gc/454141/,True
+0426,記念日・できごと（できごと）,七人の侍の日,1954年。黒澤明監督の映画『七人の侍』が公開され、のちに海外でも高く評価された日。,https://zatsuneta.com/archives/104264.html,True
 0427,誕生石（月）,ダイヤモンド・モルガナイト,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0427,誕生色,秘色色,ひそくいろ／#ABCED8／霜が降りなくなった朝の、澄んだ空の淡い青（霜止出苗にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2086,True
 0427,誕生日石,ダイヤモンド,4月の誕生石・デーカンの支配星・金星の石。『征服できない』という意味の名を持ち、永遠の絆や揺るがない意志の象徴とされる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://store.shopping.yahoo.co.jp/lecoeur/birthday04k.html,True
 0427,誕生花,オキナグサ,花ことば：清純な心,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0427,記念日・できごと（できごと）,駅伝誕生の日,1917年。京都から東京までたすきをつなぐ、日本初の駅伝が始まった日。,https://zatsuneta.com/archives/104272.html,True
+0427,記念日・できごと（できごと）,婦人警官記念日,1946年。警視庁で日本初の女性警察官62人が採用され、勤務を始めた日にちなむ。,https://bestcalendar.jp/dates/kinenbi/2103,True
 0428,誕生石（月）,ダイヤモンド・モルガナイト,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0428,誕生色,青緑,あおみどり／#00A497／水を張った苗代に空と苗が映りこむ、深い青緑（霜止出苗にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2098,True
 0428,誕生日石,ジルコン,誕生色（青緑）に近い青系。地球最古級の鉱物として知られ、強い輝きから安らぎと知恵をもたらす石と伝わる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://item.rakuten.co.jp/carat/c/0000000412/,True
 0428,誕生花,ヒメハギ,花ことば：信じる恋,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0428,記念日・できごと（できごと）,象の日,1729年。徳川吉宗が取り寄せた象が、京の都で天皇の前に披露されたことにちなむ日。,https://tabi-mag.jp/day0428/,True
+0428,記念日・できごと（できごと）,缶ジュース発売記念日,1954年。明治製菓が日本で初めての缶入りオレンジジュースを発売した日にちなむ。,https://bestcalendar.jp/dates/kinenbi/2118,True
 0429,誕生石（月）,ダイヤモンド・モルガナイト,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0429,誕生色,青白橡,あおしろつるばみ／#9BA88D／苗を見守る田んぼのあぜ道の、灰がかった緑（霜止出苗にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2124,True
 0429,誕生日石,モルガナイト,4月の誕生石。やわらかな桃色から、優しさや思いやり、愛情を育てる石と言われる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://booth.pm/ja/items/7931205,True
@@ -758,6 +767,7 @@
 0430,誕生日石,スピネル,誕生色（牡丹色）に近い赤系。長くルビーと間違われてきた石で、内に秘めた力を表に出す後押しをすると言われる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://store.karatz.jp/products/12558534,True
 0430,誕生花,ナシ,花ことば：和やかな愛情,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0430,記念日・できごと（できごと）,図書館記念日,1950年。図書館法が公布され、誰でも本に触れられる図書館が広がった日。,https://netlab.click/todayis/0430,True
+0430,記念日・できごと（旬）,藤の花,4月下旬から5月上旬は各地の藤棚が見ごろ。紫の花房が風に揺れる季節。,https://www.kankomie.or.jp/season/222.html,False
 0501,誕生石（月）,エメラルド・ヒスイ,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0501,誕生色,躑躅色,つつじいろ／#E95295／牡丹と同じ晩春の庭で咲き競う、鮮やかな紅（牡丹華にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2027,True
 0501,誕生日石,エメラルド,5月の誕生石・デーカンの支配星・水星の石。若葉のような緑から再生と希望の象徴とされ、クレオパトラが愛した石と伝わる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/18576293/detail,True
@@ -1001,6 +1011,7 @@
 0607,誕生花,バラ(黄),花ことば：美,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0607,記念日・できごと（旬）,あじさい,梅雨の雨にぬれて、あじさいの花が色とりどりに咲き始める頃。,,False
 0607,記念日・できごと（旬）,青梅仕事,青い梅で梅酒や梅シロップを仕込む、季節の手仕事が始まる頃。,,False
+0607,記念日・できごと（できごと）,日本初の本格的な自動車レース,1936年。多摩川スピードウェイで第1回全国自動車競走大会が開かれ、国産車も速さを競った日。,https://gendai.media/articles/-/73093,True
 0608,誕生石（月）,真珠・ムーンストーン・アレキサンドライト,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0608,誕生色,海松色,みるいろ／#726D40／かまきりの子がじっとひそむ草むらの、渋い緑（螳螂生にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2148,True
 0608,誕生日石,水晶,デーカンの支配星・金星の石。古くから世界中で神聖視され、他の石の力を高め、心身を清めるとされてきた。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/16248173/detail,True
@@ -1039,8 +1050,8 @@
 0613,誕生色,鉄色,てついろ／#005243／ほたるが生まれる水辺の草むらの、夜の暗い緑（腐草為螢にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2096,True
 0613,誕生日石,アマゾナイト,デーカンの支配星・天王星の石・誕生色（鉄色）に近い緑系。アマゾン川にちなむ名を持ち、希望と自由な発想をもたらす石と言われる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/7350471/detail,True
 0613,誕生花,トケイソウ,花ことば：聖なる愛,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
-0613,記念日・できごと（記念日）,小さな親切運動スタートの日,1963年。「できる親切はみんなでしよう」という運動が始まったことにちなむ日。,,False
-0613,記念日・できごと（できごと）,鉄人の日,1987年。衣笠祥雄さんがプロ野球の連続試合出場の世界記録を打ち立てた日。,,False
+0613,記念日・できごと（記念日）,小さな親切運動スタートの日,1963年。東大総長の卒業式での言葉をきっかけに、「小さな親切」運動が始まった日。,https://zatsuneta.com/archives/106131.html,True
+0613,記念日・できごと（できごと）,鉄人の日,1987年。衣笠祥雄さんがプロ野球の連続試合出場の世界記録を打ち立てた日。,https://zatsuneta.com/archives/106132.html,True
 0614,誕生石（月）,真珠・ムーンストーン・アレキサンドライト,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0614,誕生色,黄緑,きみどり／#B8D200／暗がりで静かに光る、ほたるの灯そのものの黄緑（腐草為螢にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2137,True
 0614,誕生日石,アクアマリン,デーカンの支配星・天王星の石。海の水の名を持ち、船乗りが航海の無事を祈った石と伝わる。穏やかな心と幸せな結婚の象徴とされる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://wowma.jp/item/319959950,True
@@ -1448,7 +1459,7 @@
 0815,誕生日石,サードオニックス,8月の誕生石・デーカンの支配星・火星の石。赤茶と白の縞模様が重なり、夫婦の幸せや家庭円満を守る石と伝わる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://minne.com/items/33043317,True
 0815,誕生花,エリンギウム,花ことば：光を求める,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 0815,記念日・できごと（行事）,長崎の精霊流し,飾りつけた精霊船を引いて、ご先祖さまを賑やかに送り出す長崎の行事,,False
-0815,記念日・できごと（行事）,阿波おどり,「踊る阿呆に見る阿呆」でおなじみ、徳島の街が踊りに包まれる夏祭り,,False
+0815,記念日・できごと（行事）,阿波おどり,徳島市で毎年8月12日から15日に開かれ、100万人以上が訪れる踊りの祭り,https://www.mlit.go.jp/tagengo-db/common/001557901.pdf,True
 0816,誕生石（月）,サードオニックス・ペリドット・スピネル,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0816,誕生色,宍色,ししいろ／#EFAB93／やわらかな肌色の橙。暮れなずむ空のぬくもりを思わせる（寒蝉鳴にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2315,True
 0816,誕生日石,スピネル,8月の誕生石。長くルビーと間違われてきた石で、内に秘めた力を表に出す後押しをすると言われる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://store.karatz.jp/products/12558534,True
@@ -1711,7 +1722,7 @@
 0925,誕生色,半色,はしたいろ／#A69ABD／紫と薄紫の中間の色。激しさを収めた雷雲の名残（雷乃収声にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2309,True
 0925,誕生日石,スギライト,誕生色（半色）に近い紫系。日本の杉健一博士が発見した石で、癒やしと深い安らぎをもたらす石と言われる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/17256056/detail,True
 0925,誕生花,ウラギク,花ことば：追憶,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
-0925,記念日・できごと（記念日）,主婦休みの日,家事を担う人がひと休みし、家族で役割を分け合う日,,False
+0925,記念日・できごと（記念日）,主婦休みの日,家事を担う人がひと休みし、家族で家事を分け合う日。1月・5月・9月の25日,https://bestcalendar.jp/dates/kinenbi/130806,True
 0925,記念日・できごと（旬）,旬：かぼす,大分特産のかぼすが香る季節。鍋や焼き物に爽やかさを添える,,False
 0926,誕生石（月）,サファイア・クンツァイト,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 0926,誕生色,薄色,うすいろ／#A89DAC／淡い紫。稲光のなごりをそっと残す秋の夕空（雷乃収声にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2040,True
@@ -1775,8 +1786,8 @@
 1005,誕生色,枯野色,かれのいろ／#D3CBC6／枯れ野の灰みの色。水が涸れて静まった田の風景（水始涸にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2329,True
 1005,誕生日石,ラブラドライト,デーカンの支配星・天王星の石・誕生色（枯野色）に近い灰系。角度で青や金に光り、カナダの先住民にはオーロラが閉じ込められた石と伝わる。直感の石とされる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/16248173/detail,True
 1005,誕生花,チョウセンアサガオ,花ことば：愛敬,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
-1005,記念日・できごと（できごと）,時刻表記念日,1894年。日本で初めて本格的な時刻表が発行された日にちなむ,,False
-1005,記念日・できごと（旬）,旬：さつまいも,ほくほくのさつまいもが掘られる季節。焼きいもが恋しくなる,,False
+1005,記念日・できごと（できごと）,時刻表記念日,1894年。日本初の本格的な全国時刻表『汽車汽船旅行案内』が刊行された日にちなむ,https://bestcalendar.jp/dates/kinenbi/4077,True
+1005,記念日・できごと（旬）,旬：さつまいも,一年中出回るさつまいもも、10月が本当の旬。焼きいもが恋しくなる季節,https://www.city.isa.kagoshima.jp/wp-content/uploads/2023/12/05b5744f5069401f40abe17030ebbf97.pdf,True
 1006,誕生石（月）,オパール・トルマリン,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 1006,誕生色,香色,こういろ／#EFCD9A／香木で染めた淡い黄茶。実りを収める前の穏やかさ（水始涸にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2178,True
 1006,誕生日石,トルマリン,10月の誕生石。温めると電気を帯びる性質があり、色の豊かさから才能や個性を引き出す石と言われる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://store.karatz.jp/en/collections/tourmaline,True
@@ -1787,8 +1798,8 @@
 1007,誕生色,枯野色,かれのいろ／#D3CBC6／枯れ野の灰みの色。水が涸れて静まった田の風景（水始涸にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2329,True
 1007,誕生日石,アパタイト,デーカンの支配星・天王星の石。ほかの鉱物と間違われやすいことから『惑わす』の意の名を持ち、目標へ向かう意欲を高める石と言われる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/16207008/detail,True
 1007,誕生花,チョロギ,花ことば：楽しい人生,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
-1007,記念日・できごと（行事）,長崎くんち,毎年10月7日から9日に行われる長崎の秋祭り。豪快な奉納踊りが見どころ,,False
-1007,記念日・できごと（できごと）,バーコードの日,1952年。バーコードの特許がアメリカで認められた日にちなむ,,False
+1007,記念日・できごと（行事）,長崎くんち,毎年10月7日から9日に開かれる長崎の秋祭り。国の重要無形民俗文化財,https://www.city.nagasaki.lg.jp/site/kodomo/66343.html,True
+1007,記念日・できごと（できごと）,バーコードの日,1952年。いまはレジに欠かせないバーコードの特許が、アメリカで認められた日にちなむ,https://zatsuneta.com/archives/110073.html,True
 1008,誕生石（月）,オパール・トルマリン,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 1008,誕生色,空色,そらいろ／#A0D8EF／晴れた空の色。雁が列をなして渡ってくる秋空（鴻雁来にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2089,True
 1008,誕生日石,アクアマリン,デーカンの支配星・天王星の石・誕生色（空色）に近い青系。海の水の名を持ち、船乗りが航海の無事を祈った石と伝わる。穏やかな心と幸せな結婚の象徴とされる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://wowma.jp/item/319959950,True
@@ -2286,7 +2297,8 @@
 1222,誕生日石,クリソプレーズ,誕生色（苔色）に近い緑系。青りんご色の玉髄で、アレクサンドロス大王が愛したと伝わる。希望を育てる石とされる。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/12893166/detail,True
 1222,誕生花,シクラメン(赤),花ことば：はにかみ,一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）,True
 1222,記念日・できごと（旬）,こたつ,家族が集まり温まる日本の冬の暖房。みかんとの組み合わせが定番,,False
-1222,記念日・できごと（旬）,ねぎ,冬に甘くなる長ねぎ。焼きねぎや鍋で体を温める,,False
+1222,記念日・できごと（旬）,ねぎ,冬が旬のねぎ。産地の千葉では12月から2月が食べごろで、鍋に欠かせない,https://www.pref.chiba.lg.jp/ryuhan/pbmgm/zukan/yasai/negi.html,True
+1222,記念日・できごと（記念日）,スープの日,「いつ(12)もフーフー(22)」の語呂から、温かいスープを味わう日,https://zatsuneta.com/archives/112226.html,True
 1223,誕生石（月）,ターコイズ・ラピスラズリ・タンザナイト・ジルコン,,全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）,True
 1223,誕生色,松葉色,まつばいろ／#839B5C／松の葉の緑。皆が眠る冬に宿る静かな生命力（乃東生にちなむ）,当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）・色の値：https://www.colordic.org/colorsample/2123,True
 1223,誕生日石,プレナイト,誕生色（松葉色）に近い緑系。ぶどうの房のような姿から、穏やかな心で未来を見通す『予言の石』と呼ばれることがある。,当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）・販売例：https://www.creema.jp/item/8900336/detail,True

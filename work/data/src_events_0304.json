@@ -550,9 +550,17 @@
    "title": "新わかめ",
    "kind": "旬",
    "year": null,
-   "text": "春に摘まれたやわらかいわかめ。湯通しすると鮮やかな緑に変わる。",
-   "source_url": "",
-   "confirmed": false
+   "text": "3月から5月に採れる新わかめの季節。やわらかな歯ざわりは春だけの味。",
+   "source_url": "https://www.edu.city.yokohama.lg.jp/school/es/sobuyama/index.cfm/1,3219,c,html/3219/R8.5.25.pdf",
+   "confirmed": true
+  },
+  {
+   "title": "国立競技場落成記念日",
+   "kind": "できごと",
+   "year": 1958,
+   "text": "のちに東京五輪の舞台となる国立霞ヶ丘陸上競技場が完成した日にちなむ。",
+   "source_url": "https://zatsuneta.com/archives/103301.html",
+   "confirmed": true
   }
  ],
  "0331": [
@@ -687,6 +695,14 @@
    "text": "「し(4)ろ(6)」の語呂から、各地の城とその歴史に親しむ日。",
    "source_url": "https://zatsuneta.com/category/anniversary04.html",
    "confirmed": true
+  },
+  {
+   "title": "コンビーフの日",
+   "kind": "記念日",
+   "year": 1875,
+   "text": "コンビーフを詰める台形の缶の特許が、アメリカで登録された日にちなむ日。",
+   "source_url": "https://zatsuneta.com/archives/104064.html",
+   "confirmed": true
   }
  ],
  "0407": [
@@ -769,6 +785,14 @@
    "text": "長さや重さをメートル法で測る決まりが公布され、単位がそろい始めた日。",
    "source_url": "https://zatsuneta.com/archives/104111.html",
    "confirmed": true
+  },
+  {
+   "title": "ガッツポーズの日",
+   "kind": "できごと",
+   "year": 1974,
+   "text": "ガッツ石松さんが世界王者になった喜びのポーズが「ガッツポーズ」と呼ばれた日。",
+   "source_url": "https://bestcalendar.jp/dates/kinenbi/1955",
+   "confirmed": true
   }
  ],
  "0412": [
@@ -796,6 +820,14 @@
    "year": 1888,
    "text": "東京・上野に日本初の喫茶店「可否茶館」が開かれたことにちなむ日。",
    "source_url": "https://gendai.media/articles/-/63896",
+   "confirmed": true
+  },
+  {
+   "title": "水産デー",
+   "kind": "記念日",
+   "year": 1901,
+   "text": "日本で初めての漁業法が定められた日にちなみ、海の恵みと水産業を考える日。",
+   "source_url": "https://bestcalendar.jp/dates/kinenbi/1966",
    "confirmed": true
   }
  ],
@@ -1023,6 +1055,14 @@
    "text": "「よ(4)い風(2)呂(6)」の語呂から、お風呂でのんびり疲れを癒す日。",
    "source_url": "https://allabout.co.jp/gm/gc/454141/",
    "confirmed": true
+  },
+  {
+   "title": "七人の侍の日",
+   "kind": "できごと",
+   "year": 1954,
+   "text": "黒澤明監督の映画『七人の侍』が公開され、のちに海外でも高く評価された日。",
+   "source_url": "https://zatsuneta.com/archives/104264.html",
+   "confirmed": true
   }
  ],
  "0427": [
@@ -1033,6 +1073,14 @@
    "text": "京都から東京までたすきをつなぐ、日本初の駅伝が始まった日。",
    "source_url": "https://zatsuneta.com/archives/104272.html",
    "confirmed": true
+  },
+  {
+   "title": "婦人警官記念日",
+   "kind": "できごと",
+   "year": 1946,
+   "text": "警視庁で日本初の女性警察官62人が採用され、勤務を始めた日にちなむ。",
+   "source_url": "https://bestcalendar.jp/dates/kinenbi/2103",
+   "confirmed": true
   }
  ],
  "0428": [
@@ -1042,6 +1090,14 @@
    "year": 1729,
    "text": "徳川吉宗が取り寄せた象が、京の都で天皇の前に披露されたことにちなむ日。",
    "source_url": "https://tabi-mag.jp/day0428/",
+   "confirmed": true
+  },
+  {
+   "title": "缶ジュース発売記念日",
+   "kind": "できごと",
+   "year": 1954,
+   "text": "明治製菓が日本で初めての缶入りオレンジジュースを発売した日にちなむ。",
+   "source_url": "https://bestcalendar.jp/dates/kinenbi/2118",
    "confirmed": true
   }
  ],
@@ -1071,6 +1127,15 @@
    "text": "図書館法が公布され、誰でも本に触れられる図書館が広がった日。",
    "source_url": "https://netlab.click/todayis/0430",
    "confirmed": true
+  },
+  {
+   "title": "藤の花",
+   "kind": "旬",
+   "year": null,
+   "text": "4月下旬から5月上旬は各地の藤棚が見ごろ。紫の花房が風に揺れる季節。",
+   "source_url": "https://www.kankomie.or.jp/season/222.html",
+   "confirmed": false,
+   "note": "出典ページの記載が検索結果だけでは確かめきれないため保留（2026-10-10）"
   }
  ]
 }

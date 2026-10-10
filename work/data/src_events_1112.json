@@ -1170,9 +1170,17 @@
    "title": "ねぎ",
    "kind": "旬",
    "year": null,
-   "text": "冬に甘くなる長ねぎ。焼きねぎや鍋で体を温める",
-   "source_url": "",
-   "confirmed": false
+   "text": "冬が旬のねぎ。産地の千葉では12月から2月が食べごろで、鍋に欠かせない",
+   "source_url": "https://www.pref.chiba.lg.jp/ryuhan/pbmgm/zukan/yasai/negi.html",
+   "confirmed": true
+  },
+  {
+   "title": "スープの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「いつ(12)もフーフー(22)」の語呂から、温かいスープを味わう日",
+   "source_url": "https://zatsuneta.com/archives/112226.html",
+   "confirmed": true
   }
  ],
  "1223": [
