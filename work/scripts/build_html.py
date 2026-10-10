@@ -11,14 +11,21 @@
   work/out/assets/fh-b27.js             共通JS（templates/fh-b27.js に知識ベースの表・2027年の月盤を埋め込む）
   work/out/assets/fh-b27-setsuiri.js    節入り日時（1930〜2030年。setsuiri_1900_2100.json から）
   work/out/assets/fh-b27-kyureki.js     旧暦の月の表（1930〜2030年。kyureki_1900_2030.json から月の長さと月番号だけ）
-  work/out/html/MMDD.html               ページ（<!-- fh-b27:start --> 〜 <!-- fh-b27:end --> が WordPress に貼る本文）
+  work/out/html/MMDD.html               ページ（<!-- fh-b27:start --> 〜 <!-- fh-b27:end --> が WordPress に貼る本文。URL は /366uranai/MM-DD/）
+  work/reports/affiliate_count.json     （--all のとき）アフィリエイトのリンクが店ごとに何か所入ったか・ボタンを出さなかった数
+
+アフィリエイト：work/out/affiliate_templates.json の店ごとのひな形から、生成時に実リンクを入れる。
+  {"rakuten": {"href": "https://af.moshimo.com/…&url={url}", "target": "https://search.rakuten.co.jp/search/mall/{q}/", "impression": "<img …>"},
+   "amazon": null, "phone": {"href": "https://px.a8.net/…", "impression": "<img …>"}}
+  {q}＝商品名（URLエンコード）、{url}＝target をさらにURLエンコードしたもの。リンクの直後に impression（表示計測の画像）を置く。
+  ひな形が無い・空（null）の店のボタンは出さない（仮リンクは作らない）。
 
 材料:
   work/data/materials_366.json（計算値・誕生日もの・記念日・相性・スコア・有名人）
   work/text/<星座英名>.json（文章。形は work/text/_書き方.md の2章。無い日は「（文章は未作成）」）
   work/knowledge/*.md（節気の意味・九星・十干・27宿・マヤ暦・数秘のキーワード表）
 """
-import argparse, datetime as dt, glob, html, json, os, re, shutil, sys
+import argparse, collections, datetime as dt, glob, html, json, os, re, shutil, sys, urllib.parse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WORK = os.path.normpath(os.path.join(HERE, ".."))
@@ -44,6 +51,13 @@ DREAM = [("crush", "好きな人が夢に出てきたら？"), ("confession", "�
          ("ex-lover", "元恋人が夢に出てきたら？")]
 MARK_CLS = {"◎": "good", "○": "ok", "△": "care"}
 MISSING = "（文章は未作成）"
+SITE = "https://www.uranai.epoch-compass.com"
+HUB = "/366uranai/"  # 親ページ（既存の固定ページ ID 2743「366日生年月日占い」）
+
+
+def page_url(mmdd):
+    """各日のページのURL：/366uranai/MM-DD/（WordPress は数字だけのスラッグを使えないため MM-DD）"""
+    return f"{HUB}{mmdd[:2]}-{mmdd[2:]}/"
 
 
 # ---------------------------------------------------------------- 文字の処理
@@ -284,17 +298,59 @@ def build_assets(gen):
 
 
 # ---------------------------------------------------------------- ページ
-AFF = {}  # 仮リンク → {"label": 表示用の説明, "pages": 使っている日}
-CUR = {"mmdd": ""}
+AFF_TPL = {}  # work/out/affiliate_templates.json（main で読む）
+AFF_COUNT = collections.Counter()  # 店 → 入れたリンクの数
+AFF_SKIP = collections.Counter()   # 店 → ひな形が無いため出さなかったボタンの数
+SHOP_NAME = {"rakuten": "楽天市場", "amazon": "Amazon", "phone": "電話占い"}
+AFF_HOSTS = ("af.moshimo.com", "px.a8.net")
 
 
-def aff(label):
-    """アフィリエイトの仮リンク。#affiliate-TODO-<店>-<8けた> の形で、あとで work/out/affiliate_placeholders.csv から一括置換する"""
-    import hashlib, re as _re
-    shop = {"楽天": "rakuten", "楽天/Amazon": "rakuten-amazon", "電話占い": "phone"}.get(label.split(":")[0], "other")
-    key = f"#affiliate-TODO-{shop}-" + hashlib.md5(label.encode("utf-8")).hexdigest()[:8]
-    AFF.setdefault(key, {"label": label, "pages": set()})["pages"].add(CUR["mmdd"])
-    return f'href="{key}" rel="nofollow sponsored" data-aff="[{esc(label)}]"'
+def load_aff_templates():
+    """ひな形を読む。null・空・href の無い店は入れない（＝その店のボタンは出さない）"""
+    p = os.path.join(OUT, "affiliate_templates.json")
+    t = json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {}
+    out = {}
+    for shop, v in t.items():
+        if shop.startswith("_") or not isinstance(v, dict) or not v.get("href"):
+            continue
+        host = urllib.parse.urlsplit(v["href"]).hostname
+        if host not in AFF_HOSTS:
+            raise SystemExit(f"affiliate_templates.json の {shop} のリンク先 {host} は使えません（{'・'.join(AFF_HOSTS)} だけ）")
+        if "{url}" in v["href"] and "{q}" not in (v.get("target") or ""):
+            raise SystemExit(f"affiliate_templates.json の {shop} に target（{{q}} 入りの遷移先）がありません")
+        if not v.get("impression"):
+            raise SystemExit(f"affiliate_templates.json の {shop} に impression（表示計測の画像）がありません")
+        out[shop] = v
+    return out
+
+
+def aff_href(shop, q):
+    """実リンク。{url} には target（{q}＝商品名をURLエンコード）をさらにURLエンコードして入れる"""
+    t = AFF_TPL.get(shop)
+    if not t:
+        return None
+    href = t["href"]
+    if "{url}" in href:
+        dest = t["target"].replace("{q}", urllib.parse.quote_plus(q))
+        href = href.replace("{url}", urllib.parse.quote(dest, safe=""))
+    return href
+
+
+def aff_buttons(shops, q, label, cls="fh-b27-btn"):
+    """アフィリエイトのボタン。ひな形が無い店は出さない（数だけ数える）。リンクの直後に表示計測の画像。
+    2店以上出るときは「楽天市場で見る」「Amazonで見る」のように店名をつける"""
+    live = [sh for sh in shops if aff_href(sh, q)]
+    for sh in shops:
+        if sh not in live:
+            AFF_SKIP[sh] += 1
+    out = []
+    for i, sh in enumerate(live):
+        lab = label if len(live) == 1 else f"{SHOP_NAME.get(sh, sh)}で見る"
+        c = cls if i == 0 or "fh-b27-ghost" in cls else cls + " fh-b27-ghost"
+        AFF_COUNT[sh] += 1
+        out.append(f'<a class="{c}" href="{esc(aff_href(sh, q))}" rel="nofollow sponsored" data-aff="{sh}">{esc(lab)}</a>'
+                   + AFF_TPL[sh]["impression"])
+    return "".join(out)
 
 
 def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
@@ -341,7 +397,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   <div class="fh-b27-kou" aria-hidden="true">{esc(e["kou"])}</div>
   <div class="fh-b27-hero-body">
     <span class="fh-b27-tape">2027年版 誕生日占い</span>
-    <h1>{md}生まれの性格と<br>2027年の運勢</h1>
+    <p class="fh-b27-title">{md}生まれの性格と<br>2027年の運勢</p>
     <p class="fh-b27-lead">{esc(e["sekki"])}の{esc(kou_pos)}「{esc(e["kou"])}（{esc(e["kou_yomi"])}）」。{esc(lead_first)}この頃に生まれた人の、変わらない本質と、2027年の歩き方を読み解きます。</p>
   </div>
 </header>''')
@@ -475,7 +531,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         out = []
         for c in src:
             o = mats[c["mmdd"]]
-            out.append(f'<li><a href="/birthday/{c["mmdd"]}/">{md_label(c["mmdd"])}</a><small>{esc(o["sign"])}・誕生日の数{o["birthday_number"]}</small><br>'
+            out.append(f'<li><a href="{page_url(c["mmdd"])}">{md_label(c["mmdd"])}</a><small>{esc(o["sign"])}・誕生日の数{o["birthday_number"]}</small><br>'
                        f'<span class="fh-b27-why">{span(tmap.get(c["mmdd"]))}</span></li>')
         return "\n          ".join(out)
     a(f'''<section class="fh-b27-sec" id="b27-aisho">
@@ -520,6 +576,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   </div>
 </section>''')
     a("</div>")
+    a("<!--Ads1-->")  # WP QUADS の広告位置1：第1部の終わり（カード・付箋の外）
 
     # ===== 第2部
     a('<div class="fh-b27-part">\n  <div class="fh-b27-partlabel">第2部 2027年の運勢</div>')
@@ -602,12 +659,13 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     first_care = care[0] if care else 12  # 電話占いの案内は、最初の△の月（続く△の月はまとめて）の直後に1か所
     while first_care < 12 and marks[first_care] == "△":
         first_care += 1
+    phone = aff_buttons(["phone"], "", "電話占いで相談してみる", "fh-b27-btn fh-b27-ghost")
     ad = f'''<div class="fh-b27-ad">
     <small>△の月に迷ったら</small>
     <p>{months_label(care) if care else "流れが重く感じる月"}のように流れが重い月は、人に話すだけで整理がつくことがあります。占い師に直接相談できる電話占いも選択肢のひとつです。</p>
-    <a class="fh-b27-btn fh-b27-ghost" {aff("電話占い:初回特典ページ")}>電話占いの初回特典を見る</a>
+    {phone}
     <span class="fh-b27-pr">広告を含みます</span>
-  </div>'''
+  </div>''' if phone else ""  # ひな形が無いときは案内ごと出さない
     ml1, ml2 = [], []
     for i in range(12):
         body = inline(months[i]) if i < len(months) and months[i] else f'<span class="fh-b27-missing">{MISSING}</span>'
@@ -625,6 +683,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     if ml2:
         a(f'  <div class="fh-b27-monthlist">\n    {"".join(ml2)}\n  </div>')
     a('  <p class="fh-b27-small">◎ とても良い ／ ○ 良い ／ △ 慎重に。数字は上のグラフの「総合」で、366日×12か月の総合点の上位4分の1を◎、下位4分の1を△にしています。</p>\n</section>')
+    a("<!--Ads2-->")  # WP QUADS の広告位置2：12か月の運勢の後
 
     # 13 開運アクション
     acts = yr.get("actions") or []
@@ -636,6 +695,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
 
     # 14 お守りリスト
     am = yr.get("amulet") or {}
+    om_start = len(H)
     a('<section class="fh-b27-sec" id="b27-omamori">\n  <h2><span class="fh-b27-n">14</span>2027年のお守りリスト</h2>\n  <h3>ラッキーカラー</h3>')
     cols = am.get("colors") or []
     if cols:
@@ -646,7 +706,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
             swh = f'<span class="fh-b27-sw" style="background:{esc(hx)}"></span>' if hx and re.fullmatch(r"#[0-9A-Fa-f]{6}", hx) else ""
             a(f'''    <div class="fh-b27-row">
       {swh}<div class="fh-b27-who"><b>{esc(c.get("name", ""))}{f"（{tag}）" if tag else ""}</b><small>{inline(c.get("why", ""))}</small></div>
-      <a class="fh-b27-btn{"" if i == 0 else " fh-b27-ghost"}" {aff("楽天:" + c.get("name", "") + " 小物")}>この色の小物を見る</a>
+      {aff_buttons(["rakuten"], (c.get("name", "") + " 小物").strip(), "この色の小物を見る", "fh-b27-btn" if i == 0 else "fh-b27-btn fh-b27-ghost")}
     </div>''')
         a("  </div>")
     else:
@@ -656,11 +716,12 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     if items:
         a('  <div class="fh-b27-rows">')
         for it in items:
-            a(f'    <div class="fh-b27-row"><div class="fh-b27-who"><small>{inline(it.get("why", ""))}</small><b>{esc(it.get("name", ""))}</b></div><a class="fh-b27-btn" {aff("楽天/Amazon:" + it.get("name", ""))}>見てみる</a></div>')
+            a(f'    <div class="fh-b27-row"><div class="fh-b27-who"><small>{inline(it.get("why", ""))}</small><b>{esc(it.get("name", ""))}</b></div>{aff_buttons(["rakuten", "amazon"], it.get("name", ""), "見てみる")}</div>')
         a("  </div>")
     else:
         a("  " + miss_p())
-    a('  <p class="fh-b27-pr">※ このリストには広告（アフィリエイトリンク）を含みます。</p>')
+    if 'data-aff="' in "\n".join(H[om_start:]):
+        a('  <p class="fh-b27-pr">※ このリストには広告（アフィリエイトリンク）を含みます。</p>')
     num = am.get("number") or {}
     a("  <h3>ラッキーナンバー</h3>")
     if num.get("value") is not None:
@@ -678,8 +739,10 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     if pres:
         a('  <div class="fh-b27-gifts">')
         for i, p in enumerate(pres):
-            a(f'    <div class="fh-b27-gift"><small>おすすめ {i+1}</small><b>{esc(p.get("item", ""))}</b><span>{inline(p.get("why", ""))}</span><a class="fh-b27-btn" {aff("楽天:" + p.get("item", "") + " ギフト")}>見てみる</a></div>')
-        a('  </div>\n  <p class="fh-b27-pr">※ 広告（アフィリエイトリンク）を含みます。</p>')
+            a(f'    <div class="fh-b27-gift"><small>おすすめ {i+1}</small><b>{esc(p.get("item", ""))}</b><span>{inline(p.get("why", ""))}</span>{aff_buttons(["rakuten"], p.get("item", ""), "見てみる")}</div>')
+        a("  </div>")
+        if 'data-aff="' in "\n".join(H[-len(pres) - 1:]):
+            a('  <p class="fh-b27-pr">※ 広告（アフィリエイトリンク）を含みます。</p>')
         am_names = {x.get("name") for x in items}
         dup = [p.get("item") for p in pres if p.get("item") in am_names]
         if dup:
@@ -743,6 +806,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   <b>生年月日まるごと診断</b>
   <span>星座・九星・干支・四柱推命・宿曜・マヤ暦・数秘・動物×色をまとめて一枚のカードに。</span>
 </a>''')
+    a("<!--Ads3-->")  # WP QUADS の広告位置3：「あなたへ」の前
     a(f'''<section class="fh-b27-sec fh-b27-letter" id="b27-letter">
   <h2 class="fh-b27-hand">{md}生まれのあなたへ</h2>
   {paras(yr.get("to_you"))}
@@ -759,8 +823,8 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     <a href="/animal-color/"><b>動物×色占い</b><small>生年月日で60タイプ</small></a>
     <a href="/mbti/"><b>MBTI占い</b><small>性格タイプで見る2027年</small></a>
     <a href="/dream/"><b>夢解き図鑑</b><small>気になる夢の意味を調べる</small></a>
-    <a href="/birthday/{nx}/"><b>{md_label(nx)}生まれ</b><small>次の日の誕生日占い</small></a>
-    <a href="/birthday/{pv}/"><b>{md_label(pv)}生まれ</b><small>前の日の誕生日占い</small></a>
+    <a href="{page_url(nx)}"><b>{md_label(nx)}生まれ</b><small>次の日の誕生日占い</small></a>
+    <a href="{page_url(pv)}"><b>{md_label(pv)}生まれ</b><small>前の日の誕生日占い</small></a>
   </div>
 </section>''')
 
@@ -777,7 +841,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   </ul>
 </section>''')
     up = dt.date.fromisoformat(updated)
-    a(f'<p class="fh-b27-foot">この記事は、西洋占星術・九星気学・干支・数秘術・七十二候・誕生花・誕生石・バイオリズムにもとづいて構成しています。月ごとの◎○△とグラフは計算で出したもので、占いの結果としてお読みください。<br>最終更新日：{up.year}年{up.month}月{up.day}日／<a href="/policy/">この記事の作成方針について</a></p>')
+    a(f'<p class="fh-b27-foot">この記事は、西洋占星術・九星気学・干支・数秘術・七十二候・誕生花・誕生石・バイオリズムにもとづいて構成しています。月ごとの◎○△とグラフは計算で出したもので、占いの結果としてお読みください。<br>最終更新日：{up.year}年{up.month}月{up.day}日／<a href="/about/">この記事の作成方針について</a></p>')
     a("</div>\n</div>")
 
     body = "\n".join(H)
@@ -795,11 +859,12 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
-<link rel="canonical" href="https://www.uranai.epoch-compass.com/birthday/{mmdd}/">
+<link rel="canonical" href="{SITE}{page_url(mmdd)}">
 <style>/* 確認用（WordPressでは不要） */body{{margin:0;background:#141824}}</style>
 </head>
 <body>
-<!-- fh-b27:start  WordPress の本文に貼るのはここから（URL: /birthday/{mmdd}/、親ページ birthday） -->
+<!-- fh-b27:start  WordPress の本文に貼るのはここから（URL: {page_url(mmdd)}、親ページ 366uranai・スラッグ {mmdd[:2]}-{mmdd[2:]}） -->
+<!--OffDef-->
 {head_assets}
 {body}
 {tail_assets}
@@ -839,13 +904,13 @@ def main():
     bad = [t for t in targets if t not in mats]
     if bad:
         ap.error(f"不明な日付: {bad}")
+    AFF_TPL.update(load_aff_templates())
     ctx = make_ctx(mats, args.text_dir)
     build_assets(ctx["gen"])
     odir = os.path.join(OUT, "sample" if args.sample else "html")
     os.makedirs(odir, exist_ok=True)
     allw, notext = [], []
     for k in targets:
-        CUR["mmdd"] = k
         ctx_k = dict(ctx)
         b = mats[k]["bday2027"]["date"]
         ctx_k["bday_label"] = (f"2027年{int(b[5:7])}月{int(b[8:])}日（誕生日）" if b[5:] == f"{k[:2]}-{k[2:]}"
@@ -856,15 +921,16 @@ def main():
             notext.append(k)
         with open(os.path.join(odir, f"{k}.html"), "w", encoding="utf-8") as f:
             f.write(page)
-    import csv
-    aff_path = os.path.join(OUT, "affiliate_placeholders.csv" if args.all else "affiliate_placeholders_partial.csv")  # 置換表は --all のときだけ本物を上書き
-    with open(aff_path, "w", encoding="utf-8-sig", newline="") as f:
-        w_ = csv.writer(f)
-        w_.writerow(["仮リンク（置換前）", "実リンク（ここに記入）", "種類と商品", "使っているページ数", "使っているページ（先頭10件）"])
-        for key, v in sorted(AFF.items(), key=lambda x: x[1]["label"]):
-            pg = sorted(v["pages"])
-            w_.writerow([key, "", v["label"], len(pg), " ".join(pg[:10])])
-    print(f"{len(targets)}ページ → {os.path.relpath(odir, WORK)}/  共通CSS/JS → out/assets/  仮リンク {len(AFF)}種 → out/{os.path.basename(aff_path)}")
+    shops = sorted(set(AFF_COUNT) | set(AFF_SKIP) | set(AFF_TPL))
+    links = "・".join(f"{SHOP_NAME.get(sh, sh)} {AFF_COUNT[sh]}か所" for sh in shops if AFF_COUNT[sh]) or "なし"
+    skipped = "・".join(f"{SHOP_NAME.get(sh, sh)} {AFF_SKIP[sh]}個" for sh in shops if AFF_SKIP[sh]) or "なし"
+    print(f"{len(targets)}ページ → {os.path.relpath(odir, WORK)}/  共通CSS/JS → out/assets/")
+    print(f"アフィリエイト：{links}／ひな形が無いため出さなかったボタン：{skipped}")
+    if args.all and not args.sample:  # 全ページのときだけ、ページ点検（check_pages.py）用に数を残す
+        with open(os.path.join(WORK, "reports", "affiliate_count.json"), "w", encoding="utf-8") as f:
+            json.dump({"pages": len(targets), "templates": sorted(AFF_TPL),
+                       "links": {sh: AFF_COUNT[sh] for sh in shops},
+                       "skipped_buttons": {sh: AFF_SKIP[sh] for sh in shops}}, f, ensure_ascii=False, indent=1)
     if notext:
         print(f"文章が未作成の日: {len(notext)}件（例: {', '.join(notext[:5])}）")
     for w in allw:

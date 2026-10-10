@@ -101,6 +101,19 @@
   function wareki(y){if(y>=2019)return '令和'+(y===2019?'元':(y-2018))+'年';if(y>=1989)return y===1989?'昭和64年／平成元年':'平成'+(y-1988)+'年';return '昭和'+(y-1925)+'年';}
 
   var CALC={jdn:jdn,honmei:honmei,palace2027:palace2027,pillars:pillars,setsuDay:setsuDay,kyureki:kyureki,shuku:shuku,kin:kin,lifePath:lifePath,animal:animal,bioAt:bioAt,bioMark:bioMark,bioGood:bioGood,bioCare:bioCare,bioDays:bioDays,kyuseiScore:kyuseiScore,STAR:STAR};
+  /* --- 追加：生年月日まるごと診断（/seinengappi/）用。誕生日ページの計算・表示は変えない --- */
+  var SIGN12=['牡羊座','牡牛座','双子座','蟹座','獅子座','乙女座','天秤座','蠍座','射手座','山羊座','水瓶座','魚座'];
+  var SIGN_EN=['aries','taurus','gemini','cancer','leo','virgo','libra','scorpio','sagittarius','capricorn','aquarius','pisces'];
+  /* 太陽の星座。FH_B27_SIGN.d[年-y0] は各月の星座の切り替わり日時（日本時間）12個 × "DDhhmm"（fh-b27-sign.js・build_seinengappi.py が calc_sekki.py の計算から作る）。
+     m月の切り替わりで (m+9)%12 番の星座に入る（1月＝水瓶座 … 12月＝山羊座）。時刻不明なので正午で判定。border＝切り替わりの日（時刻で星座が変わる） */
+  function sunSign(y,m,d,hm){
+    var S=G.FH_B27_SIGN;if(!S)return null;var s=S.d[y-S.y0];if(!s)return null;
+    var t=Number(s.substr((m-1)*6,6)),cur=d*10000+(hm==null?NOON:hm),i=cur>=t?(m+9)%12:(m+8)%12,j=cur>=t?(m+8)%12:(m+9)%12,b=Math.floor(t/10000)===d;
+    return {name:SIGN12[i],idx:i,en:SIGN_EN[i],border:b,other:b?SIGN12[j]:null};
+  }
+  /* 計算できる生まれ年の範囲（節入りの表の範囲＝1930〜2030年） */
+  function yearRange(){var S=G.FH_B27_SETSU;return S?{min:S.y0,max:S.y0+S.d.length-1}:{min:GEN.yearMin,max:GEN.yearMax};}
+  CALC.sunSign=sunSign;CALC.yearRange=yearRange;CALC.wareki=wareki;CALC.isLeap=isLeap;CALC.GEN=GEN;CALC.STEM=STEM;CALC.BR=BR;CALC.ANI=ANI;CALC.SIGN12=SIGN12;
   G.FHB27Calc=CALC;
 
   /* ================= ページの表示（ブラウザだけ） ================= */
@@ -268,4 +281,85 @@
   });
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+
+  /* ================= 追加：生年月日まるごと診断（<div class="fh-b27" data-fh-page="seinengappi">）だけで動く ================= */
+  function bootSeinen(){
+    var root=document.querySelector('.fh-b27[data-fh-page="seinengappi"]');if(!root)return;
+    var R=yearRange(),$=function(id){return document.getElementById('fh-b27-sg-'+id)};
+    var fy=$('y'),fm=$('m'),fd=$('d'),out=$('out');if(!fy||!fm||!fd||!out)return;
+    function wlabel(y){return y===2019?'平成31年／令和元年':wareki(y);}
+    function opt(sel,v,label){var o=document.createElement('option');o.value=v;o.textContent=label;sel.appendChild(o);}
+    opt(fy,'','年');for(var y=R.max;y>=R.min;y--)opt(fy,y,y+'年（'+wlabel(y)+'）');
+    opt(fm,'','月');for(var m=1;m<=12;m++)opt(fm,m,m+'月');
+    function fillDays(){
+      var y=Number(fy.value)||2000,m=Number(fm.value)||1,n=new Date(y,m,0).getDate(),keep=Number(fd.value);
+      fd.innerHTML='';opt(fd,'','日');for(var d=1;d<=n;d++)opt(fd,d,d+'日');
+      if(keep&&keep<=n)fd.value=keep;
+    }
+    fillDays();
+    function t(id,s){var e=$(id);if(e)e.textContent=s;}
+    function link(id,href,s){var e=$(id);if(e){e.href=href;if(s!=null)e.textContent=s;}}
+    function pad(n){return (n<10?'0':'')+n;}
+    var last=null;
+    function render(){
+      var y=Number(fy.value),m=Number(fm.value),d=Number(fd.value);
+      if(!y||!m||!d){out.hidden=true;last=null;return false;}
+      var h=honmei(y,m,d),pl=pillars(y,m,d),sg=sunSign(y,m,d),sk=shuku(y,m,d),kk=kin(y,m,d),lp=lifePath(y,m,d),an=animal(y,m,d),sd=setsuDay(y,m,d);
+      var ci=mod(y-4,12),eto=STEM[mod(y-4,10)]+BR[ci],nk=GEN.nikkan[pl.nikkan]||'',mmdd=pad(m)+'-'+pad(d);
+      last={y:y,m:m,d:d};
+      t('date',y+'/'+m+'/'+d);t('sub',y+'年（'+wlabel(y)+'）'+m+'月'+d+'日生まれ');
+      /* カード */
+      t('c-sign',sg?sg.name:'—');t('c-star',STAR[h.star]);t('c-eto',eto+'（'+ANI[ci]+'）');
+      t('c-pillars',pl.year+'・'+pl.month+'・'+pl.day);t('c-nikkan',pl.nikkan+(nk?'（'+nk.split('（')[0]+'）':''));
+      t('c-shuku',sk?sk.name+'宿':'—');t('c-kin','KIN'+kk.kin);t('c-seal',kk.seal+'／音'+kk.tone);
+      t('c-lp',String(lp));t('c-animal',an.label);
+      /* くわしく */
+      t('sign',sg?sg.name:'—');
+      t('sign-n',sg&&sg.border?'星座の境目の日です。この年は'+m+'月'+d+'日のうちに太陽が星座を移るため、生まれた時刻によっては'+sg.other+'になります（正午生まれとして計算）。':'太陽がどの星座にあったかで決まる、西洋占星術の基本の星座です。');
+      if(sg)link('sign-a','/'+sg.en+'/',sg.name+'の運勢を見る →');
+      t('star',STAR[h.star]);
+      t('star-n',(h.prev?'立春前の生まれなので、前年（'+h.etoYear+'年）の星になります。':'')+(GEN.kyuseiKw[h.star]?'「'+GEN.kyuseiKw[h.star]+'」の星。':'')+'2027年の年盤では'+palace2027(h.star)+'にいます。');
+      t('eto',eto+'・'+ANI[ci]+'年');
+      t('eto-n',h.prev?'ふだんの干支（1月1日で切り替え）です。四柱推命・九星気学では立春で年が切り替わるため、'+m+'月'+d+'日生まれは前年の「'+pl.year+'」として計算します。':'ふだんの干支（1月1日で切り替え）。四柱推命の年柱も同じ「'+pl.year+'」です。');
+      t('pillars',pl.year+'年・'+pl.month+'月・'+pl.day+'日');
+      t('pillars-n','日干は「'+pl.nikkan+'」'+(nk?'＝'+nk:'')+'。'+(sd?'この年は'+m+'月'+d+'日が「'+sd+'」の節入りの日なので、生まれた時刻によって月柱'+(sd==='立春'?'・年柱・本命星':'')+'が変わります（正午生まれとして計算）。':'生まれた時刻（時柱）は使わず、年・月・日の3つの柱で見ています。'));
+      if(sk){t('shuku',sk.name+'宿');t('shuku-n','旧暦'+(sk.kyu.leap?'閏':'')+sk.kyu.month+'月'+sk.kyu.day+'日の生まれ。'+(GEN.shukuKw[sk.name]?'キーワードは「'+GEN.shukuKw[sk.name]+'」。':''));}
+      else{t('shuku','—');t('shuku-n','この日は計算の範囲外です');}
+      t('kin','KIN'+kk.kin);
+      t('kin-n','太陽の紋章「'+kk.seal+'」'+(GEN.sealKw[kk.sealNo]?'（'+GEN.sealKw[kk.sealNo]+'）':'')+'・銀河の音'+kk.tone+'「'+kk.toneName+'」'+(GEN.toneKw[kk.tone]?'（'+GEN.toneKw[kk.tone]+'）':''));
+      t('lp',String(lp));t('lp-n',(GEN.lpKw[lp]?'「'+GEN.lpKw[lp]+'」の数。':'')+'生年月日の数字をすべて足して出す数です。');
+      t('animal',an.label);
+      link('day','/366uranai/'+mmdd+'/');t('day-t',m+'月'+d+'日生まれの誕生日占い（2027年版）');
+      link('day-a','/366uranai/'+mmdd+'/',m+'月'+d+'日生まれのページで、生まれ年を選んで続きを見る →');
+      out.hidden=false;return true;
+    }
+    function onChange(e){if(e&&(e.target===fy||e.target===fm))fillDays();if(last||(fy.value&&fm.value&&fd.value))render();}
+    [fy,fm,fd].forEach(function(s){s.addEventListener('change',onChange);});
+    var go=$('go');if(go)go.addEventListener('click',function(){if(render()){var c=root.querySelector('.fh-b27-sg-cardwrap');if(c&&c.scrollIntoView)c.scrollIntoView({behavior:'smooth',block:'start'});}else{var f=!fy.value?fy:!fm.value?fm:fd;f.focus();}});
+    /* --- カードを画像で保存（誕生日カードと同じく canvas に描いて PNG にする） --- */
+    var save=root.querySelector('[data-fh-action="save-sg"]');
+    if(save)save.addEventListener('click',function(ev){
+      ev.preventDefault();if(!last)return;
+      var draw=function(){
+        var c=document.createElement('canvas'),W=1080,H=1350;c.width=W;c.height=H;var x=c.getContext('2d');
+        x.fillStyle='#1F2638';x.fillRect(0,0,W,H);
+        x.fillStyle='#33405C';for(var gy=20;gy<H;gy+=44)for(var gx=20;gx<W;gx+=44){x.beginPath();x.arc(gx,gy,2.4,0,7);x.fill();}
+        x.save();x.translate(W/2,H/2);x.rotate(-0.025);
+        x.fillStyle='#F7F1E3';x.fillRect(-430,-520,860,1040);
+        x.fillStyle='rgba(227,199,126,.85)';x.fillRect(-110,-548,220,56);
+        x.fillStyle='#6B645B';x.font='600 30px "Klee One", cursive';x.fillText('生年月日まるごとカード',-370,-440);
+        x.fillStyle='#2E2A26';x.font='800 112px "Shippori Mincho", serif';x.fillText(last.y+'/'+last.m+'/'+last.d,-370,-300);
+        x.fillStyle='#6B645B';x.font='600 34px "Klee One", cursive';x.fillText(($('sub')||{}).textContent||'',-370,-220);
+        var rows=root.querySelectorAll('.fh-b27-sg-card dl > div'),yy=-140;
+        rows.forEach(function(r){x.fillStyle='#6B645B';x.font='30px "Zen Kaku Gothic New", sans-serif';x.fillText(r.querySelector('dt').textContent,-370,yy);
+          x.fillStyle='#2E2A26';x.font='700 34px "Zen Kaku Gothic New", sans-serif';x.textAlign='right';x.fillText(r.querySelector('dd').textContent,370,yy);x.textAlign='left';
+          x.strokeStyle='#CFC6B5';x.setLineDash([6,6]);x.beginPath();x.moveTo(-370,yy+20);x.lineTo(370,yy+20);x.stroke();x.setLineDash([]);yy+=56;});
+        x.fillStyle='#6B645B';x.font='28px "Zen Kaku Gothic New", sans-serif';x.fillText('人生予報 ｜ uranai.epoch-compass.com',-370,470);
+        x.restore();
+        c.toBlob(function(b){var u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='seinengappi-'+last.y+pad(last.m)+pad(last.d)+'.png';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);},'image/png');
+      };
+      if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);else draw();
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bootSeinen);else bootSeinen();
 })(typeof window!=='undefined'?window:globalThis);

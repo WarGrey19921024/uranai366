@@ -1,0 +1,17 @@
+{
+ "pages": 366,
+ "templates": [
+  "phone",
+  "rakuten"
+ ],
+ "links": {
+  "amazon": 0,
+  "phone": 366,
+  "rakuten": 4758
+ },
+ "skipped_buttons": {
+  "amazon": 2196,
+  "phone": 0,
+  "rakuten": 0
+ }
+}

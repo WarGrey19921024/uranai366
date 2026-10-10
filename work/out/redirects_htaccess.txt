@@ -1,3 +1,5 @@
-# 誕生日占い 2027年版：旧URL → /birthday/MMDD/（すべて最終URLへ直接。転送の連鎖なし）
-# 1行で済ませる書き方（推奨）：
-RedirectMatch 301 ^/(?:2025|2026)-(\d{4})/?$ /birthday/$1/
+# 誕生日占い 2027年版：旧URL → /366uranai/MM-DD/、旧ハブ → /366uranai/（すべて最終URLへ直接。転送の連鎖なし）
+# .htaccess の「# BEGIN WordPress」より上に貼る。redirects_301.csv（734件）と同じ転送になる：
+RedirectMatch 301 ^/(?:2025|2026)-(\d{2})(\d{2})/?$ /366uranai/$1-$2/
+RedirectMatch 301 ^/366uranai/2026y/?$ /366uranai/
+RedirectMatch 301 ^/366uranai/2025y/?$ /366uranai/

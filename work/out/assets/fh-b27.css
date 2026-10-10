@@ -7,7 +7,7 @@
 .fh-b27 a:hover{color:#F4DFA6}
 .fh-b27-note{max-width:760px;margin:0 auto;background-color:var(--paper);background-image:radial-gradient(#33405C 1.2px,transparent 1.2px);background-size:22px 22px;border-radius:4px 10px 10px 4px;border-left:14px solid #3A2A22;box-shadow:0 10px 30px rgba(0,0,0,.4);padding:40px 30px;display:flex;flex-direction:column;gap:44px}
 .fh-b27 p{margin:0}
-.fh-b27 h1,.fh-b27 h2,.fh-b27 h3{margin:0;color:var(--ink)}
+.fh-b27 h2,.fh-b27 h3{margin:0;color:var(--ink)}
 .fh-b27-hand{font-family:'Klee One',cursive}
 .fh-b27-min{font-family:'Shippori Mincho',serif}
 
@@ -16,7 +16,8 @@
 .fh-b27-kou{writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;font-size:40px;font-weight:800;letter-spacing:.16em;color:var(--gold);line-height:1.1}
 .fh-b27-hero-body{flex:1 1 360px;display:flex;flex-direction:column;gap:14px;justify-content:center}
 .fh-b27-tape{align-self:flex-start;padding:4px 16px;background:var(--gold);color:var(--paper);font-family:'Klee One',cursive;font-size:14px;font-weight:600;transform:rotate(-2deg);line-height:1.6}
-.fh-b27-hero h1{font-family:'Klee One',cursive;font-size:30px;font-weight:600;line-height:1.5}
+/* ページの題（H1 はテーマがページタイトルで出すので、本文では p にする） */
+.fh-b27 .fh-b27-title,.fh-b27-hero h1{margin:0;color:var(--ink);font-family:'Klee One',cursive;font-size:30px;font-weight:600;line-height:1.5}
 .fh-b27-lead{font-size:15px;color:var(--sub)}
 
 /* 目次 */
@@ -227,7 +228,7 @@
 @media (max-width:600px){
   .fh-b27-note{padding:30px 18px;border-left-width:8px}
   .fh-b27-kou{font-size:30px}
-  .fh-b27-hero h1{font-size:24px}
+  .fh-b27 .fh-b27-title,.fh-b27-hero h1{font-size:24px}
   .fh-b27 h2{font-size:21px}
   .fh-b27-stickies,.fh-b27-two,.fh-b27-res,.fh-b27-links,.fh-b27-mono,.fh-b27-nexts,.fh-b27-gifts{grid-template-columns:1fr}
   .fh-b27-koyomi div,.fh-b27-field{grid-template-columns:1fr;gap:4px}
@@ -248,3 +249,50 @@
 .fh-b27-today p b{color:inherit}
 .fh-b27-mono-card b em{display:inline-block}
 .fh-b27-sticky strong{color:var(--cream-ink)}
+
+/* ===== テーマ・プラグインとのぶつかり対策（このCSSは誕生日ページでしか読み込まない） ===== */
+/* Table of Contents Plus の目次を出さない（本文の先頭の [no_toc] と二重の備え。ページ内に自前の目次がある） */
+#toc_container{display:none!important}
+/* アフィリエイトの表示計測の画像（1×1）を並びから外す：ボタンの並び・間隔を崩さない */
+.fh-b27 a[rel~="sponsored"]+img{position:absolute!important;width:1px!important;height:1px!important;margin:0!important;padding:0!important;border:0!important;opacity:0;pointer-events:none}
+
+/* ===== 追加：一覧ページ（/366uranai/）・生年月日まるごと診断（/seinengappi/） ===== */
+.fh-b27-mnav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.fh-b27 .fh-b27-mnav a{min-height:44px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--line);border-radius:8px;background:var(--deep);text-decoration:none;font-family:'Klee One',cursive;font-size:17px;font-weight:600;color:var(--ink)}
+.fh-b27 .fh-b27-mnav a:hover{border-color:var(--gold);color:var(--gold)}
+.fh-b27-month{display:flex;flex-direction:column;gap:10px;scroll-margin-top:80px}
+.fh-b27-month h3{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.fh-b27-month h3 small{font-family:'Zen Kaku Gothic New',sans-serif;font-size:12px;font-weight:400;color:var(--mute)}
+.fh-b27-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.fh-b27 .fh-b27-days a{display:flex;flex-direction:column;align-items:center;gap:0;padding:6px 2px;border:1.5px solid var(--line);border-radius:8px;background:var(--deep);text-decoration:none;line-height:1.35;min-height:44px}
+.fh-b27 .fh-b27-days a:hover,.fh-b27 .fh-b27-days a:focus-visible{border-color:var(--gold);outline:none}
+.fh-b27-days b{font-family:'Klee One',cursive;font-size:18px;font-weight:600;color:var(--ink)}
+.fh-b27-days small{font-size:11px;color:var(--mute)}
+.fh-b27 .fh-b27-days a.fh-b27-bd{border-style:dashed;border-color:var(--gold)}
+.fh-b27-days a.fh-b27-bd small{color:var(--gold)}
+.fh-b27-signs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.fh-b27 .fh-b27-signs a{display:flex;flex-direction:column;gap:0;padding:10px 12px;border:1.5px dashed var(--line);border-radius:8px;background:var(--deep);text-decoration:none;line-height:1.5}
+.fh-b27-signs b{font-family:'Klee One',cursive;font-size:17px;font-weight:600}
+.fh-b27-signs small{font-size:12px;color:var(--mute)}
+.fh-b27-sg-form{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.fh-b27-sg-form label{font-size:13px;color:var(--sub);display:flex;flex-direction:column;gap:2px}
+.fh-b27 .fh-b27-sg-form select{min-width:92px}
+.fh-b27 .fh-b27-sg-form select#fh-b27-sg-y{min-width:200px}
+.fh-b27 button.fh-b27-btn{border:0;cursor:pointer;font-family:inherit}
+.fh-b27 button.fh-b27-btn:focus-visible{outline:2px solid var(--cream);outline-offset:2px}
+.fh-b27-sg-out{display:flex;flex-direction:column;gap:28px}
+.fh-b27-sg-out[hidden]{display:none}
+.fh-b27-sg-cardwrap{scroll-margin-top:80px}
+.fh-b27-sg-cardwrap .fh-b27-card-outer{max-width:560px}
+.fh-b27-sg-card .fh-b27-sub{font-family:'Klee One',cursive;font-size:15px;font-weight:600;color:#6B645B}
+.fh-b27-sg-card dl div{gap:10px}
+.fh-b27-sg-card dd{text-align:right}
+.fh-b27-sg-card .fh-b27-btn{align-self:flex-start}
+@media (max-width:600px){
+  .fh-b27-mnav{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .fh-b27-days{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+  .fh-b27-signs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fh-b27-sg-card dl{grid-template-columns:1fr}
+  .fh-b27 .fh-b27-sg-form select#fh-b27-sg-y{min-width:0;width:100%}
+  .fh-b27-sg-form label.fh-b27-sg-yl{flex:1 1 100%}
+}

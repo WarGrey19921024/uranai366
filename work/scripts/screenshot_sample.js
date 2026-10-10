@@ -15,8 +15,10 @@ const SAMPLE = path.join(__dirname, '..', 'out', 'sample');
       const page = await browser.newPage({ viewport: vp, deviceScaleFactor: 1 });
       const errors = [];
       page.on('pageerror', e => errors.push('pageerror: ' + e.message));
-      page.on('console', m => { if (m.type() === 'error') errors.push('console: ' + m.text()); });
-      page.on('requestfailed', r => { if (!r.url().startsWith('https://fonts.')) errors.push('requestfailed: ' + r.url()); });
+      // アフィリエイトの表示計測の画像（もしも・A8）は確認用の環境では読めない（file:// では //i.moshimo.com が開けず、外へもつながらない）ので数えない
+      const adPixel = u => /^(https?|file):\/\/([^/]*\.)?(moshimo\.com|a8\.net)\//.test(u || '');
+      page.on('console', m => { if (m.type() === 'error' && !(m.text().startsWith('Failed to load resource') && adPixel(m.location().url))) errors.push('console: ' + m.text()); });
+      page.on('requestfailed', r => { if (!r.url().startsWith('https://fonts.') && !adPixel(r.url())) errors.push('requestfailed: ' + r.url()); });
       await page.goto('file://' + path.join(SAMPLE, mmdd + '.html'), { waitUntil: 'load' });
       await page.waitForTimeout(300);
       const before = await page.evaluate(() => ({
