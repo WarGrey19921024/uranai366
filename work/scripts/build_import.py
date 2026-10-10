@@ -18,10 +18,11 @@ def main():
     for k in sorted(M):
         p = os.path.join(OUT, "html", f"{k}.html")
         s = open(p, encoding="utf-8").read()
-        a, b = s.find("<!-- fh-b27:start -->"), s.find("<!-- fh-b27:end -->")
+        _m = re.search(r"<!-- fh-b27:start[^>]*-->", s); a, b = (_m.start() if _m else -1), s.find("<!-- fh-b27:end -->")
         if a < 0 or b < 0:
             raise SystemExit(f"{k}: 本文の目印が見つかりません")
-        body = s[a:b + len("<!-- fh-b27:end -->")]
+        # 「カスタムHTML」ブロックとして包む：ブロックを含む本文には WordPress の自動段落（wpautop）がかからず、HTMLがそのまま出る
+        body = "<!-- wp:html -->\n" + s[a:b + len("<!-- fh-b27:end -->")] + "\n<!-- /wp:html -->"
         title = html.unescape(re.search(r"<title>([^<]+)</title>", s).group(1))
         desc = html.unescape(re.search(r'<meta name="description" content="([^"]+)"', s).group(1))
         m, d = int(k[:2]), int(k[2:])

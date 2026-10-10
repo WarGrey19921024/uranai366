@@ -11,7 +11,7 @@ files = sorted(glob.glob(os.path.join(W, "out", d, "[0-9][0-9][0-9][0-9].html"))
 
 
 def body_text(s):
-    a, b = s.find("<!-- fh-b27:start -->"), s.find("<!-- fh-b27:end -->")
+    _m = re.search(r"<!-- fh-b27:start[^>]*-->", s); a, b = (_m.start() if _m else -1), s.find("<!-- fh-b27:end -->")
     t = s[a:b] if a >= 0 else s
     t = re.sub(r"<script.*?</script>|<style.*?</style>", "", t, flags=re.S)
     return re.sub(r"\s+", "", H.unescape(re.sub(r"<[^>]+>", "", t)))

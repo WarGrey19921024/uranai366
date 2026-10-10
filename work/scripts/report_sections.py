@@ -7,7 +7,7 @@ ROOT = os.path.join(HERE, "..", "..")
 
 def secs(path):
     s = open(path, encoding="utf-8").read()
-    a, b = s.find("<!-- fh-b27:start -->"), s.find("<!-- fh-b27:end -->")
+    _m = re.search(r"<!-- fh-b27:start[^>]*-->", s); a, b = (_m.start() if _m else -1), s.find("<!-- fh-b27:end -->")
     body = s[a:b] if a >= 0 else s[s.find("<body"):]
     body = re.sub(r"<script.*?</script>|<style.*?</style>", "", body, flags=re.S)
     parts = re.split(r"(<h2[^>]*>.*?</h2>)", body, flags=re.S)

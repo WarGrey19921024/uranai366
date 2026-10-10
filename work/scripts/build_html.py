@@ -857,13 +857,14 @@ def main():
         with open(os.path.join(odir, f"{k}.html"), "w", encoding="utf-8") as f:
             f.write(page)
     import csv
-    with open(os.path.join(OUT, "affiliate_placeholders.csv"), "w", encoding="utf-8-sig", newline="") as f:
+    aff_path = os.path.join(OUT, "affiliate_placeholders.csv" if args.all else "affiliate_placeholders_partial.csv")  # 置換表は --all のときだけ本物を上書き
+    with open(aff_path, "w", encoding="utf-8-sig", newline="") as f:
         w_ = csv.writer(f)
         w_.writerow(["仮リンク（置換前）", "実リンク（ここに記入）", "種類と商品", "使っているページ数", "使っているページ（先頭10件）"])
         for key, v in sorted(AFF.items(), key=lambda x: x[1]["label"]):
             pg = sorted(v["pages"])
             w_.writerow([key, "", v["label"], len(pg), " ".join(pg[:10])])
-    print(f"{len(targets)}ページ → {os.path.relpath(odir, WORK)}/  共通CSS/JS → out/assets/  仮リンク {len(AFF)}種 → out/affiliate_placeholders.csv")
+    print(f"{len(targets)}ページ → {os.path.relpath(odir, WORK)}/  共通CSS/JS → out/assets/  仮リンク {len(AFF)}種 → out/{os.path.basename(aff_path)}")
     if notext:
         print(f"文章が未作成の日: {len(notext)}件（例: {', '.join(notext[:5])}）")
     for w in allw:
