@@ -63,6 +63,7 @@ def main():
         i = pos[s]
         order = cands[i % len(cands):] + cands[:i % len(cands)]  # 候の中の順番を基本に
         order = [c for c in order if not prev or c["name"] != prev["name"]]
+        order = [c for c in order if c.get("hex_checked")] or order  # 確認済みの色を優先
         c = min(order, key=lambda c: used[c["name"]])  # まだ使っていない色を優先
         pos[s] += 1
         used[c["name"]] += 1
