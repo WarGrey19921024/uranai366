@@ -13,7 +13,7 @@ def secs(path):
     parts = re.split(r"(<h2[^>]*>.*?</h2>)", body, flags=re.S)
     out = {}
     for i in range(1, len(parts), 2):
-        h = re.sub(r'<span class="n">\d+</span>', "", parts[i])
+        h = re.sub(r'<span class="(?:fh-b27-)?n">\d+</span>', "", parts[i])
         h = re.sub(r"<[^>]+>", "", h).strip()
         h = re.sub(r"\d{1,2}月\d{1,2}日", "M月D日", h)
         t = re.sub(r"\s+", "", html.unescape(re.sub(r"<[^>]+>", "", parts[i + 1])))
