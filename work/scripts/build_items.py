@@ -52,6 +52,7 @@ def main():
     rows, out = [], {}
     # 誕生色：候ごとに、候の中の日の順番で6色を回す
     color_of = {}
+    used = collections.Counter()
     pos = collections.Counter()
     prev = None
     for k in keys:
@@ -60,10 +61,11 @@ def main():
         if not cands:
             continue
         i = pos[s]
-        c = cands[i % len(cands)]
-        if prev and c["name"] == prev["name"]:
-            c = cands[(i + 1) % len(cands)]
+        order = cands[i % len(cands):] + cands[:i % len(cands)]  # 候の中の順番を基本に
+        order = [c for c in order if not prev or c["name"] != prev["name"]]
+        c = min(order, key=lambda c: used[c["name"]])  # まだ使っていない色を優先
         pos[s] += 1
+        used[c["name"]] += 1
         color_of[k] = c
         prev = c
     # 誕生日石
