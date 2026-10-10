@@ -549,3 +549,6 @@
 /* 一覧ページだけ、先頭の題を H1 にする（テーマがタイトルを出さないため） */
 .fh-b27 h1.fh-b27-title{margin:0;color:var(--ink);font-family:'Klee One',cursive;font-size:30px;font-weight:600;line-height:1.5;border:0;padding:0;background:none}
 @media (max-width:600px){.fh-b27 h1.fh-b27-title{font-size:24px}}
+
+/* 2026-10-11 誕生日ページ群では Diver の CTA（夢解き図鑑の案内）を出さない。下の姉妹サイト欄と重複するため */
+#cta{display:none!important}
