@@ -591,6 +591,14 @@
    "text": "毎月25日の天神様の縁日のうち新年最初の日。学業成就を願う人でにぎわう",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ホットケーキの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "一年で最も寒いころに、温かいホットケーキを味わおうという日",
+   "source_url": "https://netlab.click/todayis/0125",
+   "confirmed": true
   }
  ],
  "0126": [
@@ -609,6 +617,14 @@
    "text": "寒さの厳しい時期に武道や芸ごとの稽古をして心身を鍛える習わし",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "モンチッチの日",
+   "kind": "記念日",
+   "year": 1974,
+   "text": "小さなお猿の人形「モンチッチ」が誕生した日にちなむ記念日",
+   "source_url": "https://zatsuneta.com/archives/101269.html",
+   "confirmed": true
   }
  ],
  "0127": [
@@ -653,6 +669,14 @@
    "text": "思いがけない幸運を見つける力「セレンディピティ」という言葉が生まれた日にちなむ",
    "source_url": "https://netlab.click/todayis/0128",
    "confirmed": true
+  },
+  {
+   "title": "逸話の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「い(1)つ(2)わ(8)」の語呂合わせ。知られざる面白い話を語り合う日",
+   "source_url": "https://zatsuneta.com/archives/101286.html",
+   "confirmed": true
   }
  ],
  "0129": [
@@ -671,6 +695,14 @@
    "text": "雪の下から顔を出すふきのとう。ほろ苦さが春の訪れを知らせる",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "タウン情報の日",
+   "kind": "できごと",
+   "year": 1973,
+   "text": "日本初の地域情報誌『ながの情報』が発行されたことにちなむ日",
+   "source_url": "https://zatsuneta.com/archives/101292.html",
+   "confirmed": true
   }
  ],
  "0130": [
@@ -689,6 +721,14 @@
    "text": "身がふっくら太り、うまみが濃くなる冬の牡蠣が食べごろ",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "節々の痛みゼロを目指す日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「いた(1)み(3)ゼロ(0)」の語呂。体の節々をいたわり、元気に動くための日",
+   "source_url": "https://zatsuneta.com/archives/101308.html",
+   "confirmed": true
   }
  ],
  "0131": [
@@ -777,6 +817,14 @@
    "text": "こたつで食べるみかんが甘さを増す、冬の果物の代表格",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "絵手紙の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "絵手紙の「ふ(2)み(3)」の語呂から。絵と言葉で気持ちを届ける日",
+   "source_url": "https://zatsuneta.com/archives/102036.html",
+   "confirmed": true
   }
  ],
  "0204": [
@@ -803,6 +851,15 @@
    "text": "足利義政が京都・東山で、のちの銀閣寺となる山荘を造り始めた日にちなむ",
    "source_url": "https://bestcalendar.jp/dates/kinenbi/140496",
    "confirmed": true
+  },
+  {
+   "title": "ぷよの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「ぷ(2)よ(4)」の語呂合わせ。落ちものパズル「ぷよぷよ」を楽しむ日",
+   "source_url": "https://zatsuneta.com/archives/102042.html",
+   "confirmed": false,
+   "note": "特定の商品の記念日で宣伝色が強いため使わない（2026-10-10）"
   }
  ],
  "0205": [
@@ -872,6 +929,14 @@
    "year": null,
    "text": "長野で冬季オリンピックが開幕した日にちなみ、雪と氷の祭典を思い出す日。",
    "source_url": "https://netlab.click/todayis/0207",
+   "confirmed": true
+  },
+  {
+   "title": "ふるさとの日（福井県）",
+   "kind": "記念日",
+   "year": 1881,
+   "text": "石川県と滋賀県の一部から福井県が生まれた日。郷土を見つめ直す日",
+   "source_url": "https://zatsuneta.com/archives/102074.html",
    "confirmed": true
   }
  ],
@@ -987,6 +1052,14 @@
    "text": "ほろ苦い菜の花のおひたしが食卓に春を運んでくる季節",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ボブスレーの日",
+   "kind": "できごと",
+   "year": 1938,
+   "text": "札幌で日本初の全日本ボブスレー選手権大会が開かれたことにちなむ",
+   "source_url": "https://zatsuneta.com/archives/102125.html",
+   "confirmed": true
   }
  ],
  "0213": [
@@ -1039,6 +1112,14 @@
    "text": "甘みが強く皮もむきやすいぽんかんが食べごろの季節",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "第1回箱根駅伝",
+   "kind": "できごと",
+   "year": 1920,
+   "text": "お正月の名物・箱根駅伝の第1回大会が、4校の参加で始まった日",
+   "source_url": "https://sportiva.shueisha.co.jp/clm/othersports/rikujo/2012/02/14/post_93/",
+   "confirmed": true
   }
  ],
  "0215": [
@@ -1169,6 +1250,14 @@
    "text": "寒さで甘みがのり、つぼみがぎゅっと締まったブロッコリーが旬",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "天地の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "地動説を唱えたコペルニクスの誕生日。ものの見方を変える発想に学ぶ日",
+   "source_url": "https://zatsuneta.com/archives/102194.html",
+   "confirmed": true
   }
  ],
  "0220": [
@@ -1309,6 +1398,14 @@
    "text": "寒さにあたって甘みを増したほうれん草が、いちばんおいしい時期",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ひざ関節の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "ひざの英語「ニー」の2と、にっこりの25から。ひざをいたわる日",
+   "source_url": "https://zatsuneta.com/archives/102256.html",
+   "confirmed": true
   }
  ],
  "0226": [
@@ -1335,6 +1432,14 @@
    "text": "太平洋を渡った咸臨丸がサンフランシスコに着いたことにちなむ日。",
    "source_url": "https://netlab.click/todayis/0226",
    "confirmed": true
+  },
+  {
+   "title": "包む（ラッピング）の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "贈り物をていねいに包む心づかいと、ラッピングの楽しさを広める日",
+   "source_url": "https://zatsuneta.com/archives/102266.html",
+   "confirmed": true
   }
  ],
  "0227": [
@@ -1360,6 +1465,14 @@
    "year": 1996,
    "text": "最初のポケモンのゲームが発売された日にちなむ、世界中で愛される冒険の日。",
    "source_url": "https://zatsuneta.com/archives/102274.html",
+   "confirmed": true
+  },
+  {
+   "title": "女性雑誌の日",
+   "kind": "できごと",
+   "year": 1693,
+   "text": "ロンドンで世界初の女性向け週刊誌が創刊されたことにちなむ日",
+   "source_url": "https://zatsuneta.com/archives/102272.html",
    "confirmed": true
   }
  ],

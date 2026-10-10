@@ -293,6 +293,14 @@
    "text": "瀬戸内海・雲仙・霧島が、日本で初めての国立公園に選ばれた日。",
    "source_url": "https://zatsuneta.com/archives/103161.html",
    "confirmed": true
+  },
+  {
+   "title": "十六団子の日",
+   "kind": "行事",
+   "year": null,
+   "text": "東北や北陸の一部で、田の神を迎えるため団子を16個供える習わし",
+   "source_url": "https://zatsuneta.com/archives/103164.html",
+   "confirmed": true
   }
  ],
  "0317": [
@@ -311,6 +319,14 @@
    "text": "水分たっぷりで辛みがやさしく、サラダで味わえる春の玉ねぎ。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "みんなで考えるSDGsの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「みんな(3)で17のゴール」の語呂から。持続可能な未来を考える日",
+   "source_url": "https://zatsuneta.com/archives/103175.html",
+   "confirmed": true
   }
  ],
  "0318": [
@@ -370,9 +386,9 @@
    "title": "上野動物園が開園",
    "kind": "できごと",
    "year": 1882,
-   "text": "日本で最初の動物園として、東京・上野に動物園が開かれた日。",
-   "source_url": "",
-   "confirmed": false
+   "text": "日本初の近代的な動物園として、東京・上野動物園が開園した日",
+   "source_url": "https://zatsuneta.com/archives/103202.html",
+   "confirmed": true
   }
  ],
  "0321": [
@@ -685,6 +701,14 @@
    "text": "「よ(4)こ(5)ちょう」の語呂から、路地裏の小さな横丁の味わいを楽しむ日。",
    "source_url": "https://zatsuneta.com/category/anniversary04.html",
    "confirmed": true
+  },
+  {
+   "title": "デビューの日",
+   "kind": "記念日",
+   "year": 1958,
+   "text": "長嶋茂雄さんがプロ野球にデビューした日。新人にエールを送る日",
+   "source_url": "https://zatsuneta.com/archives/104054.html",
+   "confirmed": true
   }
  ],
  "0406": [
@@ -872,9 +896,9 @@
    "title": "ボーイズ・ビー・アンビシャスデー",
    "kind": "できごと",
    "year": 1877,
-   "text": "クラーク博士が別れ際に「少年よ大志を抱け」と言葉を残した日。",
-   "source_url": "",
-   "confirmed": false
+   "text": "クラーク博士が「少年よ、大志を抱け」の言葉を残し北海道を去った日",
+   "source_url": "https://zatsuneta.com/archives/104163.html",
+   "confirmed": true
   },
   {
    "title": "えのすいの日",
@@ -991,6 +1015,14 @@
    "text": "「よ(4)い夫婦(22)」の語呂から、夫婦でゆっくり感謝を伝え合う日。",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "カーペンターズの日",
+   "kind": "記念日",
+   "year": 1969,
+   "text": "兄妹デュオ「カーペンターズ」がメジャー契約を結んだ日にちなむ",
+   "source_url": "https://zatsuneta.com/archives/104224.html",
+   "confirmed": true
   }
  ],
  "0423": [
@@ -1132,10 +1164,9 @@
    "title": "藤の花",
    "kind": "旬",
    "year": null,
-   "text": "4月下旬から5月上旬は各地の藤棚が見ごろ。紫の花房が風に揺れる季節。",
+   "text": "4月下旬から5月上旬は各地の藤棚が見ごろ。紫の花房が風に揺れる季節",
    "source_url": "https://www.kankomie.or.jp/season/222.html",
-   "confirmed": false,
-   "note": "出典ページの記載が検索結果だけでは確かめきれないため保留（2026-10-10）"
+   "confirmed": true
   }
  ]
 }

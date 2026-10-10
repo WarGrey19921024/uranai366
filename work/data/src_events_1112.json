@@ -623,6 +623,14 @@
    "text": "冬の始まりに咲く花。生け垣を彩り、寒い時期に明るさを添える",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ノウフクの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "農業と福祉が手を結ぶ「農福連携」で生まれた産品を広める日",
+   "source_url": "https://zatsuneta.com/archives/11129a5.html",
+   "confirmed": true
   }
  ],
  "1130": [
@@ -685,6 +693,14 @@
    "text": "冬に甘みを増す大根。おでんやぶり大根で体の芯から温まる",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "デーツの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "Decemberの「D」と「2(ツー)」で「デーツ」。なつめやしの実を味わう日",
+   "source_url": "https://zatsuneta.com/archives/112028.html",
+   "confirmed": true
   }
  ],
  "1203": [
@@ -867,6 +883,14 @@
    "text": "国連で障害者の権利宣言が採択されたことにちなみ、共に暮らす社会を考える日。",
    "source_url": "https://netlab.click/todayis/1209",
    "confirmed": true
+  },
+  {
+   "title": "マウスの誕生日",
+   "kind": "できごと",
+   "year": 1968,
+   "text": "パソコンのマウスが初めて公開の場で披露されたことにちなむ日",
+   "source_url": "https://zatsuneta.com/archives/112094.html",
+   "confirmed": true
   }
  ],
  "1210": [
@@ -885,6 +909,14 @@
    "text": "冬が旬の高級魚。てっちりやひれ酒で冬の食卓を楽しむ",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ベルトの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「ジングルベル」のベルと10日の「ト」から。ベルトを見直す冬の日",
+   "source_url": "https://zatsuneta.com/archives/112109.html",
+   "confirmed": true
   }
  ],
  "1211": [
@@ -981,6 +1013,14 @@
    "text": "雪の重みで枝が折れないよう、庭木に縄を張る冬の風景",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "麺の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "体が温まる麺類を味わう日。赤穂浪士がそばを食べた話にちなむとされる",
+   "source_url": "https://zatsuneta.com/archives/112145.html",
+   "confirmed": true
   }
  ],
  "1215": [
@@ -1051,6 +1091,14 @@
    "text": "冬が旬のあんこう。肝を溶かした濃厚な鍋が名物",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "わちふぃーるどの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "猫のダヤンが不思議な国「わちふぃーるど」へ渡った日にちなむ",
+   "source_url": "https://zatsuneta.com/archives/112174.html",
+   "confirmed": true
   }
  ],
  "1218": [
@@ -1069,6 +1117,14 @@
    "text": "冬においしくなる蓮根。穴があることから先の見通しがよい縁起物",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "国連加盟記念日",
+   "kind": "できごと",
+   "year": 1956,
+   "text": "日本の国際連合への加盟が、全会一致で認められた日",
+   "source_url": "https://zatsuneta.com/archives/112182.html",
+   "confirmed": true
   }
  ],
  "1219": [
@@ -1094,6 +1150,14 @@
    "year": null,
    "text": "日本人の操縦する飛行機が、日本の空を初めて公式に飛んだことにちなむ日。",
    "source_url": "https://zatsuneta.com/archives/112191.html",
+   "confirmed": true
+  },
+  {
+   "title": "まつ育の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "「まつ(12)いく(19)」の語呂。まつ毛をやさしくいたわる日",
+   "source_url": "https://zatsuneta.com/archives/112193.html",
    "confirmed": true
   }
  ],
@@ -1217,6 +1281,14 @@
    "text": "薪の形をしたクリスマスのケーキ。フランス生まれの冬の菓子",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "チョコレートの新聞広告",
+   "kind": "できごと",
+   "year": 1878,
+   "text": "米津凮月堂が新聞に「貯古齢糖（チョコレート）」の広告を出した日",
+   "source_url": "https://tabi-mag.jp/day1225/",
+   "confirmed": true
   }
  ],
  "1225": [
@@ -1381,6 +1453,14 @@
    "text": "まめに暮らせるようにと願うおせちの一品。年末にふっくら煮る",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "蓬莱橋がギネス認定",
+   "kind": "できごと",
+   "year": 1997,
+   "text": "静岡県島田市の蓬莱橋が、世界一長い木造歩道橋としてギネス認定された日",
+   "source_url": "https://www.city.shimada.shizuoka.jp/fs/9/7/5/8/7/_/siryou3_2.pdf",
+   "confirmed": true
   }
  ],
  "1231": [
@@ -1399,6 +1479,14 @@
    "text": "細く長いそばに長寿や家運を願って食べる大晦日の習わし",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "シンデレラデー",
+   "kind": "記念日",
+   "year": null,
+   "text": "12時の魔法のように、一年で最も夜の時間が気になる大晦日にちなむ日",
+   "source_url": "https://zatsuneta.com/archives/112314.html",
+   "confirmed": true
   }
  ]
 }

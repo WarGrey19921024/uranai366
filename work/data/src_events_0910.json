@@ -303,6 +303,14 @@
    "text": "巨峰やシャインマスカットなど、ぶどうが一番おいしい季節",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "管理会計の日",
+   "kind": "記念日",
+   "year": 1916,
+   "text": "渋沢栄一の著書『論語と算盤』の初版が発行された日にちなむ",
+   "source_url": "https://zatsuneta.com/archives/109136.html",
+   "confirmed": true
   }
  ],
  "0914": [
@@ -391,6 +399,14 @@
    "text": "秋の味覚の代表、脂ののったさんまが食卓をにぎわせる時期",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "イタリア料理の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "イタリア語で料理を表す「ク(9)チー(1)ナ(7)」の語呂合わせから",
+   "source_url": "https://zatsuneta.com/archives/109173.html",
+   "confirmed": true
   }
  ],
  "0918": [
@@ -427,6 +443,14 @@
    "text": "産卵のために川へ戻る鮭がとれる季節。いくらも旬を迎える",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "九十九島の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "9と19の数字にちなみ、長崎県佐世保市の九十九島の魅力を伝える日",
+   "source_url": "https://zatsuneta.com/archives/109199.html",
+   "confirmed": true
   }
  ],
  "0920": [
@@ -452,9 +476,9 @@
    "title": "ファッションショーの日",
    "kind": "できごと",
    "year": 1927,
-   "text": "東京の百貨店で、日本初のファッションショーが開かれた日",
-   "source_url": "",
-   "confirmed": false
+   "text": "東京・銀座の三越呉服店で、日本初のファッションショーが開かれた日",
+   "source_url": "https://zatsuneta.com/archives/109213.html",
+   "confirmed": true
   },
   {
    "title": "国際平和デー",
@@ -481,6 +505,14 @@
    "text": "秋の香りの王様、まつたけが山から届き始める時期",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "B.LEAGUEの日",
+   "kind": "記念日",
+   "year": 2016,
+   "text": "男子プロバスケットボール「Bリーグ」が初めて開幕した日にちなむ",
+   "source_url": "https://zatsuneta.com/archives/109226.html",
+   "confirmed": true
   }
  ],
  "0923": [
@@ -551,6 +583,14 @@
    "text": "大分特産のかぼすが香る季節。鍋や焼き物に爽やかさを添える",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "藤ノ木古墳記念日",
+   "kind": "できごと",
+   "year": 1985,
+   "text": "奈良県斑鳩町の藤ノ木古墳で、石室などの発掘が進んだ日にちなむ",
+   "source_url": "https://zatsuneta.com/archives/109251.html",
+   "confirmed": true
   }
  ],
  "0926": [
@@ -610,9 +650,9 @@
    "title": "旬：落花生",
    "kind": "旬",
    "year": null,
-   "text": "掘りたての落花生をゆでて味わえる、収穫の季節",
-   "source_url": "",
-   "confirmed": false
+   "text": "全国一の産地・千葉県で、新豆の収穫が本格的に始まる季節",
+   "source_url": "https://www.pref.chiba.lg.jp/seisan/press/2026/peanuts150-press2026.html",
+   "confirmed": true
   }
  ],
  "0929": [
@@ -727,6 +767,14 @@
    "text": "色づいた柿が実る季節。甘くて栄養たっぷりの秋の果物",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "アンパンマンの日",
+   "kind": "記念日",
+   "year": 1988,
+   "text": "テレビアニメ「それいけ！アンパンマン」の放送が始まった日にちなむ",
+   "source_url": "https://zatsuneta.com/archives/11003a.html",
+   "confirmed": true
   }
  ],
  "1004": [
@@ -781,6 +829,14 @@
    "text": "秋に収穫したそば粉で打つ新そば。香りが格別の季節",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "役所改革の日",
+   "kind": "できごと",
+   "year": 1969,
+   "text": "千葉県松戸市役所に、困りごとにすぐ応える「すぐやる課」ができた日",
+   "source_url": "https://zatsuneta.com/archives/110062.html",
+   "confirmed": true
   }
  ],
  "1007": [
@@ -921,6 +977,14 @@
    "text": "やわらかく甘い秋かぶが出始める時期。煮ても漬けてもおいしい",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "ネット銀行の日",
+   "kind": "できごと",
+   "year": 2000,
+   "text": "日本初のインターネット専業銀行が営業を始めたことにちなむ日",
+   "source_url": "https://zatsuneta.com/archives/110124.html",
+   "confirmed": true
   }
  ],
  "1013": [
@@ -937,8 +1001,8 @@
    "kind": "できごと",
    "year": 1804,
    "text": "華岡青洲が全身麻酔による手術に世界で初めて成功した日にちなむ",
-   "source_url": "",
-   "confirmed": false
+   "source_url": "https://zatsuneta.com/archives/110133.html",
+   "confirmed": true
   }
  ],
  "1014": [
@@ -1019,6 +1083,14 @@
    "text": "実りに感謝する季節に、お金の使い方とためることを考える日",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "カラオケ文化の日",
+   "kind": "記念日",
+   "year": null,
+   "text": "日本生まれのカラオケを、歌って楽しむ文化として広める記念日",
+   "source_url": "https://zatsuneta.com/archives/110171.html",
+   "confirmed": true
   }
  ],
  "1018": [
@@ -1107,6 +1179,14 @@
    "text": "秋に掘られるシャキシャキのれんこん。見通しの良さの縁起物",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "バック・トゥ・ザ・リサイクルの日",
+   "kind": "記念日",
+   "year": null,
+   "text": "映画でデロリアンが着く未来が10月21日だったことにちなむ、リサイクルの日",
+   "source_url": "https://zatsuneta.com/archives/110215.html",
+   "confirmed": true
   }
  ],
  "1022": [
@@ -1231,6 +1311,14 @@
    "text": "本や新聞など、文字の文化に親しもうと法律で定められた日",
    "source_url": "",
    "confirmed": false
+  },
+  {
+   "title": "テディベアズ・デー",
+   "kind": "記念日",
+   "year": null,
+   "text": "テディベアの名の由来、ルーズベルト大統領の誕生日にちなむ日",
+   "source_url": "https://zatsuneta.com/archives/110271.html",
+   "confirmed": true
   }
  ],
  "1028": [
