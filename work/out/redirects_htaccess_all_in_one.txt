@@ -1,10 +1,10 @@
 # BEGIN 2027誕生日占い（2026-10-11 追加。外すときはこの行から END までを消す）
-# 2025年版 → 2027年版（すぐ有効）
-RedirectMatch 301 ^/2025-(\d{2})(\d{2})/?$ /366uranai/$1-$2/
-RedirectMatch 301 ^/366uranai/2025y/?$ /366uranai/
-# 2026年版 → 2027年版（2027年1月1日0時から自動で有効）
 <IfModule mod_rewrite.c>
 RewriteEngine On
+# 2025年版 → 2027年版（すぐ有効）
+RewriteRule ^2025-(\d{2})(\d{2})/?$ /366uranai/$1-$2/ [R=301,L]
+RewriteRule ^366uranai/2025y/?$ /366uranai/ [R=301,L]
+# 2026年版 → 2027年版（2027年1月1日0時から自動で有効）
 RewriteCond %{TIME} >=20270101000000
 RewriteRule ^2026-(\d{2})(\d{2})/?$ /366uranai/$1-$2/ [R=301,L]
 RewriteCond %{TIME} >=20270101000000
