@@ -1,5 +1,5 @@
 {
- "note": "誕生日石の候補カタログ（当サイト独自の選び方用）。誕生石29石は全国宝石卸商協同組合2021年改定（work/knowledge/10_誕生日もの.md）。天体対応は西洋の伝統・クリスタル解説サイト・ナヴァラトナ（インド占星術の9宝石）など出典ごとに違うため、planet_sources に天体ごとの出典URLを記録（いずれも WebSearch の検索結果要約で確認。原文は未確認）。meaning は言い伝えの要約（自分の言葉）。sold_checked=false の石は、検索回数の上限（1回の作業で200回）に達したため販売ページを確認できていない。投入前に販売確認が必要。調査日 2026-10-10。",
+ "note": "誕生日石の候補カタログ（当サイト独自の選び方用）。誕生石29石は全国宝石卸商協同組合2021年改定（work/knowledge/10_誕生日もの.md）。天体対応は西洋の伝統・クリスタル解説サイト・ナヴァラトナ（インド占星術の9宝石）など出典ごとに違うため、planet_sources に天体ごとの出典URLを記録（いずれも WebSearch の検索結果要約で確認。原文は未確認）。meaning は言い伝えの要約（自分の言葉）。sold_checked=false の石は、検索回数の上限（1回の作業で200回）に達したため販売ページを確認できていない。投入前に販売確認が必要。調査日 2026-10-10。（2026-10-10：81種すべて販売ページを確認済み）",
  "stones": [
   {
    "name": "ガーネット",
@@ -149,9 +149,9 @@
     "火星": "https://skyjems.ca/pages/encyclopedia-mars-stone-western-planetary"
    },
    "meaning": "緑の地に赤い斑点が入り、勇気と粘り強さを与える石として兵士が身につけたと伝わる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/10372787/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "アイオライト",
@@ -170,9 +170,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "見る向きで色が変わり、ヴァイキングが航海で方角を知るのに使ったという言い伝えがある。道しるべの石とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/10616377/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ダイヤモンド",
@@ -194,9 +194,9 @@
     "金星": "https://azeera.com/blog/the-9-navaratna-gemstones-origins-meaning-modern-appeal"
    },
    "meaning": "『征服できない』という意味の名を持ち、永遠の絆や揺るがない意志の象徴とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。ナヴァラトナで金星の石"
+   "sold_url": "https://store.shopping.yahoo.co.jp/lecoeur/birthday04k.html",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。ナヴァラトナで金星の石"
   },
   {
    "name": "モルガナイト",
@@ -214,9 +214,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "やわらかな桃色から、優しさや思いやり、愛情を育てる石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://booth.pm/ja/items/7931205",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "エメラルド",
@@ -241,9 +241,9 @@
     "金星": "https://kerykeion.net/content/learn-crystals/introduction"
    },
    "meaning": "若葉のような緑から再生と希望の象徴とされ、クレオパトラが愛した石と伝わる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。ナヴァラトナでも水星"
+   "sold_url": "https://www.creema.jp/item/18576293/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。ナヴァラトナでも水星"
   },
   {
    "name": "ヒスイ",
@@ -262,9 +262,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "日本では縄文時代から勾玉などに使われ、東洋で徳と長寿の象徴とされてきた。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/luzhikari/1000hisuisa100/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "真珠",
@@ -286,9 +286,9 @@
     "月": "https://azeera.com/blog/the-9-navaratna-gemstones-origins-meaning-modern-appeal"
    },
    "meaning": "貝の中で育つ宝石で、月のしずくにたとえられた。純粋さや円満さの象徴とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。生物由来"
+   "sold_url": "https://www.creema.jp/item/10720870/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。生物由来"
   },
   {
    "name": "ムーンストーン",
@@ -312,9 +312,9 @@
     "海王星": "https://skyjems.ca/pages/encyclopedia-neptune-stone"
    },
    "meaning": "内側に浮かぶ青白い光が月を思わせ、恋人たちの石や旅のお守りとされてきた。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/16968708/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "アレキサンドライト",
@@ -334,9 +334,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "昼は緑、灯りの下では赤紫に見え、『昼のエメラルド、夜のルビー』と呼ばれる。二面性の調和を表すとされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://store.karatz.jp/en/collections/alexandrite",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ルビー",
@@ -358,9 +358,9 @@
     "太陽": "https://azeera.com/blog/the-9-navaratna-gemstones-origins-meaning-modern-appeal"
    },
    "meaning": "燃えるような赤から情熱と勇気の象徴とされ、インドでは『宝石の王』と呼ばれた。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。ナヴァラトナで太陽"
+   "sold_url": "https://store.karatz.jp/en/collections/ruby",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。ナヴァラトナで太陽"
   },
   {
    "name": "スフェーン",
@@ -380,9 +380,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "ダイヤモンドを上回る七色のきらめきを持ち、ひらめきや知恵を引き出す石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://store.karatz.jp/en/collections/sphene",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "サードオニックス",
@@ -406,9 +406,9 @@
     "火星": "https://skyjems.ca/pages/encyclopedia-mars-stone-western-planetary"
    },
    "meaning": "赤茶と白の縞模様が重なり、夫婦の幸せや家庭円満を守る石と伝わる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。skyjemsの火星の石『サード』に当たる"
+   "sold_url": "https://minne.com/items/33043317",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。skyjemsの火星の石『サード』に当たる"
   },
   {
    "name": "ペリドット",
@@ -426,9 +426,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "『太陽の石』と呼ばれ、夜の不安を払い明るさをもたらすと言い伝えられる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://store.karatz.jp/products/12560504",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "スピネル",
@@ -447,9 +447,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "長くルビーと間違われてきた石で、内に秘めた力を表に出す後押しをすると言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://store.karatz.jp/products/12558534",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "サファイア",
@@ -473,9 +473,9 @@
     "木星": "https://vijayajyoti.com/gemstones/"
    },
    "meaning": "天の青を映す石とされ、誠実さと慈愛の象徴。中世の聖職者が身につけたと伝わる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。ナヴァラトナで青は土星、黄は木星"
+   "sold_url": "https://www.creema.jp/item/3016761/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。ナヴァラトナで青は土星、黄は木星"
   },
   {
    "name": "クンツァイト",
@@ -494,9 +494,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "20世紀初めに名づけられた淡い桃紫色の石で、無償の愛や穏やかな心を表すとされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/21087266/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "オパール",
@@ -519,9 +519,9 @@
     "水星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
    },
    "meaning": "虹のような遊色を持ち、ローマではあらゆる宝石の美しさを併せ持つ石とたたえられた。希望の石とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://store.karatz.jp/products/12525814",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "トルマリン",
@@ -541,9 +541,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "温めると電気を帯びる性質があり、色の豊かさから才能や個性を引き出す石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://store.karatz.jp/en/collections/tourmaline",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "トパーズ",
@@ -562,9 +562,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "名は『探し求める』の意とも言われ、希望や友情、誠実さの象徴とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/tanodiamond/c/0000000596/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "シトリン",
@@ -610,9 +610,9 @@
     "木星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
    },
    "meaning": "世界で最も古くから使われた宝石の一つで、旅の安全や身を守るお守りとされてきた。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://store.shopping.yahoo.co.jp/beadsner/turcno11b.html",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ラピスラズリ",
@@ -634,9 +634,9 @@
     "木星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
    },
    "meaning": "古代エジプトで聖なる石とされ、日本でも仏教の七宝の一つ『瑠璃』として尊ばれた。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/carat/c/0000000412/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "タンザナイト",
@@ -655,9 +655,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "1960年代に見つかった新しい宝石で、夕暮れの空の色から、冷静さと決断を表す石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/carat/c/0000000412/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ジルコン",
@@ -676,9 +676,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "地球最古級の鉱物として知られ、強い輝きから安らぎと知恵をもたらす石と伝わる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/carat/c/0000000412/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "サンストーン",
@@ -698,9 +698,9 @@
     "太陽": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
    },
    "meaning": "太陽のきらめきを閉じ込めたような石で、前向きな気持ちや自信を呼ぶと言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/auc-hinryo/c/0000000145/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "琥珀",
@@ -721,9 +721,9 @@
     "太陽": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
    },
    "meaning": "太古の樹脂が固まったもので、太陽のかけらとたとえられ、長寿や繁栄の象徴とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。鉱物ではなく化石樹脂"
+   "sold_url": "https://item.rakuten.co.jp/mjade/c/0000001973/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。鉱物ではなく化石樹脂"
   },
   {
    "name": "タイガーアイ",
@@ -746,9 +746,9 @@
     "木星": "https://store.museumsvictoria.com.au/products/planetary-gemstones"
    },
    "meaning": "虎の目のような光の筋から、物事を見通す力と決断力を授ける石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/holonshop/c/0000000423/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "セレナイト",
@@ -768,9 +768,9 @@
     "月": "https://kerykeion.net/content/learn-crystals/introduction"
    },
    "meaning": "月の女神セレネにちなむ名を持ち、心を澄ませ落ち着かせる石とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。水に弱い"
+   "sold_url": "https://item.rakuten.co.jp/ojicopet/na-s04-selpam/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。水に弱い"
   },
   {
    "name": "水晶",
@@ -817,9 +817,9 @@
     "金星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
    },
    "meaning": "愛と美の女神にゆかりがあるとされ、恋愛や自分を大切にする心を育てる石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/20881454/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ロードナイト",
@@ -839,9 +839,9 @@
     "金星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
    },
    "meaning": "ばら色に黒い模様が入り、人との縁を穏やかに結び直す石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/4549844/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "マラカイト",
@@ -863,9 +863,9 @@
     "金星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
    },
    "meaning": "孔雀の羽のような縞を持ち、古代エジプトでは魔よけとして身につけたと伝わる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。金星は『銅を含む鉱物』としての対応"
+   "sold_url": "https://item.rakuten.co.jp/auc-hinryo/c/0000000182/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。金星は『銅を含む鉱物』としての対応"
   },
   {
    "name": "カーネリアン",
@@ -888,9 +888,9 @@
     "水星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
    },
    "meaning": "古代エジプトで勇気の石とされ、行動する力や意欲を高めると言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/gravel/brac-amtw-or01/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "マホガニーオブシディアン",
@@ -911,9 +911,9 @@
     "火星": "https://store.museumsvictoria.com.au/products/planetary-gemstones"
    },
    "meaning": "黒と赤茶がまじる黒曜石で、地に足をつけ、内なる強さを支える石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/17861908/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "アゲート",
@@ -934,9 +934,9 @@
     "水星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
    },
    "meaning": "縞模様の美しい石で、古代から護符に使われ、心身の調和を保つ石とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://minne.com/items/36978931",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "フローライト",
@@ -959,9 +959,9 @@
     "天王星": "https://www.crystals.com/collections/aquarius?page=3"
    },
    "meaning": "『天才の石』とも呼ばれ、考えを整理し、集中を助ける石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。天王星はみずがめ座（支配星＝天王星）向けとしての記載"
+   "sold_url": "https://www.creema.jp/item/21087266/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。天王星はみずがめ座（支配星＝天王星）向けとしての記載"
   },
   {
    "name": "アベンチュリン",
@@ -981,9 +981,9 @@
     "水星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
    },
    "meaning": "きらめく緑から『幸運の石』と呼ばれ、穏やかさとチャンスを招くと言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://minne.com/items/16573062",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ソーダライト",
@@ -1003,9 +1003,9 @@
     "水星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
    },
    "meaning": "深い青に白い筋が入り、理性的に考え、思いを言葉にするのを助ける石とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/7350471/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ラブラドライト",
@@ -1051,9 +1051,9 @@
     "天王星": "https://store.museumsvictoria.com.au/products/planetary-gemstones"
    },
    "meaning": "アマゾン川にちなむ名を持ち、希望と自由な発想をもたらす石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/7350471/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ホークスアイ",
@@ -1074,9 +1074,9 @@
     "天王星": "https://en.pinkoi.com/product/uDLJx27X"
    },
    "meaning": "鷹の目のように広く遠くを見渡す力を授け、冷静な判断を助ける石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/15619401/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "アパタイト",
@@ -1096,9 +1096,9 @@
     "天王星": "https://en.pinkoi.com/product/uDLJx27X"
    },
    "meaning": "ほかの鉱物と間違われやすいことから『惑わす』の意の名を持ち、目標へ向かう意欲を高める石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/16207008/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "セレスタイト",
@@ -1118,9 +1118,9 @@
     "海王星": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet"
    },
    "meaning": "『天空』を意味する名を持ち、空色の結晶が心を穏やかにし、安らぎを与えると言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/tesorocoltd/gs-sp-3690/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ラリマー",
@@ -1140,9 +1140,9 @@
     "海王星": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet"
    },
    "meaning": "カリブ海のドミニカで見つかった石で、海と空の色から『愛と平和の石』と呼ばれる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.rakuten.co.jp/sistina/contents/larimar/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "オブシディアン",
@@ -1164,9 +1164,9 @@
     "土星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
    },
    "meaning": "火山から生まれた天然ガラスで、古くは鏡や刃物に使われ、魔よけの石とされてきた。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/malina/10000968/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ジェット",
@@ -1186,9 +1186,9 @@
     "土星": "https://kerykeion.net/content/learn-crystals/introduction"
    },
    "meaning": "太古の木が化石になった黒い宝石で、ヴィクトリア朝には喪の装身具として愛された。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。化石化した木"
+   "sold_url": "https://www.creema.jp/item/5958322/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。化石化した木"
   },
   {
    "name": "ヘマタイト",
@@ -1209,9 +1209,9 @@
     "土星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
    },
    "meaning": "粉にすると赤くなる鉄の鉱物で、古代の戦士が身を守るお守りにしたと伝わる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/16278090/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "オニキス",
@@ -1231,9 +1231,9 @@
     "土星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
    },
    "meaning": "深い黒から、悪いものを退け、意志を固める石として古くから用いられた。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/16278090/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "イエローカルサイト",
@@ -1253,9 +1253,9 @@
     "土星": "https://store.museumsvictoria.com.au/products/planetary-gemstones"
    },
    "meaning": "明るい黄色から、気持ちを前向きにし、学ぶ意欲を高める石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/jewelclimb/1042496/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "スモーキークォーツ",
@@ -1277,9 +1277,9 @@
     "冥王星": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet"
    },
    "meaning": "煙のような茶色の水晶で、心を落ち着かせ、地に足をつける石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/16278090/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ブラックトルマリン",
@@ -1299,9 +1299,9 @@
     "冥王星": "https://mysticryst.com/blogs/the-mystic-journal/scorpio-planetary-magic-invoking-pluto"
    },
    "meaning": "身を守る石の代表とされ、余計なものを退けて気持ちを整えると言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://minne.com/items/32530857",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ポピージャスパー",
@@ -1322,9 +1322,9 @@
     "冥王星": "https://store.museumsvictoria.com.au/products/planetary-gemstones"
    },
    "meaning": "ケシの花のような模様を持つ碧玉で、明るい活力と遊び心を呼ぶ石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://minne.com/items/6526995",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "レッドジャスパー",
@@ -1340,9 +1340,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "古くから護符に使われた赤い碧玉で、根気強さと安定をもたらす石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://minne.com/items/31236125",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "インカローズ",
@@ -1359,9 +1359,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "アンデスで産出し、インカの人々に愛されたと伝わる。情熱的な愛と自分を好きになる心の石とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://store.shopping.yahoo.co.jp/tosho-stones/712-80.html",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ブルーレースアゲート",
@@ -1377,9 +1377,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "レースのような淡い縞を持ち、言葉をやわらげ、穏やかな対話を助ける石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/12880180/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "クリソプレーズ",
@@ -1395,9 +1395,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "青りんご色の玉髄で、アレクサンドロス大王が愛したと伝わる。希望を育てる石とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/12893166/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "プレナイト",
@@ -1413,9 +1413,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "ぶどうの房のような姿から、穏やかな心で未来を見通す『予言の石』と呼ばれることがある。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/8900336/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ルチルクォーツ",
@@ -1432,9 +1432,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "水晶の中に金色の針が走り、ひらめきや豊かさを呼び込む石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/6984882/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "チャロアイト",
@@ -1450,9 +1450,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "ロシアのチャロ川流域だけで採れる石で、心の迷いを晴らし、自分らしさを支える石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/17840880/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "スギライト",
@@ -1468,9 +1468,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "日本の杉健一博士が発見した石で、癒やしと深い安らぎをもたらす石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/17256056/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "レピドライト",
@@ -1487,9 +1487,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "うろこのようにきらめく雲母で、変化の時期に心を穏やかにする石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/17806759/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ハウライト",
@@ -1505,9 +1505,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "白地に灰色の網目模様が入り、高ぶった気持ちを静め、穏やかな眠りを助ける石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/15178760/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "オレンジカルサイト",
@@ -1523,9 +1523,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "明るい橙色から、元気と創造する喜びを呼び覚ます石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://store.karatz.jp/products/12515372",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "クリソコラ",
@@ -1542,9 +1542,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "青と緑がまじり合う石で、女性らしいやさしさや穏やかな表現を助ける石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/1747596/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ユナカイト",
@@ -1562,9 +1562,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "緑と桃色がまだらにまじり、心と体のバランスを整える石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/auc-ryusho/c/0000001069/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "モスアゲート",
@@ -1581,9 +1581,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "苔のような模様を持ち、農夫が豊作を祈って身につけたと伝わる。成長と実りの石とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/19291708/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ブロンザイト",
@@ -1599,9 +1599,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "青銅のような光沢を持ち、自信と落ち着きを与える石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://store.shopping.yahoo.co.jp/lucky365shop/2da5a5ade56.html",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ピーターサイト",
@@ -1618,9 +1618,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "嵐のような模様を持つことから『テンペストストーン』と呼ばれ、変化を乗り越える力の石とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/14312819/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "シュンガイト",
@@ -1636,9 +1636,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "ロシアのシュンガ村で採れる炭素の多い石で、場を清める石として知られる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/3297997/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "アズライト",
@@ -1654,9 +1654,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "深い藍色で古くは顔料に使われ、洞察力を高める『天の石』と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/18010666/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ダルメシアンジャスパー",
@@ -1674,9 +1674,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "ダルメシアン犬のような斑点を持ち、遊び心と明るさを呼ぶ石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/7772393/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "スノーフレークオブシディアン",
@@ -1694,9 +1694,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "黒地に雪の結晶のような白い模様が浮かび、困難の中に光を見つける石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/18528114/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "カルセドニー",
@@ -1713,9 +1713,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "やわらかな乳白色の青で、人と人とをつなぎ、言葉を穏やかにする石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://store.shopping.yahoo.co.jp/lucky365shop/bbea52a5a5a.html",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ガーデンクォーツ",
@@ -1732,9 +1732,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "水晶の中に苔や庭のような景色が閉じ込められ、豊かさと繁栄を表す石とされる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://item.rakuten.co.jp/tesorocoltd/gs-sp-5924/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   },
   {
    "name": "ハーキマーダイヤモンド",
@@ -1750,9 +1750,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "米国ハーキマー産の両端がとがった水晶で、夢や理想を後押しする石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）。ダイヤモンドではなく水晶"
+   "sold_url": "https://item.rakuten.co.jp/worldstonebalibulan/harkimerdiamond/",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）。ダイヤモンドではなく水晶"
   },
   {
    "name": "ヘリオドール",
@@ -1768,9 +1768,9 @@
    "planet_source": "",
    "planet_sources": {},
    "meaning": "ギリシャ語で『太陽の贈り物』を意味し、明るさと希望をもたらす石と言われる。",
-   "sold_url": "",
-   "sold_checked": false,
-   "notes": "販売ページ未確認（検索回数の上限のため）"
+   "sold_url": "https://www.creema.jp/item/9457477/detail",
+   "sold_checked": true,
+   "notes": "販売確認済み（2026-10-10、WebSearch検索結果に出た販売ページ。原文は未確認）"
   }
  ]
 }
