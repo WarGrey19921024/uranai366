@@ -145,6 +145,14 @@ def main():
         v["low_months"] = [i + 1 for i in order[-3:][::-1]]
         v["field_peak"] = {f: max(range(12), key=lambda i: (s[i], -i)) + 1 for f, s in v["fields"].items()}
         v["field_low"] = {f: min(range(12), key=lambda i: (s[i], i)) + 1 for f, s in v["fields"].items()}
+    # 分野別の年の◎○△：各分野の12か月平均を、その分野の366日の中で上位25%＝◎・下位25%＝△
+    fk = [k for k in out if k != "_meta"]
+    for f in FIELD_PLANET:
+        avg = {k: sum(out[k]["fields"][f]) / 12 for k in fk}
+        srt = sorted(avg.values())
+        hi, lo = srt[int(len(srt) * .75)], srt[int(len(srt) * .25)]
+        for k in fk:
+            out[k].setdefault("field_marks", {})[f] = "◎" if avg[k] >= hi else "△" if avg[k] < lo else "○"
     json.dump(out, open(os.path.join(DATA, "scores_366.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     return out
 

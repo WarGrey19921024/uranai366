@@ -1,0 +1,2 @@
+# 366本のHTMLは生成物（build_html.py --all で再生成）。確認4の前に入れる
+work/out/html/
