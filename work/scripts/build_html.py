@@ -284,8 +284,17 @@ def build_assets(gen):
 
 
 # ---------------------------------------------------------------- ページ
+AFF = {}  # 仮リンク → {"label": 表示用の説明, "pages": 使っている日}
+CUR = {"mmdd": ""}
+
+
 def aff(label):
-    return f'href="#" rel="nofollow sponsored" data-aff="[{esc(label)}]"'
+    """アフィリエイトの仮リンク。#affiliate-TODO-<店>-<8けた> の形で、あとで work/out/affiliate_placeholders.csv から一括置換する"""
+    import hashlib, re as _re
+    shop = {"楽天": "rakuten", "楽天/Amazon": "rakuten-amazon", "電話占い": "phone"}.get(label.split(":")[0], "other")
+    key = f"#affiliate-TODO-{shop}-" + hashlib.md5(label.encode("utf-8")).hexdigest()[:8]
+    AFF.setdefault(key, {"label": label, "pages": set()})["pages"].add(CUR["mmdd"])
+    return f'href="{key}" rel="nofollow sponsored" data-aff="[{esc(label)}]"'
 
 
 def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
@@ -836,6 +845,7 @@ def main():
     os.makedirs(odir, exist_ok=True)
     allw, notext = [], []
     for k in targets:
+        CUR["mmdd"] = k
         ctx_k = dict(ctx)
         b = mats[k]["bday2027"]["date"]
         ctx_k["bday_label"] = (f"2027年{int(b[5:7])}月{int(b[8:])}日（誕生日）" if b[5:] == f"{k[:2]}-{k[2:]}"
@@ -846,7 +856,14 @@ def main():
             notext.append(k)
         with open(os.path.join(odir, f"{k}.html"), "w", encoding="utf-8") as f:
             f.write(page)
-    print(f"{len(targets)}ページ → {os.path.relpath(odir, WORK)}/  共通CSS/JS → out/assets/")
+    import csv
+    with open(os.path.join(OUT, "affiliate_placeholders.csv"), "w", encoding="utf-8-sig", newline="") as f:
+        w_ = csv.writer(f)
+        w_.writerow(["仮リンク（置換前）", "実リンク（ここに記入）", "種類と商品", "使っているページ数", "使っているページ（先頭10件）"])
+        for key, v in sorted(AFF.items(), key=lambda x: x[1]["label"]):
+            pg = sorted(v["pages"])
+            w_.writerow([key, "", v["label"], len(pg), " ".join(pg[:10])])
+    print(f"{len(targets)}ページ → {os.path.relpath(odir, WORK)}/  共通CSS/JS → out/assets/  仮リンク {len(AFF)}種 → out/affiliate_placeholders.csv")
     if notext:
         print(f"文章が未作成の日: {len(notext)}件（例: {', '.join(notext[:5])}）")
     for w in allw:

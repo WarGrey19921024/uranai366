@@ -16,7 +16,7 @@ BIRTHSTONE = {1: ["ガーネット"], 2: ["アメシスト", "クリソベリル
               10: ["オパール", "トルマリン"], 11: ["トパーズ", "シトリン"], 12: ["ターコイズ", "ラピスラズリ", "タンザナイト", "ジルコン"]}
 BIRTHSTONE_SRC = "全国宝石卸商協同組合 2021年12月改定（デイリースポーツ https://www.daily.co.jp/society/life/2021/12/20/0014929848.shtml ほか。work/knowledge/10_誕生日もの.md）"
 OWN_COLOR = "当サイト独自の選び方（七十二候にちなむ日本の伝統色。work/knowledge/10_誕生日もの.md）"
-OWN_STONE = "当サイト独自の選び方（誕生石・デーカンの支配星・誕生色から、販売されている石。work/knowledge/10_誕生日もの.md）"
+OWN_STONE = "当サイト独自の選び方（月の誕生石とは別の石を、デーカンの支配星・誕生色から、販売されている石の中で選ぶ。work/knowledge/10_誕生日もの.md）"
 
 
 def family(hexs):
@@ -66,32 +66,32 @@ def main():
         i = pos[s]
         order = cands[i % len(cands):] + cands[:i % len(cands)]  # 候の中の順番を基本に
         order = [c for c in order if not prev or c["name"] != prev["name"]]
-        order = [c for c in order if c.get("hex_checked")] or order  # 確認済みの色を優先
+        order = [c for c in order if c.get("hex_checked")]  # 確認済みの色だけ（確認3）
         c = min(order, key=lambda c: used[c["name"]])  # まだ使っていない色を優先
         pos[s] += 1
         used[c["name"]] += 1
         color_of[k] = c
         prev = c
-    # 誕生日石
+    # 誕生日石（確認3）：その月の誕生石は候補から外す。同じ月の中で同じ石は3日まで。隣の日とは別
     use = collections.Counter()
+    in_month = collections.Counter()
     stone_of, prev = {}, None
     for k in keys:
         r = base[k]
         fam = family(color_of[k]["hex"]) if k in color_of else None
         best = None
         for st in stones:
-            sc = 0.0
-            why = []
-            if st["name"] in BIRTHSTONE[r["month"]]: sc += 2; why.append(f"{r['month']}月の誕生石")
+            if st["name"] in BIRTHSTONE[r["month"]]: continue
+            if not st.get("sold_checked"): continue
+            if in_month[(r["month"], st["name"])] >= 3 or prev == st["name"]: continue
+            sc, why = 0.0, []
             if r["decan_ruler"] in st.get("planets", []): sc += 2; why.append(f"デーカンの支配星・{r['decan_ruler']}の石")
-            if fam and fam in st.get("color_family", []): sc += 1; why.append(f"誕生色（{color_of[k]['name']}）に近い{fam}系")
+            if fam and fam in st.get("color_family", []): sc += 1.5; why.append(f"誕生色（{color_of[k]['name']}）に近い{fam}系")
             if sc == 0: continue
-            sc += 1.5 if st.get("sold_checked") else 0
             sc -= .6 * use[st["name"]]
-            if prev == st["name"]: continue
             if best is None or sc > best[0]: best = (sc, st, why)
         if best:
-            stone_of[k] = (best[1], best[2]); use[best[1]["name"]] += 1; prev = best[1]["name"]
+            stone_of[k] = (best[1], best[2]); use[best[1]["name"]] += 1; in_month[(r["month"], best[1]["name"])] += 1; prev = best[1]["name"]
     for k in keys:
         r = base[k]
         m = r["month"]

@@ -27,6 +27,14 @@ for name in ["誕生石（月）", "誕生色", "誕生日石", "誕生花", "�
     if name == "誕生花":
         note = "日本花普及センターの一覧を2回読み比べて書き起こし（全日一致）"
     L.append(f"| {name} | {days} | {ok} | {len(its) - ok} | {note} |")
+BS = __import__("build_items").BIRTHSTONE
+same_bs = [k for k in keys if get(k, "誕生日石") and get(k, "誕生日石")[0]["値"] in BS[int(k[:2])]]
+per_month = collections.Counter((k[:2], get(k, "誕生日石")[0]["値"]) for k in keys if get(k, "誕生日石"))
+over3 = [f"{m}月{s}({c})" for (m, s), c in per_month.items() if c > 3]
+nostone = [k for k in keys if not get(k, "誕生日石")]
+L.append(f"\n- 誕生日石が月の誕生石と同じ日：{len(same_bs)} {' '.join(same_bs[:20])}（確認3：0件にする）")
+L.append(f"- 同じ月の中で同じ誕生日石が4日以上：{len(over3)} {' '.join(over3[:20])}（確認3：0件にする）")
+L.append(f"- 誕生日石が決まらない日：{len(nostone)} {' '.join(nostone)}")
 titles = collections.Counter(i["値"] for k in keys for i in get(k, "記念日"))
 L.append(f"\n- 記念日の同じ題名が複数の日に：{[t for t, n in titles.items() if n > 1] or 'なし'}")
 L.append("- **未確認のものはページに使わない**（確認し直すまで保留。検索回数の上限で確認が途中になったため）。")

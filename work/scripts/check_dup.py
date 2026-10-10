@@ -155,6 +155,26 @@ def main():
     tot_c = sum(cend.values()) or 1
     worst_c = cend.most_common(1)[0] if cend else ("", 0)
     if worst_c[1] > max(3, tot_c * .05): bad["相性の一言の同じ締め（5%超）"] = worst_c[1]
+    # 確認3：12か月のうち「月の数」に触れるのは4か月まで／同じ星の言い回しは1ページ3回まで
+    STAR_PHRASES = ["緊張の位置", "調和の位置", "協力の位置", "向かい合わせの位置", "重なる位置", "追い風の位置", "緊張の角度", "調和の角度"]
+    num_month, star_rep = [], []
+    for k, (s_, v) in pages.items():
+        ms = v.get("y2027", {}).get("months", [])
+        c = sum(1 for t in ms if re.search(r"月の数|数[1-9１-９]の月|[1-9１-９]の月|パーソナルマンス", t))
+        if c > 4: num_month.append((k, c))
+        txt = full[k]
+        for ph in STAR_PHRASES:
+            if txt.count(ph) > 3: star_rep.append((k, ph, txt.count(ph)))
+    bad["12か月で「月の数」に触れる月が5つ以上"] = len(num_month)
+    bad["同じ星の言い回しが1ページ4回以上"] = len(star_rep)
+    # 使わない言葉（確認2・CLAUDE.md）
+    banned = []
+    for k in pages:
+        compat = secs[k].get("fixed.compat_good", "") + secs[k].get("fixed.compat_bad", "")
+        for pat, why, txt in ((r"ぶつか", "相性欄の「ぶつかる」", compat), (r"動物占い", "動物占い", full[k]), (r"六星", "六星占術", full[k]), (r"[0-9０-９]+度", "度数の数字", full[k])):
+            for mm in re.finditer(pat, txt):
+                banned.append((k, why, txt[max(0, mm.start() - 12):mm.end() + 8]))
+    bad["使わない言葉（相性欄のぶつかる・度数の数字など）"] = len(banned)
     # 字数
     lens = {k: len(full[k]) for k in pages}
     short = []
@@ -168,7 +188,7 @@ def main():
     R.append("| 検査 | 基準 | 引っかかった数 |\n|---|---|---|")
     crit = {"同じ文が4ページ以上": "0", "ページの類似度が基準以上": "全組0.25未満・同じ星座0.30未満", "セクションの類似度0.40以上": "0",
             "必ず使う材料の不足": "0", "月の名前がスコアと不一致": "0", "同じ月を山とする分野が3つ以上": "0（1ページ2分野まで）", "文の骨組みの繰り返し（20%以上のページ）": "0", "同じ文末（60%以上のページ）": "0", "1ページ内で同じ文末4回以上": "0",
-            "相性の一言の同じ締め（5%超）": "0", "分野別の字数が200〜250字の目安から外れる": "0（±10字は許容）"}
+            "相性の一言の同じ締め（5%超）": "0", "12か月で「月の数」に触れる月が5つ以上": "0（4か月まで）", "同じ星の言い回しが1ページ4回以上": "0（3回まで）", "分野別の字数が200〜250字の目安から外れる": "0（±10字は許容）", "使わない言葉（相性欄のぶつかる・度数の数字など）": "0"}
     for kk, c in crit.items():
         R.append(f"| {kk} | {c} | {'✅ 0' if not bad[kk] else '⚠ ' + str(bad[kk])} |")
     R.append(f"\n- 本文の字数（ページ）：最小 {min(lens.values())}／平均 {sum(lens.values()) // n}／最大 {max(lens.values())}")
@@ -192,8 +212,14 @@ def main():
     for k, sec, items in miss[:60]: R.append(f"- {k} {sec}：{items}")
     R.append("\n## 月の名前の不一致\n")
     for x in monthng[:60]: R.append(f"- {x}")
+    R.append("\n## 12か月で「月の数」に触れる月の数\n")
+    for x in num_month[:60]: R.append(f"- {x}")
+    R.append("\n## 同じ星の言い回しの繰り返し\n")
+    for x in star_rep[:60]: R.append(f"- {x}")
     R.append("\n## 同じ月を山とする分野が3つ以上\n")
     for x in peak3[:60]: R.append(f"- {x}")
+    R.append("\n## 使わない言葉\n")
+    for x in banned[:60]: R.append(f"- {x}")
     R.append("\n## 分野別の字数\n")
     for x in short[:60]: R.append(f"- {x}")
     open(os.path.join(W, "reports", f"dup_check{'_' + '_'.join(SIGNS_EN) if SIGNS_EN else ''}.md"), "w", encoding="utf-8").write("\n".join(R) + "\n")
