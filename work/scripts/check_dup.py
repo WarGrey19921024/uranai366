@@ -121,7 +121,7 @@ def main():
         if used and max(used.values()) > 2: peak3.append((k, dict(used)))
             # 本文に「山」「慎重」と一緒に書かれた月が、スコアと合っているか（例：「◯月が山」）
         for t in secs[k].values():
-            for mm in re.findall(r"(\d{1,2})月(?:が|は)?(?:いちばんの)?(?:山|好調のピーク)", t):
+            for mm in re.findall(r"(\d{1,2})月(?:が|は)?(?:いちばんの)?(?:山(?!羊)|好調のピーク)", t):
                 if int(mm) not in m["peak_months"] and all(int(mm) not in (m["field_peak"][f], m["field_peak2"][f]) for f in m["field_peak"]):
                     monthng.append((k, "山と書いた月", int(mm)))
             for mm in re.findall(r"(\d{1,2})月(?:が|は)?(?:慎重|谷|注意)", t):
