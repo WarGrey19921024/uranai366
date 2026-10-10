@@ -1,0 +1,1949 @@
+{
+ "source_note": "HEXの出典は「和色大辞典」(原色大辞典 colordic.org、日本の伝統色465色) に統一。hex_checked=true は2026-10-10のWebSearch結果で色名・読み・HEXを確認できたもの（hex_source が個別色見本ページ https://www.colordic.org/colorsample/NNNN、または検索要約で一覧ページ https://www.colordic.org/w の値として確認したもの）。hex_checked=false は検索回数の上限に達したため未確認で、HEXは記憶からの仮の値（和色大辞典の値のつもり）。hex_source は空。使う前に和色大辞典で確認すること。読みは和色大辞典の表記（例：涅色=くりいろ、退紅=あらぞめ、黄檗色）。",
+ "kou": [
+  {
+   "kou_serial": 1,
+   "kou": "東風解凍",
+   "colors": [
+    {
+     "name": "白藍",
+     "yomi": "しらあい",
+     "hex": "#C1E4E9",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "解けはじめた氷の下にのぞく、ごく淡い水の青"
+    },
+    {
+     "name": "瓶覗",
+     "yomi": "かめのぞき",
+     "hex": "#A2D7DD",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2090",
+     "reason": "氷がゆるみ、水面にうっすら戻ってくる空の色"
+    },
+    {
+     "name": "白練",
+     "yomi": "しろねり",
+     "hex": "#F3F3F2",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2376",
+     "reason": "まだ池に残る薄氷の、やわらかな白さ"
+    },
+    {
+     "name": "水浅葱",
+     "yomi": "みずあさぎ",
+     "hex": "#80ABA9",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2100",
+     "reason": "春風に揺れはじめた水面の、ひんやりした青緑"
+    },
+    {
+     "name": "白群",
+     "yomi": "びゃくぐん",
+     "hex": "#83CCD2",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2087",
+     "reason": "雪解け水が流れ出す川の、澄んだ明るい青"
+    },
+    {
+     "name": "東雲色",
+     "yomi": "しののめいろ",
+     "hex": "#F19072",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2249",
+     "reason": "東の空から吹く風とともに明ける、春の朝焼け"
+    }
+   ]
+  },
+  {
+   "kou_serial": 2,
+   "kou": "黄鶯睍睆",
+   "colors": [
+    {
+     "name": "鶯色",
+     "yomi": "うぐいすいろ",
+     "hex": "#928C36",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2146",
+     "reason": "山里で鳴きはじめたうぐいすの、羽そのものの色"
+    },
+    {
+     "name": "鶯茶",
+     "yomi": "うぐいすちゃ",
+     "hex": "#715C1F",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2152",
+     "reason": "梅の枝にとまるうぐいすの、落ち着いた背の色"
+    },
+    {
+     "name": "紅梅色",
+     "yomi": "こうばいいろ",
+     "hex": "#F2A0A1",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2025",
+     "reason": "うぐいすが訪れる紅梅の、明るい花の色"
+    },
+    {
+     "name": "梅鼠",
+     "yomi": "うめねず",
+     "hex": "#C099A0",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2022",
+     "reason": "春先のかすんだ空気に咲く梅の、灰がかった紅"
+    },
+    {
+     "name": "青丹",
+     "yomi": "あおに",
+     "hex": "#99AB4E",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2145",
+     "reason": "芽吹き前の山里の、くすんだ若い緑"
+    },
+    {
+     "name": "薄紅梅",
+     "yomi": "うすこうばい",
+     "hex": "#E597B2",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2420",
+     "reason": "まだ寒さの残る庭にほころぶ、淡い梅の花"
+    }
+   ]
+  },
+  {
+   "kou_serial": 3,
+   "kou": "魚上氷",
+   "colors": [
+    {
+     "name": "銀鼠",
+     "yomi": "ぎんねず",
+     "hex": "#AFAFB0",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "割れた氷のすき間に光る、魚のうろこの銀"
+    },
+    {
+     "name": "錆浅葱",
+     "yomi": "さびあさぎ",
+     "hex": "#5C9291",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2094",
+     "reason": "氷の下でゆっくり動き出す、深い水の色"
+    },
+    {
+     "name": "浅葱色",
+     "yomi": "あさぎいろ",
+     "hex": "#00A3AF",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2093",
+     "reason": "跳ね上がった魚のまわりで光る、澄んだ水しぶき"
+    },
+    {
+     "name": "藍鼠",
+     "yomi": "あいねず",
+     "hex": "#6C848D",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2095",
+     "reason": "氷の残る川面に映る、冬の名残の灰青"
+    },
+    {
+     "name": "鉛色",
+     "yomi": "なまりいろ",
+     "hex": "#7B7C7D",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "割れはじめた厚い氷の、重たい灰色"
+    },
+    {
+     "name": "水色",
+     "yomi": "みずいろ",
+     "hex": "#BCE2E8",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "ぬるみはじめた川の水の、やさしい明るさ"
+    }
+   ]
+  },
+  {
+   "kou_serial": 4,
+   "kou": "土脉潤起",
+   "colors": [
+    {
+     "name": "土器色",
+     "yomi": "かわらけいろ",
+     "hex": "#C37854",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2209",
+     "reason": "春の雨を吸ってやわらいだ、田畑の土の色"
+    },
+    {
+     "name": "黄土色",
+     "yomi": "おうどいろ",
+     "hex": "#C39143",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2195",
+     "reason": "雪が雨に変わり、顔を出した大地の黄土"
+    },
+    {
+     "name": "涅色",
+     "yomi": "くりいろ",
+     "hex": "#554738",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2219",
+     "reason": "しっとり潤った川底の、黒みを帯びた泥の色"
+    },
+    {
+     "name": "枯茶",
+     "yomi": "からちゃ",
+     "hex": "#8D6449",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "冬枯れの草の下で、静かに力をためる土の茶"
+    },
+    {
+     "name": "生壁色",
+     "yomi": "なまかべいろ",
+     "hex": "#94846A",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2149",
+     "reason": "湿り気を帯びて色を深めた、土壁のような色"
+    },
+    {
+     "name": "土色",
+     "yomi": "つちいろ",
+     "hex": "#BC763C",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2213",
+     "reason": "雨に潤い、芽吹きを待つ畑の土そのものの色"
+    }
+   ]
+  },
+  {
+   "kou_serial": 5,
+   "kou": "霞始靆",
+   "colors": [
+    {
+     "name": "藤鼠",
+     "yomi": "ふじねず",
+     "hex": "#A6A5C4",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2433",
+     "reason": "遠くの山にかかる、紫がかった春霞の色"
+    },
+    {
+     "name": "鳩羽色",
+     "yomi": "はとばいろ",
+     "hex": "#95859C",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2041",
+     "reason": "霞の向こうにかすむ夕方の野の、灰紫"
+    },
+    {
+     "name": "薄鼠",
+     "yomi": "うすねず",
+     "hex": "#9790A4",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2055",
+     "reason": "輪郭をやわらかくぼかす、淡い霞の灰色"
+    },
+    {
+     "name": "白鼠",
+     "yomi": "しろねず",
+     "hex": "#DCDDDD",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2380",
+     "reason": "野にたなびく霞の、白くけむった明るさ"
+    },
+    {
+     "name": "紅藤色",
+     "yomi": "べにふじいろ",
+     "hex": "#CCA6BF",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2392",
+     "reason": "朝日に染まった霞が見せる、ほのかな紅紫"
+    },
+    {
+     "name": "薄色",
+     "yomi": "うすいろ",
+     "hex": "#A89DAC",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "たなびく霞の淡さを映した、薄い紫"
+    }
+   ]
+  },
+  {
+   "kou_serial": 6,
+   "kou": "草木萌動",
+   "colors": [
+    {
+     "name": "萌黄",
+     "yomi": "もえぎ",
+     "hex": "#AACF53",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2136",
+     "reason": "野山に差しはじめた新芽の、明るい黄緑"
+    },
+    {
+     "name": "若草色",
+     "yomi": "わかくさいろ",
+     "hex": "#C3D825",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2138",
+     "reason": "土の中から顔を出したばかりの若草の色"
+    },
+    {
+     "name": "若緑",
+     "yomi": "わかみどり",
+     "hex": "#98D98E",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2135",
+     "reason": "芽吹いた木々の、みずみずしい浅い緑"
+    },
+    {
+     "name": "淡萌黄",
+     "yomi": "うすもえぎ",
+     "hex": "#93CA76",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "うっすらと緑が差す野原の、やさしい色"
+    },
+    {
+     "name": "柳色",
+     "yomi": "やなぎいろ",
+     "hex": "#A8C97F",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2126",
+     "reason": "芽吹きはじめた柳の枝が見せる、やわらかな緑"
+    },
+    {
+     "name": "白緑",
+     "yomi": "びゃくろく",
+     "hex": "#D6E9CA",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2128",
+     "reason": "萌え出たばかりの芽の、白みがかった緑"
+    }
+   ]
+  },
+  {
+   "kou_serial": 7,
+   "kou": "蟄虫啓戸",
+   "colors": [
+    {
+     "name": "鶸色",
+     "yomi": "ひわいろ",
+     "hex": "#D7CF3A",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "土から出た虫が見上げる、春の日差しの黄"
+    },
+    {
+     "name": "鶸萌黄",
+     "yomi": "ひわもえぎ",
+     "hex": "#82AE46",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2458",
+     "reason": "虫たちが這い出す草むらの、明るい緑"
+    },
+    {
+     "name": "苔色",
+     "yomi": "こけいろ",
+     "hex": "#69821B",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "冬ごもりの戸口をおおっていた、苔の深い緑"
+    },
+    {
+     "name": "柳茶",
+     "yomi": "やなぎちゃ",
+     "hex": "#A1A46D",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2332",
+     "reason": "土の上にのぞく枯れ草まじりの、くすんだ緑"
+    },
+    {
+     "name": "櫨色",
+     "yomi": "はじいろ",
+     "hex": "#B77B57",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2212",
+     "reason": "虫たちが開く土の戸を思わせる、温かな茶"
+    },
+    {
+     "name": "刈安色",
+     "yomi": "かりやすいろ",
+     "hex": "#F5E56B",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2163",
+     "reason": "外の世界に差しこむ、早春の淡い光の黄"
+    }
+   ]
+  },
+  {
+   "kou_serial": 8,
+   "kou": "桃始笑",
+   "colors": [
+    {
+     "name": "桃色",
+     "yomi": "ももいろ",
+     "hex": "#F09199",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "ほころびはじめた桃の花そのものの色"
+    },
+    {
+     "name": "鴇色",
+     "yomi": "ときいろ",
+     "hex": "#F4B3C2",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2024",
+     "reason": "桃の花びらのように、ほんのり明るい紅"
+    },
+    {
+     "name": "石竹色",
+     "yomi": "せきちくいろ",
+     "hex": "#E5ABBE",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2181",
+     "reason": "咲きはじめの桃が見せる、紫がかった薄紅"
+    },
+    {
+     "name": "珊瑚色",
+     "yomi": "さんごいろ",
+     "hex": "#F5B1AA",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2280",
+     "reason": "日差しを受けて「笑う」桃のつぼみの色"
+    },
+    {
+     "name": "退紅",
+     "yomi": "あらぞめ",
+     "hex": "#D69090",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2001",
+     "reason": "色あせたように淡い、咲き初めの花の紅"
+    },
+    {
+     "name": "長春色",
+     "yomi": "ちょうしゅんいろ",
+     "hex": "#C97586",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2020",
+     "reason": "桃の節句のころの、落ち着いた深い紅"
+    }
+   ]
+  },
+  {
+   "kou_serial": 9,
+   "kou": "菜虫化蝶",
+   "colors": [
+    {
+     "name": "菜の花色",
+     "yomi": "なのはないろ",
+     "hex": "#FFEC47",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2139",
+     "reason": "紋白蝶が舞う菜の花畑の、明るい黄色"
+    },
+    {
+     "name": "蒲公英色",
+     "yomi": "たんぽぽいろ",
+     "hex": "#FFD900",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2165",
+     "reason": "蝶が最初にとまる、道ばたのたんぽぽの黄"
+    },
+    {
+     "name": "胡粉色",
+     "yomi": "ごふんいろ",
+     "hex": "#FFFFFC",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2284",
+     "reason": "生まれたばかりの紋白蝶の、羽の白さ"
+    },
+    {
+     "name": "黄檗色",
+     "yomi": "きはだいろ",
+     "hex": "#FEF263",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2141",
+     "reason": "さなぎから羽化する蝶の、淡い黄の羽"
+    },
+    {
+     "name": "浅緑",
+     "yomi": "あさみどり",
+     "hex": "#88CB7F",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2111",
+     "reason": "青虫が育った菜の葉の、やさしい緑"
+    },
+    {
+     "name": "卵色",
+     "yomi": "たまごいろ",
+     "hex": "#FCD575",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "葉の裏の小さな卵を思わせる、やわらかな黄"
+    }
+   ]
+  },
+  {
+   "kou_serial": 10,
+   "kou": "雀始巣",
+   "colors": [
+    {
+     "name": "雀茶",
+     "yomi": "すずめちゃ",
+     "hex": "#AA4F37",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "巣作りを始めた雀の、頭の羽の赤茶色"
+    },
+    {
+     "name": "枯色",
+     "yomi": "かれいろ",
+     "hex": "#E0C38C",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "雀が巣に運ぶ枯れ草の、乾いた明るい茶"
+    },
+    {
+     "name": "香色",
+     "yomi": "こういろ",
+     "hex": "#EFCD9A",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2178",
+     "reason": "巣の材料になる、日に当たった藁の色"
+    },
+    {
+     "name": "柴染",
+     "yomi": "ふしぞめ",
+     "hex": "#B28C6E",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "雀が集める小枝や柴の、素朴な茶色"
+    },
+    {
+     "name": "白茶",
+     "yomi": "しらちゃ",
+     "hex": "#DDBB99",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2199",
+     "reason": "軒下の巣にのぞく、白っぽい羽毛の色"
+    },
+    {
+     "name": "砥粉色",
+     "yomi": "とのこいろ",
+     "hex": "#F4DDA5",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2172",
+     "reason": "巣を支える軒や木の、明るい木肌の色"
+    }
+   ]
+  },
+  {
+   "kou_serial": 11,
+   "kou": "桜始開",
+   "colors": [
+    {
+     "name": "桜色",
+     "yomi": "さくらいろ",
+     "hex": "#FEF4F4",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2281",
+     "reason": "咲きはじめた桜の花びらの、ほのかな紅"
+    },
+    {
+     "name": "薄桜",
+     "yomi": "うすざくら",
+     "hex": "#FDEFF2",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2418",
+     "reason": "開いたばかりの花の、白に近い淡い桜"
+    },
+    {
+     "name": "桜鼠",
+     "yomi": "さくらねず",
+     "hex": "#E9DFE5",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2340",
+     "reason": "花曇りの空の下で見る、灰がかった桜"
+    },
+    {
+     "name": "灰桜",
+     "yomi": "はいざくら",
+     "hex": "#E8D3D1",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2361",
+     "reason": "夕暮れに沈む桜並木の、落ち着いた薄紅"
+    },
+    {
+     "name": "一斤染",
+     "yomi": "いっこんぞめ",
+     "hex": "#F5B199",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/w",
+     "reason": "つぼみがほころぶ瞬間の、やわらかな紅"
+    },
+    {
+     "name": "薄紅",
+     "yomi": "うすべに",
+     "hex": "#F0908D",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2279",
+     "reason": "満開へ向かう桜の、少し濃さを増した紅"
+    }
+   ]
+  },
+  {
+   "kou_serial": 12,
+   "kou": "雷乃発声",
+   "colors": [
+    {
+     "name": "鈍色",
+     "yomi": "にびいろ",
+     "hex": "#727171",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2292",
+     "reason": "春雷を連れてくる、重たい雲の灰色"
+    },
+    {
+     "name": "青鈍",
+     "yomi": "あおにび",
+     "hex": "#6B7B6E",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2118",
+     "reason": "雷雨の前の空に広がる、青みの灰色"
+    },
+    {
+     "name": "群青色",
+     "yomi": "ぐんじょういろ",
+     "hex": "#4C6CB3",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2066",
+     "reason": "雷鳴が響いた後に晴れわたる、深い空の青"
+    },
+    {
+     "name": "藍色",
+     "yomi": "あいいろ",
+     "hex": "#165E83",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2076",
+     "reason": "雷とともに降る春の夜雨の、深い藍"
+    },
+    {
+     "name": "金色",
+     "yomi": "きんいろ",
+     "hex": "#E6B422",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "雲を裂いて走る稲光の、まばゆい金"
+    },
+    {
+     "name": "菫色",
+     "yomi": "すみれいろ",
+     "hex": "#7058A3",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "稲妻が一瞬見せる、紫がかった光の色"
+    }
+   ]
+  },
+  {
+   "kou_serial": 13,
+   "kou": "玄鳥至",
+   "colors": [
+    {
+     "name": "濡羽色",
+     "yomi": "ぬればいろ",
+     "hex": "#000B00",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "海を渡ってきたつばめの、つやのある黒い羽"
+    },
+    {
+     "name": "紺色",
+     "yomi": "こんいろ",
+     "hex": "#223A70",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "つばめの背に光る、深い紺の羽の色"
+    },
+    {
+     "name": "鉄紺",
+     "yomi": "てつこん",
+     "hex": "#17184B",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "飛び交うつばめの翼の、黒に近い紺"
+    },
+    {
+     "name": "緋色",
+     "yomi": "ひいろ",
+     "hex": "#D3381C",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2267",
+     "reason": "つばめの喉もとに見える、鮮やかな赤"
+    },
+    {
+     "name": "勿忘草色",
+     "yomi": "わすれなぐさいろ",
+     "hex": "#89C3EB",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "つばめが渡ってくる春の空の、明るい青"
+    },
+    {
+     "name": "天色",
+     "yomi": "あまいろ",
+     "hex": "#2CA9E1",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "つばめが軽やかに切って飛ぶ、晴れた空の色"
+    }
+   ]
+  },
+  {
+   "kou_serial": 14,
+   "kou": "鴻雁北",
+   "colors": [
+    {
+     "name": "鼠色",
+     "yomi": "ねずみいろ",
+     "hex": "#949495",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "北へ帰る雁の群れの、灰色の羽"
+    },
+    {
+     "name": "利休鼠",
+     "yomi": "りきゅうねずみ",
+     "hex": "#888E7E",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "雁が飛び立つ湿地の、緑がかった灰色"
+    },
+    {
+     "name": "錆鼠",
+     "yomi": "さびねず",
+     "hex": "#47585C",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "北の空へ向かう雁の、くすんだ背の色"
+    },
+    {
+     "name": "薄花色",
+     "yomi": "うすはないろ",
+     "hex": "#698AAB",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "雁の隊列が遠ざかる、春の空の青"
+    },
+    {
+     "name": "素鼠",
+     "yomi": "すねず",
+     "hex": "#7D7D7D",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "別れの空を行く雁の、飾らない灰色"
+    },
+    {
+     "name": "茜色",
+     "yomi": "あかねいろ",
+     "hex": "#B7282E",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "夕焼けの空を北へ渡っていく雁の背景"
+    }
+   ]
+  },
+  {
+   "kou_serial": 15,
+   "kou": "虹始見",
+   "colors": [
+    {
+     "name": "朱色",
+     "yomi": "しゅいろ",
+     "hex": "#EB6101",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "雨上がりの虹のいちばん外側の、鮮やかな朱"
+    },
+    {
+     "name": "山吹色",
+     "yomi": "やまぶきいろ",
+     "hex": "#F8B500",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "虹の中ほどに輝く、明るい黄金色"
+    },
+    {
+     "name": "緑",
+     "yomi": "みどり",
+     "hex": "#3EB370",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "虹の帯の中央を通る、すがすがしい緑"
+    },
+    {
+     "name": "露草色",
+     "yomi": "つゆくさいろ",
+     "hex": "#38A1DB",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "雨に洗われた空と虹の青の帯"
+    },
+    {
+     "name": "桔梗色",
+     "yomi": "ききょういろ",
+     "hex": "#5654A2",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "虹の内側に見える、深い青紫"
+    },
+    {
+     "name": "藤色",
+     "yomi": "ふじいろ",
+     "hex": "#BBBCDE",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "消えかけた虹のふちに残る、淡い紫"
+    }
+   ]
+  },
+  {
+   "kou_serial": 16,
+   "kou": "葭始生",
+   "colors": [
+    {
+     "name": "木賊色",
+     "yomi": "とくさいろ",
+     "hex": "#3B7960",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "水辺にすっと伸びる、葦の若い茎の緑"
+    },
+    {
+     "name": "青磁色",
+     "yomi": "せいじいろ",
+     "hex": "#7EBEAB",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "葦の芽が出る浅瀬の、澄んだ青緑"
+    },
+    {
+     "name": "青朽葉",
+     "yomi": "あおくちば",
+     "hex": "#ADA250",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "去年の葦と新芽がまじる、黄みの緑"
+    },
+    {
+     "name": "錆青磁",
+     "yomi": "さびせいじ",
+     "hex": "#A6C8B2",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "風にそよぐ葦原の、落ち着いた灰緑"
+    },
+    {
+     "name": "薄青",
+     "yomi": "うすあお",
+     "hex": "#93B69C",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "水面に映る、芽吹いたばかりの葦の色"
+    },
+    {
+     "name": "柳煤竹",
+     "yomi": "やなぎすすたけ",
+     "hex": "#4D4C38",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "水辺に残る枯れ葦の、暗い緑がかった茶"
+    }
+   ]
+  },
+  {
+   "kou_serial": 17,
+   "kou": "霜止出苗",
+   "colors": [
+    {
+     "name": "苗色",
+     "yomi": "なえいろ",
+     "hex": "#B0CA71",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2130",
+     "reason": "苗代ですくすく育つ、稲の苗の色"
+    },
+    {
+     "name": "若苗色",
+     "yomi": "わかなえいろ",
+     "hex": "#C7DC68",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "霜の心配が去った田の、伸びはじめた苗"
+    },
+    {
+     "name": "千草色",
+     "yomi": "ちぐさいろ",
+     "hex": "#92B5A9",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "苗代の水と苗が重なる、青みの緑"
+    },
+    {
+     "name": "秘色色",
+     "yomi": "ひそくいろ",
+     "hex": "#ABCED8",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "霜が消えた朝の、澄んだ空の淡い青"
+    },
+    {
+     "name": "青緑",
+     "yomi": "あおみどり",
+     "hex": "#00A497",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "水を張った苗代に映る、深い青緑"
+    },
+    {
+     "name": "青白橡",
+     "yomi": "あおしろつるばみ",
+     "hex": "#9BA88D",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "苗を育てる田んぼのあぜの、灰がかった緑"
+    }
+   ]
+  },
+  {
+   "kou_serial": 18,
+   "kou": "牡丹華",
+   "colors": [
+    {
+     "name": "牡丹色",
+     "yomi": "ぼたんいろ",
+     "hex": "#E7609E",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "大輪に咲く牡丹そのものの、華やかな紅紫"
+    },
+    {
+     "name": "躑躅色",
+     "yomi": "つつじいろ",
+     "hex": "#E95295",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "牡丹と同じ季節に咲き競う、鮮やかな紅"
+    },
+    {
+     "name": "紅紫",
+     "yomi": "べにむらさき",
+     "hex": "#B44C97",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "百花の王の気品を思わせる、深い紅紫"
+    },
+    {
+     "name": "赤紫",
+     "yomi": "あかむらさき",
+     "hex": "#EB6EA5",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "牡丹の花びらの、明るく華のある赤紫"
+    },
+    {
+     "name": "今様色",
+     "yomi": "いまよういろ",
+     "hex": "#D0576B",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "平安の人が好んだ、牡丹にも似た流行の紅"
+    },
+    {
+     "name": "中紅",
+     "yomi": "なかべに",
+     "hex": "#C85179",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "重なり合う牡丹の花びらの奥の、濃い紅"
+    }
+   ]
+  },
+  {
+   "kou_serial": 19,
+   "kou": "蛙始鳴",
+   "colors": [
+    {
+     "name": "緑青色",
+     "yomi": "ろくしょういろ",
+     "hex": "#47885E",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "田んぼで鳴く雨蛙の、落ち着いた緑"
+    },
+    {
+     "name": "常磐色",
+     "yomi": "ときわいろ",
+     "hex": "#007B43",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "蛙の声が響く、田のまわりの木々の緑"
+    },
+    {
+     "name": "松葉色",
+     "yomi": "まつばいろ",
+     "hex": "#839B5C",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "水田のほとりに茂る、松の葉の深い緑"
+    },
+    {
+     "name": "草色",
+     "yomi": "くさいろ",
+     "hex": "#7B8D42",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "蛙がひそむあぜ道の、夏草の色"
+    },
+    {
+     "name": "鶸茶",
+     "yomi": "ひわちゃ",
+     "hex": "#8F8325",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "水を張った田の土の、黄みがかった緑茶"
+    },
+    {
+     "name": "抹茶色",
+     "yomi": "まっちゃいろ",
+     "hex": "#C5C56A",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "苔むした石の上で鳴く、蛙の背中の色"
+    }
+   ]
+  },
+  {
+   "kou_serial": 20,
+   "kou": "蚯蚓出",
+   "colors": [
+    {
+     "name": "代赭色",
+     "yomi": "たいしゃいろ",
+     "hex": "#BB5535",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "みみずが耕す、赤みを帯びた土の色"
+    },
+    {
+     "name": "弁柄色",
+     "yomi": "べんがらいろ",
+     "hex": "#8F2E14",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "土の中の鉄分を思わせる、深い赤茶"
+    },
+    {
+     "name": "茶色",
+     "yomi": "ちゃいろ",
+     "hex": "#965042",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "地上に出てきたみみずが這う、土の茶"
+    },
+    {
+     "name": "焦茶",
+     "yomi": "こげちゃ",
+     "hex": "#6F4B3E",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "雨上がりの湿った土の、濃い茶色"
+    },
+    {
+     "name": "赤銅色",
+     "yomi": "しゃくどういろ",
+     "hex": "#752100",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "土から顔を出すみみずの、つやのある赤茶"
+    },
+    {
+     "name": "樺茶色",
+     "yomi": "かばちゃいろ",
+     "hex": "#726250",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "落ち葉が土に還っていく、くすんだ茶"
+    }
+   ]
+  },
+  {
+   "kou_serial": 21,
+   "kou": "竹笋生",
+   "colors": [
+    {
+     "name": "若竹色",
+     "yomi": "わかたけいろ",
+     "hex": "#68BE8D",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "ぐんぐん伸びる今年の竹の、若い緑"
+    },
+    {
+     "name": "老竹色",
+     "yomi": "おいたけいろ",
+     "hex": "#769164",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "たけのこを見守る親竹の、落ち着いた緑"
+    },
+    {
+     "name": "煤竹色",
+     "yomi": "すすたけいろ",
+     "hex": "#6F514C",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "たけのこの皮の、黒みがかった茶色"
+    },
+    {
+     "name": "栗梅",
+     "yomi": "くりうめ",
+     "hex": "#852E19",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "土から顔を出した、たけのこの先の赤茶"
+    },
+    {
+     "name": "媚茶",
+     "yomi": "こびちゃ",
+     "hex": "#716246",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "竹林の落ち葉の下の、くすんだ茶"
+    },
+    {
+     "name": "千歳茶",
+     "yomi": "せんさいちゃ",
+     "hex": "#494A41",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "竹林の奥の木陰の、深い緑がかった茶"
+    }
+   ]
+  },
+  {
+   "kou_serial": 22,
+   "kou": "蚕起食桑",
+   "colors": [
+    {
+     "name": "桑染",
+     "yomi": "くわぞめ",
+     "hex": "#B79B5B",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "蚕が食べる桑の木の皮で染めた、黄みの茶"
+    },
+    {
+     "name": "桑茶",
+     "yomi": "くわちゃ",
+     "hex": "#956F29",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "桑の葉が茂る畑の、落ち着いた茶色"
+    },
+    {
+     "name": "生成色",
+     "yomi": "きなりいろ",
+     "hex": "#FBFAF5",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "蚕が生み出す絹糸の、染める前の白"
+    },
+    {
+     "name": "練色",
+     "yomi": "ねりいろ",
+     "hex": "#EDE4CD",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "練り上げた絹のような、やわらかな白"
+    },
+    {
+     "name": "白橡",
+     "yomi": "しろつるばみ",
+     "hex": "#CBB994",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "繭の手ざわりを思わせる、淡い黄みの色"
+    },
+    {
+     "name": "象牙色",
+     "yomi": "ぞうげいろ",
+     "hex": "#F8F4E6",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "つややかな絹織物の、上品な白"
+    }
+   ]
+  },
+  {
+   "kou_serial": 23,
+   "kou": "紅花栄",
+   "colors": [
+    {
+     "name": "紅色",
+     "yomi": "べにいろ",
+     "hex": "#D7003A",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "紅花から染め出される、鮮やかな紅"
+    },
+    {
+     "name": "韓紅花",
+     "yomi": "からくれない",
+     "hex": "#E95464",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "紅花を何度も染め重ねた、濃く明るい紅"
+    },
+    {
+     "name": "紅緋",
+     "yomi": "べにひ",
+     "hex": "#E83929",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "紅花の紅に黄を重ねた、燃えるような赤"
+    },
+    {
+     "name": "真紅",
+     "yomi": "しんく",
+     "hex": "#A22041",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "紅花だけで染めた、まじりけのない深紅"
+    },
+    {
+     "name": "深緋",
+     "yomi": "こきあけ",
+     "hex": "#C9171E",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "紅花で深く染めた、黒みを帯びた緋色"
+    },
+    {
+     "name": "黄丹",
+     "yomi": "おうに",
+     "hex": "#EE7948",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "咲き誇る紅花の、黄から赤へ移る花びら"
+    }
+   ]
+  },
+  {
+   "kou_serial": 24,
+   "kou": "麦秋至",
+   "colors": [
+    {
+     "name": "小麦色",
+     "yomi": "こむぎいろ",
+     "hex": "#E49E61",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "実りを迎えた麦畑の、日に焼けた色"
+    },
+    {
+     "name": "金茶",
+     "yomi": "きんちゃ",
+     "hex": "#C47222",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "収穫を待つ麦の穂の、金色がかった茶"
+    },
+    {
+     "name": "黄朽葉",
+     "yomi": "きくちば",
+     "hex": "#D3A243",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "刈り取りを前に色づいた、麦の葉の黄"
+    },
+    {
+     "name": "山吹茶",
+     "yomi": "やまぶきちゃ",
+     "hex": "#C89932",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "黄金色に波打つ麦畑の、深い黄"
+    },
+    {
+     "name": "芥子色",
+     "yomi": "からしいろ",
+     "hex": "#D0AF4C",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "よく乾いた麦わらの、くすんだ黄色"
+    },
+    {
+     "name": "朽葉色",
+     "yomi": "くちばいろ",
+     "hex": "#917347",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "刈り終えた麦畑に残る、茎の茶色"
+    }
+   ]
+  },
+  {
+   "kou_serial": 25,
+   "kou": "螳螂生",
+   "colors": [
+    {
+     "name": "裏葉色",
+     "yomi": "うらはいろ",
+     "hex": "#C1D8AC",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "生まれたばかりのかまきりの、淡い緑"
+    },
+    {
+     "name": "千歳緑",
+     "yomi": "ちとせみどり",
+     "hex": "#316745",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "かまきりの子が隠れる、葉かげの深い緑"
+    },
+    {
+     "name": "深緑",
+     "yomi": "ふかみどり",
+     "hex": "#00552E",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "鎌を構える成長したかまきりの、濃い緑"
+    },
+    {
+     "name": "海松色",
+     "yomi": "みるいろ",
+     "hex": "#726D40",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "かまきりがひそむ草むらの、渋い緑"
+    },
+    {
+     "name": "萌葱色",
+     "yomi": "もえぎいろ",
+     "hex": "#006E54",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "初夏の葉に紛れるかまきりの、青みの緑"
+    },
+    {
+     "name": "老緑",
+     "yomi": "おいみどり",
+     "hex": "#5E7A4E",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "卵から出たかまきりが登る、古い枝葉の緑"
+    }
+   ]
+  },
+  {
+   "kou_serial": 26,
+   "kou": "腐草為螢",
+   "colors": [
+    {
+     "name": "濃藍",
+     "yomi": "こいあい",
+     "hex": "#0F2350",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "ほたるが舞いはじめる、初夏の夜の深い藍"
+    },
+    {
+     "name": "紺青",
+     "yomi": "こんじょう",
+     "hex": "#192F60",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "水辺の闇を照らす、ほたるの夜空"
+    },
+    {
+     "name": "鉄色",
+     "yomi": "てついろ",
+     "hex": "#005243",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "ほたるがひそむ草むらの、夜の暗い緑"
+    },
+    {
+     "name": "黄緑",
+     "yomi": "きみどり",
+     "hex": "#B8D200",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "ほたるの光そのものの、やわらかな黄緑"
+    },
+    {
+     "name": "淡黄",
+     "yomi": "たんこう",
+     "hex": "#F8E58C",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "闇に浮かぶほたるの、淡い光のにじみ"
+    },
+    {
+     "name": "消炭色",
+     "yomi": "けしずみいろ",
+     "hex": "#524748",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "ほたるの光を引き立てる、暗がりの色"
+    }
+   ]
+  },
+  {
+   "kou_serial": 27,
+   "kou": "梅子黄",
+   "colors": [
+    {
+     "name": "梅染",
+     "yomi": "うめぞめ",
+     "hex": "#B48A76",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "梅の木で染めた、熟した実のような赤茶"
+    },
+    {
+     "name": "梅幸茶",
+     "yomi": "ばいこうちゃ",
+     "hex": "#897858",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "梅雨空の下で色づく梅の、渋い黄緑"
+    },
+    {
+     "name": "杏色",
+     "yomi": "あんずいろ",
+     "hex": "#F7B977",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "黄色く熟した梅の実の、やわらかな橙"
+    },
+    {
+     "name": "柑子色",
+     "yomi": "こうじいろ",
+     "hex": "#F6AD49",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "日を受けて色づいた、梅の実の明るい橙"
+    },
+    {
+     "name": "支子色",
+     "yomi": "くちなしいろ",
+     "hex": "#FBCA4D",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "梅雨の晴れ間に熟す、黄色い実の色"
+    },
+    {
+     "name": "鳥の子色",
+     "yomi": "とりのこいろ",
+     "hex": "#FFF1CF",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "青梅から黄へ移る、実の淡い肌色"
+    }
+   ]
+  },
+  {
+   "kou_serial": 28,
+   "kou": "乃東枯",
+   "colors": [
+    {
+     "name": "紫苑色",
+     "yomi": "しおんいろ",
+     "hex": "#867BA9",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "夏枯草が咲かせた花穂の、くすんだ紫"
+    },
+    {
+     "name": "葡萄鼠",
+     "yomi": "ぶどうねずみ",
+     "hex": "#705B67",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "枯れていく花穂に残る、灰色がかった紫"
+    },
+    {
+     "name": "茶鼠",
+     "yomi": "ちゃねずみ",
+     "hex": "#A99E93",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "夏至のころに枯れる、草の穂の灰茶"
+    },
+    {
+     "name": "栗色",
+     "yomi": "くりいろ",
+     "hex": "#762F07",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "枯れた夏枯草の、深みのある茶色"
+    },
+    {
+     "name": "藤煤竹",
+     "yomi": "ふじすすたけ",
+     "hex": "#5A5359",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "花の紫が枯れて茶に変わる途中の色"
+    },
+    {
+     "name": "銀煤竹",
+     "yomi": "ぎんすすたけ",
+     "hex": "#856859",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "夏の野に枯れて立つ、草の穂の淡い茶"
+    }
+   ]
+  },
+  {
+   "kou_serial": 29,
+   "kou": "菖蒲華",
+   "colors": [
+    {
+     "name": "菖蒲色",
+     "yomi": "あやめいろ",
+     "hex": "#CC7EB1",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "すっと伸びた茎の先に咲く、あやめの紫"
+    },
+    {
+     "name": "杜若色",
+     "yomi": "かきつばたいろ",
+     "hex": "#3E62AD",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "あやめと並んで水辺に咲く、杜若の青紫"
+    },
+    {
+     "name": "江戸紫",
+     "yomi": "えどむらさき",
+     "hex": "#745399",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "江戸の人に愛された、凛とした青みの紫"
+    },
+    {
+     "name": "京紫",
+     "yomi": "きょうむらさき",
+     "hex": "#9D5B8B",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "雨に濡れたあやめの、赤みを帯びた紫"
+    },
+    {
+     "name": "紫",
+     "yomi": "むらさき",
+     "hex": "#884898",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "花の王道として尊ばれた、あやめの紫"
+    },
+    {
+     "name": "若紫",
+     "yomi": "わかむらさき",
+     "hex": "#BC64A4",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "咲きはじめのあやめの、明るい紫"
+    }
+   ]
+  },
+  {
+   "kou_serial": 30,
+   "kou": "半夏生",
+   "colors": [
+    {
+     "name": "卯の花色",
+     "yomi": "うのはないろ",
+     "hex": "#F7FCFE",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "葉が白く染まる半夏生の、清らかな白"
+    },
+    {
+     "name": "灰白色",
+     "yomi": "かいはくしょく",
+     "hex": "#E9E4D4",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "梅雨空の下の田に映る、灰がかった白"
+    },
+    {
+     "name": "柳鼠",
+     "yomi": "やなぎねず",
+     "hex": "#C8D5BB",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "田植えを終えた水田の、やわらかな灰緑"
+    },
+    {
+     "name": "利休白茶",
+     "yomi": "りきゅうしらちゃ",
+     "hex": "#B3ADA0",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "梅雨のしめった空気を感じる、渋い白茶"
+    },
+    {
+     "name": "青磁鼠",
+     "yomi": "せいじねず",
+     "hex": "#BED3CA",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "雨に濡れた半夏生の葉の、灰みの緑"
+    },
+    {
+     "name": "乳白色",
+     "yomi": "にゅうはくしょく",
+     "hex": "#F3F3F3",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "半分だけ白く化粧した葉の、乳のような白"
+    }
+   ]
+  },
+  {
+   "kou_serial": 31,
+   "kou": "温風至",
+   "colors": [
+    {
+     "name": "橙色",
+     "yomi": "だいだいいろ",
+     "hex": "#EE7800",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "南から吹く熱い風を思わせる、明るい橙"
+    },
+    {
+     "name": "柿色",
+     "yomi": "かきいろ",
+     "hex": "#ED6D3D",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "梅雨明けの強い日差しの、赤みの橙"
+    },
+    {
+     "name": "照柿",
+     "yomi": "てりがき",
+     "hex": "#EC6800",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "熱気に照らされて輝く、濃い橙色"
+    },
+    {
+     "name": "蜜柑色",
+     "yomi": "みかんいろ",
+     "hex": "#F08300",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "夏の太陽の下で輝く、元気な橙"
+    },
+    {
+     "name": "洗朱",
+     "yomi": "あらいしゅ",
+     "hex": "#EC6D51",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "熱い風にさらされたような、やわらかな朱"
+    },
+    {
+     "name": "珊瑚朱色",
+     "yomi": "さんごしゅいろ",
+     "hex": "#EE836F",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2371",
+     "reason": "南の海から吹く風を思わせる、明るい朱"
+    }
+   ]
+  },
+  {
+   "kou_serial": 32,
+   "kou": "蓮始開",
+   "colors": [
+    {
+     "name": "撫子色",
+     "yomi": "なでしこいろ",
+     "hex": "#EEBBCB",
+     "hex_checked": true,
+     "hex_source": "https://www.colordic.org/colorsample/2023",
+     "reason": "泥の中から開いた蓮の、やさしい薄紅"
+    },
+    {
+     "name": "白磁",
+     "yomi": "はくじ",
+     "hex": "#F8FBF8",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "清らかに咲く白蓮の、透きとおる白"
+    },
+    {
+     "name": "鴇鼠",
+     "yomi": "ときねず",
+     "hex": "#E4D2D8",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "朝もやの中の蓮の花の、灰がかった紅"
+    },
+    {
+     "name": "青竹色",
+     "yomi": "あおたけいろ",
+     "hex": "#7EBEA5",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "水面に広がる蓮の葉の、すがすがしい緑"
+    },
+    {
+     "name": "灰梅",
+     "yomi": "はいうめ",
+     "hex": "#E8D3C7",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "花びらの根もとに残る、淡くくすんだ紅"
+    },
+    {
+     "name": "薄紅藤",
+     "yomi": "うすべにふじ",
+     "hex": "#E6CDE3",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "開いた蓮の花の、紫がかった淡い紅"
+    }
+   ]
+  },
+  {
+   "kou_serial": 33,
+   "kou": "鷹乃学習",
+   "colors": [
+    {
+     "name": "黄橡",
+     "yomi": "きつるばみ",
+     "hex": "#B68D4C",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "巣立ちを前にした若鷹の、黄みの茶の羽"
+    },
+    {
+     "name": "灰茶",
+     "yomi": "はいちゃ",
+     "hex": "#98623C",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "飛び方を覚える若鷹の、落ち着いた背の色"
+    },
+    {
+     "name": "胡桃色",
+     "yomi": "くるみいろ",
+     "hex": "#A86F4C",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "若鷹の羽に見える、温かな茶"
+    },
+    {
+     "name": "鳶色",
+     "yomi": "とびいろ",
+     "hex": "#95483F",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "空を舞う猛禽の、赤みがかった茶"
+    },
+    {
+     "name": "空色",
+     "yomi": "そらいろ",
+     "hex": "#A0D8EF",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "若鷹が初めて舞い上がる、夏の空"
+    },
+    {
+     "name": "黒橡",
+     "yomi": "くろつるばみ",
+     "hex": "#544A47",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "大人の鷹の風切羽を思わせる、深い黒茶"
+    }
+   ]
+  },
+  {
+   "kou_serial": 34,
+   "kou": "桐始結花",
+   "colors": [
+    {
+     "name": "藤紫",
+     "yomi": "ふじむらさき",
+     "hex": "#A59ACA",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "翌年に咲く桐の花を思わせる、淡い紫"
+    },
+    {
+     "name": "半色",
+     "yomi": "はしたいろ",
+     "hex": "#A69ABD",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "桐の花の、濃くも薄くもない中間の紫"
+    },
+    {
+     "name": "二藍",
+     "yomi": "ふたあい",
+     "hex": "#915DA3",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "高貴な桐にふさわしい、青みの紫"
+    },
+    {
+     "name": "藤納戸",
+     "yomi": "ふじなんど",
+     "hex": "#706CAA",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "つぼみをつける桐の木かげの、深い青紫"
+    },
+    {
+     "name": "楝色",
+     "yomi": "おうちいろ",
+     "hex": "#9C90C4",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "桐と同じく初夏を彩る楝の花の、淡い紫"
+    },
+    {
+     "name": "利休茶",
+     "yomi": "りきゅうちゃ",
+     "hex": "#A59564",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "桐の木肌を思わせる、品のある渋い茶"
+    }
+   ]
+  },
+  {
+   "kou_serial": 35,
+   "kou": "土潤溽暑",
+   "colors": [
+    {
+     "name": "檜皮色",
+     "yomi": "ひわだいろ",
+     "hex": "#965036",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "熱気にじっとり湿った、土と木の皮の茶"
+    },
+    {
+     "name": "小豆色",
+     "yomi": "あずきいろ",
+     "hex": "#96514D",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "蒸し暑さの中で熟す、濃い赤茶"
+    },
+    {
+     "name": "海老茶",
+     "yomi": "えびちゃ",
+     "hex": "#773C30",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "湿った土が熱を帯びた、深い赤茶"
+    },
+    {
+     "name": "錆色",
+     "yomi": "さびいろ",
+     "hex": "#6C3524",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "蒸し暑さに錆びつくような、暗い赤茶"
+    },
+    {
+     "name": "柿渋色",
+     "yomi": "かきしぶいろ",
+     "hex": "#9F563A",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "じめじめした夏に使われた柿渋の、赤茶"
+    },
+    {
+     "name": "蘇芳",
+     "yomi": "すおう",
+     "hex": "#9E3D3F",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "濃い熱気を思わせる、深く重い紅"
+    }
+   ]
+  },
+  {
+   "kou_serial": 36,
+   "kou": "大雨時行",
+   "colors": [
+    {
+     "name": "縹色",
+     "yomi": "はなだいろ",
+     "hex": "#2792C3",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "夕立が洗い流した空の、すっきりした青"
+    },
+    {
+     "name": "納戸色",
+     "yomi": "なんどいろ",
+     "hex": "#008899",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "激しい雨に煙る、青緑がかった景色"
+    },
+    {
+     "name": "舛花色",
+     "yomi": "ますはないろ",
+     "hex": "#5B7E91",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "夕立の雨雲の、灰みを帯びた青"
+    },
+    {
+     "name": "紺鼠",
+     "yomi": "こんねず",
+     "hex": "#44617B",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "大雨を降らせる、暗い雲の色"
+    },
+    {
+     "name": "新橋色",
+     "yomi": "しんばしいろ",
+     "hex": "#59B9C6",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "雨上がりに涼しさが戻る、明るい青緑"
+    },
+    {
+     "name": "瑠璃色",
+     "yomi": "るりいろ",
+     "hex": "#1E50A2",
+     "hex_checked": false,
+     "hex_source": "",
+     "reason": "雨が上がって現れる、夏の夕空の深い青"
+    }
+   ]
+  }
+ ]
+}
