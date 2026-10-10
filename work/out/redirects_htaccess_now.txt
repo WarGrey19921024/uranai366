@@ -1,0 +1,3 @@
+# 今すぐ設定する分（2025年版 → 2027年版）。「# BEGIN WordPress」より上に貼る
+RedirectMatch 301 ^/2025-(\d{2})(\d{2})/?$ /366uranai/$1-$2/
+RedirectMatch 301 ^/366uranai/2025y/?$ /366uranai/
