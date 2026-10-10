@@ -12,7 +12,7 @@
   366日へのリンク（月ごと・星座つき。リンク先は /366uranai/MM-DD/）、星座12ページへのリンク、
   このページ群の作り方（使った占い・計算のしかた・出典の考え方。work/knowledge/ と work/reports/knowledge_check.md をやさしく短く）、
   ほかの占いへのリンク。デザインは誕生日ページと同じ J 夜の手帳（共通の fh-b27.css。JS は使わない）。
-  見出しH1は使わない（Diver がページタイトルを H1 で出すため）。
+  見出しH1：このページだけ本文先頭の題を H1 にする（改善第2弾：このページはテーマがタイトルを出さないため）。誕生日ページ・まるごと診断は H1 なしのまま。
 データ: work/data/materials_366.json（各日の星座・星座の境目の日）
 """
 import datetime as dt, html, json, os, sys
@@ -25,7 +25,7 @@ OUT = os.path.join(WORK, "out")
 SITE = "https://www.uranai.epoch-compass.com"
 HUB = "/366uranai/"
 WP_ASSET = "/wp-content/uploads/fh-b27/"
-ASSET_VER = "20261011"  # build_html.py の ASSET_VER と同じにする
+ASSET_VER = "20261012"  # build_html.py の ASSET_VER と同じにする
 FONTS = ("https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Shippori+Mincho:wght@600;800"
          "&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap")
 SIGNS = ["牡羊座", "牡牛座", "双子座", "蟹座", "獅子座", "乙女座", "天秤座", "蠍座", "射手座", "山羊座", "水瓶座", "魚座"]
@@ -185,7 +185,7 @@ def build(mats, sample, updated):
   <div class="fh-b27-kou" aria-hidden="true">三百六十六日</div>
   <div class="fh-b27-hero-body">
     <span class="fh-b27-tape">2027年版 誕生日占い</span>
-    <p class="fh-b27-title">誕生日を選んでください<br>366日の性格と2027年の運勢</p>
+    <h1 class="fh-b27-title">366日生年月日占い<br>誕生日から選ぶ性格と2027年の運勢</h1>
     <p class="fh-b27-lead">1月1日から12月31日まで、2月29日も入れた366日に1ページずつ。太陽の星座と七十二候、誕生花、数秘術、干支と九星など、その日だけの材料から、変わらない本質と2027年の歩き方を読み解いています。</p>
   </div>
 </header>''')

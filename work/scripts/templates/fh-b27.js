@@ -114,6 +114,33 @@
   }
   /* 計算できる生まれ年の範囲（節入りの表の範囲＝1930〜2030年） */
   function yearRange(){var S=G.FH_B27_SETSU;return S?{min:S.y0,max:S.y0+S.d.length-1}:{min:GEN.yearMin,max:GEN.yearMax};}
+  /* --- その日の総合（改善第2弾）：カレンダーの印と「その日のひとこと」の5段階を同じ計算で出す ---
+     点＝2＋日の数（1・3・8は＋0.5、7・9は−0.25）＋日の干支の五行とあなたの五行の関係（生じられる＋1・比和＋0.5・剋す＋0.25・生じる0・剋される−0.75）
+        ＋（生まれ年あり）生まれた日の十二支との関係（支合＋1・三合＋0.5・同じ＋0.25・冲−1）＋バイオリズム（好調日＋1・注意日−0.75・平均＞0.2で＋0.5・＜−0.2で−0.5）
+        ＋その月の運勢（◎＋0.5・△−0.5）。DAY_CUT で5段階（4＝★追い風 … 0＝▽休む）に分ける。試算は work/scripts/test_day_score.py */
+  var STEM_EL=['木','木','火','火','土','土','金','金','水','水'];
+  function red(n){while(n>9)n=sumd(n);return n;}
+  function pDayOf(py,m,d){return red(red(py+m)+d);}
+  function dayKanshi(y,m,d){var i=mod(10+(jdn(y,m,d)-jdn(1900,1,1)),60);return {s:STEM[i%10],b:BR[i%12],si:i%10,bi:i%12};}
+  function rel(a,b){if(a===b)return 'same';if(GENR[b]===a)return 'helped';if(GENR[a]===b)return 'give';if(CTL[a]===b)return 'rule';return 'pressed';}
+  var GO={0:1,1:0,2:11,11:2,3:10,10:3,4:9,9:4,5:8,8:5,6:7,7:6};
+  function brRel(a,b){if(a===b)return 'same';if(GO[a]===b)return 'go';if(mod(a-b,12)===6)return 'chu';if(mod(a-b,12)===4||mod(a-b,12)===8)return 'san';return 'none';}
+  var DAY_CUT=[0.75,1.75,2.75,3.5],DAY_CUT_NY=[1.25,2,2.75,3.25];/* 点がこの値以上で ▽0→△1→〇2→◎3→★4。生まれ年なしは材料が少なく点の幅が狭いので別の区切り（どちらも試算で目安の割合に合わせた） */
+  var DAY_MARK=['▽','△','〇','◎','★'];
+  function dayScore(o,m,d){
+    var pd=pDayOf(o.py,m,d),kd=dayKanshi(2027,m,d),me=o.gogyo,ke=STEM_EL[kd.si],score=2,x={pd:pd,kd:kd,ke:ke};
+    if(o.year){var bp=pillars(o.year,o.M,o.D);x.bday=bp.day;x.bbi=BR.indexOf(bp.day.charAt(1));me=STEM_EL[STEM.indexOf(bp.day.charAt(0))];}
+    x.me=me;
+    if(pd===1||pd===3||pd===8)score+=.5;if(pd===7||pd===9)score-=.25;
+    x.r=rel(me,ke);score+={helped:1,same:.5,give:0,rule:.25,pressed:-.75}[x.r];
+    if(o.year){x.br=brRel(x.bbi,kd.bi);score+={go:1,san:.5,chu:-1,same:.25,none:0}[x.br];
+      var k=jdn(2027,m,d)-jdn(o.year,o.M,o.D);
+      if(k>=0){var v=bioAt(k),av=(v[0]+v[1]+v[2])/3,g=bioGood(k),c=bioCare(k);x.bio={v:v,av:av,g:g,c:c};score+=g?1:c?-.75:av>.2?.5:av<-.2?-.5:0;}}
+    x.mm=o.marks?o.marks[m-1]:'';score+=x.mm==='◎'?.5:x.mm==='△'?-.5:0;
+    var cut=o.year?DAY_CUT:DAY_CUT_NY,vi=0;for(var i=0;i<4;i++)if(score>=cut[i])vi=i+1;
+    x.score=score;x.vi=vi;x.mark=DAY_MARK[vi];return x;
+  }
+  CALC.dayScore=dayScore;CALC.pDayOf=pDayOf;CALC.DAY_CUT=DAY_CUT;CALC.DAY_CUT_NY=DAY_CUT_NY;
   CALC.dayKanshiIndex=function(y,m,d){return mod(10+(jdn(y,m,d)-jdn(1900,1,1)),60);};
   CALC.sunSign=sunSign;CALC.yearRange=yearRange;CALC.wareki=wareki;CALC.isLeap=isLeap;CALC.GEN=GEN;CALC.STEM=STEM;CALC.BR=BR;CALC.ANI=ANI;CALC.SIGN12=SIGN12;
   G.FHB27Calc=CALC;
@@ -204,38 +231,31 @@
   state.pick=inY?{m:now.getMonth()+1,d:now.getDate()}:{m:BD[0],d:BD[1]};
   state.view='cal';
   var PY=Number(root.getAttribute('data-py'))||1,GOGYO=root.getAttribute('data-gogyo')||'土';
-  function red(n){while(n>9)n=sumd(n);return n;}
-  function pDay(m,d){return red(red(PY+m)+d);}
-  function dayKanshi(y,m,d){var i=mod(10+(jdn(y,m,d)-jdn(1900,1,1)),60);return {s:STEM[i%10],b:BR[i%12],si:i%10,bi:i%12};}
-  var STEM_EL=['木','木','火','火','土','土','金','金','水','水'];
-  /* 五行：AからBを見た関係（knowledge/05 の3-1） */
-  function rel(a,b){if(a===b)return 'same';if(GENR[b]===a)return 'helped';if(GENR[a]===b)return 'give';if(CTL[a]===b)return 'rule';return 'pressed';}
-  /* 地支どうし（knowledge/05 の3-7）：支合・三合・冲 */
-  var GO={0:1,1:0,2:11,11:2,3:10,10:3,4:9,9:4,5:8,8:5,6:7,7:6};
-  function brRel(a,b){if(a===b)return 'same';if(GO[a]===b)return 'go';if(mod(a-b,12)===6)return 'chu';if(mod(a-b,12)===4||mod(a-b,12)===8)return 'san';return 'none';}
+  function pDay(m,d){return pDayOf(PY,m,d);}
+  /* 12か月の運勢（ページの中の◎○△と一行）を読む */
+  var MMARK=[],MLINE=[];
+  root.querySelectorAll('.fh-b27-months > div').forEach(function(x){var b=x.querySelector('b');MMARK.push(b?b.textContent.trim():'');});
+  root.querySelectorAll('.fh-b27-monthlist > div').forEach(function(x){var sp=x.querySelectorAll('span'),t=sp.length?sp[sp.length-1].textContent:'';var i=t.indexOf('。');t=i>0?t.slice(0,i+1):t;if(t.length>46)t=t.slice(0,45)+'…';MLINE.push(t);});
+  function opts(){return {M:M,D:D,py:PY,gogyo:GOGYO,year:state.year,marks:MMARK.length===12?MMARK:null};}
   function pickv(arr,seed){return arr[mod(seed,arr.length)];}
   var PD_TIP={1:['新しいことを一つだけ始めてみて。','迷っていたことに、今日は答えを出してみて。'],2:['返事は少しゆっくりめに、言葉は丁寧に。','一人で決めず、誰かに相談すると話がまとまりやすい日。'],3:['楽しいと思うことを、まず自分に許してあげて。','気軽な連絡や雑談から、いい話が転がり込みそう。'],4:['机の上や予定表を整えると、気持ちも落ち着きます。','派手さより、決めたことを一つずつ。'],5:['いつもと違う道や店を選ぶと、小さな発見があります。','予定が変わっても、それを楽しむくらいでちょうどいい日。'],6:['家族や身近な人に「ありがとう」を伝えてみて。','頼まれごとを気持ちよく引き受けると、運が巡ります。'],7:['ひとりで考える時間を少しだけ確保して。','調べものや読書に向く日。無理に人に合わせなくて大丈夫。'],8:['先送りにしていた仕事や手続きを片づけるチャンス。','数字やお金のことを、今日のうちに確かめておくと安心。'],9:['使わない物を一つ手放すと、気持ちが軽くなります。','誰かのために動くと、自分にもいい流れが返ってきます。']};
   var EL_TXT={helped:['日の干支「{k}」は、あなたの「{me}」を育てる「{el}」の気。周りの助けを受け取りやすい日です。','「{k}」の日は、{el}の気があなたの{me}を後押し。人の厚意は素直に受け取って。'],same:['「{k}」の日は、あなたと同じ「{el}」の気。自分らしさを出しやすく、勢いもつきます。','日の干支「{k}」はあなたと同じ{el}の気。得意なことで力を発揮しやすい日です。'],give:['「{k}」の日は、あなたの{me}が「{el}」を生む関係。人に何かを与えると喜ばれる日です。','日の干支「{k}」は、あなたが力を注ぐ側に回る組み合わせ。張り切りすぎには気をつけて。'],rule:['「{k}」の日は、あなたの{me}が「{el}」をおさえる関係。主導権を握りやすい反面、言い方はやわらかく。','日の干支「{k}」とは、あなたがリードする組み合わせ。仕切る場面で力が出ます。'],pressed:['「{k}」の日は、「{el}」の気があなたの{me}をおさえる関係。予定は詰め込みすぎずに。','日の干支「{k}」は少しプレッシャーを感じやすい組み合わせ。早めに休むのが吉です。']};
   var BR_TXT={go:'生まれた日の「{b}」と今日の「{t}」は引き合う関係（支合）。人との縁が結ばれやすい日です。',san:'生まれた日の「{b}」と今日の「{t}」は仲間の関係（三合）。協力すると物事が進みます。',chu:'生まれた日の「{b}」と今日の「{t}」は向かい合う関係（冲）。予定の変更や行き違いに気をつけて。',same:'今日は生まれた日と同じ「{t}」の日。原点に返るような出来事がありそうです。',none:''};
   var VERD=[['ゆっくり休む日','無理をせず、体と心を休めることを優先して。'],['ひと息つく日','大きな決断は別の日に回し、身の回りを整える日に。'],['ふつうの日','いつものペースを大切に。小さな楽しみを一つ見つけて。'],['いい流れの日','気になっていたことに手をつけるのに向いています。'],['追い風の日','大切な予定や、人に会う用事を入れるのに向く日です。']];
   function fill(t,o){return t.replace(/\{(\w+)\}/g,function(_,k){return o[k]});}
+  var MM_TXT={'◎':'この月は12か月の運勢で◎の月。流れに乗って動きやすい時期です。','○':'この月は12か月の運勢で○の月。いつもの調子で進めて大丈夫。','△':'この月は12か月の運勢で△の月。月全体が慎重に過ごしたい時期なので、少し控えめに。'};
   function dayFortune(m,d){
-    var y=state.year,pd=pDay(m,d),kd=dayKanshi(2027,m,d),seed=m*31+d,score=2,lines=[];
-    var me=GOGYO,label='星座の五行',ke=STEM_EL[kd.si];
-    if(y){var bp=pillars(y,M,D),bsi=STEM.indexOf(bp.day.charAt(0)),bbi=BR.indexOf(bp.day.charAt(1));me=STEM_EL[bsi];label='生まれた日の日干「'+bp.day.charAt(0)+'」';}
-    if(pd===1||pd===3||pd===8)score+=.5;if(pd===7||pd===9)score-=.25;
+    var y=state.year,x=dayScore(opts(),m,d),pd=x.pd,kd=x.kd,seed=m*31+d,lines=[],me=x.me,ke=x.ke,vi=x.vi;
+    var label=y?'生まれた日の日干「'+x.bday.charAt(0)+'」':'星座の五行';
     lines.push(['日の数 '+pd,'「'+(GEN.pdKw[pd]||'')+'」。'+pickv(PD_TIP[pd],seed)]);
-    var r=rel(me,ke);score+={helped:1,same:.5,give:0,rule:.25,pressed:-.75}[r];
-    lines.push(['日の干支 '+kd.s+kd.b,fill(pickv(EL_TXT[r],seed+d),{k:kd.s+kd.b,me:me,el:ke})+'（あなたの五行は'+label+'の「'+me+'」で見ています）']);
-    if(y){var br=brRel(bbi,kd.bi);if(BR_TXT[br]){lines.push(['生まれた日との関係',fill(BR_TXT[br],{b:BR[bbi],t:kd.b})]);}score+={go:1,san:.5,chu:-1,same:.25,none:0}[br];
-      var k=jdn(2027,m,d)-jdn(y,M,D);
-      if(!born(k))lines.push(['バイオリズム','まだ生まれる前の日なので、バイオリズムは出しません。']);
-      else{var v=bioAt(k),av=(v[0]+v[1]+v[2])/3,g=bioGood(k),c=bioCare(k);
-        lines.push(['バイオリズム','身体'+bioMark(v[0])[0]+'・感情'+bioMark(v[1])[0]+'・知性'+bioMark(v[2])[0]+'。'+(g?'3つの波がそろって高い「好調日」です。':c?'波が切り替わる「注意日」。うっかりミスに気をつけて。':av>.2?'波は上向きで、動きやすい日。':av<-.2?'波は低めなので、ペースを落として。':'波はおだやかな日です。')]);
-        score+=g?1:c?-.75:av>.2?.5:av<-.2?-.5:0;}}
-    var vi=Math.max(0,Math.min(4,Math.round(score)));
+    lines.push(['日の干支 '+kd.s+kd.b,fill(pickv(EL_TXT[x.r],seed+d),{k:kd.s+kd.b,me:me,el:ke})+'（あなたの五行は'+label+'の「'+me+'」で見ています）']);
+    if(y){if(BR_TXT[x.br])lines.push(['生まれた日との関係',fill(BR_TXT[x.br],{b:BR[x.bbi],t:kd.b})]);
+      if(!x.bio)lines.push(['バイオリズム','まだ生まれる前の日なので、バイオリズムは出しません。']);
+      else{var v=x.bio.v,av=x.bio.av,g=x.bio.g,c=x.bio.c;
+        lines.push(['バイオリズム','身体'+bioMark(v[0])[0]+'・感情'+bioMark(v[1])[0]+'・知性'+bioMark(v[2])[0]+'。'+(g?'3つの波がそろって高い「好調日」です。':c?'波が切り替わる「注意日」。うっかりミスに気をつけて。':av>.2?'波は上向きで、動きやすい日。':av<-.2?'波は低めなので、ペースを落として。':'波はおだやかな日です。')]);}}
+    if(MM_TXT[x.mm])lines.push([m+'月の運勢 '+x.mm,MM_TXT[x.mm]]);
     var W='日月火水木金土'.charAt(new Date(2027,m-1,d).getDay());
-    var h='<div class="fh-b27-dayhead"><b>2027年'+m+'月'+d+'日（'+W+'）</b><span class="fh-b27-verd fh-b27-v'+vi+'">'+VERD[vi][0]+'</span></div>';
+    var h='<div class="fh-b27-dayhead"><b>2027年'+m+'月'+d+'日（'+W+'）</b><span class="fh-b27-verd fh-b27-v'+vi+'">'+x.mark+' '+VERD[vi][0]+'</span></div>';
     h+='<p class="fh-b27-daysum">'+VERD[vi][1]+'</p><dl>';
     lines.forEach(function(l){h+='<div><dt>'+l[0]+'</dt><dd>'+l[1]+'</dd></div>';});
     h+='</dl>'+(y?'':'<p class="fh-b27-small">生まれ年を選ぶと、生まれた日の干支との関係とバイオリズムも加えて読みます。</p>');
@@ -248,13 +268,16 @@
     var m=state.bioMonth,n=daysIn(m),first=new Date(2027,m-1,1).getDay(),b=state.year?jdn(state.year,M,D):null;
     var h='<div class="fh-b27-calhead">'+'日月火水木金土'.split('').map(function(w,i){return '<span'+(i===0?' class="fh-b27-sun"':i===6?' class="fh-b27-sat"':'')+'>'+w+'</span>'}).join('')+'</div><div class="fh-b27-calgrid">';
     for(var i=0;i<first;i++)h+='<span class="fh-b27-calpad"></span>';
-    for(var d=1;d<=n;d++){var cls='fh-b27-cday',mk='',sub='';
-      if(b!==null){var k=jdn(2027,m,d)-b;if(born(k)){var v=bioAt(k);mk=bioMark((v[0]+v[1]+v[2])/3)[0];if(bioGood(k))cls+=' fh-b27-cg';else if(bioCare(k))cls+=' fh-b27-cc';}else mk='·';}
-      sub=mk||String(pDay(m,d));
+    var o=opts();
+    for(var d=1;d<=n;d++){var cls='fh-b27-cday',x=dayScore(o,m,d),mk=x.mark;
+      if(b!==null){var k=jdn(2027,m,d)-b;if(born(k)){if(bioGood(k))cls+=' fh-b27-cg';else if(bioCare(k))cls+=' fh-b27-cc';}}
+      cls+=' fh-b27-cm'+x.vi;
+      var sub='<span class="fh-b27-cmk">'+mk+'</span><span class="fh-b27-cpd">'+x.pd+'</span>';
       if(state.pick&&state.pick.m===m&&state.pick.d===d)cls+=' fh-b27-csel';
       if(m===BD[0]&&d===BD[1])cls+=' fh-b27-cbd';
       h+='<button type="button" class="'+cls+'" data-d="'+d+'" aria-label="'+m+'月'+d+'日'+(mk?'（'+mk+'）':'')+'"><b>'+d+'</b><small>'+sub+'</small></button>';}
-    box.innerHTML=h+'</div><p class="fh-b27-small">'+(b!==null?'日付の下の印は3本の平均（★◎〇△▽）。金色＝好調日、灰色＝注意日。':'日付の下の数字は、その日の数（数秘）です。')+'誕生日は点線の枠。</p>';
+    var mh=MMARK[m-1]?'<div class="fh-b27-calmonth"><b>2027年'+m+'月</b><span class="fh-b27-mark fh-b27-'+(MMARK[m-1]==='◎'?'good':MMARK[m-1]==='△'?'care':'ok')+'">'+MMARK[m-1]+'</span><span>'+(MLINE[m-1]||'')+'</span></div>':'';
+    box.innerHTML=mh+h+'</div><p class="fh-b27-small"><b>印（★◎〇△▽）＝その日の総合</b>（日の数・日の干支・その月の運勢'+(b!==null?'・生まれた日との関係・バイオリズム':'')+'から。押すと出る「その日のひとこと」と同じ5段階）。小さな数字はその日の数（数秘）。'+(b!==null?'<b>色＝バイオリズム</b>（金色＝好調日、灰色＝注意日）。':'')+'誕生日は点線の枠。</p>';
     box.querySelectorAll('button').forEach(function(bt){bt.addEventListener('click',function(){state.pick={m:m,d:Number(bt.getAttribute('data-d'))};drawCal();drawDay();});});
   }
   function drawBio(){

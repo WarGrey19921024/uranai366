@@ -52,7 +52,7 @@ async function pick(page, [y, m, d]) {
     }));
     hub.overflow = await overflow(page);
     await page.screenshot({ path: path.join(SAMPLE, `hub_${name}.png`), fullPage: true });
-    let ok = !errors.length && hub.overflow <= 0 && hub.dayLinks === 366 && hub.h1 === 0;
+    let ok = !errors.length && hub.overflow <= 0 && hub.dayLinks === 366 && hub.h1 === 1;
     if (!ok) bad++;
     console.log(JSON.stringify({ page: 'hub', name, ok, errors, hub }));
     await page.close();

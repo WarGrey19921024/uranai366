@@ -39,7 +39,7 @@ from item_cat import item_cat  # noqa: E402
 
 WP_ASSET = "/wp-content/uploads/fh-b27/"
 # 共通CSS/JSの版（作り直してファイルを上書きしたら変える）。URL に ?v= をつけて、閲覧者のブラウザに古いCSS/JSが残らないようにする
-ASSET_VER = "20261011"
+ASSET_VER = "20261012"
 FONTS = "https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
 YEAR_MIN, YEAR_MAX = 1930, 2030  # 2030年まで（改善第1弾：親が赤ちゃんの分を見る）。節入り・旧暦の表も2030年まである
 SIGN_EN = {"牡羊座": "aries", "牡牛座": "taurus", "双子座": "gemini", "蟹座": "cancer", "獅子座": "leo",

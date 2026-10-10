@@ -52,6 +52,12 @@ const SAMPLE = path.join(__dirname, '..', 'out', 'sample');
       await page.click('#fh-b27-cal .fh-b27-cday[data-d="15"]');
       await page.waitForTimeout(100);
       const day = await page.evaluate(() => document.getElementById('fh-b27-dayout').textContent);
+      // 改善第2弾：カレンダーの印と「その日のひとこと」の5段階が同じか（その月の全部の日を押して確かめる）
+      const mismatch = await page.evaluate(async () => {
+        let bad = 0; const n = document.querySelectorAll('#fh-b27-cal .fh-b27-cday').length;
+        for (let d = 1; d <= n; d++) { const c = document.querySelector('#fh-b27-cal .fh-b27-cday[data-d="' + d + '"]'); const mk = c.querySelector('.fh-b27-cmk').textContent;
+          c.click(); const v = document.querySelector('#fh-b27-dayout .fh-b27-verd').textContent.charAt(0); if (v !== mk) bad++; }
+        return bad; });
       await page.click('[data-fh-view="graph"]');
       await page.waitForTimeout(100);
       const graph = await page.evaluate(() => !!document.querySelector('#fh-b27-bchart svg') && !document.getElementById('fh-b27-bchart').hidden);
@@ -64,8 +70,8 @@ const SAMPLE = path.join(__dirname, '..', 'out', 'sample');
         before: document.querySelectorAll('#fh-b27-btable td[colspan]').length, overflow: document.documentElement.scrollWidth - window.innerWidth }));
       const okDay = /日の数 \d/.test(day) && /日の干支/.test(day) && /バイオリズム/.test(day) && /おみくじ/.test(day);
       const ok = !errors.length && before.overflow <= 0 && after.overflow <= 0 && before.chart && after.legend === before.legend + 2 && after.bioRows >= 28
-        && before.calDays >= 28 && /日の数/.test(before.dayout) && okDay && graph && babyRes.star !== '—' && babyRes.before >= 28 && babyRes.overflow <= 0;
-      Object.assign(after, { day: day.slice(0, 80), graph, baby, babyRes });
+        && before.calDays >= 28 && /日の数/.test(before.dayout) && okDay && graph && mismatch === 0 && babyRes.star !== '—' && babyRes.before >= 28 && babyRes.overflow <= 0;
+      Object.assign(after, { day: day.slice(0, 80), graph, baby, babyRes, mismatch });
       if (!ok) bad++;
       console.log(JSON.stringify({ mmdd, name, ok, errors, before, after }, null, 0));
       await page.close();
