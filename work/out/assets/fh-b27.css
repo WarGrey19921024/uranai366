@@ -250,7 +250,7 @@
 .fh-b27-mono-card b em{display:inline-block}
 .fh-b27-sticky strong{color:var(--cream-ink)}
 
-/* ===== テーマ・プラグインとのぶつかり対策（このCSSは誕生日ページでしか読み込まない） ===== */
+/* ===== テーマ・プラグインとのぶつかり対策（このCSSは誕生日ページ・一覧ページ /366uranai/・まるごと診断 /seinengappi/ でだけ読み込む。どれも本文に [no_toc] あり） ===== */
 /* Table of Contents Plus の目次を出さない（本文の先頭の [no_toc] と二重の備え。ページ内に自前の目次がある） */
 #toc_container{display:none!important}
 /* アフィリエイトの表示計測の画像（1×1）を並びから外す：ボタンの並び・間隔を崩さない */
