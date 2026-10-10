@@ -528,7 +528,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     for key, lab in FIELDS:
         fm = e.get("field_marks", {}).get(key, "○")
         cls = {"◎": "good", "○": "ok", "△": "care"}[fm]
-        a(f'  <h3>{lab} <span class="fh-b27-mark {cls}">{fm}</span></h3>\n  <p class="fh-b27-fieldmeta">いちばん良い月：{e["field_peak"][key]}月 ／ 慎重な月：{e["field_low"][key]}月</p>')
+        a(f'  <h3>{lab} <span class="fh-b27-mark {cls}">{fm}</span></h3>\n  <p class="fh-b27-fieldmeta">良い月：{e.get("field_peak_use", e["field_peak"])[key]}月 ／ 慎重な月：{e.get("field_low_use", e["field_low"])[key]}月</p>')
         a("  " + paras(fields_txt.get(key)))
         if key == "恋愛":
             a(f'  <p class="fh-b27-small"><a href="/dream/keyword/{dream[0]}/">{dream[1]}（夢解き図鑑）→</a></p>')

@@ -107,7 +107,7 @@ def main():
             "compat_good": compat[k]["good"], "compat_bad": compat[k]["bad"],
             "scores": {x: s[x] for x in ("astro", "num", "gogyo", "total", "marks")},
             "peak_months": s["peak_months"], "low_months": s["low_months"],
-            "field_peak": s["field_peak"], "field_low": s["field_low"], "field_marks": s["field_marks"], "fields": s["fields"],
+            "field_peak": s["field_peak"], "field_low": s["field_low"], "field_marks": s["field_marks"], "field_peak2": s["field_peak2"], "field_low2": s["field_low2"], "field_peak_use": s["field_peak_use"], "field_low_use": s["field_low_use"], "fields": s["fields"],
             "astro_hits": s["astro_hits"], "gogyo_rel": s["gogyo_rel"],
             "bday2027": dict(b["bday2027"], kanshi_meaning=kn["kanshi"].get(b["bday2027"]["day_kanshi"], {}).get("meaning"),
                              pd_meaning=kn["num_cycle"].get(b["bday2027"]["personal_day"], {}).get("day")),

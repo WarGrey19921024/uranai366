@@ -106,21 +106,28 @@ def main():
             if sec == "y2027.bday" and len(hit) < 2: miss.append((k, sec, items))
     bad["必ず使う材料の不足"] = len(miss)
     # 5) 月の名前
-    monthng = []
+    monthng, peak3 = [], []
     for k, (s, v) in pages.items():
         m = M[k]
         for f, txt in v.get("y2027", {}).get("fields", {}).items():
-            for want in (m["field_peak"][f], m["field_low"][f]):
+            for want in (m["field_peak_use"][f], m["field_low_use"][f]):
                 if f"{want}月" not in txt: monthng.append((k, f, want))
+        # 同じ月を山として挙げる分野は1ページ2つまで（本人の中間チェック3）
+        used = collections.Counter()
+        for f, txt in v.get("y2027", {}).get("fields", {}).items():
+            for cand in (m["field_peak_use"][f], m["field_peak"][f]):
+                if f"{cand}月" in txt: used[cand] += 1; break
+        if used and max(used.values()) > 2: peak3.append((k, dict(used)))
             # 本文に「山」「慎重」と一緒に書かれた月が、スコアと合っているか（例：「◯月が山」）
         for t in secs[k].values():
             for mm in re.findall(r"(\d{1,2})月(?:が|は)?(?:いちばんの)?(?:山|好調のピーク)", t):
-                if int(mm) not in m["peak_months"] and all(int(mm) != x for x in m["field_peak"].values()):
+                if int(mm) not in m["peak_months"] and all(int(mm) not in (m["field_peak"][f], m["field_peak2"][f]) for f in m["field_peak"]):
                     monthng.append((k, "山と書いた月", int(mm)))
             for mm in re.findall(r"(\d{1,2})月(?:が|は)?(?:慎重|谷|注意)", t):
-                if int(mm) not in m["low_months"] and all(int(mm) != x for x in m["field_low"].values()):
+                if int(mm) not in m["low_months"] and all(int(mm) not in (m["field_low"][f], m["field_low2"][f]) for f in m["field_low"]):
                     monthng.append((k, "慎重と書いた月", int(mm)))
     bad["月の名前がスコアと不一致"] = len(monthng)
+    bad["同じ月を山とする分野が3つ以上"] = len(peak3)
     # 6) 文の型
     sk = collections.defaultdict(set)
     ends = collections.defaultdict(set)
@@ -160,7 +167,7 @@ def main():
     R.append(f"# 重複検査（{'・'.join(SIGNS_EN) if SIGNS_EN else '全体'}）\n\n`python work/scripts/check_dup.py {' '.join(SIGNS_EN or [])}` で再生成。対象 {n} ページ。\n")
     R.append("| 検査 | 基準 | 引っかかった数 |\n|---|---|---|")
     crit = {"同じ文が4ページ以上": "0", "ページの類似度が基準以上": "全組0.25未満・同じ星座0.30未満", "セクションの類似度0.40以上": "0",
-            "必ず使う材料の不足": "0", "月の名前がスコアと不一致": "0", "文の骨組みの繰り返し（20%以上のページ）": "0", "同じ文末（60%以上のページ）": "0", "1ページ内で同じ文末4回以上": "0",
+            "必ず使う材料の不足": "0", "月の名前がスコアと不一致": "0", "同じ月を山とする分野が3つ以上": "0（1ページ2分野まで）", "文の骨組みの繰り返し（20%以上のページ）": "0", "同じ文末（60%以上のページ）": "0", "1ページ内で同じ文末4回以上": "0",
             "相性の一言の同じ締め（5%超）": "0", "分野別の字数が200〜250字の目安から外れる": "0（±10字は許容）"}
     for kk, c in crit.items():
         R.append(f"| {kk} | {c} | {'✅ 0' if not bad[kk] else '⚠ ' + str(bad[kk])} |")
@@ -185,6 +192,8 @@ def main():
     for k, sec, items in miss[:60]: R.append(f"- {k} {sec}：{items}")
     R.append("\n## 月の名前の不一致\n")
     for x in monthng[:60]: R.append(f"- {x}")
+    R.append("\n## 同じ月を山とする分野が3つ以上\n")
+    for x in peak3[:60]: R.append(f"- {x}")
     R.append("\n## 分野別の字数\n")
     for x in short[:60]: R.append(f"- {x}")
     open(os.path.join(W, "reports", f"dup_check{'_' + '_'.join(SIGNS_EN) if SIGNS_EN else ''}.md"), "w", encoding="utf-8").write("\n".join(R) + "\n")

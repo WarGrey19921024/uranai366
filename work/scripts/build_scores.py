@@ -6,7 +6,7 @@
   暦の五行 … その月（15日時点）の月柱の天干・地支の五行と、星座のエレメントの五行（火→火・地→土・風→木・水→水）の関係
 総合 … 3本の平均。分野別（仕事・恋愛・金・健康・人間関係）も同じ材料の組み合わせで出す
 """
-import json, os, math, datetime as dt, statistics as st
+import json, os, math, collections, datetime as dt, statistics as st
 import swisseph as swe
 from common import jd_from_jst, lon, JST
 from calc_kanshi_kyusei import month_index, KAN, SHI
@@ -38,6 +38,20 @@ FIELD_PLANET = {"仕事": {"太陽": 1, "火星": 1, "土星": 1.2, "木星": .6
 FIELD_PM = {"仕事": {8: 12, 4: 8, 1: 6, 7: -6}, "恋愛": {2: 10, 3: 8, 6: 10, 7: -6},
             "金運": {8: 12, 4: 6, 6: 4, 9: -6}, "健康": {4: 8, 6: 6, 7: 4, 5: -6},
             "人間関係": {2: 12, 6: 10, 3: 6, 1: -4}}
+
+
+def spread(v, k1, k2, sign, limit=2):
+    """本文で主役にする月：1ページで同じ月を3分野以上が使わないよう、1位と2位の点差が小さい分野から2位の月に回す（本人の中間チェック3）"""
+    use = dict(v[k1])
+    gap = {f: sign * (v["fields"][f][v[k1][f] - 1] - v["fields"][f][v[k2][f] - 1]) for f in use}
+    for _ in range(10):
+        cnt = collections.Counter(use.values())
+        m, c = cnt.most_common(1)[0]
+        if c <= limit: break
+        cand = sorted((f for f in use if use[f] == m and use[f] == v[k1][f] and cnt[v[k2][f]] < limit), key=lambda f: gap[f])
+        if not cand: break
+        use[cand[0]] = v[k2][cand[0]]
+    return use
 
 
 def astro_scale(x):
@@ -145,6 +159,10 @@ def main():
         v["low_months"] = [i + 1 for i in order[-3:][::-1]]
         v["field_peak"] = {f: max(range(12), key=lambda i: (s[i], -i)) + 1 for f, s in v["fields"].items()}
         v["field_low"] = {f: min(range(12), key=lambda i: (s[i], i)) + 1 for f, s in v["fields"].items()}
+        v["field_peak2"] = {f: sorted(range(12), key=lambda i: (-s[i], i))[1] + 1 for f, s in v["fields"].items()}
+        v["field_low2"] = {f: sorted(range(12), key=lambda i: (s[i], i))[1] + 1 for f, s in v["fields"].items()}
+        v["field_peak_use"] = spread(v, "field_peak", "field_peak2", +1)
+        v["field_low_use"] = spread(v, "field_low", "field_low2", -1)
     # 分野別の年の◎○△：各分野の12か月平均を、その分野の366日の中で上位25%＝◎・下位25%＝△
     fk = [k for k in out if k != "_meta"]
     for f in FIELD_PLANET:
