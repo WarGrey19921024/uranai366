@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>誕生日相性占い｜2人の誕生日で相性を診断【2027年版】</title>
+<meta name="description" content="2人の誕生日を選ぶだけで相性を診断。366日の誕生日占いと同じ決め方（太陽の位置と誕生日の数のグループ）で、2人の関係の型とうまくいくコツを表示します。生まれ年を入れると九星の相性も。生年月日は送信・保存しません。">
+<link rel="canonical" href="https://www.uranai.epoch-compass.com/compatibility/">
+<style>/* 確認用（WordPressでは不要） */body{margin:0;background:#141824}</style>
+</head>
+<body>
+<!-- fh-b27:start  WordPress の本文に貼るのはここから（URL: /compatibility/） -->
+[no_toc]
+<!-- wp:html -->
+<!--OffDef-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/wp-content/uploads/fh-b27/fh-b27.css">
+<div class="fh-b27" data-fh-page="compatibility">
+<div class="fh-b27-note">
+<header class="fh-b27-hero">
+  <div class="fh-b27-kou" aria-hidden="true">相性</div>
+  <div class="fh-b27-hero-body">
+    <span class="fh-b27-tape">人生予報 誕生日相性占い</span>
+    <p class="fh-b27-title">誕生日相性占い<br>2人の誕生日で相性を診断</p>
+    <p class="fh-b27-lead">あなたとお相手の誕生日を選ぶだけで、2人がどんな関係になりやすいかと、うまくいくコツがわかります。決め方は<a class="fh-b27-cp-link" href="/366uranai/">366日の誕生日占い</a>の「相性の良い誕生日」と同じ。恋人・友人・職場の人・家族、どんな相手でも占えます。</p>
+  </div>
+</header>
+<section class="fh-b27-sec" id="b27-cp-input">
+  <h2><span class="fh-b27-n">1</span>2人の誕生日を選ぶ</h2>
+  <div class="fh-b27-cp-form">
+    <fieldset class="fh-b27-cp-person fh-b27-cp-person-a">
+      <legend><i class="fh-b27-ic fh-b27-ic-people" aria-hidden="true"></i>あなたの誕生日</legend>
+      <div class="fh-b27-cp-sel">
+        <label for="fh-b27-cp-am">月<select id="fh-b27-cp-am" data-fh-cp="am"></select></label>
+        <label for="fh-b27-cp-ad">日<select id="fh-b27-cp-ad" data-fh-cp="ad"></select></label>
+        <label class="fh-b27-cp-yl" for="fh-b27-cp-ay">生まれた年（なくてもOK）<select id="fh-b27-cp-ay" data-fh-cp="ay"></select></label>
+      </div>
+    </fieldset>
+    <fieldset class="fh-b27-cp-person fh-b27-cp-person-b">
+      <legend><i class="fh-b27-ic fh-b27-ic-love" aria-hidden="true"></i>お相手の誕生日</legend>
+      <div class="fh-b27-cp-sel">
+        <label for="fh-b27-cp-bm">月<select id="fh-b27-cp-bm" data-fh-cp="bm"></select></label>
+        <label for="fh-b27-cp-bd">日<select id="fh-b27-cp-bd" data-fh-cp="bd"></select></label>
+        <label class="fh-b27-cp-yl" for="fh-b27-cp-by">生まれた年（なくてもOK）<select id="fh-b27-cp-by" data-fh-cp="by"></select></label>
+      </div>
+    </fieldset>
+    <div class="fh-b27-cp-act">
+      <button type="button" class="fh-b27-btn fh-b27-cp-go" id="fh-b27-cp-go">相性を診断する →</button>
+      <p class="fh-b27-cp-msg" id="fh-b27-cp-msg" role="alert" hidden></p>
+    </div>
+    <p class="fh-b27-small">月と日だけで占えます。2人とも生まれた年を選ぶと、九星気学の本命星どうしの相性も表示します（選べるのは1930〜2030年）。<b>生年月日は送信も保存もしません</b>（このページの中だけで計算します）。</p>
+  </div>
+  <noscript><p class="fh-b27-small">この診断はJavaScriptで計算します。ブラウザの設定でJavaScriptを有効にしてください。</p></noscript>
+</section>
+<section class="fh-b27-sec fh-b27-cp-out" id="b27-cp-result" hidden>
+  <h2><span class="fh-b27-n">2</span>2人の相性</h2>
+  <div class="fh-b27-cp-paper">
+    <div class="fh-b27-cp-top"><span class="fh-b27-hand">2人の相性メモ</span><span>人生予報</span></div>
+    <p class="fh-b27-cp-pair" id="fh-b27-cp-pair">—</p>
+    <p class="fh-b27-cp-type"><i class="fh-b27-ic fh-b27-ic-compat" aria-hidden="true"></i><span id="fh-b27-cp-type">—</span></p>
+    <div class="fh-b27-cp-meter" id="fh-b27-cp-meter">
+      <span class="fh-b27-cp-mk" id="fh-b27-cp-mk">—</span>
+      <span class="fh-b27-cp-mcol"><small>息の合いやすさ（5段階）</small><span class="fh-b27-cp-lv" id="fh-b27-cp-lv">—</span>
+      <span class="fh-b27-cp-bar" id="fh-b27-cp-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></span>
+    </div>
+    <p class="fh-b27-cp-lead" id="fh-b27-cp-lead">—</p>
+    <dl class="fh-b27-cp-rows">
+      <div><dt>誕生日の数</dt><dd id="fh-b27-cp-num">—</dd></div>
+      <div><dt>星座の性質</dt><dd id="fh-b27-cp-elem">—</dd></div>
+    </dl>
+    <p class="fh-b27-cp-list" id="fh-b27-cp-list">—</p>
+  </div>
+  <div class="fh-b27-cp-tips">
+    <h3><i class="fh-b27-ic fh-b27-ic-kokoro" aria-hidden="true"></i>うまくいくコツ</h3>
+    <ul id="fh-b27-cp-tips"></ul>
+  </div>
+  <div class="fh-b27-cp-who" id="fh-b27-cp-who"></div>
+  <div class="fh-b27-cp-kyusei" id="fh-b27-cp-kyusei"></div>
+  <div class="fh-b27-cp-days">
+    <a class="fh-b27-cp-day" id="fh-b27-cp-da" href="/366uranai/"><small>あなたの誕生日のページ</small><b id="fh-b27-cp-dat">誕生日占い →</b><span>性格・相性の良い誕生日・2027年の運勢</span></a>
+    <a class="fh-b27-cp-day" id="fh-b27-cp-db" href="/366uranai/"><small>お相手の誕生日のページ</small><b id="fh-b27-cp-dbt">誕生日占い →</b><span>性格・相性の良い誕生日・2027年の運勢</span></a>
+  </div>
+  <div class="fh-b27-cp-btns">
+    <button type="button" class="fh-b27-btn fh-b27-ghost" id="fh-b27-cp-swap">あなたとお相手を入れ替える</button>
+    <button type="button" class="fh-b27-btn fh-b27-ghost" id="fh-b27-cp-again">誕生日を選び直す</button>
+  </div>
+</section>
+<!--Ads1-->
+<section class="fh-b27-sec" id="b27-cp-how">
+  <h2><span class="fh-b27-n">3</span>相性の決め方</h2>
+  <p>この診断は、2つの占いを重ねて2人の関係を読みます。<a class="fh-b27-cp-link" href="/366uranai/">366日の誕生日占い</a>の各ページにある「相性の良い誕生日」「気をつけたい誕生日」と同じ決め方なので、2人のページを読み比べるとさらに楽しめます。</p>
+  <div class="fh-b27-cp-how">
+    <div class="fh-b27-sticky fh-b27-y">
+      <strong><i class="fh-b27-ic fh-b27-ic-compass" aria-hidden="true"></i>太陽の位置どうし</strong>
+      <span>生まれた日に太陽が星座のどのあたりにいたかを比べます。<b>自然に調和しやすい位置</b>か、<b>刺激し合う位置</b>かで、関係の型が決まります。</span>
+    </div>
+    <div class="fh-b27-sticky fh-b27-b">
+      <strong><i class="fh-b27-ic fh-b27-ic-card" aria-hidden="true"></i>誕生日の数のグループ</strong>
+      <span>生まれた日の数字を1けたにした数を、<b>行動派</b>（1・5・7）、<b>堅実派</b>（2・4・8）、<b>表現派</b>（3・6・9）に分けて、組み合わせを見ます。</span>
+    </div>
+    <div class="fh-b27-sticky fh-b27-cp-c">
+      <strong><i class="fh-b27-ic fh-b27-ic-calendar-next" aria-hidden="true"></i>生まれ年（なくてもOK）</strong>
+      <span>2人とも生まれた年がわかると、<b>九星気学の本命星</b>どうしの相性も加わります。立春より前に生まれた人は前の年の星になります。</span>
+    </div>
+  </div>
+</section>
+<section class="fh-b27-sec" id="b27-cp-more">
+  <h2><span class="fh-b27-n">4</span>あわせて占う</h2>
+  <div class="fh-b27-links">
+    <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日から性格と2027年の運勢を見る</small></a>
+    <a href="/seinengappi/"><b>生年月日まるごと診断 →</b><small>8つの占いを1枚のカードに</small></a>
+    <a href="/enmusubi/pair/"><b>ご縁の相性診断 →</b><small>縁結び診断室</small></a>
+    <a href="/mbti-compatibility/"><b>MBTI相性占い →</b><small>性格タイプどうしの相性</small></a>
+    <a href="/animal-color/"><b>動物×色占い →</b><small>生年月日で60タイプ</small></a>
+  </div>
+</section>
+<section class="fh-b27-about" id="b27-cp-about">
+  <h3>この診断について</h3>
+  <ul>
+    <li><b>決め方：</b>366日の誕生日占いの「相性の良い誕生日」と同じ規則です。2人の生まれた日の太陽の位置がつくる角度が120度前後（前後8度まで）なら「調和」、60度前後（6度まで）なら「協力」、0度前後（8度まで）なら「似た者どうし」、90度前後（8度まで）なら「刺激し合う」、180度前後（8度まで）なら「向かい合う」、どれにも当たらなければ「おだやか」とします。</li>
+    <li><b>点数と5段階：</b>角度がぴったりに近いほど点が高く、誕生日の数のグループ（行動派1・5・7／堅実派2・4・8／表現派3・6・9。11は2、22は4として扱う）が同じなら良い相性の点を、行動派と堅実派の組み合わせならぶつかりやすさの点を足します。良い相性の点が1.0以上で◎、それより低ければ○、角度の関係がなければ◇、ぶつかりやすさの点が0.9未満で△、0.9以上で▽です。</li>
+    <li><b>誕生日ページの相性リスト：</b>各ページの「相性の良い誕生日」5つと「気をつけたい誕生日」3つは、366日の中から点の高い組を「お互いに」選んだものです。リストに入らなくても相性が悪いという意味ではありません。どうしても5つ（3つ）に届かない日だけ角度の幅を4度ずつ広げて選んでいるため、その組は広げた幅で関係の型を表示します。</li>
+    <li><b>太陽の位置：</b>各誕生日の太陽の位置は、1930〜2027年のその日の正午（日本時間）の平均です。生まれた年によって1度ほど前後しますが、誕生日ページと結果をそろえるため、生まれ年を選んでも同じ値を使います。</li>
+    <li><b>九星の相性：</b>本命星は立春で年が切り替わる、日本で一般的な決まりで計算し、相性は九星の五行（木・火・土・金・水）が生み合う・抑え合う関係で見ます。</li>
+    <li><b>生年月日は送信も保存もしません。</b>結果は占いとして、2人の関係を考えるきっかけにお使いください。</li>
+  </ul>
+</section>
+<p class="fh-b27-foot">この診断は、西洋占星術（太陽の位置）と数秘術（誕生日の数）、生まれ年があるときは九星気学を組み合わせた、当サイトの決め方によるものです。楽しみと気づきのためにお読みください。<br>最終更新日：2026年10月11日／<a href="/about/">この記事の作成方針について</a></p>
+</div>
+</div>
+<script src="/wp-content/uploads/fh-b27/fh-b27-setsuiri.js"></script>
+<script src="/wp-content/uploads/fh-b27/fh-b27-kyureki.js"></script>
+<script src="/wp-content/uploads/fh-b27/fh-b27.js"></script>
+<script src="/wp-content/uploads/fh-b27/fh-b27-compat.js"></script>
+<!-- /wp:html -->
+<!-- fh-b27:end -->
+</body>
+</html>

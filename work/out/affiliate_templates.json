@@ -1,9 +1,14 @@
 {
-  "_note": "2026-10-10 本人の決定（確認4の回答 6・6の追記）。楽天はもしもアフィリエイトの「どこでもリンク」（メディア652522）、電話占いはA8.net（電話占いセラ）。Amazonはもしもで審査中のため空＝ボタンを出さない。{url} には遷移先URLをエンコードして入れる。",
+  "_note": "2026-10-10 本人の決定（確認4の回答 6・6の追記）。楽天はもしもアフィリエイトの「どこでもリンク」（メディア652522）、電話占いはA8.net（電話占いセラ）。Yahoo!ショッピングはもしもの「どこでもリンク」（2026-10-11 改善第1弾で追加）。Amazonはもしもで審査中のため空＝ボタンを出さない。{url} には遷移先URLをエンコードして入れる。",
   "rakuten": {
     "href": "https://af.moshimo.com/af/c/click?a_id=5298324&p_id=54&pc_id=54&pl_id=616&url={url}",
     "target": "https://search.rakuten.co.jp/search/mall/{q}/",
     "impression": "<img src=\"//i.moshimo.com/af/i/impression?a_id=5298324&p_id=54&pc_id=54&pl_id=616\" width=\"1\" height=\"1\" style=\"border:none;\" alt=\"\" loading=\"lazy\">"
+  },
+  "yahoo": {
+    "href": "https://af.moshimo.com/af/c/click?a_id=5839817&p_id=1225&pc_id=1925&pl_id=18502&url={url}",
+    "target": "https://shopping.yahoo.co.jp/search?p={q}",
+    "impression": "<img src=\"//i.moshimo.com/af/i/impression?a_id=5839817&p_id=1225&pc_id=1925&pl_id=18502\" width=\"1\" height=\"1\" style=\"border:none;\" alt=\"\" loading=\"lazy\">"
   },
   "amazon": null,
   "phone": {

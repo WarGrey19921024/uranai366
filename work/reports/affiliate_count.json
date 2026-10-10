@@ -2,16 +2,19 @@
  "pages": 366,
  "templates": [
   "phone",
-  "rakuten"
+  "rakuten",
+  "yahoo"
  ],
  "links": {
   "amazon": 0,
   "phone": 366,
-  "rakuten": 4758
+  "rakuten": 4758,
+  "yahoo": 3660
  },
  "skipped_buttons": {
-  "amazon": 2196,
+  "amazon": 3660,
   "phone": 0,
-  "rakuten": 0
+  "rakuten": 0,
+  "yahoo": 0
  }
 }

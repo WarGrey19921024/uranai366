@@ -38,7 +38,7 @@ const out=cases.map(([y,m,d])=>{
   const bd=C.bioDays(y,m,d);
   return {honmei:h.star,palace:C.palace2027(h.star),year:p.year,month:p.month,day:p.day,
     kyu:k?[k.month,k.leap,k.day]:null,shuku:s?s.name:null,kin:kn.kin,seal:kn.seal,tone:kn.tone,
-    lp:C.lifePath(y,m,d),animal:a.label,bio:bio,good:bd.good,care:bd.care,setsuDay:C.setsuDay(y,m,d)};
+    lp:C.lifePath(y,m,d),animal:a.label,bio:bio,good:bd.good,care:bd.care,setsuDay:C.setsuDay(y,m,d),dk:C.dayKanshiIndex(2027,m===2&&d===29?3:m,m===2&&d===29?1:d)};
 });
 process.stdout.write(JSON.stringify(out));
 """
@@ -56,6 +56,8 @@ def py_case(y, m, d):
     for k in range(365):
         x = dt.date(2027, 1, 1) + dt.timedelta(days=k)
         n = (x - date).days
+        if n < 0:  # 生まれる前の日は数えない（2027年生まれ）
+            continue
         v = MN.bio(date, x)
         if sum(v.values()) / 3 >= 0.6:
             good.append(lab(x))
@@ -74,30 +76,30 @@ def py_case(y, m, d):
             "day": KK.kanshi(KK.day_index(date)), "kyu": [kyu[1], kyu[2], kyu[3]] if kyu else None,
             "shuku": KY.shuku(kyu[1], kyu[3]) if kyu else None, "kin": ki["kin"], "seal": ki["seal"], "tone": ki["tone_no"],
             "lp": MN.life_path(date), "animal": animal_color(y, m, d)["label"], "bio": bio, "good": good, "care": care,
-            "setsuDay": sd}
+            "setsuDay": sd, "dk": KK.day_index(dt.date(2027, 3, 1) if (m, d) == (2, 29) else dt.date(2027, m, d)) % 60}
 
 
 def cases():
     random.seed(2027)
     out = set()
     # 固定の確認用（年初・立春前後・節入り前後・2/29・年末・境目の日）
-    for y in (1930, 1950, 1964, 1975, 1984, 1988, 1990, 1996, 2000, 2001, 2012, 2020):
+    for y in (1930, 1950, 1964, 1975, 1984, 1988, 1990, 1996, 2000, 2001, 2012, 2020, 2024, 2027, 2028, 2029, 2030):
         for m, d in [(1, 1), (1, 5), (1, 6), (1, 20), (2, 3), (2, 4), (2, 5), (3, 5), (3, 6), (6, 5), (6, 6),
                      (8, 7), (8, 8), (10, 8), (12, 7), (12, 22), (12, 31)]:
             out.add((y, m, d))
-    for y in range(1932, 2021, 4):
+    for y in range(1932, 2031, 4):
         out.add((y, 2, 29))
-    # 1930〜2020年のすべての節入りの日（時刻で月が切り替わる日）
-    for y in range(1930, 2021):
+    # 1930〜2030年のすべての節入りの日（時刻で月が切り替わる日）
+    for y in range(1930, 2031):
         for name in KK.SETSU_ORDER:
             s = KK.setsu()[str(y)][name]
             out.add((y, int(s[5:7]), int(s[8:10])))
     # 旧暦の閏月の日・月の変わり目を含む無作為の日
     d0 = dt.date(1930, 1, 1)
     for _ in range(600):
-        x = d0 + dt.timedelta(days=random.randrange((dt.date(2020, 12, 31) - d0).days + 1))
+        x = d0 + dt.timedelta(days=random.randrange((dt.date(2030, 12, 31) - d0).days + 1))
         out.add((x.year, x.month, x.day))
-    leap_days = [k for k, v in KYU.items() if v[2] and "1930" <= k[:4] <= "2020"]
+    leap_days = [k for k, v in KYU.items() if v[2] and "1930" <= k[:4] <= "2030"]
     for k in random.sample(leap_days, 40):
         x = dt.date.fromisoformat(k)
         out.add((x.year, x.month, x.day))

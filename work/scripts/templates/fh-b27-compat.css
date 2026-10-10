@@ -1,0 +1,97 @@
+/* 誕生日相性占い（/compatibility/）だけで使う部品。接頭辞 fh-b27-cp-。build_html.py が fh-b27.css の後ろにつなげる。
+   ページ本体は work/scripts/build_compatibility.py、動きは templates/fh-b27-compat.js */
+.fh-b27-cp-out[hidden],.fh-b27-cp-msg[hidden]{display:none}
+.fh-b27 a.fh-b27-cp-link,.fh-b27-sec p a.fh-b27-cp-link{text-decoration:underline;text-underline-offset:3px}
+
+/* 入力 */
+.fh-b27-cp-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fh-b27-cp-person{margin:0;min-width:0;border:1.5px solid var(--gold);border-radius:10px;padding:12px 16px 16px;background:var(--deep)}
+.fh-b27-cp-person-b{border-color:#A9C8E8}
+.fh-b27-cp-person legend{padding:0 8px;font-family:'Klee One',cursive;font-size:17px;font-weight:600;color:var(--gold);line-height:1.6;display:flex;align-items:center;gap:6px}
+.fh-b27-cp-person-b legend{color:#A9C8E8}
+.fh-b27-cp-sel{display:flex;flex-wrap:wrap;gap:10px}
+.fh-b27-cp-sel label{font-size:13px;color:var(--sub);display:flex;flex-direction:column;gap:2px;flex:1 1 90px;min-width:0;line-height:1.6}
+.fh-b27-cp-sel label.fh-b27-cp-yl{flex:1 1 100%}
+.fh-b27 .fh-b27-cp-sel select{width:100%;min-width:0}
+.fh-b27-cp-act{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:8px}
+.fh-b27 button.fh-b27-cp-go{min-height:52px;padding:0 32px;font-size:16px}
+.fh-b27-cp-msg{font-size:14px;color:#F2B880;font-weight:700}
+.fh-b27-cp-form>.fh-b27-small{grid-column:1/-1}
+
+/* 結果：クリーム色の紙 */
+.fh-b27-cp-out{scroll-margin-top:80px}
+.fh-b27-cp-paper{position:relative;background:var(--cream);color:var(--cream-ink);border-radius:10px;padding:26px 24px 22px;margin-top:10px;
+  display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.35);transform:rotate(-.6deg);line-height:1.8}
+.fh-b27-cp-paper:before{content:"";position:absolute;top:-12px;left:50%;margin-left:-50px;width:100px;height:24px;background:var(--gold);opacity:.8}
+.fh-b27-cp-top{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:#6B645B}
+.fh-b27 .fh-b27-cp-pair{font-size:14px;color:#6B645B;font-weight:700;line-height:1.6}
+.fh-b27 .fh-b27-cp-type{font-family:'Shippori Mincho',serif;font-size:26px;font-weight:800;line-height:1.45;color:var(--cream-ink);display:flex;align-items:center;gap:8px}
+.fh-b27-cp-meter{display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:8px;background:rgba(46,42,38,.06)}
+.fh-b27-cp-mk{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:var(--paper);color:var(--gold);display:flex;align-items:center;justify-content:center;
+  font-size:24px;font-weight:700;line-height:1}
+.fh-b27-cp-mcol{display:flex;flex-direction:column;gap:4px;min-width:0;line-height:1.4}
+.fh-b27-cp-mcol small{font-size:11px;color:#6B645B}
+.fh-b27-cp-bar{display:flex;gap:4px}
+.fh-b27-cp-bar i{width:26px;height:12px;border-radius:3px;background:#DDD3C0;display:block}
+.fh-b27-cp-bar i.fh-b27-cp-on{background:#B98A2E}
+.fh-b27-cp-meter[data-lv="1"] .fh-b27-cp-bar i.fh-b27-cp-on,.fh-b27-cp-meter[data-lv="2"] .fh-b27-cp-bar i.fh-b27-cp-on{background:#7C8FB0}
+.fh-b27-cp-lv{font-family:'Klee One',cursive;font-size:18px;font-weight:600}
+.fh-b27 .fh-b27-cp-lead{font-size:16px;line-height:1.95;color:var(--cream-ink)}
+.fh-b27-cp-rows{margin:0;display:flex;flex-direction:column;border-top:1px dashed #CFC6B5}
+.fh-b27-cp-rows div{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px dashed #CFC6B5}
+.fh-b27-cp-rows dt{font-family:'Klee One',cursive;font-size:15px;font-weight:600;color:#8A5A1E;line-height:1.7}
+.fh-b27-cp-rows dd{margin:0;font-size:15px;line-height:1.85}
+.fh-b27 .fh-b27-cp-list{font-size:13px;line-height:1.75;color:#5C564E;padding:8px 12px;border-left:3px solid #B98A2E;background:rgba(185,138,46,.1)}
+
+/* うまくいくコツ：淡い青の付箋 */
+.fh-b27-cp-tips{background:#B9CDE0;color:var(--cream-ink);padding:16px 18px;transform:rotate(.5deg);display:flex;flex-direction:column;gap:6px}
+.fh-b27 .fh-b27-cp-tips h3{color:var(--cream-ink);border:0;padding:0;font-size:18px;display:flex;align-items:center;gap:6px}
+.fh-b27-cp-tips ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:15px;line-height:1.85}
+
+/* 2人のプロフィール */
+.fh-b27-cp-who{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fh-b27-cp-pf{background:var(--deep);border:1.5px dashed var(--line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;line-height:1.6}
+.fh-b27-cp-pf small{font-size:12px;color:var(--mute)}
+.fh-b27-cp-pf b{font-family:'Klee One',cursive;font-size:19px;font-weight:600}
+.fh-b27-cp-pf b em{font-style:normal;font-family:'Zen Kaku Gothic New',sans-serif;font-size:12px;font-weight:400;color:var(--mute);margin-left:6px;display:inline-block}
+.fh-b27-cp-pf span{font-size:13px;color:var(--sub)}
+
+/* 九星：金の枠 */
+.fh-b27-cp-kyusei{display:flex;flex-direction:column;gap:8px}
+.fh-b27-cp-kyusei.fh-b27-cp-ky-on{border:1.5px solid var(--gold);border-radius:10px;padding:16px 18px;background:var(--deep)}
+.fh-b27-cp-kyusei:not(.fh-b27-cp-ky-on){padding:10px 14px;border-left:3px solid var(--gold);background:var(--deep)}
+.fh-b27-cp-kyusei:not(.fh-b27-cp-ky-on) .fh-b27-small{font-size:13px;color:var(--sub)}
+.fh-b27 .fh-b27-cp-kyusei h3{display:flex;align-items:center;gap:6px;font-size:18px}
+.fh-b27-cp-stars{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px;color:var(--sub)}
+.fh-b27-cp-stars b{font-family:'Klee One',cursive;font-size:19px;font-weight:600;color:var(--ink)}
+.fh-b27-cp-stars small{display:block;font-size:11px;color:var(--mute)}
+.fh-b27-cp-kyusei ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.fh-b27-cp-kyusei li{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.7;color:var(--sub)}
+.fh-b27-cp-kyusei li b{color:var(--ink)}
+.fh-b27-cp-km{flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1}
+
+/* 2人の誕生日ページへ */
+.fh-b27-cp-days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fh-b27 a.fh-b27-cp-day{display:flex;flex-direction:column;gap:2px;padding:16px 18px;border-radius:10px;background:var(--gold);color:var(--paper);text-decoration:none;line-height:1.55}
+.fh-b27 a.fh-b27-cp-day:hover{background:#F4DFA6;color:var(--paper)}
+.fh-b27-cp-day small{font-size:12px}
+.fh-b27-cp-day b{font-family:'Klee One',cursive;font-size:19px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.fh-b27-cp-day span{font-size:13px}
+.fh-b27-cp-btns{display:flex;flex-wrap:wrap;gap:10px}
+.fh-b27 button.fh-b27-btn.fh-b27-ghost{color:var(--gold);border:1.5px solid var(--gold);background:transparent}
+.fh-b27 button.fh-b27-btn.fh-b27-ghost:hover{background:rgba(227,199,126,.12)}
+
+/* 相性の決め方：付箋3枚 */
+.fh-b27-cp-how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.fh-b27-cp-how .fh-b27-sticky span{font-size:14px;line-height:1.8}
+.fh-b27-cp-how .fh-b27-sticky b{color:var(--cream-ink)}
+.fh-b27-cp-how .fh-b27-sticky strong{display:flex;align-items:center;gap:6px;line-height:1.5}
+.fh-b27-sticky.fh-b27-cp-c{background:var(--cream);transform:rotate(-.6deg)}
+
+@media (max-width:600px){
+  .fh-b27-cp-form,.fh-b27-cp-who,.fh-b27-cp-days,.fh-b27-cp-how{grid-template-columns:1fr}
+  .fh-b27-cp-paper{padding:24px 16px 18px}
+  .fh-b27 .fh-b27-cp-type{font-size:22px}
+  .fh-b27-cp-rows div{grid-template-columns:1fr;gap:0}
+  .fh-b27-cp-btns .fh-b27-btn{flex:1 1 100%}
+}

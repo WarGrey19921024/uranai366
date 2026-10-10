@@ -35,10 +35,11 @@ OUT = os.path.join(WORK, "out")
 TPL = os.path.join(HERE, "templates")
 sys.path.insert(0, HERE)
 import calc_kanshi_kyusei as KK  # noqa: E402
+from item_cat import item_cat  # noqa: E402
 
 WP_ASSET = "/wp-content/uploads/fh-b27/"
 FONTS = "https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
-YEAR_MIN, YEAR_MAX = 1930, 2020
+YEAR_MIN, YEAR_MAX = 1930, 2030  # 2030年まで（改善第1弾：親が赤ちゃんの分を見る）。節入り・旧暦の表も2030年まである
 SIGN_EN = {"牡羊座": "aries", "牡牛座": "taurus", "双子座": "gemini", "蟹座": "cancer", "獅子座": "leo",
            "乙女座": "virgo", "天秤座": "libra", "蠍座": "scorpio", "射手座": "sagittarius",
            "山羊座": "capricorn", "水瓶座": "aquarius", "魚座": "pisces"}
@@ -46,6 +47,12 @@ SIGN_HIRA = {"牡羊座": "おひつじ座", "牡牛座": "おうし座", "双�
              "乙女座": "おとめ座", "天秤座": "てんびん座", "蠍座": "さそり座", "射手座": "いて座",
              "山羊座": "やぎ座", "水瓶座": "みずがめ座", "魚座": "うお座"}
 ELEM_GOGYO = {"火": "火", "地": "土", "風": "木", "水": "水"}
+# 二十四節気 → 季節のイラスト（立春〜穀雨＝春 …）
+SEKKI_SEASON = {}
+for _i, _n in enumerate(["立春", "雨水", "啓蟄", "春分", "清明", "穀雨", "立夏", "小満", "芒種", "夏至", "小暑", "大暑",
+                         "立秋", "処暑", "白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至", "小寒", "大寒"]):
+    SEKKI_SEASON[_n] = ("spring", "summer", "autumn", "winter")[_i // 6]
+FIELD_IC = {"仕事": "work", "恋愛": "love", "金運": "money", "健康": "health", "人間関係": "people"}
 FIELDS = [("仕事", "仕事運"), ("恋愛", "恋愛運"), ("金運", "金運"), ("健康", "健康運"), ("人間関係", "人間関係")]
 DREAM = [("crush", "好きな人が夢に出てきたら？"), ("confession", "告白される夢・する夢の意味は？"),
          ("ex-lover", "元恋人が夢に出てきたら？")]
@@ -71,6 +78,16 @@ def inline(s):
     s = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", s)
     s = re.sub(r"==(.+?)==", r'<mark class="fh-b27-mk">\1</mark>', s)
     return s
+
+
+def ic(name, extra=""):
+    """共通CSSのイラスト（icons.py → fh-b27-icons.css）。飾りなので読み上げない"""
+    return f'<i class="fh-b27-ic fh-b27-ic-{name}{(" " + extra) if extra else ""}" aria-hidden="true"></i>'
+
+
+def h2(n, icon, text, cls=""):
+    attr = f' class="{cls}"' if cls else ""
+    return f'<h2{attr}><span class="fh-b27-n">{n}</span>{ic(icon, "fh-b27-h2ic")}<span>{text}</span></h2>'
 
 
 def miss_p():
@@ -128,6 +145,7 @@ def knowledge():
     k["sealKw"] = {int(r[0]): r[2] for r in md_table(maya, "20の太陽の紋章")}
     k["toneKw"] = {int(r[0]): r[2] for r in md_table(maya, "13の銀河の音")}
     k["lpKw"] = {int(r[0]): r[1] for r in md_table(os.path.join(KNOW, "08_数秘術.md"), "1〜9・11・22・33")}
+    k["pdKw"] = {int(r[0]): r[3] for r in md_table(os.path.join(KNOW, "08_数秘術.md"), "パーソナルイヤー・マンス・デーの意味")}
     return k
 
 
@@ -250,7 +268,11 @@ def load_texts(text_dir):
 def build_assets(gen):
     adir = os.path.join(OUT, "assets")
     os.makedirs(adir, exist_ok=True)
-    shutil.copyfile(os.path.join(TPL, "fh-b27.css"), os.path.join(adir, "fh-b27.css"))
+    # 共通CSS＝本体（fh-b27.css）＋部品（fh-b27-*.css：イラスト・相性診断など）を1本にまとめる
+    css = open(os.path.join(TPL, "fh-b27.css"), encoding="utf-8").read()
+    for p in sorted(glob.glob(os.path.join(TPL, "fh-b27-*.css"))):
+        css += f"\n\n/* ===== {os.path.basename(p)} ===== */\n" + open(p, encoding="utf-8").read()
+    open(os.path.join(adir, "fh-b27.css"), "w", encoding="utf-8").write(css)
     js = open(os.path.join(TPL, "fh-b27.js"), encoding="utf-8").read()
     js = js.replace("/*@GEN@*/", "var GEN=" + json.dumps(gen, ensure_ascii=False, separators=(",", ":")) + ";")
     open(os.path.join(adir, "fh-b27.js"), "w", encoding="utf-8").write(js)
@@ -301,7 +323,9 @@ def build_assets(gen):
 AFF_TPL = {}  # work/out/affiliate_templates.json（main で読む）
 AFF_COUNT = collections.Counter()  # 店 → 入れたリンクの数
 AFF_SKIP = collections.Counter()   # 店 → ひな形が無いため出さなかったボタンの数
-SHOP_NAME = {"rakuten": "楽天市場", "amazon": "Amazon", "phone": "電話占い"}
+SHOP_NAME = {"rakuten": "楽天市場", "yahoo": "Yahoo!ショッピング", "amazon": "Amazon", "phone": "電話占い"}
+SHOP_SHORT = {"rakuten": "楽天", "yahoo": "Yahoo!", "amazon": "Amazon"}
+GOODS_SHOPS = ["rakuten", "yahoo", "amazon"]  # 商品ボックスの店ボタン（ひな形が空の店＝Amazon は出さない）
 AFF_HOSTS = ("af.moshimo.com", "px.a8.net")
 
 
@@ -353,6 +377,87 @@ def aff_buttons(shops, q, label, cls="fh-b27-btn"):
     return "".join(out)
 
 
+def shop_buttons(q):
+    """商品ボックスの店ボタン（楽天・Yahoo!ショッピング・Amazon のうち、ひな形のある店だけ）。リンクの直後に表示計測の画像"""
+    out = []
+    for sh in GOODS_SHOPS:
+        href = aff_href(sh, q)
+        if not href:
+            AFF_SKIP[sh] += 1
+            continue
+        AFF_COUNT[sh] += 1
+        out.append(f'<a class="fh-b27-shopbtn fh-b27-shop-{sh}" href="{esc(href)}" rel="nofollow sponsored" data-aff="{sh}">'
+                   f'{esc(SHOP_SHORT[sh])}で探す</a>' + AFF_TPL[sh]["impression"])
+    return "".join(out)
+
+
+def shop_box(kind, name, why, cls=""):
+    """カエレバ風の小さな商品ボックス：左に品目の絵（自前のSVG）、右に名前・短い説明、下に店ボタン"""
+    btns = shop_buttons(name)
+    return (f'<div class="fh-b27-shop{(" " + cls) if cls else ""}">'
+            f'<div class="fh-b27-shop-pic">{ic(item_cat(name))}</div>'
+            f'<div class="fh-b27-shop-body"><small>{esc(kind)}</small><b class="fh-b27-shop-name">{esc(name)}</b>'
+            f'<span class="fh-b27-shop-why">{inline(why)}</span>'
+            + (f'<div class="fh-b27-shop-btns">{btns}</div>' if btns else "") + '</div></div>')
+
+
+def koyomi_blocks(text, icons):
+    """「暦と星」の長い段落を、話題（季節・星・数）ごとの小さなまとまりに分けて、見出しとアイコンをつける（文章は変えない）"""
+    if not text:
+        return miss_p()
+    sents = [x + "。" for x in re.split(r"(?<=。)", str(text)) if x.strip()]
+    sents = [x[:-1] if x.endswith("。。") else x for x in sents]
+    def topics(x):
+        found = []
+        for t, pat in (("num", r"誕生日の数|の数[0-9０-９]|[0-9０-９]の(?:数|思索|力)|ライフパス"),
+                       ("star", r"デーカン|太陽|星座|[土金木火水]星|天王星|海王星|冥王星|支配星"),
+                       ("season", r"節気|七十二候|[初次末]候|季節|暦の上|立春|春分|夏至|秋分|冬至|沢|雪|霜|花")):
+            if re.search(pat, x):
+                found.append(t)
+        return found
+
+    def topic(x):
+        f = topics(x)
+        if len(f) >= 3 or (len(f) == 2 and "num" in f and blocks and blocks[-1][0] != "mix" and len(blocks) >= 2):
+            return "mix"
+        if re.search(r"誕生日の数|の数[0-9０-９]|数[0-9０-９]+[はがの]|ライフパス", x):
+            return "num"
+        if re.search(r"デーカン|太陽|星座|[土金木火水]星|天王星|海王星|冥王星|支配星", x):
+            return "star"
+        if re.search(r"節気|七十二候|[初次末]候|季節|暦の上|立春|春分|夏至|秋分|冬至", x):
+            return "season"
+        return None
+    blocks = []
+    for x in sents:
+        t = topic(x)
+        if blocks and (t is None or t == blocks[-1][0]):
+            blocks[-1][1].append(x)
+        else:
+            blocks.append([t or "season", [x]])
+    # 同じ話題が2回目に出たら「重ねて読むと」（まとめの文）にし、続くまとまりはつなげる
+    seen, fixed = set(), []
+    for t, xs in blocks:
+        t2 = "mix" if t in seen else t
+        seen.add(t)
+        if fixed and fixed[-1][0] == t2:
+            fixed[-1][1].extend(xs)
+        else:
+            fixed.append([t2, list(xs)])
+    blocks = fixed
+    LAB = {"season": "季節のめぐり", "star": "星の位置", "num": "誕生日の数", "mix": "重ねて読むと"}
+    out = []
+    for t, xs in blocks:
+        out.append(f'<div class="fh-b27-kblock fh-b27-k-{t}"><span class="fh-b27-klabel">{ic(icons[t])}{LAB[t]}</span>'
+                   f'<p>{inline("".join(xs).replace("。。", "。"))}</p></div>')
+    return "\n  ".join(out)
+
+
+def lcard(href, icon, tone, title, sub):
+    """「あわせて読みたい」のカード：上にアイキャッチ（自前のSVG）、下に題と説明"""
+    return (f'<a class="fh-b27-lcard" href="{esc(href)}"><span class="fh-b27-eye fh-b27-eye-{tone}">{ic(icon)}</span>'
+            f'<span class="fh-b27-lbody"><b>{esc(title)} →</b><small>{esc(sub)}</small></span></a>')
+
+
 def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     e = mats[mmdd]
     M, D = e["month"], e["day"]
@@ -388,7 +493,9 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         {"key": "num", "name": "数秘", "color": "#d95926", "values": sc["num"]},
         {"key": "gogyo", "name": "暦の五行", "color": "#199e70", "values": sc["gogyo"]},
     ]
-    a(f'<div class="fh-b27" data-m="{M}" data-d="{D}" data-base="{esc(json.dumps(base, separators=(",", ":")))}">')
+    bd27 = e["bday2027"]["date"]
+    a(f'<div class="fh-b27" data-m="{M}" data-d="{D}" data-py="{e["py2027"]}" data-gogyo="{ELEM_GOGYO[e["element"]]}" '
+      f'data-bday="{int(bd27[5:7])}-{int(bd27[8:])}" data-base="{esc(json.dumps(base, ensure_ascii=False, separators=(",", ":")))}">')
     a('<div class="fh-b27-note">')
 
     # ヒーロー
@@ -430,8 +537,9 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     # 生まれ年
     a(f'''<div class="fh-b27-yearbar" id="b27-yearbar">
   <div class="fh-b27-pick"><label for="fh-b27-y">生まれ年（任意）</label><select id="fh-b27-y" data-fh-year></select></div>
-  <p class="fh-b27-small">選ぶと、このページの3か所が「あなた専用」に変わります。<a href="#b27-graph">①月別グラフ</a>に九星とバイオリズムの線が加わる／<a href="#b27-year">②生まれ年でわかること</a>（命式・宿曜・マヤ暦など）／<a href="#b27-bio">③バイオリズムカレンダー</a>。生まれ年は送信・保存しません。</p>
-</div>''')
+  <p class="fh-b27-small">選ぶと、このページの3か所が「あなた専用」に変わります。<a href="#b27-graph">①月別グラフ</a>に九星とバイオリズムの線が加わる／<a href="#b27-year">②生まれ年でわかること</a>（命式・宿曜・マヤ暦など）／<a href="#b27-bio">③バイオリズムカレンダー</a>。それぞれの場所でも選び直せます。{YEAR_MIN}〜{YEAR_MAX}年から選べます。生まれ年は送信・保存しません。</p>
+</div>
+<div class="fh-b27-yfloat" id="fh-b27-yfloat" hidden><label><span>生まれ年</span><select data-fh-year aria-label="生まれ年（画面下の選択欄）"></select></label></div>''')
 
     # 目次
     a(f'''<nav class="fh-b27-toc" aria-label="目次">
@@ -466,15 +574,17 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     st = fx.get("strengths") or []
     ca = fx.get("cautions") or []
     a(f'''<section class="fh-b27-sec" id="b27-nature">
-  <h2><span class="fh-b27-n">1</span>{md}生まれの性格</h2>
+  {h2(1, "nature", f"{md}生まれの性格")}
   {paras(fx.get("personality"))}
   <div class="fh-b27-stickies">
     <div class="fh-b27-sticky fh-b27-y"><strong>いいところ</strong><span>{"／".join(inline(x) for x in st) if st else MISSING}</span></div>
     <div class="fh-b27-sticky fh-b27-b"><strong>気をつけたいところ</strong><span>{"／".join(inline(x) for x in ca) if ca else MISSING}</span></div>
   </div>
-  <h3>魂のメッセージ</h3>
-  {paras(fx.get("soul_message"))}
-  <a class="fh-b27-next" href="/kokoro/"><small>性格をもっと深く知りたい人へ</small><b>心コンパスでエニアグラム・ビッグファイブを試す →</b></a>
+  <div class="fh-b27-soul">
+    <h3>魂のメッセージ</h3>
+    {paras(fx.get("soul_message"))}
+  </div>
+  <a class="fh-b27-next" href="/kokoro/">{ic("kokoro", "fh-b27-nextic")}<span><small>性格をもっと深く知りたい人へ</small><b>心コンパスでエニアグラム・ビッグファイブを試す →</b></span></a>
 </section>''')
 
     # 2 暦と星
@@ -486,14 +596,23 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         kou_dd += f"（生まれた年によっては「{'」「'.join(e['kou_alt'])}」の時期に当たります）"
     bn = e["birthday_number_info"]
     bn_dd = f"「{bn['keyword']}」の数。" + bn["text"].split("。")[0] + "。"
+    season = SEKKI_SEASON.get(e["sekki"], "spring")
+
+    def kdd(text):
+        """最初の一文を「ひとこと要約」として強調し、残りを続ける"""
+        t = str(text)
+        i = t.find("。")
+        if 0 < i < len(t) - 1:
+            return f'<b class="fh-b27-sum">{esc(t[:i + 1])}</b>{esc(t[i + 1:])}'
+        return f'<b class="fh-b27-sum">{esc(t)}</b>'
     a(f'''<section class="fh-b27-sec" id="b27-koyomi">
-  <h2><span class="fh-b27-n">2</span>{md}の暦と星</h2>
-  {paras(fx.get("koyomi"))}
-  <dl class="fh-b27-koyomi">
-    <div><dt><b>{esc(e["sekki"])}</b>二十四節気</dt><dd>{esc(sekki_dd)}</dd></div>
-    <div><dt><b>{esc(e["kou"])}</b>七十二候（{kou_rng}ごろ）</dt><dd>{esc(kou_dd)}</dd></div>
-    <div><dt><b>{esc(sign)}・第{e["decan"]}デーカン</b>星座（{dec_rng}ごろ）</dt><dd>{esc(e["decan_meaning"])}</dd></div>
-    <div><dt><b>{e["birthday_number"]}</b>誕生日の数（数秘）</dt><dd>{esc(bn_dd)}</dd></div>
+  {h2(2, "koyomi", f"{md}の暦と星")}
+  {koyomi_blocks(fx.get("koyomi"), {"season": season, "star": en, "num": "suhi", "mix": "stars"})}
+  <dl class="fh-b27-koyomi fh-b27-kcards">
+    <div class="fh-b27-kc-season">{ic(season, "fh-b27-kcic")}<dt><b>{esc(e["sekki"])}</b>二十四節気</dt><dd>{kdd(sekki_dd)}</dd></div>
+    <div class="fh-b27-kc-kou">{ic(season, "fh-b27-kcic")}<dt><b>{esc(e["kou"])}</b>七十二候（{kou_rng}ごろ）</dt><dd>{kdd(kou_dd)}</dd></div>
+    <div class="fh-b27-kc-star">{ic(en, "fh-b27-kcic")}<dt><b>{esc(sign)}・第{e["decan"]}デーカン</b>星座（{dec_rng}ごろ）</dt><dd>{kdd(e["decan_meaning"])}</dd></div>
+    <div class="fh-b27-kc-num">{ic("suhi", "fh-b27-kcic")}<dt><b>{e["birthday_number"]}</b>誕生日の数（数秘）</dt><dd>{kdd(bn_dd)}</dd></div>
   </dl>
 </section>''')
 
@@ -501,12 +620,12 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     def sw(hexv):
         return f'<span class="fh-b27-mono-sw" style="background:{esc(hexv)}"></span>' if hexv and re.fullmatch(r"#[0-9A-Fa-f]{6}", hexv) else ""
     a(f'''<section class="fh-b27-sec" id="b27-mono">
-  <h2><span class="fh-b27-n">3</span>{md}の誕生花・誕生石・誕生色</h2>
+  {h2(3, "mono", f"{md}の誕生花・誕生石・誕生色")}
   <div class="fh-b27-mono">
-    <div class="fh-b27-mono-card"><small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span></div>
-    <div class="fh-b27-mono-card">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p></div>
-    <div class="fh-b27-mono-card">{sw(bd_stone.get("color_hex"))}<small>誕生日石（{md}）</small><b>{esc(e["birthday_stone"]["name"])}<em>当サイト独自の選び方</em></b><p>{esc(e["birthday_stone"]["note"])}</p></div>
-    <div class="fh-b27-mono-card">{sw(col_hex)}<small>誕生色（{md}）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）<em>当サイト独自の選び方</em></b><p>{esc(col_desc)}</p></div>
+    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span></div>
+    <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p></div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone">{sw(bd_stone.get("color_hex"))}<small>誕生日石（{md}）</small><b>{esc(e["birthday_stone"]["name"])}<em>当サイト独自の選び方</em></b><p>{esc(e["birthday_stone"]["note"])}</p></div>
+    <div class="fh-b27-mono-card fh-b27-mc-color">{sw(col_hex)}<small>誕生色（{md}）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）<em>当サイト独自の選び方</em></b><p>{esc(col_desc)}</p></div>
   </div>
   {paras(fx.get("items"))}
   <p class="fh-b27-small">誕生日石と誕生色は、当サイト独自の選び方で決めています（決め方はページ下の「この占いについて」）。</p>''')
@@ -531,19 +650,20 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         out = []
         for c in src:
             o = mats[c["mmdd"]]
-            out.append(f'<li><a href="{page_url(c["mmdd"])}">{md_label(c["mmdd"])}</a><small>{esc(o["sign"])}・誕生日の数{o["birthday_number"]}</small><br>'
+            out.append(f'<li><a class="fh-b27-chip" href="{page_url(c["mmdd"])}">{ic(SIGN_EN[o["sign"]])}<span>{md_label(c["mmdd"])}</span><i class="fh-b27-arrow" aria-hidden="true">→</i></a>'
+                       f'<small>{esc(o["sign"])}・誕生日の数{o["birthday_number"]}</small>'
                        f'<span class="fh-b27-why">{span(tmap.get(c["mmdd"]))}</span></li>')
         return "\n          ".join(out)
     a(f'''<section class="fh-b27-sec" id="b27-aisho">
-  <h2><span class="fh-b27-n">4</span>相性の良い誕生日・気をつけたい誕生日</h2>
-  <div class="fh-b27-two">
-    <div class="fh-b27-box">
+  {h2(4, "compat", "相性の良い誕生日・気をつけたい誕生日")}
+  <div class="fh-b27-two fh-b27-compat">
+    <div class="fh-b27-box fh-b27-box-good">
       <strong>相性の良い誕生日</strong>
       <ul>
           {compat_list(e["compat_good"], fx.get("compat_good"))}
       </ul>
     </div>
-    <div class="fh-b27-box">
+    <div class="fh-b27-box fh-b27-box-care">
       <strong>気をつけたい誕生日</strong>
       <ul>
           {compat_list(e["compat_bad"], fx.get("compat_bad"))}
@@ -551,23 +671,23 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     </div>
   </div>
   <p class="fh-b27-small">選び方：生まれた日の太陽の位置どうしの関係と、誕生日の数の組み合わせから選んでいます（くわしくはページ下の「この占いについて」）。</p>
-  <div class="fh-b27-nexts"><a class="fh-b27-next" href="/compatibility/"><small>人生予報</small><b>2人の生年月日で相性を見る →</b></a><a class="fh-b27-next" href="/enmusubi/pair/"><small>縁結び診断室</small><b>ご縁の相性診断 →</b></a><a class="fh-b27-next" href="/mbti-compatibility/"><small>人生予報</small><b>MBTI相性占い →</b></a></div>
+  <div class="fh-b27-nexts"><a class="fh-b27-next" href="/compatibility/">{ic("compat", "fh-b27-nextic")}<span><small>人生予報</small><b>2人の誕生日で相性を見る →</b></span></a><a class="fh-b27-next" href="/enmusubi/pair/">{ic("love", "fh-b27-nextic")}<span><small>縁結び診断室</small><b>ご縁の相性診断 →</b></span></a><a class="fh-b27-next" href="/mbti-compatibility/">{ic("mbti", "fh-b27-nextic")}<span><small>人生予報</small><b>MBTI相性占い →</b></span></a></div>
 </section>''')
 
     # 5 有名人
     def fam(lst):
         return "\n        ".join(f'<li>{esc(p["name"])}<small>{esc(p["job"])}</small></li>' for p in lst) or "<li>—</li>"
     a(f'''<section class="fh-b27-sec" id="b27-famous">
-  <h2><span class="fh-b27-n">5</span>{md}生まれの有名人</h2>
+  {h2(5, "famous", f"{md}生まれの有名人")}
   {paras(fx.get("famous_note"))}
-  <div class="fh-b27-two">
-    <div class="fh-b27-box">
+  <div class="fh-b27-two fh-b27-famous">
+    <div class="fh-b27-box fh-b27-paper">
       <strong>日本</strong>
       <ul>
         {fam(e["famous"]["jp"])}
       </ul>
     </div>
-    <div class="fh-b27-box">
+    <div class="fh-b27-box fh-b27-paper fh-b27-paper-b">
       <strong>海外</strong>
       <ul>
         {fam(e["famous"]["world"])}
@@ -581,28 +701,36 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     # ===== 第2部
     a('<div class="fh-b27-part">\n  <div class="fh-b27-partlabel">第2部 2027年の運勢</div>')
     a(f'''<section class="fh-b27-sec" id="b27-2027">
-  <h2><span class="fh-b27-n">6</span>2027年の運命</h2>
+  {h2(6, "fate", "2027年の運命")}
   {paras(yr.get("fate"))}
-  <p>3つの占いを重ねると、山場は<span class="fh-b27-em">{months_label(e["peak_months"])}</span>。慎重にしたいのは<span class="fh-b27-em">{months_label(e["low_months"])}</span>です（<a href="#b27-graph">月別グラフ</a>）。</p>
-  <h3>天からの導き</h3>
-  {paras(yr.get("guidance"))}
+  <div class="fh-b27-peaks">
+    <div class="fh-b27-peak fh-b27-peak-up"><small>山場の月</small><b>{months_label(e["peak_months"])}</b></div>
+    <div class="fh-b27-peak fh-b27-peak-low"><small>慎重にしたい月</small><b>{months_label(e["low_months"])}</b></div>
+    <p class="fh-b27-small">3つの占いを重ねた結果です（<a href="#b27-graph">月別グラフ</a>）。</p>
+  </div>
+  <div class="fh-b27-guide">
+    <h3>天からの導き</h3>
+    {paras(yr.get("guidance"))}
+  </div>
 </section>''')
 
     fields_txt = yr.get("fields") or {}
-    a('<section class="fh-b27-sec" id="b27-field">\n  <h2><span class="fh-b27-n">7</span>分野別の運勢</h2>')
+    a(f'<section class="fh-b27-sec" id="b27-field">\n  {h2(7, "graph", "分野別の運勢")}')
     dream = DREAM[(no - 1) % len(DREAM)]
     for key, lab in FIELDS:
         fm = e.get("field_marks", {}).get(key, "○")
         cls = {"◎": "good", "○": "ok", "△": "care"}[fm]
-        a(f'  <h3>{lab} <span class="fh-b27-mark fh-b27-{cls}">{fm}</span></h3>\n  <p class="fh-b27-fieldmeta">良い月：{e.get("field_peak_use", e["field_peak"])[key]}月 ／ 慎重な月：{e.get("field_low_use", e["field_low"])[key]}月</p>')
+        a(f'  <div class="fh-b27-fcard fh-b27-f-{FIELD_IC[key]}">\n  <h3>{ic(FIELD_IC[key], "fh-b27-h3ic")}{lab} <span class="fh-b27-mark fh-b27-{cls}">{fm}</span></h3>\n'
+          f'  <p class="fh-b27-fieldmeta"><span>良い月 <b>{e.get("field_peak_use", e["field_peak"])[key]}月</b></span><span>慎重な月 <b>{e.get("field_low_use", e["field_low"])[key]}月</b></span></p>')
         a("  " + paras(fields_txt.get(key)))
         if key == "恋愛":
             a(f'  <p class="fh-b27-small"><a href="/dream/keyword/{dream[0]}/">{dream[1]}（夢解き図鑑）→</a></p>')
+        a("  </div>")
     a("</section>")
 
     a(f'''<section class="fh-b27-sec" id="b27-grow">
-  <h2><span class="fh-b27-n">8</span>2027年の成長と衰え</h2>
-  <div class="fh-b27-stickies">
+  {h2(8, "grow", "2027年の成長と衰え")}
+  <div class="fh-b27-stickies fh-b27-stickies-2">
     <div class="fh-b27-sticky fh-b27-y"><h3 class="fh-b27-sth">成長（伸ばしたいこと）</h3><span>{span(yr.get("growth"))}</span></div>
     <div class="fh-b27-sticky fh-b27-b"><h3 class="fh-b27-sth">衰え（気をつけたいこと）</h3><span>{span(yr.get("decline"))}</span></div>
   </div>
@@ -611,12 +739,12 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     rows = "\n    ".join(f'<div class="fh-b27-row"><span class="fh-b27-mark fh-b27-{c}">☆</span><div class="fh-b27-who"><b>{esc(t)}</b><small>{esc(s)}</small></div></div>'
                          for c, t, s in ctx["stars"])
     a(f'''<section class="fh-b27-sec" id="b27-eto">
-  <h2><span class="fh-b27-n">9</span>2027年の干支・九星・星の動き</h2>
-  <h3>{esc(Y["eto"])}（{esc(Y["eto_yomi"])}）の年</h3>
-  {paras(yr.get("eto"))}
-  <h3>{esc(Y["star"])}が中宮に入る年</h3>
-  {paras(yr.get("kyusei"))}
-  <h3>2027年の主な星の動き</h3>
+  {h2(9, "stars", "2027年の干支・九星・星の動き")}
+  <div class="fh-b27-topic"><h3>{ic("eto", "fh-b27-h3ic")}{esc(Y["eto"])}（{esc(Y["eto_yomi"])}）の年</h3>
+  {paras(yr.get("eto"))}</div>
+  <div class="fh-b27-topic"><h3>{ic("kyusei", "fh-b27-h3ic")}{esc(Y["star"])}が中宮に入る年</h3>
+  {paras(yr.get("kyusei"))}</div>
+  <h3>{ic("stars", "fh-b27-h3ic")}2027年の主な星の動き</h3>
   <div class="fh-b27-rows">
     {rows}
   </div>
@@ -626,23 +754,23 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     seas = yr.get("seasons") or []
     sk = ctx["setsu_by_month"]
     tl = []
-    for i, (lab, col) in enumerate([("冬 1〜3月", "#9FB8E8"), ("春 4〜6月", "#8FC7A0"), ("夏 7〜9月", "#E9A07A"), ("秋冬 10〜12月", "#C9A0F0")]):
+    for i, (lab, col, sic) in enumerate([("冬 1〜3月", "#9FB8E8", "winter"), ("春 4〜6月", "#8FC7A0", "spring"), ("夏 7〜9月", "#E9A07A", "summer"), ("秋冬 10〜12月", "#C9A0F0", "autumn")]):
         names = "・".join(sk.get(m, "") for m in range(i * 3 + 1, i * 3 + 4))
         body = inline(seas[i]) if i < len(seas) and seas[i] else f'<span class="fh-b27-missing">{MISSING}</span>'
-        tl.append(f'<div><i style="background:{col}"></i><b>{lab}<small>{names}</small></b><p>{body}</p></div>')
-    a('<section class="fh-b27-sec" id="b27-season">\n  <h2><span class="fh-b27-n">10</span>季節ごとの流れ</h2>\n  <div class="fh-b27-tl">\n    '
+        tl.append(f'<div class="fh-b27-tl-{sic}"><i style="background:{col}"></i><b>{ic(sic, "fh-b27-h3ic")}{lab}<small>{names}</small></b><p>{body}</p></div>')
+    a(f'<section class="fh-b27-sec" id="b27-season">\n  {h2(10, "season", "季節ごとの流れ")}\n  <div class="fh-b27-tl">\n    '
       + "\n    ".join(tl) + "\n  </div>\n</section>")
 
     gg = ELEM_GOGYO[e["element"]]
     a(f'''<section class="fh-b27-sec" id="b27-graph">
-  <h2><span class="fh-b27-n">11</span>占いごとの月別グラフ</h2>
+  {h2(11, "graph", "占いごとの月別グラフ")}
   <p>西洋占星術・数秘術・暦の五行の3つで、2027年の月ごとの運気を出して重ねました。線がそろって上がる月は「どの占いで見ても追い風」の月です。</p>
-  <p class="fh-b27-yearnote" data-fh-yearnote></p>
+  <div class="fh-b27-ypick"><label>{ic("year")}<span>生まれ年</span><select data-fh-year aria-label="生まれ年"></select></label><span class="fh-b27-ypick-note" data-fh-yearnote></span></div>
   <div class="fh-b27-leg" id="fh-b27-leg" role="group" aria-label="グラフに表示する占い"></div>
   <div class="fh-b27-chart" id="fh-b27-chart"></div>
   <details class="fh-b27-table"><summary>数値を表で見る</summary><div id="fh-b27-tbl"></div></details>
   <h3>それぞれの線の出し方</h3>
-  <dl class="fh-b27-koyomi">
+  <dl class="fh-b27-koyomi fh-b27-howto">
     <div><dt><b>星座</b>西洋占星術</dt><dd>2027年の毎日の太陽・金星・火星・木星・土星の位置と、{md}生まれの太陽の位置との関係を月ごとにまとめた点です。調和の関係が多い月ほど高くなります。</dd></div>
     <div><dt><b>数秘</b>数秘術</dt><dd>2027年の数「{e["py2027"]}」に月を足した「月の数」で判定。始まり・表現・実りの月は高く、見直し・締めくくりの月は低めです。</dd></div>
     <div><dt><b>暦の五行</b>干支</dt><dd>その月の干支の五行と、{esc(sign)}の「{gg}」の関係で判定。{gg}を生む月は高く、{gg}を抑える月は低くなります。</dd></div>
@@ -654,7 +782,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     # 12 12か月
     marks, tot = sc["marks"], sc["total"]
     months = yr.get("months") or []
-    grid = "\n    ".join(f'<div><span>{i+1}月</span><b class="fh-b27-mark fh-b27-{MARK_CLS.get(marks[i], "ok")}">{marks[i]}</b><small>{tot[i]}</small></div>' for i in range(12))
+    grid = "\n    ".join(f'<div class="fh-b27-mg-{MARK_CLS.get(marks[i], "ok")}"><span>{i+1}月</span><b class="fh-b27-mark fh-b27-{MARK_CLS.get(marks[i], "ok")}">{marks[i]}</b><small>{tot[i]}</small></div>' for i in range(12))
     care = [i + 1 for i in range(12) if marks[i] == "△"]
     first_care = care[0] if care else 12  # 電話占いの案内は、最初の△の月（続く△の月はまとめて）の直後に1か所
     while first_care < 12 and marks[first_care] == "△":
@@ -670,9 +798,9 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     for i in range(12):
         body = inline(months[i]) if i < len(months) and months[i] else f'<span class="fh-b27-missing">{MISSING}</span>'
         (ml1 if i + 1 <= first_care else ml2).append(
-            f'<div><b>{i+1}月</b><span class="fh-b27-mark fh-b27-{MARK_CLS.get(marks[i], "ok")}">{marks[i]}</span><span>{body}</span></div>')
+            f'<div class="fh-b27-ml-{MARK_CLS.get(marks[i], "ok")}"><b>{i+1}月</b><span class="fh-b27-mark fh-b27-{MARK_CLS.get(marks[i], "ok")}">{marks[i]}</span><span>{body}</span></div>')
     a(f'''<section class="fh-b27-sec" id="b27-month">
-  <h2><span class="fh-b27-n">12</span>12か月の運勢</h2>
+  {h2(12, "month", "12か月の運勢")}
   <div class="fh-b27-months" aria-label="月ごとの調子">
     {grid}
   </div>
@@ -689,14 +817,14 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     acts = yr.get("actions") or []
     if acts:
         li = "\n    ".join(f'<li><span><b>{inline(x.get("title", ""))}</b>{inline(x.get("text", ""))}</span></li>' for x in acts)
-        a(f'<section class="fh-b27-sec" id="b27-action">\n  <h2><span class="fh-b27-n">13</span>2027年の開運アクション</h2>\n  <ol class="fh-b27-acts">\n    {li}\n  </ol>\n</section>')
+        a(f'<section class="fh-b27-sec" id="b27-action">\n  {h2(13, "action", "2027年の開運アクション")}\n  <ol class="fh-b27-acts">\n    {li}\n  </ol>\n</section>')
     else:
-        a(f'<section class="fh-b27-sec" id="b27-action">\n  <h2><span class="fh-b27-n">13</span>2027年の開運アクション</h2>\n  {miss_p()}\n</section>')
+        a(f'<section class="fh-b27-sec" id="b27-action">\n  {h2(13, "action", "2027年の開運アクション")}\n  {miss_p()}\n</section>')
 
     # 14 お守りリスト
     am = yr.get("amulet") or {}
     om_start = len(H)
-    a('<section class="fh-b27-sec" id="b27-omamori">\n  <h2><span class="fh-b27-n">14</span>2027年のお守りリスト</h2>\n  <h3>ラッキーカラー</h3>')
+    a(f'<section class="fh-b27-sec" id="b27-omamori">\n  {h2(14, "omamori", "2027年のお守りリスト")}\n  <h3>ラッキーカラー</h3>')
     cols = am.get("colors") or []
     if cols:
         a('  <div class="fh-b27-rows">')
@@ -714,9 +842,9 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     a("  <h3>ラッキーアイテム</h3>")
     items = am.get("items") or []
     if items:
-        a('  <div class="fh-b27-rows">')
-        for it in items:
-            a(f'    <div class="fh-b27-row"><div class="fh-b27-who"><small>{inline(it.get("why", ""))}</small><b>{esc(it.get("name", ""))}</b></div>{aff_buttons(["rakuten", "amazon"], it.get("name", ""), "見てみる")}</div>')
+        a('  <div class="fh-b27-shops">')
+        for i, it in enumerate(items):
+            a("    " + shop_box(f"ラッキーアイテム {i + 1}", it.get("name", ""), it.get("why", "")))
         a("  </div>")
     else:
         a("  " + miss_p())
@@ -735,11 +863,11 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
 
     # 15 誕生日プレゼント
     pres = fx.get("present") or []
-    a(f'<section class="fh-b27-sec" id="b27-gift">\n  <h2><span class="fh-b27-n">15</span>{md}生まれの人への誕生日プレゼント</h2>')
+    a(f'<section class="fh-b27-sec" id="b27-gift">\n  {h2(15, "gift", f"{md}生まれの人への誕生日プレゼント")}')
     if pres:
-        a('  <div class="fh-b27-gifts">')
+        a('  <div class="fh-b27-shops fh-b27-gifts">')
         for i, p in enumerate(pres):
-            a(f'    <div class="fh-b27-gift"><small>おすすめ {i+1}</small><b>{esc(p.get("item", ""))}</b><span>{inline(p.get("why", ""))}</span>{aff_buttons(["rakuten"], p.get("item", ""), "見てみる")}</div>')
+            a("    " + shop_box(f"プレゼント おすすめ {i + 1}", p.get("item", ""), p.get("why", ""), "fh-b27-gift"))
         a("  </div>")
         if 'data-aff="' in "\n".join(H[-len(pres) - 1:]):
             a('  <p class="fh-b27-pr">※ 広告（アフィリエイトリンク）を含みます。</p>')
@@ -755,76 +883,85 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     # 誕生日当日
     b = e["bday2027"]
     a(f'''<section class="fh-b27-today" id="b27-today">
-  <h2 class="fh-b27-hand">{esc(ctx["bday_label"])}の運勢</h2>
+  <h2 class="fh-b27-hand">{ic("cake", "fh-b27-h2ic")}{esc(ctx["bday_label"])}の運勢</h2>
   {paras(yr.get("bday"))}
   <p>{b["weekday"]}曜日・{esc(b["day_kanshi"])}の日。2027年のこの日の数は{b["personal_day"]}（{esc(b["pd_meaning"])}）。</p>
 </section>''')
 
     # 16 生まれ年
     a(f'''<section class="fh-b27-sec" id="b27-year">
-  <h2><span class="fh-b27-n">16</span>生まれ年でわかること</h2>
-  <p>ここから先の2つは、月日だけでは決まらない占いです。ページ上の「生まれ年」を選ぶと表示されます。</p>
+  {h2(16, "year", "生まれ年でわかること")}
+  <p>ここから先の2つは、月日だけでは決まらない占いです。生まれ年を選ぶと表示されます（ここで選び直しても、ページ全体に反映されます）。</p>
   <div class="fh-b27-panel" data-fh-panel>
-    <p class="fh-b27-yearnote" data-fh-yearnote></p>
+    <div class="fh-b27-ypick"><label>{ic("year")}<span>生まれ年</span><select data-fh-year aria-label="生まれ年"></select></label><span class="fh-b27-ypick-note" data-fh-yearnote></span></div>
+    <p class="fh-b27-paneltip" data-fh-noyear>生まれ年を選ぶと、九星気学・干支・四柱推命・宿曜・マヤ暦・数秘・動物×色の結果がここに出ます。</p>
     <div id="fh-b27-mine" hidden>
       <div class="fh-b27-res">
-        <div><small>九星気学の本命星</small><b id="fh-b27-star">—</b><span id="fh-b27-star-n"></span><a id="fh-b27-dir" href="/kaiun/compass/">この方角の意味を開運ライフで見る →</a></div>
-        <div><small>干支（生まれ年）</small><b id="fh-b27-eto">—</b><span id="fh-b27-eto-n"></span></div>
-        <div class="fh-b27-wide"><small>四柱推命の命式（年柱・月柱・日柱）</small><b id="fh-b27-pillars">—</b><span id="fh-b27-nikkan-n"></span></div>
-        <div><small>宿曜の本命宿</small><b id="fh-b27-shuku">—</b><span id="fh-b27-shuku-n"></span></div>
-        <div><small>マヤ暦（KIN）</small><b id="fh-b27-kin">—</b><span id="fh-b27-kin-n"></span></div>
-        <div><small>数秘のライフパス</small><b id="fh-b27-lp">—</b><span id="fh-b27-lp-n"></span></div>
-        <div><small>動物×色占い</small><b id="fh-b27-animal">—</b><span><a href="/animal-color/">60タイプの性格を見る →</a></span></div>
+        <div>{ic("kyusei", "fh-b27-resic")}<small>九星気学の本命星</small><b id="fh-b27-star">—</b><span id="fh-b27-star-n"></span><a id="fh-b27-dir" href="/kaiun/compass/">この方角の意味を開運ライフで見る →</a></div>
+        <div>{ic("eto", "fh-b27-resic")}<small>干支（生まれ年）</small><b id="fh-b27-eto">—</b><span id="fh-b27-eto-n"></span></div>
+        <div class="fh-b27-wide">{ic("shichu", "fh-b27-resic")}<small>四柱推命の命式（年柱・月柱・日柱）</small><b id="fh-b27-pillars">—</b><span id="fh-b27-nikkan-n"></span></div>
+        <div>{ic("shuku", "fh-b27-resic")}<small>宿曜の本命宿</small><b id="fh-b27-shuku">—</b><span id="fh-b27-shuku-n"></span></div>
+        <div>{ic("maya", "fh-b27-resic")}<small>マヤ暦（KIN）</small><b id="fh-b27-kin">—</b><span id="fh-b27-kin-n"></span></div>
+        <div>{ic("suhi", "fh-b27-resic")}<small>数秘のライフパス</small><b id="fh-b27-lp">—</b><span id="fh-b27-lp-n"></span></div>
+        <div>{ic("animal", "fh-b27-resic")}<small>動物×色占い</small><b id="fh-b27-animal">—</b><span><a href="/animal-color/">60タイプの性格を見る →</a></span></div>
       </div>
       <p class="fh-b27-calcnote fh-b27-small">生まれた時刻は正午として計算しています。節入りの日や立春の日に生まれた人は、時刻によって結果が変わることがあります。</p>
     </div>
   </div>
 </section>''')
 
-    # 17 バイオリズム
-    a('''<section class="fh-b27-sec" id="b27-bio">
-  <h2><span class="fh-b27-n">17</span>2027年バイオリズムカレンダー</h2>
+    # 17 バイオリズム＋日付を選んで見る「その日のひとこと」（改善第1弾 6）
+    ypick = ('<div class="fh-b27-ypick"><label>' + ic("year") + '<span>生まれ年</span><select data-fh-year aria-label="生まれ年"></select></label>'
+             '<span class="fh-b27-ypick-note" data-fh-yearnote></span></div>')
+    a(f'''<section class="fh-b27-sec" id="b27-bio">
+  {h2(17, "bio", "2027年バイオリズムカレンダー")}
   <p>バイオリズムは、<b>身体（23日）・感情（28日）・知性（33日）</b>の3つの周期で、体調や気分の波を見る考え方です。<mark class="fh-b27-mk">大切な予定は「好調日」に、「注意日」は無理をしない日に。</mark>上の月別グラフが「月ごとの運勢」なのに対し、こちらは「日ごとの体調の波」です。</p>
-  <p class="fh-b27-yearnote" data-fh-yearnote></p>
-  <div id="fh-b27-biowrap" hidden>
+  {ypick}
+  <div class="fh-b27-calbox" data-view="cal">
     <div class="fh-b27-mbtn" id="fh-b27-mbtn" role="group" aria-label="月を選ぶ"></div>
-    <div class="fh-b27-chart" id="fh-b27-bchart"></div>
-    <div class="fh-b27-bleg"><span><i style="background:#d95926"></i>身体</span><span><i style="background:#3987e5"></i>感情</span><span><i style="background:#199e70"></i>知性</span><span><i class="fh-b27-band fh-b27-g"></i>好調日</span><span><i class="fh-b27-band fh-b27-c"></i>注意日</span></div>
-    <details class="fh-b27-table" open><summary id="fh-b27-btitle">日ごとの表</summary><div id="fh-b27-btable"></div></details>
+    <div class="fh-b27-view" role="group" aria-label="表示を切り替える"><button type="button" class="fh-b27-vbtn" data-fh-view="cal" aria-pressed="true">{ic("month")}カレンダー</button><button type="button" class="fh-b27-vbtn" data-fh-view="graph" aria-pressed="false">{ic("bio")}グラフ</button></div>
+    <div class="fh-b27-cal" id="fh-b27-cal"></div>
+    <div class="fh-b27-chart" id="fh-b27-bchart" hidden></div>
+    <div class="fh-b27-bleg"><span class="fh-b27-bl-line"><i style="background:#d95926"></i>身体</span><span class="fh-b27-bl-line"><i style="background:#3987e5"></i>感情</span><span class="fh-b27-bl-line"><i style="background:#199e70"></i>知性</span><span><i class="fh-b27-band fh-b27-g"></i>好調日</span><span><i class="fh-b27-band fh-b27-c"></i>注意日</span></div>
+    <div class="fh-b27-dayout" id="fh-b27-dayout" aria-live="polite"></div>
+  </div>
+  <div id="fh-b27-biowrap" hidden>
+    <details class="fh-b27-table"><summary id="fh-b27-btitle">日ごとの表</summary><div id="fh-b27-btable"></div></details>
     <p class="fh-b27-small">凡例：★ 絶好調 ／ ◎ 好調 ／ 〇 普通 ／ △ 低調 ／ ▽ 注意。好調日＝3本の平均が0.6以上の日、注意日＝どれかの線が0を横切る日（切り替わりの日）。バイオリズムは科学的な根拠が認められていない読み物として楽しんでください。</p>
     <div class="fh-b27-bio" id="fh-b27-bio"></div>
   </div>
+  <p class="fh-b27-small">日付を押すと、その日の数（数秘）・日の干支・バイオリズムから「その日のひとこと」を出します（ページの中で計算。生年月日は送信・保存しません）。生まれ年を選ばないときは、数秘と日の干支だけで読みます。</p>
 </section>''')
 
     # 18 2028年に向けて
     a(f'''<section class="fh-b27-sec" id="b27-next">
-  <h2><span class="fh-b27-n">18</span>2028年に向けて</h2>
+  {h2(18, "next", "2028年に向けて")}
   {paras(yr.get("next_year"))}
 </section>''')
-    a('''<a class="fh-b27-promo" href="/seinengappi/">
-  <small>生年月日を入れるだけ</small>
-  <b>生年月日まるごと診断</b>
+    a(f'''<a class="fh-b27-promo" href="/seinengappi/">
+  {ic("card", "fh-b27-promoic")}<small>生年月日を入れるだけ</small>
+  <b>生年月日まるごと診断 →</b>
   <span>星座・九星・干支・四柱推命・宿曜・マヤ暦・数秘・動物×色をまとめて一枚のカードに。</span>
 </a>''')
     a("<!--Ads3-->")  # WP QUADS の広告位置3：「あなたへ」の前
     a(f'''<section class="fh-b27-sec fh-b27-letter" id="b27-letter">
-  <h2 class="fh-b27-hand">{md}生まれのあなたへ</h2>
+  <h2 class="fh-b27-hand">{ic("letter", "fh-b27-h2ic")}{md}生まれのあなたへ</h2>
   {paras(yr.get("to_you"))}
 </section>''')
 
     # 19 あわせて読みたい
     pv, nx = e["prev"], e["next"]
     a(f'''<section class="fh-b27-sec" id="b27-links">
-  <h2><span class="fh-b27-n">19</span>あわせて読みたい</h2>
-  <div class="fh-b27-links">
-    <a href="/{en}/"><b>{SIGN_HIRA[sign]}の運勢</b><small>{sign_rng}生まれの性格と2027年</small></a>
-    <a href="/compatibility/"><b>誕生日相性占い</b><small>2人の生年月日で相性を見る</small></a>
-    <a href="/kaiun/compass/"><b>8方位の読み方</b><small>開運ライフ｜本命星の吉方位に</small></a>
-    <a href="/animal-color/"><b>動物×色占い</b><small>生年月日で60タイプ</small></a>
-    <a href="/mbti/"><b>MBTI占い</b><small>性格タイプで見る2027年</small></a>
-    <a href="/dream/"><b>夢解き図鑑</b><small>気になる夢の意味を調べる</small></a>
-    <a href="{page_url(nx)}"><b>{md_label(nx)}生まれ</b><small>次の日の誕生日占い</small></a>
-    <a href="{page_url(pv)}"><b>{md_label(pv)}生まれ</b><small>前の日の誕生日占い</small></a>
+  {h2(19, "links", "あわせて読みたい")}
+  <div class="fh-b27-lcards">
+    {lcard(f"/{en}/", en, "el-" + e["element"], f"{SIGN_HIRA[sign]}の運勢", f"{sign_rng}生まれの性格と2027年")}
+    {lcard("/compatibility/", "compat", "rose", "誕生日相性占い", "2人の誕生日で相性を見る")}
+    {lcard("/kaiun/compass/", "compass", "sage", "8方位の読み方", "開運ライフ｜本命星の吉方位に")}
+    {lcard("/animal-color/", "animal", "yellow", "動物×色占い", "生年月日で60タイプ")}
+    {lcard("/mbti/", "mbti", "blue", "MBTI占い", "性格タイプで見る2027年")}
+    {lcard("/dream/", "dream", "lav", "夢解き図鑑", "気になる夢の意味を調べる")}
+    {lcard(page_url(pv), "calendar-prev", "cream", f"{md_label(pv)}生まれ", "前の日の誕生日占い")}
+    {lcard(page_url(nx), "calendar-next", "cream", f"{md_label(nx)}生まれ", "次の日の誕生日占い")}
   </div>
 </section>''')
 
@@ -880,7 +1017,9 @@ def make_ctx(mats, text_dir):
     know = knowledge()
     gen = {"center2027": ycon["center"], "monthStar2027": ycon["month_star"], "yearMin": YEAR_MIN, "yearMax": YEAR_MAX,
            "kyuseiKw": know["kyuseiKw"], "nikkan": know["nikkan"], "shukuKw": know["shukuKw"],
-           "sealKw": know["sealKw"], "toneKw": know["toneKw"], "lpKw": know["lpKw"]}
+           "sealKw": know["sealKw"], "toneKw": know["toneKw"], "lpKw": know["lpKw"], "pdKw": know["pdKw"],
+           # まるごと診断のタイプ解説（work/data/type_texts.json）。誕生日ページでは使わない
+           "typeTexts": {k: v for k, v in json.load(open(os.path.join(DATA, "type_texts.json"), encoding="utf-8")).items() if not k.startswith("_")}}
     ctx = {"year": ycon, "know": know, "gen": gen, "order": sorted(mats), "stones": stones(),
            "kou_rng": ranges(mats, lambda x: x["kou"]),
            "dec_rng": ranges(mats, lambda x: (x["sign"], x["decan"])),

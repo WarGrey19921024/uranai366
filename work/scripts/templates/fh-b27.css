@@ -299,3 +299,230 @@
 
 /* 2026-10-11 本番で Diver の行間（2.5）が効いて間延びするため、手帳の中は2に固定 */
 .fh-b27-note{line-height:2}.fh-b27-note p,.fh-b27-note li,.fh-b27-note dd,.fh-b27-note dt{line-height:inherit}
+
+/* ===== 改善第1弾（2026-10-11）：見た目のメリハリ・リンクの見た目・表の配色・その場の生まれ年・カレンダー・商品ボックス ===== */
+.fh-b27{--p-cream:#F7F1E3;--p-yellow:#E8D9A8;--p-blue:#B9CDE0;--p-lav:#D9CCF0;--p-sage:#CFE0CF;--p-peach:#F2C9B0;--ink2:#2E2A26;--ink2-sub:#5E574D}
+/* リンク：本文中は下線＋金色で統一（ボタン・カード型のリンクは下で下線を外す） */
+.fh-b27 a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.fh-b27 a.fh-b27-btn,.fh-b27 a.fh-b27-next,.fh-b27 a.fh-b27-promo,.fh-b27 a.fh-b27-chip,.fh-b27 a.fh-b27-lcard,.fh-b27 a.fh-b27-shopbtn,.fh-b27-toc a,.fh-b27 .fh-b27-links a,.fh-b27 .fh-b27-mnav a,.fh-b27 .fh-b27-days a,.fh-b27 .fh-b27-signs a{text-decoration:none}
+/* 見出しのイラスト */
+.fh-b27 h2 .fh-b27-h2ic{width:34px;height:34px;margin-left:-4px}
+.fh-b27-today h2 .fh-b27-h2ic,.fh-b27-letter h2 .fh-b27-h2ic{width:30px;height:30px;margin-right:8px}
+.fh-b27 h3 .fh-b27-h3ic{width:26px;height:26px;margin-right:8px;vertical-align:-6px}
+.fh-b27-tl b .fh-b27-h3ic{width:24px;height:24px;margin-right:6px;vertical-align:-5px}
+/* 紙の箱（クリーム・黄・青・ラベンダー・セージ・桃）：中は濃い文字 */
+.fh-b27-paper,.fh-b27-soul,.fh-b27-mc-flower,.fh-b27-mc-stone,.fh-b27-mc-dstone,.fh-b27-mc-color,.fh-b27-guide,.fh-b27-acts,.fh-b27-letter,.fh-b27-shop,.fh-b27-peak{color:var(--ink2)}
+.fh-b27 .fh-b27-paper p,.fh-b27 .fh-b27-soul p,.fh-b27 .fh-b27-guide p,.fh-b27 .fh-b27-letter p,.fh-b27 .fh-b27-mono-card p{color:var(--ink2)}
+.fh-b27 .fh-b27-paper strong,.fh-b27 .fh-b27-soul h3,.fh-b27 .fh-b27-guide h3,.fh-b27 .fh-b27-letter h2{color:var(--ink2)}
+.fh-b27 .fh-b27-paper a,.fh-b27 .fh-b27-soul a,.fh-b27 .fh-b27-guide a,.fh-b27 .fh-b27-letter a,.fh-b27 .fh-b27-shop a:not(.fh-b27-shopbtn),.fh-b27 .fh-b27-mono-card a{color:#8A4B12}
+/* 1 性格：魂のメッセージは淡いラベンダーの便せん */
+.fh-b27-soul{background:var(--p-lav);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;position:relative;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.fh-b27 .fh-b27-soul h3{border-bottom:1.5px dashed rgba(46,42,38,.3)}
+.fh-b27-soul:before{content:"";position:absolute;top:-10px;left:24px;width:70px;height:20px;background:var(--gold);opacity:.85;transform:rotate(-3deg)}
+/* 回遊の箱（アイコンつき） */
+.fh-b27 a.fh-b27-next{flex-direction:row;align-items:center;gap:12px;color:var(--gold)}
+.fh-b27-next > span{display:flex;flex-direction:column;gap:2px}
+.fh-b27-next .fh-b27-nextic{width:40px;height:40px}
+/* 2 暦と星：話題ごとの小見出し＋カード */
+.fh-b27-kblock{border-left:4px solid var(--gold);background:var(--deep);border-radius:0 8px 8px 0;padding:10px 14px 12px;display:flex;flex-direction:column;gap:4px}
+.fh-b27-kblock.fh-b27-k-star{border-left-color:#A9C8E8}
+.fh-b27-kblock.fh-b27-k-num{border-left-color:#E9A07A}
+.fh-b27-klabel{display:inline-flex;align-items:center;gap:8px;font-family:'Klee One',cursive;font-size:15px;font-weight:600;color:var(--gold)}
+.fh-b27-k-star .fh-b27-klabel{color:#A9C8E8}.fh-b27-k-num .fh-b27-klabel{color:#F2B48F}
+.fh-b27-klabel .fh-b27-ic{width:26px;height:26px}
+.fh-b27-kblock p{font-size:15px;line-height:1.95}
+.fh-b27-kcards{border:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fh-b27 .fh-b27-kcards > div{display:flex;flex-direction:column;gap:4px;border:1.5px solid var(--gold);border-radius:10px;padding:14px 16px;background:var(--deep);position:relative}
+.fh-b27-kcards .fh-b27-kc-star{border-color:#A9C8E8!important}
+.fh-b27-kcards .fh-b27-kc-num{border-color:#E9A07A!important}
+.fh-b27-kcards .fh-b27-kcic{position:absolute;top:12px;right:12px;width:38px;height:38px}
+.fh-b27-kcards dt{padding-right:44px}
+.fh-b27-kcards dd{font-size:14px!important}
+.fh-b27-sum{display:block;color:var(--ink);font-weight:700;margin-bottom:2px}
+/* 3 誕生花・石・色：色の違う紙 */
+.fh-b27 .fh-b27-mono-card{border:0;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.fh-b27-mc-flower{background:var(--p-cream)}
+.fh-b27-mc-stone{background:var(--p-blue)}
+.fh-b27-mc-dstone{background:var(--p-lav)}
+.fh-b27-mc-color{background:var(--p-yellow)}
+.fh-b27 .fh-b27-mono-card small,.fh-b27 .fh-b27-mono-card b em,.fh-b27 .fh-b27-mono-card .fh-b27-src{color:var(--ink2-sub)}
+.fh-b27 .fh-b27-mono-card .fh-b27-mono-sw{border-color:var(--ink2)}
+.fh-b27-mono-card .fh-b27-mcic{position:absolute;top:10px;right:10px;width:34px;height:34px}
+/* 4 相性：日付はチップ（ボタン） */
+.fh-b27-box-good{border:2px solid var(--gold)!important;background:linear-gradient(180deg,rgba(227,199,126,.12),transparent 60%),var(--deep)!important}
+.fh-b27-box-care{border:2px dashed #A9C8E8!important}
+.fh-b27-box-care strong{color:#A9C8E8!important}
+.fh-b27-box-good strong{color:var(--gold)!important}
+.fh-b27-compat li{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.fh-b27-compat li:last-child{border-bottom:0}
+.fh-b27 .fh-b27-compat li small{margin-left:0}
+.fh-b27 a.fh-b27-chip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:2px 12px 2px 4px;border-radius:999px;background:var(--gold);color:var(--paper);font-weight:700;font-size:15px;line-height:1.3;box-shadow:0 2px 0 rgba(0,0,0,.3)}
+.fh-b27 .fh-b27-box-care a.fh-b27-chip{background:#A9C8E8}
+.fh-b27 a.fh-b27-chip:hover{filter:brightness(1.08)}
+.fh-b27 a.fh-b27-chip:focus-visible{outline:2px solid var(--cream);outline-offset:2px}
+.fh-b27-chip .fh-b27-ic{width:30px;height:30px}
+.fh-b27-arrow{font-style:normal;font-weight:700}
+.fh-b27-compat .fh-b27-why{flex:1 1 100%}
+/* 5 有名人：クリームと黄の紙 */
+.fh-b27 .fh-b27-paper{background:var(--p-cream);border:0;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.25);transform:rotate(-.4deg)}
+.fh-b27 .fh-b27-paper-b{background:var(--p-yellow);transform:rotate(.4deg)}
+.fh-b27 .fh-b27-paper li small{color:var(--ink2-sub)}
+/* 6 運命：山場・慎重のラベル、天からの導きはクリームの紙 */
+.fh-b27-peaks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fh-b27-peaks p{grid-column:1/-1}
+.fh-b27-peak{border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;line-height:1.5}
+.fh-b27-peak small{font-size:12px;color:var(--ink2-sub)}
+.fh-b27-peak b{font-family:'Klee One',cursive;font-size:20px}
+.fh-b27-peak-up{background:var(--gold)}
+.fh-b27-peak-low{background:var(--p-blue)}
+.fh-b27-guide{background:var(--p-cream);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;border-top:6px solid var(--gold);box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.fh-b27 .fh-b27-guide h3{border-bottom:1.5px dashed rgba(46,42,38,.3)}
+/* 7 分野別：分野ごとに色の違う帯 */
+.fh-b27-fcard{background:var(--deep);border-radius:10px;border-left:6px solid #A9C8E8;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.fh-b27-f-love{border-left-color:#E9A07A}.fh-b27-f-money{border-left-color:var(--gold)}.fh-b27-f-health{border-left-color:#8FC7A0}.fh-b27-f-people{border-left-color:#C9A0F0}
+.fh-b27-fcard h3{border-bottom:0;padding-bottom:0}
+.fh-b27 .fh-b27-fieldmeta{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.fh-b27-fieldmeta span{font-size:12px;padding:2px 10px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--sub)}
+.fh-b27-fieldmeta b{color:var(--ink)}
+/* 8 成長と衰え：セージと桃の付箋（性格の付箋と色を変える） */
+.fh-b27-stickies-2 .fh-b27-sticky.fh-b27-y{background:var(--p-sage)}
+.fh-b27-stickies-2 .fh-b27-sticky.fh-b27-b{background:var(--p-peach)}
+/* 9 干支・九星：話題ごとの囲み */
+.fh-b27-topic{display:flex;flex-direction:column;gap:10px;padding:14px 16px;border:1.5px dashed var(--line);border-radius:10px}
+.fh-b27-topic + .fh-b27-topic{border-color:#A9C8E8}
+/* 12 12か月：◎は金、△は灰の地 */
+.fh-b27 .fh-b27-months div.fh-b27-mg-good{background:rgba(227,199,126,.18);border-color:var(--gold)}
+.fh-b27 .fh-b27-months div.fh-b27-mg-care{background:#2A2F3D;border-style:dashed}
+.fh-b27 .fh-b27-monthlist div.fh-b27-ml-good{background:linear-gradient(90deg,rgba(227,199,126,.14),transparent 70%)}
+.fh-b27 .fh-b27-monthlist div.fh-b27-ml-care{background:linear-gradient(90deg,rgba(169,200,232,.10),transparent 70%)}
+.fh-b27-monthlist div{padding-left:6px;padding-right:6px;border-radius:6px}
+/* 13 開運アクション：クリームの紙 */
+.fh-b27 .fh-b27-acts{background:var(--p-cream);border-radius:10px;padding:18px 18px 18px 14px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.fh-b27 .fh-b27-acts li{color:var(--ink2)}
+.fh-b27 .fh-b27-acts b{color:var(--ink2)}
+.fh-b27 .fh-b27-acts li:before{background:var(--paper);color:var(--gold)}
+/* 14・15 商品ボックス（左に絵・右に名前と説明・下に店ボタン） */
+.fh-b27-shops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fh-b27 .fh-b27-shop{background:var(--p-cream);border-radius:10px;padding:12px;display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:start;line-height:1.6;box-shadow:0 4px 12px rgba(0,0,0,.25);position:relative;transform:none}
+.fh-b27 .fh-b27-shop.fh-b27-gift{background:var(--p-yellow)}
+.fh-b27 .fh-b27-shop.fh-b27-gift:before{content:"";position:absolute;top:-8px;right:18px;width:54px;height:16px;background:var(--p-lav);opacity:.9;transform:rotate(4deg)}
+.fh-b27-shop-pic{width:64px;height:64px;border-radius:12px;background:var(--paper);display:flex;align-items:center;justify-content:center}
+.fh-b27-shop-pic .fh-b27-ic{width:52px;height:52px}
+.fh-b27-shop-body{display:flex;flex-direction:column;gap:2px;min-width:0}
+.fh-b27 .fh-b27-shop small{font-size:11px;color:var(--ink2-sub)}
+.fh-b27 .fh-b27-shop-name{font-family:'Klee One',cursive;font-size:17px;font-weight:600;color:var(--ink2);line-height:1.45}
+.fh-b27 .fh-b27-shop-why{font-size:12.5px;color:#4A443C;line-height:1.7}
+.fh-b27-shop-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;position:relative}
+.fh-b27 a.fh-b27-shopbtn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 12px;border-radius:8px;font-size:13px;font-weight:700;color:#fff;line-height:1.3}
+.fh-b27 a.fh-b27-shop-rakuten{background:#BF0000}
+.fh-b27 a.fh-b27-shop-yahoo{background:#E5004F}
+.fh-b27 a.fh-b27-shop-amazon{background:#FF9900;color:#111}
+.fh-b27 a.fh-b27-shopbtn:hover{filter:brightness(1.1);color:#fff}
+.fh-b27 a.fh-b27-shopbtn:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
+/* 誕生日当日は黄色の紙（クリームの紙が続かないように） */
+.fh-b27 .fh-b27-today{background:var(--p-yellow)}
+/* 18 あなたへ：便せん */
+.fh-b27 .fh-b27-letter{background:var(--p-cream);border:0;border-radius:4px;padding:24px 22px;background-image:repeating-linear-gradient(transparent 0 31px,rgba(46,42,38,.12) 31px 32px);box-shadow:0 6px 16px rgba(0,0,0,.3)}
+.fh-b27 .fh-b27-letter p{line-height:2}
+/* まるごと診断への案内（アイコンつき） */
+.fh-b27 a.fh-b27-promo{position:relative;padding-right:84px}
+.fh-b27-promo .fh-b27-promoic{position:absolute;right:18px;top:50%;margin-top:-28px;width:56px;height:56px}
+/* 19 あわせて読みたい：アイキャッチつきのカード */
+.fh-b27-lcards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.fh-b27 a.fh-b27-lcard{display:flex;flex-direction:column;border-radius:10px;overflow:hidden;background:var(--deep);border:1.5px solid var(--line);color:var(--ink);line-height:1.5;transition:transform .15s}
+.fh-b27 a.fh-b27-lcard:hover{transform:translateY(-2px);border-color:var(--gold)}
+.fh-b27-eye{display:flex;align-items:center;justify-content:center;height:84px;background:var(--p-cream)}
+.fh-b27-eye .fh-b27-ic{width:56px;height:56px}
+.fh-b27-eye-rose{background:var(--p-peach)}.fh-b27-eye-sage{background:var(--p-sage)}.fh-b27-eye-yellow{background:var(--p-yellow)}.fh-b27-eye-blue{background:var(--p-blue)}.fh-b27-eye-lav{background:var(--p-lav)}
+.fh-b27-eye-el-火{background:var(--p-peach)}.fh-b27-eye-el-地{background:var(--p-sage)}.fh-b27-eye-el-風{background:var(--p-blue)}.fh-b27-eye-el-水{background:var(--p-lav)}
+.fh-b27-lbody{display:flex;flex-direction:column;gap:2px;padding:10px 12px 12px}
+.fh-b27-lbody b{font-size:14px;color:var(--gold)}
+.fh-b27-lbody small{font-size:11.5px;color:var(--mute)}
+/* 表：Diver の白い表を上書きして手帳の配色に（暗い地に明るい文字、見出しは金） */
+.fh-b27 .fh-b27-table table,.fh-b27 .fh-b27-table th,.fh-b27 .fh-b27-table td{background:var(--deep)!important;color:var(--ink)!important;border:0!important;border-bottom:1px dashed var(--line)!important}
+.fh-b27 .fh-b27-table table{border-radius:8px;overflow:hidden}
+.fh-b27 .fh-b27-table thead th{background:#141A28!important;color:var(--gold)!important;font-weight:700}
+.fh-b27 .fh-b27-table tbody th{color:var(--gold)!important;font-weight:700}
+.fh-b27 .fh-b27-table tbody tr:nth-child(even) td,.fh-b27 .fh-b27-table tbody tr:nth-child(even) th{background:#232B40!important}
+.fh-b27 .fh-b27-table td.fh-b27-s5{color:var(--gold)!important}
+.fh-b27 .fh-b27-table td.fh-b27-s1{color:#9A968A!important}
+/* その場で選べる生まれ年 */
+.fh-b27-ypick{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:10px 12px;border-radius:10px;background:var(--paper);border:1.5px solid var(--gold)}
+.fh-b27-ypick label{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px}
+.fh-b27-ypick .fh-b27-ic{width:28px;height:28px}
+.fh-b27 .fh-b27-ypick select{min-height:40px;font-size:15px}
+.fh-b27-ypick-note{font-size:12px;color:var(--sub);line-height:1.6;flex:1 1 200px}
+.fh-b27-paneltip{font-size:13px;color:var(--sub)}
+.fh-b27-paneltip[hidden]{display:none}
+.fh-b27-res .fh-b27-resic{width:30px;height:30px;margin-bottom:2px}
+/* スマホの画面下の「生まれ年 ▼」 */
+.fh-b27-yfloat{display:none}
+@media (max-width:600px){
+  .fh-b27-yfloat:not([hidden]){display:block;position:fixed;left:10px;bottom:12px;z-index:9990}
+  .fh-b27-yfloat label{display:flex;align-items:center;gap:6px;padding:4px 4px 4px 12px;border-radius:999px;background:var(--gold);color:var(--paper);font-size:12px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+  .fh-b27 .fh-b27-yfloat select{min-height:34px;padding:0 6px;font-size:13px;border-radius:999px;background:var(--paper);color:var(--ink);border:0;max-width:170px}
+}
+/* 17 カレンダー・表示の切り替え・その日のひとこと */
+.fh-b27-calbox{display:flex;flex-direction:column;gap:12px;background:var(--deep);border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.fh-b27-view{display:flex;gap:8px}
+.fh-b27-vbtn{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px 0 6px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font-family:inherit;font-size:13px;cursor:pointer}
+.fh-b27-vbtn .fh-b27-ic{width:28px;height:28px}
+.fh-b27-vbtn[aria-pressed="true"]{border-color:var(--gold);background:var(--gold);color:var(--paper);font-weight:700}
+.fh-b27-vbtn:disabled{opacity:.45;cursor:not-allowed}
+.fh-b27-vbtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.fh-b27-cal[hidden],.fh-b27-chart[hidden]{display:none}
+.fh-b27-calhead,.fh-b27-calgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.fh-b27-calhead span{text-align:center;font-size:12px;color:var(--mute)}
+.fh-b27-calhead .fh-b27-sun{color:#E9A07A}.fh-b27-calhead .fh-b27-sat{color:#A9C8E8}
+.fh-b27-cday{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:46px;padding:2px 0;border-radius:8px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font-family:inherit;cursor:pointer;line-height:1.2}
+.fh-b27-cday b{font-size:15px}
+.fh-b27-cday small{font-size:11px;color:var(--mute)}
+.fh-b27-cday.fh-b27-cg{background:rgba(227,199,126,.28);border-color:rgba(227,199,126,.6)}
+.fh-b27-cday.fh-b27-cg small{color:var(--gold)}
+.fh-b27-cday.fh-b27-cc{background:rgba(138,134,120,.32)}
+.fh-b27-cday.fh-b27-cbd{border-style:dashed;border-color:var(--gold)}
+.fh-b27-cday.fh-b27-csel{background:var(--cream);color:var(--ink2);border-color:var(--cream)}
+.fh-b27-cday.fh-b27-csel small{color:var(--ink2-sub)}
+.fh-b27-cday:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.fh-b27-dayout{background:var(--p-cream);color:var(--ink2);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;line-height:1.8}
+.fh-b27-dayout:empty{display:none}
+.fh-b27-dayhead{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.fh-b27-dayhead b{font-family:'Klee One',cursive;font-size:18px}
+.fh-b27-verd{font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--p-blue)}
+.fh-b27-verd.fh-b27-v3,.fh-b27-verd.fh-b27-v4{background:var(--gold)}
+.fh-b27-verd.fh-b27-v0{background:#CFC6B5}
+.fh-b27 .fh-b27-dayout p{color:var(--ink2)}
+.fh-b27-daysum{font-weight:700}
+.fh-b27-dayout dl{margin:0;display:flex;flex-direction:column;gap:6px}
+.fh-b27-dayout dl div{display:grid;grid-template-columns:112px minmax(0,1fr);gap:8px;border-top:1px dashed #CFC6B5;padding-top:6px}
+.fh-b27-dayout dt{font-size:12px;font-weight:700;color:var(--ink2-sub)}
+.fh-b27-dayout dd{margin:0;font-size:14px}
+.fh-b27 .fh-b27-dayout .fh-b27-small{color:var(--ink2-sub)}
+.fh-b27 .fh-b27-dayout a.fh-b27-next{background:var(--paper);align-self:flex-start}
+@media (max-width:600px){
+  .fh-b27-kcards,.fh-b27-shops,.fh-b27-peaks{grid-template-columns:1fr}
+  .fh-b27-lcards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fh-b27-dayout dl div{grid-template-columns:1fr;gap:0}
+  .fh-b27-cday{min-height:44px}
+  .fh-b27 h2 .fh-b27-h2ic{width:30px;height:30px}
+}
+.fh-b27-ypick label{flex:1 1 auto;min-width:0;flex-wrap:nowrap}
+.fh-b27-ypick label span{white-space:nowrap}
+.fh-b27 .fh-b27-ypick select{min-width:0;max-width:100%;flex:0 1 auto}
+.fh-b27-calbox[data-view="cal"] .fh-b27-bleg .fh-b27-bl-line{display:none}
+.fh-b27-kblock.fh-b27-k-mix{border-left-color:#C9A0F0}.fh-b27-k-mix .fh-b27-klabel{color:#D9CCF0}
+/* まるごと診断：タイプの解説・2027年のひとこと（改善第1弾 8） */
+.fh-b27 .fh-b27-sg-desc{font-size:14px;line-height:1.85;color:var(--ink);margin:2px 0}
+.fh-b27-sg-desc:empty{display:none}
+.fh-b27-sg-y27{display:flex;flex-direction:column;gap:2px;background:var(--p-yellow);color:var(--ink2);border-radius:8px;padding:8px 12px;margin:4px 0}
+.fh-b27-sg-y27 span{font-size:11px;font-weight:700;color:var(--ink2-sub)}
+.fh-b27-sg-y27 em{font-style:normal;font-size:14px;line-height:1.8}
+.fh-b27-sg-out .fh-b27-res > div:nth-child(3n+2){border-color:#A9C8E8}
+.fh-b27-sg-out .fh-b27-res > div:nth-child(3n){border-color:#E9A07A}
+.fh-b27-sg-out .fh-b27-res > div:first-child{border:1.5px solid var(--gold)}
+.fh-b27 p.fh-b27-sg-y27,.fh-b27 .fh-b27-sg-y27 em{color:var(--ink2)}
+/* 一覧ページ：星座のカードにイラスト */
+.fh-b27 .fh-b27-signs a{flex-direction:row;align-items:center;gap:10px}
+.fh-b27-signs .fh-b27-signic{width:36px;height:36px}
+.fh-b27-signs a > span{display:flex;flex-direction:column}
+.fh-b27-month h3 .fh-b27-h3ic{vertical-align:-6px}

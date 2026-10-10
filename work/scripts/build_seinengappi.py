@@ -58,10 +58,13 @@ def write_sign_js(rows):
     return path
 
 
-def res_box(key, label, link=None, wide=False):
+def res_box(key, label, link=None, wide=False, icon=None, extra=""):
+    """結果の箱：アイコン・ラベル・結果・計算の注記（-n）・タイプの短い解説（-d、type_texts.json を共通JSが入れる）"""
     a = f'<a id="fh-b27-sg-{key}-a" href="{link[0]}">{esc(link[1])}</a>' if link else ""
     cls = ' class="fh-b27-wide"' if wide else ""
-    return (f'    <div{cls}><small>{esc(label)}</small><b id="fh-b27-sg-{key}">—</b>'
+    ic = f'<i class="fh-b27-ic fh-b27-ic-{icon} fh-b27-resic" aria-hidden="true"></i>' if icon else ""
+    return (f'    <div{cls}>{ic}<small>{esc(label)}</small><b id="fh-b27-sg-{key}">—</b>'
+            f'<p class="fh-b27-sg-desc" id="fh-b27-sg-{key}-d"></p>{extra}'
             f'<span id="fh-b27-sg-{key}-n"></span>{a}</div>')
 
 
@@ -117,14 +120,15 @@ def build(sample, updated):
     a('''<section class="fh-b27-sec" id="b27-detail">
   <h2><span class="fh-b27-n">2</span>ひとつずつ、くわしく</h2>
   <div class="fh-b27-res">''')
-    a(res_box("sign", "星座（西洋占星術）", ("/366uranai/", "星座のページを見る →")))
-    a(res_box("star", "本命星（九星気学）", ("/kaiun/compass/", "本命星の吉方位を8方位の読み方で見る →")))
-    a(res_box("eto", "生まれ年の干支"))
-    a(res_box("pillars", "四柱推命（年柱・月柱・日柱）"))
-    a(res_box("shuku", "宿曜（本命宿）"))
-    a(res_box("kin", "マヤ暦（ドリームスペル）"))
-    a(res_box("lp", "数秘術（ライフパス）"))
-    a('''    <div><small>動物×色占い</small><b id="fh-b27-sg-animal">—</b><span>12の動物×5つの色＝60タイプの、このサイト独自の占いです。</span><a href="/animal-color/">60タイプの性格を見る →</a></div>''')
+    a(res_box("star", "本命星（九星気学）", ("/kaiun/compass/", "本命星の吉方位を8方位の読み方で見る →"), wide=True, icon="kyusei",
+              extra='<p class="fh-b27-sg-y27"><span>2027年のひとこと</span><em id="fh-b27-sg-star-y"></em></p>'))
+    a(res_box("sign", "星座（西洋占星術）", ("/366uranai/", "星座のページを見る →"), icon="aries"))
+    a(res_box("eto", "生まれ年の干支", icon="eto"))
+    a(res_box("pillars", "四柱推命（年柱・月柱・日柱）", icon="shichu"))
+    a(res_box("shuku", "宿曜（本命宿）", icon="shuku"))
+    a(res_box("kin", "マヤ暦（ドリームスペル）", icon="maya"))
+    a(res_box("lp", "数秘術（ライフパス）", icon="suhi"))
+    a('''    <div><i class="fh-b27-ic fh-b27-ic-animal fh-b27-resic" aria-hidden="true"></i><small>動物×色占い</small><b id="fh-b27-sg-animal">—</b><p class="fh-b27-sg-desc" id="fh-b27-sg-animal-d"></p><span>12の動物×5つの色＝60タイプの、このサイト独自の占いです。</span><a href="/animal-color/">60タイプの性格を見る →</a></div>''')
     a('''    <div class="fh-b27-wide"><small>もっと知りたい人へ</small><span>干支・四柱推命・宿曜・マヤ暦・数秘の意味と、2027年のあなたの運勢は、誕生日のページで生まれ年を選ぶと読めます。</span><a id="fh-b27-sg-day-a" href="/366uranai/">誕生日のページを見る →</a></div>''')
     a('''  </div>
 </section>''')
@@ -154,6 +158,7 @@ def build(sample, updated):
     <li><b>マヤ暦：</b>ドリームスペル方式（2013年7月26日＝KIN164を基準に、2月29日は数えない）です。古代マヤの暦そのものとは別物です。</li>
     <li><b>数秘術：</b>ライフパスは生年月日の数字をすべて足して1けたにする方式です（11・22・33は残します）。流派によって数が違うことがあります。</li>
     <li><b>動物×色占い：</b>当サイト独自の60タイプです。</li>
+    <li><b>タイプの解説：</b>本命星・干支・日干・宿・マヤの紋章と音・ライフパスの短い解説は、それぞれの占いで一般に言われる性質をもとに当サイトがまとめたものです。動物×色の解説は、動物の解説に色の解説を重ねた当サイト独自の文です。2027年のひとことは、2027年（九紫火星が中宮の年）の年盤で本命星が入る方位から読んでいます。</li>
     <li><b>選べる年：</b>{Y0}〜{Y1}年（節入りと旧暦の表を用意している範囲）です。生年月日は送信も保存もしません。</li>
   </ul>
 </section>''')
