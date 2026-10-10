@@ -1,0 +1,5 @@
+{
+  "rakuten": "https://hb.afl.rakuten.co.jp/hgc/ここに楽天アフィリエイトID/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F{q}%2F",
+  "rakuten-amazon": "https://www.amazon.co.jp/s?k={q}&tag=ここにAmazonアソシエイトのタグ",
+  "phone": "https://電話占いの案内ページ（ASPの広告リンク）"
+}

@@ -57,7 +57,7 @@ chk("誕生日石・誕生色に「当サイト独自の選び方」", lambda s,
 chk("誕生花の出典（日本花普及センター）", lambda s, t, m: "日本花普及センター" in t)
 chk("相性の見出しに「ぶつかる」を使っていない", lambda s, t, m: not re.search(r"<h[23][^>]*>[^<]*ぶつか", s))
 chk("「動物占い」「六星占術」を使っていない", lambda s, t, m: "動物占い" not in t and "六星" not in t)
-chk("本文に度数の数字を出していない（この占いについて以外）", lambda s, t, m: not re.search(r"[0-9０-９]+度", body_text(s[:s.find('id="b27-about"')])))
+chk("本文に度数の数字を出していない（この占いについて以外）", lambda s, t, m: not re.search(r"(?<!東経)(?<!マイナス)(?<![0-9])[0-9０-９]+度", body_text(s[:s.find('id="b27-about"')])))
 chk("「！」は3回まで", lambda s, t, m: t.count("！") + t.count("!") <= 3 + body_text(s).count("!=") )
 chk("文章が入っている", lambda s, t, m: "文章は未作成" not in t)
 chk("CSSは fh-b27- 接頭辞のみ", lambda s, t, m: all(c.startswith("fh-b27") for cl in re.findall(r'class="([^"]+)"', s) for c in cl.split()))
