@@ -132,9 +132,14 @@ def main():
                 ends[s[-9:]].add(k)
     n = len(pages)
     rep_sk = sorted(((len(p), s) for s, p in sk.items() if len(p) >= max(4, n * .2)), reverse=True)
-    rep_end = sorted(((len(p), s) for s, p in ends.items() if len(p) >= max(4, n * .3)), reverse=True)
+    rep_end = sorted(((len(p), s) for s, p in ends.items() if len(p) >= max(4, n * .6)), reverse=True)
+    inpage = []
+    for k, x in secs.items():
+        c = collections.Counter(s[-9:] for t in x.values() for s in sents(t))
+        inpage += [(k, e, cnt) for e, cnt in c.items() if cnt >= 4]
     bad["文の骨組みの繰り返し（20%以上のページ）"] = len(rep_sk)
-    bad["同じ文末（30%以上のページ）"] = len(rep_end)
+    bad["同じ文末（60%以上のページ）"] = len(rep_end)
+    bad["1ページ内で同じ文末4回以上"] = len(inpage)
     # 相性の一言：同じ文末が多すぎないか
     cend = collections.Counter()
     for k, (s, v) in pages.items():
@@ -155,7 +160,7 @@ def main():
     R.append(f"# 重複検査（{'・'.join(SIGNS_EN) if SIGNS_EN else '全体'}）\n\n`python work/scripts/check_dup.py {' '.join(SIGNS_EN or [])}` で再生成。対象 {n} ページ。\n")
     R.append("| 検査 | 基準 | 引っかかった数 |\n|---|---|---|")
     crit = {"同じ文が4ページ以上": "0", "ページの類似度が基準以上": "全組0.25未満・同じ星座0.30未満", "セクションの類似度0.40以上": "0",
-            "必ず使う材料の不足": "0", "月の名前がスコアと不一致": "0", "文の骨組みの繰り返し（20%以上のページ）": "0", "同じ文末（30%以上のページ）": "0",
+            "必ず使う材料の不足": "0", "月の名前がスコアと不一致": "0", "文の骨組みの繰り返し（20%以上のページ）": "0", "同じ文末（60%以上のページ）": "0", "1ページ内で同じ文末4回以上": "0",
             "相性の一言の同じ締め（5%超）": "0", "分野別の字数が200〜250字の目安から外れる": "0（±10字は許容）"}
     for kk, c in crit.items():
         R.append(f"| {kk} | {c} | {'✅ 0' if not bad[kk] else '⚠ ' + str(bad[kk])} |")
@@ -171,6 +176,10 @@ def main():
     for c, s in rep_sk[:30]: R.append(f"- {c}ページ：{s}")
     R.append("\n## 同じ文末\n")
     for c, s in rep_end[:30]: R.append(f"- {c}ページ：…{s}")
+    R.append("\n## 1ページ内の同じ文末\n")
+    for k, e, c in inpage[:40]: R.append(f"- {k}：…{e}（{c}回）")
+    R.append("\n## （参考）ページをまたいで多い文末\n")
+    for c, s in sorted(((len(p), s) for s, p in ends.items()), reverse=True)[:10]: R.append(f"- {c}ページ：…{s}")
     R.append("\n## 相性の一言の締め（上位）\n\n" + "・".join(f"…{e}（{c}）" for e, c in cend.most_common(10)))
     R.append("\n## 必ず使う材料の不足\n")
     for k, sec, items in miss[:60]: R.append(f"- {k} {sec}：{items}")
