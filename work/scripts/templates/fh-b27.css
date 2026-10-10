@@ -33,8 +33,8 @@
 .fh-b27-card{background:var(--cream);color:var(--cream-ink);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.35);line-height:1.6}
 .fh-b27-card-top{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:#6B645B}
 .fh-b27-card-name{display:flex;align-items:baseline;gap:10px}
-.fh-b27-card-name .d{font-family:'Shippori Mincho',serif;font-size:44px;font-weight:800;line-height:1}
-.fh-b27-card-name .t{font-family:'Klee One',cursive;font-size:20px;font-weight:600}
+.fh-b27-card-name .fh-b27-d{font-family:'Shippori Mincho',serif;font-size:44px;font-weight:800;line-height:1}
+.fh-b27-card-name .fh-b27-t{font-family:'Klee One',cursive;font-size:20px;font-weight:600}
 .fh-b27-card dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px;margin:0;font-size:13px}
 .fh-b27-card dl div{display:flex;justify-content:space-between;border-bottom:1px dashed #CFC6B5;padding:4px 0}
 .fh-b27-card dt{color:#6B645B}
@@ -46,7 +46,7 @@
 .fh-b27-partlabel{display:flex;align-items:center;gap:12px;font-family:'Klee One',cursive;font-size:14px;color:var(--gold)}
 .fh-b27-partlabel:after{content:"";flex:1;border-top:1.5px dashed var(--line)}
 .fh-b27 h2{font-family:'Klee One',cursive;font-size:25px;font-weight:600;line-height:1.5;display:flex;align-items:center;gap:12px}
-.fh-b27 h2 .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1}
+.fh-b27 h2 .fh-b27-n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1}
 .fh-b27 h3{font-family:'Klee One',cursive;font-size:19px;font-weight:600;line-height:1.5;padding-bottom:4px;border-bottom:1.5px dashed var(--line)}
 .fh-b27-sec{display:flex;flex-direction:column;gap:14px}
 .fh-b27-sec p{color:#DDD7C8}
@@ -56,8 +56,8 @@
 .fh-b27-stickies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .fh-b27-sticky{padding:16px;color:var(--cream-ink);display:flex;flex-direction:column;gap:6px;line-height:1.8}
 .fh-b27-sticky strong{font-family:'Klee One',cursive;font-size:17px}
-.fh-b27-sticky.y{background:#E8D9A8;transform:rotate(-1deg)}
-.fh-b27-sticky.b{background:#B9CDE0;transform:rotate(1deg)}
+.fh-b27-sticky.fh-b27-y{background:#E8D9A8;transform:rotate(-1deg)}
+.fh-b27-sticky.fh-b27-b{background:#B9CDE0;transform:rotate(1deg)}
 
 /* 暦の表 */
 .fh-b27-koyomi{display:flex;flex-direction:column;border-top:1.5px dashed var(--line)}
@@ -69,18 +69,18 @@
 /* リスト系 */
 .fh-b27-rows{display:flex;flex-direction:column;gap:10px}
 .fh-b27-row{display:flex;gap:14px;align-items:center;padding:12px 14px;background:var(--deep);border:1.5px dashed var(--line);border-radius:8px;flex-wrap:wrap;line-height:1.6}
-.fh-b27-row .who{flex:1 1 220px;display:flex;flex-direction:column;gap:2px}
-.fh-b27-row .who small{font-size:12px;color:var(--mute)}
+.fh-b27-row .fh-b27-who{flex:1 1 220px;display:flex;flex-direction:column;gap:2px}
+.fh-b27-row .fh-b27-who small{font-size:12px;color:var(--mute)}
 .fh-b27-mark{font-family:'Klee One',cursive;font-size:24px;font-weight:600;width:36px;text-align:center;flex:0 0 auto}
-.fh-b27-mark.good{color:var(--gold)}
-.fh-b27-mark.ok{color:#A9C8E8}
-.fh-b27-mark.care{color:#8A8678}
+.fh-b27-mark.fh-b27-good{color:var(--gold)}
+.fh-b27-mark.fh-b27-ok{color:#A9C8E8}
+.fh-b27-mark.fh-b27-care{color:#8A8678}
 
 /* 分野別 */
 .fh-b27-field{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1.5px dashed var(--line)}
 .fh-b27-field:first-child{border-top:1.5px dashed var(--line)}
-.fh-b27-field .k{display:flex;flex-direction:column;align-items:flex-start;gap:0}
-.fh-b27-field .k b{font-family:'Klee One',cursive;font-size:18px;font-weight:600}
+.fh-b27-field .fh-b27-k{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.fh-b27-field .fh-b27-k b{font-family:'Klee One',cursive;font-size:18px;font-weight:600}
 .fh-b27-field p{font-size:15px;line-height:1.95}
 
 /* 季節タイムライン */
@@ -113,8 +113,8 @@
 .fh-b27-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 16px;border-radius:999px;background:var(--gold);color:var(--paper);text-decoration:none;font-size:14px;font-weight:700;line-height:1.4}
 .fh-b27 a.fh-b27-btn{color:var(--paper)}
 .fh-b27 .fh-b27-card a.fh-b27-btn{color:var(--cream)}
-.fh-b27-btn.ghost{background:transparent;border:1.5px solid var(--gold)}
-.fh-b27 a.fh-b27-btn.ghost{color:var(--gold)}
+.fh-b27-btn.fh-b27-ghost{background:transparent;border:1.5px solid var(--gold)}
+.fh-b27 a.fh-b27-btn.fh-b27-ghost{color:var(--gold)}
 .fh-b27-pr{font-size:11px;color:var(--mute)}
 .fh-b27-nums{display:flex;gap:10px;flex-wrap:wrap}
 .fh-b27-nums span{width:56px;height:56px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Klee One',cursive;font-size:24px;font-weight:600;color:var(--gold)}
@@ -155,7 +155,7 @@
 /* 誕生日もの・記念日 */
 .fh-b27-mono{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .fh-b27-mono-card{background:var(--deep);border:1.5px dashed var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;line-height:1.6;position:relative}
-.fh-b27-mono-card .sw{position:absolute;top:14px;right:14px;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink)}
+.fh-b27-mono-card .fh-b27-mono-sw{position:absolute;top:14px;right:14px;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink)}
 .fh-b27-mono-card small{font-size:12px;color:var(--mute)}
 .fh-b27-mono-card b{font-family:'Klee One',cursive;font-size:20px;font-weight:600}
 .fh-b27-mono-card b em{font-style:normal;font-size:11px;color:var(--mute);font-family:'Zen Kaku Gothic New',sans-serif;margin-left:4px}
@@ -182,7 +182,7 @@
 .fh-b27-promo b{font-family:'Klee One',cursive;font-size:22px}
 .fh-b27-promo span{font-size:14px}
 .fh-b27-letter{border-top:1.5px dashed var(--line);padding-top:24px}
-.fh-b27-res div.wide{grid-column:1/-1}
+.fh-b27-res div.fh-b27-wide{grid-column:1/-1}
 .fh-b27-res a{font-size:13px;margin-top:4px}
 
 .fh-b27-yearbar{border:1.5px solid var(--gold);border-radius:10px;padding:16px 18px;background:var(--deep);display:flex;flex-direction:column;gap:8px}
@@ -192,8 +192,8 @@
 .fh-b27-why{font-size:13px;color:var(--sub)}
 .fh-b27 h3 .fh-b27-mark{font-size:20px;width:auto;margin-left:6px}
 .fh-b27-sticky h3.fh-b27-sth{font-family:'Klee One',cursive;font-size:17px;color:var(--cream-ink);border:0;padding:0}
-.fh-b27-btab td.s5{color:var(--gold);font-weight:700}
-.fh-b27-btab td.s1{color:#8A8678}
+.fh-b27-btab td.fh-b27-s5{color:var(--gold);font-weight:700}
+.fh-b27-btab td.fh-b27-s1{color:#8A8678}
 
 /* 月別グラフ・バイオリズムグラフ */
 .fh-b27-leg{display:flex;flex-wrap:wrap;gap:8px}
@@ -217,9 +217,9 @@
 .fh-b27-bleg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--sub)}
 .fh-b27-bleg span{display:inline-flex;align-items:center;gap:6px}
 .fh-b27-bleg i{width:18px;height:3px;border-radius:2px;display:inline-block}
-.fh-b27-bleg i.band{height:12px;width:14px;border-radius:2px}
-.fh-b27-bleg i.g{background:rgba(227,199,126,.45)}
-.fh-b27-bleg i.c{background:rgba(138,134,120,.5)}
+.fh-b27-bleg i.fh-b27-band{height:12px;width:14px;border-radius:2px}
+.fh-b27-bleg i.fh-b27-g{background:rgba(227,199,126,.45)}
+.fh-b27-bleg i.fh-b27-c{background:rgba(138,134,120,.5)}
 .fh-b27-mbtn{display:flex;flex-wrap:wrap;gap:6px}
 .fh-b27-mb{min-width:48px;min-height:40px;border-radius:8px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font-family:inherit;font-size:13px;cursor:pointer}
 .fh-b27-mb[aria-pressed="true"]{background:var(--gold);color:var(--paper);border-color:var(--gold);font-weight:700}

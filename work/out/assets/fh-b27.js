@@ -188,7 +188,7 @@
       if(bioGood(k))bands.push({i:d-1,color:'#E3C77E',op:.3});else if(bioCare(k))bands.push({i:d-1,color:'#8A8678',op:.25});}
     lineChart(box,{labels:labels,labelStep:5,series:[{name:'身体',color:'#d95926',values:p,w:2},{name:'感情',color:'#3987e5',values:e,w:2},{name:'知性',color:'#199e70',values:it,w:2}],min:-100,max:100,base:0,grid:[-100,-50,0,50,100],h:220,bands:bands,aria:'2027年'+m+'月のバイオリズム',fmt:function(v){return (v>0?'+':'')+v}});
     var W='日月火水木金土'.split(''),h='<table class="fh-b27-btab"><thead><tr><th>日付</th><th>曜日</th><th>身体</th><th>感情</th><th>知性</th><th>総合</th></tr></thead><tbody>';
-    for(var dd=1;dd<=n;dd++){var vv=bioAt(jdn(2027,m,dd)-b),av=(vv[0]+vv[1]+vv[2])/3,cells=[vv[0],vv[1],vv[2],av].map(function(x){var q=bioMark(x);return '<td class="s'+q[1]+'">'+q[0]+'</td>'}).join('');
+    for(var dd=1;dd<=n;dd++){var vv=bioAt(jdn(2027,m,dd)-b),av=(vv[0]+vv[1]+vv[2])/3,cells=[vv[0],vv[1],vv[2],av].map(function(x){var q=bioMark(x);return '<td class="fh-b27-s'+q[1]+'">'+q[0]+'</td>'}).join('');
       h+='<tr><th>'+dd+'</th><td>'+W[new Date(2027,m-1,dd).getDay()]+'</td>'+cells+'</tr>';}
     document.getElementById('fh-b27-btable').innerHTML=h+'</tbody></table>';
     document.getElementById('fh-b27-btitle').textContent='2027年'+m+'月のバイオリズム（日ごとの表）';

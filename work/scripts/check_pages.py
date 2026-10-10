@@ -45,7 +45,7 @@ chk("アフィリエイトはすべて rel=nofollow sponsored", lambda s, t, m: 
 chk("仮リンクは #affiliate-TODO- の形", lambda s, t, m: all(h.startswith("#affiliate-TODO-") for h in re.findall(r'href="([^"]*)"[^>]*data-aff', s)))
 chk("「広告を含みます」がある", lambda s, t, m: t.count("広告") >= 2)
 chk("誕生日プレゼント4枠", lambda s, t, m: s.count('class="fh-b27-gift"') == 4)
-chk("プレゼントとお守りリストで同じ商品が無い", lambda s, t, m: not (set(re.findall(r'class="fh-b27-gift"><small>[^<]*</small><b>([^<]+)', s)) & set(re.findall(r'<div class="who"><small>.*?</small><b>([^<]+)</b>', s[s.find('id="b27-omamori"'):s.find('id="b27-gift"')]))))
+chk("プレゼントとお守りリストで同じ商品が無い", lambda s, t, m: not (set(re.findall(r'class="fh-b27-gift"><small>[^<]*</small><b>([^<]+)', s)) & set(re.findall(r'<div class="fh-b27-who"><small>.*?</small><b>([^<]+)</b>', s[s.find('id="b27-omamori"'):s.find('id="b27-gift"')]))))
 chk("電話占いの案内が1か所", lambda s, t, m: len(re.findall(r"data-aff=\"\[電話占い", s)) == 1)
 # 5. サイト内の行き来
 for path in ("/kokoro/", "/compatibility/", "/enmusubi/pair/", "/mbti-compatibility/", "/animal-color/", "/kaiun/", "/dream/", "/mbti/", "/seinengappi/"):
