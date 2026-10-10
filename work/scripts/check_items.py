@@ -25,7 +25,7 @@ for name in ["誕生石（月）", "誕生色", "誕生日石", "誕生花", "�
         few = [k for k in keys if per[k] < 2 and k != "0229"]
         note = f"1日あたり {min(per.values())}〜{max(per.values())} 件／2件未満の日 {len(few)}（{' '.join(few[:15])}）"
     if name == "誕生花":
-        note = "PDF（source/birthday/hanakotoba.pdf）待ち"
+        note = "日本花普及センターの一覧を2回読み比べて書き起こし（全日一致）"
     L.append(f"| {name} | {days} | {ok} | {len(its) - ok} | {note} |")
 titles = collections.Counter(i["値"] for k in keys for i in get(k, "記念日"))
 L.append(f"\n- 記念日の同じ題名が複数の日に：{[t for t, n in titles.items() if n > 1] or 'なし'}")

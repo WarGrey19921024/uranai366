@@ -49,6 +49,9 @@ def main():
     for f in sorted(glob.glob(os.path.join(DATA, "src_events_*.json"))):
         events.update(json.load(open(f, encoding="utf-8")))
 
+    flowers = {}
+    for row in csv.reader(open(os.path.join(DATA, "flower", "birth_flowers_366.tsv"), encoding="utf-8"), delimiter="\t"):
+        if row and row[0].isdigit(): flowers[row[0]] = (row[1], row[2])
     rows, out = [], {}
     # 誕生色：候ごとに、候の中の日の順番で6色を回す
     color_of = {}
@@ -102,7 +105,9 @@ def main():
             st, why = stone_of[k]
             items.append(["誕生日石", st["name"], f"{'・'.join(why)}。{st['meaning']}",
                           OWN_STONE + ("・販売例：" + st["sold_url"] if st.get("sold_url") else ""), bool(st.get("sold_checked"))])
-        items.append(["誕生花", "", "日本花普及センターの一覧PDF待ち", "一般財団法人日本花普及センター「誕生花」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf）", False])
+        fl = flowers.get(k)
+        items.append(["誕生花", fl[0] if fl else "", f"花ことば：{fl[1]}" if fl else "",
+                      "一般財団法人日本花普及センター「誕生花・花ことば366」（長野県 https://www.pref.nagano.lg.jp/enchiku/sangyo/nogyo/engei-suisan/kaki/documents/hanakotoba.pdf・source/birthday/hanakotoba.pdf を2回読み比べて書き起こし）", bool(fl)])
         for e in events.get(k, []):
             items.append([f"記念日・できごと（{e['kind']}）", e["title"], (f"{e['year']}年。" if e.get("year") else "") + e["text"], e.get("source_url") or "", bool(e.get("confirmed"))])
         out[k] = [dict(zip(["項目", "値", "補足", "出典", "確認済み"], it)) for it in items]
