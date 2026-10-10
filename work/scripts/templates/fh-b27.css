@@ -296,3 +296,6 @@
   .fh-b27 .fh-b27-sg-form select#fh-b27-sg-y{min-width:0;width:100%}
   .fh-b27-sg-form label.fh-b27-sg-yl{flex:1 1 100%}
 }
+
+/* 2026-10-11 本番で Diver の行間（2.5）が効いて間延びするため、手帳の中は2に固定 */
+.fh-b27-note{line-height:2}.fh-b27-note p,.fh-b27-note li,.fh-b27-note dd,.fh-b27-note dt{line-height:inherit}
