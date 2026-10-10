@@ -1,0 +1,1776 @@
+{
+ "note": "誕生日石の候補カタログ（当サイト独自の選び方用）。誕生石29石は全国宝石卸商協同組合2021年改定（work/knowledge/10_誕生日もの.md）。天体対応は西洋の伝統・クリスタル解説サイト・ナヴァラトナ（インド占星術の9宝石）など出典ごとに違うため、planet_sources に天体ごとの出典URLを記録（いずれも WebSearch の検索結果要約で確認。原文は未確認）。meaning は言い伝えの要約（自分の言葉）。sold_checked=false の石は、検索回数の上限（1回の作業で200回）に達したため販売ページを確認できていない。投入前に販売確認が必要。調査日 2026-10-10。",
+ "stones": [
+  {
+   "name": "ガーネット",
+   "aka": [
+    "柘榴石"
+   ],
+   "color_family": [
+    "赤"
+   ],
+   "color_hex": "#8B1A1A",
+   "birth_month": [
+    1
+   ],
+   "planets": [
+    "火星",
+    "冥王星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection",
+   "planet_sources": {
+    "火星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection",
+    "冥王星": "https://mysticryst.com/blogs/the-mystic-journal/scorpio-planetary-magic-invoking-pluto"
+   },
+   "meaning": "実りの象徴とされ、旅人が身を守るお守りにしたと伝わる。変わらぬ友情や努力を支える石と言われる。",
+   "sold_url": "https://store.karatz.jp/en/products/12560127",
+   "sold_checked": true,
+   "notes": "火星との対応は検索結果の要約で確認（原文未確認）"
+  },
+  {
+   "name": "アメシスト",
+   "aka": [
+    "紫水晶",
+    "アメジスト"
+   ],
+   "color_family": [
+    "紫"
+   ],
+   "color_hex": "#7B4FA0",
+   "birth_month": [
+    2
+   ],
+   "planets": [
+    "木星",
+    "海王星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection",
+   "planet_sources": {
+    "木星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection",
+    "海王星": "https://skyjems.ca/pages/encyclopedia-neptune-stone"
+   },
+   "meaning": "古代ギリシャでは酔いから守る石とされた。心を静め、誠実な愛を守る石と言い伝えられる。",
+   "sold_url": "https://item.rakuten.co.jp/powerstone-lulu/c/0000000239/",
+   "sold_checked": true,
+   "notes": ""
+  },
+  {
+   "name": "クリソベリル・キャッツアイ",
+   "aka": [
+    "キャッツアイ",
+    "猫目石"
+   ],
+   "color_family": [
+    "黄",
+    "緑"
+   ],
+   "color_hex": "#B5A642",
+   "birth_month": [
+    2
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "光の筋が猫の目のように動くことから、魔よけや見通しのよさをもたらす石とされてきた。",
+   "sold_url": "https://store.karatz.jp/en/collections/chrysoberyl?page=1",
+   "sold_checked": true,
+   "notes": "カラッツの一覧で掲載を確認。検索時点では売り切れ表示が多い"
+  },
+  {
+   "name": "アクアマリン",
+   "aka": [
+    "藍玉"
+   ],
+   "color_family": [
+    "青"
+   ],
+   "color_hex": "#7FC8D8",
+   "birth_month": [
+    3
+   ],
+   "planets": [
+    "海王星",
+    "天王星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet",
+   "planet_sources": {
+    "海王星": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet",
+    "天王星": "https://en.pinkoi.com/product/uDLJx27X"
+   },
+   "meaning": "海の水の名を持ち、船乗りが航海の無事を祈った石と伝わる。穏やかな心と幸せな結婚の象徴とされる。",
+   "sold_url": "https://wowma.jp/item/319959950",
+   "sold_checked": true,
+   "notes": ""
+  },
+  {
+   "name": "サンゴ",
+   "aka": [
+    "珊瑚",
+    "コーラル"
+   ],
+   "color_family": [
+    "赤",
+    "桃"
+   ],
+   "color_hex": "#D9534F",
+   "birth_month": [
+    3
+   ],
+   "planets": [
+    "火星"
+   ],
+   "planet_source": "https://azeera.com/blog/the-9-navaratna-gemstones-origins-meaning-modern-appeal",
+   "planet_sources": {
+    "火星": "https://azeera.com/blog/the-9-navaratna-gemstones-origins-meaning-modern-appeal"
+   },
+   "meaning": "海から生まれる宝石で、日本でも古くから魔よけや子どもの守りとされてきた。長寿の象徴とも言われる。",
+   "sold_url": "https://item.rakuten.co.jp/takumikougei/cne0311/",
+   "sold_checked": true,
+   "notes": "生物由来。ナヴァラトナで火星の石"
+  },
+  {
+   "name": "ブラッドストーン",
+   "aka": [
+    "血石",
+    "ヘリオトロープ"
+   ],
+   "color_family": [
+    "緑"
+   ],
+   "color_hex": "#2F5233",
+   "birth_month": [
+    3
+   ],
+   "planets": [
+    "火星"
+   ],
+   "planet_source": "https://skyjems.ca/pages/encyclopedia-mars-stone-western-planetary",
+   "planet_sources": {
+    "火星": "https://skyjems.ca/pages/encyclopedia-mars-stone-western-planetary"
+   },
+   "meaning": "緑の地に赤い斑点が入り、勇気と粘り強さを与える石として兵士が身につけたと伝わる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "アイオライト",
+   "aka": [
+    "菫青石",
+    "ウォーターサファイア"
+   ],
+   "color_family": [
+    "藍"
+   ],
+   "color_hex": "#4B5BA6",
+   "birth_month": [
+    3
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "見る向きで色が変わり、ヴァイキングが航海で方角を知るのに使ったという言い伝えがある。道しるべの石とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ダイヤモンド",
+   "aka": [
+    "金剛石"
+   ],
+   "color_family": [
+    "透明"
+   ],
+   "color_hex": "#EAF2F8",
+   "birth_month": [
+    4
+   ],
+   "planets": [
+    "金星"
+   ],
+   "planet_source": "https://azeera.com/blog/the-9-navaratna-gemstones-origins-meaning-modern-appeal",
+   "planet_sources": {
+    "金星": "https://azeera.com/blog/the-9-navaratna-gemstones-origins-meaning-modern-appeal"
+   },
+   "meaning": "『征服できない』という意味の名を持ち、永遠の絆や揺るがない意志の象徴とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。ナヴァラトナで金星の石"
+  },
+  {
+   "name": "モルガナイト",
+   "aka": [
+    "ピンク・ベリル"
+   ],
+   "color_family": [
+    "桃"
+   ],
+   "color_hex": "#F2B8B0",
+   "birth_month": [
+    4
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "やわらかな桃色から、優しさや思いやり、愛情を育てる石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "エメラルド",
+   "aka": [
+    "翠玉",
+    "緑玉"
+   ],
+   "color_family": [
+    "緑"
+   ],
+   "color_hex": "#1E8C5A",
+   "birth_month": [
+    5
+   ],
+   "planets": [
+    "水星",
+    "金星"
+   ],
+   "planet_source": "https://skyjems.ca/pages/encyclopedia-mercury-stone-western-planetary",
+   "planet_sources": {
+    "水星": "https://skyjems.ca/pages/encyclopedia-mercury-stone-western-planetary",
+    "金星": "https://kerykeion.net/content/learn-crystals/introduction"
+   },
+   "meaning": "若葉のような緑から再生と希望の象徴とされ、クレオパトラが愛した石と伝わる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。ナヴァラトナでも水星"
+  },
+  {
+   "name": "ヒスイ",
+   "aka": [
+    "翡翠",
+    "ジェダイト"
+   ],
+   "color_family": [
+    "緑"
+   ],
+   "color_hex": "#4E9A6B",
+   "birth_month": [
+    5
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "日本では縄文時代から勾玉などに使われ、東洋で徳と長寿の象徴とされてきた。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "真珠",
+   "aka": [
+    "パール"
+   ],
+   "color_family": [
+    "白"
+   ],
+   "color_hex": "#F4EFE6",
+   "birth_month": [
+    6
+   ],
+   "planets": [
+    "月"
+   ],
+   "planet_source": "https://azeera.com/blog/the-9-navaratna-gemstones-origins-meaning-modern-appeal",
+   "planet_sources": {
+    "月": "https://azeera.com/blog/the-9-navaratna-gemstones-origins-meaning-modern-appeal"
+   },
+   "meaning": "貝の中で育つ宝石で、月のしずくにたとえられた。純粋さや円満さの象徴とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。生物由来"
+  },
+  {
+   "name": "ムーンストーン",
+   "aka": [
+    "月長石"
+   ],
+   "color_family": [
+    "白"
+   ],
+   "color_hex": "#DDE3EC",
+   "birth_month": [
+    6
+   ],
+   "planets": [
+    "月",
+    "海王星"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "月": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+    "海王星": "https://skyjems.ca/pages/encyclopedia-neptune-stone"
+   },
+   "meaning": "内側に浮かぶ青白い光が月を思わせ、恋人たちの石や旅のお守りとされてきた。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "アレキサンドライト",
+   "aka": [
+    "金緑石の変種"
+   ],
+   "color_family": [
+    "緑",
+    "紫",
+    "多色"
+   ],
+   "color_hex": "#2E7D6B",
+   "birth_month": [
+    6
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "昼は緑、灯りの下では赤紫に見え、『昼のエメラルド、夜のルビー』と呼ばれる。二面性の調和を表すとされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ルビー",
+   "aka": [
+    "紅玉"
+   ],
+   "color_family": [
+    "赤"
+   ],
+   "color_hex": "#B0103A",
+   "birth_month": [
+    7
+   ],
+   "planets": [
+    "太陽"
+   ],
+   "planet_source": "https://azeera.com/blog/the-9-navaratna-gemstones-origins-meaning-modern-appeal",
+   "planet_sources": {
+    "太陽": "https://azeera.com/blog/the-9-navaratna-gemstones-origins-meaning-modern-appeal"
+   },
+   "meaning": "燃えるような赤から情熱と勇気の象徴とされ、インドでは『宝石の王』と呼ばれた。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。ナヴァラトナで太陽"
+  },
+  {
+   "name": "スフェーン",
+   "aka": [
+    "チタナイト",
+    "くさび石"
+   ],
+   "color_family": [
+    "黄",
+    "緑"
+   ],
+   "color_hex": "#B8C24A",
+   "birth_month": [
+    7
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "ダイヤモンドを上回る七色のきらめきを持ち、ひらめきや知恵を引き出す石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "サードオニックス",
+   "aka": [
+    "紅縞瑪瑙",
+    "サードニックス"
+   ],
+   "color_family": [
+    "茶",
+    "赤"
+   ],
+   "color_hex": "#8A3B22",
+   "birth_month": [
+    8
+   ],
+   "planets": [
+    "火星"
+   ],
+   "planet_source": "https://skyjems.ca/pages/encyclopedia-mars-stone-western-planetary",
+   "planet_sources": {
+    "火星": "https://skyjems.ca/pages/encyclopedia-mars-stone-western-planetary"
+   },
+   "meaning": "赤茶と白の縞模様が重なり、夫婦の幸せや家庭円満を守る石と伝わる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。skyjemsの火星の石『サード』に当たる"
+  },
+  {
+   "name": "ペリドット",
+   "aka": [
+    "橄欖石"
+   ],
+   "color_family": [
+    "緑"
+   ],
+   "color_hex": "#9ACD32",
+   "birth_month": [
+    8
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "『太陽の石』と呼ばれ、夜の不安を払い明るさをもたらすと言い伝えられる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "スピネル",
+   "aka": [
+    "尖晶石"
+   ],
+   "color_family": [
+    "赤",
+    "桃"
+   ],
+   "color_hex": "#C2185B",
+   "birth_month": [
+    8
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "長くルビーと間違われてきた石で、内に秘めた力を表に出す後押しをすると言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "サファイア",
+   "aka": [
+    "青玉"
+   ],
+   "color_family": [
+    "青"
+   ],
+   "color_hex": "#1F3F8F",
+   "birth_month": [
+    9
+   ],
+   "planets": [
+    "土星",
+    "木星"
+   ],
+   "planet_source": "https://vijayajyoti.com/gemstones/",
+   "planet_sources": {
+    "土星": "https://vijayajyoti.com/gemstones/",
+    "木星": "https://vijayajyoti.com/gemstones/"
+   },
+   "meaning": "天の青を映す石とされ、誠実さと慈愛の象徴。中世の聖職者が身につけたと伝わる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。ナヴァラトナで青は土星、黄は木星"
+  },
+  {
+   "name": "クンツァイト",
+   "aka": [
+    "リシア輝石"
+   ],
+   "color_family": [
+    "桃",
+    "紫"
+   ],
+   "color_hex": "#D7A9D8",
+   "birth_month": [
+    9
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "20世紀初めに名づけられた淡い桃紫色の石で、無償の愛や穏やかな心を表すとされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "オパール",
+   "aka": [
+    "蛋白石"
+   ],
+   "color_family": [
+    "多色",
+    "白"
+   ],
+   "color_hex": "#E8E4F0",
+   "birth_month": [
+    10
+   ],
+   "planets": [
+    "水星"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "水星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
+   },
+   "meaning": "虹のような遊色を持ち、ローマではあらゆる宝石の美しさを併せ持つ石とたたえられた。希望の石とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "トルマリン",
+   "aka": [
+    "電気石"
+   ],
+   "color_family": [
+    "多色",
+    "桃",
+    "緑"
+   ],
+   "color_hex": "#D06A8F",
+   "birth_month": [
+    10
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "温めると電気を帯びる性質があり、色の豊かさから才能や個性を引き出す石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "トパーズ",
+   "aka": [
+    "黄玉"
+   ],
+   "color_family": [
+    "黄",
+    "橙"
+   ],
+   "color_hex": "#E8A33D",
+   "birth_month": [
+    11
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "名は『探し求める』の意とも言われ、希望や友情、誠実さの象徴とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "シトリン",
+   "aka": [
+    "黄水晶"
+   ],
+   "color_family": [
+    "黄"
+   ],
+   "color_hex": "#E4B526",
+   "birth_month": [
+    11
+   ],
+   "planets": [
+    "太陽"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "太陽": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
+   },
+   "meaning": "太陽のような黄色から、明るさや豊かさを招く『商人の石』と呼ばれることがある。",
+   "sold_url": "https://www.creema.jp/item/16248173/detail",
+   "sold_checked": true,
+   "notes": "販売確認は4種の石を組み合わせたブレスレット（Creema）"
+  },
+  {
+   "name": "ターコイズ",
+   "aka": [
+    "トルコ石"
+   ],
+   "color_family": [
+    "青"
+   ],
+   "color_hex": "#3FB5AD",
+   "birth_month": [
+    12
+   ],
+   "planets": [
+    "木星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection",
+   "planet_sources": {
+    "木星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
+   },
+   "meaning": "世界で最も古くから使われた宝石の一つで、旅の安全や身を守るお守りとされてきた。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ラピスラズリ",
+   "aka": [
+    "瑠璃"
+   ],
+   "color_family": [
+    "藍"
+   ],
+   "color_hex": "#26489C",
+   "birth_month": [
+    12
+   ],
+   "planets": [
+    "木星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection",
+   "planet_sources": {
+    "木星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
+   },
+   "meaning": "古代エジプトで聖なる石とされ、日本でも仏教の七宝の一つ『瑠璃』として尊ばれた。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "タンザナイト",
+   "aka": [
+    "ゆうれん石"
+   ],
+   "color_family": [
+    "藍",
+    "紫"
+   ],
+   "color_hex": "#4B3F9E",
+   "birth_month": [
+    12
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "1960年代に見つかった新しい宝石で、夕暮れの空の色から、冷静さと決断を表す石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ジルコン",
+   "aka": [
+    "風信子石"
+   ],
+   "color_family": [
+    "透明",
+    "青"
+   ],
+   "color_hex": "#8FD3E8",
+   "birth_month": [
+    12
+   ],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "地球最古級の鉱物として知られ、強い輝きから安らぎと知恵をもたらす石と伝わる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "サンストーン",
+   "aka": [
+    "日長石"
+   ],
+   "color_family": [
+    "橙"
+   ],
+   "color_hex": "#E07B39",
+   "birth_month": [],
+   "planets": [
+    "太陽"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "太陽": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
+   },
+   "meaning": "太陽のきらめきを閉じ込めたような石で、前向きな気持ちや自信を呼ぶと言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "琥珀",
+   "aka": [
+    "アンバー"
+   ],
+   "color_family": [
+    "橙",
+    "茶"
+   ],
+   "color_hex": "#D98E04",
+   "birth_month": [],
+   "planets": [
+    "太陽"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "太陽": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
+   },
+   "meaning": "太古の樹脂が固まったもので、太陽のかけらとたとえられ、長寿や繁栄の象徴とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。鉱物ではなく化石樹脂"
+  },
+  {
+   "name": "タイガーアイ",
+   "aka": [
+    "虎目石"
+   ],
+   "color_family": [
+    "茶",
+    "黄"
+   ],
+   "color_hex": "#B5651D",
+   "birth_month": [],
+   "planets": [
+    "太陽",
+    "木星"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "太陽": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+    "木星": "https://store.museumsvictoria.com.au/products/planetary-gemstones"
+   },
+   "meaning": "虎の目のような光の筋から、物事を見通す力と決断力を授ける石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "セレナイト",
+   "aka": [
+    "透石膏"
+   ],
+   "color_family": [
+    "白"
+   ],
+   "color_hex": "#F2F2F0",
+   "birth_month": [],
+   "planets": [
+    "月"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/introduction",
+   "planet_sources": {
+    "月": "https://kerykeion.net/content/learn-crystals/introduction"
+   },
+   "meaning": "月の女神セレネにちなむ名を持ち、心を澄ませ落ち着かせる石とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。水に弱い"
+  },
+  {
+   "name": "水晶",
+   "aka": [
+    "クォーツ",
+    "クリスタル"
+   ],
+   "color_family": [
+    "透明"
+   ],
+   "color_hex": "#F0F4F8",
+   "birth_month": [],
+   "planets": [
+    "月",
+    "金星",
+    "天王星"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "月": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+    "金星": "https://store.museumsvictoria.com.au/products/planetary-gemstones",
+    "天王星": "https://en.pinkoi.com/product/uDLJx27X"
+   },
+   "meaning": "古くから世界中で神聖視され、他の石の力を高め、心身を清めるとされてきた。",
+   "sold_url": "https://www.creema.jp/item/16248173/detail",
+   "sold_checked": true,
+   "notes": "販売確認は4種の石を組み合わせたブレスレット（Creema）。天王星はPinkoiの組み合わせ商品の記載、Crystals.comのみずがめ座ページも参照"
+  },
+  {
+   "name": "ローズクォーツ",
+   "aka": [
+    "紅石英"
+   ],
+   "color_family": [
+    "桃"
+   ],
+   "color_hex": "#F4C2C2",
+   "birth_month": [],
+   "planets": [
+    "金星"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "金星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
+   },
+   "meaning": "愛と美の女神にゆかりがあるとされ、恋愛や自分を大切にする心を育てる石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ロードナイト",
+   "aka": [
+    "バラ輝石"
+   ],
+   "color_family": [
+    "桃"
+   ],
+   "color_hex": "#C9546B",
+   "birth_month": [],
+   "planets": [
+    "金星"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "金星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
+   },
+   "meaning": "ばら色に黒い模様が入り、人との縁を穏やかに結び直す石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "マラカイト",
+   "aka": [
+    "孔雀石"
+   ],
+   "color_family": [
+    "緑"
+   ],
+   "color_hex": "#1B7F5B",
+   "birth_month": [],
+   "planets": [
+    "冥王星",
+    "金星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet",
+   "planet_sources": {
+    "冥王星": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet",
+    "金星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
+   },
+   "meaning": "孔雀の羽のような縞を持ち、古代エジプトでは魔よけとして身につけたと伝わる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。金星は『銅を含む鉱物』としての対応"
+  },
+  {
+   "name": "カーネリアン",
+   "aka": [
+    "紅玉髄"
+   ],
+   "color_family": [
+    "橙",
+    "赤"
+   ],
+   "color_hex": "#C1440E",
+   "birth_month": [],
+   "planets": [
+    "火星",
+    "水星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/crystals/carnelian",
+   "planet_sources": {
+    "火星": "https://kerykeion.net/content/learn-crystals/crystals/carnelian",
+    "水星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
+   },
+   "meaning": "古代エジプトで勇気の石とされ、行動する力や意欲を高めると言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "マホガニーオブシディアン",
+   "aka": [
+    "マホガニー黒曜石"
+   ],
+   "color_family": [
+    "茶",
+    "黒"
+   ],
+   "color_hex": "#6B2E1F",
+   "birth_month": [],
+   "planets": [
+    "火星"
+   ],
+   "planet_source": "https://store.museumsvictoria.com.au/products/planetary-gemstones",
+   "planet_sources": {
+    "火星": "https://store.museumsvictoria.com.au/products/planetary-gemstones"
+   },
+   "meaning": "黒と赤茶がまじる黒曜石で、地に足をつけ、内なる強さを支える石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "アゲート",
+   "aka": [
+    "瑪瑙"
+   ],
+   "color_family": [
+    "灰",
+    "多色"
+   ],
+   "color_hex": "#A39E93",
+   "birth_month": [],
+   "planets": [
+    "水星"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "水星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
+   },
+   "meaning": "縞模様の美しい石で、古代から護符に使われ、心身の調和を保つ石とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "フローライト",
+   "aka": [
+    "蛍石"
+   ],
+   "color_family": [
+    "緑",
+    "紫"
+   ],
+   "color_hex": "#7FB8A4",
+   "birth_month": [],
+   "planets": [
+    "水星",
+    "天王星"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "水星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+    "天王星": "https://www.crystals.com/collections/aquarius?page=3"
+   },
+   "meaning": "『天才の石』とも呼ばれ、考えを整理し、集中を助ける石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。天王星はみずがめ座（支配星＝天王星）向けとしての記載"
+  },
+  {
+   "name": "アベンチュリン",
+   "aka": [
+    "インド翡翠"
+   ],
+   "color_family": [
+    "緑"
+   ],
+   "color_hex": "#4C9A6A",
+   "birth_month": [],
+   "planets": [
+    "水星"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "水星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
+   },
+   "meaning": "きらめく緑から『幸運の石』と呼ばれ、穏やかさとチャンスを招くと言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ソーダライト",
+   "aka": [
+    "方ソーダ石"
+   ],
+   "color_family": [
+    "藍"
+   ],
+   "color_hex": "#2B4C8C",
+   "birth_month": [],
+   "planets": [
+    "水星"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences",
+   "planet_sources": {
+    "水星": "https://mysticryst.com/blogs/the-mystic-journal/crystals-for-planetary-magic-gemstone-correspondences"
+   },
+   "meaning": "深い青に白い筋が入り、理性的に考え、思いを言葉にするのを助ける石とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ラブラドライト",
+   "aka": [
+    "曹灰長石"
+   ],
+   "color_family": [
+    "灰",
+    "多色"
+   ],
+   "color_hex": "#5E6E7A",
+   "birth_month": [],
+   "planets": [
+    "天王星",
+    "水星"
+   ],
+   "planet_source": "https://www.crystals.com/pages/crystals/labradorite",
+   "planet_sources": {
+    "天王星": "https://www.crystals.com/pages/crystals/labradorite",
+    "水星": "https://store.museumsvictoria.com.au/products/planetary-gemstones"
+   },
+   "meaning": "角度で青や金に光り、カナダの先住民にはオーロラが閉じ込められた石と伝わる。直感の石とされる。",
+   "sold_url": "https://www.creema.jp/item/16248173/detail",
+   "sold_checked": true,
+   "notes": "販売確認は4種の石を組み合わせたブレスレット（Creema）"
+  },
+  {
+   "name": "アマゾナイト",
+   "aka": [
+    "天河石"
+   ],
+   "color_family": [
+    "緑",
+    "青"
+   ],
+   "color_hex": "#3FB0A0",
+   "birth_month": [],
+   "planets": [
+    "天王星"
+   ],
+   "planet_source": "https://store.museumsvictoria.com.au/products/planetary-gemstones",
+   "planet_sources": {
+    "天王星": "https://store.museumsvictoria.com.au/products/planetary-gemstones"
+   },
+   "meaning": "アマゾン川にちなむ名を持ち、希望と自由な発想をもたらす石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ホークスアイ",
+   "aka": [
+    "ブルータイガーアイ",
+    "鷹目石"
+   ],
+   "color_family": [
+    "藍"
+   ],
+   "color_hex": "#2F4A6D",
+   "birth_month": [],
+   "planets": [
+    "天王星"
+   ],
+   "planet_source": "https://en.pinkoi.com/product/uDLJx27X",
+   "planet_sources": {
+    "天王星": "https://en.pinkoi.com/product/uDLJx27X"
+   },
+   "meaning": "鷹の目のように広く遠くを見渡す力を授け、冷静な判断を助ける石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "アパタイト",
+   "aka": [
+    "燐灰石"
+   ],
+   "color_family": [
+    "青"
+   ],
+   "color_hex": "#2EA3C1",
+   "birth_month": [],
+   "planets": [
+    "天王星"
+   ],
+   "planet_source": "https://en.pinkoi.com/product/uDLJx27X",
+   "planet_sources": {
+    "天王星": "https://en.pinkoi.com/product/uDLJx27X"
+   },
+   "meaning": "ほかの鉱物と間違われやすいことから『惑わす』の意の名を持ち、目標へ向かう意欲を高める石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "セレスタイト",
+   "aka": [
+    "天青石"
+   ],
+   "color_family": [
+    "青"
+   ],
+   "color_hex": "#A9C8E8",
+   "birth_month": [],
+   "planets": [
+    "海王星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet",
+   "planet_sources": {
+    "海王星": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet"
+   },
+   "meaning": "『天空』を意味する名を持ち、空色の結晶が心を穏やかにし、安らぎを与えると言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ラリマー",
+   "aka": [
+    "ブルー・ペクトライト"
+   ],
+   "color_family": [
+    "青"
+   ],
+   "color_hex": "#7CC4D6",
+   "birth_month": [],
+   "planets": [
+    "海王星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet",
+   "planet_sources": {
+    "海王星": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet"
+   },
+   "meaning": "カリブ海のドミニカで見つかった石で、海と空の色から『愛と平和の石』と呼ばれる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "オブシディアン",
+   "aka": [
+    "黒曜石"
+   ],
+   "color_family": [
+    "黒"
+   ],
+   "color_hex": "#1C1C1C",
+   "birth_month": [],
+   "planets": [
+    "冥王星",
+    "土星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet",
+   "planet_sources": {
+    "冥王星": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet",
+    "土星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
+   },
+   "meaning": "火山から生まれた天然ガラスで、古くは鏡や刃物に使われ、魔よけの石とされてきた。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ジェット",
+   "aka": [
+    "黒玉"
+   ],
+   "color_family": [
+    "黒"
+   ],
+   "color_hex": "#2A2A2A",
+   "birth_month": [],
+   "planets": [
+    "土星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/introduction",
+   "planet_sources": {
+    "土星": "https://kerykeion.net/content/learn-crystals/introduction"
+   },
+   "meaning": "太古の木が化石になった黒い宝石で、ヴィクトリア朝には喪の装身具として愛された。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。化石化した木"
+  },
+  {
+   "name": "ヘマタイト",
+   "aka": [
+    "赤鉄鉱"
+   ],
+   "color_family": [
+    "灰",
+    "黒"
+   ],
+   "color_hex": "#4A4A4F",
+   "birth_month": [],
+   "planets": [
+    "土星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection",
+   "planet_sources": {
+    "土星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
+   },
+   "meaning": "粉にすると赤くなる鉄の鉱物で、古代の戦士が身を守るお守りにしたと伝わる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "オニキス",
+   "aka": [
+    "黒瑪瑙"
+   ],
+   "color_family": [
+    "黒"
+   ],
+   "color_hex": "#121212",
+   "birth_month": [],
+   "planets": [
+    "土星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection",
+   "planet_sources": {
+    "土星": "https://kerykeion.net/content/learn-crystals/guides/crystals-and-astrology-connection"
+   },
+   "meaning": "深い黒から、悪いものを退け、意志を固める石として古くから用いられた。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "イエローカルサイト",
+   "aka": [
+    "黄色方解石"
+   ],
+   "color_family": [
+    "黄"
+   ],
+   "color_hex": "#E8C547",
+   "birth_month": [],
+   "planets": [
+    "土星"
+   ],
+   "planet_source": "https://store.museumsvictoria.com.au/products/planetary-gemstones",
+   "planet_sources": {
+    "土星": "https://store.museumsvictoria.com.au/products/planetary-gemstones"
+   },
+   "meaning": "明るい黄色から、気持ちを前向きにし、学ぶ意欲を高める石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "スモーキークォーツ",
+   "aka": [
+    "煙水晶",
+    "茶水晶"
+   ],
+   "color_family": [
+    "茶",
+    "灰"
+   ],
+   "color_hex": "#6E5A4B",
+   "birth_month": [],
+   "planets": [
+    "冥王星"
+   ],
+   "planet_source": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet",
+   "planet_sources": {
+    "冥王星": "https://kerykeion.net/content/learn-crystals/astrology/crystals-by-planet"
+   },
+   "meaning": "煙のような茶色の水晶で、心を落ち着かせ、地に足をつける石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ブラックトルマリン",
+   "aka": [
+    "ショール"
+   ],
+   "color_family": [
+    "黒"
+   ],
+   "color_hex": "#202020",
+   "birth_month": [],
+   "planets": [
+    "冥王星"
+   ],
+   "planet_source": "https://mysticryst.com/blogs/the-mystic-journal/scorpio-planetary-magic-invoking-pluto",
+   "planet_sources": {
+    "冥王星": "https://mysticryst.com/blogs/the-mystic-journal/scorpio-planetary-magic-invoking-pluto"
+   },
+   "meaning": "身を守る石の代表とされ、余計なものを退けて気持ちを整えると言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ポピージャスパー",
+   "aka": [
+    "ポピー碧玉"
+   ],
+   "color_family": [
+    "赤",
+    "多色"
+   ],
+   "color_hex": "#B5432F",
+   "birth_month": [],
+   "planets": [
+    "冥王星"
+   ],
+   "planet_source": "https://store.museumsvictoria.com.au/products/planetary-gemstones",
+   "planet_sources": {
+    "冥王星": "https://store.museumsvictoria.com.au/products/planetary-gemstones"
+   },
+   "meaning": "ケシの花のような模様を持つ碧玉で、明るい活力と遊び心を呼ぶ石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "レッドジャスパー",
+   "aka": [
+    "赤碧玉"
+   ],
+   "color_family": [
+    "赤"
+   ],
+   "color_hex": "#9E2B25",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "古くから護符に使われた赤い碧玉で、根気強さと安定をもたらす石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "インカローズ",
+   "aka": [
+    "ロードクロサイト",
+    "菱マンガン鉱"
+   ],
+   "color_family": [
+    "桃"
+   ],
+   "color_hex": "#E07A8F",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "アンデスで産出し、インカの人々に愛されたと伝わる。情熱的な愛と自分を好きになる心の石とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ブルーレースアゲート",
+   "aka": [
+    "空色縞瑪瑙"
+   ],
+   "color_family": [
+    "青"
+   ],
+   "color_hex": "#9DBEDD",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "レースのような淡い縞を持ち、言葉をやわらげ、穏やかな対話を助ける石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "クリソプレーズ",
+   "aka": [
+    "緑玉髄"
+   ],
+   "color_family": [
+    "緑"
+   ],
+   "color_hex": "#6DC07E",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "青りんご色の玉髄で、アレクサンドロス大王が愛したと伝わる。希望を育てる石とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "プレナイト",
+   "aka": [
+    "葡萄石"
+   ],
+   "color_family": [
+    "緑"
+   ],
+   "color_hex": "#B5D58F",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "ぶどうの房のような姿から、穏やかな心で未来を見通す『予言の石』と呼ばれることがある。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ルチルクォーツ",
+   "aka": [
+    "針入り水晶"
+   ],
+   "color_family": [
+    "黄",
+    "透明"
+   ],
+   "color_hex": "#E6CC80",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "水晶の中に金色の針が走り、ひらめきや豊かさを呼び込む石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "チャロアイト",
+   "aka": [
+    "チャロ石"
+   ],
+   "color_family": [
+    "紫"
+   ],
+   "color_hex": "#7A4E8C",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "ロシアのチャロ川流域だけで採れる石で、心の迷いを晴らし、自分らしさを支える石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "スギライト",
+   "aka": [
+    "杉石"
+   ],
+   "color_family": [
+    "紫"
+   ],
+   "color_hex": "#6A2C70",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "日本の杉健一博士が発見した石で、癒やしと深い安らぎをもたらす石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "レピドライト",
+   "aka": [
+    "リチア雲母"
+   ],
+   "color_family": [
+    "紫",
+    "桃"
+   ],
+   "color_hex": "#B39BC8",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "うろこのようにきらめく雲母で、変化の時期に心を穏やかにする石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ハウライト",
+   "aka": [
+    "ハウ石"
+   ],
+   "color_family": [
+    "白"
+   ],
+   "color_hex": "#ECECE6",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "白地に灰色の網目模様が入り、高ぶった気持ちを静め、穏やかな眠りを助ける石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "オレンジカルサイト",
+   "aka": [
+    "橙色方解石"
+   ],
+   "color_family": [
+    "橙"
+   ],
+   "color_hex": "#F0954A",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "明るい橙色から、元気と創造する喜びを呼び覚ます石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "クリソコラ",
+   "aka": [
+    "珪孔雀石"
+   ],
+   "color_family": [
+    "青",
+    "緑"
+   ],
+   "color_hex": "#3AA6A0",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "青と緑がまじり合う石で、女性らしいやさしさや穏やかな表現を助ける石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ユナカイト",
+   "aka": [
+    "ユナカ石"
+   ],
+   "color_family": [
+    "多色",
+    "桃",
+    "緑"
+   ],
+   "color_hex": "#9C8D6A",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "緑と桃色がまだらにまじり、心と体のバランスを整える石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "モスアゲート",
+   "aka": [
+    "苔瑪瑙"
+   ],
+   "color_family": [
+    "緑",
+    "透明"
+   ],
+   "color_hex": "#7A9A6B",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "苔のような模様を持ち、農夫が豊作を祈って身につけたと伝わる。成長と実りの石とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ブロンザイト",
+   "aka": [
+    "古銅輝石"
+   ],
+   "color_family": [
+    "茶"
+   ],
+   "color_hex": "#7A5A3A",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "青銅のような光沢を持ち、自信と落ち着きを与える石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ピーターサイト",
+   "aka": [
+    "ピーター石"
+   ],
+   "color_family": [
+    "藍",
+    "多色"
+   ],
+   "color_hex": "#3D4C6B",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "嵐のような模様を持つことから『テンペストストーン』と呼ばれ、変化を乗り越える力の石とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "シュンガイト",
+   "aka": [
+    "シュンガ石"
+   ],
+   "color_family": [
+    "黒"
+   ],
+   "color_hex": "#1A1A1A",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "ロシアのシュンガ村で採れる炭素の多い石で、場を清める石として知られる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "アズライト",
+   "aka": [
+    "藍銅鉱"
+   ],
+   "color_family": [
+    "藍"
+   ],
+   "color_hex": "#1E3A8A",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "深い藍色で古くは顔料に使われ、洞察力を高める『天の石』と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ダルメシアンジャスパー",
+   "aka": [
+    "ダルメシアンストーン"
+   ],
+   "color_family": [
+    "白",
+    "黒",
+    "灰"
+   ],
+   "color_hex": "#D9D2C5",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "ダルメシアン犬のような斑点を持ち、遊び心と明るさを呼ぶ石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "スノーフレークオブシディアン",
+   "aka": [
+    "雪片黒曜石"
+   ],
+   "color_family": [
+    "黒",
+    "白",
+    "灰"
+   ],
+   "color_hex": "#3A3A3A",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "黒地に雪の結晶のような白い模様が浮かび、困難の中に光を見つける石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "カルセドニー",
+   "aka": [
+    "玉髄"
+   ],
+   "color_family": [
+    "青",
+    "白"
+   ],
+   "color_hex": "#B9C9DA",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "やわらかな乳白色の青で、人と人とをつなぎ、言葉を穏やかにする石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ガーデンクォーツ",
+   "aka": [
+    "庭園水晶"
+   ],
+   "color_family": [
+    "多色",
+    "緑"
+   ],
+   "color_hex": "#8C9A6E",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "水晶の中に苔や庭のような景色が閉じ込められ、豊かさと繁栄を表す石とされる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  },
+  {
+   "name": "ハーキマーダイヤモンド",
+   "aka": [
+    "ハーキマー水晶"
+   ],
+   "color_family": [
+    "透明"
+   ],
+   "color_hex": "#F5F8FB",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "米国ハーキマー産の両端がとがった水晶で、夢や理想を後押しする石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）。ダイヤモンドではなく水晶"
+  },
+  {
+   "name": "ヘリオドール",
+   "aka": [
+    "ゴールデン・ベリル"
+   ],
+   "color_family": [
+    "黄"
+   ],
+   "color_hex": "#E9C46A",
+   "birth_month": [],
+   "planets": [],
+   "planet_source": "",
+   "planet_sources": {},
+   "meaning": "ギリシャ語で『太陽の贈り物』を意味し、明るさと希望をもたらす石と言われる。",
+   "sold_url": "",
+   "sold_checked": false,
+   "notes": "販売ページ未確認（検索回数の上限のため）"
+  }
+ ]
+}
