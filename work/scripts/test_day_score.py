@@ -55,8 +55,8 @@ def run(cases):
     with tempfile.TemporaryDirectory() as td:
         cp, hp = os.path.join(td, "c.json"), os.path.join(td, "h.js")
         json.dump(cases, open(cp, "w", encoding="utf-8"), ensure_ascii=False)
-        open(hp, "w").write(HARNESS)
-        r = subprocess.run([shutil.which("node"), hp, ASSETS, cp], capture_output=True, text=True, check=True)
+        open(hp, "w", encoding="utf-8").write(HARNESS)
+        r = subprocess.run([shutil.which("node"), hp, ASSETS, cp], capture_output=True, text=True, encoding="utf-8", check=True)
     return json.loads(r.stdout)
 
 

@@ -1,6 +1,9 @@
-"""共通：天文計算の土台（pyswisseph・暦ファイル不要のMoshier方式）。
+r"""共通：天文計算の土台（pyswisseph・暦ファイル不要のMoshier方式）。
 環境づくり（Debian系でpipのビルドが失敗する場合は仮想環境で）:
   python3 -m venv .venv && .venv/bin/pip install -U pip setuptools wheel && .venv/bin/pip install -r work/scripts/requirements.txt
+Windows（ローカル）:
+  python -m venv .venv && .venv\Scripts\python -m pip install -U pip setuptools wheel && .venv\Scripts\python -m pip install -r work\scripts\requirements.txt
+  実行は .venv\Scripts\python -X utf8 work\scripts\xxx.py（文字コードをUTF-8に）
 """
 import datetime as dt
 import swisseph as swe

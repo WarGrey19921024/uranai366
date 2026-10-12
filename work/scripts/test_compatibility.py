@@ -65,9 +65,9 @@ def main():
     tmp = tempfile.mkdtemp()
     try:
         hp, cp = os.path.join(tmp, "h.js"), os.path.join(tmp, "c.json")
-        open(hp, "w").write(HARNESS)
-        json.dump({"scores": sc_cases, "rel": rel_cases, "hon": hon_cases}, open(cp, "w"))
-        out = json.loads(subprocess.run([node, hp, ASSETS, cp], check=True, capture_output=True, text=True).stdout)
+        open(hp, "w", encoding="utf-8").write(HARNESS)
+        json.dump({"scores": sc_cases, "rel": rel_cases, "hon": hon_cases}, open(cp, "w", encoding="utf-8"))
+        out = json.loads(subprocess.run([node, hp, ASSETS, cp], check=True, capture_output=True, text=True, encoding="utf-8").stdout)
     finally:
         shutil.rmtree(tmp)
     bad = []

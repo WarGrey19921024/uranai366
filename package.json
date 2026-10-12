@@ -1,0 +1,8 @@
+{
+  "name": "uranai366",
+  "private": true,
+  "description": "画面確認用（work/scripts/screenshot_*.js）の部品。npm install → npx playwright install chromium",
+  "devDependencies": {
+    "playwright": "1.48.2"
+  }
+}

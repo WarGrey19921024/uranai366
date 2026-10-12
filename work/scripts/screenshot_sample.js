@@ -1,5 +1,6 @@
 // 確認用：work/out/sample/MMDD.html をスマホ幅（390px）とPC幅（1280px）で撮り、JSエラー・横はみ出しを調べる。
-// 使い方: NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node work/scripts/screenshot_sample.js 0101 [0229 ...]
+// 使い方（ローカル）: npm install 済みで node work/scripts/screenshot_sample.js 0101 [0229 ...]
+// 使い方（クラウド）: NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node work/scripts/screenshot_sample.js 0101 [0229 ...]
 // 生まれ年を選んだ状態（1990年、0229は1988年）でもう1枚撮り、生まれ年パネルとグラフが描けるかも確かめる。
 const path = require('path');
 const { chromium } = require('playwright');

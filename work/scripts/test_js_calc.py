@@ -118,9 +118,9 @@ def main():
     cs = cases()
     with tempfile.TemporaryDirectory() as td:
         cp, hp = os.path.join(td, "cases.json"), os.path.join(td, "h.js")
-        json.dump(cs, open(cp, "w"))
-        open(hp, "w").write(NODE_HARNESS)
-        res = subprocess.run([node, hp, ASSETS, cp], capture_output=True, text=True, check=True)
+        json.dump(cs, open(cp, "w", encoding="utf-8"))
+        open(hp, "w", encoding="utf-8").write(NODE_HARNESS)
+        res = subprocess.run([node, hp, ASSETS, cp], capture_output=True, text=True, encoding="utf-8", check=True)
     js = json.loads(res.stdout)
     fails = {}
     for (y, m, d), j in zip(cs, js):

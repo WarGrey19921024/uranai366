@@ -56,9 +56,9 @@ def check_signs(node):
     cs = sign_cases()
     with tempfile.TemporaryDirectory() as td:
         cp, hp = os.path.join(td, "c.json"), os.path.join(td, "h.js")
-        json.dump(cs, open(cp, "w"))
-        open(hp, "w").write(HARNESS)
-        js = json.loads(subprocess.run([node, hp, ASSETS, cp], capture_output=True, text=True, check=True).stdout)
+        json.dump(cs, open(cp, "w", encoding="utf-8"))
+        open(hp, "w", encoding="utf-8").write(HARNESS)
+        js = json.loads(subprocess.run([node, hp, ASSETS, cp], capture_output=True, text=True, encoding="utf-8", check=True).stdout)
     bad = [(c, py_sign(*c), j) for c, j in zip(cs, js) if j is None or j[0] != py_sign(*c)]
     print(f"星座：{len(cs)}件（1930〜2030年の切り替わりの日の前後すべて＋無作為500日）→ 不一致 {len(bad)}件", bad[:5])
     return not bad

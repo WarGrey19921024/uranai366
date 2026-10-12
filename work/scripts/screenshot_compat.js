@@ -1,6 +1,7 @@
 // 確認用：誕生日相性診断（work/out/sample/compatibility.html）を、1990年1月25日 × 1992年7月7日 を入れた状態で
 // スマホ幅（390px）とPC幅（1280px）で撮り、JSエラー・横はみ出しを調べる。
-// 使い方: NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node work/scripts/screenshot_compat.js
+// 使い方（ローカル）: npm install 済みで node work/scripts/screenshot_compat.js
+// 使い方（クラウド）: NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node work/scripts/screenshot_compat.js
 const path = require('path');
 const { chromium } = require('playwright');
 const SAMPLE = path.join(__dirname, '..', 'out', 'sample');

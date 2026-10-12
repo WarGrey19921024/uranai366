@@ -1,6 +1,7 @@
 // 確認用：一覧ページ（work/out/sample/hub.html）と生年月日まるごと診断（work/out/sample/seinengappi.html）を
 // スマホ幅（390px）とPC幅（1280px）で撮り、JSエラー・横はみ出しを調べる。まるごと診断は 1990年1月1日を入れた状態で撮る。
-// 使い方: NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node work/scripts/screenshot_hub.js [出力JSON]
+// 使い方（ローカル）: npm install 済みで node work/scripts/screenshot_hub.js [出力JSON]
+// 使い方（クラウド）: NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node work/scripts/screenshot_hub.js [出力JSON]
 // 出力JSON（省略時は書かない）：まるごと診断に何件かの生年月日を入れたときのカードの表示。test_seinengappi.py が Python の計算と突き合わせる。
 const fs = require('fs');
 const path = require('path');
