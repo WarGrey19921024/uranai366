@@ -77,7 +77,7 @@ CHECKS = []
 def chk(name, f): CHECKS.append((name, f))
 
 # 3. 現行ページから必ず引き継ぐもの
-chk("タイトル（【2027年】M月D日生まれの性格と相性｜…）", lambda s, t, m: re.search(rf"<title>【2027年】{m['month']}月{m['day']}日生まれの性格と相性｜誕生日占い・有名人・運勢", s))
+chk("タイトル（M月D日生まれの性格と相性｜星座・誕生花・有名人と2027年の運勢）", lambda s, t, m: re.search(rf"<title>{m['month']}月{m['day']}日生まれの性格と相性｜{m['sign']}・誕生花・有名人と2027年の運勢", s))
 chk("メタディスクリプション", lambda s, t, m: re.search(r'<meta name="description" content="[^"]{60,}', s))
 chk("誕生日カード（星座・干支・九星・守護石の概要）", lambda s, t, m: "誕生日カード" in t and m["sign"] in t and "丁未" in t and "九紫火星" in t)
 chk("性格・魂のメッセージ", lambda s, t, m: 'id="b27-nature"' in s and "魂のメッセージ" in t)

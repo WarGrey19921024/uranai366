@@ -484,7 +484,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     sc = e["scores"]
     warnings = []
 
-    title = f"【2027年】{md}生まれの性格と相性｜誕生日占い・有名人・運勢"
+    title = f"{md}生まれの性格と相性｜{sign}・誕生花・有名人と2027年の運勢"  # 2026-10-15 年の入らない検索向けに日付から始める（本人の決定）
     desc = (f"{md}生まれの性格と2027年の運勢。{sign}・七十二候「{e['kou']}」・誕生花の{flower['flower']}から読む本質と、"
             f"{Y['eto']}・{Y['star']}の年の月ごとの運勢、ラッキーカラー、相性の良い誕生日、同じ誕生日の有名人まで。")
 

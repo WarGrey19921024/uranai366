@@ -24,6 +24,7 @@
   ＋ 九星どうしの相性の表（knowledge/04_九星気学.md 3-3 をそのまま読む）
 読み込むJS（この順）: fh-b27-setsuiri.js → fh-b27-kyureki.js → fh-b27.js → fh-b27-compat.js
 """
+import compat_extra
 import datetime as dt, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -169,8 +170,10 @@ def build(sample, updated):
     </div>
   </div>
 </section>''')
-    a('''<section class="fh-b27-sec" id="b27-cp-more">
-  <h2><span class="fh-b27-n">4</span>あわせて占う</h2>
+    extra, nn = compat_extra.sections(4)  # 2026-10-15 課題4：検索向けの早見表・解説・FAQ（本人の決定）
+    a(extra)
+    a(f'''<section class="fh-b27-sec" id="b27-cp-more">
+  <h2><span class="fh-b27-n">{nn}</span>あわせて占う</h2>
   <div class="fh-b27-links">
     <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日から性格と2027年の運勢を見る</small></a>
     <a href="/seinengappi/"><b>生年月日まるごと診断 →</b><small>8つの占いを1枚のカードに</small></a>
@@ -194,9 +197,9 @@ def build(sample, updated):
     a(f'<p class="fh-b27-foot">この診断は、西洋占星術（太陽の位置）と数秘術（誕生日の数）、生まれ年があるときは九星気学を組み合わせた、当サイトの決め方によるものです。楽しみと気づきのためにお読みください。<br>'
       f'最終更新日：{up.year}年{up.month}月{up.day}日／<a href="/about/">この記事の作成方針について</a></p>')
     a("</div>\n</div>")
-    title = "誕生日相性占い｜2人の誕生日で相性を診断【2027年版】"
-    desc = ("2人の誕生日を選ぶだけで相性を診断。366日の誕生日占いと同じ決め方（太陽の位置と誕生日の数のグループ）で、"
-            "2人の関係の型とうまくいくコツを表示します。生まれ年を入れると九星の相性も。生年月日は送信・保存しません。")
+    title = "誕生日相性占い｜2人の生年月日で相性診断・星座の相性早見表【無料・2027年版】"
+    desc = ("2人の誕生日（生年月日）を選ぶだけで相性を無料診断。太陽の位置と誕生日の数から関係の型とうまくいくコツを表示。"
+            "12星座の相性早見表、星座別に相性がいい星座、366日の誕生日ページへの案内も。生年月日は送信・保存しません。")
     out = shell(title, desc, URL, "\n".join(H), sample, SCRIPTS)
     assert "\\" not in out and "動物占い" not in out and "六星" not in out and out.count("！") <= 1
     return out
