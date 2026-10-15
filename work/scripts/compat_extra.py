@@ -8,6 +8,9 @@ build_compatibility.py から呼ぶ。計算に頼らず読める文章と表（
 - よくある質問（FAQPage の構造化データつき）
 """
 import json
+import os
+
+COMPAT = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'compat_366.json'), encoding='utf-8'))
 
 SIGNS = ["牡羊座", "牡牛座", "双子座", "蟹座", "獅子座", "乙女座", "天秤座", "蠍座", "射手座", "山羊座", "水瓶座", "魚座"]
 ELEM = ["火", "地", "風", "水"] * 3
@@ -30,6 +33,32 @@ TYPES = [
     ("刺激し合う", "▽", "r3", "90度前後",
      "ペースや大事にするものが違い、ぶつかりやすい角度です。ただ、そのぶん相手から受ける刺激が大きく、一緒にいると成長しやすい組み合わせでもあります。決めごとは急がず、お互いの理由を最後まで聞いてから選ぶと、摩擦が前に進む力に変わります。"),
 ]
+SCENES = [  # 関係の型 × 恋愛・友人・仕事（2026-10-15 検索で「恋愛」「友達」を含む言葉が多いため追加）
+    ("調和", "◎", "r4",
+     "好きなものや生活のリズムが近く、付き合い始めから自然体でいられます。マンネリを防ぐには、年に一度は2人とも初めての場所へ。",
+     "何年会わなくても、会えばすぐ昔の空気に戻れる友人になりやすい2人。誘うのはどちらからでも気負いがありません。",
+     "説明が少なくても意図が伝わるので、段取りが早く進みます。似た発想に偏らないよう、外の意見を一度はさむと安心です。"),
+    ("協力", "○", "r2",
+     "相手の足りないところを、責めずに埋められる関係。記念日の準備や旅行の計画など、2人で役割を分けると距離が縮まります。",
+     "困ったときに頼りやすく、頼まれても負担に感じにくい間柄。得意分野を教え合うと、付き合いがさらに長く続きます。",
+     "企画する人と仕上げる人のように、役割が自然に分かれるペア。担当をはっきり決めると、お互いの力がいちばん生きます。"),
+    ("似た者どうし", "○", "r0",
+     "感覚が近いぶん、一緒にいて疲れにくいカップル。2人とも同じ場面で迷いやすいので、決める係を交代制にしておくと楽です。",
+     "趣味や笑いのツボが合い、気づけば一緒にいる友人に。同じことで落ち込みやすいので、励まし役を順番に引き受けましょう。",
+     "仕事の進め方が似ていて、引き継ぎがスムーズな相手。苦手な作業がかぶりやすいので、早めに外の人の手を借りる準備を。"),
+    ("おだやか", "◇", "r1",
+     "派手な盛り上がりは少なくても、けんかの少ない落ち着いた恋になりやすい2人。気持ちは言葉にして伝えるほど深まります。",
+     "ほどよい距離感で、相手の領域に踏み込みすぎない友人関係。たまに長く話す時間をつくると、意外な共通点が見つかります。",
+     "感情的なぶつかり合いが起きにくく、淡々と仕事を進められる相手。考えを共有する場を意識してつくると連携が強まります。"),
+    ("向かい合う", "△", "r6",
+     "自分にない魅力に強く惹かれる、ドラマのある恋になりやすい組み合わせ。意見が割れたら、まず相手の言い分を最後まで聞いて。",
+     "見ている世界が違うので、話すたびに新しい発見がある友人。どちらかに合わせ続けず、交互に相手の好きな場所へ行くと長続きします。",
+     "反対側から物事を見られるため、計画の穴に気づきやすいペア。対立ではなく点検役と割り切ると、心強い仕事相手になります。"),
+    ("刺激し合う", "▽", "r3",
+     "ペースの違いから小さな衝突が起きやすい一方、相手のおかげで視野が広がる恋。話し合いは疲れていない時間帯を選んで。",
+     "考え方の違いを面白がれると、刺激をくれる大切な友人に。合わないところは無理にそろえず、会う頻度で調整するのも手です。",
+     "締め切りや手順の感覚が違いやすい相手。最初にゴールと期限を紙に書いて共有しておくと、摩擦が前に進む力に変わります。"),
+]
 NUMG = [("行動派", "1・5・7", "自分で道を切り開く"), ("堅実派", "2・4・8", "足元を固める"), ("表現派", "3・6・9", "気持ちを伝える")]
 NUM_PAIR = {
     ("行動派", "行動派"): "決めるのも動くのも早い2人。勢いが合う反面、休むタイミングも一緒に決めておくと長続きします。",
@@ -48,8 +77,14 @@ FAQ = [
      "太陽の位置が120度前後の「調和」で、さらに誕生日の数のグループが同じ組み合わせが、いちばん点が高くなります。各誕生日のページの「相性の良い誕生日」に、その日と特に相性のよい5つの誕生日を載せています。"),
     ("相性が「刺激し合う」だと、うまくいきませんか。",
      "うまくいかないという意味ではありません。違いが大きいぶんぶつかりやすい一方で、お互いを成長させやすい組み合わせです。結果の「うまくいくコツ」を参考に、話し合いの時間を多めにとってみてください。"),
-    ("恋人以外の相性も占えますか。",
-     "占えます。友人、職場の人、家族など、どんな相手でも2人の誕生日を選ぶだけで、関係の型とうまくいくコツを表示します。"),
+    ("恋愛の相性も、友達や職場の相性も占えますか。",
+     "占えます。恋人や好きな人はもちろん、友人、職場の人、家族など、どんな相手でも2人の誕生日を選ぶだけで、関係の型とうまくいくコツを表示します。このページの「恋愛・友達・仕事での相性」では、関係の型ごとの付き合い方も紹介しています。"),
+    ("同じ誕生日の2人の相性はどうなりますか。",
+     "同じ誕生日どうしは太陽の位置が重なるので「似た者どうし」になり、誕生日の数も同じため、このページの決め方では最も高い◎になります。考え方や感じ方が近いぶん、苦手なことまで似やすい点にだけ気をつけてください。"),
+    ("誕生日が1日違いだと相性はどうですか。",
+     "1日違いでは太陽の位置が約1度しか離れないため「似た者どうし」になります。ただし誕生日の数は別のグループになることがほとんどなので、目安は◎ではなく○です。誕生日が前後1週間ほど離れていても、多くは同じ「似た者どうし」になります。"),
+    ("自分と相性のいい誕生日の一覧はありますか。",
+     "あります。このページの「誕生日別・相性のいい誕生日一覧」で、366日それぞれと特に相性のよい誕生日を月ごとにまとめています。くわしい理由は、各誕生日のページの「相性の良い誕生日」で読めます。"),
     ("入力した生年月日は保存されますか。",
      "送信も保存もしません。計算はこのページの中だけで行います。"),
 ]
@@ -94,10 +129,25 @@ def css():
 .fh-b27-cpx-cal details{border:1.5px dashed var(--line);border-radius:8px;background:var(--deep);padding:6px 10px}
 .fh-b27-cpx-cal summary{cursor:pointer;font-family:'Klee One',cursive;font-size:16px;color:var(--gold)}
 .fh-b27-cpx-cal p{display:flex;flex-wrap:wrap;gap:4px 8px;font-size:13px;margin-top:6px}
+.fh-b27-cpx-sc{border-collapse:collapse;min-width:640px;width:100%;font-size:13.5px;line-height:1.75}
+.fh-b27-cpx-sc caption{position:absolute;left:-9999px}
+.fh-b27-cpx-sc th,.fh-b27-cpx-sc td{border-bottom:1px dashed var(--line);padding:10px 8px;text-align:left;vertical-align:top}
+.fh-b27-cpx-sc thead th{color:var(--gold);font-size:13px;background:var(--paper)}
+.fh-b27-cpx-sc tbody th{white-space:nowrap;font-weight:700}
+.fh-b27-cpx-sc tbody th b{display:inline-flex;width:24px;height:24px;border-radius:50%;align-items:center;justify-content:center;margin-right:6px;font-size:13px}
+.fh-b27-cpx-sc b.r4{background:#2F5848}.fh-b27-cpx-sc b.r2{background:#2C4A57}.fh-b27-cpx-sc b.r0{background:#3B4A6B}.fh-b27-cpx-sc b.r6{background:#5A4630}.fh-b27-cpx-sc b.r3{background:#5C3838}.fh-b27-cpx-sc b.r1{border:1px solid var(--line)}
+.fh-b27-cpx-list{display:flex;flex-direction:column;gap:8px}
+.fh-b27-cpx-list details{border:1.5px dashed var(--line);border-radius:8px;background:var(--deep);padding:6px 12px}
+.fh-b27-cpx-list summary{cursor:pointer;font-family:'Klee One',cursive;font-size:16px;color:var(--gold)}
+.fh-b27 .fh-b27-cpx-list ul{list-style:none;margin:6px 0 4px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
+.fh-b27 .fh-b27-cpx-list li{display:flex;gap:10px;font-size:13.5px;line-height:1.7;padding:3px 0;border-bottom:1px dotted var(--line);margin:0}
+.fh-b27-cpx-list li::before{content:none}
+.fh-b27-cpx-list li a{flex:0 0 4.6em;font-weight:700}
+.fh-b27-cpx-list li span{color:var(--sub)}
 .fh-b27-cpx-qa details{border-bottom:1px dashed var(--line);padding:8px 2px}
 .fh-b27-cpx-qa summary{cursor:pointer;font-weight:700}
 .fh-b27-cpx-qa p{margin-top:6px;font-size:14.5px}
-@media (max-width:640px){.fh-b27-cpx-types,.fh-b27-cpx-best{grid-template-columns:1fr}.fh-b27-cpx-cal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.fh-b27 .fh-b27-cpx-list ul{grid-template-columns:1fr}.fh-b27-cpx-types,.fh-b27-cpx-best{grid-template-columns:1fr}.fh-b27-cpx-cal{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>"""
 
 
@@ -144,6 +194,14 @@ def sections(start_no):
   <div class="fh-b27-cpx-types">{cards}</div>
 </section>''')
     n += 1
+    # 3.5) 恋愛・友達・仕事
+    trs = "".join(f'<tr><th scope="row"><b class="{c}">{m}</b>{t}</th><td>{l}</td><td>{f}</td><td>{w}</td></tr>' for t, m, c, l, f, w in SCENES)
+    out.append(f'''<section class="fh-b27-sec" id="b27-cp-scene">
+  <h2><span class="fh-b27-n">{n}</span>恋愛・友達・仕事での相性</h2>
+  <p>同じ関係の型でも、恋人どうし、友人どうし、仕事仲間どうしでは、よさの出方と気をつけたい点が少しずつ変わります。上の診断で出た型の行を読んでみてください。</p>
+  <div class="fh-b27-cpx-wrap" tabindex="0" role="region" aria-label="関係の型ごとの恋愛・友達・仕事での相性（横にスクロールできます）"><table class="fh-b27-cpx-sc"><caption>関係の型ごとの、恋愛・友達・仕事での付き合い方</caption><thead><tr><th scope="col">関係の型</th><th scope="col">恋愛</th><th scope="col">友達</th><th scope="col">仕事</th></tr></thead><tbody>{trs}</tbody></table></div>
+</section>''')
+    n += 1
     # 4) 誕生日の数
     g = "".join(f'<li><b>{a}</b>（誕生日の数 {b}）：{c}タイプ</li>' for a, b, c in NUMG)
     tr = "".join(f'<tr><th scope="row">{a}×{b}</th><td>{t}</td></tr>' for (a, b), t in NUM_PAIR.items())
@@ -154,13 +212,21 @@ def sections(start_no):
   <table class="fh-b27-cpx-num"><caption style="text-align:left;font-size:13px;color:var(--sub);padding-bottom:4px">グループの組み合わせと、2人の傾向</caption><tbody>{tr}</tbody></table>
 </section>''')
     n += 1
-    # 5) 誕生日から探す
+    # 5) 誕生日別・相性のいい誕生日一覧（compat_366.json＝各誕生日ページの「相性の良い誕生日」と同じ）
     days = {1: 31, 2: 29, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
-    cal = "".join(f'<details><summary>{m}月生まれ</summary><p>' + "".join(f'<a href="{mmdd_url(m, d)}">{m}/{d}</a>' for d in range(1, days[m] + 1)) + '</p></details>' for m in range(1, 13))
+    md = lambda k: f"{int(k[:2])}/{int(k[2:])}"
+    cal = ""
+    for m in range(1, 13):
+        lis = ""
+        for d in range(1, days[m] + 1):
+            k = f"{m:02d}{d:02d}"
+            good = "・".join(md(x["mmdd"]) for x in COMPAT[k]["good"])
+            lis += f'<li><a href="{mmdd_url(m, d)}">{m}月{d}日</a><span>{good}</span></li>'
+        cal += f'<details{" open" if m == 1 else ""}><summary>{m}月生まれ</summary><ul>{lis}</ul></details>'
     out.append(f'''<section class="fh-b27-sec" id="b27-cp-find">
-  <h2><span class="fh-b27-n">{n}</span>誕生日から相性のいい誕生日を探す</h2>
-  <p>366日それぞれの誕生日ページに、その日と特に相性のよい誕生日5つと、気をつけたい誕生日3つを載せています。自分の誕生日を開いて確かめてみてください。</p>
-  <div class="fh-b27-cpx-cal">{cal}</div>
+  <h2><span class="fh-b27-n">{n}</span>誕生日別・相性のいい誕生日一覧</h2>
+  <p>366日それぞれについて、特に相性のよい誕生日を5つずつ並べました。各誕生日のページの「相性の良い誕生日」と同じ選び方で、ページを開くと選んだ理由と、気をつけたい誕生日3つも読めます。気になる相手が一覧にいなくても、相性が悪いという意味ではありません。</p>
+  <div class="fh-b27-cpx-list">{cal}</div>
 </section>''')
     n += 1
     # 6) FAQ
@@ -205,12 +271,12 @@ def theme_css():
 {P} .fh-b27-cp-bar i.fh-b27-cp-on{{background:#D9788A}}
 {P} .fh-b27-cp-paper:before{{background:linear-gradient(90deg,var(--gold),var(--teal))}}
 {P} .fh-b27-btn{{background:linear-gradient(90deg,#F2B8A6,#E8A3B4);color:#2B1F30}}
-{P} .fh-b27-cpx-t td.r4,{P} .fh-b27-cpx-key .r4{{background:#7A3E55}}
-{P} .fh-b27-cpx-t td.r2,{P} .fh-b27-cpx-key .r2{{background:#2E5A55}}
-{P} .fh-b27-cpx-t td.r0,{P} .fh-b27-cpx-key .r0{{background:#463E6A}}
-{P} .fh-b27-cpx-t td.r6,{P} .fh-b27-cpx-key .r6{{background:#5E4A30}}
-{P} .fh-b27-cpx-t td.r3,{P} .fh-b27-cpx-key .r3{{background:#3B3F4F}}
-{P} .fh-b27-cpx-types div,{P} .fh-b27-cpx-cal details{{border-style:solid;border-color:rgba(242,184,166,.28);border-radius:16px}}
-{P} .fh-b27-cpx-cal summary{{font-family:'Shippori Mincho',serif;font-weight:700}}
+{P} .fh-b27-cpx-t td.r4,{P} .fh-b27-cpx-key .r4,{P} .fh-b27-cpx-sc b.r4{{background:#7A3E55}}
+{P} .fh-b27-cpx-t td.r2,{P} .fh-b27-cpx-key .r2,{P} .fh-b27-cpx-sc b.r2{{background:#2E5A55}}
+{P} .fh-b27-cpx-t td.r0,{P} .fh-b27-cpx-key .r0,{P} .fh-b27-cpx-sc b.r0{{background:#463E6A}}
+{P} .fh-b27-cpx-t td.r6,{P} .fh-b27-cpx-key .r6,{P} .fh-b27-cpx-sc b.r6{{background:#5E4A30}}
+{P} .fh-b27-cpx-t td.r3,{P} .fh-b27-cpx-key .r3,{P} .fh-b27-cpx-sc b.r3{{background:#3B3F4F}}
+{P} .fh-b27-cpx-types div,{P} .fh-b27-cpx-list details{{border-style:solid;border-color:rgba(242,184,166,.28);border-radius:16px}}
+{P} .fh-b27-cpx-list summary{{font-family:'Shippori Mincho',serif;font-weight:700}}
 @media (max-width:640px){{.fh-b27-cpt-emb{{flex-basis:130px;height:96px}}.fh-b27-cpt-emb i{{width:86px;height:86px}}{P} .fh-b27-title{{font-size:25px}}}}
 </style>"""
