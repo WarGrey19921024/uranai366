@@ -220,7 +220,7 @@ def build(mats, sample, updated):
     # 1 誕生日から選ぶ
     a(f'''<section class="fh-b27-sec" id="b27-days">
   {h2(1, "cake", "誕生日から選ぶ")}
-  <p>月を選んで、誕生日の数字を押してください。数字の下は、その日の太陽の星座です。</p>
+  <p>月を押すと、その月の日付が出ます。誕生日の数字を押してください（数字の下は、その日の太陽の星座です）。</p>
   <nav class="fh-b27-mnav" aria-label="月を選ぶ">''')
     for m in range(1, 13):
         a(f'    <a href="#b27-m{m:02d}">{m}月</a>')
@@ -244,6 +244,7 @@ def build(mats, sample, updated):
         a('    </div>\n  </div>')
     a('''  <p class="fh-b27-small">金色の点線の日は星座の境目の日です。太陽が星座を移る時刻は年によって違うので、生まれた年と時刻によっては隣の星座になります（くわしくは各ページに書いています）。</p>
 </section>''')
+    a(hub_extra.month_js())
     a("<!--Ads1-->")
 
     # 2 星座から選ぶ

@@ -83,6 +83,9 @@ def css():
 .fh-b27-hx-qa details{border-bottom:1px dashed var(--line);padding:8px 2px}
 .fh-b27-hx-qa summary{cursor:pointer;font-weight:700}
 .fh-b27-hx-qa p{margin-top:6px;font-size:14.5px}
+.fh-b27-hx-mon .fh-b27-month{display:none}.fh-b27-hx-mon .fh-b27-month.is-on{display:block}
+.fh-b27-hx-mon .fh-b27-mnav a[aria-current="true"]{background:var(--gold);color:var(--paper);border-color:var(--gold)}
+.fh-b27-hx-hint{font-size:13.5px;color:var(--sub)}
 @media (max-width:640px){.fh-b27-hx-know,.fh-b27-hx-months,.fh-b27-hx-sample dl{grid-template-columns:1fr}.fh-b27-hx-py{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>"""
 
@@ -214,3 +217,14 @@ def faq(n, h2):
   <div class="fh-b27-hx-qa">{qa}</div>
 </section>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'''
+
+
+def month_js():
+    """「誕生日から選ぶ」：月を押した月だけ日のボタンを出す（JSが動かないときは12か月すべて表示＝今までどおり）"""
+    return ("<script>(function(){var s=document.getElementById('b27-days');if(!s)return;var ms=s.querySelectorAll('.fh-b27-month'),"
+            "ns=s.querySelectorAll('.fh-b27-mnav a');if(!ms.length)return;s.classList.add('fh-b27-hx-mon');"
+            "function on(id,scroll){ms.forEach(function(m){m.classList.toggle('is-on',m.id===id);});"
+            "ns.forEach(function(a){a.setAttribute('aria-current',a.getAttribute('href')==='#'+id?'true':'false');});"
+            "if(scroll){var t=document.getElementById(id);if(t)t.scrollIntoView({behavior:'smooth',block:'nearest'});}}"
+            "ns.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();on(a.getAttribute('href').slice(1),true);});});"
+            "var h=location.hash.match(/^#b27-m(\\d\\d)$/),m=h?h[1]:('0'+(new Date().getMonth()+1)).slice(-2);on('b27-m'+m,false);})();</script>")
