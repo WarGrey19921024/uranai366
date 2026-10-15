@@ -268,6 +268,9 @@ def theme_css():
 {P} .fh-b27-cp-person{{border-color:var(--gold);border-radius:16px}}
 {P} .fh-b27-cp-person-b{{border-color:var(--teal)}}
 {P} .fh-b27-cp-person-b legend{{color:var(--teal)}}
+{P} .fh-b27-toc{{border-style:solid;border-color:rgba(242,184,166,.28);border-radius:16px}}
+{P} .fh-b27-toc ol{{columns:2;column-gap:28px;list-style:none;padding-left:0}}
+@media (max-width:640px){{{P} .fh-b27-toc ol{{columns:1}}}}
 {P} .fh-b27-cp-bar i.fh-b27-cp-on{{background:#D9788A}}
 {P} .fh-b27-cp-paper:before{{background:linear-gradient(90deg,var(--gold),var(--teal))}}
 {P} .fh-b27-btn{{background:linear-gradient(90deg,#F2B8A6,#E8A3B4);color:#2B1F30}}

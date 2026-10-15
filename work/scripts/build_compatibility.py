@@ -103,7 +103,7 @@ def build(sample, updated):
   <div class="fh-b27-hero-body">
     <span class="fh-b27-tape">人生予報 誕生日相性占い</span>
     <p class="fh-b27-title">誕生日相性占い<br>2人の誕生日で相性を診断</p>
-    <p class="fh-b27-lead">あなたとお相手の誕生日を選ぶだけで、2人がどんな関係になりやすいかと、うまくいくコツがわかります。決め方は<a class="fh-b27-cp-link" href="/366uranai/">366日の誕生日占い</a>の「相性の良い誕生日」と同じ。恋人・友人・職場の人・家族、どんな相手でも占えます。</p>
+    <p class="fh-b27-lead">あなたとお相手の誕生日を選ぶだけで、2人がどんな関係になりやすいかと、うまくいくコツがわかります。決め方は<a class="fh-b27-cp-link" href="/366uranai/">366日の誕生日占い</a>の「相性の良い誕生日」と同じ。恋人・友人・職場の人・家族、どんな相手でも占えます。下には、恋愛・友達・仕事での相性、366日それぞれの相性のいい誕生日一覧、12星座の相性早見表もまとめました。</p>
   </div>
 </header>''')
     a(f'''<section class="fh-b27-sec" id="b27-cp-input">
@@ -201,7 +201,15 @@ def build(sample, updated):
     title = "誕生日相性占い｜生年月日で恋愛・友達の相性診断と相性のいい誕生日一覧【無料・2027年版】"
     desc = ("2人の誕生日（生年月日）を選ぶだけで恋愛・友達・仕事の相性を無料診断。関係の型とうまくいくコツを表示。"
             "366日それぞれの相性のいい誕生日一覧、12星座の相性早見表、同じ誕生日の相性も。生年月日は送信・保存しません。")
-    out = shell(title, desc, URL, "\n".join(H), sample, SCRIPTS)
+    body = "\n".join(H)
+    # 2026-10-15 目次（章が11に増えたため。診断結果の章は最初は隠れているので除く）
+    items = [(i, re.sub(r"<[^>]+>", "", t).strip()) for i, t in
+             re.findall(r'<section class="fh-b27-sec"[^>]*id="([^"]+)"[^>]*>\s*<h2><span class="fh-b27-n">\d+</span>(.*?)</h2>', body)
+             if i != "b27-cp-result"]
+    toc = ('<nav class="fh-b27-toc" aria-label="目次"><strong>このページの内容</strong><ol>'
+           + "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in items) + "</ol></nav>")
+    body = body.replace("</header>", "</header>\n" + toc, 1)
+    out = shell(title, desc, URL, body, sample, SCRIPTS)
     assert "\\" not in out and "動物占い" not in out and "六星" not in out and out.count("！") <= 1
     return out
 
