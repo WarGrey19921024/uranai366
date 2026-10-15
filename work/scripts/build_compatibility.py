@@ -96,9 +96,10 @@ def person(key, who, icon):
 def build(sample, updated):
     H = []
     a = H.append
+    a(compat_extra.theme_css())  # 2026-10-15 誕生日ページと見分けがつく色に（本人の希望）
     a('<div class="fh-b27" data-fh-page="compatibility">\n<div class="fh-b27-note">')
     a('''<header class="fh-b27-hero">
-  <div class="fh-b27-kou" aria-hidden="true">相性</div>
+  <div class="fh-b27-cpt-emb" aria-hidden="true"><i></i><i></i><b>相性</b></div>
   <div class="fh-b27-hero-body">
     <span class="fh-b27-tape">人生予報 誕生日相性占い</span>
     <p class="fh-b27-title">誕生日相性占い<br>2人の誕生日で相性を診断</p>

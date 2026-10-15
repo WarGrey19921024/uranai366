@@ -174,3 +174,43 @@ def sections(start_no):
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>''')
     n += 1
     return "\n".join(out), n
+
+
+def theme_css():
+    """相性ページだけの色と飾り（誕生日ページの「紺のノート」と見分けがつくように。2026-10-15 本人の希望）。
+    共通CSSは変えず、data-fh-page="compatibility" のときだけ上書きする。"""
+    P = '.fh-b27[data-fh-page="compatibility"]'
+    return f"""<style id="fh-b27-cpt-css">
+{P}{{--ink:#F3E9EC;--sub:#DCCBD1;--mute:#B9A3AC;--paper:#2B1F30;--deep:#23192A;--line:#5E4768;--gold:#F2B8A6;--teal:#9ED5CA;--cream:#FCF1EF;--cream-ink:#3A2630}}
+{P} a:hover{{color:#FFD6C9}}
+{P} .fh-b27-note{{border-left:0;border-radius:22px;background-color:var(--paper);
+  background-image:radial-gradient(circle at 8% 0%,rgba(242,184,166,.20),transparent 38%),radial-gradient(circle at 100% 30%,rgba(158,213,202,.13),transparent 34%),radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.4px);
+  background-size:auto,auto,26px 26px;box-shadow:0 14px 40px rgba(0,0,0,.45),inset 0 0 0 1px rgba(242,184,166,.18)}}
+{P} .fh-b27-hero{{align-items:center}}
+.fh-b27-cpt-emb{{position:relative;flex:0 0 150px;height:110px}}
+.fh-b27-cpt-emb i{{position:absolute;top:5px;width:100px;height:100px;border-radius:50%;mix-blend-mode:screen}}
+.fh-b27-cpt-emb i:first-child{{left:0;background:radial-gradient(circle at 35% 35%,#FFD3C4,#E0877A 70%);opacity:.85;animation:fh-b27-cpt-a 4s ease-in-out infinite alternate}}
+.fh-b27-cpt-emb i:nth-child(2){{right:0;background:radial-gradient(circle at 60% 35%,#D2F2EA,#5FAFA2 70%);opacity:.85;animation:fh-b27-cpt-b 4s ease-in-out infinite alternate}}
+.fh-b27-cpt-emb b{{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho',serif;font-size:22px;font-weight:800;color:#2B1F30;letter-spacing:.08em}}
+@keyframes fh-b27-cpt-a{{to{{transform:translateX(8px)}}}}@keyframes fh-b27-cpt-b{{to{{transform:translateX(-8px)}}}}
+@media (prefers-reduced-motion:reduce){{.fh-b27-cpt-emb i{{animation:none}}}}
+{P} .fh-b27-tape{{transform:none;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--teal));color:#2B1F30}}
+{P} .fh-b27-title{{font-family:'Shippori Mincho',serif;font-weight:800;font-size:31px;letter-spacing:.02em}}
+{P} h2{{font-family:'Shippori Mincho',serif;font-weight:800;font-size:24px}}
+{P} h2 .fh-b27-n{{border:0;background:linear-gradient(135deg,var(--gold),var(--teal));color:#2B1F30;font-weight:800;border-radius:10px 50% 50% 50%}}
+{P} h3{{border-bottom:0;background:linear-gradient(90deg,var(--gold),var(--teal)) left bottom/100% 2px no-repeat}}
+{P} .fh-b27-cp-person{{border-color:var(--gold);border-radius:16px}}
+{P} .fh-b27-cp-person-b{{border-color:var(--teal)}}
+{P} .fh-b27-cp-person-b legend{{color:var(--teal)}}
+{P} .fh-b27-cp-bar i.fh-b27-cp-on{{background:#D9788A}}
+{P} .fh-b27-cp-paper:before{{background:linear-gradient(90deg,var(--gold),var(--teal))}}
+{P} .fh-b27-btn{{background:linear-gradient(90deg,#F2B8A6,#E8A3B4);color:#2B1F30}}
+{P} .fh-b27-cpx-t td.r4,{P} .fh-b27-cpx-key .r4{{background:#7A3E55}}
+{P} .fh-b27-cpx-t td.r2,{P} .fh-b27-cpx-key .r2{{background:#2E5A55}}
+{P} .fh-b27-cpx-t td.r0,{P} .fh-b27-cpx-key .r0{{background:#463E6A}}
+{P} .fh-b27-cpx-t td.r6,{P} .fh-b27-cpx-key .r6{{background:#5E4A30}}
+{P} .fh-b27-cpx-t td.r3,{P} .fh-b27-cpx-key .r3{{background:#3B3F4F}}
+{P} .fh-b27-cpx-types div,{P} .fh-b27-cpx-cal details{{border-style:solid;border-color:rgba(242,184,166,.28);border-radius:16px}}
+{P} .fh-b27-cpx-cal summary{{font-family:'Shippori Mincho',serif;font-weight:700}}
+@media (max-width:640px){{.fh-b27-cpt-emb{{flex-basis:130px;height:96px}}.fh-b27-cpt-emb i{{width:86px;height:86px}}{P} .fh-b27-title{{font-size:25px}}}}
+</style>"""
