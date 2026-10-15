@@ -49,7 +49,7 @@ USED_IC = {"西洋占星術": "stars", "デーカン": "stars", "二十四節気
            "生まれ年でわかること": "year", "誕生花": "flower", "誕生石": "stone", "誕生日石・誕生色": "mono",
            "相性の良い誕生日": "compat", "2027年の月別スコア": "graph"}
 LINK_IC = {"/seinengappi/": ("card", "yellow"), "/compatibility/": ("compat", "rose"), "/enmusubi/pair/": ("love", "rose"),
-           "/animal-color/": ("animal", "yellow"), "/mbti/": ("mbti", "blue"), "/mbti-compatibility/": ("people", "blue"),
+           "/animal-color/": ("animal", "yellow"), "/tarot/": ("stars", "lav"), "/flower/": ("flower", "rose"), "/mbti/": ("mbti", "blue"), "/mbti-compatibility/": ("people", "blue"),
            "/kokoro/": ("kokoro", "lav"), "/kaiun/compass/": ("compass", "sage"), "/dream/": ("dream", "lav"), "/about/": ("about", "cream")}
 SEASON_OF_MONTH = {12: "winter", 1: "winter", 2: "winter", 3: "spring", 4: "spring", 5: "spring",
                    6: "summer", 7: "summer", 8: "summer", 9: "autumn", 10: "autumn", 11: "autumn"}
@@ -128,6 +128,8 @@ LINKS = [
     ("/seinengappi/", "生年月日まるごと診断", "星座・九星・干支・四柱推命・宿曜・マヤ暦・数秘・動物×色を1枚に"),
     ("/compatibility/", "誕生日相性占い", "2人の生年月日で相性を見る"),
     ("/enmusubi/pair/", "ご縁の相性診断", "縁結び診断室"),
+    ("/tarot/", "タロット占い", "大アルカナ22枚で1枚引き・3枚引き・Yes/No"),
+    ("/flower/", "誕生花一覧", "366日の誕生花と花言葉"),
     ("/animal-color/", "動物×色占い", "生年月日で60タイプ"),
     ("/mbti/", "MBTI占い", "性格タイプで見る2027年"),
     ("/mbti-compatibility/", "MBTI相性占い", "性格タイプどうしの相性"),
