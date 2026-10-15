@@ -17,6 +17,7 @@
 """
 import datetime as dt, html, json, os, sys
 import hub_extra
+import aff_extra
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WORK = os.path.normpath(os.path.join(HERE, ".."))
@@ -68,6 +69,7 @@ def shell(title, desc, url, body, sample, scripts=()):
     """ページ全体（確認用の <html> つき）。WordPress に貼るのは fh-b27:start 〜 fh-b27:end の中身。
     先頭に [no_toc]（Table of Contents Plus の目次を出さない）、本文はカスタムHTMLブロックで包む。
     <!--OffDef--> で WP QUADS の自動挿入を止める（広告の位置は本文の <!--Ads1--> などで決める）。"""
+    body = aff_extra.inject(body, url)  # 広告（アフィリエイト。2026-10-16〜）
     pre = "../assets/" if sample else WP_ASSET
     v = "" if sample else f"?v={ASSET_VER}"  # 共通CSS/JSの版（build_html.py と同じ）
     tail = "".join(f'\n<script src="{pre}{s}{v}"></script>' for s in scripts)
