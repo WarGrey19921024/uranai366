@@ -162,7 +162,7 @@ def build(sample, updated):
   <noscript><p class="fh-b27-small">カードを引くにはJavaScriptを有効にしてください。下の一覧でカードの意味は読めます。</p></noscript>
 </section>''')
     data = [{k: c[k] for k in ("no", "name", "en", "kw_up", "kw_rev", "up", "rev", "love", "work", "advice", "yesno")} for c in cards]
-    js = JS.replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":"))).replace("__SYM__", json.dumps(SYM, ensure_ascii=False)).replace("__ROMAN__", json.dumps(ROMAN))
+    js = JS.replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":"))).replace("__SYM__", json.dumps(SYM)).replace("__ROMAN__", json.dumps(ROMAN))
     a(f"<script>{js}</script>")
     a("<!--Ads1-->")
     a(f'''<section class="fh-b27-sec" id="b27-tr-how">
