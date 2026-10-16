@@ -104,8 +104,17 @@ CSS = """<style id="fh-b27-sk-css">
 .fh-b27-sk-grid small{font-size:10.5px;color:var(--mute)}
 .fh-b27-sk-list{display:flex;flex-direction:column;gap:8px}
 .fh-b27-sk-list details{border:1px solid rgba(200,210,240,.2);border-radius:4px;background:rgba(16,21,42,.55);padding:8px 14px}
-.fh-b27-sk-list summary{cursor:pointer;font-family:'Shippori Mincho',serif;font-weight:800;font-size:17px}
-.fh-b27-sk-list summary small{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:400;color:var(--mute);font-size:12.5px;margin-left:8px}
+.fh-b27-sk-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.fh-b27-sk-list details[open]{grid-column:1/-1}
+.fh-b27-sk-list summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:12px}
+.fh-b27-sk-list summary::-webkit-details-marker{display:none}
+.fh-b27-sk-bd{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font:800 22px 'Shippori Mincho',serif;color:#1E2340;background:radial-gradient(circle at 38% 35%,#FFFDF2,#D9DEEF 70%,#AEB6D3);box-shadow:0 0 12px rgba(220,226,255,.35)}
+.fh-b27-sk-sm{display:flex;flex-direction:column;line-height:1.5}
+.fh-b27-sk-sm b{font-size:15.5px;color:#F4E7BE}
+.fh-b27-sk-sm small{font-size:12px;color:var(--mute)}
+.fh-b27-sk-list details.me{border-color:#E8C76A;box-shadow:0 0 0 2px rgba(232,199,106,.45)}
+.fh-b27-sk-list details.me .fh-b27-sk-sm b::before{content:"あなた";display:inline-block;font-size:11px;background:#E8C76A;color:#1E2340;border-radius:3px;padding:0 6px;margin-right:6px;vertical-align:2px}
+@media (max-width:640px){.fh-b27-sk-list{grid-template-columns:1fr}}
 .fh-b27-sk-list p{font-size:14.5px;line-height:1.9;margin-top:6px}
 .fh-b27-sk-t{width:100%;border-collapse:collapse;font-size:14px;line-height:1.75}
 .fh-b27-sk-t caption{text-align:left;color:var(--sub);font-size:13px;padding-bottom:4px}
@@ -183,10 +192,12 @@ $('sk-go').addEventListener('click',function(){var a=get('sk-a');if(!a){$('sk-re
   '<div class="fh-b27-sk-tabs" role="tablist">'+tb.map(function(b,i){return '<button type="button" role="tab" data-t="'+b[0]+'" aria-selected="'+(i?'false':'true')+'">'+b[1]+'</button>'}).join('')+'</div><div class="fh-b27-sk-pane" id="sk-pane">'+tx.char+'</div>'+
   '<div class="fh-b27-sk-rels"><p><b>いちばん穏やかに付き合える宿（栄親）</b></p>'+chips(grp.ei,'ei')+'<p><b>気を許せる仲間の宿（友衰）</b></p>'+chips(grp.yu,'')+'<p><b>強く惹かれ合うけれど距離感が大切な宿（安壊）</b></p>'+chips(grp.an,'an')+'</div>'+
   todayBlk(ia)+'<div id="sk-lucky"></div><p><a href="#sk-'+ia+'">'+esc(a.s.name)+'宿の説明へ →</a>　<a href="#b27-sk-aisho">二人の相性を見る →</a></p></div>';
+ document.querySelectorAll('.fh-b27-sk-list details').forEach(function(x){x.classList.toggle('me',x.id==='sk-'+ia)});
  $('sk-res').hidden=false;var src=document.querySelector('#sk-lucky-src [data-s="'+ia+'"]');if(src)$('sk-lucky').appendChild(src.cloneNode(true));
  requestAnimationFrame(function(){requestAnimationFrame(function(){var g=$('sk-rot');if(g)g.style.transform='rotate('+rot+'deg)';});});
  $('sk-res').querySelectorAll('.fh-b27-sk-tabs button').forEach(function(b){b.addEventListener('click',function(){$('sk-res').querySelectorAll('.fh-b27-sk-tabs button').forEach(function(z){z.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');$('sk-pane').innerHTML=tx[b.getAttribute('data-t')];});});
 });
+document.addEventListener('click',function(e){var l=e.target.closest&&e.target.closest('a[href^="#sk-"]');if(!l)return;var t=document.getElementById(l.getAttribute('href').slice(1));if(t&&t.tagName==='DETAILS')t.open=true;});
 $('sk-go2').addEventListener('click',function(){var a=get('sk-a'),b=get('sk-b');var r=$('sk-res2');r.hidden=false;if(!a||!b){r.innerHTML='<p>この日付は計算できません。</p>';return;}
  var ia=ORD.indexOf(a.s.name),ib=ORD.indexOf(b.s.name),dd=((ib-ia)%27+27)%27,me=RM[dd],you=RM[(27-dd)%27],pr=PAIR[me],kk=Math.min(dd,27-dd);
  var dist=pr==='命'?'':pr==='業胎'?'':kk<=4?'近距離':kk<=8?'中距離':'遠距離',rel=REL[pr]||{};
@@ -245,11 +256,10 @@ def build(sample, updated):
 </section>''')
     a("<!--Ads1-->")
     grid = "".join(f'<a href="#sk-{i}"><b>{s}</b><small>{esc(d[s]["yomi"])}</small></a>' for i, s in enumerate(ORDER))
-    det = "".join(f'<details id="sk-{i}"><summary>{s}宿<small>{esc(d[s]["yomi"])}｜{esc(d[s]["kw"])}</small></summary><p>{esc(d[s]["text"])}</p><p><b>恋愛：</b>{esc(SKT.TEXTS[s]["love"])}</p><p><b>仕事：</b>{esc(SKT.TEXTS[s]["work"])}</p><p><b>お金：</b>{esc(SKT.TEXTS[s]["money"])}</p></details>' for i, s in enumerate(ORDER))
+    det = "".join(f'<details id="sk-{i}"><summary><span class="fh-b27-sk-bd">{s}</span><span class="fh-b27-sk-sm"><b>{esc(SKT.TEXTS[s]["catch"])}</b><small>{s}宿（{esc(d[s]["yomi"])}）｜{esc(d[s]["kw"])}</small></span></summary><p>{esc(d[s]["text"])}</p><p><b>恋愛：</b>{esc(SKT.TEXTS[s]["love"])}</p><p><b>仕事：</b>{esc(SKT.TEXTS[s]["work"])}</p><p><b>お金：</b>{esc(SKT.TEXTS[s]["money"])}</p></details>' for i, s in enumerate(ORDER))
     a(f'''<section class="fh-b27-sec" id="b27-sk-27">
   {h2("27宿の性格・恋愛・仕事・お金")}
-  <p>月の通り道を27に分けた宿を、昴宿から胃宿までの順に並べました。宿を押すと、その宿に生まれた人の性格の特徴が開きます。</p>
-  <div class="fh-b27-sk-grid">{grid}</div>
+  <p>月の通り道を27に分けた宿を、昴宿から胃宿までの順に並べました。ひとことで表すとどんな人かを大きく書いています。押すと性格・恋愛・仕事・お金が開きます。上で本命宿を調べると、あなたの宿に印がつきます。</p>
   <div class="fh-b27-sk-list">{det}</div>
 </section>''')
     rows = "".join(f'<tr><th scope="row">{esc(k)}</th><td>{esc(v["mean"])}</td><td>{esc(v["luck"])}</td></tr>' for k, v in rel.items())
