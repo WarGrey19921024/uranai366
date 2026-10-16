@@ -133,12 +133,15 @@ CSS = ("<style>.fh-b27 .fh-b27-adgoods{display:flex;flex-direction:column;gap:12
        ".fh-b27 .fh-b27-adgoods-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin:0;"
        "font-family:'Klee One',cursive;font-size:17px}"
        ".fh-b27 .fh-b27-adgoods .fh-b27-pr,.fh-b27 .fh-b27-adphone .fh-b27-pr{font-family:inherit;font-size:11px;opacity:.8}"
-       ".fh-b27 .fh-b27-adphone{margin:8px 0 24px}"
+       ".fh-b27 .fh-b27-adphone{margin:8px 0 24px}.fh-b27 .fh-b27-adgoods-l{margin:-4px 0 0;font-size:13.5px;opacity:.9}"
        ".fh-b27 .fh-b27-shop:has(.fh-b27-shop-photo){grid-template-columns:112px minmax(0,1fr)}"
        ".fh-b27 .fh-b27-shop-pic:has(img){width:112px;height:112px;background:#fff;padding:4px;overflow:hidden;border-radius:10px}"
        ".fh-b27 .fh-b27-shop-pic a.fh-b27-shop-photo{display:block;width:100%;height:100%}"
        ".fh-b27 img.fh-b27-shop-img{display:block;width:100%;height:100%;object-fit:contain;background:#fff;border-radius:8px;margin:0}"
        "@media(max-width:560px){.fh-b27 .fh-b27-adgoods .fh-b27-shops{grid-template-columns:minmax(0,1fr)}}</style>")
+
+
+LEADS = {'/tarot/': 'カードの意味を覚えたくなったら、手もとに1組あると便利です。楽天・Yahoo!ショッピングの商品ページへ移ります。', '/kyusei/': '吉方位や月ごとの流れを、手もとの暦で毎日確かめたい人へ。楽天・Yahoo!ショッピングの商品ページへ移ります。', '/shukuyo/': '27宿や月の巡りを、もっとくわしく知りたい人へ。楽天・Yahoo!ショッピングの商品ページへ移ります。', '/maya/': '毎日のKINを手帳で確かめたい人へ。楽天・Yahoo!ショッピングの商品ページへ移ります。', '/flower/': '誕生日の花を、そのまま贈り物にしたいときに。楽天・Yahoo!ショッピングの商品ページへ移ります。', '/compatibility/': '二人の記念日に、誕生日にちなんだ贈り物を選ぶなら。楽天・Yahoo!ショッピングの商品ページへ移ります。', '/366uranai/': '誕生日の贈り物を探すときに。楽天・Yahoo!ショッピングの商品ページへ移ります。', '/seinengappi/': '診断で見た2027年の「いい月」「気をつけたい月」を、暦や手帳に書き込んでおくと1年の計画が立てやすくなります。楽天・Yahoo!ショッピングの商品ページへ移ります。', '/birthstone/': '生まれ月の石を身につけたい人・贈りたい人へ。楽天・Yahoo!ショッピングの商品ページへ移ります。', '/angel-number/': '気になる数字を書きとめたり、お守りにしたりしたい人へ。楽天・Yahoo!ショッピングの商品ページへ移ります。', '/blood/': '二人の記念日の贈り物を探すなら。楽天・Yahoo!ショッピングの商品ページへ移ります。'}
 
 
 def phone_box(title, text):
@@ -150,7 +153,7 @@ def phone_box(title, text):
             f'{tpl()["phone"]["impression"]}<span class="fh-b27-pr">広告を含みます</span></div>')
 
 
-def goods_box(title, items):
+def goods_box(title, items, lead=""):
     boxes = []
     for q, name, why, icon in items:
         btns = "".join(
@@ -168,7 +171,7 @@ def goods_box(title, items):
     if not boxes:
         return ""
     return (f'<aside class="fh-b27-adgoods"><p class="fh-b27-adgoods-h"><span>{esc(title)}</span>'
-            f'<span class="fh-b27-pr">PR（広告）</span></p><div class="fh-b27-shops">{"".join(boxes)}</div></aside>')
+            f'<span class="fh-b27-pr">PR（広告）</span></p>' + (f'<p class="fh-b27-adgoods-l">{esc(lead)}</p>' if lead else "") + '<div class="fh-b27-shops">{"".join(boxes)}</div></aside>')
 
 
 def inject(body, url):
@@ -189,7 +192,7 @@ def inject(body, url):
                 used = True
     if cfg.get("goods"):
         m = re.search(rf'<section[^>]*id="{re.escape(cfg["before"])}"', body)
-        box = goods_box(*cfg["goods"])
+        box = goods_box(*cfg["goods"], lead=LEADS.get(url, ""))
         if m and box:
             body = body[:m.start()] + box + "\n" + body[m.start():]
             used = True

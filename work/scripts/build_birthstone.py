@@ -292,7 +292,7 @@ def build(sample, updated):
           "var mg=$('fh-b27-bs-mg');mg.innerHTML='';ms.forEach(function(n){mg.appendChild(g(S[n][0],ms.length>2?'':'fh-b27-bs-m'))});"
           "$('fh-b27-bs-mn').textContent=ms.join('・');var dg=$('fh-b27-bs-dg');dg.innerHTML='';dg.appendChild(g(S[x[0]][0],'fh-b27-bs-m'));"
           "$('fh-b27-bs-dn').textContent=x[0];$('fh-b27-bs-cs').style.background=x[3];$('fh-b27-bs-cn').textContent=x[2];"
-          "var h='';ms.forEach(function(n){h+='<b>'+n+'</b>：'+S[n][2]+'<br>'});h+='<b>'+x[0]+'（誕生日石）</b>：'+x[1];$('fh-b27-bs-msg').innerHTML=h;"
+          "var h='';ms.forEach(function(n){h+='<b>'+n+'</b>：'+S[n][2]+'<br>'});h+='<b>'+x[0]+'（誕生日石）</b>：'+x[1]+'<br><small>\u203b\u8a95\u751f\u65e5\u77f3\u306f\u3001\u6708\u306e\u8a95\u751f\u77f3\u3068\u306f\u5225\u306e\u77f3\u3092\u3001\u305d\u306e\u65e5\u306e\u661f\u3068\u8a95\u751f\u8272\u304b\u3089\u9078\u3093\u3067\u3044\u307e\u3059\uff08\u5f53\u30b5\u30a4\u30c8\u72ec\u81ea\u306e\u9078\u3073\u65b9\u3002\u516c\u5f0f\u306e\u6c7a\u307e\u308a\u306f\u3042\u308a\u307e\u305b\u3093\uff09\u3002</small>';$('fh-b27-bs-msg').innerHTML=h;"
           "var l=$('fh-b27-bs-link');l.href='/366uranai/'+m+'-'+d+'/';l.textContent=t+'生まれの性格・2027年の運勢へ →';"
           "var p=P[String(+m)],s='',L=['楽天','Yahoo!'],C=['rakuten','yahoo'];for(var i=0;i<2;i++){if(p[i])s+='<a class=\"fh-b27-shopbtn fh-b27-shop-'+C[i]+'\" href=\"'+p[i]+'\" rel=\"nofollow sponsored\" data-aff=\"'+C[i]+'\">'+(+m)+'月の誕生石を'+L[i]+'で探す</a> '}"
           "if(s)s+='<small>PR（広告）</small>';$('fh-b27-bs-shop').innerHTML=s;"
