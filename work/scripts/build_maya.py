@@ -70,8 +70,18 @@ CSS = """<style id="fh-b27-my-css">
 .fh-b27-my-grid i{flex:0 0 14px;height:14px;border-radius:50%;background:var(--c)}
 .fh-b27-my-list{display:flex;flex-direction:column;gap:8px}
 .fh-b27-my-list details{border:1px solid rgba(255,255,255,.12);border-left:6px solid var(--c,#E2B33C);border-radius:8px;background:rgba(21,28,26,.55);padding:8px 14px}
-.fh-b27-my-list summary{cursor:pointer;font-family:'Shippori Mincho',serif;font-weight:800;font-size:16.5px}
-.fh-b27-my-list summary small{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:400;color:var(--mute);font-size:12.5px;margin-left:8px}
+.fh-b27-my-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.fh-b27-my-list details[open]{grid-column:1/-1}
+.fh-b27-my-list summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:12px}
+.fh-b27-my-list summary::-webkit-details-marker{display:none}
+.fh-b27-my-bd{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font:800 17px 'Shippori Mincho',serif;color:#1A1A1A;background:var(--c,#E2B33C);box-shadow:0 0 0 3px rgba(255,255,255,.12),0 0 14px color-mix(in srgb,var(--c,#E2B33C) 45%,transparent)}
+.fh-b27-my-tl .fh-b27-my-bd{background:radial-gradient(circle at 38% 35%,#FFF4C9,#E2B33C 70%,#A87C1E)}
+.fh-b27-my-sm{display:flex;flex-direction:column;line-height:1.5}
+.fh-b27-my-sm b{font-size:15.5px;color:#F6E7BC}
+.fh-b27-my-sm small{font-size:12px;color:var(--mute)}
+.fh-b27-my-list details.me{box-shadow:0 0 0 2px #E2B33C}
+.fh-b27-my-list details.me .fh-b27-my-sm b::before{content:"あなた";display:inline-block;font-size:11px;background:#E2B33C;color:#1A1A1A;border-radius:3px;padding:0 6px;margin-right:6px;vertical-align:2px}
+@media (max-width:640px){.fh-b27-my-list{grid-template-columns:1fr}}
 .fh-b27-my-list p{font-size:14.5px;line-height:1.9;margin-top:6px}
 .fh-b27-my-colors{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .fh-b27-my-colors div{border-radius:10px;padding:10px 12px;background:rgba(21,28,26,.6);border-top:6px solid var(--c);font-size:13.5px;line-height:1.7}
@@ -136,6 +146,7 @@ function todayK(k){var n=new Date(),tk=C.kin(n.getFullYear(),n.getMonth()+1,n.ge
  if(tk.kin===k.kin)nm='あなたと同じKINの日。自分らしさがいちばん出やすい日です。';else rs.forEach(function(z){if(kinOf(z[1],z[2])===tk.kin)nm=MR[z[0]].name+'の日。'+MR[z[0]].text});
  if(!nm){var sc=ts.name.charAt(0)===S[k.sealNo-1].name.charAt(0);nm=(sc?'あなたと同じ色の紋章の日。気持ちが動きやすく、ふだんの力を出しやすい日です。':'あなたとは違う色の紋章の日。いつもと違う見方を取り入れるのに向いた日です。')+'銀河の音'+tk.tone+'「'+esc(tt.name)+'」の日なので、'+esc(MTN[tk.tone].tip);}
  return '<div class="fh-b27-my-tday"><p class="h">今日（'+(n.getMonth()+1)+'月'+n.getDate()+'日）はKIN'+tk.kin+' '+esc(ts.name)+'・音'+tk.tone+'</p><p>'+nm+'</p></div>'}
+document.addEventListener('click',function(e){var l=e.target.closest&&e.target.closest('a[href^="#my-"]');if(!l)return;var x=document.getElementById(l.getAttribute('href').slice(1));if(x&&x.tagName==='DETAILS')x.open=true;});
 $('my-go').addEventListener('click',function(){var k=C.kin(+y.value,+m.value,+d.value),s=S[k.sealNo-1],t=T[k.tone-1],c=COL[s.name.charAt(0)],mt=MS[k.sealNo],r=$('my-res');r.style.setProperty('--c',c[0]);
  var tb=[['seal','紋章'],['tone','音'],['love','恋愛'],['work','仕事'],['money','お金']];
  var tx={seal:'<p><b>太陽の紋章「'+esc(s.name)+'」</b>（'+esc(s.kw)+'）<br>'+esc(s.text)+'</p>',tone:'<p><b>銀河の音'+k.tone+'「'+esc(t.name)+'」</b>（'+esc(t.kw)+'）<br>'+esc(t.text)+'</p><p>'+esc(MTN[k.tone].tip)+'</p>',love:'<p>'+esc(mt.love)+'</p>',work:'<p>'+esc(mt.work)+'</p>',money:'<p>'+esc(mt.money)+'</p>'};
@@ -145,6 +156,7 @@ $('my-go').addEventListener('click',function(){var k=C.kin(+y.value,+m.value,+d.
   '<div class="fh-b27-my-tabs" role="tablist">'+tb.map(function(b,i){return '<button type="button" role="tab" data-t="'+b[0]+'" aria-selected="'+(i?'false':'true')+'">'+b[1]+'</button>'}).join('')+'</div><div class="fh-b27-my-pane" id="my-pane">'+tx.seal+'</div>'+
   '<p style="margin-top:12px"><b>あなたを取り巻く4つのKIN</b></p><div class="fh-b27-my-rels">'+rl+'</div>'+todayK(k)+'<div id="my-lucky"></div>'+
   '<p><a href="#my-s'+s.no+'">紋章の説明へ →</a>　<a href="#my-t'+t.no+'">音の説明へ →</a></p></div>';
+ document.querySelectorAll('.fh-b27-my-list details').forEach(function(x){x.classList.toggle('me',x.id==='my-s'+s.no||x.id==='my-t'+t.no)});
  r.hidden=false;var src=document.querySelector('#my-lucky-src [data-s="'+k.sealNo+'"]');if(src)$('my-lucky').appendChild(src.cloneNode(true));
  requestAnimationFrame(function(){requestAnimationFrame(function(){var f=$('my-flip');if(f)f.classList.add('on');});});
  r.querySelectorAll('.fh-b27-my-tabs button').forEach(function(b){b.addEventListener('click',function(){r.querySelectorAll('.fh-b27-my-tabs button').forEach(function(z){z.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');$('my-pane').innerHTML=tx[b.getAttribute('data-t')];});});
@@ -198,19 +210,19 @@ def build(sample, updated):
 </section>''')
     a("<!--Ads1-->")
     col = lambda name: COLOR[name[0]][0]
+    TC = {1: '目的を決めて、人と力を集める', 2: '迷いの中から答えを選び取る', 3: '人と人をつなぎ、動きを生む', 4: '形を整えて、土台をつくる', 5: '中心に立って、みんなを引っ張る', 6: 'バランスをとって、流れを整える', 7: 'ひらめきを受け取り、伝える', 8: 'みんなの調和を大切にする', 9: '目標に向かって、粘り強く進む', 10: '思いを形にして、結果を出す', 11: '古いものを手放し、身軽になる', 12: '仲間と力を合わせて広げる', 13: 'すべてを受け入れて、次へつなぐ'}
     grid = "".join(f'<a href="#my-s{s["no"]}" style="--c:{col(s["name"])}"><i></i>{s["no"]}. {esc(s["name"])}</a>' for s in seals)
-    det = "".join(f'<details id="my-s{s["no"]}" style="--c:{col(s["name"])}"><summary>{s["no"]}. {esc(s["name"])}<small>{esc(s["kw"])}</small></summary><p>{esc(s["text"])}</p><p><b>恋愛：</b>{esc(MT.SEALS[s["no"]]["love"])}</p><p><b>仕事：</b>{esc(MT.SEALS[s["no"]]["work"])}</p><p><b>お金：</b>{esc(MT.SEALS[s["no"]]["money"])}</p></details>' for s in seals)
+    det = "".join(f'<details id="my-s{s["no"]}" style="--c:{col(s["name"])}"><summary><span class="fh-b27-my-bd">{s["no"]}</span><span class="fh-b27-my-sm"><b>{esc(MT.SEALS[s["no"]]["catch"])}</b><small>{esc(s["name"])}｜{esc(s["kw"])}</small></span></summary><p>{esc(s["text"])}</p><p><b>恋愛：</b>{esc(MT.SEALS[s["no"]]["love"])}</p><p><b>仕事：</b>{esc(MT.SEALS[s["no"]]["work"])}</p><p><b>お金：</b>{esc(MT.SEALS[s["no"]]["money"])}</p></details>' for s in seals)
     a(f'''<section class="fh-b27-sec" id="b27-my-seals">
   {h2("20の太陽の紋章")}
-  <p>太陽の紋章は、その人の本質や持ち味を表す20のシンボルです。キーワードは「行動／力／本質」の3つの言葉で表されます。紋章を押すと、その紋章を持つ人の性格の特徴が開きます。</p>
-  <div class="fh-b27-my-grid">{grid}</div>
+  <p>太陽の紋章は、その人の本質や持ち味を表す20のシンボルです。キーワードは「行動／力／本質」の3つの言葉で表されます。大きな文字は「その紋章を持つ人をひとことで表すと」です。押すと性格・恋愛・仕事・お金が開きます。上でKINを調べると、あなたの紋章と音に印がつきます。</p>
   <div class="fh-b27-my-list">{det}</div>
 </section>''')
-    det2 = "".join(f'<details id="my-t{t["no"]}"><summary>音{t["no"]}　{esc(t["name"])}<small>{esc(t["kw"])}</small></summary><p>{esc(t["text"])}</p></details>' for t in tones)
+    det2 = "".join(f'<details id="my-t{t["no"]}"><summary><span class="fh-b27-my-bd">{t["no"]}</span><span class="fh-b27-my-sm"><b>{esc(TC[t["no"]])}</b><small>音{t["no"]}・{esc(t["name"])}｜{esc(t["kw"])}</small></span></summary><p>{esc(t["text"])}</p></details>' for t in tones)
     a(f'''<section class="fh-b27-sec" id="b27-my-tones">
   {h2("13の銀河の音")}
-  <p>銀河の音は、紋章の力をどんなリズムで使うかを表す1〜13の数です。1で始まり13で締めくくる流れになっていて、紋章と組み合わせて読みます。</p>
-  <div class="fh-b27-my-list">{det2}</div>
+  <p>銀河の音は、紋章の力をどんなリズムで使うかを表す1〜13の数です。1で始まり13で締めくくる流れになっていて、紋章と組み合わせて読みます。大きな文字は「その音の動き方」です。</p>
+  <div class="fh-b27-my-list fh-b27-my-tl">{det2}</div>
 </section>''')
     cs = "".join(f'<div style="--c:{v[0]}"><b>{k}の紋章</b>{esc(v[1])}<br><small>{esc(v[2])}</small></div>' for k, v in COLOR.items())
     a(f'''<section class="fh-b27-sec" id="b27-my-color">
