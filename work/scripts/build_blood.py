@@ -32,8 +32,9 @@ def stars(n):
 CSS = """<style id="fh-b27-bl-css">
 .fh-b27[data-fh-page="blood"]{--ink:#FFF3F4;--sub:#F1D9DC;--mute:#C9AEB3;--paper:#2A1B22;--deep:#21151B;--line:#5E3F4A;--gold:#F6C177;--cream:#FFF9F6;--cream-ink:#3A2129}
 .fh-b27[data-fh-page="blood"] a{color:#FFC7CE}
+.fh-b27[data-fh-page="blood"] .fh-b27-sec>p,.fh-b27[data-fh-page="blood"] .fh-b27-lead,.fh-b27[data-fh-page="blood"] .fh-b27-bl-mx,.fh-b27[data-fh-page="blood"] ol{text-shadow:0 1px 2px rgba(0,0,0,.6)}
 .fh-b27[data-fh-page="blood"] .fh-b27-note{border-left:0;border-radius:24px;background-color:var(--paper);
- background-image:radial-gradient(circle at 10% 0%,rgba(232,112,126,.25),transparent 40%),radial-gradient(circle at 100% 60%,rgba(156,123,208,.18),transparent 40%);box-shadow:0 14px 40px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,199,206,.2)}
+ background-image:radial-gradient(circle at 10% 0%,rgba(232,112,126,.25),transparent 40%),radial-gradient(circle at 100% 60%,rgba(156,123,208,.18),transparent 40%);background-size:auto,auto;box-shadow:0 14px 40px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,199,206,.2)}
 .fh-b27-bl-emb{display:flex;gap:6px;flex:0 0 auto;align-items:flex-end}
 .fh-b27-bl-drop{width:44px;height:58px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;position:relative;display:flex;align-items:center;justify-content:center;font:800 15px 'Zen Kaku Gothic New',sans-serif;color:#fff;
  background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.55),transparent 30%),var(--c);clip-path:polygon(50% 0,100% 62%,92% 85%,70% 100%,30% 100%,8% 85%,0 62%)}

@@ -22,7 +22,7 @@
 .fh-b27[data-fh-page="maya"] a{color:#F0C963}
 .fh-b27[data-fh-page="maya"] .fh-b27-note{border-left:0;border-radius:14px;background-color:var(--paper);
  background-image:repeating-linear-gradient(90deg,rgba(226,179,60,.06) 0 2px,transparent 2px 40px),repeating-linear-gradient(0deg,rgba(226,179,60,.04) 0 2px,transparent 2px 40px),radial-gradient(circle at 50% -20%,rgba(226,179,60,.18),transparent 50%);
- box-shadow:0 14px 40px rgba(0,0,0,.5);border-top:6px solid transparent;border-image:linear-gradient(90deg,#C8463C 0 25%,#E9E4D8 25% 50%,#3E6FB0 50% 75%,#E2B33C 75%) 1}
+ background-size:auto,auto,auto;box-shadow:0 14px 40px rgba(0,0,0,.5);border-top:6px solid transparent;border-image:linear-gradient(90deg,#C8463C 0 25%,#E9E4D8 25% 50%,#3E6FB0 50% 75%,#E2B33C 75%) 1}
 .fh-b27-my-emb{width:150px;height:150px;flex:0 0 150px;border-radius:50%;background:conic-gradient(#C8463C 0 25%,#E9E4D8 0 50%,#3E6FB0 0 75%,#E2B33C 0);position:relative;box-shadow:0 0 0 6px rgba(0,0,0,.25),0 0 30px rgba(226,179,60,.25);animation:fh-b27-my-rot 90s linear infinite}
 .fh-b27-my-emb:after{content:"KIN";position:absolute;inset:28px;border-radius:50%;background:#1C2422;color:var(--gold);display:flex;align-items:center;justify-content:center;font:800 26px 'Shippori Mincho',serif;letter-spacing:.1em;animation:fh-b27-my-rot 90s linear infinite reverse}
 @keyframes fh-b27-my-rot{to{transform:rotate(360deg)}}
@@ -88,6 +88,14 @@
 .fh-b27 .fh-b27-my-res .fh-b27-adgoods-h{color:#25201A}
 @media (max-width:640px){.fh-b27-my-rels{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.fh-b27-my-flip>div{transition:none}.fh-b27-my-card{animation:none;opacity:1;transform:none}}
+.fh-b27-my-why{border:1.5px solid rgba(226,179,60,.45);border-radius:14px;background:linear-gradient(135deg,rgba(200,70,60,.14),rgba(62,111,176,.14),rgba(226,179,60,.12));padding:16px 18px}
+.fh-b27-my-why-h{font:800 20px 'Shippori Mincho',serif;color:var(--gold);margin:0 0 6px}
+.fh-b27 .fh-b27-my-why ul{list-style:none;padding:0;margin:10px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fh-b27 .fh-b27-my-why li{margin:0;background:var(--cream);color:var(--cream-ink);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.7}
+.fh-b27-my-why li::before{content:none}.fh-b27 .fh-b27-my-why li b{display:block;color:#8A5A10;font-size:15px}
+.fh-b27-my-tday{margin-top:12px;background:linear-gradient(135deg,#1C2422,#3E4F49);border-radius:12px;padding:12px 14px}
+.fh-b27 .fh-b27-my-tday p{color:#F2ECE0}.fh-b27-my-tday .h{font:800 16px 'Shippori Mincho',serif;color:#E2B33C!important;margin:0 0 4px}
+@media (max-width:640px){.fh-b27 .fh-b27-my-why ul{grid-template-columns:1fr}}
 </style>
 <div class="fh-b27" data-fh-page="maya">
 <div class="fh-b27-note"><style>.fh-b27 .fh-b27-note{position:relative}.fh-b27-fx{position:absolute;left:0;right:0;top:0;height:420px;overflow:hidden;pointer-events:none;z-index:0}.fh-b27 .fh-b27-note>*:not(.fh-b27-fx){position:relative;z-index:1}.fh-b27-fx i{position:absolute;left:var(--x);top:var(--y);width:120px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.9));transform:rotate(-35deg);opacity:0;animation:fh-b27-fx-star var(--t) linear var(--d) infinite}@keyframes fh-b27-fx-star{0%{opacity:0;transform:rotate(-35deg) translateX(0)}3%{opacity:1}10%{opacity:0;transform:rotate(-35deg) translateX(-260px)}100%{opacity:0;transform:rotate(-35deg) translateX(-260px)}}@media (prefers-reduced-motion:reduce){.fh-b27-fx{display:none}}</style><div class="fh-b27-fx" aria-hidden="true"><i style="--x:78%;--y:10px;--d:0s;--t:7s"></i><i style="--x:55%;--y:40px;--d:2.6s;--t:9s"></i><i style="--x:92%;--y:90px;--d:5.1s;--t:8s"></i><i style="--x:35%;--y:0px;--d:7.4s;--t:11s"></i></div>
@@ -101,6 +109,16 @@
   </div>
 </header>
 <nav class="fh-b27-toc" aria-label="目次"><strong>このページの内容</strong><ol><li><a href="#b27-my-calc">KINを調べる</a></li><li><a href="#b27-my-seals">20の太陽の紋章</a></li><li><a href="#b27-my-tones">13の銀河の音</a></li><li><a href="#b27-my-color">4つの色の意味</a></li><li><a href="#b27-my-how">KINの出し方</a></li><li><a href="#b27-my-about">マヤ暦（ドリームスペル）とは</a></li><li><a href="#b27-my-faq">よくある質問</a></li></ol></nav>
+<div class="fh-b27-my-why">
+  <p class="fh-b27-my-why-h">マヤ暦は「260日のリズム」で自分を知る占い</p>
+  <p>誕生日占いは「月日」で決まるので、同じ誕生日の人は同じ結果になります。マヤ暦のKINは<b>生まれた年・月・日すべて</b>で決まる1〜260の番号で、同じ誕生日でも生まれ年が違えばKINが変わります。<b>あなただけの番号</b>から、持って生まれた役割と、毎日変わるエネルギーを読みます。</p>
+  <ul>
+    <li><b>紋章×音の260通り</b>20の太陽の紋章（性質）と13の銀河の音（動き方）の組み合わせで、一人ひとりを細かく読み分けます。</li>
+    <li><b>あなたを囲む4つのKIN</b>導く力（ガイド）、支え合う人（類似）、鍛え合う人（反対）、隠れた力（神秘）まで計算します。</li>
+    <li><b>今日のエネルギー</b>KINは毎日1つずつ進みます。今日のKINとあなたの関係から、その日の過ごし方のヒントがわかります。</li>
+  </ul>
+  <p class="fh-b27-small">このページのマヤ暦は、古代マヤの暦そのものではなく、1987年以降に広まった「ドリームスペル」の数え方です。誕生日どうしの相性は<a href="/compatibility/">誕生日相性占い</a>もどうぞ。</p>
+</div>
 <section class="fh-b27-sec" id="b27-my-calc">
   <h2><span class="fh-b27-n">1</span><span>KINを調べる</span></h2>
   <div class="fh-b27-my-box">
@@ -176,6 +194,10 @@ function kinOf(se,to){for(var q=1;q<=260;q++){if((q-1)%20+1===se&&(q-1)%13+1===t
 function w20(v){v=((v-1)%20+20)%20+1;return v}
 function rels(se,to){var g={1:0,6:0,11:0,2:12,7:12,12:12,3:4,8:4,13:4,4:16,9:16,5:8,10:8}[to];return [['guide',w20(se+g),to],['analog',w20(19-se),to],['antipode',w20(se+10),to],['occult',21-se,14-to]];}
 function num(t){var h='<div class="fh-b27-my-num" aria-hidden="true"><span>';for(var i=0;i<t%5;i++)h+='<i></i>';h+='</span>';for(i=0;i<Math.floor(t/5);i++)h+='<i></i>';return h+'</div>'}
+function todayK(k){var n=new Date(),tk=C.kin(n.getFullYear(),n.getMonth()+1,n.getDate()),ts=S[tk.sealNo-1],tt=T[tk.tone-1],rs=rels(k.sealNo,k.tone),nm=null;
+ if(tk.kin===k.kin)nm='あなたと同じKINの日。自分らしさがいちばん出やすい日です。';else rs.forEach(function(z){if(kinOf(z[1],z[2])===tk.kin)nm=MR[z[0]].name+'の日。'+MR[z[0]].text});
+ if(!nm){var sc=ts.name.charAt(0)===S[k.sealNo-1].name.charAt(0);nm=(sc?'あなたと同じ色の紋章の日。気持ちが動きやすく、ふだんの力を出しやすい日です。':'あなたとは違う色の紋章の日。いつもと違う見方を取り入れるのに向いた日です。')+'銀河の音'+tk.tone+'「'+esc(tt.name)+'」の日なので、'+esc(MTN[tk.tone].tip);}
+ return '<div class="fh-b27-my-tday"><p class="h">今日（'+(n.getMonth()+1)+'月'+n.getDate()+'日）はKIN'+tk.kin+' '+esc(ts.name)+'・音'+tk.tone+'</p><p>'+nm+'</p></div>'}
 $('my-go').addEventListener('click',function(){var k=C.kin(+y.value,+m.value,+d.value),s=S[k.sealNo-1],t=T[k.tone-1],c=COL[s.name.charAt(0)],mt=MS[k.sealNo],r=$('my-res');r.style.setProperty('--c',c[0]);
  var tb=[['seal','紋章'],['tone','音'],['love','恋愛'],['work','仕事'],['money','お金']];
  var tx={seal:'<p><b>太陽の紋章「'+esc(s.name)+'」</b>（'+esc(s.kw)+'）<br>'+esc(s.text)+'</p>',tone:'<p><b>銀河の音'+k.tone+'「'+esc(t.name)+'」</b>（'+esc(t.kw)+'）<br>'+esc(t.text)+'</p><p>'+esc(MTN[k.tone].tip)+'</p>',love:'<p>'+esc(mt.love)+'</p>',work:'<p>'+esc(mt.work)+'</p>',money:'<p>'+esc(mt.money)+'</p>'};
@@ -183,7 +205,7 @@ $('my-go').addEventListener('click',function(){var k=C.kin(+y.value,+m.value,+d.
  r.innerHTML='<div class="fh-b27-my-flip" id="my-flip" aria-hidden="true"><div><div class="bk"></div><div class="fr"><small>'+y.value+'.'+m.value+'.'+d.value+'</small><b>KIN'+k.kin+'</b><em>'+esc(s.name)+'</em>'+num(k.tone)+'<small>銀河の音'+k.tone+'「'+esc(t.name)+'」</small></div></div></div>'+
   '<div class="fh-b27-my-card"><small>'+y.value+'年'+m.value+'月'+d.value+'日生まれ</small><p class="nm">KIN'+k.kin+'　'+esc(s.name)+'・音'+k.tone+'</p><p class="ct">'+esc(mt.catch)+'</p>'+
   '<div class="fh-b27-my-tabs" role="tablist">'+tb.map(function(b,i){return '<button type="button" role="tab" data-t="'+b[0]+'" aria-selected="'+(i?'false':'true')+'">'+b[1]+'</button>'}).join('')+'</div><div class="fh-b27-my-pane" id="my-pane">'+tx.seal+'</div>'+
-  '<p style="margin-top:12px"><b>あなたを取り巻く4つのKIN</b></p><div class="fh-b27-my-rels">'+rl+'</div><div id="my-lucky"></div>'+
+  '<p style="margin-top:12px"><b>あなたを取り巻く4つのKIN</b></p><div class="fh-b27-my-rels">'+rl+'</div>'+todayK(k)+'<div id="my-lucky"></div>'+
   '<p><a href="#my-s'+s.no+'">紋章の説明へ →</a>　<a href="#my-t'+t.no+'">音の説明へ →</a></p></div>';
  r.hidden=false;var src=document.querySelector('#my-lucky-src [data-s="'+k.sealNo+'"]');if(src)$('my-lucky').appendChild(src.cloneNode(true));
  requestAnimationFrame(function(){requestAnimationFrame(function(){var f=$('my-flip');if(f)f.classList.add('on');});});

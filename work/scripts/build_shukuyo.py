@@ -138,6 +138,14 @@ CSS = """<style id="fh-b27-sk-css">
 .fh-b27[data-fh-page="shukuyo"] .fh-b27-sk-res a.fh-b27-shopbtn{color:#FFF5D6}
 .fh-b27 .fh-b27-sk-res .fh-b27-adgoods-h{color:#1E2340}
 @media (prefers-reduced-motion:reduce){.fh-b27-sk-wheel g.rot{transition:none}.fh-b27-sk-card{animation:none;opacity:1;transform:none}}
+.fh-b27-sk-why{border:1.5px solid rgba(200,210,240,.45);border-radius:12px;background:linear-gradient(135deg,rgba(91,110,180,.22),rgba(200,210,240,.06));padding:16px 18px}
+.fh-b27-sk-why-h{font:800 20px 'Shippori Mincho',serif;color:#F2D27A;margin:0 0 6px}
+.fh-b27 .fh-b27-sk-why ul{list-style:none;padding:0;margin:10px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fh-b27 .fh-b27-sk-why li{margin:0;background:var(--cream);color:var(--cream-ink);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.7}
+.fh-b27-sk-why li::before{content:none}.fh-b27 .fh-b27-sk-why li b{display:block;color:#3B4A8C;font-size:15px}
+.fh-b27-sk-today{margin-top:12px;background:linear-gradient(135deg,#1E2340,#3B4A8C);color:#fff;border-radius:12px;padding:12px 14px}
+.fh-b27 .fh-b27-sk-today p,.fh-b27 .fh-b27-sk-today b{color:#fff}.fh-b27-sk-today .h{font:800 17px 'Shippori Mincho',serif;color:#F2D27A;margin:0 0 4px}
+@media (max-width:640px){.fh-b27 .fh-b27-sk-why ul{grid-template-columns:1fr}}
 </style>"""
 
 JS = r"""(function(){var C=window.FHB27Calc;var D=__DATA__,ORD=__ORDER__,REL=__REL__,PAIR=__PAIR__,RM=__RM__;
@@ -152,7 +160,15 @@ function get(p){var y=+$(p+'y').value,m=+$(p+'m').value,d=+$(p+'d').value,s=C&&C
 if(!$('sk-ay'))return;
 if(!C){$('sk-res').innerHTML='<p>計算の準備ができませんでした。ページを読み込み直してください。</p>';return;}
 fill('sk-a');fill('sk-b');
+var DAY={'\u547d':'\u81ea\u5206\u306e\u5bbf\u306e\u65e5\u3002\u6c17\u6301\u3061\u304c\u63fa\u308c\u3084\u3059\u3044\u306e\u3067\u3001\u5927\u304d\u306a\u6c7a\u65ad\u306f\u4e00\u65e5\u5bdd\u304b\u305b\u3066\u3002',
+'\u696d':'\u3053\u308c\u307e\u3067\u306e\u7a4d\u307f\u91cd\u306d\u304c\u554f\u308f\u308c\u308b\u65e5\u3002\u7d04\u675f\u3084\u7247\u3065\u3051\u3092\u4e01\u5be7\u306b\u3002','\u80ce':'\u65b0\u3057\u3044\u3053\u3068\u306e\u7a2e\u3092\u307e\u304f\u65e5\u3002\u8a08\u753b\u3084\u60f3\u50cf\u3092\u3075\u304f\u3089\u307e\u305b\u3066\u3002',
+'\u6804':'\u904b\u6c17\u304c\u6804\u3048\u308b\u65e5\u3002\u7533\u3057\u8fbc\u307f\u3084\u304a\u9858\u3044\u3054\u3068\u306b\u5411\u304d\u307e\u3059\u3002','\u8870':'\u529b\u3092\u305f\u3081\u308b\u65e5\u3002\u7121\u7406\u3092\u305b\u305a\u3001\u4f11\u3080\u3053\u3068\u3082\u4ed5\u4e8b\u306e\u3046\u3061\u3002',
+'\u5b89':'\u843d\u3061\u7740\u3044\u3066\u904e\u3054\u305b\u308b\u65e5\u3002\u5f15\u3063\u8d8a\u3057\u3084\u79fb\u52d5\u306e\u6e96\u5099\u306b\u3082\u3002','\u5371':'\u6c17\u304c\u3086\u308b\u307f\u3084\u3059\u3044\u65e5\u3002\u4eba\u3068\u4f1a\u3046\u306e\u306f\u697d\u3057\u304f\u3001\u7d04\u675f\u306f\u63a7\u3048\u3081\u306b\u3002',
+'\u6210':'\u7269\u4e8b\u304c\u5f62\u306b\u306a\u308a\u3084\u3059\u3044\u65e5\u3002\u5b66\u3073\u3084\u4ed5\u4e0a\u3052\u306b\u5411\u304d\u307e\u3059\u3002','\u58ca':'\u6d41\u308c\u304c\u4e71\u308c\u3084\u3059\u3044\u65e5\u3002\u5927\u304d\u306a\u5951\u7d04\u3084\u52dd\u8ca0\u306f\u4ed6\u306e\u65e5\u306b\u3002',
+'\u53cb':'\u4eba\u3068\u306e\u7e01\u304c\u5e83\u304c\u308b\u65e5\u3002\u8a98\u3044\u3084\u76f8\u8ac7\u306b\u306e\u3063\u3066\u307f\u3066\u3002','\u89aa':'\u4fe1\u983c\u304c\u6df1\u307e\u308b\u65e5\u3002\u5927\u5207\u306a\u4eba\u306b\u6c17\u6301\u3061\u3092\u4f1d\u3048\u3066\u3002'};
 var T=__SKT__,CL={'命':'me','業':'gy','胎':'gy','栄':'ei','親':'ei','友':'yu','衰':'yu','安':'an','壊':'an','危':'ki','成':'ki'};
+function todayBlk(ia){var n=new Date(),ts=C.shuku(n.getFullYear(),n.getMonth()+1,n.getDate());if(!ts)return '';var it=ORD.indexOf(ts.name),dd=((it-ia)%27+27)%27,rl=RM[dd];
+ return '<div class="fh-b27-sk-today"><p class="h">\u4eca\u65e5\uff08'+(n.getMonth()+1)+'\u6708'+n.getDate()+'\u65e5\uff09\u306f\u300c'+rl+'\u300d\u306e\u65e5</p><p>\u4eca\u65e5\u306e\u6708\u306f'+esc(ts.name)+'\u5bbf\u3002\u3042\u306a\u305f\u306e\u5bbf\u304b\u3089\u898b\u308b\u3068\u300c'+rl+'\u300d\u306e\u95a2\u4fc2\u3067\u3059\u3002'+(DAY[rl]||'')+'</p></div>'}
 $('sk-go').addEventListener('click',function(){var a=get('sk-a');if(!a){$('sk-res').innerHTML='<p>この日付は計算できません。</p>';$('sk-res').hidden=false;return;}
  var x=D[a.s.name],k=a.s.kyu,t=T[a.s.name],ia=ORD.indexOf(a.s.name),sv='',grp={ei:[],yu:[],an:[]};
  for(var i=0;i<27;i++){var dd=((i-ia)%27+27)%27,rl=RM[dd],c=CL[rl]||'d',an=-Math.PI/2+2*Math.PI*i/27,X=120+96*Math.cos(an),Y=120+96*Math.sin(an);
@@ -166,7 +182,7 @@ $('sk-go').addEventListener('click',function(){var a=get('sk-a');if(!a){$('sk-re
   '<div class="fh-b27-sk-card"><small>'+a.y+'年'+a.m+'月'+a.d+'日生まれ（旧暦 '+(k.leap?'閏':'')+k.month+'月'+k.day+'日）の本命宿</small><p class="nm">'+esc(a.s.name)+'宿<small style="font-size:15px;margin-left:8px">'+esc(x.yomi)+'</small></p><p class="ct">'+esc(t.catch)+'</p>'+
   '<div class="fh-b27-sk-tabs" role="tablist">'+tb.map(function(b,i){return '<button type="button" role="tab" data-t="'+b[0]+'" aria-selected="'+(i?'false':'true')+'">'+b[1]+'</button>'}).join('')+'</div><div class="fh-b27-sk-pane" id="sk-pane">'+tx.char+'</div>'+
   '<div class="fh-b27-sk-rels"><p><b>いちばん穏やかに付き合える宿（栄親）</b></p>'+chips(grp.ei,'ei')+'<p><b>気を許せる仲間の宿（友衰）</b></p>'+chips(grp.yu,'')+'<p><b>強く惹かれ合うけれど距離感が大切な宿（安壊）</b></p>'+chips(grp.an,'an')+'</div>'+
-  '<div id="sk-lucky"></div><p><a href="#sk-'+ia+'">'+esc(a.s.name)+'宿の説明へ →</a>　<a href="#b27-sk-aisho">二人の相性を見る →</a></p></div>';
+  todayBlk(ia)+'<div id="sk-lucky"></div><p><a href="#sk-'+ia+'">'+esc(a.s.name)+'宿の説明へ →</a>　<a href="#b27-sk-aisho">二人の相性を見る →</a></p></div>';
  $('sk-res').hidden=false;var src=document.querySelector('#sk-lucky-src [data-s="'+ia+'"]');if(src)$('sk-lucky').appendChild(src.cloneNode(true));
  requestAnimationFrame(function(){requestAnimationFrame(function(){var g=$('sk-rot');if(g)g.style.transform='rotate('+rot+'deg)';});});
  $('sk-res').querySelectorAll('.fh-b27-sk-tabs button').forEach(function(b){b.addEventListener('click',function(){$('sk-res').querySelectorAll('.fh-b27-sk-tabs button').forEach(function(z){z.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');$('sk-pane').innerHTML=tx[b.getAttribute('data-t')];});});
@@ -198,6 +214,16 @@ def build(sample, updated):
     h2 = lambda t: f'<h2><span class="fh-b27-n"></span><span>{t}</span></h2>'
     sel = lambda p, who: (f'<div class="fh-b27-sk-form"><b>{who}</b><select id="{p}y" aria-label="{who}の生まれた年"></select>'
                           f'<select id="{p}m" aria-label="{who}の生まれた月"></select><select id="{p}d" aria-label="{who}の生まれた日"></select></div>')
+    a('''<div class="fh-b27-sk-why">
+  <p class="fh-b27-sk-why-h">宿曜占星術は「人との距離感」と「日の巡り」の占い</p>
+  <p>星座占いや誕生日相性占いは、生まれた日の<b>太陽</b>の位置で読みます。宿曜占星術は、生まれた日の<b>月</b>がどこにいたかで読みます。月は気持ちや人との関わり方を表すとされ、宿曜は<b>二人の関係の「型」と「距離」</b>まで具体的に言い当てるのが得意です。</p>
+  <ul>
+    <li><b>関係を6つの型×3つの距離で</b>「栄親」「安壊」など6つの型に、近距離・中距離・遠距離を組み合わせて、付き合い方の強さまでわかります。</li>
+    <li><b>今日の日の巡り</b>毎日の月の宿とあなたの宿の関係から、その日が「動く日」か「控える日」かを読みます。</li>
+    <li><b>千年以上の歴史</b>もとになった『宿曜経』は、平安時代に空海が日本へ伝えたとされ、宿曜道として受け継がれてきました。</li>
+  </ul>
+  <p class="fh-b27-small">誕生日だけで手軽に相性を見たいときは<a href="/compatibility/">誕生日相性占い</a>、生まれ年の星と方角は<a href="/kyusei/">九星気学</a>もどうぞ。</p>
+</div>''')
     a(f'''<section class="fh-b27-sec" id="b27-sk-calc">
   {h2("本命宿を調べる")}
   <div class="fh-b27-sk-box">

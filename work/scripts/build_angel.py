@@ -74,6 +74,12 @@ CSS = """<style id="fh-b27-an-css">
 .fh-b27-an-qa p{margin-top:6px;font-size:14.5px}
 @media (max-width:640px){.fh-b27-an-digits{grid-template-columns:1fr}.fh-b27[data-fh-page="angel"] .fh-b27-toc ol{columns:1}.fh-b27[data-fh-page="angel"] .fh-b27-title{font-size:25px}.fh-b27-an-emb{flex-basis:120px;height:100px}.fh-b27-an-emb b{font-size:36px}}
 @media (prefers-reduced-motion:reduce){.fh-b27-an-emb b{animation:none}.fh-b27-an-big span,.fh-b27-an-card{animation:none;opacity:1;transform:none}}
+.fh-b27-an-gh{font:800 15px 'Shippori Mincho',serif;color:var(--rose);margin:10px 0 4px}
+.fh-b27-an-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:6px}
+.fh-b27-an-tiles button{display:flex;flex-direction:column;align-items:center;gap:0;min-height:58px;border:1px solid rgba(243,217,139,.35);border-radius:12px;background:rgba(255,255,255,.04);color:var(--ink);cursor:pointer;padding:4px}
+.fh-b27-an-tiles button b{font:800 19px 'Shippori Mincho',serif;color:var(--gold)}.fh-b27-an-tiles button small{font-size:11px;color:var(--mute)}
+.fh-b27-an-tiles button:hover{background:rgba(243,217,139,.12)}
+.fh-b27-an-all>summary{cursor:pointer;font-weight:800;color:var(--gold);padding:8px 0}
 </style>"""
 
 JS = r"""(function(){var DG=__DG__,SP=__SP__;function $(i){return document.getElementById(i)}
@@ -87,7 +93,7 @@ function show(v){v=String(v).replace(/[^0-9]/g,'').slice(0,8);if(!v){return}inp.
   tx={m:m,love:'<p>'+esc(T.love)+'</p>'+ds.slice(0,2).map(function(c){return '<p><b>'+c+'</b>：'+esc(DG[c].love)+'</p>'}).join(''),work:'<p>'+esc(T.work)+'</p>'+ds.slice(0,2).map(function(c){return '<p><b>'+c+'</b>：'+esc(DG[c].work)+'</p>'}).join(''),money:'<p>'+esc(T.money)+'</p>'+ds.slice(0,2).map(function(c){return '<p><b>'+c+'</b>：'+esc(DG[c].money)+'</p>'}).join('')};act=null;}
  var tb=[['m','意味'],['love','恋愛'],['work','仕事'],['money','お金']];
  r.innerHTML='<div class="fh-b27-an-big" aria-hidden="true">'+big+'</div><div class="fh-b27-an-card"><p class="kw">'+esc(kw)+'</p><div class="fh-b27-an-tabs" role="tablist">'+tb.map(function(b,i){return '<button type="button" role="tab" data-t="'+b[0]+'" aria-selected="'+(i?'false':'true')+'">'+b[1]+'</button>'}).join('')+'</div><div class="fh-b27-an-pane" id="an-pane">'+tx.m+'</div>'+
-  (act?'<div class="fh-b27-an-act"><b>今日できること：</b>'+esc(act)+'</div>':'')+(sp?'<p><a href="#an-'+v+'">'+v+'の説明へ →</a></p>':'<p><small>この並びは、数字ごとの意味を組み合わせて読んでいます。</small></p>')+'</div>';
+  (act?'<div class="fh-b27-an-act"><b>今日できること：</b>'+esc(act)+'</div>':'')+(sp?'':'<p><small>この並びは、数字ごとの意味を組み合わせて読んでいます。</small></p>')+'</div>';
  r.hidden=false;r.querySelectorAll('.fh-b27-an-tabs button').forEach(function(b){b.addEventListener('click',function(){r.querySelectorAll('.fh-b27-an-tabs button').forEach(function(z){z.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');$('an-pane').innerHTML=tx[b.getAttribute('data-t')];});});}
 f.addEventListener('submit',function(e){e.preventDefault();show(inp.value)});
 document.querySelectorAll('[data-an]').forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-an'));$('an-res').scrollIntoView({behavior:'smooth',block:'center'})})});
@@ -111,15 +117,15 @@ def build(sample, updated):
 </header>''')
     rep = [k for k in SP if len(set(k)) == 1]
     other = [k for k in SP if len(set(k)) > 1]
-    items = [("b27-an-pick", "気になる数字の意味を調べる"), ("b27-an-rep", "ゾロ目の意味（000〜9999）"), ("b27-an-other", "よく見る並びの数字の意味"),
-             ("b27-an-digit", "0〜9の数字の意味"), ("b27-an-how", "エンジェルナンバーの読み方"), ("b27-an-faq", "よくある質問")]
+    items = [("b27-an-pick", "気になる数字の意味を調べる"), ("b27-an-rep", "ゾロ目とよく見る数字"),
+             ("b27-an-digit", "0〜9の数字の意味"), ("b27-an-how", "エンジェルナンバーの読み方"), ("b27-an-all", "すべての数字の意味をまとめて読む"), ("b27-an-faq", "よくある質問")]
     a('<nav class="fh-b27-toc" aria-label="目次"><strong>このページの内容</strong><ol>' + "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in items) + "</ol></nav>")
     n = [0]
 
     def h2(t):
         n[0] += 1
         return f'<h2><span class="fh-b27-n">{n[0]}</span><span>{t}</span></h2>'
-    chips = "".join(f'<button type="button" data-an="{k}">{k}</button>' for k in ["111", "222", "333", "444", "555", "777", "888", "1111", "1234", "1212", "1122", "2222"])
+    chips = "".join(f'<button type="button" data-an="{k}">{k}</button>' for k in ["111", "222", "333", "444", "777", "1111", "1234", "1212"])
     a(f'''<section class="fh-b27-sec" id="b27-an-pick">
   {h2("気になる数字の意味を調べる")}
   <div class="fh-b27-an-box">
@@ -134,21 +140,20 @@ def build(sample, updated):
         return "".join(f'<details id="an-{k}"><summary>{k}<small>{esc(SP[k]["kw"])}</small></summary><p>{esc(SP[k]["meaning"])}</p>'
                        f'<p><b>恋愛：</b>{esc(SP[k]["love"])}</p><p><b>仕事：</b>{esc(SP[k]["work"])}</p><p><b>お金：</b>{esc(SP[k]["money"])}</p>'
                        f'<p><b>今日できること：</b>{esc(SP[k]["action"])}</p></details>' for k in keys)
+    tile = lambda k: f'<button type="button" data-an="{k}"><b>{k}</b><small>{esc(SP[k]["kw"].split("・")[0])}</small></button>'
     a(f'''<section class="fh-b27-sec" id="b27-an-rep">
-  {h2("ゾロ目の意味（000〜9999）")}
-  <p>同じ数字が3つ、4つと並ぶゾロ目は、その数字の意味が強く表れていると読みます。数字を押すと、恋愛・仕事・お金のヒントと、今日できる小さなことが開きます。</p>
-  <div class="fh-b27-an-list">{det(sorted(rep, key=lambda k: (len(k), k)))}</div>
-</section>''')
-    a(f'''<section class="fh-b27-sec" id="b27-an-other">
-  {h2("よく見る並びの数字の意味")}
-  <p>1234のような階段の数字や、1212のようなくり返しの数字も、よく気にされる並びです。</p>
-  <div class="fh-b27-an-list">{det(sorted(other, key=lambda k: (len(k), k)))}</div>
+  {h2("ゾロ目とよく見る数字")}
+  <p>数字を押すと、上の欄に意味と、恋愛・仕事・お金のヒントが出ます。</p>
+  <p class="fh-b27-an-gh">ゾロ目（同じ数字が並ぶ）</p>
+  <div class="fh-b27-an-tiles">{"".join(tile(k) for k in sorted(rep, key=lambda k: (len(k), k)))}</div>
+  <p class="fh-b27-an-gh">よく見る並び（階段・くり返し）</p>
+  <div class="fh-b27-an-tiles">{"".join(tile(k) for k in sorted(other, key=lambda k: (len(k), k)))}</div>
 </section>''')
     dg = "".join(f'<div id="an-d{k}"><b>{k}</b><span style="color:var(--gold)">{esc(v["kw"])}</span><br>{esc(v["meaning"])}<br><small>恋愛：{esc(v["love"])}<br>仕事：{esc(v["work"])}<br>お金：{esc(v["money"])}</small></div>' for k, v in DG.items())
     a(f'''<section class="fh-b27-sec" id="b27-an-digit">
   {h2("0〜9の数字の意味")}
-  <p>エンジェルナンバーは、0から9までの数字それぞれの意味がもとになっています。一覧にない数字も、ここにある意味を組み合わせて読めます。</p>
-  <div class="fh-b27-an-digits">{dg}</div>
+  <p>エンジェルナンバーは、0から9までの数字それぞれの意味がもとになっています。数字を押すと、上の欄に意味が出ます。</p>
+  <div class="fh-b27-an-tiles">{"".join(f'<button type="button" data-an="{k}"><b>{k}</b><small>{esc(v["kw"].split("・")[0])}</small></button>' for k, v in DG.items())}</div>
 </section>''')
     a(f'''<section class="fh-b27-sec" id="b27-an-how">
   {h2("エンジェルナンバーの読み方")}
@@ -156,6 +161,11 @@ def build(sample, updated):
   <p><b>組み合わせの読み方：</b>このページでは、一覧にない数字を、出てくる数字それぞれの意味と、すべての数字を足して1けたにした数（例：1225なら1＋2＋2＋5＝10→1＋0＝1）のテーマで読みます。同じ数字が多く並ぶほど、その意味が強いと考えます。</p>
   <p><b>見たときの使い方：</b>数字を見た瞬間に何を考えていたかを思い出すと、メッセージが自分の状況に結びつきやすくなります。気になる数字は手帳やメモに残しておくと、あとで流れを振り返れます。</p>
   <p>誕生日から決まる数（数秘術のライフパスや誕生日の数）は、<a href="/366uranai/">366日の誕生日占い</a>や<a href="/seinengappi/">生年月日まるごと診断</a>で見られます。</p>
+</section>''')
+    allk = sorted(rep, key=lambda k: (len(k), k)) + sorted(other, key=lambda k: (len(k), k))
+    a(f'''<section class="fh-b27-sec" id="b27-an-all">
+  {h2("すべての数字の意味をまとめて読む")}
+  <details class="fh-b27-an-all"><summary>すべての数字の意味を開く</summary><div class="fh-b27-an-list">{det(allk)}</div><p class="fh-b27-an-gh">0〜9の数字</p><div class="fh-b27-an-digits">{dg}</div></details>
 </section>''')
     qa = "".join(f'<details{" open" if i == 0 else ""}><summary>Q. {esc(q)}</summary><p>A. {esc(x)}</p></details>' for i, (q, x) in enumerate(A.FAQ))
     ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": x}} for q, x in A.FAQ]}

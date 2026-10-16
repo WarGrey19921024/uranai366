@@ -62,7 +62,7 @@ CSS = """<style id="fh-b27-ky-css">
 .fh-b27[data-fh-page="kyusei"] a{color:#E8C878}
 .fh-b27[data-fh-page="kyusei"] .fh-b27-note{border-left:0;border-radius:4px;background-color:var(--paper);
  background-image:radial-gradient(circle at 15% 0%,rgba(194,69,58,.18),transparent 35%),radial-gradient(circle at 100% 100%,rgba(212,175,90,.12),transparent 40%),repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0 2px,transparent 2px 9px);
- box-shadow:0 14px 40px rgba(0,0,0,.5),inset 0 0 0 2px rgba(194,69,58,.55),inset 0 0 0 7px var(--paper),inset 0 0 0 8px rgba(212,175,90,.4)}
+ background-size:auto,auto,auto;box-shadow:0 14px 40px rgba(0,0,0,.5),inset 0 0 0 2px rgba(194,69,58,.55),inset 0 0 0 7px var(--paper),inset 0 0 0 8px rgba(212,175,90,.4)}
 .fh-b27-ky-ban{display:grid;grid-template-columns:repeat(3,44px);grid-template-rows:repeat(3,44px);gap:3px;flex:0 0 auto;padding:10px;background:rgba(0,0,0,.25);border:1px solid rgba(212,175,90,.5);margin:6px}
 .fh-b27-ky-ban span{display:flex;align-items:center;justify-content:center;font:800 18px 'Shippori Mincho',serif;color:#1A1F1C;border-radius:2px}
 .fh-b27[data-fh-page="kyusei"] .fh-b27-hero{align-items:center}
@@ -137,6 +137,15 @@ CSS = """<style id="fh-b27-ky-css">
 .fh-b27 .fh-b27-ky-res .fh-b27-adgoods-h{color:#26211B}
 @media (max-width:640px){.fh-b27-ky-ms{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){.fh-b27-ky-rv span,.fh-b27-ky-card{animation:none;opacity:1;transform:none}}
+.fh-b27-ky-why{border:1.5px solid rgba(212,175,90,.5);border-radius:6px;background:linear-gradient(135deg,rgba(194,69,58,.18),rgba(212,175,90,.08));padding:16px 18px}
+.fh-b27-ky-why-h{font:800 20px 'Shippori Mincho',serif;color:var(--gold);margin:0 0 6px}
+.fh-b27 .fh-b27-ky-why ul{list-style:none;padding:0;margin:10px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fh-b27 .fh-b27-ky-why li{margin:0;background:var(--cream);color:var(--cream-ink);border-radius:6px;padding:10px 12px;font-size:13.5px;line-height:1.7}
+.fh-b27-ky-why li::before{content:none}.fh-b27 .fh-b27-ky-why li b{display:block;color:#9A3328;font-size:15px}
+.fh-b27-ky-ml{min-width:760px;font-size:12.5px}.fh-b27-ky-ml td{text-align:center}
+.fh-b27-ky-ml th[scope=row]{white-space:nowrap}.fh-b27-ky-ml th[scope=row] i{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--c);margin-right:6px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
+.fh-b27-ky-ms div small.l{display:block;color:#1F6B3A;font-weight:700}
+@media (max-width:640px){.fh-b27 .fh-b27-ky-why ul{grid-template-columns:1fr}}
 </style>"""
 
 JS = r"""(function(){var C=window.FHB27Calc;var ST=__STARS__,INFO=__INFO__,AI=__AISHO__,COL=__COL__,POS=__POS__,Y27=__Y27__;
@@ -149,13 +158,13 @@ function fill(p){var y=$(p+'y'),m=$(p+'m'),d=$(p+'d');for(var i=C.GEN.yearMin;i<
  y.addEventListener('change',days);m.addEventListener('change',days);days();}
 fill('ky-a');fill('ky-b');
 function get(p){var y=+$(p+'y').value,m=+$(p+'m').value,d=+$(p+'d').value;return {y:y,m:m,d:d,h:C.honmei(y,m,d)};}
-var T=__KT__,LD=__LD__,MS=__MS__,PAL=__PAL__,OPP={1:8,8:1,2:7,7:2,3:6,6:3,4:5,5:4};
+var T=__KT__,LD=__LD__,MS=__MS__,PAL=__PAL__,ML=__ML__,OPP={1:8,8:1,2:7,7:2,3:6,6:3,4:5,5:4};
 function at(c,p){return ((c-1+p)%9)+1}function pal(c,s){return ((s-c)%9+9)%9}
 $('ky-go').addEventListener('click',function(){var a=get('ky-a'),s=a.h.star,nm=ST[s-1],x=INFO[nm],t=T[nm],yy=Y27[s];var r=$('ky-res');r.style.setProperty('--c',COL[s-1]);
  var bd=[8,4,6,7,0,2,3,5,1].map(function(p,i){var st=at(9,p);return '<span style="--i:'+i+';--c:'+COL[st-1]+'" class="'+(st===s?'me':'')+'">'+st+'<small>'+(st===s?'あなた':PAL[p][0])+'</small></span>'}).join('');
  var tb=[['char','性格'],['love','恋愛'],['work','仕事'],['money','お金'],['people','人付き合い']];
  var tx={char:'<p><b>性質：</b>'+esc(x.kw)+'</p><p><b>長所：</b>'+esc(x.good)+'<br><b>気をつけたい点：</b>'+esc(x.bad)+'</p><p><b>色：</b>'+esc(x.color)+'　<b>象徴：</b>'+esc(x.sym)+'</p>',love:'<p>'+esc(t.love)+'</p>',work:'<p>'+esc(t.work)+'</p>',money:'<p>'+esc(t.money)+'</p>',people:'<p>'+esc(t.people)+'</p>'};
- var ms=MS.map(function(m){var p=pal(m[1],s),w=false;if(m[1]!==5){var q=pal(m[1],5);w=(p===q||p===OPP[q]);}return '<div class="'+(w?'w':'')+'"><b>'+m[0]+'</b>'+PAL[p][0]+'<br>'+PAL[p][1]+(w?'<br>※凶方位':'')+'</div>'}).join('');
+ var ms=MS.map(function(m,mi){var p=pal(m[1],s),w=false,lk=ML[s][mi];if(m[1]!==5){var q=pal(m[1],5);w=(p===q||p===OPP[q]);}return '<div class="'+(w?'w':'')+'"><b>'+m[0]+'</b>'+PAL[p][0]+'<br>'+PAL[p][1]+(w?'<br>※凶方位':'')+(lk&&lk.length?'<small class="l">吉：'+lk.join('・')+'</small>':'')+'</div>'}).join('');
  var ai=AI[nm],g1=[],g2=[];ai.forEach(function(k,i){if(k==='◎')g1.push(ST[i]);else if(k==='○')g2.push(ST[i]);});
  var ld=LD[s].length?LD[s].map(function(d){return '<span class="g">'+d+'</span>'}).join(''):'<span>年盤では吉方位なし</span>';
  r.innerHTML='<div class="fh-b27-ky-rv" aria-hidden="true">'+bd+'</div><div class="fh-b27-ky-card"><small>'+a.y+'年'+a.m+'月'+a.d+'日生まれの本命星</small><p class="nm">'+esc(nm)+'</p><p class="ct">'+esc(t.catch)+'</p>'+
@@ -176,8 +185,38 @@ $('ky-go2').addEventListener('click',function(){var a=get('ky-a'),b=get('ky-b'),
 })();"""
 
 
+OPPD = {"北": "南", "南": "北", "東": "西", "西": "東", "北東": "南西", "南西": "北東", "北西": "南東", "南東": "北西"}
+
+
+def month_lucky(aisho, months):
+    """2027年の月ごとの吉方位（本命星別）。月盤の中宮から星の位置を出し、本命星から見て相生・比和（◎○◇）の星がいる方位から、
+    その月の五黄殺・暗剣殺・月破と、本命殺（自分の星の方位）・本命的殺（その反対）を除く。年盤の凶方位（北・南・北東）も除く（knowledge 3-7）"""
+    at = lambda c, p: ((c - 1 + p) % 9) + 1  # noqa: E731
+    pal = lambda c, st: (st - c) % 9  # noqa: E731
+    out = {}
+    for st in range(1, 10):
+        rows = []
+        for r in months:
+            if "前年" in r[0]:
+                continue
+            if r[1] == "小寒":  # 立春より前はまだ2026年（一白水星の年）の年盤なので、この表では扱わない
+                rows.append(None)
+                continue
+            c = STARS.index(r[4]) + 1
+            bad = {r[5], r[6], r[7], "北", "南", "北東"}
+            ps = pal(c, st)
+            if ps:
+                bad |= {KT.PALACE[ps][0], OPPD[KT.PALACE[ps][0]]}
+            good = [KT.PALACE[p][0] for p in range(1, 9) if KT.PALACE[p][0] not in bad and aisho[STARS[st - 1]][at(c, p) - 1] in "◎○◇"]
+            rows.append(good)
+        out[st] = rows
+    return out
+
+
 def build(sample, updated):
     info, base, aisho, months = load()
+    MLD = month_lucky(aisho, months)
+    MLABEL = [f"{int(r[0][5:7])}/{int(r[0][8:10])}〜" for r in months if "前年" not in r[0]]
     H = []
     a = H.append
     a(CSS)
@@ -190,12 +229,11 @@ def build(sample, updated):
   <div class="fh-b27-ky-ban" aria-hidden="true">{ban}</div>
   <div class="fh-b27-hero-body">
     <span class="fh-b27-tape">九星気学</span>
-    <h1 class="fh-b27-title">九星気学<br>生年月日で本命星と2027年の運勢</h1>
-    <p class="fh-b27-lead">生年月日を選ぶだけで、九星気学の本命星を計算します。立春で年が切り替わる決まりも日付ごとに反映。本命星別の2027年の運勢、2027年の年盤と凶方位、九星どうしの相性もまとめました。</p>
+    <h1 class="fh-b27-title">九星気学<br>本命星でわかる2027年の吉方位と運気</h1>
+    <p class="fh-b27-lead">九星気学は、生まれ年の星（本命星）と、年や月ごとに入れ替わる星の配置から、動くタイミングと方角を読む占いです。生年月日を選ぶと本命星を計算し、2027年の吉方位と月ごとの流れ、年盤の凶方位まで一度にわかります。立春で年が切り替わる決まりも日付ごとに反映しています。</p>
   </div>
 </header>''')
-    items = [("b27-ky-calc", "本命星を調べる"), ("b27-ky-aisho2", "二人の相性"), ("b27-ky-list", "九星の性格一覧"), ("b27-ky-read", "本命星別 恋愛・仕事・お金"), ("b27-ky-2027", "本命星別 2027年の運勢"),
-             ("b27-ky-ban", "2027年の年盤と凶方位"), ("b27-ky-month", "2027年の月盤"), ("b27-ky-aisho", "九星の相性表"), ("b27-ky-how", "本命星の出し方"), ("b27-ky-faq", "よくある質問")]
+    items = [("b27-ky-calc", "本命星を調べる"), ("b27-ky-aisho2", "二人の相性"), ("b27-ky-list", "九星の性格一覧"), ("b27-ky-read", "本命星別 恋愛・仕事・お金"), ("b27-ky-2027", "本命星別 2027年の運勢"), ("b27-ky-mlucky", "2027年の月ごとの吉方位"), ("b27-ky-ban", "2027年の年盤と凶方位"), ("b27-ky-month", "2027年の月盤"), ("b27-ky-aisho", "九星の相性表"), ("b27-ky-how", "本命星の出し方"), ("b27-ky-faq", "よくある質問")]
     a('<nav class="fh-b27-toc" aria-label="目次"><strong>このページの内容</strong><ol>' + "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in items) + "</ol></nav>")
     n = [1]
 
@@ -205,6 +243,16 @@ def build(sample, updated):
         return s
     sel = lambda p, who: (f'<div class="fh-b27-ky-form"><b>{who}</b><select id="{p}y" aria-label="{who}の生まれた年"></select>'
                           f'<select id="{p}m" aria-label="{who}の生まれた月"></select><select id="{p}d" aria-label="{who}の生まれた日"></select></div>')
+    a('''<div class="fh-b27-ky-why">
+  <p class="fh-b27-ky-why-h">九星気学は「いつ・どの方角へ動くか」の占い</p>
+  <p>誕生日占いが「生まれた日の性格」を読むのに対して、九星気学は<b>生まれ年の星（本命星）と、年・月ごとに入れ替わる星の配置</b>から、<b>動くタイミングと方角</b>を読む占いです。同じ人でも、年や月によって良い方角が変わるのが特徴です。</p>
+  <ul>
+    <li><b>引っ越し・旅行の方角</b>2027年の年盤と月盤から、あなたの星にとっての吉方位を月ごとに出します。</li>
+    <li><b>始めごとの時期</b>あなたの星が盤のどこに入るかで、その月が「スタート」「充電」「注目」のどれに向くかがわかります。</li>
+    <li><b>家族や職場の星との関係</b>五行の関係で、助けてくれる星・支える星がわかります。</li>
+  </ul>
+  <p class="fh-b27-small">性格や恋愛の相性をくわしく見たいときは<a href="/366uranai/">誕生日占い</a>・<a href="/compatibility/">誕生日相性占い</a>、生まれ年まで入れて8つの占いをまとめて見たいときは<a href="/seinengappi/">まるごと診断</a>がおすすめです。</p>
+</div>''')
     a(f'''<section class="fh-b27-sec" id="b27-ky-calc">
   {h2("本命星を調べる")}
   <div class="fh-b27-ky-box">
@@ -246,6 +294,15 @@ def build(sample, updated):
   <p>2027年は九紫火星が中央に入る年です。明るさ・知性・名誉を表す星の年なので、物事がはっきりし、学びや表現に追い風が吹く一方、勢い任せの判断や見栄の出費には注意したい年と読みます。本命星が2027年の年盤でどこに入るかで、その人の一年の流れを見ます。</p>
   <div class="fh-b27-ky-y">{yy}</div>
   <p class="fh-b27-small">九星の年は2027年2月4日の立春から2028年2月4日の立春までです。月ごとの流れは、366日の誕生日ページで生まれ年を選ぶと見られます。</p>
+</section>''')
+    head = "".join(f'<th scope="col">{x}</th>' for x in MLABEL)
+    rowsx = "".join(f'<tr><th scope="row" style="--c:{COLOR[i]}"><i></i>{st}</th>' + "".join(
+        f'<td>{"—" if v is None else ("・".join(v) if v else "なし")}</td>' for v in MLD[i + 1]) + "</tr>" for i, st in enumerate(STARS))
+    a(f'''<section class="fh-b27-sec" id="b27-ky-mlucky">
+  {h2("本命星別 2027年の月ごとの吉方位")}
+  <p>旅行や引っ越し、大事な用事で出かける方角を選ぶときの目安です。その月の月盤で、あなたの星と相性のよい星（相生・比和）がいる方角から、五黄殺・暗剣殺・月破と、本命殺・本命的殺、2027年の年の凶方位（北・南・北東）を除いて出しています。</p>
+  <div class="fh-b27-ky-wrap"><table class="fh-b27-ky-t fh-b27-ky-ml"><caption>本命星別・2027年の月ごとの吉方位（月は節入り日から）</caption><thead><tr><th scope="col">本命星</th>{head}</tr></thead><tbody>{rowsx}</tbody></table></div>
+  <p class="fh-b27-small">「—」の1月5日〜は、立春前でまだ2026年（一白水星の年）の盤のため、この表では扱っていません。「なし」の月は、近場の用事で済ませるか、別の月を選ぶのがおすすめです。引っ越しなど長く住む場所は、年の吉方位（あなたの星を調べると表示）を優先してください。</p>
 </section>''')
     g9 = "".join(f'<div class="{"bad" if o in ("北", "南", "北東") else ""}"><small>{o}</small><b>{STARS[inv[o] - 1]}</b>{"五黄殺" if o == "北" else "暗剣殺" if o == "南" else "歳破" if o == "北東" else ""}</div>' for o in order)
     a(f'''<section class="fh-b27-sec" id="b27-ky-ban">
@@ -316,7 +373,7 @@ def build(sample, updated):
     lucky = "".join(f'<div data-s="{i + 1}">{aff_extra.goods_box("2027年のお守りアイテム", [(KT.TEXTS[st]["lucky"][0], KT.TEXTS[st]["lucky"][0], KT.TEXTS[st]["lucky"][1], "goods")])}</div>' for i, st in enumerate(STARS))
     a(f'<div id="ky-lucky-src" hidden>{lucky}</div>')
     js = (JS.replace("__KT__", json.dumps(KT.TEXTS, ensure_ascii=False)).replace("__LD__", json.dumps(LD, ensure_ascii=False))
-          .replace("__MS__", json.dumps(MS, ensure_ascii=False)).replace("__PAL__", json.dumps(KT.PALACE, ensure_ascii=False))
+          .replace("__MS__", json.dumps(MS, ensure_ascii=False)).replace("__ML__", json.dumps(MLD, ensure_ascii=False)).replace("__PAL__", json.dumps(KT.PALACE, ensure_ascii=False))
           .replace("__STARS__", json.dumps(STARS, ensure_ascii=False)).replace("__INFO__", json.dumps(info, ensure_ascii=False, separators=(",", ":")))
           .replace("__AISHO__", json.dumps(aisho, ensure_ascii=False)).replace("__COL__", json.dumps(COLOR)).replace("__POS__", json.dumps(POS2027, ensure_ascii=False))
           .replace("__Y27__", json.dumps(YEAR2027, ensure_ascii=False)))
@@ -325,8 +382,8 @@ def build(sample, updated):
       f'最終更新日：{up.year}年{up.month}月{up.day}日／<a href="/about/">この記事の作成方針について</a></p>')
     a("</div>\n</div>")
     a(f"<script>document.addEventListener('DOMContentLoaded',function(){{{js}}});</script>")
-    title = "九星気学｜生年月日で本命星を計算・2027年の運勢と年盤・凶方位【無料】"
-    desc = ("生年月日を選ぶだけで九星気学の本命星を無料で計算（立春の切り替えも反映）。本命星別の2027年の運勢、九紫火星中宮の年盤と凶方位（五黄殺・暗剣殺・歳破）、月盤、九星の性格と相性表も。")
+    title = "九星気学｜本命星で見る2027年の吉方位と運勢・月ごとの吉方位表・凶方位【無料計算】"
+    desc = ("生年月日から九星気学の本命星を無料で計算し、2027年の吉方位と月ごとの吉方位表、年盤の凶方位（五黄殺・暗剣殺・歳破）、本命星別の運勢と恋愛・仕事・お金、九星どうしの相性を紹介。引っ越しや旅行の方角選びに。")
     out = shell(title, desc, URL, "\n".join(H), sample, SCRIPTS)
     assert "！" not in out
     return out
