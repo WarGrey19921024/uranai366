@@ -9,6 +9,8 @@ sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, shell  # noqa: E402
 from build_shukuyo import md_rows, esc  # noqa: E402
 
+import maya_texts as MT  # noqa: E402
+import aff_extra  # noqa: E402
 URL = "/maya/"
 KNOW = os.path.join(WORK, "knowledge", "07_マヤ暦.md")
 SCRIPTS = ("fh-b27-setsuiri.js", "fh-b27-kyureki.js", "fh-b27.js")
@@ -20,7 +22,7 @@ FAQ = [
     ("2月29日生まれのKINはどうなりますか。", "ドリームスペルでは2月29日を数えないため、このページでは前日の2月28日と同じKINにしています。"),
     ("同じ誕生日なら同じKINですか。", "いいえ。2月29日を数えないため、同じ月日でも1年ごとにKINが105ずつ進みます。KINを出すには生まれた年が必要です。"),
     ("今日のKINも調べられますか。", "調べられます。ページの「今日のKIN」に、今日の紋章と銀河の音を表示しています。2026年8月27日から新しい260日の周期が始まりました。"),
-    ("ガイドキンや反対キンは出ますか。", "このページではKIN・太陽の紋章・銀河の音を扱っています。ガイドキン・類似キン・反対キン・神秘キンは今後追加を検討しています。"),
+    ("ガイドキンや反対キンは出ますか。", "出ます。KINを調べると、ガイドキン（導く力）・類似キン（支え合う力）・反対キン（鍛え合う力）・神秘キン（隠れた力）の4つも計算して表示します。ドリームスペルの一般的な決まり（ガイドは銀河の音で決まる同じ色の紋章、類似は紋章の番号の和が19、反対は10離れた紋章、神秘は紋章の和が21で音の和が14）で出しています。"),
 ]
 
 
@@ -79,6 +81,33 @@ CSS = """<style id="fh-b27-my-css">
 .fh-b27-my-qa summary{cursor:pointer;font-weight:700}
 .fh-b27-my-qa p{margin-top:6px;font-size:14.5px}
 @media (max-width:640px){.fh-b27-my-grid,.fh-b27-my-colors{grid-template-columns:repeat(2,minmax(0,1fr))}.fh-b27[data-fh-page="maya"] .fh-b27-toc ol{columns:1}.fh-b27-my-emb{width:120px;height:120px;flex-basis:120px}.fh-b27[data-fh-page="maya"] .fh-b27-title{font-size:26px}}
+.fh-b27-my-flip{perspective:900px;width:200px;height:260px;margin:0 auto 14px}
+.fh-b27-my-flip>div{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.3,1.3,.5,1)}
+.fh-b27-my-flip.on>div{transform:rotateY(180deg)}
+.fh-b27-my-flip .bk,.fh-b27-my-flip .fr{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.fh-b27-my-flip .bk{background:conic-gradient(#C8463C 0 25%,#E9E4D8 0 50%,#3E6FB0 0 75%,#E2B33C 0);border:6px solid #1C2422}
+.fh-b27-my-flip .bk:after{content:"KIN";width:96px;height:96px;border-radius:50%;background:#1C2422;color:#E2B33C;display:flex;align-items:center;justify-content:center;font:800 24px 'Shippori Mincho',serif}
+.fh-b27-my-flip .fr{transform:rotateY(180deg);background:linear-gradient(160deg,#FFFBF0,#F2E8D2);border:6px solid var(--c,#E2B33C);color:#25201A;text-align:center;padding:10px}
+.fh-b27-my-flip .fr small{font-size:12px;color:#6A6150}
+.fh-b27-my-flip .fr b{font:800 34px 'Shippori Mincho',serif;color:#25201A;line-height:1.1}
+.fh-b27-my-flip .fr em{font-style:normal;font:800 17px 'Shippori Mincho',serif}
+.fh-b27-my-num{display:flex;flex-direction:column;align-items:center;gap:4px;margin:4px 0}
+.fh-b27-my-num i{display:block;width:60px;height:8px;border-radius:4px;background:#25201A}
+.fh-b27-my-num span{display:flex;gap:6px}.fh-b27-my-num span i{width:10px;height:10px;border-radius:50%}
+.fh-b27-my-card{opacity:0;transform:translateY(14px);animation:fh-b27-my-in .6s ease 1s forwards}@keyframes fh-b27-my-in{to{opacity:1;transform:none}}
+.fh-b27-my-res .ct{font-family:'Shippori Mincho',serif;font-size:16px;color:#8A5A10;margin:-4px 0 8px}
+.fh-b27-my-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 8px}
+.fh-b27-my-tabs button{min-height:38px;border:1px solid #D8C59A;border-radius:999px;background:#FFFCF3;color:#5A4415;font:inherit;font-size:14px;font-weight:700;padding:0 14px;cursor:pointer}
+.fh-b27-my-tabs button[aria-selected="true"]{background:#8A5A10;border-color:#8A5A10;color:#FFF8E6}
+.fh-b27-my-pane{background:#FFFDF8;border-radius:8px;padding:12px 14px;min-height:5em}
+.fh-b27-my-rels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.fh-b27-my-rels div{background:#FFFDF8;border-radius:8px;border-left:6px solid var(--c);padding:8px 10px;font-size:13px;line-height:1.65}
+.fh-b27-my-rels div b{display:block;font:800 15px 'Shippori Mincho',serif;color:#25201A}
+.fh-b27-my-rels div small{color:#6A6150}
+.fh-b27[data-fh-page="maya"] .fh-b27-my-res a.fh-b27-shopbtn{color:#FFF5D6}
+.fh-b27 .fh-b27-my-res .fh-b27-adgoods-h{color:#25201A}
+@media (max-width:640px){.fh-b27-my-rels{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.fh-b27-my-flip>div{transition:none}.fh-b27-my-card{animation:none;opacity:1;transform:none}}
 </style>"""
 
 JS = r"""(function(){var C=window.FHB27Calc;var S=__SEALS__,T=__TONES__,COL=__COL__;
@@ -90,7 +119,24 @@ var y=$('my-y'),m=$('my-m'),d=$('my-d');for(var i=C.GEN.yearMin;i<=C.GEN.yearMax
 for(i=1;i<=12;i++){o=document.createElement('option');o.value=i;o.textContent=i+'月';m.appendChild(o);}
 function days(){var n=new Date(+y.value,+m.value,0).getDate(),v=+d.value||1;d.innerHTML='';for(var k=1;k<=n;k++){var o=document.createElement('option');o.value=k;o.textContent=k+'日';if(k===Math.min(v,n))o.selected=true;d.appendChild(o);}}
 y.addEventListener('change',days);m.addEventListener('change',days);days();
-$('my-go').addEventListener('click',function(){var k=C.kin(+y.value,+m.value,+d.value),x=card(k,y.value+'年'+m.value+'月'+d.value+'日生まれ');var r=$('my-res');r.style.setProperty('--c',x.c);r.innerHTML=x.h;r.hidden=false;});
+var MS=__MS__,MTN=__MT__,MR=__MR__;
+function kinOf(se,to){for(var q=1;q<=260;q++){if((q-1)%20+1===se&&(q-1)%13+1===to)return q;}return 0}
+function w20(v){v=((v-1)%20+20)%20+1;return v}
+function rels(se,to){var g={1:0,6:0,11:0,2:12,7:12,12:12,3:4,8:4,13:4,4:16,9:16,5:8,10:8}[to];return [['guide',w20(se+g),to],['analog',w20(19-se),to],['antipode',w20(se+10),to],['occult',21-se,14-to]];}
+function num(t){var h='<div class="fh-b27-my-num" aria-hidden="true"><span>';for(var i=0;i<t%5;i++)h+='<i></i>';h+='</span>';for(i=0;i<Math.floor(t/5);i++)h+='<i></i>';return h+'</div>'}
+$('my-go').addEventListener('click',function(){var k=C.kin(+y.value,+m.value,+d.value),s=S[k.sealNo-1],t=T[k.tone-1],c=COL[s.name.charAt(0)],mt=MS[k.sealNo],r=$('my-res');r.style.setProperty('--c',c[0]);
+ var tb=[['seal','紋章'],['tone','音'],['love','恋愛'],['work','仕事'],['money','お金']];
+ var tx={seal:'<p><b>太陽の紋章「'+esc(s.name)+'」</b>（'+esc(s.kw)+'）<br>'+esc(s.text)+'</p>',tone:'<p><b>銀河の音'+k.tone+'「'+esc(t.name)+'」</b>（'+esc(t.kw)+'）<br>'+esc(t.text)+'</p><p>'+esc(MTN[k.tone].tip)+'</p>',love:'<p>'+esc(mt.love)+'</p>',work:'<p>'+esc(mt.work)+'</p>',money:'<p>'+esc(mt.money)+'</p>'};
+ var rl=rels(k.sealNo,k.tone).map(function(z){var q=kinOf(z[1],z[2]),ss=S[z[1]-1];return '<div style="--c:'+COL[ss.name.charAt(0)][0]+'"><small>'+esc(MR[z[0]].name)+'</small><b>KIN'+q+' '+esc(ss.name)+'・音'+z[2]+'</b>'+esc(MR[z[0]].text)+'</div>'}).join('');
+ r.innerHTML='<div class="fh-b27-my-flip" id="my-flip" aria-hidden="true"><div><div class="bk"></div><div class="fr"><small>'+y.value+'.'+m.value+'.'+d.value+'</small><b>KIN'+k.kin+'</b><em>'+esc(s.name)+'</em>'+num(k.tone)+'<small>銀河の音'+k.tone+'「'+esc(t.name)+'」</small></div></div></div>'+
+  '<div class="fh-b27-my-card"><small>'+y.value+'年'+m.value+'月'+d.value+'日生まれ</small><p class="nm">KIN'+k.kin+'　'+esc(s.name)+'・音'+k.tone+'</p><p class="ct">'+esc(mt.catch)+'</p>'+
+  '<div class="fh-b27-my-tabs" role="tablist">'+tb.map(function(b,i){return '<button type="button" role="tab" data-t="'+b[0]+'" aria-selected="'+(i?'false':'true')+'">'+b[1]+'</button>'}).join('')+'</div><div class="fh-b27-my-pane" id="my-pane">'+tx.seal+'</div>'+
+  '<p style="margin-top:12px"><b>あなたを取り巻く4つのKIN</b></p><div class="fh-b27-my-rels">'+rl+'</div><div id="my-lucky"></div>'+
+  '<p><a href="#my-s'+s.no+'">紋章の説明へ →</a>　<a href="#my-t'+t.no+'">音の説明へ →</a></p></div>';
+ r.hidden=false;var src=document.querySelector('#my-lucky-src [data-s="'+k.sealNo+'"]');if(src)$('my-lucky').appendChild(src.cloneNode(true));
+ requestAnimationFrame(function(){requestAnimationFrame(function(){var f=$('my-flip');if(f)f.classList.add('on');});});
+ r.querySelectorAll('.fh-b27-my-tabs button').forEach(function(b){b.addEventListener('click',function(){r.querySelectorAll('.fh-b27-my-tabs button').forEach(function(z){z.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');$('my-pane').innerHTML=tx[b.getAttribute('data-t')];});});
+});
 var n=new Date(),tk=C.kin(n.getFullYear(),n.getMonth()+1,n.getDate()),ts=S[tk.sealNo-1];$('my-today').innerHTML='<span>今日（'+(n.getMonth()+1)+'月'+n.getDate()+'日）のKIN</span><b>KIN'+tk.kin+'</b><span>'+esc(ts.name)+'・音'+tk.tone+'（'+esc(T[tk.tone-1].name)+'）</span>';
 })();"""
 
@@ -131,7 +177,7 @@ def build(sample, updated):
     a("<!--Ads1-->")
     col = lambda name: COLOR[name[0]][0]
     grid = "".join(f'<a href="#my-s{s["no"]}" style="--c:{col(s["name"])}"><i></i>{s["no"]}. {esc(s["name"])}</a>' for s in seals)
-    det = "".join(f'<details id="my-s{s["no"]}" style="--c:{col(s["name"])}"><summary>{s["no"]}. {esc(s["name"])}<small>{esc(s["kw"])}</small></summary><p>{esc(s["text"])}</p></details>' for s in seals)
+    det = "".join(f'<details id="my-s{s["no"]}" style="--c:{col(s["name"])}"><summary>{s["no"]}. {esc(s["name"])}<small>{esc(s["kw"])}</small></summary><p>{esc(s["text"])}</p><p><b>恋愛：</b>{esc(MT.SEALS[s["no"]]["love"])}</p><p><b>仕事：</b>{esc(MT.SEALS[s["no"]]["work"])}</p><p><b>お金：</b>{esc(MT.SEALS[s["no"]]["money"])}</p></details>' for s in seals)
     a(f'''<section class="fh-b27-sec" id="b27-my-seals">
   {h2("20の太陽の紋章")}
   <p>太陽の紋章は、その人の本質や持ち味を表す20のシンボルです。キーワードは「行動／力／本質」の3つの言葉で表されます。紋章を押すと、その紋章を持つ人の性格の特徴が開きます。</p>
@@ -181,7 +227,10 @@ def build(sample, updated):
     <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日から性格・相性・2027年の運勢</small></a>
   </div>
 </section>''')
-    js = (JS.replace("__SEALS__", json.dumps(seals, ensure_ascii=False, separators=(",", ":"))).replace("__TONES__", json.dumps(tones, ensure_ascii=False, separators=(",", ":")))
+    lucky = "".join(f'<div data-s="{no}">{aff_extra.goods_box("あなたの紋章のお守りアイテム", [(v["lucky"][0], v["lucky"][0], v["lucky"][1], "goods")])}</div>' for no, v in MT.SEALS.items())
+    a(f'<div id="my-lucky-src" hidden>{lucky}</div>')
+    js = (JS.replace("__MS__", json.dumps(MT.SEALS, ensure_ascii=False)).replace("__MT__", json.dumps(MT.TONES, ensure_ascii=False)).replace("__MR__", json.dumps(MT.REL, ensure_ascii=False))
+          .replace("__SEALS__", json.dumps(seals, ensure_ascii=False, separators=(",", ":"))).replace("__TONES__", json.dumps(tones, ensure_ascii=False, separators=(",", ":")))
           .replace("__COL__", json.dumps({k: [v[0]] for k, v in COLOR.items()}, ensure_ascii=False)))
     up = dt.date.fromisoformat(updated)
     a(f'<p class="fh-b27-foot">KINはドリームスペルの決まりで、このサイトで計算しています。紋章と音の説明はこのサイトで書いたものです。占いは楽しみと気づきのためにお読みください。<br>'

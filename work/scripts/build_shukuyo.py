@@ -9,6 +9,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, shell  # noqa: E402
 
+import shukuyo_texts as SKT  # noqa: E402
+import aff_extra  # noqa: E402
 URL = "/shukuyo/"
 KNOW = os.path.join(WORK, "knowledge", "06_宿曜.md")
 SCRIPTS = ("fh-b27-setsuiri.js", "fh-b27-kyureki.js", "fh-b27.js")
@@ -115,6 +117,27 @@ CSS = """<style id="fh-b27-sk-css">
 .fh-b27-sk-qa summary{cursor:pointer;font-weight:700}
 .fh-b27-sk-qa p{margin-top:6px;font-size:14.5px}
 @media (max-width:640px){.fh-b27-sk-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.fh-b27[data-fh-page="shukuyo"] .fh-b27-toc ol{columns:1}.fh-b27-sk-ring{width:130px;height:130px;flex-basis:130px}.fh-b27[data-fh-page="shukuyo"] .fh-b27-title{font-size:26px}}
+.fh-b27-sk-wheel{display:block;width:240px;height:240px;margin:0 auto 10px}
+.fh-b27-sk-wheel g.rot{transform-origin:120px 120px;transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.fh-b27-sk-wheel text{font:700 12px 'Shippori Mincho',serif;fill:#C9D0EA}
+.fh-b27-sk-wheel circle.d{fill:#2A3158;stroke:rgba(200,210,240,.4)}
+.fh-b27-sk-wheel circle.me{fill:#F2D27A;stroke:#fff}.fh-b27-sk-wheel circle.ei{fill:#5FA27A}.fh-b27-sk-wheel circle.yu{fill:#5C82C9}.fh-b27-sk-wheel circle.an{fill:#C8564A}.fh-b27-sk-wheel circle.ki{fill:#7D7F93}.fh-b27-sk-wheel circle.gy{fill:#B08A3E}
+.fh-b27-sk-wheel text.me{fill:#1E2340;font-size:14px}
+.fh-b27-sk-leg{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:12px;color:#2E3766;margin-bottom:12px}
+.fh-b27-sk-leg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:-1px}
+.fh-b27-sk-card{opacity:0;transform:translateY(14px);animation:fh-b27-sk-in .6s ease 1.2s forwards}@keyframes fh-b27-sk-in{to{opacity:1;transform:none}}
+.fh-b27-sk-res .ct{font-family:'Shippori Mincho',serif;font-size:16px;color:#3B4A8C;margin:-4px 0 8px}
+.fh-b27-sk-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 8px}
+.fh-b27-sk-tabs button{min-height:38px;border:1px solid #B9C0DC;border-radius:999px;background:#FAFBFF;color:#2E3766;font:inherit;font-size:14px;font-weight:700;padding:0 14px;cursor:pointer}
+.fh-b27-sk-tabs button[aria-selected="true"]{background:#3B4A8C;border-color:#3B4A8C;color:#fff}
+.fh-b27-sk-pane{background:#FFFFFF;border-radius:6px;padding:12px 14px;min-height:5em}
+.fh-b27-sk-rels{margin-top:12px;border-top:1px dashed #B9C0DC;padding-top:10px}
+.fh-b27-sk-chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.fh-b27-sk-chips span{border-radius:999px;padding:2px 12px;font-size:13.5px;font-weight:700;background:#E6E9F5;color:#2E3766}
+.fh-b27-sk-chips.ei span{background:#DCEFE2;color:#1F4A2E}.fh-b27-sk-chips.an span{background:#F6DEDA;color:#7A2A20}
+.fh-b27[data-fh-page="shukuyo"] .fh-b27-sk-res a.fh-b27-shopbtn{color:#FFF5D6}
+.fh-b27 .fh-b27-sk-res .fh-b27-adgoods-h{color:#1E2340}
+@media (prefers-reduced-motion:reduce){.fh-b27-sk-wheel g.rot{transition:none}.fh-b27-sk-card{animation:none;opacity:1;transform:none}}
 </style>"""
 
 JS = r"""(function(){var C=window.FHB27Calc;var D=__DATA__,ORD=__ORDER__,REL=__REL__,PAIR=__PAIR__,RM=__RM__;
@@ -129,9 +152,25 @@ function get(p){var y=+$(p+'y').value,m=+$(p+'m').value,d=+$(p+'d').value,s=C&&C
 if(!$('sk-ay'))return;
 if(!C){$('sk-res').innerHTML='<p>計算の準備ができませんでした。ページを読み込み直してください。</p>';return;}
 fill('sk-a');fill('sk-b');
+var T=__SKT__,CL={'命':'me','業':'gy','胎':'gy','栄':'ei','親':'ei','友':'yu','衰':'yu','安':'an','壊':'an','危':'ki','成':'ki'};
 $('sk-go').addEventListener('click',function(){var a=get('sk-a');if(!a){$('sk-res').innerHTML='<p>この日付は計算できません。</p>';$('sk-res').hidden=false;return;}
- var x=D[a.s.name],k=a.s.kyu;
- $('sk-res').innerHTML='<small>'+a.y+'年'+a.m+'月'+a.d+'日生まれ（旧暦 '+(k.leap?'閏':'')+k.month+'月'+k.day+'日）の本命宿</small><p class="nm">'+esc(a.s.name)+'宿<small style="font-size:15px;margin-left:8px">'+esc(x.yomi)+'</small></p><p><b>キーワード：</b>'+esc(x.kw)+'</p><p>'+esc(x.text)+'</p><p><a href="#sk-'+ORD.indexOf(a.s.name)+'">'+esc(a.s.name)+'宿の説明へ →</a></p>';$('sk-res').hidden=false;});
+ var x=D[a.s.name],k=a.s.kyu,t=T[a.s.name],ia=ORD.indexOf(a.s.name),sv='',grp={ei:[],yu:[],an:[]};
+ for(var i=0;i<27;i++){var dd=((i-ia)%27+27)%27,rl=RM[dd],c=CL[rl]||'d',an=-Math.PI/2+2*Math.PI*i/27,X=120+96*Math.cos(an),Y=120+96*Math.sin(an);
+  sv+='<circle class="'+c+'" cx="'+X.toFixed(1)+'" cy="'+Y.toFixed(1)+'" r="'+(dd?11:14)+'"/><text class="'+(dd?'':'me')+'" x="'+X.toFixed(1)+'" y="'+Y.toFixed(1)+'" text-anchor="middle" dominant-baseline="central" transform="rotate('+(360*i/27).toFixed(1)+' '+X.toFixed(1)+' '+Y.toFixed(1)+')">'+ORD[i]+'</text>';
+  if(grp[c]&&dd)grp[c].push(ORD[i]+'宿（'+rl+'）');}
+ var rot=-(360*ia/27);
+ var tb=[['char','性格'],['love','恋愛'],['work','仕事'],['money','お金']],tx={char:'<p><b>キーワード：</b>'+esc(x.kw)+'</p><p>'+esc(x.text)+'</p>',love:'<p>'+esc(t.love)+'</p>',work:'<p>'+esc(t.work)+'</p>',money:'<p>'+esc(t.money)+'</p>'};
+ var chips=function(l,c){return '<div class="fh-b27-sk-chips '+c+'">'+l.map(function(n){return '<span>'+esc(n)+'</span>'}).join('')+'</div>'};
+ $('sk-res').innerHTML='<svg class="fh-b27-sk-wheel" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="112" fill="#1E2340"/><g class="rot" id="sk-rot">'+sv+'</g><circle cx="120" cy="120" r="42" fill="url(#fhskm2)"/><defs><radialGradient id="fhskm2" cx="40%" cy="38%"><stop offset="0" stop-color="#FFFDF2"/><stop offset=".7" stop-color="#E3E6F2"/><stop offset="1" stop-color="#AEB6D3"/></radialGradient></defs></svg>'+
+  '<div class="fh-b27-sk-leg"><span><i style="background:#F2D27A"></i>あなた</span><span><i style="background:#5FA27A"></i>栄親</span><span><i style="background:#5C82C9"></i>友衰</span><span><i style="background:#C8564A"></i>安壊</span><span><i style="background:#7D7F93"></i>危成</span><span><i style="background:#B08A3E"></i>業胎</span></div>'+
+  '<div class="fh-b27-sk-card"><small>'+a.y+'年'+a.m+'月'+a.d+'日生まれ（旧暦 '+(k.leap?'閏':'')+k.month+'月'+k.day+'日）の本命宿</small><p class="nm">'+esc(a.s.name)+'宿<small style="font-size:15px;margin-left:8px">'+esc(x.yomi)+'</small></p><p class="ct">'+esc(t.catch)+'</p>'+
+  '<div class="fh-b27-sk-tabs" role="tablist">'+tb.map(function(b,i){return '<button type="button" role="tab" data-t="'+b[0]+'" aria-selected="'+(i?'false':'true')+'">'+b[1]+'</button>'}).join('')+'</div><div class="fh-b27-sk-pane" id="sk-pane">'+tx.char+'</div>'+
+  '<div class="fh-b27-sk-rels"><p><b>いちばん穏やかに付き合える宿（栄親）</b></p>'+chips(grp.ei,'ei')+'<p><b>気を許せる仲間の宿（友衰）</b></p>'+chips(grp.yu,'')+'<p><b>強く惹かれ合うけれど距離感が大切な宿（安壊）</b></p>'+chips(grp.an,'an')+'</div>'+
+  '<div id="sk-lucky"></div><p><a href="#sk-'+ia+'">'+esc(a.s.name)+'宿の説明へ →</a>　<a href="#b27-sk-aisho">二人の相性を見る →</a></p></div>';
+ $('sk-res').hidden=false;var src=document.querySelector('#sk-lucky-src [data-s="'+ia+'"]');if(src)$('sk-lucky').appendChild(src.cloneNode(true));
+ requestAnimationFrame(function(){requestAnimationFrame(function(){var g=$('sk-rot');if(g)g.style.transform='rotate('+rot+'deg)';});});
+ $('sk-res').querySelectorAll('.fh-b27-sk-tabs button').forEach(function(b){b.addEventListener('click',function(){$('sk-res').querySelectorAll('.fh-b27-sk-tabs button').forEach(function(z){z.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');$('sk-pane').innerHTML=tx[b.getAttribute('data-t')];});});
+});
 $('sk-go2').addEventListener('click',function(){var a=get('sk-a'),b=get('sk-b');var r=$('sk-res2');r.hidden=false;if(!a||!b){r.innerHTML='<p>この日付は計算できません。</p>';return;}
  var ia=ORD.indexOf(a.s.name),ib=ORD.indexOf(b.s.name),dd=((ib-ia)%27+27)%27,me=RM[dd],you=RM[(27-dd)%27],pr=PAIR[me],kk=Math.min(dd,27-dd);
  var dist=pr==='命'?'':pr==='業胎'?'':kk<=4?'近距離':kk<=8?'中距離':'遠距離',rel=REL[pr]||{};
@@ -153,7 +192,7 @@ def build(sample, updated):
     <p class="fh-b27-lead">生年月日を選ぶだけで、月の暦から本命宿（27宿）を計算します。二人の生年月日から、三九の秘法による相性もわかります。本命宿は旧暦の月日と『宿曜経』の決まりで計算しており、366日の誕生日占い・生年月日まるごと診断と同じ結果です。</p>
   </div>
 </header>''')
-    items = [("b27-sk-calc", "本命宿を調べる"), ("b27-sk-aisho", "二人の相性（三九の秘法）"), ("b27-sk-27", "27宿の性格一覧"),
+    items = [("b27-sk-calc", "本命宿を調べる"), ("b27-sk-aisho", "二人の相性（三九の秘法）"), ("b27-sk-27", "27宿の性格・恋愛・仕事・お金"),
              ("b27-sk-sankyu", "三九の秘法とは"), ("b27-sk-how", "本命宿の出し方"), ("b27-sk-about", "宿曜占星術とは"), ("b27-sk-faq", "よくある質問")]
     a('<nav class="fh-b27-toc" aria-label="目次"><strong>このページの内容</strong><ol>' + "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in items) + "</ol></nav>")
     h2 = lambda t: f'<h2><span class="fh-b27-n"></span><span>{t}</span></h2>'
@@ -180,9 +219,9 @@ def build(sample, updated):
 </section>''')
     a("<!--Ads1-->")
     grid = "".join(f'<a href="#sk-{i}"><b>{s}</b><small>{esc(d[s]["yomi"])}</small></a>' for i, s in enumerate(ORDER))
-    det = "".join(f'<details id="sk-{i}"><summary>{s}宿<small>{esc(d[s]["yomi"])}｜{esc(d[s]["kw"])}</small></summary><p>{esc(d[s]["text"])}</p></details>' for i, s in enumerate(ORDER))
+    det = "".join(f'<details id="sk-{i}"><summary>{s}宿<small>{esc(d[s]["yomi"])}｜{esc(d[s]["kw"])}</small></summary><p>{esc(d[s]["text"])}</p><p><b>恋愛：</b>{esc(SKT.TEXTS[s]["love"])}</p><p><b>仕事：</b>{esc(SKT.TEXTS[s]["work"])}</p><p><b>お金：</b>{esc(SKT.TEXTS[s]["money"])}</p></details>' for i, s in enumerate(ORDER))
     a(f'''<section class="fh-b27-sec" id="b27-sk-27">
-  {h2("27宿の性格一覧")}
+  {h2("27宿の性格・恋愛・仕事・お金")}
   <p>月の通り道を27に分けた宿を、昴宿から胃宿までの順に並べました。宿を押すと、その宿に生まれた人の性格の特徴が開きます。</p>
   <div class="fh-b27-sk-grid">{grid}</div>
   <div class="fh-b27-sk-list">{det}</div>
@@ -228,7 +267,9 @@ def build(sample, updated):
   </div>
 </section>''')
     data = {s: {"yomi": d[s]["yomi"], "kw": d[s]["kw"], "text": d[s]["text"]} for s in ORDER}
-    js = (JS.replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":"))).replace("__ORDER__", json.dumps(ORDER, ensure_ascii=False))
+    lucky = "".join(f'<div data-s="{i}">{aff_extra.goods_box("あなたの宿のお守りアイテム", [(SKT.TEXTS[st]["lucky"][0], SKT.TEXTS[st]["lucky"][0], SKT.TEXTS[st]["lucky"][1], "goods")])}</div>' for i, st in enumerate(ORDER))
+    a(f'<div id="sk-lucky-src" hidden>{lucky}</div>')
+    js = (JS.replace("__SKT__", json.dumps(SKT.TEXTS, ensure_ascii=False)).replace("__DATA__", json.dumps(data, ensure_ascii=False, separators=(",", ":"))).replace("__ORDER__", json.dumps(ORDER, ensure_ascii=False))
           .replace("__REL__", json.dumps(rel, ensure_ascii=False)).replace("__PAIR__", json.dumps(PAIR, ensure_ascii=False))
           .replace("__RM__", json.dumps([REL_D[i] for i in range(27)], ensure_ascii=False)))
     up = dt.date.fromisoformat(updated)
