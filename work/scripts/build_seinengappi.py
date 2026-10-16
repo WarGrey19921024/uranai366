@@ -120,13 +120,14 @@ def build(sample, updated):
     a('''<section class="fh-b27-sec" id="b27-detail">
   <h2><span class="fh-b27-n">2</span>ひとつずつ、くわしく</h2>
   <div class="fh-b27-res">''')
-    a(res_box("star", "本命星（九星気学）", ("/kaiun/compass/", "本命星の吉方位を8方位の読み方で見る →"), wide=True, icon="kyusei",
-              extra='<p class="fh-b27-sg-y27"><span>2027年のひとこと</span><em id="fh-b27-sg-star-y"></em></p>'))
+    a(res_box("star", "本命星（九星気学）", ("/kyusei/", "九星気学のページで、本命星の性格と2027年の運勢・年盤を見る →"), wide=True, icon="kyusei",
+              extra='<p class="fh-b27-sg-y27"><span>2027年のひとこと</span><em id="fh-b27-sg-star-y"></em></p>'
+                    '<a href="/kaiun/compass/">本命星の吉方位を8方位の読み方で見る →</a>'))
     a(res_box("sign", "星座（西洋占星術）", ("/366uranai/", "星座のページを見る →"), icon="aries"))
     a(res_box("eto", "生まれ年の干支", icon="eto"))
     a(res_box("pillars", "四柱推命（年柱・月柱・日柱）", icon="shichu"))
-    a(res_box("shuku", "宿曜（本命宿）", icon="shuku"))
-    a(res_box("kin", "マヤ暦（ドリームスペル）", icon="maya"))
+    a(res_box("shuku", "宿曜（本命宿）", ("/shukuyo/", "宿曜占星術のページで、27宿の性格と相性を見る →"), icon="shuku"))
+    a(res_box("kin", "マヤ暦（ドリームスペル）", ("/maya/", "マヤ暦のページで、紋章と音の意味を見る →"), icon="maya"))
     a(res_box("lp", "数秘術（ライフパス）", icon="suhi"))
     a('''    <div><i class="fh-b27-ic fh-b27-ic-animal fh-b27-resic" aria-hidden="true"></i><small>動物×色占い</small><b id="fh-b27-sg-animal">—</b><p class="fh-b27-sg-desc" id="fh-b27-sg-animal-d"></p><span>12の動物×5つの色＝60タイプの、このサイト独自の占いです。</span><a href="/animal-color/">60タイプの性格を見る →</a></div>''')
     a('''    <div class="fh-b27-wide"><small>もっと知りたい人へ</small><span>干支・四柱推命・宿曜・マヤ暦・数秘の意味と、2027年のあなたの運勢は、誕生日のページで生まれ年を選ぶと読めます。</span><a id="fh-b27-sg-day-a" href="/366uranai/">誕生日のページを見る →</a></div>''')
@@ -139,6 +140,10 @@ def build(sample, updated):
   <div class="fh-b27-links">
     <a href="/366uranai/"><b>366日の誕生日占い</b><small>誕生日から性格と2027年の運勢を見る</small></a>
     <a href="/compatibility/"><b>誕生日相性占い</b><small>2人の生年月日で相性を見る</small></a>
+    <a href="/kyusei/"><b>九星気学</b><small>本命星と2027年の運勢・年盤</small></a>
+    <a href="/shukuyo/"><b>宿曜占星術</b><small>本命宿と三九の秘法の相性</small></a>
+    <a href="/maya/"><b>マヤ暦占い</b><small>KIN・太陽の紋章・銀河の音</small></a>
+    <a href="/birthstone/"><b>誕生石一覧</b><small>1月〜12月の誕生石と366日の誕生日石</small></a>
     <a href="/enmusubi/pair/"><b>ご縁の相性診断</b><small>縁結び診断室</small></a>
     <a href="/animal-color/"><b>動物×色占い</b><small>生年月日で60タイプ</small></a>
     <a href="/mbti/"><b>MBTI占い</b><small>性格タイプで見る2027年</small></a>
