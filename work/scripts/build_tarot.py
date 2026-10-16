@@ -72,6 +72,20 @@ CSS = """<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;70
 .fh-b27-tr-face .n{font:800 15px 'Shippori Mincho',serif;text-align:center;line-height:1.3}
 .fh-b27-tr-face .e{font:500 8.5px 'Cinzel',serif;color:#6E5A3A;letter-spacing:.06em;text-align:center}
 .fh-b27-tr-res{display:flex;flex-direction:column;gap:12px}
+.fh-b27-tr-table[data-m=hex],.fh-b27-tr-table[data-m=celtic]{display:grid;justify-content:center;gap:4px 10px}
+.fh-b27-tr-table[data-m=hex]{grid-template-columns:repeat(3,auto);grid-auto-rows:78px}.fh-b27-tr-table[data-m=hex] .fh-b27-tr-slot[data-i="1"]{grid-area:1/2/span 2/auto}.fh-b27-tr-table[data-m=hex] .fh-b27-tr-slot[data-i="6"]{grid-area:2/1/span 2/auto}.fh-b27-tr-table[data-m=hex] .fh-b27-tr-slot[data-i="5"]{grid-area:2/3/span 2/auto}.fh-b27-tr-table[data-m=hex] .fh-b27-tr-slot[data-i="7"]{grid-area:3/2/span 2/auto}.fh-b27-tr-table[data-m=hex] .fh-b27-tr-slot[data-i="3"]{grid-area:4/1/span 2/auto}.fh-b27-tr-table[data-m=hex] .fh-b27-tr-slot[data-i="2"]{grid-area:4/3/span 2/auto}.fh-b27-tr-table[data-m=hex] .fh-b27-tr-slot[data-i="4"]{grid-area:5/2/span 2/auto}
+.fh-b27-tr-table[data-m=celtic]{grid-template-columns:repeat(4,auto);grid-template-areas:". s4 . s10" "s5 s1 s6 s9" ". s3 . s8" ". . . s7"}
+.fh-b27-tr-table[data-m=hex] .fh-b27-tr-slot,.fh-b27-tr-table[data-m=celtic] .fh-b27-tr-slot{font-size:11px;letter-spacing:0}
+.fh-b27-tr-table[data-m=hex] .fh-b27-tr-card,.fh-b27-tr-table[data-m=celtic] .fh-b27-tr-card{width:76px;height:126px}
+.fh-b27-tr-table[data-m=hex] .fh-b27-tr-face,.fh-b27-tr-table[data-m=celtic] .fh-b27-tr-face{padding:6px 3px}
+.fh-b27-tr-table[data-m=hex] .fh-b27-tr-face .s,.fh-b27-tr-table[data-m=celtic] .fh-b27-tr-face .s{font-size:24px}
+.fh-b27-tr-table[data-m=hex] .fh-b27-tr-face .n,.fh-b27-tr-table[data-m=celtic] .fh-b27-tr-face .n{font-size:11px}
+.fh-b27-tr-table[data-m=hex] .fh-b27-tr-face .r,.fh-b27-tr-table[data-m=celtic] .fh-b27-tr-face .r{font-size:10px}
+.fh-b27-tr-table[data-m=hex] .fh-b27-tr-face .e,.fh-b27-tr-table[data-m=celtic] .fh-b27-tr-face .e{display:none}
+.fh-b27-tr-table .fh-b27-tr-slot[data-i="1"]{grid-area:s1}.fh-b27-tr-table .fh-b27-tr-slot[data-i="2"]{grid-area:s2}.fh-b27-tr-table .fh-b27-tr-slot[data-i="3"]{grid-area:s3}.fh-b27-tr-table .fh-b27-tr-slot[data-i="4"]{grid-area:s4}.fh-b27-tr-table .fh-b27-tr-slot[data-i="5"]{grid-area:s5}.fh-b27-tr-table .fh-b27-tr-slot[data-i="6"]{grid-area:s6}.fh-b27-tr-table .fh-b27-tr-slot[data-i="7"]{grid-area:s7}.fh-b27-tr-table .fh-b27-tr-slot[data-i="8"]{grid-area:s8}.fh-b27-tr-table .fh-b27-tr-slot[data-i="9"]{grid-area:s9}.fh-b27-tr-table .fh-b27-tr-slot[data-i="10"]{grid-area:s10}
+.fh-b27-tr-table[data-m=celtic] .fh-b27-tr-slot[data-i="2"]{grid-area:s1;transform:rotate(90deg) translateX(34px);z-index:2}
+.fh-b27-tr-table[data-m=celtic] .fh-b27-tr-slot[data-i="2"] span{transform:rotate(-90deg)}
+@media (max-width:640px){.fh-b27-tr-table[data-m=hex]{grid-auto-rows:66px}.fh-b27-tr-table[data-m=hex] .fh-b27-tr-card,.fh-b27-tr-table[data-m=celtic] .fh-b27-tr-card{width:64px;height:106px}.fh-b27-tr-table[data-m=celtic]{gap:4px 6px}}
 .fh-b27-tr-rc{background:linear-gradient(#F8EFD8,#EFE0BC);color:var(--cream-ink);border-radius:6px;padding:16px 18px;line-height:1.85;font-size:15px;box-shadow:inset 0 0 0 1px rgba(150,110,40,.5)}
 .fh-b27 .fh-b27-tr-rc p,.fh-b27 .fh-b27-tr-rc b,.fh-b27 .fh-b27-tr-rc strong{color:var(--cream-ink)}
 .fh-b27-tr-rc strong{font-family:'Shippori Mincho',serif;font-size:19px}
@@ -139,16 +153,17 @@ textarea.fh-b27-tr-q{resize:vertical;min-height:64px;line-height:1.6}
 </style>"""
 
 JS = r"""(function(){var MA=__MAJOR__,MI=__MINOR__,TP=__TP__;var root=document.getElementById('fh-b27-tr');if(!root)return;
-var mode='one',deck='major',modes=root.querySelectorAll('[data-mode]'),decks=root.querySelectorAll('[data-deck]'),table=document.getElementById('fh-b27-tr-table'),res=document.getElementById('fh-b27-tr-res'),qa=document.getElementById('fh-b27-tr-q');
-var LABEL={one:['MESSAGE'],three:['PAST','PRESENT','FUTURE'],yes:['ANSWER'],when:['SOON','3 MONTHS','6 MONTHS'],choice:['A','B'],feel:['SURFACE','HEART','NEXT'],adv:['ADVICE']},
-JP={MESSAGE:'今のあなたへ',PAST:'過去',PRESENT:'現在',FUTURE:'未来',ANSWER:'答え',SOON:'近いうち','3 MONTHS':'3か月ほど先','6 MONTHS':'半年ほど先',A:'Aを選んだら',B:'Bを選んだら',SURFACE:'表に見せている気持ち',HEART:'心の奥の本音',NEXT:'これからの気持ち',ADVICE:'うまくいくためのヒント'};
+var FIX=root.getAttribute('data-fix'),mode=FIX||'one',deck=FIX?'all':'major',modes=root.querySelectorAll('[data-mode]'),decks=root.querySelectorAll('[data-deck]'),table=document.getElementById('fh-b27-tr-table'),res=document.getElementById('fh-b27-tr-res'),qa=document.getElementById('fh-b27-tr-q');
+var LABEL={one:['MESSAGE'],three:['PAST','PRESENT','FUTURE'],yes:['ANSWER'],when:['SOON','3 MONTHS','6 MONTHS'],choice:['A','B'],feel:['SURFACE','HEART','NEXT'],adv:['ADVICE'],hex:['PAST','PRESENT','FUTURE','MEASURE','AROUND','HEART','RESULT'],celtic:['NOW','BLOCK','DEEP','AWARE','PAST','NEAR','SELF','ENV','HOPE','END']},
+JP={MESSAGE:'今のあなたへ',PAST:'過去',PRESENT:'現在',FUTURE:'未来',ANSWER:'答え',SOON:'近いうち','3 MONTHS':'3か月ほど先','6 MONTHS':'半年ほど先',A:'Aを選んだら',B:'Bを選んだら',SURFACE:'表に見せている気持ち',HEART:'心の奥の本音',NEXT:'これからの気持ち',ADVICE:'うまくいくためのヒント',MEASURE:'対策',AROUND:'周りの状況',RESULT:'結論',NOW:'現状',BLOCK:'障害',DEEP:'心の奥',AWARE:'意識していること',NEAR:'近い未来',SELF:'あなたの立場',ENV:'周りの環境',HOPE:'願いと不安',END:'結末'};
+var PD=__PD__;
 var TN={kataomoi:'片思い',couple:'恋人との関係',fukuen:'復縁',kimochi:'相手の気持ち',kekkon:'結婚',tenshoku:'仕事・転職',shokuba:'人間関係',kinun:'お金',love:'恋愛',work:'仕事',gen:'全体の流れ'};
 var sel={who:null,about:null,want:null};
 function rnd(n){var a=new Uint32Array(1);(window.crypto||window.msCrypto).getRandomValues(a);return a[0]%n;}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function face(c){return '<div><span class="r">'+esc(c.r)+'</span><span class="s">'+c.s+'</span><span class="n">'+esc(c.name)+'</span><span class="e">'+esc(c.en.toUpperCase())+'</span></div>';}
-function slots(){var L=LABEL[mode];table.innerHTML=L.map(function(l){return '<div class="fh-b27-tr-slot"><div class="fh-b27-tr-card"><div class="fh-b27-tr-in"><div class="fh-b27-tr-back"></div><div class="fh-b27-tr-face"></div></div></div><span>'+(JP[l]&&mode!=='one'&&mode!=='three'?JP[l]:l)+'</span></div>';}).join('');res.innerHTML='';}
-function setMode(v){mode=v;modes.forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-mode')===v?'true':'false')});slots();}
+function slots(){var L=LABEL[mode];table.setAttribute('data-m',mode);table.innerHTML=L.map(function(l,i){return '<div class="fh-b27-tr-slot" data-i="'+(i+1)+'"><div class="fh-b27-tr-card"><div class="fh-b27-tr-in"><div class="fh-b27-tr-back"></div><div class="fh-b27-tr-face"></div></div></div><span>'+(JP[l]&&mode!=='one'&&mode!=='three'?JP[l]:l)+'</span></div>';}).join('');res.innerHTML='';}
+function setMode(v){if(FIX&&v!==FIX)return;mode=v;modes.forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-mode')===v?'true':'false')});slots();}
 modes.forEach(function(b){b.addEventListener('click',function(){setMode(b.getAttribute('data-mode'));})});
 decks.forEach(function(b){b.addEventListener('click',function(){deck=b.getAttribute('data-deck');decks.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});slots();})});
 function yes(c,rev){var y=c.yesno;if(!rev)return y;return y==='はい'?'どちらとも言えない':'いいえ';}
@@ -181,12 +196,16 @@ function compose(){var w=sel.who,a=sel.about,t=sel.want,s='',tp=null;lock();if(!
  if(w&&a){s=CB[w][a][0];tp=CB[w][a][1];}else if(a){s=AB0[a][0];tp=AB0[a][1];}else if(w){s=WHO[w];tp=WT[w];}
  var J=a==='heart'?{flow:'、本当はどう思っている？',yes:'、わたしに向いている？',when:'、いつ近づける？',adv:'をつかむには、どうすればいい？'}:{flow:'は、これからどうなる？',yes:'は、うまくいく？',when:'、いつ動けばいい？',adv:'について、どうすればいい？',choice:'、AとBどっちがいい？'};
  qa.value=s?s+(t?J[t]:''):(t?WANT[t]:'');
- sel.topic=tp;var m=(a==='heart'&&(!t||t==='flow'))?'feel':t?QM[t]:null;sel.mode=m;if(m)setMode(m);document.getElementById('fh-b27-tr-ab').hidden=!(mode==='choice');}
+ sel.topic=tp;var m=(a==='heart'&&(!t||t==='flow'))?'feel':t?QM[t]:null;sel.mode=m;if(m)setMode(m);var abx=document.getElementById('fh-b27-tr-ab');if(abx)abx.hidden=!(mode==='choice');}
 root.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('click',function(){if(b.disabled)return;var g=b.getAttribute('data-pick'),v=b.getAttribute('data-v');sel[g]=sel[g]===v?null:v;
  root.querySelectorAll('[data-pick="'+g+'"]').forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-v')===sel[g]?'true':'false')});compose();});});
 qa.addEventListener('input',function(){sel.topic=null;sel.want=null;root.querySelectorAll('[data-pick]').forEach(function(x){x.setAttribute('aria-pressed','false');x.disabled=false});sel.who=sel.about=null;});
 function ttext(p,tp){var t=TP[p.c.name];if(t&&t[tp])return t[tp][p.rev?'rev':'up'];if(tp==='kinun')return p.c.money||'';if(/work|tenshoku|shokuba/.test(tp))return p.c.work;if(tp!=='gen')return p.c.love;return '';}
 function verdict(picks,q,qt,tp){var L=LABEL[mode];
+ if(mode==='hex'||mode==='celtic'){var r=picks[picks.length-1],y=yes(r.c,r.rev),c0=mode==='hex'?picks[1]:picks[0],b=mode==='hex'?picks[3]:picks[1];
+  if(qt==='yes')return {big:y,txt:'結論の位置に出たのは'+esc(r.c.name)+'の「'+kw(r)+'」。'+(y==='はい'?'流れはあなたの味方です。':y==='いいえ'?'今のままでは難しいので、「'+kw(b)+'」をヒントにやり方を変えてみて。':'まだ決め手が足りない状態です。「'+kw(b)+'」を意識してみて。')};
+  if(mode==='hex')return {big:'結論は「'+kw(r)+'」',txt:'「'+kw(picks[0])+'」だった流れが今は「'+kw(picks[1])+'」。周りは「'+kw(picks[4])+'」、あなたの本心は「'+kw(picks[5])+'」。「'+kw(picks[3])+'」を意識すると、「'+kw(r)+'」へ向かいます。'};
+  return {big:'結末は「'+kw(r)+'」',txt:'今は「'+kw(c0)+'」の状態で、壁になっているのは「'+kw(b)+'」。心の奥には「'+kw(picks[2])+'」、願いと不安は「'+kw(picks[8])+'」。近いうちに「'+kw(picks[5])+'」が訪れ、最後は「'+kw(r)+'」へ向かいます。'};}
  if(mode==='yes'){var y=yes(picks[0].c,picks[0].rev);return {big:y,txt:'カギになるのは「'+kw(picks[0])+'」。'+(y==='はい'?'流れはあなたの味方です。':y==='いいえ'?'今は無理に進めず、別の道や時期も考えてみて。':'今はまだ決め手が足りない状態です。')};}
  if(mode==='when'){var bi=-1;picks.forEach(function(p,i){if(bi<0&&!p.rev&&p.c.yesno==='はい')bi=i});if(bi<0)picks.forEach(function(p,i){if(bi<0&&!p.rev)bi=i});
   return bi<0?{big:'急がないで',txt:'3枚とも逆位置でした。半年ほどは準備の時期と考え、焦らず土台を整えましょう。'}:{big:JP[L[bi]],txt:'いちばん追い風が吹くのは「'+JP[L[bi]]+'」。'+esc(picks[bi].c.name)+'が「'+kw(picks[bi])+'」を示しています。'};}
@@ -204,11 +223,11 @@ document.getElementById('fh-b27-tr-go').addEventListener('click',function(){var 
  setTimeout(function(){var v=verdict(picks,q,qt,tp),h='<div class="fh-b27-tr-ask"><small>'+(q?'あなたの相談':'今日のあなたへ')+'</small>'+(q?'<p>「'+esc(q)+'」</p>':'')+'<small>テーマ：'+TN[tp]+'</small></div>';
   h+='<div class="fh-b27-tr-verdict"><small>カードの答え</small><b>'+v.big+'</b><p>'+v.txt+'</p></div>';
   picks.forEach(function(p,i){var c=p.c,pos=p.rev?'逆位置':'正位置',kws=(p.rev?c.kw_rev:c.kw_up).join('・'),th=ttext(p,tp);
-   var lab=JP[L[i]]||L[i];if(mode==='choice'){var mm2=q.match(/^(.+?)(?:と|か|、|or)(.+?)(?:[、,]?\s*)(?:どっち|どちら)/),nm2=(document.getElementById(i?'fh-b27-tr-b':'fh-b27-tr-a').value.trim()||(mm2?mm2[i+1]:(i?'B':'A')));lab='「'+esc(nm2)+'」を選んだら';}h+='<div class="fh-b27-tr-rc"><small>'+lab+'</small><br><strong>'+esc(c.name)+'（'+pos+'）</strong><br><small>キーワード：'+esc(kws)+'</small>';
+   var lab=JP[L[i]]||L[i];if(mode==='choice'){var mm2=q.match(/^(.+?)(?:と|か|、|or)(.+?)(?:[、,]?\s*)(?:どっち|どちら)/),nm2=(document.getElementById(i?'fh-b27-tr-b':'fh-b27-tr-a').value.trim()||(mm2?mm2[i+1]:(i?'B':'A')));lab='「'+esc(nm2)+'」を選んだら';}if(PD[L[i]]&&(mode==='hex'||mode==='celtic'))lab=(i+1)+'. '+lab+'｜'+PD[L[i]];h+='<div class="fh-b27-tr-rc"><small>'+lab+'</small><br><strong>'+esc(c.name)+'（'+pos+'）</strong><br><small>キーワード：'+esc(kws)+'</small>';
    if(th)h+='<p><b>'+TN[tp]+'では</b>　'+esc(th)+'</p>';
    h+='<p>'+esc(p.rev?c.rev:c.up)+'</p>';
    if(!th&&mode==='one')h+='<p><b>恋愛</b>　'+esc(c.love)+'</p><p><b>仕事</b>　'+esc(c.work)+'</p>';
-   h+='<p><a href="#'+c.a+'">'+esc(c.name)+'の意味をくわしく見る →</a></p></div>';});
+   h+='<p><a href="'+(root.getAttribute('data-base')||'')+'#'+c.a+'">'+esc(c.name)+'の意味をくわしく見る →</a></p></div>';});
   h+='<div class="fh-b27-tr-sum fh-b27-tr-adv"><small>カードからのひとこと</small><p>'+esc(picks[picks.length-1].c.advice)+'</p></div>';
   res.innerHTML=h;},400+L.length*500+600);});
 slots();})();"""
@@ -226,13 +245,44 @@ RANKS = [("エース", "始まりの種", "そのスートの力が生まれる�
          ("10", "完成と移行", "ひと区切りがつき、次の段階へ"), ("ペイジ", "学びと知らせ", "素直に学ぶ若い人・新しい知らせ"), ("ナイト", "行動と前進", "目的に向かって動く人"),
          ("クイーン", "受け止める成熟", "そのスートの力を内側で育てる人"), ("キング", "導く成熟", "そのスートの力で周りを導く人")]
 RK = ["A", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "PAGE", "KNIGHT", "QUEEN", "KING"]
-SPREADS = [("/number-fortune/tarot/hexagram/", "ヘキサグラム（7枚）", "六芒星の形に並べ、相手の気持ちや2人の関係をくわしく読みます。"),
-           ("/number-fortune/tarot/celtic/", "ケルト十字（10枚）", "10枚で状況・原因・未来・結果まで読み解く、本格的な占い方です。")]
+PD = {"PAST": "この悩みの背景や、これまでの流れ", "PRESENT": "今の状況とあなたの立ち位置", "FUTURE": "このまま進んだときの近い将来",
+      "MEASURE": "状況をよくするために、あなたができること", "AROUND": "相手や周りの人の様子・まわりの事情", "HEART": "あなた自身も気づいていない本当の気持ち",
+      "RESULT": "全体をまとめた答え", "NOW": "今いちばん大きく表れている状況", "BLOCK": "行く手をふさいでいるもの・乗り越える課題",
+      "DEEP": "心の奥にある気持ちや、問題の根っこ", "AWARE": "あなたが意識して目指していること", "NEAR": "これから数週間〜数か月に起こりやすいこと",
+      "SELF": "この件に向き合うあなたの姿勢", "ENV": "相手や周りの人・環境からの影響", "HOPE": "期待していること、そして恐れていること",
+      "END": "この流れの行き着く先"}
+PD_NAME = {"PAST": "過去", "PRESENT": "現在", "FUTURE": "未来", "MEASURE": "対策", "AROUND": "周りの状況", "HEART": "本心（心の奥の本音）", "RESULT": "結論",
+           "NOW": "現状", "BLOCK": "障害", "DEEP": "心の奥", "AWARE": "意識していること", "NEAR": "近い未来", "SELF": "あなたの立場", "ENV": "周りの環境", "HOPE": "願いと不安", "END": "結末"}
+SPREADS = [("/tarot/hexagram/", "ヘキサグラム（7枚）", "六芒星の形に並べ、相手の気持ちや2人の関係をくわしく読みます。"),
+           ("/tarot/celtic/", "ケルト十字（10枚）", "10枚で状況・原因・未来・結果まで読み解く、本格的な占い方です。")]
 
 
 def kwspan(c):
     return ('<div class="fh-b27-tr-kw">' + "".join(f'<span class="u">正 {esc(k)}</span>' for k in c["kw_up"])
             + "".join(f'<span class="v">逆 {esc(k)}</span>' for k in c["kw_rev"]) + '</div>')
+
+
+def load_cards():
+    cards = json.load(open(os.path.join(DATA, "tarot", "major.json"), encoding="utf-8"))
+    minor = json.load(open(os.path.join(DATA, "tarot", "minor.json"), encoding="utf-8"))
+    return cards, minor
+
+
+def script(cards, minor):
+    keys = ("name", "en", "kw_up", "kw_rev", "up", "rev", "love", "work", "money", "advice", "yesno")
+    dma = [dict({k: c[k] for k in keys}, r=ROMAN[c["no"]], s=SYM[c["no"]], a=f'b27-tr-c{c["no"]}') for c in cards]
+    sym = {x[1]: x[3] for x in SUITS}
+    for c in minor:
+        c.setdefault("money", "")
+    dmi = [dict({k: c[k] for k in keys}, r=RK[int(c["id"].split("-")[1]) - 1], s=sym[c["suit"]], a=f'b27-tr-{c["id"]}') for c in minor]
+    import tarot_topics_major as T1, tarot_topics_wands as T2, tarot_topics_cups as T3, tarot_topics_swords as T4, tarot_topics_pentacles as T5
+    TP = {}
+    for m in (T1, T2, T3, T4, T5):
+        TP.update(m.TOPIC)
+    assert len(TP) == 78
+    js = (JS.replace("__MAJOR__", json.dumps(dma, separators=(",", ":"))).replace("__MINOR__", json.dumps(dmi, separators=(",", ":")))
+          .replace("__TP__", json.dumps(TP, ensure_ascii=False, separators=(",", ":"))).replace("__PD__", json.dumps(PD, ensure_ascii=False, separators=(",", ":"))))
+    return f"<script>{js}</script>"
 
 
 def build(sample, updated):
@@ -253,20 +303,8 @@ def build(sample, updated):
     parts = open(os.path.join(HERE, "templates", "tarot_parts.html"), encoding="utf-8").read().split("<!--HOW-->")
     sp = "".join(f'<a href="{u}"><b>{esc(t)} →</b><small>{esc(d)}</small></a>' for u, t, d in SPREADS)
     a(parts[1].replace("@@H2@@", h2("カードを引いて占う")).replace("@@SPREADS@@", sp))
-    keys = ("name", "en", "kw_up", "kw_rev", "up", "rev", "love", "work", "money", "advice", "yesno")
-    dma = [dict({k: c[k] for k in keys}, r=ROMAN[c["no"]], s=SYM[c["no"]], a=f'b27-tr-c{c["no"]}') for c in cards]
-    sym = {x[1]: x[3] for x in SUITS}
-    for c in minor:
-        c.setdefault("money", "")
-    dmi = [dict({k: c[k] for k in keys}, r=RK[int(c["id"].split("-")[1]) - 1], s=sym[c["suit"]], a=f'b27-tr-{c["id"]}') for c in minor]
-    import tarot_topics_major as T1, tarot_topics_wands as T2, tarot_topics_cups as T3, tarot_topics_swords as T4, tarot_topics_pentacles as T5
-    TP = {}
-    for m in (T1, T2, T3, T4, T5):
-        TP.update(m.TOPIC)
-    assert len(TP) == 78
-    js = (JS.replace("__MAJOR__", json.dumps(dma, separators=(",", ":"))).replace("__MINOR__", json.dumps(dmi, separators=(",", ":")))
-          .replace("__TP__", json.dumps(TP, ensure_ascii=False, separators=(",", ":"))))
-    a(f"<script>{js}</script>")
+    cards, minor = load_cards()
+    a(script(cards, minor))
     a("<!--Ads1-->")
     a(parts[2].replace("@@H2@@", h2("タロット占いのやり方")))
     a(parts[3].replace("@@H2@@", h2("正位置と逆位置")))
