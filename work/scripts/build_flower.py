@@ -10,6 +10,7 @@ import collections, csv, datetime as dt, html, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, DATA, shell  # noqa: E402
+import aff_extra  # noqa: E402
 
 URL = "/flower/"
 DAYS = {1: 31, 2: 29, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
@@ -114,6 +115,21 @@ CSS = """<style id="fh-b27-fl-css">
 .fh-b27[data-fh-page="flower"] .fh-b27-toc{border-style:solid;border-color:rgba(244,182,194,.25);border-radius:16px}
 .fh-b27[data-fh-page="flower"] .fh-b27-toc ol{columns:2;column-gap:28px;list-style:none;padding-left:0}
 @media (max-width:640px){.fh-b27-fl-rep,.fh-b27-fl-use{grid-template-columns:1fr}.fh-b27[data-fh-page="flower"] .fh-b27-toc ol{columns:1}.fh-b27-fl-emb{flex-basis:96px;height:96px;transform:scale(.8)}.fh-b27[data-fh-page="flower"] .fh-b27-title{font-size:25px}}
+.fh-b27-fl-bloom{display:block;width:120px;height:120px;margin:0 auto 6px}
+.fh-b27-fl-bloom .p{fill:var(--pc,#E68FA2);stroke:rgba(0,0,0,.12);stroke-width:1;opacity:.92;transform-box:view-box;transform-origin:0 0}
+.fh-b27-fl-bloom .c{fill:#F7D774;stroke:#E2B33C}
+.fh-b27-fl-card.on .fh-b27-fl-bloom{animation:fh-b27-fl-open 1.1s cubic-bezier(.2,1.2,.4,1) both}
+@keyframes fh-b27-fl-open{from{transform:scale(.1) rotate(-120deg);opacity:0}to{transform:none;opacity:1}}
+.fh-b27-fl-card.on .fh-b27-fl-name,.fh-b27-fl-card.on .fh-b27-fl-kotoba{animation:fh-b27-fl-up .6s ease .5s both}
+@keyframes fh-b27-fl-up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.fh-b27-fl-card{text-align:center}
+.fh-b27-fl-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.fh-b27 .fh-b27-fl-chips span{display:inline-flex;align-items:center;gap:6px;background:#F3E8DF;border-radius:999px;padding:2px 12px;font-size:13.5px;color:var(--cream-ink)}
+.fh-b27-fl-chips i{display:inline-block;width:14px;height:14px;border-radius:50%;background:#F3F3F2;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+.fh-b27-fl-shop{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center}
+.fh-b27[data-fh-page="flower"] .fh-b27-fl-card a.fh-b27-shopbtn{color:#FFF5D6}
+.fh-b27-fl-shop small{font-size:11px;color:#7A6F64}
+@media (prefers-reduced-motion:reduce){.fh-b27-fl-card.on .fh-b27-fl-bloom,.fh-b27-fl-card.on .fh-b27-fl-name,.fh-b27-fl-card.on .fh-b27-fl-kotoba{animation:none}}
 </style>"""
 
 
@@ -140,7 +156,14 @@ def build(sample, updated):
     def h2(t):
         return f'<h2><span class="fh-b27-n">{n}</span><span>{t}</span></h2>'
     # 1 調べる
-    data = {k: [f, h, mats[k]["sign"], mats[k]["kou"]] for k, (f, h) in fl.items()}
+    def chex(k):
+        c = mats[k]["birthday_color"]
+        return c["note"].split("／")[1] if "／" in c.get("note", "") else "#E68FA2"
+
+    def gq(f):
+        return re.sub(r"[（(].*", "", f) + " 花 ギフト"
+    data = {k: [f, h, mats[k]["sign"], mats[k]["kou"], chex(k), mats[k]["birthday_color"]["name"], mats[k]["birthday_stone"]["name"],
+                aff_extra.href("rakuten", gq(f)) or "", aff_extra.href("yahoo", gq(f)) or ""] for k, (f, h) in fl.items()}
     mo = "".join(f'<option value="{m:02d}">{m}月</option>' for m in range(1, 13))
     do = "".join(f'<option value="{d:02d}">{d}日</option>' for d in range(1, 32))
     f0, h0 = fl["0101"]
@@ -150,11 +173,14 @@ def build(sample, updated):
     <form id="fh-b27-fl-form" aria-label="誕生日を選ぶ"><select name="m" aria-label="月">{mo}</select><select name="d" aria-label="日">{do}</select><button type="submit">花を見る</button>
       <button type="button" id="fh-b27-fl-today" style="background:transparent;border:1.5px solid var(--leaf);color:var(--leaf)">今日の誕生花</button></form>
     <div class="fh-b27-fl-card" id="fh-b27-fl-card" aria-live="polite">
+      <svg class="fh-b27-fl-bloom" id="fh-b27-fl-bloom" viewBox="-60 -60 120 120" aria-hidden="true"><ellipse class="p" rx="17" ry="34" cy="-28" transform="rotate(0)" style="--d:0.00s"/><ellipse class="p" rx="17" ry="34" cy="-28" transform="rotate(45)" style="--d:0.08s"/><ellipse class="p" rx="17" ry="34" cy="-28" transform="rotate(90)" style="--d:0.16s"/><ellipse class="p" rx="17" ry="34" cy="-28" transform="rotate(135)" style="--d:0.24s"/><ellipse class="p" rx="17" ry="34" cy="-28" transform="rotate(180)" style="--d:0.32s"/><ellipse class="p" rx="17" ry="34" cy="-28" transform="rotate(225)" style="--d:0.40s"/><ellipse class="p" rx="17" ry="34" cy="-28" transform="rotate(270)" style="--d:0.48s"/><ellipse class="p" rx="17" ry="34" cy="-28" transform="rotate(315)" style="--d:0.56s"/><circle class="c" r="15"/></svg>
       <small id="fh-b27-fl-date">1月1日の誕生花</small>
       <p class="fh-b27-fl-name" id="fh-b27-fl-name">{esc(f0)}</p>
       <p class="fh-b27-fl-kotoba">花言葉：<b id="fh-b27-fl-kotoba">{esc(h0)}</b></p>
       <p><small id="fh-b27-fl-more">この日の星座：{esc(mats["0101"]["sign"])}／七十二候：{esc(mats["0101"]["kou"])}</small></p>
+      <p class="fh-b27-fl-chips"><span id="fh-b27-fl-col"><i id="fh-b27-fl-sw"></i>誕生色：{esc(mats["0101"]["birthday_color"]["name"])}</span><span id="fh-b27-fl-st">誕生日石：{esc(mats["0101"]["birthday_stone"]["name"])}</span></p>
       <p><a id="fh-b27-fl-link" href="{day_url("0101")}">1月1日生まれの性格・相性と2027年の運勢へ →</a></p>
+      <p class="fh-b27-fl-shop" id="fh-b27-fl-shop"></p>
     </div>
   </div>
   <noscript><p class="fh-b27-small">花を調べるにはJavaScriptを有効にしてください。下の一覧からも探せます。</p></noscript>
@@ -166,8 +192,13 @@ def build(sample, updated):
           "function fit(){var n=N[+M.value];for(var i=0;i<Dd.options.length;i++){Dd.options[i].disabled=i>=n;}if(+Dd.value>n)Dd.value=String(n).padStart(2,'0');}"
           "function show(m,d){var k=m+d,x=D[k];if(!x)return;var t=(+m)+'月'+(+d)+'日';$('fh-b27-fl-date').textContent=t+'の誕生花';$('fh-b27-fl-name').textContent=x[0];"
           "$('fh-b27-fl-kotoba').textContent=x[1];$('fh-b27-fl-more').textContent='この日の星座：'+x[2]+'／七十二候：'+x[3];"
-          "var l=$('fh-b27-fl-link');l.href='/366uranai/'+m+'-'+d+'/';l.textContent=t+'生まれの性格・相性と2027年の運勢へ →';}"
+          "var l=$('fh-b27-fl-link');l.href='/366uranai/'+m+'-'+d+'/';l.textContent=t+'生まれの性格・相性と2027年の運勢へ →';"
+          "$('fh-b27-fl-sw').style.background=x[4];$('fh-b27-fl-col').lastChild.textContent='誕生色：'+x[5];$('fh-b27-fl-st').textContent='誕生日石：'+x[6];"
+          "var sh='';if(x[7])sh+='<a class=\"fh-b27-shopbtn fh-b27-shop-rakuten\" href=\"'+x[7]+'\" rel=\"nofollow sponsored\" data-aff=\"rakuten\">'+x[0]+'を楽天で贈る</a> ';"
+          "if(x[8])sh+='<a class=\"fh-b27-shopbtn fh-b27-shop-yahoo\" href=\"'+x[8]+'\" rel=\"nofollow sponsored\" data-aff=\"yahoo\">Yahoo!で探す</a> ';if(sh)sh+='<small>PR（広告）</small>';$('fh-b27-fl-shop').innerHTML=sh;"
+          "var b=$('fh-b27-fl-bloom');b.style.setProperty('--pc',x[4]);var c=$('fh-b27-fl-card');c.classList.remove('on');void c.offsetWidth;c.classList.add('on');}"
           "M.addEventListener('change',fit);f.addEventListener('submit',function(e){e.preventDefault();show(M.value,Dd.value);});"
+          "show('01','01');"
           "$('fh-b27-fl-today').addEventListener('click',function(){var n=new Date(),m=String(n.getMonth()+1).padStart(2,'0'),d=String(n.getDate()).padStart(2,'0');M.value=m;fit();Dd.value=d;show(m,d);});"
           "})();")
     a(f"<script>{js}</script>")

@@ -282,4 +282,15 @@ def theme_css():
 {P} .fh-b27-cpx-types div,{P} .fh-b27-cpx-list details{{border-style:solid;border-color:rgba(242,184,166,.28);border-radius:16px}}
 {P} .fh-b27-cpx-list summary{{font-family:'Shippori Mincho',serif;font-weight:700}}
 @media (max-width:640px){{.fh-b27-cpt-emb{{flex-basis:130px;height:96px}}.fh-b27-cpt-emb i{{width:86px;height:86px}}{P} .fh-b27-title{{font-size:25px}}}}
+/* 2026-10-16 結果が出る瞬間の演出（本人の感想「ワクワクしない」への対応） */
+{P} .fh-b27-cp-paper{{position:relative;animation:fh-b27-cpt-drop .8s cubic-bezier(.2,1.3,.4,1) both}}
+@keyframes fh-b27-cpt-drop{{from{{opacity:0;transform:translateY(-30px) rotate(-6deg) scale(.92)}}to{{opacity:1}}}}
+{P} .fh-b27-cp-paper::after{{content:"♡︎ ♡︎ ♡︎";position:absolute;left:0;right:0;top:-6px;text-align:center;color:#E07A8C;font-size:20px;letter-spacing:.4em;pointer-events:none;animation:fh-b27-cpt-float 1.8s ease-out .5s both}}
+@keyframes fh-b27-cpt-float{{0%{{opacity:0;transform:translateY(20px) scale(.6)}}40%{{opacity:1}}100%{{opacity:0;transform:translateY(-36px) scale(1.2)}}}}
+{P} .fh-b27-cp-bar i{{transition:background .35s ease,transform .35s ease}}
+{P} .fh-b27-cp-bar i.fh-b27-cp-on{{transform:scaleY(1.25)}}
+{P} .fh-b27-cp-bar i:nth-child(1){{transition-delay:.9s}}{P} .fh-b27-cp-bar i:nth-child(2){{transition-delay:1.1s}}{P} .fh-b27-cp-bar i:nth-child(3){{transition-delay:1.3s}}{P} .fh-b27-cp-bar i:nth-child(4){{transition-delay:1.5s}}{P} .fh-b27-cp-bar i:nth-child(5){{transition-delay:1.7s}}
+{P} .fh-b27-cp-tips,{P} .fh-b27-cp-person,{P} .fh-b27-cp-link{{animation:fh-b27-cpt-up .6s ease 1.2s both}}
+@keyframes fh-b27-cpt-up{{from{{opacity:0;transform:translateY(14px)}}to{{opacity:1;transform:none}}}}
+@media (prefers-reduced-motion:reduce){{{P} .fh-b27-cp-paper,{P} .fh-b27-cp-paper::after,{P} .fh-b27-cp-tips,{P} .fh-b27-cp-person,{P} .fh-b27-cp-link{{animation:none}}{P} .fh-b27-cp-bar i{{transition:none}}}}
 </style>"""
