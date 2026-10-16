@@ -171,7 +171,7 @@ def goods_box(title, items, lead=""):
     if not boxes:
         return ""
     return (f'<aside class="fh-b27-adgoods"><p class="fh-b27-adgoods-h"><span>{esc(title)}</span>'
-            f'<span class="fh-b27-pr">PR（広告）</span></p>' + (f'<p class="fh-b27-adgoods-l">{esc(lead)}</p>' if lead else "") + '<div class="fh-b27-shops">{"".join(boxes)}</div></aside>')
+            f'<span class="fh-b27-pr">PR（広告）</span></p>' + (f'<p class="fh-b27-adgoods-l">{esc(lead)}</p>' if lead else "") + f'<div class="fh-b27-shops">{"".join(boxes)}</div></aside>')
 
 
 def inject(body, url):
