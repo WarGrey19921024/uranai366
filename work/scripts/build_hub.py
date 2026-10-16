@@ -198,7 +198,7 @@ def build(mats, sample, updated):
     <span class="fh-b27-tape">2027年版 誕生日占い</span>
     <h1 class="fh-b27-title">誕生日占い 366日<br>生年月日でわかる性格・相性と2027年の運勢</h1>
     <p class="fh-b27-lead">1月1日から12月31日まで、2月29日も入れた366日に1ページずつ。太陽の星座と七十二候、誕生花、数秘術、干支と九星など、その日だけの材料から、変わらない本質と2027年の歩き方を読み解いています。性格・相性の良い誕生日・誕生花・同じ誕生日の有名人まで、すべて無料で読めます。</p>
-    ''' + hub_extra.picker() + '''
+    ''' + hub_extra.picker(mats) + '''
   </div>
 </header>''')
     a('''<a class="fh-b27-promo" href="/seinengappi/">

@@ -90,19 +90,42 @@ def css():
 </style>"""
 
 
-def picker():
-    """ヒーローの下：月と日を選んでその日のページへ（JSが動かなくても下の一覧から選べる）"""
+def picker(mats=None):
+    """ヒーローの下：月と日を選ぶと、その日の「誕生日カード」がめくれて出る → その日のページへ（2026-10-16 ワクワク感の改善）。
+    JSが動かなくても、送信すればその日のページへ移動する（form の action）。"""
+    import json as _j
     mo = "".join(f'<option value="{m:02d}">{m}月</option>' for m in range(1, 13))
     do = "".join(f'<option value="{d:02d}">{d}日</option>' for d in range(1, 32))
-    js = ("(function(){var f=document.getElementById('fh-b27-hx-go');if(!f)return;var M=f.querySelector('[name=m]'),D=f.querySelector('[name=d]'),"
-          "N={1:31,2:29,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31};"
-          "M.addEventListener('change',function(){var n=N[+M.value];for(var i=0;i<D.options.length;i++){D.options[i].disabled=i>=n;}if(+D.value>n)D.value=String(n).padStart(2,'0');});"
-          "f.addEventListener('submit',function(e){e.preventDefault();location.href='/366uranai/'+M.value+'-'+D.value+'/';});})();")
-    return (f'<form class="fh-b27-hx-go" id="fh-b27-hx-go" action="/366uranai/" aria-label="誕生日のページを開く">'
-            f'<label class="fh-b27-small" for="fh-b27-hx-m">誕生日を選んですぐ見る</label>'
+    data = {}
+    for k, v in (mats or {}).items():
+        c = v["birthday_color"]
+        hx = c["note"].split("／")[1] if "／" in c.get("note", "") else "#C9B98F"
+        data[k] = [v["sign"], v["flower"]["flower"], v["flower"]["hanakotoba"], v["birthstone_month"].split("・")[0], c["name"], hx, v["birthday_stone"]["name"]]
+    js = ("(function(){var f=document.getElementById('fh-b27-hx-go');if(!f)return;var X=" + _j.dumps(data, ensure_ascii=False, separators=(",", ":")) + ","
+          "M=f.querySelector('[name=m]'),D=f.querySelector('[name=d]'),C=document.getElementById('fh-b27-hx-card'),"
+          "N={1:31,2:29,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31};function e(s){return String(s).replace(/[&<>\"]/g,'')}"
+          "function fit(){var n=N[+M.value];for(var i=0;i<D.options.length;i++){D.options[i].disabled=i>=n;}if(+D.value>n)D.value=String(n).padStart(2,'0');}"
+          "function show(m,d){var x=X[m+d];if(!x||!C){location.href='/366uranai/'+m+'-'+d+'/';return}var t=(+m)+'月'+(+d)+'日';"
+          "C.innerHTML='<div class=\"in\"><small>'+t+'生まれの</small><b class=\"ttl\">誕生日カード</b><dl><div><dt>誕生花</dt><dd>'+e(x[1])+'<small>「'+e(x[2])+'」</small></dd></div><div><dt>星座</dt><dd>'+e(x[0])+'</dd></div>"
+          "<div><dt>誕生石</dt><dd>'+e(x[3])+'</dd></div><div><dt>誕生日石</dt><dd>'+e(x[6])+'</dd></div><div><dt>誕生色</dt><dd><i style=\"background:'+x[5]+'\"></i>'+e(x[4])+'</dd></div></dl>"
+          "<a class=\"go\" href=\"/366uranai/'+m+'-'+d+'/\">'+t+'生まれの性格と2027年の運勢を見る →</a></div>';C.hidden=false;C.classList.remove('on');void C.offsetWidth;C.classList.add('on');}"
+          "M.addEventListener('change',fit);f.addEventListener('submit',function(ev){ev.preventDefault();show(M.value,D.value);});"
+          "var td=document.getElementById('fh-b27-hx-today');if(td)td.addEventListener('click',function(){var n=new Date(),m=String(n.getMonth()+1).padStart(2,'0'),d=String(n.getDate()).padStart(2,'0');M.value=m;fit();D.value=d;show(m,d);});})();")
+    css = ("<style>.fh-b27-hx-card{perspective:900px;margin-top:12px}.fh-b27-hx-card .in{background:linear-gradient(160deg,#FFFBF0,#F1E6CC);color:#2E2A26;border-radius:14px;padding:16px 18px;"
+           "box-shadow:0 10px 26px rgba(0,0,0,.35);border:2px solid #D9B45A;text-align:center}.fh-b27-hx-card.on .in{animation:fh-b27-hx-flip .8s cubic-bezier(.2,1.2,.4,1) both}"
+           "@keyframes fh-b27-hx-flip{from{transform:rotateY(90deg);opacity:0}to{transform:none;opacity:1}}"
+           ".fh-b27 .fh-b27-hx-card small{color:#7A6A4E}.fh-b27-hx-card .ttl{display:block;font:800 22px 'Shippori Mincho',serif;color:#2E2A26;margin-bottom:6px}"
+           ".fh-b27-hx-card dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:0 0 12px;text-align:left}.fh-b27-hx-card dl div{background:#fff;border-radius:8px;padding:6px 10px}"
+           ".fh-b27-hx-card dl div:nth-child(1){grid-column:span 2}.fh-b27 .fh-b27-hx-card dt{font-size:11px;color:#8A7A5E;margin:0}.fh-b27 .fh-b27-hx-card dd{margin:0;font-weight:800;color:#2E2A26}"
+           ".fh-b27-hx-card dd small{font-weight:400;margin-left:4px}.fh-b27-hx-card dd i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}"
+           ".fh-b27 a.go{display:inline-block;background:#B5462E;color:#FFF5E6;border-radius:999px;padding:10px 18px;font-weight:800;text-decoration:none}"
+           ".fh-b27-hx-today{min-height:40px;border:1.5px solid currentColor;border-radius:999px;background:transparent;color:inherit;font:inherit;padding:0 14px;cursor:pointer}"
+           "@media (prefers-reduced-motion:reduce){.fh-b27-hx-card.on .in{animation:none}}</style>")
+    return (css + f'<form class="fh-b27-hx-go" id="fh-b27-hx-go" action="/366uranai/" aria-label="誕生日のカードを見る">'
+            f'<label class="fh-b27-small" for="fh-b27-hx-m">誕生日を選んでカードをめくる</label>'
             f'<select id="fh-b27-hx-m" name="m" aria-label="月">{mo}</select><select name="d" aria-label="日">{do}</select>'
-            f'<button type="submit">占う →</button></form><script>{js}</script>')
-
+            f'<button type="submit">めくる →</button><button type="button" class="fh-b27-hx-today" id="fh-b27-hx-today">今日の誕生日</button></form>'
+            f'<div class="fh-b27-hx-card" id="fh-b27-hx-card" aria-live="polite" hidden></div><script>{js}</script>')
 
 def sections(mats, n, h2):
     out = [css()]
