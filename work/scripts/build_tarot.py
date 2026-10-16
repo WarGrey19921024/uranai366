@@ -126,6 +126,9 @@ textarea.fh-b27-tr-q{resize:vertical;min-height:64px;line-height:1.6}
 .fh-b27-tr-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center}
 .fh-b27-tr-row>span{flex:0 0 100%;text-align:center;font-size:12px;color:var(--gold);letter-spacing:.1em}
 .fh-b27-tr-row button{min-height:40px;border:1px solid rgba(217,180,90,.5);border-radius:6px;background:linear-gradient(180deg,#3A1424,#2A0F1A);color:#F3E2B0;font:700 14px inherit;padding:0 12px;cursor:pointer;box-shadow:0 2px 0 rgba(0,0,0,.4)}
+.fh-b27-tr-ab[hidden]{display:none!important}
+.fh-b27-tr-row button:disabled{opacity:.3;cursor:not-allowed;box-shadow:none}
+.fh-b27-tr-ql2{margin:14px 0 4px;text-align:center;color:var(--gold);font-weight:700;font-size:15px}.fh-b27-tr-ql2 small{display:block;font-weight:400;font-size:12px;color:#E8D9B8}
 .fh-b27-tr-row button[aria-pressed="true"]{background:linear-gradient(180deg,#E7C46A,#C9A040);color:#2A0F1A;transform:translateY(-2px) rotate(-1deg)}
 .fh-b27-tr-ab{display:flex;gap:6px;margin:6px 0}.fh-b27-tr-ab input{flex:1;min-width:0;min-height:42px;border-radius:6px;border:1px solid rgba(217,180,90,.5);background:rgba(0,0,0,.3);color:#F3E2B0;font:inherit;padding:0 10px}
 .fh-b27-tr-verdict{text-align:center;border-radius:10px;padding:14px;margin:6px 0 12px;background:radial-gradient(circle at 50% 0,rgba(231,196,106,.35),rgba(42,15,26,.6));border:1.5px solid rgba(231,196,106,.7);animation:fh-b27-tr-v .8s ease both}
@@ -163,15 +166,25 @@ var QM={choice:'choice',when:'when',feel:'feel',adv:'adv',yes:'yes',flow:'three'
 // 組み合わせカード
 var WHO={me:'わたし',like:'好きな人',lover:'恋人',ex:'元恋人',work:'職場・学校の人',fam:'友達・家族'},ABOUT={love:'恋のゆくえ',heart:'気持ち',marry:'結婚',job:'仕事・転職',rel:'関係',money:'お金'},
 WANT={flow:'これからどうなる？',yes:'うまくいく？',when:'いつ動けばいい？',adv:'どうすればいい？',choice:'AとB、どっちがいい？'};
-function compose(){var w=sel.who,a=sel.about,t=sel.want,s='';if(!w&&!a&&!t)return;
- var who=w?WHO[w]:'',ab=a?ABOUT[a]:'';
- if(a==='heart')s=(w&&w!=='me'?who+'の':'あの人の')+'気持ち';else if(a==='rel')s=(w&&w!=='me'?who+'との':'')+'関係';else if(a)s=(w&&w!=='me'?who+'との':'')+ab;else s=who;
- s=s+(t?'は、'+WANT[t]:'');qa.value=s.replace(/^は、/,'');
- var tp=a==='heart'?'kimochi':a==='marry'?'kekkon':a==='job'?'tenshoku':a==='money'?'kinun':a==='rel'?(w==='lover'?'couple':w==='ex'?'fukuen':'shokuba'):a==='love'?(w==='lover'?'couple':w==='ex'?'fukuen':'kataomoi'):(w==='ex'?'fukuen':w==='lover'?'couple':w==='like'?'kataomoi':w==='work'||w==='fam'?'shokuba':null);
+var CB={me:{love:['わたしの恋のゆくえ','kataomoi'],marry:['わたしの結婚','kekkon'],job:['わたしの仕事・転職','tenshoku'],rel:['わたしの人間関係','shokuba'],money:['わたしの金運','kinun']},
+like:{love:['好きな人との恋のゆくえ','kataomoi'],heart:['好きな人の気持ち','kimochi'],marry:['好きな人との結婚','kekkon'],rel:['好きな人との関係','kataomoi']},
+lover:{love:['恋人との恋のゆくえ','couple'],heart:['恋人の気持ち','kimochi'],marry:['恋人との結婚','kekkon'],rel:['恋人との関係','couple']},
+ex:{love:['元恋人との復縁','fukuen'],heart:['元恋人の気持ち','kimochi'],rel:['元恋人との関係','fukuen']},
+work:{love:['職場・学校の人との恋','kataomoi'],heart:['職場・学校の人の気持ち','kimochi'],job:['職場・学校での仕事','shokuba'],rel:['職場・学校の人との関係','shokuba']},
+fam:{rel:['友達・家族との関係','shokuba']}},
+AB0={love:['恋のゆくえ','kataomoi'],heart:['あの人の気持ち','kimochi'],marry:['結婚','kekkon'],job:['仕事・転職','tenshoku'],rel:['人間関係','shokuba'],money:['金運','kinun']},
+WT={me:null,like:'kataomoi',lover:'couple',ex:'fukuen',work:'shokuba',fam:'shokuba'};
+function lock(){root.querySelectorAll('[data-pick="about"]').forEach(function(x){var v=x.getAttribute('data-v');x.disabled=!!(sel.who&&!CB[sel.who][v]);});
+ root.querySelectorAll('[data-pick="who"]').forEach(function(x){var v=x.getAttribute('data-v');x.disabled=!!(sel.about&&!CB[v][sel.about]);});
+ root.querySelectorAll('[data-pick="want"][data-v="choice"]').forEach(function(x){x.disabled=sel.about==='heart'});root.querySelectorAll('[data-pick="about"][data-v="heart"]').forEach(function(x){if(sel.want==='choice')x.disabled=true});}
+function compose(){var w=sel.who,a=sel.about,t=sel.want,s='',tp=null;lock();if(!w&&!a&&!t){qa.value='';return;}
+ if(w&&a){s=CB[w][a][0];tp=CB[w][a][1];}else if(a){s=AB0[a][0];tp=AB0[a][1];}else if(w){s=WHO[w];tp=WT[w];}
+ var J=a==='heart'?{flow:'、本当はどう思っている？',yes:'、わたしに向いている？',when:'、いつ近づける？',adv:'をつかむには、どうすればいい？'}:{flow:'は、これからどうなる？',yes:'は、うまくいく？',when:'、いつ動けばいい？',adv:'について、どうすればいい？',choice:'、AとBどっちがいい？'};
+ qa.value=s?s+(t?J[t]:''):(t?WANT[t]:'');
  sel.topic=tp;var m=(a==='heart'&&(!t||t==='flow'))?'feel':t?QM[t]:null;sel.mode=m;if(m)setMode(m);document.getElementById('fh-b27-tr-ab').hidden=!(mode==='choice');}
-root.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('click',function(){var g=b.getAttribute('data-pick'),v=b.getAttribute('data-v');sel[g]=sel[g]===v?null:v;
+root.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('click',function(){if(b.disabled)return;var g=b.getAttribute('data-pick'),v=b.getAttribute('data-v');sel[g]=sel[g]===v?null:v;
  root.querySelectorAll('[data-pick="'+g+'"]').forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-v')===sel[g]?'true':'false')});compose();});});
-qa.addEventListener('input',function(){sel.topic=null;sel.want=null;root.querySelectorAll('[data-pick]').forEach(function(x){x.setAttribute('aria-pressed','false')});sel.who=sel.about=null;});
+qa.addEventListener('input',function(){sel.topic=null;sel.want=null;root.querySelectorAll('[data-pick]').forEach(function(x){x.setAttribute('aria-pressed','false');x.disabled=false});sel.who=sel.about=null;});
 function ttext(p,tp){var t=TP[p.c.name];if(t&&t[tp])return t[tp][p.rev?'rev':'up'];if(tp==='kinun')return p.c.money||'';if(/work|tenshoku|shokuba/.test(tp))return p.c.work;if(tp!=='gen')return p.c.love;return '';}
 function verdict(picks,q,qt,tp){var L=LABEL[mode];
  if(mode==='yes'){var y=yes(picks[0].c,picks[0].rev);return {big:y,txt:'カギになるのは「'+kw(picks[0])+'」。'+(y==='はい'?'流れはあなたの味方です。':y==='いいえ'?'今は無理に進めず、別の道や時期も考えてみて。':'今はまだ決め手が足りない状態です。')};}

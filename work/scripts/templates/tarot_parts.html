@@ -11,13 +11,14 @@
   @@H2@@
   <div id="fh-b27-tr" class="fh-b27-tr-felt">
     <label class="fh-b27-tr-ql" for="fh-b27-tr-q">何を占いますか？</label>
-    <p class="fh-b27-small" style="text-align:center;margin:0">自由に書くか、下のカードを①②③と組み合わせて相談を作ってください。</p>
-    <textarea class="fh-b27-tr-q" id="fh-b27-tr-q" rows="2" maxlength="80" placeholder="例：片思いの人と付き合える？／転職したほうがいい？／今月の金運は？" aria-label="占いたいこと"></textarea>
+    <p class="fh-b27-small" style="text-align:center;margin:0">①②③をタップして、相談を組み立ててください。</p>
     <div class="fh-b27-tr-build" aria-label="カードを組み合わせて相談を作る">
       <div class="fh-b27-tr-row"><span>① だれのこと</span><button type="button" data-pick="who" data-v="me">わたし</button><button type="button" data-pick="who" data-v="like">好きな人</button><button type="button" data-pick="who" data-v="lover">恋人</button><button type="button" data-pick="who" data-v="ex">元恋人</button><button type="button" data-pick="who" data-v="work">職場・学校の人</button><button type="button" data-pick="who" data-v="fam">友達・家族</button></div>
       <div class="fh-b27-tr-row"><span>② なにについて</span><button type="button" data-pick="about" data-v="love">恋のゆくえ</button><button type="button" data-pick="about" data-v="heart">気持ち</button><button type="button" data-pick="about" data-v="marry">結婚</button><button type="button" data-pick="about" data-v="job">仕事・転職</button><button type="button" data-pick="about" data-v="rel">関係</button><button type="button" data-pick="about" data-v="money">お金</button></div>
       <div class="fh-b27-tr-row"><span>③ 知りたいこと</span><button type="button" data-pick="want" data-v="flow">これからどうなる？</button><button type="button" data-pick="want" data-v="yes">うまくいく？</button><button type="button" data-pick="want" data-v="when">いつ動けばいい？</button><button type="button" data-pick="want" data-v="adv">どうすればいい？</button><button type="button" data-pick="want" data-v="choice">AとB、どっち？</button></div>
     </div>
+    <p class="fh-b27-tr-ql2">相談の文<small>（選ぶと自動でできます。自由に書き直しても、最初から書いてもOK）</small></p>
+    <textarea class="fh-b27-tr-q" id="fh-b27-tr-q" rows="2" maxlength="80" placeholder="例：片思いの人と付き合える？／転職したほうがいい？／今月の金運は？" aria-label="占いたいこと"></textarea>
     <div class="fh-b27-tr-ab" id="fh-b27-tr-ab" hidden><input id="fh-b27-tr-a" maxlength="20" placeholder="Aの選択肢（例：今の会社）" aria-label="Aの選択肢"><input id="fh-b27-tr-b" maxlength="20" placeholder="Bの選択肢（例：転職する）" aria-label="Bの選択肢"></div>
     <details class="fh-b27-tr-more"><summary>引き方を自分で選ぶ</summary><div class="fh-b27-tr-modes" role="group" aria-label="占い方を選ぶ"><button type="button" data-mode="one" aria-pressed="true">1枚引き</button><button type="button" data-mode="three" aria-pressed="false">3枚引き（過去・現在・未来）</button><button type="button" data-mode="yes" aria-pressed="false">Yes/No</button><button type="button" data-mode="when" aria-pressed="false">時期を見る</button><button type="button" data-mode="feel" aria-pressed="false">気持ちを見る</button><button type="button" data-mode="choice" aria-pressed="false">AとBを比べる</button></div>
     <div class="fh-b27-tr-modes" role="group" aria-label="使うカードを選ぶ"><button type="button" data-deck="major" aria-pressed="true">大アルカナ22枚</button><button type="button" data-deck="all" aria-pressed="false">78枚すべて</button></div></details>
