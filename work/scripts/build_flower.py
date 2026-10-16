@@ -7,6 +7,8 @@
 """
 import collections, csv, datetime as dt, html, json, os, re, sys
 
+STD = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "bday_standard_366.json"), encoding="utf-8"))["days"]
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, DATA, shell  # noqa: E402
@@ -166,12 +168,11 @@ def build(sample, updated):
         return f'<h2><span class="fh-b27-n">{n}</span><span>{t}</span></h2>'
     # 1 調べる
     def chex(k):
-        c = mats[k]["birthday_color"]
-        return c["note"].split("／")[1] if "／" in c.get("note", "") else "#E68FA2"
+        return STD[f"{k[:2]}-{k[2:]}"]["color_hex"] or "#E68FA2"
 
     def gq(f):
         return re.sub(r"[（(].*", "", f) + " 花 ギフト"
-    data = {k: [f, h, mats[k]["sign"], mats[k]["kou"], chex(k), mats[k]["birthday_color"]["name"], mats[k]["birthday_stone"]["name"],
+    data = {k: [f, h, mats[k]["sign"], mats[k]["kou"], chex(k), STD[f"{k[:2]}-{k[2:]}"]["color"], STD[f"{k[:2]}-{k[2:]}"]["stone"],
                 aff_extra.href("rakuten", gq(f)) or "", aff_extra.href("yahoo", gq(f)) or ""] for k, (f, h) in fl.items()}
     mo = "".join(f'<option value="{m:02d}">{m}月</option>' for m in range(1, 13))
     do = "".join(f'<option value="{d:02d}">{d}日</option>' for d in range(1, 32))
@@ -187,7 +188,7 @@ def build(sample, updated):
       <p class="fh-b27-fl-name" id="fh-b27-fl-name">{esc(f0)}</p>
       <p class="fh-b27-fl-kotoba">花言葉：<b id="fh-b27-fl-kotoba">{esc(h0)}</b></p>
       <p><small id="fh-b27-fl-more">この日の星座：{esc(mats["0101"]["sign"])}／七十二候：{esc(mats["0101"]["kou"])}</small></p>
-      <p class="fh-b27-fl-chips"><span id="fh-b27-fl-col"><i id="fh-b27-fl-sw"></i>誕生色：{esc(mats["0101"]["birthday_color"]["name"])}</span><span id="fh-b27-fl-st">誕生日石：{esc(mats["0101"]["birthday_stone"]["name"])}</span></p>
+      <p class="fh-b27-fl-chips"><span id="fh-b27-fl-col"><i id="fh-b27-fl-sw"></i>誕生色：{esc(STD["01-01"]["color"])}</span><span id="fh-b27-fl-st">誕生日石：{esc(STD["01-01"]["stone"])}</span></p>
       <p><a id="fh-b27-fl-link" href="{day_url("0101")}">1月1日生まれの性格・相性と2027年の運勢へ →</a></p>
       <p class="fh-b27-fl-shop" id="fh-b27-fl-shop"></p>
     </div>

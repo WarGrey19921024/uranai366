@@ -252,12 +252,17 @@ def ranges(mats, keyf):
     return out
 
 
+# 一般的に使われている誕生日石・誕生色（突き合わせの記録は data/bday_standard_366.json の note）
+STD = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "bday_standard_366.json"), encoding="utf-8"))["days"]
+
+
 # ---------------------------------------------------------------- 文章JSON
 def load_texts(text_dir):
     texts = {}
     for p in sorted(glob.glob(os.path.join(text_dir, "*.json"))):
         try:
-            d = json.load(open(p, encoding="utf-8"))
+            # 2026-10-17：独自に選んだ石・色は「守護石」「ラッキーカラー」と呼ぶ（一般的な誕生日石・誕生色は data/bday_standard_366.json）
+            d = json.loads(open(p, encoding="utf-8").read().replace("誕生日石", "守護石").replace("誕生色", "ラッキーカラー"))
         except Exception as e:  # 壊れたファイルでも他の日は作る
             print(f"警告: {p} を読めません: {e}", file=sys.stderr)
             continue
@@ -519,6 +524,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     bm_list = split_stones(e["birthstone_month"], st_idx)
     bm_first = st_idx.get(bm_list[0], {})
     bd_stone = st_idx.get(e["birthday_stone"]["name"], {})
+    std = STD[f"{M:02d}-{D:02d}"]
     col_yomi, col_hex, col_desc = (e["birthday_color"]["note"].split("／") + ["", "", ""])[:3]
     sc = e["scores"]
     warnings = []
@@ -667,15 +673,17 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     def sw(hexv):
         return f'<span class="fh-b27-mono-sw" style="background:{esc(hexv)}"></span>' if hexv and re.fullmatch(r"#[0-9A-Fa-f]{6}", hexv) else ""
     a(f'''<section class="fh-b27-sec" id="b27-mono">
-  {h2(3, "mono", f"{md}の誕生花・誕生石・誕生色")}
+  {h2(3, "mono", f"{md}の誕生花・誕生石・誕生日石・誕生色")}
   <div class="fh-b27-mono">
     <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{mono_btns(re.sub(r"[（(].*", "", flower["flower"]) + " 花 ギフト")}</div>
     <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{mono_btns(bm_list[0] + " ネックレス")}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone">{sw(bd_stone.get("color_hex"))}<small>誕生日石（{md}）</small><b>{esc(e["birthday_stone"]["name"])}<em>当サイト独自の選び方</em></b><p>{esc(e["birthday_stone"]["note"])}</p>{mono_btns(e["birthday_stone"]["name"] + " ブレスレット")}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-color">{sw(col_hex)}<small>誕生色（{md}）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）<em>当サイト独自の選び方</em></b><p>{esc(col_desc)}</p></div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone"><small>誕生日石（{md}）</small><b>{esc(std["stone"])}</b><p>{md}の誕生日石として、多くの一覧で紹介されている石です。</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-days">366日の誕生日石の一覧 →</a>{mono_btns(re.sub(r"[（(].*", "", std["stone"]) + " 天然石")}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-color">{sw(std["color_hex"])}<small>誕生色（{md}）</small><b>{esc(std["color"])}</b><p>{md}の誕生色として、多くの一覧で紹介されている色です。</p></div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{mono_btns(e["birthday_stone"]["name"] + " ブレスレット")}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-color fh-b27-mc-own">{sw(col_hex)}<small>ラッキーカラー（当サイト独自）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）</b><p>{esc(col_desc)}</p></div>
   </div>
   {paras(fx.get("items"))}
-  <p class="fh-b27-small">誕生日石と誕生色は、当サイト独自の選び方で決めています（決め方はページ下の「この占いについて」）。{"お店のボタンは広告（アフィリエイトリンク）です。" if AFF_TPL else ""}</p>''')
+  <p class="fh-b27-small">誕生日石と誕生色は、ネットや本で広く使われている一覧に合わせています（もとは斉藤貴子『366日誕生石の本』、野村順一『誕生色事典』とされます）。守護石とラッキーカラーは、その日の星と七十二候からこのサイトが独自に選んだものです（決め方はページ下の「この占いについて」）。{"お店のボタンは広告（アフィリエイトリンク）です。" if AFF_TPL else ""}</p>''')
     evs = e.get("events") or []
     if evs:
         a(f'  <h3>{md}の記念日・できごと</h3>\n  <div class="fh-b27-rows">')
@@ -1021,7 +1029,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     <li><b>星座と度数：</b>{md}生まれの太陽の位置は、1930〜2027年の各年の{md}正午（日本時間）の太陽の位置の平均で、{esc(sign)}の約{int(e["sun_deg_in_sign"])}度にあたります。星座の境目の日は、生まれた年と時刻で星座が変わることがあります。</li>
     <li><b>相性の選び方：</b>太陽の位置どうしが約120度・約60度・同じ星座の近い位置にある日を「相性の良い誕生日」、約90度・約180度の日を「気をつけたい誕生日」とし、誕生日の数のグループ（1・5・7＝行動派、2・4・8＝堅実派、3・6・9＝表現派）の組み合わせを加えて選んでいます。</li>
     <li><b>月別スコア：</b>西洋占星術（2027年の太陽・金星・火星・木星・土星）・数秘術（月の数）・暦の五行（月の干支）の3つを20〜100点にそろえて平均したものです。◎○△は366日×12か月の総合点の上位・下位4分の1で決めています。</li>
-    <li><b>誕生日石・誕生色：</b>当サイト独自の選び方です。誕生色は日本の伝統色から七十二候や誕生花にちなんで、誕生日石はその月の誕生石・デーカンの星に対応する石・誕生色に近い石の中から、実際に販売されている石を選んでいます。</li>
+    <li><b>誕生日石・誕生色：</b>決まった公式の一覧はありませんが、多くのサイトや本で同じものが使われています。このサイトでは複数の一覧を突き合わせ、2つ以上で一致したものを載せています。</li><li><b>守護石・ラッキーカラー：</b>当サイト独自の選び方です。ラッキーカラーは日本の伝統色から七十二候や誕生花にちなんで、守護石はその月の誕生石・デーカンの星に対応する石・ラッキーカラーに近い石の中から、実際に販売されている石を選んでいます。</li>
     <li><b>誕生花：</b>日本花普及センターの「誕生花」一覧によります。</li>
     <li><b>暦：</b>二十四節気・七十二候・干支・九星・旧暦は、天文計算で求めた日時（日本時間）にもとづいています。</li>
   </ul>

@@ -1,0 +1,2245 @@
+{
+ "note": "一般的に使われている誕生日石・誕生色（2026-10-17 調査）。誕生日石：買取大吉・マイナビニュース・LUFTTOOLS・KARATZ・ローズストーンほかの月ごとの一覧を突き合わせ、2つ以上一致した石（表記ゆれは同じとみなす）。割れた日は買取大吉の値。誕生色：LUFTTOOLS・birthday-color.lucanor.jp・birthday-color.cafein.jp の多数決。色見本の値は lucanor（無ければLUFT）。元は斉藤貴子『366日誕生石の本』・野村順一『誕生色事典』とされる。",
+ "stone_sources": {
+  "01-03": {
+   "A": "https://luft.co.jp/cgi/birthstone.php",
+   "B": "https://www.kaitori-daikichi.jp/column/jewely/post-5093448/ (1月), https://www.kaitori-daikichi.jp/column/jewely/post-5093446/ (2月), https://www.kaitori-daikichi.jp/column/jewely/post-5093443/ (3月)",
+   "C": "https://news.mynavi.jp/article/20220210-2234963/ (1月), https://news.mynavi.jp/article/20220210-2235054/ (2月), https://news.mynavi.jp/article/20220214-2235072/ (3月)"
+  },
+  "04-06": {
+   "A": "https://luft.co.jp/cgi/birthstone.php",
+   "B": {
+    "04": "https://www.kaitori-daikichi.jp/column/jewely/post-5093441/",
+    "05": "https://www.kaitori-daikichi.jp/column/jewely/post-5093435/",
+    "06": "https://www.kaitori-daikichi.jp/column/jewely/post-5093432/"
+   },
+   "C": {
+    "04": "https://news.mynavi.jp/article/20220215-2235084/ (マイナビニュース)",
+    "05": "https://www.therapy-stone.com/blog/archives/21578/ (セラピーストーン：マイナビ5月記事 20220207-2235093 は日ごとの一覧なしのため代替)",
+    "06": "https://karatz.jp/birthstone_june/ (KARATZ：マイナビ6月記事 20220208-2235928 は日ごとの一覧なしのため代替)"
+   }
+  },
+  "07-09": {
+   "A": "https://luft.co.jp/cgi/birthstone.php",
+   "B": {
+    "07": "https://www.kaitori-daikichi.jp/column/jewely/post-5093428/",
+    "08": "https://www.kaitori-daikichi.jp/column/jewely/post-5093426/",
+    "09": "https://www.kaitori-daikichi.jp/column/jewely/post-5093422/"
+   },
+   "C": {
+    "07": "https://www.rosestone.co.jp/dictionary/366birthday_jul/",
+    "08": "https://www.rosestone.co.jp/dictionary/366birthday_aug/",
+    "09": "https://www.rosestone.co.jp/dictionary/366birthday_sep/"
+   }
+  },
+  "10-12": {
+   "A": "https://karatz.jp/birthdaystone_october/ , https://karatz.jp/birthstone_nov/ , https://karatz.jp/birthstone_dec/ （代替：KARATZ。指定のLUFT https://luft.co.jp/cgi/birthstone.php は取得テキストが9月20日で途切れ10〜12月を取得できず）",
+   "B": "https://www.kaitori-daikichi.jp/column/jewely/post-5093417/ , https://www.kaitori-daikichi.jp/column/jewely/post-5093408/ , https://www.kaitori-daikichi.jp/column/jewely/post-5093405/",
+   "C": "https://www.gemstone-wiki.com/birthstone_365.html （代替：宝石wiki 365日の誕生日石まとめ。取得テキストが11月23日で途切れ、11/24〜12/31はnull。指定のマイナビニュース10月 https://news.mynavi.jp/article/20220217-2235152/ ・11月 https://news.mynavi.jp/article/20220216-2235159/ は日ごとの誕生日石を掲載しておらず、12月記事は見つからず）"
+  },
+  "erged": null
+ },
+ "color_sources": {
+  "A": "https://www.luft.co.jp/cgi/birthday-color-diagnosis.php",
+  "B": "https://birthday-color.lucanor.jp/colors.html",
+  "C": "https://birthday-color.cafein.jp/all.html"
+ },
+ "days": {
+  "01-01": {
+   "stone": "琅玕（ろうかん）",
+   "stone_rule": "多数決",
+   "color": "純白",
+   "color_hex": "#FFFFFF"
+  },
+  "01-02": {
+   "stone": "ランドスケープアゲート",
+   "stone_rule": "多数決",
+   "color": "フロスティーホワイト",
+   "color_hex": "#E6EAE6"
+  },
+  "01-03": {
+   "stone": "ロードクロサイト",
+   "stone_rule": "多数決",
+   "color": "シルバーグレイ",
+   "color_hex": "#C1C7CA"
+  },
+  "01-04": {
+   "stone": "クリソコラ原石",
+   "stone_rule": "多数決",
+   "color": "アルミニウムグレイ",
+   "color_hex": "#949595"
+  },
+  "01-05": {
+   "stone": "ジルコン",
+   "stone_rule": "多数決",
+   "color": "スチールグレイ",
+   "color_hex": "#666D71"
+  },
+  "01-06": {
+   "stone": "スターガーネット",
+   "stone_rule": "多数決",
+   "color": "葡萄鼠",
+   "color_hex": "#4C4948"
+  },
+  "01-07": {
+   "stone": "アンモライト",
+   "stone_rule": "多数決",
+   "color": "漆黒",
+   "color_hex": "#14151A"
+  },
+  "01-08": {
+   "stone": "グリーントルマリン",
+   "stone_rule": "多数決",
+   "color": "シトロンイエロー",
+   "color_hex": "#C3D02C"
+  },
+  "01-09": {
+   "stone": "ブラックトルマリン",
+   "stone_rule": "多数決",
+   "color": "苔色",
+   "color_hex": "#7E972D"
+  },
+  "01-10": {
+   "stone": "ハーキマーダイヤモンド",
+   "stone_rule": "多数決",
+   "color": "草色",
+   "color_hex": "#628E34"
+  },
+  "01-11": {
+   "stone": "ヘマタイト原石",
+   "stone_rule": "多数決",
+   "color": "ミストグリーン",
+   "color_hex": "#CEE4AE"
+  },
+  "01-12": {
+   "stone": "ソーダライト",
+   "stone_rule": "多数決",
+   "color": "白緑",
+   "color_hex": "#A5D4AD"
+  },
+  "01-13": {
+   "stone": "ロードナイト原石",
+   "stone_rule": "多数決",
+   "color": "パロットグリーン",
+   "color_hex": "#65AB31"
+  },
+  "01-14": {
+   "stone": "ライスパール",
+   "stone_rule": "多数決",
+   "color": "グラスグリーン",
+   "color_hex": "#407038"
+  },
+  "01-15": {
+   "stone": "インドスタールビー",
+   "stone_rule": "多数決",
+   "color": "深緑",
+   "color_hex": "#0C6C50"
+  },
+  "01-16": {
+   "stone": "ブルームーンストーン",
+   "stone_rule": "多数決",
+   "color": "ホワイトリリー",
+   "color_hex": "#DBEBC4"
+  },
+  "01-17": {
+   "stone": "不透明琥珀",
+   "stone_rule": "多数決",
+   "color": "萌黄色",
+   "color_hex": "#78B142"
+  },
+  "01-18": {
+   "stone": "ネフライト",
+   "stone_rule": "多数決",
+   "color": "フォーリッジ",
+   "color_hex": "#357D4F"
+  },
+  "01-19": {
+   "stone": "ビックスバイト",
+   "stone_rule": "多数決",
+   "color": "リーフグリーン",
+   "color_hex": "#377D39"
+  },
+  "01-20": {
+   "stone": "スノーフレークオブシディアン",
+   "stone_rule": "多数決",
+   "color": "フォレストグリーン",
+   "color_hex": "#00533F"
+  },
+  "01-21": {
+   "stone": "テクタイト",
+   "stone_rule": "多数決",
+   "color": "空色",
+   "color_hex": "#2CA9E1"
+  },
+  "01-22": {
+   "stone": "スターベリル",
+   "stone_rule": "多数決",
+   "color": "浅葱色",
+   "color_hex": "#009EDD"
+  },
+  "01-23": {
+   "stone": "アレキタイプガーネット",
+   "stone_rule": "多数決",
+   "color": "露草",
+   "color_hex": "#38A1DB"
+  },
+  "01-24": {
+   "stone": "ミルキークォーツ",
+   "stone_rule": "多数決",
+   "color": "鴨羽の色",
+   "color_hex": "#00688B"
+  },
+  "01-25": {
+   "stone": "サードオニキス",
+   "stone_rule": "多数決",
+   "color": "濃藍",
+   "color_hex": "#005886"
+  },
+  "01-26": {
+   "stone": "パイロープガーネット",
+   "stone_rule": "多数決",
+   "color": "クリーム",
+   "color_hex": "#FFF798"
+  },
+  "01-27": {
+   "stone": "アルマンディンガーネット原石（母岩付）",
+   "stone_rule": "多数決",
+   "color": "ペールレモン",
+   "color_hex": "#FFF100"
+  },
+  "01-28": {
+   "stone": "ピンクトパーズ",
+   "stone_rule": "多数決",
+   "color": "タンポポ色",
+   "color_hex": "#FFD900"
+  },
+  "01-29": {
+   "stone": "クリスタルクォーツ",
+   "stone_rule": "多数決",
+   "color": "若草色",
+   "color_hex": "#78C06E"
+  },
+  "01-30": {
+   "stone": "パーティーカラードフローライト",
+   "stone_rule": "多数決",
+   "color": "メドーグリーン",
+   "color_hex": "#4CA748"
+  },
+  "01-31": {
+   "stone": "アレキサンドライトキャッツアイ",
+   "stone_rule": "多数決",
+   "color": "若芽色",
+   "color_hex": "#C1DD98"
+  },
+  "02-01": {
+   "stone": "ウレキサイト",
+   "stone_rule": "多数決",
+   "color": "コーンフラワーブルー",
+   "color_hex": "#3E489C"
+  },
+  "02-02": {
+   "stone": "ドロップパール",
+   "stone_rule": "多数決",
+   "color": "若紫",
+   "color_hex": "#AF4B97"
+  },
+  "02-03": {
+   "stone": "ガーネット結晶",
+   "stone_rule": "多数決",
+   "color": "ディープロイヤルブルー",
+   "color_hex": "#21297E"
+  },
+  "02-04": {
+   "stone": "バイカラーアメジスト",
+   "stone_rule": "多数決",
+   "color": "紅藤色",
+   "color_hex": "#CE93BF"
+  },
+  "02-05": {
+   "stone": "ローズクォーツ",
+   "stone_rule": "多数決",
+   "color": "パンジーパープル",
+   "color_hex": "#4F2A83"
+  },
+  "02-06": {
+   "stone": "グレースターサファイア",
+   "stone_rule": "割れたため買取大吉",
+   "color": "ペールライラック",
+   "color_hex": "#E6CDE3"
+  },
+  "02-07": {
+   "stone": "カンゴーム",
+   "stone_rule": "多数決",
+   "color": "モーベット",
+   "color_hex": "#BD65A4"
+  },
+  "02-08": {
+   "stone": "アズロマラカイト",
+   "stone_rule": "多数決",
+   "color": "バーガンディー",
+   "color_hex": "#6C2735"
+  },
+  "02-09": {
+   "stone": "レッドジャスパー",
+   "stone_rule": "多数決",
+   "color": "フクシャパープル",
+   "color_hex": "#E73267"
+  },
+  "02-10": {
+   "stone": "ピンクトルマリン",
+   "stone_rule": "多数決",
+   "color": "ローズレッド",
+   "color_hex": "#D60074"
+  },
+  "02-11": {
+   "stone": "アパタイト",
+   "stone_rule": "多数決",
+   "color": "紅色",
+   "color_hex": "#D60068"
+  },
+  "02-12": {
+   "stone": "ルチルクォーツ",
+   "stone_rule": "多数決",
+   "color": "カーミン",
+   "color_hex": "#D70055"
+  },
+  "02-13": {
+   "stone": "バイカラーフローライト",
+   "stone_rule": "多数決",
+   "color": "鶯色",
+   "color_hex": "#59574D"
+  },
+  "02-14": {
+   "stone": "ピンクオパール",
+   "stone_rule": "多数決",
+   "color": "海松色",
+   "color_hex": "#4D524D"
+  },
+  "02-15": {
+   "stone": "ピンクジルコン",
+   "stone_rule": "多数決",
+   "color": "勿忘草色",
+   "color_hex": "#89C3EB"
+  },
+  "02-16": {
+   "stone": "オレンジトルマリン",
+   "stone_rule": "多数決",
+   "color": "スモークブルー",
+   "color_hex": "#8C9FB6"
+  },
+  "02-17": {
+   "stone": "クリソプレーズ",
+   "stone_rule": "多数決",
+   "color": "スマルト",
+   "color_hex": "#44617B"
+  },
+  "02-18": {
+   "stone": "オレンジトパーズ",
+   "stone_rule": "多数決",
+   "color": "チョコレート",
+   "color_hex": "#322B33"
+  },
+  "02-19": {
+   "stone": "モルダバイト",
+   "stone_rule": "多数決",
+   "color": "紺色",
+   "color_hex": "#1D2569"
+  },
+  "02-20": {
+   "stone": "サードオニキス",
+   "stone_rule": "多数決",
+   "color": "鳥の子色",
+   "color_hex": "#FEECD2"
+  },
+  "02-21": {
+   "stone": "ラリマー",
+   "stone_rule": "多数決",
+   "color": "ライムライト",
+   "color_hex": "#FFFABC"
+  },
+  "02-22": {
+   "stone": "クォーツキャッツアイ",
+   "stone_rule": "多数決",
+   "color": "鬱金色",
+   "color_hex": "#F5AF7D"
+  },
+  "02-23": {
+   "stone": "ルビー",
+   "stone_rule": "多数決",
+   "color": "菜の花色",
+   "color_hex": "#E9EEA2"
+  },
+  "02-24": {
+   "stone": "ホワイトパール",
+   "stone_rule": "多数決",
+   "color": "リードグリーン",
+   "color_hex": "#DBE4AC"
+  },
+  "02-25": {
+   "stone": "ファントムアメジスト",
+   "stone_rule": "多数決",
+   "color": "ミストホワイト",
+   "color_hex": "#E6EAE3"
+  },
+  "02-26": {
+   "stone": "フローライト",
+   "stone_rule": "多数決",
+   "color": "裏葉色",
+   "color_hex": "#BFD1BB"
+  },
+  "02-27": {
+   "stone": "アメトリン",
+   "stone_rule": "多数決",
+   "color": "柳茶",
+   "color_hex": "#859D75"
+  },
+  "02-28": {
+   "stone": "コーラル（珊瑚）",
+   "stone_rule": "多数決",
+   "color": "オリーブグリーン",
+   "color_hex": "#5F7C61"
+  },
+  "02-29": {
+   "stone": "パラサイト隕石",
+   "stone_rule": "割れたため買取大吉",
+   "color": "アイビーグリーン",
+   "color_hex": "#4C483D"
+  },
+  "03-01": {
+   "stone": "フローライト原石",
+   "stone_rule": "多数決",
+   "color": "一斤染",
+   "color_hex": "#F4B3C5"
+  },
+  "03-02": {
+   "stone": "ロードクロサイト",
+   "stone_rule": "多数決",
+   "color": "ベビーピンク",
+   "color_hex": "#F5B2B9"
+  },
+  "03-03": {
+   "stone": "モルガナイト",
+   "stone_rule": "多数決",
+   "color": "鴇色",
+   "color_hex": "#F19DB5"
+  },
+  "03-04": {
+   "stone": "アベンチュリンクォーツ",
+   "stone_rule": "多数決",
+   "color": "ポピーレッド",
+   "color_hex": "#E60039"
+  },
+  "03-05": {
+   "stone": "ブルーサファイア",
+   "stone_rule": "多数決",
+   "color": "チェリーレッド",
+   "color_hex": "#D80E19"
+  },
+  "03-06": {
+   "stone": "虫入り琥珀",
+   "stone_rule": "多数決",
+   "color": "桜色",
+   "color_hex": "#F6BEBC"
+  },
+  "03-07": {
+   "stone": "アクロアイト",
+   "stone_rule": "多数決",
+   "color": "サーモンピンク",
+   "color_hex": "#F29B97"
+  },
+  "03-08": {
+   "stone": "アメジスト原石",
+   "stone_rule": "多数決",
+   "color": "紅梅色",
+   "color_hex": "#EC6E71"
+  },
+  "03-09": {
+   "stone": "シルバーパール",
+   "stone_rule": "多数決",
+   "color": "珊瑚色",
+   "color_hex": "#EA5532"
+  },
+  "03-10": {
+   "stone": "スギライト",
+   "stone_rule": "多数決",
+   "color": "シグナルレッド",
+   "color_hex": "#E60013"
+  },
+  "03-11": {
+   "stone": "ヘミモルファイト",
+   "stone_rule": "多数決",
+   "color": "砥粉色",
+   "color_hex": "#FAD09E"
+  },
+  "03-12": {
+   "stone": "アクアマリン原石",
+   "stone_rule": "多数決",
+   "color": "オレンジバーミリオン",
+   "color_hex": "#EA5550"
+  },
+  "03-13": {
+   "stone": "イエローダイヤモンド",
+   "stone_rule": "多数決",
+   "color": "柿色",
+   "color_hex": "#E94720"
+  },
+  "03-14": {
+   "stone": "アポフィライト",
+   "stone_rule": "多数決",
+   "color": "スカーレット",
+   "color_hex": "#E23620"
+  },
+  "03-15": {
+   "stone": "オレンジムーンストーン",
+   "stone_rule": "多数決",
+   "color": "ルージュ",
+   "color_hex": "#D8210E"
+  },
+  "03-16": {
+   "stone": "ローズクォーツ",
+   "stone_rule": "多数決",
+   "color": "薄紅藤",
+   "color_hex": "#CFA7CD"
+  },
+  "03-17": {
+   "stone": "エメラルド",
+   "stone_rule": "多数決",
+   "color": "モーブ",
+   "color_hex": "#B44C97"
+  },
+  "03-18": {
+   "stone": "ジェイド",
+   "stone_rule": "多数決",
+   "color": "カンパヌラパープル",
+   "color_hex": "#915DA3"
+  },
+  "03-19": {
+   "stone": "バイカラークォーツ",
+   "stone_rule": "多数決",
+   "color": "ビオレ",
+   "color_hex": "#50207F"
+  },
+  "03-20": {
+   "stone": "セレスタイト",
+   "stone_rule": "多数決",
+   "color": "古代紫",
+   "color_hex": "#71478F"
+  },
+  "03-21": {
+   "stone": "カーネリアン",
+   "stone_rule": "多数決",
+   "color": "ペールオーキッド",
+   "color_hex": "#E4C2DC"
+  },
+  "03-22": {
+   "stone": "ラブラドライト",
+   "stone_rule": "多数決",
+   "color": "ディープモーベット",
+   "color_hex": "#B964A4"
+  },
+  "03-23": {
+   "stone": "ピクチャージャスパー",
+   "stone_rule": "多数決",
+   "color": "江戸紫",
+   "color_hex": "#745399"
+  },
+  "03-24": {
+   "stone": "ブラッドストーン",
+   "stone_rule": "多数決",
+   "color": "マロー",
+   "color_hex": "#934491"
+  },
+  "03-25": {
+   "stone": "スピネル",
+   "stone_rule": "多数決",
+   "color": "ワインレッド",
+   "color_hex": "#802358"
+  },
+  "03-26": {
+   "stone": "パイライト",
+   "stone_rule": "多数決",
+   "color": "シルバーグリーン",
+   "color_hex": "#CAE4C3"
+  },
+  "03-27": {
+   "stone": "レッドジャスパー",
+   "stone_rule": "多数決",
+   "color": "オパールグリーン",
+   "color_hex": "#ABD6AD"
+  },
+  "03-28": {
+   "stone": "水晶",
+   "stone_rule": "多数決",
+   "color": "ペールアクア",
+   "color_hex": "#A3D6CD"
+  },
+  "03-29": {
+   "stone": "アイオライト",
+   "stone_rule": "多数決",
+   "color": "スプレーグリーン",
+   "color_hex": "#9CD5DB"
+  },
+  "03-30": {
+   "stone": "レピドライト",
+   "stone_rule": "多数決",
+   "color": "パステルブルー",
+   "color_hex": "#05B9EF"
+  },
+  "03-31": {
+   "stone": "イエローオーソクレース",
+   "stone_rule": "多数決",
+   "color": "ストロー",
+   "color_hex": "#FCE3CD"
+  },
+  "04-01": {
+   "stone": "レピドライト",
+   "stone_rule": "多数決",
+   "color": "薄桜",
+   "color_hex": "#F9D1CC"
+  },
+  "04-02": {
+   "stone": "トルコ石（ターコイズ）",
+   "stone_rule": "多数決",
+   "color": "シェルピンク",
+   "color_hex": "#F8C8CE"
+  },
+  "04-03": {
+   "stone": "ルチルクォーツ",
+   "stone_rule": "多数決",
+   "color": "フクシャピンク",
+   "color_hex": "#F19EC2"
+  },
+  "04-04": {
+   "stone": "クリソコラ",
+   "stone_rule": "多数決",
+   "color": "ディープオーキッドピンク",
+   "color_hex": "#DE82A7"
+  },
+  "04-05": {
+   "stone": "ホワイトサファイア",
+   "stone_rule": "多数決",
+   "color": "青藤色",
+   "color_hex": "#8C93C8"
+  },
+  "04-06": {
+   "stone": "ブルーダイヤモンド",
+   "stone_rule": "多数決",
+   "color": "チョークブルー",
+   "color_hex": "#84A2D4"
+  },
+  "04-07": {
+   "stone": "アズライト",
+   "stone_rule": "多数決",
+   "color": "白百合",
+   "color_hex": "#F1F6DA"
+  },
+  "04-08": {
+   "stone": "パパラチアサファイア",
+   "stone_rule": "多数決",
+   "color": "薄緑色",
+   "color_hex": "#E1EFD8"
+  },
+  "04-09": {
+   "stone": "桜石",
+   "stone_rule": "多数決",
+   "color": "支子色",
+   "color_hex": "#FBCA4D"
+  },
+  "04-10": {
+   "stone": "ホワイトジルコン",
+   "stone_rule": "多数決",
+   "color": "パンプキン",
+   "color_hex": "#F29A75"
+  },
+  "04-11": {
+   "stone": "オニキス（黒と白）",
+   "stone_rule": "多数決",
+   "color": "蒸栗色",
+   "color_hex": "#E9E0CF"
+  },
+  "04-12": {
+   "stone": "ピンクフローライト",
+   "stone_rule": "多数決",
+   "color": "利休白茶",
+   "color_hex": "#A89F80"
+  },
+  "04-13": {
+   "stone": "バイオレットパール",
+   "stone_rule": "多数決",
+   "color": "フロスティグレイ",
+   "color_hex": "#ABB0AD"
+  },
+  "04-14": {
+   "stone": "ホワイトトパーズ",
+   "stone_rule": "多数決",
+   "color": "鼠色",
+   "color_hex": "#94949A"
+  },
+  "04-15": {
+   "stone": "真珠",
+   "stone_rule": "多数決",
+   "color": "ペールミストホワイト",
+   "color_hex": "#D4DCD6"
+  },
+  "04-16": {
+   "stone": "ヒデナイト",
+   "stone_rule": "多数決",
+   "color": "スカイグレイ",
+   "color_hex": "#959B9F"
+  },
+  "04-17": {
+   "stone": "グリーンスピネル",
+   "stone_rule": "多数決",
+   "color": "バトルシップグレイ",
+   "color_hex": "#66646B"
+  },
+  "04-18": {
+   "stone": "ラピスラズリ",
+   "stone_rule": "多数決",
+   "color": "スレートグレイ",
+   "color_hex": "#595757"
+  },
+  "04-19": {
+   "stone": "ブラッドストーン",
+   "stone_rule": "多数決",
+   "color": "消炭色",
+   "color_hex": "#4F4946"
+  },
+  "04-20": {
+   "stone": "翡翠（硬玉）",
+   "stone_rule": "多数決",
+   "color": "若苗色",
+   "color_hex": "#C3DA69"
+  },
+  "04-21": {
+   "stone": "アンダリュサイト",
+   "stone_rule": "多数決",
+   "color": "若菜色",
+   "color_hex": "#8DC556"
+  },
+  "04-22": {
+   "stone": "サードオニキス",
+   "stone_rule": "多数決",
+   "color": "鸚緑",
+   "color_hex": "#35A34A"
+  },
+  "04-23": {
+   "stone": "砂漠のバラ",
+   "stone_rule": "多数決",
+   "color": "葦葉色",
+   "color_hex": "#88C897"
+  },
+  "04-24": {
+   "stone": "クンツァイト",
+   "stone_rule": "多数決",
+   "color": "スプラウト",
+   "color_hex": "#A6D397"
+  },
+  "04-25": {
+   "stone": "ツァボライト",
+   "stone_rule": "多数決",
+   "color": "エルブ",
+   "color_hex": "#7BC283"
+  },
+  "04-26": {
+   "stone": "アメジスト",
+   "stone_rule": "多数決",
+   "color": "ディープピーグリーン",
+   "color_hex": "#40B25D"
+  },
+  "04-27": {
+   "stone": "カーネリアン",
+   "stone_rule": "多数決",
+   "color": "エメラルドグリーン",
+   "color_hex": "#00974F"
+  },
+  "04-28": {
+   "stone": "ネフライト",
+   "stone_rule": "多数決",
+   "color": "ターコイズグリーン",
+   "color_hex": "#00925E"
+  },
+  "04-29": {
+   "stone": "アベンチュリンクォーツ",
+   "stone_rule": "割れたため買取大吉",
+   "color": "薄浅葱",
+   "color_hex": "#2EB6AA"
+  },
+  "04-30": {
+   "stone": "シリマナイトキャッツアイ",
+   "stone_rule": "多数決",
+   "color": "アジュールブルー",
+   "color_hex": "#00AEB7"
+  },
+  "05-01": {
+   "stone": "アマゾナイト",
+   "stone_rule": "多数決",
+   "color": "ターコイズ",
+   "color_hex": "#00AB84"
+  },
+  "05-02": {
+   "stone": "タイガーアイ",
+   "stone_rule": "多数決",
+   "color": "マラカイトグリーン",
+   "color_hex": "#007F4D"
+  },
+  "05-03": {
+   "stone": "モルガナイト",
+   "stone_rule": "多数決",
+   "color": "ティールグリーン",
+   "color_hex": "#00696C"
+  },
+  "05-04": {
+   "stone": "ペリドット原石",
+   "stone_rule": "多数決",
+   "color": "小鴨色",
+   "color_hex": "#004B1D"
+  },
+  "05-05": {
+   "stone": "血赤珊瑚",
+   "stone_rule": "割れたため買取大吉",
+   "color": "水色",
+   "color_hex": "#80CDE3"
+  },
+  "05-06": {
+   "stone": "アイドクレース",
+   "stone_rule": "割れたため買取大吉",
+   "color": "フォゲットミーナットブルー",
+   "color_hex": "#70C6F5"
+  },
+  "05-07": {
+   "stone": "モリオン",
+   "stone_rule": "多数決",
+   "color": "群青色",
+   "color_hex": "#0167B3"
+  },
+  "05-08": {
+   "stone": "エメラルドキャッツアイ",
+   "stone_rule": "多数決",
+   "color": "千歳緑",
+   "color_hex": "#0C6C4B"
+  },
+  "05-09": {
+   "stone": "ブラックパール",
+   "stone_rule": "多数決",
+   "color": "パラキートグリーン",
+   "color_hex": "#44B035"
+  },
+  "05-10": {
+   "stone": "トルコ石原石",
+   "stone_rule": "割れたため買取大吉",
+   "color": "エッグシェル",
+   "color_hex": "#F6F7C6"
+  },
+  "05-11": {
+   "stone": "ブルーレースアゲート",
+   "stone_rule": "多数決",
+   "color": "レタスグリーン",
+   "color_hex": "#EEED80"
+  },
+  "05-12": {
+   "stone": "カコクセナイト",
+   "stone_rule": "多数決",
+   "color": "シャルトルーズイエロー",
+   "color_hex": "#DBE000"
+  },
+  "05-13": {
+   "stone": "アイボリー（象牙）",
+   "stone_rule": "多数決",
+   "color": "枯草色",
+   "color_hex": "#C1BE6D"
+  },
+  "05-14": {
+   "stone": "ブルーグリーンジルコン",
+   "stone_rule": "多数決",
+   "color": "オリーブ",
+   "color_hex": "#72640C"
+  },
+  "05-15": {
+   "stone": "エンジェライト",
+   "stone_rule": "割れたため買取大吉",
+   "color": "コロニアルイエロー",
+   "color_hex": "#D6C677"
+  },
+  "05-16": {
+   "stone": "アンバー",
+   "stone_rule": "割れたため買取大吉",
+   "color": "ペールマスタード",
+   "color_hex": "#AF961C"
+  },
+  "05-17": {
+   "stone": "パープルサファイア",
+   "stone_rule": "多数決",
+   "color": "ゴールデンオーカー",
+   "color_hex": "#946F29"
+  },
+  "05-18": {
+   "stone": "ゴーシェナイト",
+   "stone_rule": "多数決",
+   "color": "オリーブ茶",
+   "color_hex": "#715500"
+  },
+  "05-19": {
+   "stone": "ブルーカルセドニー",
+   "stone_rule": "割れたため買取大吉",
+   "color": "千歳茶",
+   "color_hex": "#303B2D"
+  },
+  "05-20": {
+   "stone": "ガーデンクォーツ",
+   "stone_rule": "割れたため買取大吉",
+   "color": "ディープアクア",
+   "color_hex": "#87CAAC"
+  },
+  "05-21": {
+   "stone": "ラピスラズリ",
+   "stone_rule": "割れたため買取大吉",
+   "color": "緑青色",
+   "color_hex": "#47885E"
+  },
+  "05-22": {
+   "stone": "デンドリティッククォーツ",
+   "stone_rule": "割れたため買取大吉",
+   "color": "スプルースグリーン",
+   "color_hex": "#086B26"
+  },
+  "05-23": {
+   "stone": "セレナイト",
+   "stone_rule": "割れたため買取大吉",
+   "color": "ボトルグリーン",
+   "color_hex": "#045017"
+  },
+  "05-24": {
+   "stone": "ムーンストーン",
+   "stone_rule": "割れたため買取大吉",
+   "color": "サイプレスグリーン",
+   "color_hex": "#004D3E"
+  },
+  "05-25": {
+   "stone": "ブルーアンバー",
+   "stone_rule": "多数決",
+   "color": "ネープルズイエロー",
+   "color_hex": "#FACE9D"
+  },
+  "05-26": {
+   "stone": "レモンクォーツ",
+   "stone_rule": "割れたため買取大吉",
+   "color": "マリーゴールドイエロー",
+   "color_hex": "#F7B96D"
+  },
+  "05-27": {
+   "stone": "グリーントルマリン",
+   "stone_rule": "割れたため買取大吉",
+   "color": "山吹色",
+   "color_hex": "#F28F00"
+  },
+  "05-28": {
+   "stone": "ホワイトカルセドニー",
+   "stone_rule": "多数決",
+   "color": "オールドゴールド",
+   "color_hex": "#BC601E"
+  },
+  "05-29": {
+   "stone": "アゲート",
+   "stone_rule": "多数決",
+   "color": "コーヒーブラウン",
+   "color_hex": "#7B5544"
+  },
+  "05-30": {
+   "stone": "ツァボライト",
+   "stone_rule": "多数決",
+   "color": "灰桜",
+   "color_hex": "#DBBFDB"
+  },
+  "05-31": {
+   "stone": "クリソプレーズ",
+   "stone_rule": "割れたため買取大吉",
+   "color": "薄紅",
+   "color_hex": "#F0908D"
+  },
+  "06-01": {
+   "stone": "カラーチェンジガーネット",
+   "stone_rule": "多数決",
+   "color": "ペールクロッカス",
+   "color_hex": "#BBA1CB"
+  },
+  "06-02": {
+   "stone": "アンバー",
+   "stone_rule": "多数決",
+   "color": "菫色",
+   "color_hex": "#3B1F87"
+  },
+  "06-03": {
+   "stone": "ラブラドライト",
+   "stone_rule": "多数決",
+   "color": "プルプル",
+   "color_hex": "#55256E"
+  },
+  "06-04": {
+   "stone": "アンモライト",
+   "stone_rule": "多数決",
+   "color": "ペールホワイトリリー",
+   "color_hex": "#F6F8DA"
+  },
+  "06-05": {
+   "stone": "シトリン",
+   "stone_rule": "多数決",
+   "color": "ペールフレッシュグリーン",
+   "color_hex": "#E0EBAF"
+  },
+  "06-06": {
+   "stone": "トルマリンインクォーツ原石",
+   "stone_rule": "多数決",
+   "color": "メロンイエロー",
+   "color_hex": "#C1BF78"
+  },
+  "06-07": {
+   "stone": "ピンクパール",
+   "stone_rule": "多数決",
+   "color": "エルムグリーン",
+   "color_hex": "#657D5E"
+  },
+  "06-08": {
+   "stone": "レイン状インクルージョン内包アクアマリン",
+   "stone_rule": "多数決",
+   "color": "オリーブドラブ",
+   "color_hex": "#53624B"
+  },
+  "06-09": {
+   "stone": "バロックパール",
+   "stone_rule": "多数決",
+   "color": "クリーム",
+   "color_hex": "#FFF8A8"
+  },
+  "06-10": {
+   "stone": "クォーツ原石",
+   "stone_rule": "多数決",
+   "color": "レモンイエロー",
+   "color_hex": "#FFF352"
+  },
+  "06-11": {
+   "stone": "ホワイトラブラドライト",
+   "stone_rule": "多数決",
+   "color": "黄水仙",
+   "color_hex": "#FED400"
+  },
+  "06-12": {
+   "stone": "トパーズ",
+   "stone_rule": "多数決",
+   "color": "サフランイエロー",
+   "color_hex": "#FBC200"
+  },
+  "06-13": {
+   "stone": "マラヤガーネット",
+   "stone_rule": "多数決",
+   "color": "向日葵色",
+   "color_hex": "#FCC800"
+  },
+  "06-14": {
+   "stone": "ペタライト",
+   "stone_rule": "多数決",
+   "color": "アイボリー",
+   "color_hex": "#FCDCB8"
+  },
+  "06-15": {
+   "stone": "サードオニキスのカメオ",
+   "stone_rule": "多数決",
+   "color": "ライトアプリコット",
+   "color_hex": "#F6B894"
+  },
+  "06-16": {
+   "stone": "アパタイト",
+   "stone_rule": "多数決",
+   "color": "黄土色",
+   "color_hex": "#BE8B67"
+  },
+  "06-17": {
+   "stone": "アメジスト（カボションカット）",
+   "stone_rule": "多数決",
+   "color": "オールドローズ",
+   "color_hex": "#996343"
+  },
+  "06-18": {
+   "stone": "モルダバイト",
+   "stone_rule": "多数決",
+   "color": "マホガニーブラウン",
+   "color_hex": "#774C43"
+  },
+  "06-19": {
+   "stone": "ダンビュライト",
+   "stone_rule": "多数決",
+   "color": "卵色",
+   "color_hex": "#F9C485"
+  },
+  "06-20": {
+   "stone": "グリーンフローライト",
+   "stone_rule": "多数決",
+   "color": "サンライトイエロー",
+   "color_hex": "#F3983A"
+  },
+  "06-21": {
+   "stone": "サーペンティン",
+   "stone_rule": "多数決",
+   "color": "金茶",
+   "color_hex": "#F39800"
+  },
+  "06-22": {
+   "stone": "サンストーン",
+   "stone_rule": "多数決",
+   "color": "ガーネットブラウン",
+   "color_hex": "#A03B28"
+  },
+  "06-23": {
+   "stone": "ルビーインゾイサイト",
+   "stone_rule": "多数決",
+   "color": "海老茶",
+   "color_hex": "#6D2C2F"
+  },
+  "06-24": {
+   "stone": "ウォーターオパール",
+   "stone_rule": "多数決",
+   "color": "ライトオーキッドピンク",
+   "color_hex": "#F6BEC8"
+  },
+  "06-25": {
+   "stone": "マラカイト原石",
+   "stone_rule": "多数決",
+   "color": "ペールチェリーピンク",
+   "color_hex": "#DE82A1"
+  },
+  "06-26": {
+   "stone": "スペサルティンガーネット",
+   "stone_rule": "多数決",
+   "color": "カーネーションピンク",
+   "color_hex": "#E95383"
+  },
+  "06-27": {
+   "stone": "チューライト",
+   "stone_rule": "多数決",
+   "color": "ローズピンク",
+   "color_hex": "#E9546B"
+  },
+  "06-28": {
+   "stone": "ブルージルコン",
+   "stone_rule": "多数決",
+   "color": "ペッパーレッド",
+   "color_hex": "#D70035"
+  },
+  "06-29": {
+   "stone": "ジャスパー",
+   "stone_rule": "多数決",
+   "color": "ベビーブルー",
+   "color_hex": "#82C0EA"
+  },
+  "06-30": {
+   "stone": "モスアゲート",
+   "stone_rule": "多数決",
+   "color": "薄群青",
+   "color_hex": "#147FC4"
+  },
+  "07-01": {
+   "stone": "アクアマリン",
+   "stone_rule": "多数決",
+   "color": "ダックブルー",
+   "color_hex": "#005D89"
+  },
+  "07-02": {
+   "stone": "バリサイト",
+   "stone_rule": "多数決",
+   "color": "コバルトブルー",
+   "color_hex": "#004C7C"
+  },
+  "07-03": {
+   "stone": "ロッククリスタル",
+   "stone_rule": "多数決",
+   "color": "インクブルー",
+   "color_hex": "#0D326F"
+  },
+  "07-04": {
+   "stone": "スターダイオプサイド",
+   "stone_rule": "多数決",
+   "color": "アクア",
+   "color_hex": "#59C3E1"
+  },
+  "07-05": {
+   "stone": "プラチナ",
+   "stone_rule": "多数決",
+   "color": "ペールサックスブルー",
+   "color_hex": "#44A0AE"
+  },
+  "07-06": {
+   "stone": "オブシディアン",
+   "stone_rule": "多数決",
+   "color": "新橋色",
+   "color_hex": "#0B8CA6"
+  },
+  "07-07": {
+   "stone": "スターローズクォーツ",
+   "stone_rule": "多数決",
+   "color": "ブルーカナール",
+   "color_hex": "#006979"
+  },
+  "07-08": {
+   "stone": "ミルキーオパール",
+   "stone_rule": "多数決",
+   "color": "マリンブルー",
+   "color_hex": "#004C39"
+  },
+  "07-09": {
+   "stone": "スギライト",
+   "stone_rule": "多数決",
+   "color": "パールホワイト",
+   "color_hex": "#C9CACB"
+  },
+  "07-10": {
+   "stone": "クンツァイト",
+   "stone_rule": "多数決",
+   "color": "ペールパステルブルー",
+   "color_hex": "#6C9CD3"
+  },
+  "07-11": {
+   "stone": "半円真珠",
+   "stone_rule": "多数決",
+   "color": "ラベンダーブルー",
+   "color_hex": "#5976BA"
+  },
+  "07-12": {
+   "stone": "ビキシバイト",
+   "stone_rule": "多数決",
+   "color": "マジョリカブルー",
+   "color_hex": "#013F8E"
+  },
+  "07-13": {
+   "stone": "クリソベリル結晶",
+   "stone_rule": "割れたため買取大吉",
+   "color": "紺青",
+   "color_hex": "#192F60"
+  },
+  "07-14": {
+   "stone": "スリーカラーフローライト",
+   "stone_rule": "多数決",
+   "color": "ディープベビーピンク",
+   "color_hex": "#DFB4D3"
+  },
+  "07-15": {
+   "stone": "オパール",
+   "stone_rule": "割れたため買取大吉",
+   "color": "ペールモーベット",
+   "color_hex": "#BD6FAA"
+  },
+  "07-16": {
+   "stone": "アズライト",
+   "stone_rule": "多数決",
+   "color": "ファウンテンブルー",
+   "color_hex": "#8B9BCF"
+  },
+  "07-17": {
+   "stone": "砂金",
+   "stone_rule": "多数決",
+   "color": "サルビアブルー",
+   "color_hex": "#767CBB"
+  },
+  "07-18": {
+   "stone": "レインボームーンストーン",
+   "stone_rule": "多数決",
+   "color": "ロイヤルパープル",
+   "color_hex": "#7F1184"
+  },
+  "07-19": {
+   "stone": "ロードクロサイト",
+   "stone_rule": "多数決",
+   "color": "ディープシェルピンク",
+   "color_hex": "#F5B1AA"
+  },
+  "07-20": {
+   "stone": "アクアマリンキャッツアイ",
+   "stone_rule": "多数決",
+   "color": "小麦色",
+   "color_hex": "#CE7D4F"
+  },
+  "07-21": {
+   "stone": "モスアゲート",
+   "stone_rule": "多数決",
+   "color": "ハバナローズ",
+   "color_hex": "#CD694A"
+  },
+  "07-22": {
+   "stone": "ミルキークォーツ",
+   "stone_rule": "割れたため買取大吉",
+   "color": "臙脂",
+   "color_hex": "#B94047"
+  },
+  "07-23": {
+   "stone": "ウォーターメロントルマリン",
+   "stone_rule": "多数決",
+   "color": "茜色",
+   "color_hex": "#B81B35"
+  },
+  "07-24": {
+   "stone": "ハーキマーダイヤモンド",
+   "stone_rule": "割れたため買取大吉",
+   "color": "キューピッドピンク",
+   "color_hex": "#F19CA6"
+  },
+  "07-25": {
+   "stone": "シェル",
+   "stone_rule": "多数決",
+   "color": "ロータスピンク",
+   "color_hex": "#EF8584"
+  },
+  "07-26": {
+   "stone": "枝珊瑚",
+   "stone_rule": "多数決",
+   "color": "ローズマダー",
+   "color_hex": "#B81B35"
+  },
+  "07-27": {
+   "stone": "メレダイヤモンド",
+   "stone_rule": "多数決",
+   "color": "クリムソン",
+   "color_hex": "#942344"
+  },
+  "07-28": {
+   "stone": "ファイアーアゲート",
+   "stone_rule": "割れたため買取大吉",
+   "color": "黒柿色",
+   "color_hex": "#3E2F32"
+  },
+  "07-29": {
+   "stone": "ブラックオパール",
+   "stone_rule": "多数決",
+   "color": "セルリアンブルー",
+   "color_hex": "#0096B6"
+  },
+  "07-30": {
+   "stone": "ヘリオドール",
+   "stone_rule": "多数決",
+   "color": "ピーコックブルー",
+   "color_hex": "#00648D"
+  },
+  "07-31": {
+   "stone": "レッドジルコン",
+   "stone_rule": "多数決",
+   "color": "プルシアンブルー",
+   "color_hex": "#004B7C"
+  },
+  "08-01": {
+   "stone": "シトリン",
+   "stone_rule": "多数決",
+   "color": "ブルーシェル",
+   "color_hex": "#3E9FCC"
+  },
+  "08-02": {
+   "stone": "ブルークォーツ",
+   "stone_rule": "多数決",
+   "color": "ペールヨットブルー",
+   "color_hex": "#00A4E3"
+  },
+  "08-03": {
+   "stone": "クリソベリルキャッツアイ",
+   "stone_rule": "多数決",
+   "color": "ヨットブルー",
+   "color_hex": "#088DCF"
+  },
+  "08-04": {
+   "stone": "水晶（ロッククリスタル）",
+   "stone_rule": "割れたため買取大吉",
+   "color": "シアンブルー",
+   "color_hex": "#0069AC"
+  },
+  "08-05": {
+   "stone": "サンストーン原石",
+   "stone_rule": "多数決",
+   "color": "瑠璃色",
+   "color_hex": "#005BAC"
+  },
+  "08-06": {
+   "stone": "ダークグリーンジルコン",
+   "stone_rule": "多数決",
+   "color": "ラピスラズリー",
+   "color_hex": "#004C97"
+  },
+  "08-07": {
+   "stone": "イエローアパタイト",
+   "stone_rule": "多数決",
+   "color": "ロイヤルブルー",
+   "color_hex": "#02428C"
+  },
+  "08-08": {
+   "stone": "ラウンドカットダイヤモンド",
+   "stone_rule": "多数決",
+   "color": "紺瑠璃",
+   "color_hex": "#273C90"
+  },
+  "08-09": {
+   "stone": "イエローゴールド",
+   "stone_rule": "多数決",
+   "color": "ネービーブルー",
+   "color_hex": "#202F55"
+  },
+  "08-10": {
+   "stone": "アイオライト",
+   "stone_rule": "多数決",
+   "color": "ハイドレンジアブルー",
+   "color_hex": "#3D62AD"
+  },
+  "08-11": {
+   "stone": "イエローサファイア",
+   "stone_rule": "多数決",
+   "color": "桑の実色",
+   "color_hex": "#3C276F"
+  },
+  "08-12": {
+   "stone": "コンシャアゲート",
+   "stone_rule": "多数決",
+   "color": "藤鼠",
+   "color_hex": "#41648C"
+  },
+  "08-13": {
+   "stone": "イエロージルコン",
+   "stone_rule": "多数決",
+   "color": "白群",
+   "color_hex": "#84BAE5"
+  },
+  "08-14": {
+   "stone": "ファイアオパール",
+   "stone_rule": "多数決",
+   "color": "ミヨゾティ",
+   "color_hex": "#4CB8E7"
+  },
+  "08-15": {
+   "stone": "ルチルクォーツ",
+   "stone_rule": "割れたため買取大吉",
+   "color": "黄色",
+   "color_hex": "#FFFBC7"
+  },
+  "08-16": {
+   "stone": "ラブラドライト",
+   "stone_rule": "多数決",
+   "color": "ライトクリーム",
+   "color_hex": "#FFF9B1"
+  },
+  "08-17": {
+   "stone": "ダンビュライト",
+   "stone_rule": "割れたため買取大吉",
+   "color": "プリムローズイエロー",
+   "color_hex": "#FFF78D"
+  },
+  "08-18": {
+   "stone": "フレッシュウォーターパール",
+   "stone_rule": "多数決",
+   "color": "柑子色",
+   "color_hex": "#F7AB00"
+  },
+  "08-19": {
+   "stone": "イエローカルサイト",
+   "stone_rule": "多数決",
+   "color": "ゴールデンオレンジ",
+   "color_hex": "#F39700"
+  },
+  "08-20": {
+   "stone": "スタールビー",
+   "stone_rule": "多数決",
+   "color": "蜜柑色",
+   "color_hex": "#F08300"
+  },
+  "08-21": {
+   "stone": "ジェット",
+   "stone_rule": "多数決",
+   "color": "肉桂色",
+   "color_hex": "#BC663E"
+  },
+  "08-22": {
+   "stone": "ホワイトコーラル",
+   "stone_rule": "多数決",
+   "color": "ゴールデンコーン",
+   "color_hex": "#FCD68C"
+  },
+  "08-23": {
+   "stone": "ブルナイト（ボーナイト）",
+   "stone_rule": "多数決",
+   "color": "ディープサンフラワー",
+   "color_hex": "#F9B700"
+  },
+  "08-24": {
+   "stone": "ラァーバ",
+   "stone_rule": "多数決",
+   "color": "イエローオーカー",
+   "color_hex": "#BF8916"
+  },
+  "08-25": {
+   "stone": "ファイアアゲート",
+   "stone_rule": "多数決",
+   "color": "バフ",
+   "color_hex": "#B38113"
+  },
+  "08-26": {
+   "stone": "ターコイズ",
+   "stone_rule": "多数決",
+   "color": "煙草色",
+   "color_hex": "#824B00"
+  },
+  "08-27": {
+   "stone": "アパタイトキャッツアイ",
+   "stone_rule": "割れたため買取大吉",
+   "color": "スカイブルー",
+   "color_hex": "#19B9DF"
+  },
+  "08-28": {
+   "stone": "桃色珊瑚",
+   "stone_rule": "割れたため買取大吉",
+   "color": "アクアグレイ",
+   "color_hex": "#68A9CF"
+  },
+  "08-29": {
+   "stone": "グリーンアメシスト（プラシオライト）",
+   "stone_rule": "割れたため買取大吉",
+   "color": "ペールサルビアブルー",
+   "color_hex": "#5186C5"
+  },
+  "08-30": {
+   "stone": "砂漠のバラ",
+   "stone_rule": "割れたため買取大吉",
+   "color": "ウルトラマリーン",
+   "color_hex": "#3071B8"
+  },
+  "08-31": {
+   "stone": "モスアゲート",
+   "stone_rule": "多数決",
+   "color": "紫紺",
+   "color_hex": "#1C1D80"
+  },
+  "09-01": {
+   "stone": "タンザナイト",
+   "stone_rule": "多数決",
+   "color": "フレッシュグリーン",
+   "color_hex": "#8AC782"
+  },
+  "09-02": {
+   "stone": "グレーセミバロックパール",
+   "stone_rule": "多数決",
+   "color": "牧草色",
+   "color_hex": "#0E955A"
+  },
+  "09-03": {
+   "stone": "ダイヤモンド原石",
+   "stone_rule": "多数決",
+   "color": "ホリーグリーン",
+   "color_hex": "#006960"
+  },
+  "09-04": {
+   "stone": "べっ甲",
+   "stone_rule": "多数決",
+   "color": "ビリジャン",
+   "color_hex": "#007440"
+  },
+  "09-05": {
+   "stone": "ゴールデンパール",
+   "stone_rule": "多数決",
+   "color": "鉄色",
+   "color_hex": "#002A2C"
+  },
+  "09-06": {
+   "stone": "エメラルド",
+   "stone_rule": "割れたため買取大吉",
+   "color": "海松藍色",
+   "color_hex": "#00381A"
+  },
+  "09-07": {
+   "stone": "ヘソナイトガーネット",
+   "stone_rule": "多数決",
+   "color": "淡水色",
+   "color_hex": "#83CCD2"
+  },
+  "09-08": {
+   "stone": "真珠",
+   "stone_rule": "多数決",
+   "color": "アクアマリン",
+   "color_hex": "#67B5B7"
+  },
+  "09-09": {
+   "stone": "菊花石",
+   "stone_rule": "多数決",
+   "color": "ディープティールグリーン",
+   "color_hex": "#006572"
+  },
+  "09-10": {
+   "stone": "ルビー（ミャンマー産）",
+   "stone_rule": "多数決",
+   "color": "鉄紺",
+   "color_hex": "#00393C"
+  },
+  "09-11": {
+   "stone": "レインボーフローライト",
+   "stone_rule": "多数決",
+   "color": "ブループリュス",
+   "color_hex": "#002A0D"
+  },
+  "09-12": {
+   "stone": "ペリドット",
+   "stone_rule": "多数決",
+   "color": "マルベリー",
+   "color_hex": "#1F2778"
+  },
+  "09-13": {
+   "stone": "ゴールデンベリル",
+   "stone_rule": "多数決",
+   "color": "パープルネイビー",
+   "color_hex": "#1A2062"
+  },
+  "09-14": {
+   "stone": "ブラッドストーン",
+   "stone_rule": "多数決",
+   "color": "タン",
+   "color_hex": "#935600"
+  },
+  "09-15": {
+   "stone": "パライバトルマリン",
+   "stone_rule": "多数決",
+   "color": "褐色",
+   "color_hex": "#703E00"
+  },
+  "09-16": {
+   "stone": "プレナイト",
+   "stone_rule": "多数決",
+   "color": "テラコッタ",
+   "color_hex": "#6B3F31"
+  },
+  "09-17": {
+   "stone": "ダイオプテーズ",
+   "stone_rule": "多数決",
+   "color": "浅葱鼠",
+   "color_hex": "#367195"
+  },
+  "09-18": {
+   "stone": "マンダリンガーネット",
+   "stone_rule": "多数決",
+   "color": "パウダーブルー",
+   "color_hex": "#56859E"
+  },
+  "09-19": {
+   "stone": "ラピスラズリ",
+   "stone_rule": "多数決",
+   "color": "ライラックヘイジィ",
+   "color_hex": "#7C7684"
+  },
+  "09-20": {
+   "stone": "ブルースピネル",
+   "stone_rule": "多数決",
+   "color": "ライトレモン",
+   "color_hex": "#FFFCD1"
+  },
+  "09-21": {
+   "stone": "プレーナイト",
+   "stone_rule": "割れたため買取大吉",
+   "color": "ティーグリーン",
+   "color_hex": "#EBF4D9"
+  },
+  "09-22": {
+   "stone": "ジルコン",
+   "stone_rule": "割れたため買取大吉",
+   "color": "ブールジョン",
+   "color_hex": "#F2F3B0"
+  },
+  "09-23": {
+   "stone": "アメトリン",
+   "stone_rule": "割れたため買取大吉",
+   "color": "ジョーンシトロン",
+   "color_hex": "#EFEC65"
+  },
+  "09-24": {
+   "stone": "デマントイドガーネット",
+   "stone_rule": "多数決",
+   "color": "鶸色",
+   "color_hex": "#A8D182"
+  },
+  "09-25": {
+   "stone": "バイカラートルマリン",
+   "stone_rule": "多数決",
+   "color": "サンオレンジ",
+   "color_hex": "#F9C270"
+  },
+  "09-26": {
+   "stone": "ハート＆キューピッドのあるダイヤモンド",
+   "stone_rule": "割れたため買取大吉",
+   "color": "タンジェリンオレンジ",
+   "color_hex": "#F08437"
+  },
+  "09-27": {
+   "stone": "ピンクスミソナイト",
+   "stone_rule": "割れたため買取大吉",
+   "color": "タイガーリリー",
+   "color_hex": "#ED6E47"
+  },
+  "09-28": {
+   "stone": "アメジスト",
+   "stone_rule": "割れたため買取大吉",
+   "color": "緋色",
+   "color_hex": "#E8354A"
+  },
+  "09-29": {
+   "stone": "トパーズ",
+   "stone_rule": "多数決",
+   "color": "オペラ",
+   "color_hex": "#E4007F"
+  },
+  "09-30": {
+   "stone": "ブルースターサファイア",
+   "stone_rule": "多数決",
+   "color": "アマランスパープル",
+   "color_hex": "#92308D"
+  },
+  "10-01": {
+   "stone": "パーティカラードトルマリン",
+   "stone_rule": "多数決",
+   "color": "黄丹",
+   "color_hex": "#ED6E4E"
+  },
+  "10-02": {
+   "stone": "クォーツ",
+   "stone_rule": "多数決",
+   "color": "弁柄色",
+   "color_hex": "#ED6E35"
+  },
+  "10-03": {
+   "stone": "ダイヤモンド原石",
+   "stone_rule": "多数決",
+   "color": "キャロットオレンジ",
+   "color_hex": "#EA5542"
+  },
+  "10-04": {
+   "stone": "ファイアアゲート原石",
+   "stone_rule": "多数決",
+   "color": "フレイムオレンジ",
+   "color_hex": "#E9470B"
+  },
+  "10-05": {
+   "stone": "キャッツアイ石",
+   "stone_rule": "多数決",
+   "color": "丁字色",
+   "color_hex": "#D09177"
+  },
+  "10-06": {
+   "stone": "クリソプレーズ",
+   "stone_rule": "多数決",
+   "color": "シナモン",
+   "color_hex": "#BC652E"
+  },
+  "10-07": {
+   "stone": "ロードナイト",
+   "stone_rule": "多数決",
+   "color": "カフェオレ",
+   "color_hex": "#946C45"
+  },
+  "10-08": {
+   "stone": "ブルーカルセドニー",
+   "stone_rule": "多数決",
+   "color": "煉瓦色",
+   "color_hex": "#B05E1A"
+  },
+  "10-09": {
+   "stone": "ブルーオニキス",
+   "stone_rule": "多数決",
+   "color": "テラローザ",
+   "color_hex": "#802E00"
+  },
+  "10-10": {
+   "stone": "トルマリンキャッツアイ",
+   "stone_rule": "多数決",
+   "color": "オーカー",
+   "color_hex": "#CF7C46"
+  },
+  "10-11": {
+   "stone": "ロードライトガーネット",
+   "stone_rule": "多数決",
+   "color": "キャメル",
+   "color_hex": "#BB664C"
+  },
+  "10-12": {
+   "stone": "ピンクサファイア",
+   "stone_rule": "多数決",
+   "color": "バーントシエンナ",
+   "color_hex": "#913705"
+  },
+  "10-13": {
+   "stone": "ルビーインゾイサイト",
+   "stone_rule": "多数決",
+   "color": "栗皮茶",
+   "color_hex": "#6D3C32"
+  },
+  "10-14": {
+   "stone": "トラピッチェエメラルド",
+   "stone_rule": "多数決",
+   "color": "セピア",
+   "color_hex": "#410100"
+  },
+  "10-15": {
+   "stone": "グリーンアベンチュリンクォーツ",
+   "stone_rule": "多数決",
+   "color": "代赭",
+   "color_hex": "#BB5520"
+  },
+  "10-16": {
+   "stone": "メノウ（アゲート）",
+   "stone_rule": "多数決",
+   "color": "トパーズ",
+   "color_hex": "#D09066"
+  },
+  "10-17": {
+   "stone": "クリソコラ",
+   "stone_rule": "多数決",
+   "color": "オーキッドホワイト",
+   "color_hex": "#DCD6D2"
+  },
+  "10-18": {
+   "stone": "ブルーアゲート",
+   "stone_rule": "多数決",
+   "color": "パールグレイ",
+   "color_hex": "#C9C2BF"
+  },
+  "10-19": {
+   "stone": "ウォーターメロントルマリン",
+   "stone_rule": "多数決",
+   "color": "銀鼠",
+   "color_hex": "#B4ADAA"
+  },
+  "10-20": {
+   "stone": "トルコ石（ビーズ）",
+   "stone_rule": "多数決",
+   "color": "マウスグレイ",
+   "color_hex": "#898989"
+  },
+  "10-21": {
+   "stone": "トルマリン原石",
+   "stone_rule": "多数決",
+   "color": "鳩羽鼠",
+   "color_hex": "#727172"
+  },
+  "10-22": {
+   "stone": "八面体結晶のダイヤモンド",
+   "stone_rule": "多数決",
+   "color": "石板色",
+   "color_hex": "#595757"
+  },
+  "10-23": {
+   "stone": "ウォーターリリー・リーフ・インクルージョン内包ペリドット",
+   "stone_rule": "多数決",
+   "color": "芥子色",
+   "color_hex": "#947F29"
+  },
+  "10-24": {
+   "stone": "インディコライトトルマリン",
+   "stone_rule": "多数決",
+   "color": "シーモス",
+   "color_hex": "#627534"
+  },
+  "10-25": {
+   "stone": "レッドスピネル",
+   "stone_rule": "多数決",
+   "color": "ローズグレイ",
+   "color_hex": "#888084"
+  },
+  "10-26": {
+   "stone": "タイガーアイ",
+   "stone_rule": "多数決",
+   "color": "ライトターコイズ",
+   "color_hex": "#54927F"
+  },
+  "10-27": {
+   "stone": "ラピスラズリ",
+   "stone_rule": "多数決",
+   "color": "錆納戸",
+   "color_hex": "#3B7170"
+  },
+  "10-28": {
+   "stone": "ヘキサゴナルを示すサファイア",
+   "stone_rule": "多数決",
+   "color": "鳩羽紫",
+   "color_hex": "#71686C"
+  },
+  "10-29": {
+   "stone": "クモの巣ターコイズ（トルコ石）",
+   "stone_rule": "多数決",
+   "color": "栗色",
+   "color_hex": "#675953"
+  },
+  "10-30": {
+   "stone": "ピンファイアオパール",
+   "stone_rule": "多数決",
+   "color": "ビンヤード",
+   "color_hex": "#8A4C5C"
+  },
+  "10-31": {
+   "stone": "ホークスアイ",
+   "stone_rule": "多数決",
+   "color": "ライラック",
+   "color_hex": "#AF778D"
+  },
+  "11-01": {
+   "stone": "アルマンディンガーネット",
+   "stone_rule": "多数決",
+   "color": "駱駝色",
+   "color_hex": "#BF794E"
+  },
+  "11-02": {
+   "stone": "ブラックオニキス",
+   "stone_rule": "多数決",
+   "color": "小鹿色",
+   "color_hex": "#937648"
+  },
+  "11-03": {
+   "stone": "ゴールデンサファイア",
+   "stone_rule": "多数決",
+   "color": "黒茶",
+   "color_hex": "#3E2F29"
+  },
+  "11-04": {
+   "stone": "セプタークォーツ",
+   "stone_rule": "多数決",
+   "color": "トープ",
+   "color_hex": "#3E382E"
+  },
+  "11-05": {
+   "stone": "ネフライトキャッツアイ",
+   "stone_rule": "多数決",
+   "color": "チャコールグレイ",
+   "color_hex": "#3E3938"
+  },
+  "11-06": {
+   "stone": "パール（真珠）",
+   "stone_rule": "多数決",
+   "color": "ジョーンドナープル",
+   "color_hex": "#FCD581"
+  },
+  "11-07": {
+   "stone": "アンバー（琥珀）",
+   "stone_rule": "多数決",
+   "color": "サンフラワー",
+   "color_hex": "#F9C159"
+  },
+  "11-08": {
+   "stone": "レッドトパーズ",
+   "stone_rule": "多数決",
+   "color": "ナスタチウムオレンジ",
+   "color_hex": "#F0830D"
+  },
+  "11-09": {
+   "stone": "べっ甲",
+   "stone_rule": "多数決",
+   "color": "樺色",
+   "color_hex": "#BB591F"
+  },
+  "11-10": {
+   "stone": "パイライト",
+   "stone_rule": "多数決",
+   "color": "タバコブラウン",
+   "color_hex": "#945F2A"
+  },
+  "11-11": {
+   "stone": "1ctダイヤモンド",
+   "stone_rule": "多数決",
+   "color": "ペールクリーム",
+   "color_hex": "#FDE7BD"
+  },
+  "11-12": {
+   "stone": "バイオレットサファイア",
+   "stone_rule": "多数決",
+   "color": "砂色",
+   "color_hex": "#C9B69E"
+  },
+  "11-13": {
+   "stone": "ボルダーオパール",
+   "stone_rule": "多数決",
+   "color": "アッシュグレイ",
+   "color_hex": "#95826D"
+  },
+  "11-14": {
+   "stone": "ラベンダー翡翠",
+   "stone_rule": "多数決",
+   "color": "ガンメタル",
+   "color_hex": "#553900"
+  },
+  "11-15": {
+   "stone": "赤珊瑚",
+   "stone_rule": "多数決",
+   "color": "墨色",
+   "color_hex": "#422A00"
+  },
+  "11-16": {
+   "stone": "アンモナイト",
+   "stone_rule": "多数決",
+   "color": "桜貝色",
+   "color_hex": "#F8C7C6"
+  },
+  "11-17": {
+   "stone": "グリーンアベンチュリンクォーツ",
+   "stone_rule": "多数決",
+   "color": "オーキッドピンク",
+   "color_hex": "#CD7E8D"
+  },
+  "11-18": {
+   "stone": "ペトリファイドウッド",
+   "stone_rule": "多数決",
+   "color": "マーシュローズ",
+   "color_hex": "#BB6668"
+  },
+  "11-19": {
+   "stone": "ブルートパーズ",
+   "stone_rule": "多数決",
+   "color": "クラーレット",
+   "color_hex": "#6D0039"
+  },
+  "11-20": {
+   "stone": "ヘソナイトガーネット",
+   "stone_rule": "多数決",
+   "color": "ダブグレイ",
+   "color_hex": "#594F5E"
+  },
+  "11-21": {
+   "stone": "メテオライト",
+   "stone_rule": "多数決",
+   "color": "ペールサロー",
+   "color_hex": "#D5DABC"
+  },
+  "11-22": {
+   "stone": "イエローオパール",
+   "stone_rule": "多数決",
+   "color": "抹茶色",
+   "color_hex": "#CAD6BC"
+  },
+  "11-23": {
+   "stone": "ケシパール",
+   "stone_rule": "多数決",
+   "color": "灰汁色",
+   "color_hex": "#898880"
+  },
+  "11-24": {
+   "stone": "ピンクコバルトカルサイト",
+   "stone_rule": "多数決",
+   "color": "鉛色",
+   "color_hex": "#666C67"
+  },
+  "11-25": {
+   "stone": "レッドアンバー",
+   "stone_rule": "多数決",
+   "color": "オフブラック",
+   "color_hex": "#32352F"
+  },
+  "11-26": {
+   "stone": "スキャポライト",
+   "stone_rule": "多数決",
+   "color": "ペールアプリコット",
+   "color_hex": "#F8C097"
+  },
+  "11-27": {
+   "stone": "ロッククリスタル（水晶）",
+   "stone_rule": "多数決",
+   "color": "肌色",
+   "color_hex": "#FCE2C4"
+  },
+  "11-28": {
+   "stone": "オレンジッシュブラウントパーズ",
+   "stone_rule": "多数決",
+   "color": "サンタン",
+   "color_hex": "#BD741B"
+  },
+  "11-29": {
+   "stone": "カラーチェンジトルマリン",
+   "stone_rule": "多数決",
+   "color": "ブリックレッド",
+   "color_hex": "#946C46"
+  },
+  "11-30": {
+   "stone": "十字スター",
+   "stone_rule": "多数決",
+   "color": "枯葉色",
+   "color_hex": "#543923"
+  },
+  "12-01": {
+   "stone": "アイアンオパール",
+   "stone_rule": "多数決",
+   "color": "亜麻色",
+   "color_hex": "#E8D1B5"
+  },
+  "12-02": {
+   "stone": "ブラックコーラル",
+   "stone_rule": "多数決",
+   "color": "ハニースイート",
+   "color_hex": "#CAA980"
+  },
+  "12-03": {
+   "stone": "白翡翠（ホワイトジェダイド）",
+   "stone_rule": "多数決",
+   "color": "栗梅",
+   "color_hex": "#946344"
+  },
+  "12-04": {
+   "stone": "ソーダライト",
+   "stone_rule": "多数決",
+   "color": "タウニーオリーブ",
+   "color_hex": "#595037"
+  },
+  "12-05": {
+   "stone": "エンジェライト",
+   "stone_rule": "多数決",
+   "color": "黒紫",
+   "color_hex": "#4A412B"
+  },
+  "12-06": {
+   "stone": "パイライト原石",
+   "stone_rule": "多数決",
+   "color": "シトロングレイ",
+   "color_hex": "#EAD7A4"
+  },
+  "12-07": {
+   "stone": "ヘキサゴナルを示すルビー",
+   "stone_rule": "多数決",
+   "color": "ペールライムライト",
+   "color_hex": "#EBE1A9"
+  },
+  "12-08": {
+   "stone": "トルマリンインクォーツ（トルマリネイテッドクォーツ）",
+   "stone_rule": "多数決",
+   "color": "菜種油色",
+   "color_hex": "#BFA46F"
+  },
+  "12-09": {
+   "stone": "スモーキークォーツ",
+   "stone_rule": "多数決",
+   "color": "オイルイエロー",
+   "color_hex": "#BF9D5A"
+  },
+  "12-10": {
+   "stone": "パーティーカラードフローライト",
+   "stone_rule": "多数決",
+   "color": "ブロンズ",
+   "color_hex": "#877059"
+  },
+  "12-11": {
+   "stone": "エメラルド",
+   "stone_rule": "多数決",
+   "color": "シーシェルピンク",
+   "color_hex": "#F8C6B5"
+  },
+  "12-12": {
+   "stone": "ソフトピンクジルコン",
+   "stone_rule": "多数決",
+   "color": "鮭色",
+   "color_hex": "#F29B87"
+  },
+  "12-13": {
+   "stone": "ネフライトキャッツアイ",
+   "stone_rule": "多数決",
+   "color": "洗朱",
+   "color_hex": "#EF856D"
+  },
+  "12-14": {
+   "stone": "ピンクサファイア",
+   "stone_rule": "多数決",
+   "color": "朱色",
+   "color_hex": "#E83719"
+  },
+  "12-15": {
+   "stone": "ルビー結晶",
+   "stone_rule": "多数決",
+   "color": "バーントオレンジ",
+   "color_hex": "#BA5B64"
+  },
+  "12-16": {
+   "stone": "アジュールマラカイト",
+   "stone_rule": "多数決",
+   "color": "ベージュホワイト",
+   "color_hex": "#FBDAC8"
+  },
+  "12-17": {
+   "stone": "スペクトロライト",
+   "stone_rule": "多数決",
+   "color": "ベージュ",
+   "color_hex": "#E6BFAC"
+  },
+  "12-18": {
+   "stone": "サテン仕上げリング",
+   "stone_rule": "多数決",
+   "color": "ブラウンゴールド",
+   "color_hex": "#BC7969"
+  },
+  "12-19": {
+   "stone": "ホワイトオパール",
+   "stone_rule": "多数決",
+   "color": "飴色",
+   "color_hex": "#BA5154"
+  },
+  "12-20": {
+   "stone": "シルバーバロックパール",
+   "stone_rule": "多数決",
+   "color": "ヒーザー",
+   "color_hex": "#76565E"
+  },
+  "12-21": {
+   "stone": "ブラックムーンストーン",
+   "stone_rule": "多数決",
+   "color": "リラ",
+   "color_hex": "#C8A5CC"
+  },
+  "12-22": {
+   "stone": "トルマリン（オールカラー）",
+   "stone_rule": "多数決",
+   "color": "ヘリオトロープ",
+   "color_hex": "#7A6C99"
+  },
+  "12-23": {
+   "stone": "オレンジ翡翠",
+   "stone_rule": "多数決",
+   "color": "菖蒲色",
+   "color_hex": "#655884"
+  },
+  "12-24": {
+   "stone": "トリカラートルマリン",
+   "stone_rule": "多数決",
+   "color": "エッグプラント",
+   "color_hex": "#110030"
+  },
+  "12-25": {
+   "stone": "キャストライト",
+   "stone_rule": "多数決",
+   "color": "茄子紺",
+   "color_hex": "#020022"
+  },
+  "12-26": {
+   "stone": "ダイヤモンド原石",
+   "stone_rule": "多数決",
+   "color": "ゴールド",
+   "color_hex": "#BE9068"
+  },
+  "12-27": {
+   "stone": "クロスパール",
+   "stone_rule": "多数決",
+   "color": "サロー",
+   "color_hex": "#BFC1A0"
+  },
+  "12-28": {
+   "stone": "ロードクロサイト",
+   "stone_rule": "多数決",
+   "color": "ジョーンミエル",
+   "color_hex": "#D3A101"
+  },
+  "12-29": {
+   "stone": "トルコ石のスカラベ",
+   "stone_rule": "割れたため買取大吉",
+   "color": "マスタード",
+   "color_hex": "#BFB086"
+  },
+  "12-30": {
+   "stone": "モルダバイト",
+   "stone_rule": "多数決",
+   "color": "オータムリーフ",
+   "color_hex": "#BC651D"
+  },
+  "12-31": {
+   "stone": "マーカサイト",
+   "stone_rule": "多数決",
+   "color": "ターコイズブルー",
+   "color_hex": "#0096B3"
+  }
+ }
+}

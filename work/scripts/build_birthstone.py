@@ -18,7 +18,8 @@ import collections, datetime as dt, html, json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, DATA, shell  # noqa: E402
-import aff_extra  # noqa: E402
+import aff_extra
+STD = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "bday_standard_366.json"), encoding="utf-8"))["days"]  # noqa: E402
 
 URL = "/birthstone/"
 DAYS = {1: 31, 2: 29, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
@@ -78,9 +79,9 @@ FAQ = [
     ("誕生石が2つ以上ある月は、どれを選べばいいですか。",
      "どれも同じ月の誕生石なので、好きなものを選んでかまいません。色の好み、言い伝え、予算、毎日つけるかどうか（硬さ）で選ぶ人が多いです。"),
     ("誕生石と誕生日石は何が違いますか。",
-     "誕生石は月ごとに業界団体が定めた石、誕生日石は1日ごとに石を割り当てたものです。誕生日石には公式な決まりがなく、本やお店によって違います。このサイトの誕生日石は、当サイト独自の選び方で決めています。"),
-    ("このサイトの誕生日石はどうやって決めていますか。",
-     "その日の星（太陽がいる星座の区切り＝デーカンの支配星）に対応する石や、その日の誕生色に近い石の中から、実際に販売されている石を選んでいます。月の誕生石とは重ならないようにし、同じ月の中で同じ石は3日までにしています。"),
+     "誕生石は月ごとに業界団体が定めた石、誕生日石は1日ごとに石を割り当てたものです。誕生日石には公式な決まりがありませんが、多くのサイトやお店で同じ系統の一覧が使われています。このページの誕生日石は、複数の一覧を突き合わせて2つ以上で一致した石です。"),
+    ("守護石とは何ですか。誕生日石とどう違いますか。",
+     "守護石は、このサイトが独自に選んだ1日ごとの石です。その日の星（太陽がいる星座の区切り＝デーカンの支配星）に対応する石や、その日のラッキーカラーに近い石の中から、実際に販売されている石を選んでいます。一般的な一覧に沿った誕生日石とは別のもので、誕生日ページの運勢やお守りで使っています。"),
     ("海外の誕生石と違うのはなぜですか。",
      "誕生石は国ごとに業界団体が定めていて、アメリカやイギリスのリストとは一部が違います。たとえば日本の3月にはサンゴがあり、5月にはヒスイがあるなど、日本で親しまれてきた石が入っています。"),
     ("誕生石に本当に効果はありますか。",
@@ -181,6 +182,7 @@ CSS = """<style id="fh-b27-bs-css">
 .fh-b27-bs-t caption{position:absolute;left:-9999px}
 .fh-b27-bs-t th,.fh-b27-bs-t td{border-bottom:1px dashed var(--line);padding:7px 6px;text-align:left;vertical-align:middle}
 .fh-b27-bs-t thead th{color:var(--gold);font-size:12.5px}
+.fh-b27-bs-t td.own{color:var(--mute);font-size:13px}.fh-b27-bs-t thead small{font-weight:400;font-size:10.5px}
 .fh-b27-bs-t tbody th{white-space:nowrap;font-family:'Shippori Mincho',serif}
 .fh-b27-bs-t .fh-b27-bs-gem{width:18px;height:16px;margin-right:3px;vertical-align:-2px}
 .fh-b27-bs-months{display:flex;flex-direction:column;gap:14px}
@@ -247,9 +249,9 @@ def build(sample, updated):
     S = {nm: [stones[nm]["color_hex"], KEY.get(nm, ""), stones[nm]["meaning"]] for nm in stones}
     D = {}
     for k, v in mats.items():
-        c = v["birthday_color"]
-        chex = c["note"].split("／")[1] if c.get("note") and "／" in c["note"] else "#888"
-        D[k] = [v["birthday_stone"]["name"], v["birthday_stone"]["note"], c["name"], chex]
+        sd = STD[f"{k[:2]}-{k[2:]}"]
+        own = v["birthday_stone"]["name"]
+        D[k] = [sd["stone"], sd["color"], sd["color_hex"], own, v["birthday_stone"]["note"], stones[own]["color_hex"]]
     shop = {}
     for m in range(1, 13):
         q = f"誕生石 {m}月 ネックレス"
@@ -269,7 +271,7 @@ def build(sample, updated):
         <span class="fh-b27-bs-date" id="fh-b27-bs-date">誕生日を選んでください</span>
         <div class="fh-b27-bs-trio">
           <div class="fh-b27-bs-slot"><div class="fh-b27-bs-gems" id="fh-b27-bs-mg"></div><small>誕生石（月）</small><b id="fh-b27-bs-mn">―</b></div>
-          <div class="fh-b27-bs-slot"><div class="fh-b27-bs-gems" id="fh-b27-bs-dg"></div><small>誕生日石（当サイト独自）</small><b id="fh-b27-bs-dn">―</b></div>
+          <div class="fh-b27-bs-slot"><div class="fh-b27-bs-gems" id="fh-b27-bs-dg"></div><small>誕生日石</small><b id="fh-b27-bs-dn">―</b></div>
           <div class="fh-b27-bs-slot"><div class="fh-b27-bs-gems"><i class="fh-b27-bs-sw" id="fh-b27-bs-cs" style="background:#888"></i></div><small>誕生色</small><b id="fh-b27-bs-cn">―</b></div>
         </div>
         <div class="fh-b27-bs-msg" id="fh-b27-bs-msg">誕生石・誕生日石の言い伝えが、ここに出てきます。</div>
@@ -290,9 +292,9 @@ def build(sample, updated):
           "function show(m,d){var k=m+d,x=D[k],ms=M[String(+m)];if(!x)return;var b=$('fh-b27-bs-box');b.classList.remove('fh-b27-bs-open');void b.offsetWidth;"
           "var t=(+m)+'月'+(+d)+'日';$('fh-b27-bs-date').textContent=t+'生まれの宝石箱';"
           "var mg=$('fh-b27-bs-mg');mg.innerHTML='';ms.forEach(function(n){mg.appendChild(g(S[n][0],ms.length>2?'':'fh-b27-bs-m'))});"
-          "$('fh-b27-bs-mn').textContent=ms.join('・');var dg=$('fh-b27-bs-dg');dg.innerHTML='';dg.appendChild(g(S[x[0]][0],'fh-b27-bs-m'));"
-          "$('fh-b27-bs-dn').textContent=x[0];$('fh-b27-bs-cs').style.background=x[3];$('fh-b27-bs-cn').textContent=x[2];"
-          "var h='';ms.forEach(function(n){h+='<b>'+n+'</b>：'+S[n][2]+'<br>'});h+='<b>'+x[0]+'（誕生日石）</b>：'+x[1]+'<br><small>\u203b\u8a95\u751f\u65e5\u77f3\u306f\u3001\u6708\u306e\u8a95\u751f\u77f3\u3068\u306f\u5225\u306e\u77f3\u3092\u3001\u305d\u306e\u65e5\u306e\u661f\u3068\u8a95\u751f\u8272\u304b\u3089\u9078\u3093\u3067\u3044\u307e\u3059\uff08\u5f53\u30b5\u30a4\u30c8\u72ec\u81ea\u306e\u9078\u3073\u65b9\u3002\u516c\u5f0f\u306e\u6c7a\u307e\u308a\u306f\u3042\u308a\u307e\u305b\u3093\uff09\u3002</small>';$('fh-b27-bs-msg').innerHTML=h;"
+          "$('fh-b27-bs-mn').textContent=ms.join('・');var dg=$('fh-b27-bs-dg');dg.innerHTML='';dg.appendChild(g(S[x[0]]?S[x[0]][0]:x[2],'fh-b27-bs-m'));"
+          "$('fh-b27-bs-dn').textContent=x[0];$('fh-b27-bs-cs').style.background=x[2];$('fh-b27-bs-cn').textContent=x[1];"
+          "var h='';ms.forEach(function(n){h+='<b>'+n+'</b>：'+S[n][2]+'<br>'});h+='<b>'+x[0]+'（誕生日石）</b>：'+t+'の誕生日石として、多くの一覧で紹介されている石です。<br><b>'+x[3]+'（このサイトの守護石）</b>：'+x[4]+'<br><small>※誕生日石・誕生色は、広く使われている一覧に合わせています（公式の決まりはありません）。守護石は、その日の星などからこのサイトが独自に選んだ石です。</small>';$('fh-b27-bs-msg').innerHTML=h;"
           "var l=$('fh-b27-bs-link');l.href='/366uranai/'+m+'-'+d+'/';l.textContent=t+'生まれの性格・2027年の運勢へ →';"
           "var p=P[String(+m)],s='',L=['楽天','Yahoo!'],C=['rakuten','yahoo'];for(var i=0;i<2;i++){if(p[i])s+='<a class=\"fh-b27-shopbtn fh-b27-shop-'+C[i]+'\" href=\"'+p[i]+'\" rel=\"nofollow sponsored\" data-aff=\"'+C[i]+'\">'+(+m)+'月の誕生石を'+L[i]+'で探す</a> '}"
           "if(s)s+='<small>PR（広告）</small>';$('fh-b27-bs-shop').innerHTML=s;"
@@ -373,15 +375,16 @@ def build(sample, updated):
             k = f"{m:02d}{d:02d}"
             v = mats[k]
             bs = v["birthday_stone"]["name"]
-            rows += (f'<tr><th scope="row"><a href="{day_url(k)}">{m}月{d}日</a></th><td>{gem(stones[bs]["color_hex"])}{esc(bs)}</td>'
-                     f'<td>{esc(v["birthday_color"]["name"])}</td></tr>')
+            sd = STD[f"{m:02d}-{d:02d}"]
+            rows += (f'<tr><th scope="row"><a href="{day_url(k)}">{m}月{d}日</a></th><td>{esc(sd["stone"])}</td>'
+                     f'<td>{gem(sd["color_hex"])}{esc(sd["color"])}</td><td class="own">{esc(bs)}</td></tr>')
         det += (f'<details{" open" if m == 1 else ""}><summary>{m}月の誕生日石<small>{DAYS[m]}日分</small></summary>'
-                f'<table class="fh-b27-bs-t"><caption>{m}月の誕生日石と誕生色</caption><thead><tr><th scope="col">誕生日</th><th scope="col">誕生日石</th><th scope="col">誕生色</th></tr></thead><tbody>{rows}</tbody></table></details>')
+                f'<table class="fh-b27-bs-t"><caption>{m}月の誕生日石と誕生色</caption><thead><tr><th scope="col">誕生日</th><th scope="col">誕生日石</th><th scope="col">誕生色</th><th scope="col">守護石<small>（当サイト）</small></th></tr></thead><tbody>{rows}</tbody></table></details>')
     used = len({v["birthday_stone"]["name"] for v in mats.values()})
     a(f'''<section class="fh-b27-sec" id="b27-bs-days">
   {h2("366日の誕生日石の一覧")}
-  <p>誕生日石は、1日ごとに石を割り当てたものです。誕生石と違って公式な決まりはなく、本やお店によって石が違います。このサイトでは、その日の星（デーカンの支配星）に対応する石や、その日の誕生色に近い石の中から、実際に販売されている石を選んでいます（当サイト独自の選び方。{used}種類の石を使っています）。</p>
-  <p>月の誕生石とは重ならないようにし、同じ月の中で同じ石は3日までにしています。日付を押すと、その誕生日の性格や2027年の運勢のページが開きます。</p>
+  <p>誕生日石は、1日ごとに石を割り当てたものです。誕生石と違って公式な決まりはありませんが、もとになった本（斉藤貴子『366日誕生石の本』とされます）から広まった一覧が、多くのサイトやお店で使われています。このページでは、宝石店・メディアなど複数の一覧を突き合わせ、2つ以上で一致した石を載せています。誕生色も同じように、野村順一『誕生色事典』がもととされる一覧に合わせています。</p>
+  <p>右の「守護石」は、その日の星（デーカンの支配星）に対応する石などから、このサイトが独自に選んだ石です。誕生日ページの運勢やお守りで使っています。日付を押すと、その誕生日の性格や2027年の運勢のページが開きます。</p>
   <div class="fh-b27-bs-list">{det}</div>
 </section>''')
 
@@ -416,7 +419,7 @@ def build(sample, updated):
   </div>
 </section>''')
     up = dt.date.fromisoformat(updated)
-    a(f'<p class="fh-b27-foot">月の誕生石は全国宝石卸商協同組合の2021年改定のリストによります。誕生日石・誕生色は当サイト独自の選び方で、366日の誕生日ページと同じものです。石の言い伝えは一般に知られているものを短くまとめたもので、効果を保証するものではありません。<br>'
+    a(f'<p class="fh-b27-foot">月の誕生石は全国宝石卸商協同組合の2021年改定のリストによります。誕生日石・誕生色は、広く使われている一覧を複数突き合わせたものです。守護石は当サイト独自の選び方です。石の言い伝えは一般に知られているものを短くまとめたもので、効果を保証するものではありません。<br>'
       f'最終更新日：{up.year}年{up.month}月{up.day}日／<a href="/about/">この記事の作成方針について</a></p>')
     a("</div>\n</div>")
     title = "誕生石一覧｜1月〜12月の誕生石の意味と色・366日の誕生日石【2021年改定・全29石】"
