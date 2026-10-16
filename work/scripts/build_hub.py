@@ -65,6 +65,39 @@ def day_url(mmdd):
     return f"{HUB}{mmdd[:2]}-{mmdd[2:]}/"
 
 
+FX = {"/flower/": "petal", "/birthstone/": "spark", "/blood/": "heart"}  # それ以外は流れ星
+
+
+def fx_layer(body, url):
+    """ページ上部の飾りの動き（流れ星・花びら・きらめき・ハート）。CSSだけ・押せない・動きを減らす設定なら止める（2026-10-16 本人の要望）"""
+    kind = FX.get(url, "star")
+    if kind == "star":
+        items = "".join(f'<i style="--x:{x}%;--y:{y}px;--d:{d}s;--t:{t}s"></i>' for x, y, d, t in ((78, 10, 0, 7), (55, 40, 2.6, 9), (92, 90, 5.1, 8), (35, 0, 7.4, 11)))
+        css = (".fh-b27-fx i{position:absolute;left:var(--x);top:var(--y);width:120px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.9));"
+               "transform:rotate(-35deg);opacity:0;animation:fh-b27-fx-star var(--t) linear var(--d) infinite}"
+               "@keyframes fh-b27-fx-star{0%{opacity:0;transform:rotate(-35deg) translateX(0)}3%{opacity:1}10%{opacity:0;transform:rotate(-35deg) translateX(-260px)}100%{opacity:0;transform:rotate(-35deg) translateX(-260px)}}")
+    elif kind == "petal":
+        items = "".join(f'<i style="--x:{x}%;--d:{d}s;--t:{t}s;--s:{sz}px"></i>' for x, d, t, sz in ((10, 0, 9, 12), (30, 3, 11, 9), (52, 1.5, 10, 14), (70, 5, 12, 10), (88, 2.2, 9.5, 12), (42, 7, 13, 8)))
+        css = (".fh-b27-fx i{position:absolute;left:var(--x);top:-20px;width:var(--s);height:calc(var(--s)*.8);border-radius:80% 0 80% 0;background:linear-gradient(135deg,#FFD3DB,#F29BB0);opacity:0;"
+               "animation:fh-b27-fx-fall var(--t) linear var(--d) infinite}"
+               "@keyframes fh-b27-fx-fall{0%{opacity:0;transform:translate(0,0) rotate(0)}10%{opacity:.85}90%{opacity:.7}100%{opacity:0;transform:translate(-60px,420px) rotate(320deg)}}")
+    elif kind == "spark":
+        items = "".join(f'<i style="--x:{x}%;--y:{y}px;--d:{d}s"></i>' for x, y, d in ((12, 30, 0), (40, 12, 1.2), (66, 60, .6), (86, 20, 1.8), (24, 140, 2.4), (74, 170, 3), (52, 110, .3)))
+        css = (".fh-b27-fx i{position:absolute;left:var(--x);top:var(--y);width:12px;height:12px;background:#fff;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);"
+               "opacity:0;animation:fh-b27-fx-tw 3.2s ease-in-out var(--d) infinite}"
+               "@keyframes fh-b27-fx-tw{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:.95;transform:scale(1) rotate(45deg)}}")
+    else:  # heart
+        items = "".join(f'<i style="--x:{x}%;--d:{d}s;--t:{t}s">♡︎</i>' for x, d, t in ((8, 0, 8), (26, 2.4, 10), (48, 1, 9), (68, 3.6, 11), (88, 1.8, 8.5)))
+        css = (".fh-b27-fx i{position:absolute;left:var(--x);bottom:-20px;font-style:normal;font-size:20px;color:rgba(255,183,195,.8);opacity:0;animation:fh-b27-fx-up var(--t) ease-in var(--d) infinite}"
+               "@keyframes fh-b27-fx-up{0%{opacity:0;transform:translateY(0) scale(.6)}15%{opacity:.9}100%{opacity:0;transform:translateY(-360px) scale(1.2)}}")
+    layer = (f'<style>.fh-b27 .fh-b27-note{{position:relative}}.fh-b27-fx{{position:absolute;left:0;right:0;top:0;height:420px;overflow:hidden;pointer-events:none;z-index:0}}'
+             f'.fh-b27 .fh-b27-note>*:not(.fh-b27-fx){{position:relative;z-index:1}}{css}'
+             f'@media (prefers-reduced-motion:reduce){{.fh-b27-fx{{display:none}}}}</style>'
+             f'<div class="fh-b27-fx" aria-hidden="true">{items}</div>')
+    mk = '<div class="fh-b27-note">'
+    return body.replace(mk, mk + layer, 1) if mk in body else body
+
+
 def shell(title, desc, url, body, sample, scripts=()):
     """ページ全体（確認用の <html> つき）。WordPress に貼るのは fh-b27:start 〜 fh-b27:end の中身。
     先頭に [no_toc]（Table of Contents Plus の目次を出さない）、本文はカスタムHTMLブロックで包む。
@@ -73,6 +106,11 @@ def shell(title, desc, url, body, sample, scripts=()):
     pre = "../assets/" if sample else WP_ASSET
     v = "" if sample else f"?v={ASSET_VER}"  # 共通CSS/JSの版（build_html.py と同じ）
     tail = "".join(f'\n<script src="{pre}{s}{v}"></script>' for s in scripts)
+    # 2026-10-16 テーマ（Diver）の表の白い背景＋こちらの淡い文字で読めなくなるのを、全ページで防ぐ
+    fix = ("<style>.fh-b27 .fh-b27-note table th,.fh-b27 .fh-b27-note table td{background-color:transparent;color:inherit}"
+           ".fh-b27 .fh-b27-note table thead th{background-color:rgba(255,255,255,.08)}"
+           ".fh-b27 .fh-b27-note table tbody th{background-color:rgba(255,255,255,.05)}</style>")
+    body = fix + "\n" + fx_layer(body, url)
     inner = f'''<!--OffDef-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

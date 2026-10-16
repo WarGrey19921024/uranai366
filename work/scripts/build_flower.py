@@ -130,6 +130,15 @@ CSS = """<style id="fh-b27-fl-css">
 .fh-b27[data-fh-page="flower"] .fh-b27-fl-card a.fh-b27-shopbtn{color:#FFF5D6}
 .fh-b27-fl-shop small{font-size:11px;color:#7A6F64}
 @media (prefers-reduced-motion:reduce){.fh-b27-fl-card.on .fh-b27-fl-bloom,.fh-b27-fl-card.on .fh-b27-fl-name,.fh-b27-fl-card.on .fh-b27-fl-kotoba{animation:none}}
+.fh-b27-fl-list details[style]{border-left:5px solid var(--tc)}
+.fh-b27-fl-th{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:8px 0}
+.fh-b27 .fh-b27-fl-th a{display:block;background:var(--cream);color:var(--cream-ink);border-radius:10px;padding:6px 10px;text-decoration:none;font-size:13.5px;line-height:1.5}
+.fh-b27-fl-th a b{color:#8A3E55;margin-right:6px}.fh-b27-fl-th a small{display:block;color:#7A6F64;font-size:12px}
+.fh-b27-fl-cl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fh-b27-fl-cl div{border-radius:14px;background:var(--deep);border:1px solid rgba(255,255,255,.12);border-top:6px solid var(--cc);padding:10px 14px;font-size:13.5px;line-height:1.8}
+.fh-b27-fl-cl b{display:flex;align-items:center;gap:6px;font-family:'Shippori Mincho',serif;font-size:16px;color:var(--ink)}
+.fh-b27-fl-cl i{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--cc);box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+@media (max-width:640px){.fh-b27-fl-th,.fh-b27-fl-cl{grid-template-columns:1fr}}
 </style>"""
 
 
@@ -147,7 +156,7 @@ def build(sample, updated):
     <p class="fh-b27-lead">1月1日から12月31日まで、2月29日も入れた366日の誕生花と花言葉です。誕生日を選ぶとその日の花がわかり、同じ誕生日の性格や2027年の運勢のページにも進めます。誕生花は、一般財団法人日本花普及センターの一覧だけを使っています。</p>
   </div>
 </header>''')
-    items = [("b27-fl-pick", "誕生日の花を調べる"), ("b27-fl-list", "366日の誕生花と花言葉の一覧"), ("b27-fl-rep", "色違いで何度も出てくる花"),
+    items = [("b27-fl-pick", "誕生日の花を調べる"), ("b27-fl-list", "366日の誕生花と花言葉の一覧"), ("b27-fl-theme", "花言葉で選ぶ誕生花"), ("b27-fl-color", "花の色で選ぶ誕生花"), ("b27-fl-rep", "色違いで何度も出てくる花"),
              ("b27-fl-what", "誕生花とは・サイトによって違う理由"), ("b27-fl-use", "誕生花の楽しみ方"), ("b27-fl-faq", "よくある質問")]
     a('<nav class="fh-b27-toc" aria-label="目次"><strong>このページの内容</strong><ol>' +
       "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in items) + "</ol></nav>")
@@ -218,6 +227,39 @@ def build(sample, updated):
   {h2("366日の誕生花と花言葉の一覧")}
   <p>月を開くと、その月の毎日の誕生花と花言葉が見られます。日付を押すと、その誕生日の性格・相性・誕生石・2027年の運勢のページが開きます。</p>
   <div class="fh-b27-fl-list">{det}</div>
+</section>''')
+    n += 1
+    # 2.5 花言葉のテーマ別・色別（2026-10-16 本人の感想「ちょっと薄くない？」への対応。一覧から機械的に分けたもの）
+    TH = [("love", "恋・愛を伝えたいとき", "愛|恋|想い|思い|ときめ|ひと目ぼれ|情熱", "#F4B6C2"),
+          ("thanks", "感謝・友情・信頼を伝えたいとき", "感謝|ありがとう|恩|尊敬|敬愛|友|絆|信頼|誠実|真心|思いやり|真実", "#A8D5BA"),
+          ("cheer", "応援・門出に贈りたいとき", "希望|勇気|成功|未来|前進|門出|始まり|飛躍|努力|忍耐|強", "#F7D774"),
+          ("happy", "幸せ・お祝いを願うとき", "幸|祝|喜び|楽しみ|笑|福|豊|富", "#F6C177"),
+          ("beauty", "美しさ・気品をたたえるとき", "美|魅力|気品|優雅|高貴|上品|清", "#C9B6F0")]
+    thc = ""
+    for key, label, pat, col in TH:
+        ks = [k for k in sorted(fl) if re.search(pat, fl[k][1])]
+        show = ks[:24]
+        chips = "".join(f'<a href="{day_url(k)}"><b>{int(k[:2])}/{int(k[2:])}</b>{esc(fl[k][0])}<small>「{esc(fl[k][1])}」</small></a>' for k in show)
+        more = f'<p class="fh-b27-small">ほか{len(ks) - len(show)}日。上の一覧で探せます。</p>' if len(ks) > len(show) else ""
+        thc += f'<details style="--tc:{col}"><summary>{label}<small>{len(ks)}日</small></summary><div class="fh-b27-fl-th">{chips}</div>{more}</details>'
+    a(f'''<section class="fh-b27-sec" id="b27-fl-theme">
+  {h2("花言葉で選ぶ誕生花")}
+  <p>贈る気持ちに合う花言葉から、誕生花を探せます。366日の花言葉を、言葉の意味ごとに分けました（1つの花言葉が2つのテーマに入ることもあります）。</p>
+  <div class="fh-b27-fl-list">{thc}</div>
+</section>''')
+    n += 1
+    CL = [("白", "#F4F1EA"), ("ピンク", "#F4B6C2"), ("赤", "#D9534F"), ("黄", "#F2C94C"), ("紫", "#9B7BC9"), ("橙", "#F0964A"), ("青", "#5B8FD6")]
+    clc = ""
+    for cname, hx in CL:
+        ks = [k for k in sorted(fl) if re.search(r"[（(]" + cname + r"[）)]", fl[k][0])]
+        if not ks:
+            continue
+        clc += (f'<div style="--cc:{hx}"><b><i></i>{cname}の花</b><span>' +
+                "、".join(f'<a href="{day_url(k)}">{int(k[:2])}/{int(k[2:])}</a> {esc(re.sub(r"[（(].*", "", fl[k][0]))}' for k in ks) + "</span></div>")
+    a(f'''<section class="fh-b27-sec" id="b27-fl-color">
+  {h2("花の色で選ぶ誕生花")}
+  <p>同じ花でも色によって花言葉が変わるものは、色ごとに別の日の誕生花になっています。贈る相手の好きな色から選ぶこともできます。</p>
+  <div class="fh-b27-fl-cl">{clc}</div>
 </section>''')
     n += 1
     # 3 色違い

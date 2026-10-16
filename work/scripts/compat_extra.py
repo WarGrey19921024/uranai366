@@ -178,16 +178,18 @@ def sections(start_no):
         tri = [SIGNS[(i + 4) % 12], SIGNS[(i + 8) % 12]]
         sex = [SIGNS[(i + 2) % 12], SIGNS[(i + 10) % 12]]
         opp = SIGNS[(i + 6) % 12]
-        lis += (f'<li><b>{a}</b>（{PERIOD[i]}・{ELEM[i]}）<br>調和：{"・".join(tri)}／協力：{"・".join(sex)}<br>'
-                f'惹かれ合う：{opp}</li>')
+        EL = {"火": "fire", "地": "earth", "風": "air", "水": "water"}
+        chip = lambda xs: "".join(f'<span class="fh-b27-cpx-chip fh-b27-el-{EL[ELEM[SIGNS.index(x)]]}">{x}</span>' for x in xs)
+        lis += (f'<li class="fh-b27-el-{EL[ELEM[i]]}"><p class="fh-b27-cpx-sn"><b>{a}</b><small>{PERIOD[i]}・{ELEM[i]}のエレメント</small></p>'
+                f'<p><em>調和</em>{chip(tri)}</p><p><em>協力</em>{chip(sex)}</p><p><em>惹かれ合う</em>{chip([opp])}</p></li>')
     out.append(f'''<section class="fh-b27-sec" id="b27-cp-best">
   <h2><span class="fh-b27-n">{n}</span>星座別・相性がいい星座</h2>
   <p>それぞれの星座から見て、「調和」（同じエレメント）と「協力」（力を貸し合えるエレメント）に当たる星座、正反対で惹かれ合いやすい星座です。星座の期間は目安で、境目の日は年によって変わります。</p>
-  <ul class="fh-b27-cpx-best">{lis}</ul>
+  <ul class="fh-b27-cpx-best fh-b27-cpx-signs">{lis}</ul>
 </section>''')
     n += 1
     # 3) 関係の型
-    cards = "".join(f'<div><h3><b class="{t[2]}" style="background:var(--paper);border:1.5px solid var(--line)">{t[1]}</b>{t[0]}</h3><small>太陽の位置の角度：{t[3]}</small><p>{t[4]}</p></div>' for t in TYPES)
+    cards = "".join(f'<div class="fh-b27-cpx-ty{i % 6}"><h3><b class="{t[2]}" style="background:var(--paper);border:1.5px solid var(--line)">{t[1]}</b>{t[0]}</h3><small>太陽の位置の角度：{t[3]}</small><p>{t[4]}</p></div>' for i, t in enumerate(TYPES))
     out.append(f'''<section class="fh-b27-sec" id="b27-cp-types">
   <h2><span class="fh-b27-n">{n}</span>関係の型と、それぞれの付き合い方</h2>
   <p>2人の誕生日の太陽の位置がつくる角度から、関係を6つの型に分けています。どの型にも、よいところと気をつけたいところがあります。</p>
@@ -203,12 +205,12 @@ def sections(start_no):
 </section>''')
     n += 1
     # 4) 誕生日の数
-    g = "".join(f'<li><b>{a}</b>（誕生日の数 {b}）：{c}タイプ</li>' for a, b, c in NUMG)
+    g = "".join(f'<li class="fh-b27-cpx-g{i}"><b>{a}</b><small>誕生日の数 {b}</small><span>{c}タイプ</span></li>' for i, (a, b, c) in enumerate(NUMG))
     tr = "".join(f'<tr><th scope="row">{a}×{b}</th><td>{t}</td></tr>' for (a, b), t in NUM_PAIR.items())
     out.append(f'''<section class="fh-b27-sec" id="b27-cp-num">
   <h2><span class="fh-b27-n">{n}</span>誕生日の数のグループと相性</h2>
   <p>誕生日の数は、生まれた日の数字を1けたになるまで足した数です（例：29日生まれ→2＋9＝11→2）。11は2、22は4として、3つのグループに分けます。</p>
-  <ul class="fh-b27-cpx-best">{g}</ul>
+  <ul class="fh-b27-cpx-best fh-b27-cpx-groups">{g}</ul>
   <table class="fh-b27-cpx-num"><caption style="text-align:left;font-size:13px;color:var(--sub);padding-bottom:4px">グループの組み合わせと、2人の傾向</caption><tbody>{tr}</tbody></table>
 </section>''')
     n += 1
@@ -282,6 +284,29 @@ def theme_css():
 {P} .fh-b27-cpx-types div,{P} .fh-b27-cpx-list details{{border-style:solid;border-color:rgba(242,184,166,.28);border-radius:16px}}
 {P} .fh-b27-cpx-list summary{{font-family:'Shippori Mincho',serif;font-weight:700}}
 @media (max-width:640px){{.fh-b27-cpt-emb{{flex-basis:130px;height:96px}}.fh-b27-cpt-emb i{{width:86px;height:86px}}{P} .fh-b27-title{{font-size:25px}}}}
+/* 2026-10-16 メリハリ（本人の感想「ずっと同じ色の文字が続くと読むのが苦痛」「表の白背景に淡い文字が見にくい」への対応） */
+{P} .fh-b27-cpx-signs{{gap:12px}}
+{P} .fh-b27-cpx-signs li{{border:0;border-radius:14px;padding:12px 14px;background:var(--elbg);color:#2B1F30;border-top:6px solid var(--el);box-shadow:0 4px 12px rgba(0,0,0,.25)}}
+{P} .fh-b27-cpx-signs li p{{margin:3px 0;color:#2B1F30;font-size:13.5px;display:flex;flex-wrap:wrap;gap:4px;align-items:center}}
+{P} .fh-b27-cpx-signs .fh-b27-cpx-sn b{{font:800 18px 'Shippori Mincho',serif;color:#2B1F30;margin-right:6px}}
+{P} .fh-b27-cpx-signs .fh-b27-cpx-sn small{{color:#5E4A55;font-size:12px}}
+{P} .fh-b27-cpx-signs em{{font-style:normal;font-weight:800;font-size:12px;color:#5E4A55;min-width:5.2em}}
+{P} .fh-b27-cpx-chip{{display:inline-block;border-radius:999px;padding:1px 10px;font-weight:700;font-size:13px;background:var(--el);color:#fff}}
+{P} .fh-b27-el-fire{{--el:#D9654E;--elbg:#FCE6DF}}{P} .fh-b27-el-earth{{--el:#5E9A55;--elbg:#E5F1DD}}{P} .fh-b27-el-air{{--el:#C99A1E;--elbg:#FBF1D2}}{P} .fh-b27-el-water{{--el:#3F7CC0;--elbg:#DDEBF8}}
+{P} .fh-b27-cpx-types div{{border:0;color:#2B1F30;box-shadow:0 4px 12px rgba(0,0,0,.25)}}
+{P} .fh-b27-cpx-types div p,{P} .fh-b27-cpx-types div h3{{color:#2B1F30}}{P} .fh-b27-cpx-types h3 b{{color:#F3E9EC}}{P} .fh-b27-cpx-types small{{color:#6A5560}}
+{P} .fh-b27-cpx-ty0{{background:#FCF1EF}}{P} .fh-b27-cpx-ty1{{background:#E3F2EE}}{P} .fh-b27-cpx-ty2{{background:#ECE6F7}}{P} .fh-b27-cpx-ty3{{background:#FBF3DC}}{P} .fh-b27-cpx-ty4{{background:#F9E1E4}}{P} .fh-b27-cpx-ty5{{background:#E2ECF7}}
+{P} .fh-b27-cpx-groups li{{border:0;border-radius:14px;padding:10px 14px;display:flex;flex-direction:column;gap:2px;color:#2B1F30}}
+{P} .fh-b27-cpx-groups li b{{font:800 17px 'Shippori Mincho',serif;color:#2B1F30}}{P} .fh-b27-cpx-groups li small{{color:#6A5560}}
+{P} .fh-b27-cpx-g0{{background:#FCE6DF}}{P} .fh-b27-cpx-g1{{background:#E5F1DD}}{P} .fh-b27-cpx-g2{{background:#FBF1D2}}
+{P} table th,{P} table td{{background-color:transparent;color:var(--ink)}}
+{P} .fh-b27-cpx-sc tbody tr:nth-child(odd) td,{P} .fh-b27-cpx-sc tbody tr:nth-child(odd) th{{background:rgba(255,255,255,.04)}}
+{P} .fh-b27-cpx-sc th[scope=row]{{color:#FFD6C9}}
+{P} .fh-b27-cpx-sc td:nth-child(2){{background:rgba(242,150,170,.10)!important;border-left:3px solid rgba(242,150,170,.5)}}
+{P} .fh-b27-cpx-sc td:nth-child(3){{background:rgba(158,213,202,.10)!important;border-left:3px solid rgba(158,213,202,.5)}}
+{P} .fh-b27-cpx-sc td:nth-child(4){{background:rgba(140,170,230,.10)!important;border-left:3px solid rgba(140,170,230,.5)}}
+{P} .fh-b27-cpx-sc thead th:nth-child(2){{color:#F7A9BA}}{P} .fh-b27-cpx-sc thead th:nth-child(3){{color:#9ED5CA}}{P} .fh-b27-cpx-sc thead th:nth-child(4){{color:#A9C2F0}}
+{P} .fh-b27-cpx-num th{{color:#FFD6C9;white-space:nowrap}}
 /* 2026-10-16 結果が出る瞬間の演出（本人の感想「ワクワクしない」への対応） */
 {P} .fh-b27-cp-paper{{position:relative;animation:fh-b27-cpt-drop .8s cubic-bezier(.2,1.3,.4,1) both}}
 @keyframes fh-b27-cpt-drop{{from{{opacity:0;transform:translateY(-30px) rotate(-6deg) scale(.92)}}to{{opacity:1}}}}
