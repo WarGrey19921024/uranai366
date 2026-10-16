@@ -7,6 +7,7 @@ AdSense 不合格（2026-10-16）を受けて、本人の指示でアフィリ�
 - 広告であることを「広告」「PR」と明記する。リンクは rel="nofollow sponsored"
 build_hub.shell() から呼ぶ（URL でページを見分ける）。"""
 import html, json, os, re, urllib.parse
+import goods_media as GM
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TPL_PATH = os.path.join(HERE, "..", "out", "affiliate_templates.json")
@@ -36,6 +37,9 @@ def href(shop, q=""):
     if not t:
         return None
     h = t["href"]
+    it = GM.item(shop, q) if q else None
+    if it and it.get("url") and "{url}" in h:  # 商品データがあれば、その商品のページへ
+        return GM.moshimo_item_href(h, it["url"])
     if "{url}" in h:
         if "{q}" not in (t.get("target") or ""):
             return None
@@ -116,6 +120,10 @@ CSS = ("<style>.fh-b27 .fh-b27-adgoods{display:flex;flex-direction:column;gap:12
        "font-family:'Klee One',cursive;font-size:17px}"
        ".fh-b27 .fh-b27-adgoods .fh-b27-pr,.fh-b27 .fh-b27-adphone .fh-b27-pr{font-family:inherit;font-size:11px;opacity:.8}"
        ".fh-b27 .fh-b27-adphone{margin:8px 0 24px}"
+       ".fh-b27 .fh-b27-shop:has(.fh-b27-shop-photo){grid-template-columns:112px minmax(0,1fr)}"
+       ".fh-b27 .fh-b27-shop-pic:has(img){width:112px;height:112px;background:#fff;padding:4px;overflow:hidden;border-radius:10px}"
+       ".fh-b27 .fh-b27-shop-pic a.fh-b27-shop-photo{display:block;width:100%;height:100%}"
+       ".fh-b27 img.fh-b27-shop-img{display:block;width:100%;height:100%;object-fit:contain;background:#fff;border-radius:8px;margin:0}"
        "@media(max-width:560px){.fh-b27 .fh-b27-adgoods .fh-b27-shops{grid-template-columns:minmax(0,1fr)}}</style>")
 
 
@@ -133,10 +141,14 @@ def goods_box(title, items):
     for q, name, why, icon in items:
         btns = "".join(
             f'<a class="fh-b27-shopbtn fh-b27-shop-{sh}" href="{esc(href(sh, q))}" rel="nofollow sponsored" data-aff="{sh}">'
-            f'{lab}で探す</a>{tpl()[sh]["impression"]}' for sh, lab in GOODS_SHOPS if href(sh, q))
+            f'{lab}{"で見る" if GM.item(sh, q) else "で探す"}</a>{tpl()[sh]["impression"]}' for sh, lab in GOODS_SHOPS if href(sh, q))
+        ph = GM.img_tag(q, name)
+        hp = href("rakuten", q) if GM.item("rakuten", q) else (href("yahoo", q) if GM.item("yahoo", q) else None)
+        pic = (f'<a class="fh-b27-shop-photo" href="{esc(hp)}" rel="nofollow sponsored" tabindex="-1" aria-hidden="true">{ph}</a>'
+               if ph and hp else ic(icon))
         if not btns:
             continue
-        boxes.append(f'<div class="fh-b27-shop"><div class="fh-b27-shop-pic">{ic(icon)}</div>'
+        boxes.append(f'<div class="fh-b27-shop"><div class="fh-b27-shop-pic">{pic}</div>'
                      f'<div class="fh-b27-shop-body"><small>おすすめ</small><b class="fh-b27-shop-name">{esc(name)}</b>'
                      f'<span class="fh-b27-shop-why">{esc(why)}</span><div class="fh-b27-shop-btns">{btns}</div></div></div>')
     if not boxes:

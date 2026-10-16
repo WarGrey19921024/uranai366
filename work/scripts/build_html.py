@@ -36,6 +36,7 @@ TPL = os.path.join(HERE, "templates")
 sys.path.insert(0, HERE)
 import calc_kanshi_kyusei as KK  # noqa: E402
 from item_cat import item_cat  # noqa: E402
+import goods_media as GM  # noqa: E402
 
 WP_ASSET = "/wp-content/uploads/fh-b27/"
 # 共通CSS/JSの版（作り直してファイルを上書きしたら変える）。URL に ?v= をつけて、閲覧者のブラウザに古いCSS/JSが残らないようにする
@@ -356,6 +357,9 @@ def aff_href(shop, q):
     if not t:
         return None
     href = t["href"]
+    it = GM.item(shop, q) if q else None
+    if it and it.get("url") and "{url}" in href:  # 2026-10-16 商品データがあれば、その商品のページへ
+        return GM.moshimo_item_href(href, it["url"])
     if "{url}" in href:
         dest = t["target"].replace("{q}", urllib.parse.quote_plus(q))
         href = href.replace("{url}", urllib.parse.quote(dest, safe=""))
@@ -388,8 +392,9 @@ def shop_buttons(q):
             AFF_SKIP[sh] += 1
             continue
         AFF_COUNT[sh] += 1
+        verb = "で見る" if GM.item(sh, q) else "で探す"
         out.append(f'<a class="fh-b27-shopbtn fh-b27-shop-{sh}" href="{esc(href)}" rel="nofollow sponsored" data-aff="{sh}">'
-                   f'{esc(SHOP_SHORT[sh])}で探す</a>' + AFF_TPL[sh]["impression"])
+                   f'{esc(SHOP_SHORT[sh])}{verb}</a>' + AFF_TPL[sh]["impression"])
     return "".join(out)
 
 
@@ -397,7 +402,7 @@ def shop_box(kind, name, why, cls=""):
     """カエレバ風の小さな商品ボックス：左に品目の絵（自前のSVG）、右に名前・短い説明、下に店ボタン"""
     btns = shop_buttons(name)
     return (f'<div class="fh-b27-shop{(" " + cls) if cls else ""}">'
-            f'<div class="fh-b27-shop-pic">{ic(item_cat(name))}</div>'
+            f'<div class="fh-b27-shop-pic">{photo_link(name) or ic(item_cat(name))}</div>'
             f'<div class="fh-b27-shop-body"><small>{esc(kind)}</small><b class="fh-b27-shop-name">{esc(name)}</b>'
             f'<span class="fh-b27-shop-why">{inline(why)}</span>'
             + (f'<div class="fh-b27-shop-btns">{btns}</div>' if btns else "") + '</div></div>')
@@ -411,13 +416,30 @@ LUCKY_CSS = ("<style>.fh-b27 a.fh-b27-luckyteaser{display:flex;flex-direction:co
              ".fh-b27 .fh-b27-luckyteaser li::before{content:none}.fh-b27-luckyteaser li .fh-b27-ic{width:26px;height:26px}"
              ".fh-b27 a.fh-b27-luckyteaser b{font-size:13.5px;color:#8A4B12}"
              ".fh-b27 .fh-b27-mono-btns .fh-b27-shopbtn{font-size:12.5px;padding:4px 10px;min-height:36px}"
-             ".fh-b27 a.fh-b27-mono-more{font-size:13px;font-weight:700}</style>")
+             ".fh-b27 a.fh-b27-mono-more{font-size:13px;font-weight:700}"
+             ".fh-b27 .fh-b27-shop-pic a.fh-b27-shop-photo{display:block;width:100%;height:100%}"
+             ".fh-b27 .fh-b27-shop:has(.fh-b27-shop-photo){grid-template-columns:112px minmax(0,1fr)}"
+             ".fh-b27 .fh-b27-shop-pic:has(img){width:112px;height:112px;background:#fff;padding:4px;overflow:hidden;border-radius:10px}"
+             ".fh-b27 img.fh-b27-shop-img{display:block;width:100%;height:100%;object-fit:contain;background:#fff;border-radius:8px;margin:0}"
+             ".fh-b27 .fh-b27-mono-btns{align-items:center}.fh-b27 .fh-b27-mono-btns>a.fh-b27-shop-photo{flex:0 0 64px;width:64px;height:64px}"
+             ".fh-b27 .fh-b27-mono-btns>span{display:flex;flex-wrap:wrap;gap:6px}</style>")
+
+
+def photo_link(q):
+    """商品の写真（押すと楽天の商品ページへ。写真が無い・楽天の商品が無いときは空）"""
+    tag = GM.img_tag(q, q)
+    href = aff_href("rakuten", q) if GM.item("rakuten", q) else (aff_href("yahoo", q) if GM.item("yahoo", q) else None)
+    if not tag or not href:
+        return ""
+    return f'<a class="fh-b27-shop-photo" href="{esc(href)}" rel="nofollow sponsored" tabindex="-1" aria-hidden="true">{tag}</a>'
 
 
 def mono_btns(q):
     """誕生花・誕生石・誕生日石のカードの下に置く小さな店ボタン（楽天・Yahoo!。ひな形のある店だけ）"""
     b = shop_buttons(q)
-    return f'<div class="fh-b27-shop-btns fh-b27-mono-btns">{b}</div>' if b else ""
+    ph = photo_link(q)
+    return (f'<div class="fh-b27-shop-btns fh-b27-mono-btns">{ph}<span>{b}</span></div>' if ph else
+            f'<div class="fh-b27-shop-btns fh-b27-mono-btns">{b}</div>') if b else ""
 
 
 def koyomi_blocks(text, icons):

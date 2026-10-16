@@ -101,11 +101,11 @@ chk("アフィリエイトはすべて rel=nofollow sponsored", lambda s, t, m: 
 chk("仮リンクが0か所（#affiliate-TODO- なし）", lambda s, t, m: "affiliate-TODO" not in s and all(x[1].startswith("https://") for x in aff_links(s)))
 chk("アフィリエイトの href は af.moshimo.com か px.a8.net だけ", lambda s, t, m: all(urllib.parse.urlsplit(x[1]).hostname in AFF_HOSTS for x in aff_links(s)))
 chk("ひな形のある店だけボタンを出している（Amazon など空の店は0）", lambda s, t, m: all(x[0] in TPL for x in aff_links(s)))
-chk("楽天のリンクは楽天の検索ページへ（url= に二重エンコード）", lambda s, t, m: all(
-    urllib.parse.unquote(urllib.parse.parse_qs(urllib.parse.urlsplit(x[1]).query)["url"][0]).startswith("https://search.rakuten.co.jp/search/mall/")
+chk("楽天のリンクは楽天の検索ページか商品ページへ（url= に二重エンコード）", lambda s, t, m: all(
+    urllib.parse.unquote(urllib.parse.parse_qs(urllib.parse.urlsplit(x[1]).query)["url"][0]).startswith(("https://search.rakuten.co.jp/search/mall/", "https://item.rakuten.co.jp/", "https://hb.afl.rakuten.co.jp/"))
     for x in aff_links(s) if x[0] == "rakuten"))
-chk("Yahoo!のリンクは Yahoo!ショッピングの検索ページへ（url= に二重エンコード）", lambda s, t, m: all(
-    urllib.parse.unquote(urllib.parse.parse_qs(urllib.parse.urlsplit(x[1]).query)["url"][0]).startswith("https://shopping.yahoo.co.jp/search?p=")
+chk("Yahoo!のリンクは Yahoo!ショッピングの検索ページか商品ページへ（url= に二重エンコード）", lambda s, t, m: all(
+    urllib.parse.unquote(urllib.parse.parse_qs(urllib.parse.urlsplit(x[1]).query)["url"][0]).startswith(("https://shopping.yahoo.co.jp/search?p=", "https://store.shopping.yahoo.co.jp/", "https://paypaymall.yahoo.co.jp/"))
     for x in aff_links(s) if x[0] == "yahoo"))
 chk("各リンクの直後に表示計測の画像", lambda s, t, m: all(x[3].startswith(TPL[x[0]]["impression"]) for x in aff_links(s) if x[0] in TPL))
 chk("「広告を含みます」がある", lambda s, t, m: t.count("広告") >= 2)
