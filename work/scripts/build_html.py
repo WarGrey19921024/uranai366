@@ -403,6 +403,23 @@ def shop_box(kind, name, why, cls=""):
             + (f'<div class="fh-b27-shop-btns">{btns}</div>' if btns else "") + '</div></div>')
 
 
+LUCKY_CSS = ("<style>.fh-b27 a.fh-b27-luckyteaser{display:flex;flex-direction:column;gap:6px;margin:4px 0 20px;padding:14px 16px;border-radius:12px;"
+             "background:var(--p-yellow,#F7E8A8);color:#2E2A26;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.25);transform:rotate(-.4deg)}"
+             ".fh-b27 a.fh-b27-luckyteaser small{font-size:12.5px;color:#6B5A2E}"
+             ".fh-b27-luckyteaser ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}"
+             ".fh-b27 .fh-b27-luckyteaser li{margin:0;display:flex;align-items:center;gap:6px;background:#FFFDF6;border-radius:999px;padding:4px 12px 4px 6px;font-weight:700;font-size:14.5px}"
+             ".fh-b27 .fh-b27-luckyteaser li::before{content:none}.fh-b27-luckyteaser li .fh-b27-ic{width:26px;height:26px}"
+             ".fh-b27 a.fh-b27-luckyteaser b{font-size:13.5px;color:#8A4B12}"
+             ".fh-b27 .fh-b27-mono-btns .fh-b27-shopbtn{font-size:12.5px;padding:4px 10px;min-height:36px}"
+             ".fh-b27 a.fh-b27-mono-more{font-size:13px;font-weight:700}</style>")
+
+
+def mono_btns(q):
+    """誕生花・誕生石・誕生日石のカードの下に置く小さな店ボタン（楽天・Yahoo!。ひな形のある店だけ）"""
+    b = shop_buttons(q)
+    return f'<div class="fh-b27-shop-btns fh-b27-mono-btns">{b}</div>' if b else ""
+
+
 def koyomi_blocks(text, icons):
     """「暦と星」の長い段落を、話題（季節・星・数）ごとの小さなまとまりに分けて、見出しとアイコンをつける（文章は変えない）"""
     if not text:
@@ -588,6 +605,12 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   </div>
   <a class="fh-b27-next" href="/kokoro/">{ic("kokoro", "fh-b27-nextic")}<span><small>性格をもっと深く知りたい人へ</small><b>心コンパスでエニアグラム・ビッグファイブを試す →</b></span></a>
 </section>''')
+    # 2026-10-16 ラッキーアイテムの予告（ページの下まで読まなくても、お守りリストがあることがわかるように。広告ではなくページ内の案内）
+    _its = [x.get("name", "") for x in ((yr.get("amulet") or {}).get("items") or []) if x.get("name")]
+    if _its:
+        _chips = "".join(f'<li>{ic(item_cat(x))}<span>{esc(x)}</span></li>' for x in _its[:3])
+        a(LUCKY_CSS)
+        a(f'''<a class="fh-b27-luckyteaser" href="#b27-omamori"><small>{md}生まれの2027年のラッキーアイテム</small><ul>{_chips}</ul><b>ほか{len(_its) - min(3, len(_its))}つ・ラッキーカラーと守護石もお守りリストで見る ↓</b></a>''')
 
     # 2 暦と星
     sekki_dd = K["sekki"].get(e["sekki"], "")
@@ -624,13 +647,13 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     a(f'''<section class="fh-b27-sec" id="b27-mono">
   {h2(3, "mono", f"{md}の誕生花・誕生石・誕生色")}
   <div class="fh-b27-mono">
-    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span></div>
-    <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p></div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone">{sw(bd_stone.get("color_hex"))}<small>誕生日石（{md}）</small><b>{esc(e["birthday_stone"]["name"])}<em>当サイト独自の選び方</em></b><p>{esc(e["birthday_stone"]["note"])}</p></div>
+    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{mono_btns(re.sub(r"[（(].*", "", flower["flower"]) + " 花 ギフト")}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{mono_btns(bm_list[0] + " ネックレス")}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone">{sw(bd_stone.get("color_hex"))}<small>誕生日石（{md}）</small><b>{esc(e["birthday_stone"]["name"])}<em>当サイト独自の選び方</em></b><p>{esc(e["birthday_stone"]["note"])}</p>{mono_btns(e["birthday_stone"]["name"] + " ブレスレット")}</div>
     <div class="fh-b27-mono-card fh-b27-mc-color">{sw(col_hex)}<small>誕生色（{md}）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）<em>当サイト独自の選び方</em></b><p>{esc(col_desc)}</p></div>
   </div>
   {paras(fx.get("items"))}
-  <p class="fh-b27-small">誕生日石と誕生色は、当サイト独自の選び方で決めています（決め方はページ下の「この占いについて」）。</p>''')
+  <p class="fh-b27-small">誕生日石と誕生色は、当サイト独自の選び方で決めています（決め方はページ下の「この占いについて」）。{"お店のボタンは広告（アフィリエイトリンク）です。" if AFF_TPL else ""}</p>''')
     evs = e.get("events") or []
     if evs:
         a(f'  <h3>{md}の記念日・できごと</h3>\n  <div class="fh-b27-rows">')
@@ -861,6 +884,8 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     stn = am.get("stone") or {}
     a(f'  <h3>守護石 {esc(stn.get("name", ""))}</h3>')
     a(f'  <p>{inline(stn["effect"])}</p>' if stn.get("effect") else "  " + miss_p())
+    if stn.get("name"):
+        a("  " + mono_btns(stn["name"] + " 天然石"))
     a("</section>")
 
     # 15 誕生日プレゼント
