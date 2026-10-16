@@ -156,7 +156,7 @@ JS = r"""(function(){var MA=__MAJOR__,MI=__MINOR__,TP=__TP__;var root=document.g
 var FIX=root.getAttribute('data-fix'),mode=FIX||'one',deck=FIX?'all':'major',modes=root.querySelectorAll('[data-mode]'),decks=root.querySelectorAll('[data-deck]'),table=document.getElementById('fh-b27-tr-table'),res=document.getElementById('fh-b27-tr-res'),qa=document.getElementById('fh-b27-tr-q');
 var LABEL={one:['MESSAGE'],three:['PAST','PRESENT','FUTURE'],yes:['ANSWER'],when:['SOON','3 MONTHS','6 MONTHS'],choice:['A','B'],feel:['SURFACE','HEART','NEXT'],adv:['ADVICE'],hex:['PAST','PRESENT','FUTURE','MEASURE','AROUND','HEART','RESULT'],celtic:['NOW','BLOCK','DEEP','AWARE','PAST','NEAR','SELF','ENV','HOPE','END']},
 JP={MESSAGE:'今のあなたへ',PAST:'過去',PRESENT:'現在',FUTURE:'未来',ANSWER:'答え',SOON:'近いうち','3 MONTHS':'3か月ほど先','6 MONTHS':'半年ほど先',A:'Aを選んだら',B:'Bを選んだら',SURFACE:'表に見せている気持ち',HEART:'心の奥の本音',NEXT:'これからの気持ち',ADVICE:'うまくいくためのヒント',MEASURE:'対策',AROUND:'周りの状況',RESULT:'結論',NOW:'現状',BLOCK:'障害',DEEP:'心の奥',AWARE:'意識していること',NEAR:'近い未来',SELF:'あなたの立場',ENV:'周りの環境',HOPE:'願いと不安',END:'結末'};
-var PD=__PD__;
+var PD=__PD__,PL={PAST:'これまでは「K」の流れがありました。',PRESENT:'今は「K」の状態です。',FUTURE:'このまま進むと「K」へ向かいます。',MEASURE:'「K」を意識することが、状況をよくするカギです。',AROUND:'相手や周りは「K」の様子です。',HEART:'あなたの本心は「K」。',RESULT:'全体の答えは「K」です。',NOW:'今いちばん表れているのは「K」。',BLOCK:'乗り越える課題は「K」です。',DEEP:'心の奥には「K」があります。',AWARE:'意識して目指しているのは「K」。',NEAR:'近いうちに「K」が訪れそうです。',SELF:'あなたは今「K」の姿勢で向き合っています。',ENV:'周りからは「K」の影響を受けています。',HOPE:'「K」を願う気持ちと、そうならない不安が同居しています。',END:'この流れの行き着く先は「K」です。'};
 var TN={kataomoi:'片思い',couple:'恋人との関係',fukuen:'復縁',kimochi:'相手の気持ち',kekkon:'結婚',tenshoku:'仕事・転職',shokuba:'人間関係',kinun:'お金',love:'恋愛',work:'仕事',gen:'全体の流れ'};
 var sel={who:null,about:null,want:null};
 function rnd(n){var a=new Uint32Array(1);(window.crypto||window.msCrypto).getRandomValues(a);return a[0]%n;}
@@ -204,8 +204,11 @@ function ttext(p,tp){var t=TP[p.c.name];if(t&&t[tp])return t[tp][p.rev?'rev':'up
 function verdict(picks,q,qt,tp){var L=LABEL[mode];
  if(mode==='hex'||mode==='celtic'){var r=picks[picks.length-1],y=yes(r.c,r.rev),c0=mode==='hex'?picks[1]:picks[0],b=mode==='hex'?picks[3]:picks[1];
   if(qt==='yes')return {big:y,txt:'結論の位置に出たのは'+esc(r.c.name)+'の「'+kw(r)+'」。'+(y==='はい'?'流れはあなたの味方です。':y==='いいえ'?'今のままでは難しいので、「'+kw(b)+'」をヒントにやり方を変えてみて。':'まだ決め手が足りない状態です。「'+kw(b)+'」を意識してみて。')};
+  var ad=mode==='hex'?picks[3]:picks[6],fe=mode==='hex'?picks[4]:picks[7];
+  if(qt==='adv')return {big:'カギは「'+kw(ad)+'」',txt:(mode==='hex'?'対策':'あなたの立場')+'の位置に'+esc(ad.c.name)+'が出ました。「'+kw(ad)+'」を意識して動くと、結論の「'+kw(r)+'」につながります。'};
+  if(qt==='feel'||tp==='kimochi')return {big:'相手は「'+kw(fe)+'」',txt:'相手や周りの様子を表す位置は「'+kw(fe)+'」。あなたの'+(mode==='hex'?'本心は「'+kw(picks[5])+'」':'心の奥は「'+kw(picks[2])+'」')+'で、2人の流れの答えは「'+kw(r)+'」です。'};
   if(mode==='hex')return {big:'結論は「'+kw(r)+'」',txt:'「'+kw(picks[0])+'」だった流れが今は「'+kw(picks[1])+'」。周りは「'+kw(picks[4])+'」、あなたの本心は「'+kw(picks[5])+'」。「'+kw(picks[3])+'」を意識すると、「'+kw(r)+'」へ向かいます。'};
-  return {big:'結末は「'+kw(r)+'」',txt:'今は「'+kw(c0)+'」の状態で、壁になっているのは「'+kw(b)+'」。心の奥には「'+kw(picks[2])+'」、願いと不安は「'+kw(picks[8])+'」。近いうちに「'+kw(picks[5])+'」が訪れ、最後は「'+kw(r)+'」へ向かいます。'};}
+  return {big:'結末は「'+kw(r)+'」',txt:'今は「'+kw(c0)+'」の状態で、乗り越える課題は「'+kw(b)+'」。心の奥には「'+kw(picks[2])+'」、願いと不安は「'+kw(picks[8])+'」。近いうちに「'+kw(picks[5])+'」が訪れ、最後は「'+kw(r)+'」へ向かいます。'};}
  if(mode==='yes'){var y=yes(picks[0].c,picks[0].rev);return {big:y,txt:'カギになるのは「'+kw(picks[0])+'」。'+(y==='はい'?'流れはあなたの味方です。':y==='いいえ'?'今は無理に進めず、別の道や時期も考えてみて。':'今はまだ決め手が足りない状態です。')};}
  if(mode==='when'){var bi=-1;picks.forEach(function(p,i){if(bi<0&&!p.rev&&p.c.yesno==='はい')bi=i});if(bi<0)picks.forEach(function(p,i){if(bi<0&&!p.rev)bi=i});
   return bi<0?{big:'急がないで',txt:'3枚とも逆位置でした。半年ほどは準備の時期と考え、焦らず土台を整えましょう。'}:{big:JP[L[bi]],txt:'いちばん追い風が吹くのは「'+JP[L[bi]]+'」。'+esc(picks[bi].c.name)+'が「'+kw(picks[bi])+'」を示しています。'};}
@@ -224,6 +227,7 @@ document.getElementById('fh-b27-tr-go').addEventListener('click',function(){var 
   h+='<div class="fh-b27-tr-verdict"><small>カードの答え</small><b>'+v.big+'</b><p>'+v.txt+'</p></div>';
   picks.forEach(function(p,i){var c=p.c,pos=p.rev?'逆位置':'正位置',kws=(p.rev?c.kw_rev:c.kw_up).join('・'),th=ttext(p,tp);
    var lab=JP[L[i]]||L[i];if(mode==='choice'){var mm2=q.match(/^(.+?)(?:と|か|、|or)(.+?)(?:[、,]?\s*)(?:どっち|どちら)/),nm2=(document.getElementById(i?'fh-b27-tr-b':'fh-b27-tr-a').value.trim()||(mm2?mm2[i+1]:(i?'B':'A')));lab='「'+esc(nm2)+'」を選んだら';}if(PD[L[i]]&&(mode==='hex'||mode==='celtic'))lab=(i+1)+'. '+lab+'｜'+PD[L[i]];h+='<div class="fh-b27-tr-rc"><small>'+lab+'</small><br><strong>'+esc(c.name)+'（'+pos+'）</strong><br><small>キーワード：'+esc(kws)+'</small>';
+   if(PL[L[i]]&&(mode==='hex'||mode==='celtic'))h+='<p><b>'+esc(PL[L[i]].replace('K',kw(p)))+'</b></p>';
    if(th)h+='<p><b>'+TN[tp]+'では</b>　'+esc(th)+'</p>';
    h+='<p>'+esc(p.rev?c.rev:c.up)+'</p>';
    if(!th&&mode==='one')h+='<p><b>恋愛</b>　'+esc(c.love)+'</p><p><b>仕事</b>　'+esc(c.work)+'</p>';
