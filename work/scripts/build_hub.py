@@ -50,7 +50,7 @@ USED_IC = {"西洋占星術": "stars", "デーカン": "stars", "二十四節気
            "生まれ年でわかること": "year", "誕生花": "flower", "誕生石": "stone", "誕生日石・誕生色": "mono",
            "相性の良い誕生日": "compat", "2027年の月別スコア": "graph"}
 LINK_IC = {"/seinengappi/": ("card", "yellow"), "/compatibility/": ("compat", "rose"), "/enmusubi/pair/": ("love", "rose"),
-           "/animal-color/": ("animal", "yellow"), "/tarot/": ("stars", "lav"), "/kyusei/": ("kyusei", "sage"), "/shukuyo/": ("shuku", "blue"), "/maya/": ("maya", "yellow"), "/flower/": ("flower", "rose"), "/birthstone/": ("stone", "lav"), "/mbti/": ("mbti", "blue"), "/mbti-compatibility/": ("people", "blue"),
+           "/animal-color/": ("animal", "yellow"), "/tarot/": ("stars", "lav"), "/kyusei/": ("kyusei", "sage"), "/shukuyo/": ("shuku", "blue"), "/maya/": ("maya", "yellow"), "/flower/": ("flower", "rose"), "/birthstone/": ("stone", "lav"), "/angel-number/": ("suhi", "rose"), "/mbti/": ("mbti", "blue"), "/mbti-compatibility/": ("people", "blue"),
            "/kokoro/": ("kokoro", "lav"), "/kaiun/compass/": ("compass", "sage"), "/dream/": ("dream", "lav"), "/about/": ("about", "cream")}
 SEASON_OF_MONTH = {12: "winter", 1: "winter", 2: "winter", 3: "spring", 4: "spring", 5: "spring",
                    6: "summer", 7: "summer", 8: "summer", 9: "autumn", 10: "autumn", 11: "autumn"}
@@ -134,6 +134,7 @@ LINKS = [
     ("/kyusei/", "九星気学", "本命星と2027年の運勢・年盤"),
     ("/shukuyo/", "宿曜占星術", "本命宿と三九の秘法の相性"),
     ("/maya/", "マヤ暦占い", "KIN・太陽の紋章・銀河の音"),
+    ("/angel-number/", "エンジェルナンバー", "111・1111・1234など、よく見る数字の意味"),
     ("/flower/", "誕生花一覧", "366日の誕生花と花言葉"),
     ("/birthstone/", "誕生石一覧", "1月〜12月の誕生石と366日の誕生日石"),
     ("/animal-color/", "動物×色占い", "生年月日で60タイプ"),
