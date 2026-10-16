@@ -9,6 +9,8 @@ sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, shell  # noqa: E402
 from build_shukuyo import md_rows, esc  # noqa: E402
 
+import kyusei_texts as KT  # noqa: E402
+import aff_extra  # noqa: E402
 URL = "/kyusei/"
 KNOW = os.path.join(WORK, "knowledge", "04_九星気学.md")
 SCRIPTS = ("fh-b27-setsuiri.js", "fh-b27-kyureki.js", "fh-b27.js")
@@ -105,6 +107,36 @@ CSS = """<style id="fh-b27-ky-css">
 .fh-b27-ky-qa summary{cursor:pointer;font-weight:700}
 .fh-b27-ky-qa p{margin-top:6px;font-size:14.5px}
 @media (max-width:640px){.fh-b27-ky-cards{grid-template-columns:1fr}.fh-b27[data-fh-page="kyusei"] .fh-b27-toc ol{columns:1}.fh-b27-ky-ban{grid-template-columns:repeat(3,34px);grid-template-rows:repeat(3,34px);margin:16px}.fh-b27-ky-ban span{font-size:14px}.fh-b27[data-fh-page="kyusei"] .fh-b27-title{font-size:26px}}
+.fh-b27-ky-rv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;max-width:300px;margin:0 auto 14px}
+.fh-b27-ky-rv span{aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(212,175,90,.35);background:rgba(20,24,21,.7);
+ font:800 20px 'Shippori Mincho',serif;color:var(--sub);opacity:0;transform:scale(.6);animation:fh-b27-ky-in .45s ease forwards;animation-delay:calc(var(--i)*.08s)}
+.fh-b27-ky-rv span small{font:400 10.5px 'Zen Kaku Gothic New',sans-serif;color:var(--mute)}
+.fh-b27-ky-rv span.me{background:var(--c);color:#1A1F1C;border-color:var(--gold);animation:fh-b27-ky-in .45s ease forwards,fh-b27-ky-glow 1.6s ease-in-out .9s 3;animation-delay:calc(var(--i)*.08s),.9s}
+.fh-b27-ky-rv span.me small{color:#1A1F1C;font-weight:700}
+@keyframes fh-b27-ky-in{to{opacity:1;transform:none}}
+@keyframes fh-b27-ky-glow{50%{box-shadow:0 0 0 4px rgba(212,175,90,.6),0 0 26px 6px var(--c)}}
+.fh-b27-ky-card{opacity:0;transform:translateY(16px);animation:fh-b27-ky-in .6s ease 1s forwards}
+.fh-b27-ky-res .ct{font-family:'Shippori Mincho',serif;font-size:16px;color:#7A2E22;margin:-4px 0 8px}
+.fh-b27-ky-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 8px}
+.fh-b27-ky-tabs button{min-height:38px;border:1px solid #CBB98F;border-radius:999px;background:#FFFBF1;color:#5A4A2A;font:inherit;font-size:14px;font-weight:700;padding:0 14px;cursor:pointer}
+.fh-b27-ky-tabs button[aria-selected="true"]{background:#9A3328;border-color:#9A3328;color:#FFF4E8}
+.fh-b27-ky-pane{background:#FFFDF7;border-radius:4px;padding:12px 14px;min-height:5em}
+.fh-b27-ky-27{margin-top:14px;border-top:1px dashed #CBB98F;padding-top:12px}
+.fh-b27-ky-27 h4{margin:0 0 4px;font:800 18px 'Shippori Mincho',serif;color:#26211B}
+.fh-b27 .fh-b27-ky-27 ul{margin:6px 0;padding-left:1.2em}
+.fh-b27 .fh-b27-ky-27 li{margin:2px 0}
+.fh-b27-ky-chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0}
+.fh-b27-ky-chips span{border-radius:999px;background:#EFE4C8;color:#4A3B1C;padding:2px 12px;font-size:13.5px;font-weight:700}
+.fh-b27-ky-chips span.g{background:#DCEBD9;color:#22462A}
+.fh-b27-ky-ms{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;margin:6px 0}
+.fh-b27-ky-ms div{background:#FFFBF1;border:1px solid #E3D6B5;border-radius:4px;padding:5px 3px;text-align:center;font-size:11.5px;line-height:1.45;color:#4A3B1C}
+.fh-b27-ky-ms div b{display:block;font-size:12.5px;color:#26211B}
+.fh-b27-ky-ms div.w{background:#F7DCD6;border-color:#D79A8E}
+.fh-b27-ky-lucky{margin-top:12px}
+.fh-b27[data-fh-page="kyusei"] .fh-b27-ky-res a.fh-b27-shopbtn{color:#FFF5D6}
+.fh-b27 .fh-b27-ky-res .fh-b27-adgoods-h{color:#26211B}
+@media (max-width:640px){.fh-b27-ky-ms{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){.fh-b27-ky-rv span,.fh-b27-ky-card{animation:none;opacity:1;transform:none}}
 </style>"""
 
 JS = r"""(function(){var C=window.FHB27Calc;var ST=__STARS__,INFO=__INFO__,AI=__AISHO__,COL=__COL__,POS=__POS__,Y27=__Y27__;
@@ -117,10 +149,27 @@ function fill(p){var y=$(p+'y'),m=$(p+'m'),d=$(p+'d');for(var i=C.GEN.yearMin;i<
  y.addEventListener('change',days);m.addEventListener('change',days);days();}
 fill('ky-a');fill('ky-b');
 function get(p){var y=+$(p+'y').value,m=+$(p+'m').value,d=+$(p+'d').value;return {y:y,m:m,d:d,h:C.honmei(y,m,d)};}
-$('ky-go').addEventListener('click',function(){var a=get('ky-a'),s=a.h.star,nm=ST[s-1],x=INFO[nm],yy=Y27[s];var r=$('ky-res');r.style.setProperty('--c',COL[s-1]);
- r.innerHTML='<small>'+a.y+'年'+a.m+'月'+a.d+'日生まれの本命星</small><p class="nm">'+esc(nm)+'</p>'+(a.h.prev?'<p><small>立春より前の生まれなので、前の年（'+a.h.etoYear+'年）の星です。</small></p>':'')+
- '<p><b>性質：</b>'+esc(x.kw)+'</p><p><b>長所：</b>'+esc(x.good)+'<br><b>気をつけたい点：</b>'+esc(x.bad)+'</p><p><b>色：</b>'+esc(x.color)+'　<b>象徴：</b>'+esc(x.sym)+'</p>'+
- '<p><b>2027年：</b>'+esc(yy[0])+'に入る「'+esc(yy[1])+'」。'+esc(yy[2])+'</p><p><a href="#ky-y'+s+'">'+esc(nm)+'の2027年へ →</a></p>';r.hidden=false;});
+var T=__KT__,LD=__LD__,MS=__MS__,PAL=__PAL__,OPP={1:8,8:1,2:7,7:2,3:6,6:3,4:5,5:4};
+function at(c,p){return ((c-1+p)%9)+1}function pal(c,s){return ((s-c)%9+9)%9}
+$('ky-go').addEventListener('click',function(){var a=get('ky-a'),s=a.h.star,nm=ST[s-1],x=INFO[nm],t=T[nm],yy=Y27[s];var r=$('ky-res');r.style.setProperty('--c',COL[s-1]);
+ var bd=[8,4,6,7,0,2,3,5,1].map(function(p,i){var st=at(9,p);return '<span style="--i:'+i+';--c:'+COL[st-1]+'" class="'+(st===s?'me':'')+'">'+st+'<small>'+(st===s?'あなた':PAL[p][0])+'</small></span>'}).join('');
+ var tb=[['char','性格'],['love','恋愛'],['work','仕事'],['money','お金'],['people','人付き合い']];
+ var tx={char:'<p><b>性質：</b>'+esc(x.kw)+'</p><p><b>長所：</b>'+esc(x.good)+'<br><b>気をつけたい点：</b>'+esc(x.bad)+'</p><p><b>色：</b>'+esc(x.color)+'　<b>象徴：</b>'+esc(x.sym)+'</p>',love:'<p>'+esc(t.love)+'</p>',work:'<p>'+esc(t.work)+'</p>',money:'<p>'+esc(t.money)+'</p>',people:'<p>'+esc(t.people)+'</p>'};
+ var ms=MS.map(function(m){var p=pal(m[1],s),w=false;if(m[1]!==5){var q=pal(m[1],5);w=(p===q||p===OPP[q]);}return '<div class="'+(w?'w':'')+'"><b>'+m[0]+'</b>'+PAL[p][0]+'<br>'+PAL[p][1]+(w?'<br>※凶方位':'')+'</div>'}).join('');
+ var ai=AI[nm],g1=[],g2=[];ai.forEach(function(k,i){if(k==='◎')g1.push(ST[i]);else if(k==='○')g2.push(ST[i]);});
+ var ld=LD[s].length?LD[s].map(function(d){return '<span class="g">'+d+'</span>'}).join(''):'<span>年盤では吉方位なし</span>';
+ r.innerHTML='<div class="fh-b27-ky-rv" aria-hidden="true">'+bd+'</div><div class="fh-b27-ky-card"><small>'+a.y+'年'+a.m+'月'+a.d+'日生まれの本命星</small><p class="nm">'+esc(nm)+'</p><p class="ct">'+esc(t.catch)+'</p>'+
+  (a.h.prev?'<p><small>立春より前の生まれなので、前の年（'+a.h.etoYear+'年）の星です。</small></p>':'')+
+  '<div class="fh-b27-ky-tabs" role="tablist">'+tb.map(function(b,i){return '<button type="button" role="tab" data-t="'+b[0]+'" aria-selected="'+(i?'false':'true')+'">'+b[1]+'</button>'}).join('')+'</div><div class="fh-b27-ky-pane" id="ky-pane">'+tx.char+'</div>'+
+  '<div class="fh-b27-ky-27"><h4>2027年は「'+esc(yy[1])+'」</h4><p>'+esc(nm)+'は2027年、年盤の'+esc(yy[0])+'に入ります。'+esc(yy[2])+'</p>'+
+  '<p><b>2027年にやるとよいこと</b></p><ul>'+t.do.map(function(d){return '<li>'+esc(d)+'</li>'}).join('')+'</ul><p><b>気をつけたいこと：</b>'+esc(t.avoid)+'</p>'+
+  '<p><b>2027年の吉方位（年盤）</b></p><div class="fh-b27-ky-chips">'+ld+'</div>'+
+  '<p><b>2027年の月ごとの流れ</b><br><small>その月、あなたの星が月盤のどこに入るか。赤は五黄殺・暗剣殺に当たる月です。</small></p><div class="fh-b27-ky-ms">'+ms+'</div>'+
+  '<p><b>助けてくれる星（◎）</b></p><div class="fh-b27-ky-chips">'+g1.map(function(n){return '<span class="g">'+n+'</span>'}).join('')+'</div><p><b>あなたが支える星（○）</b></p><div class="fh-b27-ky-chips">'+g2.map(function(n){return '<span>'+n+'</span>'}).join('')+'</div></div>'+
+  '<div class="fh-b27-ky-lucky" id="ky-lucky"></div><p><a href="#ky-y'+s+'">'+esc(nm)+'の2027年を一覧で見る →</a></p></div>';
+ r.hidden=false;var src=document.querySelector('#ky-lucky-src [data-s="'+s+'"]');if(src)$('ky-lucky').appendChild(src.cloneNode(true));
+ r.querySelectorAll('.fh-b27-ky-tabs button').forEach(function(b){b.addEventListener('click',function(){r.querySelectorAll('.fh-b27-ky-tabs button').forEach(function(z){z.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');$('ky-pane').innerHTML=tx[b.getAttribute('data-t')];});});
+});
 $('ky-go2').addEventListener('click',function(){var a=get('ky-a'),b=get('ky-b'),sa=ST[a.h.star-1],sb=ST[b.h.star-1],mk=AI[sa][b.h.star-1];
  var M={'◎':'相手が自分を生む関係。お相手から力や助けをもらいやすい、最良の相性です。','○':'自分が相手を生む関係。あなたがお相手を支え、育てる役になりやすい吉の相性です。','◇':'同じ五行の比和。似た者どうしで分かり合いやすく、良い面も悪い面も重なりやすい関係です。','△':'自分が相手を剋す関係。あなたが主導しやすい一方、押しつけにならない配慮が要ります。','×':'相手に剋される関係。お相手のペースに押されやすいので、自分の考えを言葉にすると対等になれます。'};
  var r=$('ky-res2');r.innerHTML='<small>あなた：'+esc(sa)+'　お相手：'+esc(sb)+'</small><p class="nm">'+mk+'</p><p>'+M[mk]+'</p><p><a href="#b27-ky-aisho">九星の相性表へ →</a></p>';r.hidden=false;});
@@ -145,7 +194,7 @@ def build(sample, updated):
     <p class="fh-b27-lead">生年月日を選ぶだけで、九星気学の本命星を計算します。立春で年が切り替わる決まりも日付ごとに反映。本命星別の2027年の運勢、2027年の年盤と凶方位、九星どうしの相性もまとめました。</p>
   </div>
 </header>''')
-    items = [("b27-ky-calc", "本命星を調べる"), ("b27-ky-aisho2", "二人の相性"), ("b27-ky-list", "九星の性格一覧"), ("b27-ky-2027", "本命星別 2027年の運勢"),
+    items = [("b27-ky-calc", "本命星を調べる"), ("b27-ky-aisho2", "二人の相性"), ("b27-ky-list", "九星の性格一覧"), ("b27-ky-read", "本命星別 恋愛・仕事・お金"), ("b27-ky-2027", "本命星別 2027年の運勢"),
              ("b27-ky-ban", "2027年の年盤と凶方位"), ("b27-ky-month", "2027年の月盤"), ("b27-ky-aisho", "九星の相性表"), ("b27-ky-how", "本命星の出し方"), ("b27-ky-faq", "よくある質問")]
     a('<nav class="fh-b27-toc" aria-label="目次"><strong>このページの内容</strong><ol>' + "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in items) + "</ol></nav>")
     n = [1]
@@ -182,6 +231,14 @@ def build(sample, updated):
   {h2("九星の性格一覧")}
   <p>九星は、一白水星から九紫火星までの9つの星です。それぞれに五行（木・火・土・金・水）と、方位盤の定位置があります。生まれた年の星（本命星）で、その人の基本の性質を読みます。</p>
   <div class="fh-b27-ky-cards">{cards}</div>
+</section>''')
+    rd = "".join(f'<details id="ky-r{i + 1}" style="--c:{COLOR[i]}"{" open" if i == 0 else ""}><summary>{st}<small>{esc(KT.TEXTS[st]["catch"])}</small></summary>'
+                 f'<p><b>恋愛：</b>{esc(KT.TEXTS[st]["love"])}</p><p><b>仕事：</b>{esc(KT.TEXTS[st]["work"])}</p>'
+                 f'<p><b>お金：</b>{esc(KT.TEXTS[st]["money"])}</p><p><b>人付き合い：</b>{esc(KT.TEXTS[st]["people"])}</p></details>' for i, st in enumerate(STARS))
+    a(f'''<section class="fh-b27-sec" id="b27-ky-read">
+  {h2("本命星別 恋愛・仕事・お金")}
+  <p>同じ星の人に共通しやすい、恋愛・仕事・お金・人付き合いの傾向です。上で本命星を調べると、あなたの星の内容がタブで読めます。</p>
+  <div class="fh-b27-ky-y">{rd}</div>
 </section>''')
     yy = "".join(f'<details id="ky-y{i}" style="--c:{COLOR[i - 1]}"{" open" if i == 1 else ""}><summary>{STARS[i - 1]}<small>{esc(YEAR2027[i][0])}｜{esc(YEAR2027[i][1])}</small></summary><p>{esc(YEAR2027[i][2])}</p></details>' for i in range(1, 10))
     a(f'''<section class="fh-b27-sec" id="b27-ky-2027">
@@ -239,7 +296,28 @@ def build(sample, updated):
     <a href="/kaiun/compass/"><b>方位盤 →</b><small>開運ライフ｜8方位の読み方</small></a>
   </div>
 </section>''')
-    js = (JS.replace("__STARS__", json.dumps(STARS, ensure_ascii=False)).replace("__INFO__", json.dumps(info, ensure_ascii=False, separators=(",", ":")))
+    OPP = {1: 8, 8: 1, 2: 7, 7: 2, 3: 6, 6: 3, 4: 5, 5: 4}
+    at = lambda c, p: ((c - 1 + p) % 9) + 1  # noqa: E731
+    pal = lambda c, st: (st - c) % 9  # noqa: E731
+    LD = {}
+    for st in range(1, 10):  # 2027年（九紫中宮）の吉方位：相生・比和の星の方位から、五黄殺・暗剣殺・歳破（北東）・本命殺・本命的殺を除く
+        bad = {pal(9, 5), OPP[pal(9, 5)], 3}
+        ps = pal(9, st)
+        if ps:
+            bad |= {ps, OPP[ps]}
+        LD[st] = [KT.PALACE[p][0] for p in range(1, 9) if p not in bad and aisho[STARS[st - 1]][at(9, p) - 1] in "◎○◇"]
+    MS = []
+    for r in months:
+        if "前年" in r[0]:
+            continue
+        mo, dd = int(r[0][5:7]), int(r[0][8:10])
+        MS.append([f"{mo}/{dd}〜", STARS.index(r[4]) + 1])
+    assert len(MS) == 12
+    lucky = "".join(f'<div data-s="{i + 1}">{aff_extra.goods_box("2027年のお守りアイテム", [(KT.TEXTS[st]["lucky"][0], KT.TEXTS[st]["lucky"][0], KT.TEXTS[st]["lucky"][1], "goods")])}</div>' for i, st in enumerate(STARS))
+    a(f'<div id="ky-lucky-src" hidden>{lucky}</div>')
+    js = (JS.replace("__KT__", json.dumps(KT.TEXTS, ensure_ascii=False)).replace("__LD__", json.dumps(LD, ensure_ascii=False))
+          .replace("__MS__", json.dumps(MS, ensure_ascii=False)).replace("__PAL__", json.dumps(KT.PALACE, ensure_ascii=False))
+          .replace("__STARS__", json.dumps(STARS, ensure_ascii=False)).replace("__INFO__", json.dumps(info, ensure_ascii=False, separators=(",", ":")))
           .replace("__AISHO__", json.dumps(aisho, ensure_ascii=False)).replace("__COL__", json.dumps(COLOR)).replace("__POS__", json.dumps(POS2027, ensure_ascii=False))
           .replace("__Y27__", json.dumps(YEAR2027, ensure_ascii=False)))
     up = dt.date.fromisoformat(updated)
