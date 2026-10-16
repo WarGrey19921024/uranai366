@@ -11,14 +11,20 @@
   @@H2@@
   <div id="fh-b27-tr" class="fh-b27-tr-felt">
     <label class="fh-b27-tr-ql" for="fh-b27-tr-q">何を占いますか？</label>
+    <p class="fh-b27-small" style="text-align:center;margin:0">自由に書くか、下のカードを①②③と組み合わせて相談を作ってください。</p>
     <textarea class="fh-b27-tr-q" id="fh-b27-tr-q" rows="2" maxlength="80" placeholder="例：片思いの人と付き合える？／転職したほうがいい？／今月の金運は？" aria-label="占いたいこと"></textarea>
-    <div class="fh-b27-tr-topics" role="group" aria-label="占うテーマ"><button type="button" data-topic="love">恋愛</button><button type="button" data-topic="work">仕事</button><button type="button" data-topic="money">お金</button><button type="button" data-topic="people">人間関係</button><button type="button" data-topic="day">今日の運勢</button></div>
-    <div class="fh-b27-tr-modes" role="group" aria-label="占い方を選ぶ"><button type="button" data-mode="one" aria-pressed="true">1枚引き</button><button type="button" data-mode="three" aria-pressed="false">3枚引き（過去・現在・未来）</button><button type="button" data-mode="yes" aria-pressed="false">Yes/No占い</button></div>
-    <div class="fh-b27-tr-modes" role="group" aria-label="使うカードを選ぶ"><button type="button" data-deck="major" aria-pressed="true">大アルカナ22枚</button><button type="button" data-deck="all" aria-pressed="false">78枚すべて</button></div>
+    <div class="fh-b27-tr-build" aria-label="カードを組み合わせて相談を作る">
+      <div class="fh-b27-tr-row"><span>① だれのこと</span><button type="button" data-pick="who" data-v="me">わたし</button><button type="button" data-pick="who" data-v="like">好きな人</button><button type="button" data-pick="who" data-v="lover">恋人</button><button type="button" data-pick="who" data-v="ex">元恋人</button><button type="button" data-pick="who" data-v="work">職場・学校の人</button><button type="button" data-pick="who" data-v="fam">友達・家族</button></div>
+      <div class="fh-b27-tr-row"><span>② なにについて</span><button type="button" data-pick="about" data-v="love">恋のゆくえ</button><button type="button" data-pick="about" data-v="heart">気持ち</button><button type="button" data-pick="about" data-v="marry">結婚</button><button type="button" data-pick="about" data-v="job">仕事・転職</button><button type="button" data-pick="about" data-v="rel">関係</button><button type="button" data-pick="about" data-v="money">お金</button></div>
+      <div class="fh-b27-tr-row"><span>③ 知りたいこと</span><button type="button" data-pick="want" data-v="flow">これからどうなる？</button><button type="button" data-pick="want" data-v="yes">うまくいく？</button><button type="button" data-pick="want" data-v="when">いつ動けばいい？</button><button type="button" data-pick="want" data-v="adv">どうすればいい？</button><button type="button" data-pick="want" data-v="choice">AとB、どっち？</button></div>
+    </div>
+    <div class="fh-b27-tr-ab" id="fh-b27-tr-ab" hidden><input id="fh-b27-tr-a" maxlength="20" placeholder="Aの選択肢（例：今の会社）" aria-label="Aの選択肢"><input id="fh-b27-tr-b" maxlength="20" placeholder="Bの選択肢（例：転職する）" aria-label="Bの選択肢"></div>
+    <details class="fh-b27-tr-more"><summary>引き方を自分で選ぶ</summary><div class="fh-b27-tr-modes" role="group" aria-label="占い方を選ぶ"><button type="button" data-mode="one" aria-pressed="true">1枚引き</button><button type="button" data-mode="three" aria-pressed="false">3枚引き（過去・現在・未来）</button><button type="button" data-mode="yes" aria-pressed="false">Yes/No</button><button type="button" data-mode="when" aria-pressed="false">時期を見る</button><button type="button" data-mode="feel" aria-pressed="false">気持ちを見る</button><button type="button" data-mode="choice" aria-pressed="false">AとBを比べる</button></div>
+    <div class="fh-b27-tr-modes" role="group" aria-label="使うカードを選ぶ"><button type="button" data-deck="major" aria-pressed="true">大アルカナ22枚</button><button type="button" data-deck="all" aria-pressed="false">78枚すべて</button></div></details>
     <div style="text-align:center"><button type="button" class="fh-b27-tr-draw" id="fh-b27-tr-go">シャッフルして引く</button></div>
     <div class="fh-b27-tr-table" id="fh-b27-tr-table" aria-live="polite"></div>
     <div class="fh-b27-tr-res" id="fh-b27-tr-res" aria-live="polite"></div>
-    <p class="fh-b27-small">相談を書くと、言葉から「恋愛・仕事・お金・人間関係」のどれについての質問かを読み取り、そのテーマに合わせてカードを読みます。「〜できる？」「〜したほうがいい？」のような質問には、Yes/Noの答えも出します。カードは毎回ランダムに選び、上下（正位置・逆位置）も半分ずつの確率で決めます。入力した文は送信も保存もしません。</p>
+    <p class="fh-b27-small">相談の言葉から、片思い・恋人・復縁・相手の気持ち・結婚・仕事・人間関係・お金のどれについての質問か、そして「どうなる？」「うまくいく？」「いつ？」「どっち？」のどれを知りたいかを読み取り、引く枚数と読み方を変えます。カードは毎回ランダムに選び、上下（正位置・逆位置）も半分ずつの確率で決めます。入力した文は送信も保存もしません。</p>
   </div>
   <p><b>じっくり占いたいときは</b>、もっと多くのカードを並べる本格的な占い方もあります。</p>
   <div class="fh-b27-tr-spreads">@@SPREADS@@</div>
