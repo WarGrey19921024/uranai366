@@ -184,7 +184,7 @@ textarea.fh-b27-tr-q{resize:vertical;min-height:64px;line-height:1.6}
 var FIX=root.getAttribute('data-fix'),mode=FIX||'one',deck=FIX?'all':'major',modes=root.querySelectorAll('[data-mode]'),decks=root.querySelectorAll('[data-deck]'),table=document.getElementById('fh-b27-tr-table'),res=document.getElementById('fh-b27-tr-res'),qa=document.getElementById('fh-b27-tr-q');
 var LABEL={one:['MESSAGE'],three:['PAST','PRESENT','FUTURE'],yes:['ANSWER'],when:['SOON','3 MONTHS','6 MONTHS'],choice:['A','B'],feel:['SURFACE','HEART','NEXT'],adv:['ADVICE'],hex:['PAST','PRESENT','FUTURE','MEASURE','AROUND','HEART','RESULT'],celtic:['NOW','BLOCK','DEEP','AWARE','PAST','NEAR','SELF','ENV','HOPE','END']},
 JP={MESSAGE:'今のあなたへ',PAST:'過去',PRESENT:'現在',FUTURE:'未来',ANSWER:'答え',SOON:'近いうち','3 MONTHS':'3か月ほど先','6 MONTHS':'半年ほど先',A:'Aを選んだら',B:'Bを選んだら',SURFACE:'表に見せている気持ち',HEART:'心の奥の本音',NEXT:'これからの気持ち',ADVICE:'うまくいくためのヒント',MEASURE:'対策',AROUND:'周りの状況',RESULT:'結論',NOW:'現状',BLOCK:'障害',DEEP:'心の奥',AWARE:'意識していること',NEAR:'近い未来',SELF:'あなたの立場',ENV:'周りの環境',HOPE:'願いと不安',END:'結末'};
-var PD={"PAST":"この悩みの背景や、これまでの流れ","PRESENT":"今の状況とあなたの立ち位置","FUTURE":"このまま進んだときの近い将来","MEASURE":"状況をよくするために、あなたができること","AROUND":"相手や周りの人の様子・まわりの事情","HEART":"あなた自身も気づいていない本当の気持ち","RESULT":"全体をまとめた答え","NOW":"今いちばん大きく表れている状況","BLOCK":"行く手をふさいでいるもの・乗り越える課題","DEEP":"心の奥にある気持ちや、問題の根っこ","AWARE":"あなたが意識して目指していること","NEAR":"これから数週間〜数か月に起こりやすいこと","SELF":"この件に向き合うあなたの姿勢","ENV":"相手や周りの人・環境からの影響","HOPE":"期待していること、そして恐れていること","END":"この流れの行き着く先"},PL={PAST:'これまでは「K」の流れがありました。',PRESENT:'今は「K」の状態です。',FUTURE:'このまま進むと「K」へ向かいます。',MEASURE:'「K」を意識することが、状況をよくするカギです。',AROUND:'相手や周りは「K」の様子です。',HEART:'あなたの本心は「K」。',RESULT:'全体の答えは「K」です。',NOW:'今いちばん表れているのは「K」。',BLOCK:'乗り越える課題は「K」です。',DEEP:'心の奥には「K」があります。',AWARE:'意識して目指しているのは「K」。',NEAR:'近いうちに「K」が訪れそうです。',SELF:'あなたは今「K」の姿勢で向き合っています。',ENV:'周りからは「K」の影響を受けています。',HOPE:'「K」を願う気持ちと、そうならない不安が同居しています。',END:'この流れの行き着く先は「K」です。'};
+var FR={"PAST":{"love":"2人のこれまでのいきさつとして読むと","work":"仕事のこれまでの経緯として読むと","money":"これまでのお金の使い方として読むと","gen":"これまでの流れとして読むと"},"PRESENT":{"love":"今の2人の距離として読むと","work":"今の職場での立ち位置として読むと","money":"今のお金の状態として読むと","gen":"今の状況として読むと"},"FUTURE":{"love":"このままの2人の行方として読むと","work":"このまま働き続けた先として読むと","money":"このままのお金の流れの先として読むと","gen":"このまま進んだ先として読むと"},"MEASURE":{"love":"恋をよくするためにできることとして読むと","work":"仕事で試すとよいこととして読むと","money":"お金の面でできる工夫として読むと","gen":"今日からできることとして読むと"},"AROUND":{"love":"WHOの様子として読むと","work":"上司や同僚、職場の空気として読むと","money":"収入やお金を取りまく環境として読むと","gen":"周りの人や事情として読むと"},"HEART":{"love":"あなたの恋の本音として読むと","work":"仕事への本当の気持ちとして読むと","money":"お金に対する本当の気持ちとして読むと","gen":"あなたの本心として読むと"},"RESULT":{"love":"恋の結論として読むと","work":"仕事の結論として読むと","money":"お金の結論として読むと","gen":"全体の結論として読むと"},"NOW":{"love":"今の恋の状況として読むと","work":"今の仕事の状況として読むと","money":"今のお金の状況として読むと","gen":"今の状況として読むと"},"BLOCK":{"love":"恋の行く手をふさぐものとして読むと","work":"仕事の壁として読むと","money":"お金が貯まらない・増えない理由として読むと","gen":"乗り越える課題として読むと"},"DEEP":{"love":"心の奥の恋心として読むと","work":"仕事について心の奥で感じていることとして読むと","money":"お金への心の奥の不安や願いとして読むと","gen":"問題の根っことして読むと"},"AWARE":{"love":"あなたが望んでいる恋の形として読むと","work":"あなたが目指している働き方として読むと","money":"あなたが目指しているお金の状態として読むと","gen":"あなたが目指していることとして読むと"},"NEAR":{"love":"近いうちの2人の出来事として読むと","work":"近いうちの仕事の動きとして読むと","money":"近いうちのお金の動きとして読むと","gen":"近いうちに起こることとして読むと"},"SELF":{"love":"恋に向き合うあなたの姿勢として読むと","work":"仕事に向き合うあなたの姿勢として読むと","money":"お金と向き合うあなたの姿勢として読むと","gen":"あなたの姿勢として読むと"},"ENV":{"love":"WHOや周りの人の影響として読むと","work":"職場や業界の流れとして読むと","money":"家族や世の中の景気の影響として読むと","gen":"周りの環境として読むと"},"HOPE":{"love":"恋への期待と不安として読むと","work":"仕事への期待と不安として読むと","money":"お金への期待と不安として読むと","gen":"期待と不安として読むと"},"END":{"love":"恋の行き着く先として読むと","work":"仕事の行き着く先として読むと","money":"お金の行き着く先として読むと","gen":"この件の行き着く先として読むと"}},WN={me:'あなた',like:'好きな人',lover:'恋人',ex:'元恋人',work:'職場・学校の人',fam:'友達・家族'},PD={"PAST":"この悩みの背景や、これまでの流れ","PRESENT":"今の状況とあなたの立ち位置","FUTURE":"このまま進んだときの近い将来","MEASURE":"状況をよくするために、あなたができること","AROUND":"相手や周りの人の様子・まわりの事情","HEART":"あなた自身も気づいていない本当の気持ち","RESULT":"全体をまとめた答え","NOW":"今いちばん大きく表れている状況","BLOCK":"行く手をふさいでいるもの・乗り越える課題","DEEP":"心の奥にある気持ちや、問題の根っこ","AWARE":"あなたが意識して目指していること","NEAR":"これから数週間〜数か月に起こりやすいこと","SELF":"この件に向き合うあなたの姿勢","ENV":"相手や周りの人・環境からの影響","HOPE":"期待していること、そして恐れていること","END":"この流れの行き着く先"},PL={PAST:'これまでは「K」の流れがありました。',PRESENT:'今は「K」の状態です。',FUTURE:'このまま進むと「K」へ向かいます。',MEASURE:'「K」を意識することが、状況をよくするカギです。',AROUND:'相手や周りは「K」の様子です。',HEART:'あなたの本心は「K」。',RESULT:'全体の答えは「K」です。',NOW:'今いちばん表れているのは「K」。',BLOCK:'乗り越える課題は「K」です。',DEEP:'心の奥には「K」があります。',AWARE:'意識して目指しているのは「K」。',NEAR:'近いうちに「K」が訪れそうです。',SELF:'あなたは今「K」の姿勢で向き合っています。',ENV:'周りからは「K」の影響を受けています。',HOPE:'「K」を願う気持ちと、そうならない不安が同居しています。',END:'この流れの行き着く先は「K」です。'};
 var TN={kataomoi:'片思い',couple:'恋人との関係',fukuen:'復縁',kimochi:'相手の気持ち',kekkon:'結婚',tenshoku:'仕事・転職',shokuba:'人間関係',kinun:'お金',love:'恋愛',work:'仕事',gen:'全体の流れ'};
 var sel={who:null,about:null,want:null};
 function rnd(n){var a=new Uint32Array(1);(window.crypto||window.msCrypto).getRandomValues(a);return a[0]%n;}
@@ -229,12 +229,34 @@ root.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('cli
  root.querySelectorAll('[data-pick="'+g+'"]').forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-v')===sel[g]?'true':'false')});compose();});});
 qa.addEventListener('input',function(){sel.topic=null;sel.want=null;root.querySelectorAll('[data-pick]').forEach(function(x){x.setAttribute('aria-pressed','false');x.disabled=false});sel.who=sel.about=null;});
 function ttext(p,tp){var t=TP[p.c.name];if(t&&t[tp])return t[tp][p.rev?'rev':'up'];if(tp==='kinun')return p.c.money||'';if(/work|tenshoku|shokuba/.test(tp))return p.c.work;if(tp!=='gen')return p.c.love;return '';}
+
+function grp(tp){return /kataomoi|couple|fukuen|kimochi|kekkon/.test(tp)?'love':/tenshoku|shokuba/.test(tp)?'work':tp==='kinun'?'money':'gen';}
+function who(tp){if(tp&&grp(tp)!=='love')return '周り';return sel.who&&sel.who!=='me'?WN[sel.who]:'相手';}
+var SELFPOS={HEART:1,DEEP:1,AWARE:1,SELF:1,MEASURE:1,BLOCK:1,HOPE:1};
+function ptp(l,tp){if(tp==='kimochi'&&SELFPOS[l])return sel.who==='lover'?'couple':sel.who==='ex'?'fukuen':'kataomoi';return tp;}
+function suit(c){var m=/b27-tr-(wands|cups|swords|pentacles)/.exec(c.a);return m?m[1]:'major';}
+function spreadSum(picks,L,tp){var n=picks.length,mj=0,rv=0,su={wands:0,cups:0,swords:0,pentacles:0},o=[];
+ picks.forEach(function(p){var s=suit(p.c);if(s==='major')mj++;else su[s]++;if(p.rev)rv++;});
+ var big=mj>=Math.ceil(n*0.4);o.push(big?'大アルカナが'+mj+'枚出ています。目の前の出来事だけでなく、人生の節目にかかわる大きな流れの中にいます。':mj<=1?(mj?'大アルカナは1枚だけ。':'大アルカナは1枚もありません。')+'運命よりも、毎日の小さな選び方の積み重ねで結果が変わる相談です。':'大アルカナが'+mj+'枚。大きな流れと日々の行動の両方が、結果を左右します。');
+ var SN={wands:['ワンド','行動や情熱'],cups:['カップ','気持ちや愛情'],swords:['ソード','考え方や言葉'],pentacles:['ペンタクル','お金や現実の生活']},top=null;
+ for(var k in su){if(su[k]>=3&&(!top||su[k]>su[top]))top=k;}
+ if(top)o.push(SN[top][0]+'が'+su[top]+'枚と多く、この相談のカギは「'+SN[top][1]+'」にあります。');
+ o.push(rv>n/2?'逆位置が'+rv+'枚と多めです。まだ準備が整っていないところがあるので、急がず一つずつ整えると流れが変わります。':rv===0?'すべて正位置です。流れは素直で、思い切って動いてよいときです。':'正位置が'+(n-rv)+'枚、逆位置が'+rv+'枚。進めるところと立ち止まるところを見分けると、うまく運びます。');
+ var W=who(tp);
+ if(mode==='hex'){var a=picks[4],h=picks[5];o.push(!a.rev&&!h.rev?W+'の様子（'+kw(a)+'）とあなたの本心（'+kw(h)+'）は、どちらもまっすぐです。思っていることは伝わりやすい状態です。':a.rev&&h.rev?W+'もあなたも、気持ちを出しきれていません（'+kw(a)+'／'+kw(h)+'）。先に小さく本音を見せたほうが、関係が動きます。':'周り（'+kw(a)+'）と本心（'+kw(h)+'）の向きが少しずれています。このずれが、モヤモヤの正体かもしれません。');
+  o.push(picks[2].rev?'「未来」のカードが逆位置なので、今のままだと思うように進みにくい流れです。「対策」の「'+kw(picks[3])+'」で流れを変えましょう。':'「未来」の「'+kw(picks[2])+'」は前向きな流れです。「対策」の「'+kw(picks[3])+'」を足すと、さらに後押しになります。');}
+ else{var d=picks[2],w=picks[3];o.push(!d.rev&&!w.rev?'心の奥（'+kw(d)+'）と意識していること（'+kw(w)+'）が同じ向きを向いています。迷いは少なく、望む方向ははっきりしています。':d.rev&&w.rev?'心の奥（'+kw(d)+'）も意識していること（'+kw(w)+'）も、まだ揺れています。答えを急がず、気持ちが落ち着くのを待つのも一つの手です。':'心の奥（'+kw(d)+'）と、頭で考えていること（'+kw(w)+'）が食い違っています。本当はどうしたいのかを、一度紙に書き出してみて。');
+  o.push(picks[1].rev?'障害のカードが逆位置なので、壁は思っているより低く、時間とともにほどけていきます。':'障害の「'+kw(picks[1])+'」は、正面から向き合う必要がある課題です。');
+  o.push((picks[5].rev?'近い未来は少し足踏みしますが、':'近い未来には「'+kw(picks[5])+'」が訪れ、')+'最後は「'+kw(picks[9])+'」へ。'+(picks[9].rev?'結末が逆位置なので、7〜9のカードをヒントに途中で軌道を直すのがおすすめです。':'このまま丁寧に進めば、納得のいく形に近づきます。'));}
+ var st=mode==='hex'?[picks[3],picks[5],picks[6]]:[picks[6],picks[1],picks[9]],sl=mode==='hex'?['対策','本心','結論']:['あなたの立場','障害','結末'];
+ return ['<div class="fh-b27-tr-sum fh-b27-tr-adv"><small>全体の読み</small>'+o.map(function(x){return '<p>'+esc(x)+'</p>'}).join('')+'</div>',
+  '<div class="fh-b27-tr-sum fh-b27-tr-adv"><small>今日からできる3つのこと</small><ol>'+st.map(function(p,i){return '<li><b>'+sl[i]+'の'+esc(p.c.name)+'より：</b>'+esc(p.c.advice)+'</li>'}).join('')+'</ol></div>'];}
 function verdict(picks,q,qt,tp){var L=LABEL[mode];
  if(mode==='hex'||mode==='celtic'){var r=picks[picks.length-1],y=yes(r.c,r.rev),c0=mode==='hex'?picks[1]:picks[0],b=mode==='hex'?picks[3]:picks[1];
   if(qt==='yes')return {big:y,txt:'結論の位置に出たのは'+esc(r.c.name)+'の「'+kw(r)+'」。'+(y==='はい'?'流れはあなたの味方です。':y==='いいえ'?'今のままでは難しいので、「'+kw(b)+'」をヒントにやり方を変えてみて。':'まだ決め手が足りない状態です。「'+kw(b)+'」を意識してみて。')};
   var ad=mode==='hex'?picks[3]:picks[6],fe=mode==='hex'?picks[4]:picks[7];
   if(qt==='adv')return {big:'カギは「'+kw(ad)+'」',txt:(mode==='hex'?'対策':'あなたの立場')+'の位置に'+esc(ad.c.name)+'が出ました。「'+kw(ad)+'」を意識して動くと、結論の「'+kw(r)+'」につながります。'};
-  if(qt==='feel'||tp==='kimochi')return {big:'相手は「'+kw(fe)+'」',txt:'相手や周りの様子を表す位置は「'+kw(fe)+'」。あなたの'+(mode==='hex'?'本心は「'+kw(picks[5])+'」':'心の奥は「'+kw(picks[2])+'」')+'で、2人の流れの答えは「'+kw(r)+'」です。'};
+  if(qt==='feel'||tp==='kimochi')return {big:who(tp)+'は「'+kw(fe)+'」',txt:who(tp)+'や周りの様子を表す位置は「'+kw(fe)+'」。あなたの'+(mode==='hex'?'本心は「'+kw(picks[5])+'」':'心の奥は「'+kw(picks[2])+'」')+'で、2人の流れの答えは「'+kw(r)+'」です。'};
   if(mode==='hex')return {big:'結論は「'+kw(r)+'」',txt:'「'+kw(picks[0])+'」だった流れが今は「'+kw(picks[1])+'」。周りは「'+kw(picks[4])+'」、あなたの本心は「'+kw(picks[5])+'」。「'+kw(picks[3])+'」を意識すると、「'+kw(r)+'」へ向かいます。'};
   return {big:'結末は「'+kw(r)+'」',txt:'今は「'+kw(c0)+'」の状態で、乗り越える課題は「'+kw(b)+'」。心の奥には「'+kw(picks[2])+'」、願いと不安は「'+kw(picks[8])+'」。近いうちに「'+kw(picks[5])+'」が訪れ、最後は「'+kw(r)+'」へ向かいます。'};}
  if(mode==='yes'){var y=yes(picks[0].c,picks[0].rev);return {big:y,txt:'カギになるのは「'+kw(picks[0])+'」。'+(y==='はい'?'流れはあなたの味方です。':y==='いいえ'?'今は無理に進めず、別の道や時期も考えてみて。':'今はまだ決め手が足りない状態です。')};}
@@ -252,15 +274,15 @@ document.getElementById('fh-b27-tr-go').addEventListener('click',function(){var 
  picks.forEach(function(p,i){var el=cards[i];el.querySelector('.fh-b27-tr-face').innerHTML=face(p.c);if(p.rev)el.classList.add('is-rev');setTimeout(function(){el.classList.add('is-open');},300+i*500);});
  var tp=topic(q),qt=qtype(q);
  setTimeout(function(){var v=verdict(picks,q,qt,tp),h='<div class="fh-b27-tr-ask"><small>'+(q?'あなたの相談':'今日のあなたへ')+'</small>'+(q?'<p>「'+esc(q)+'」</p>':'')+'<small>テーマ：'+TN[tp]+'</small></div>';
-  h+='<div class="fh-b27-tr-verdict"><small>カードの答え</small><b>'+v.big+'</b><p>'+v.txt+'</p></div>';
-  picks.forEach(function(p,i){var c=p.c,pos=p.rev?'逆位置':'正位置',kws=(p.rev?c.kw_rev:c.kw_up).join('・'),th=ttext(p,tp);
+  h+='<div class="fh-b27-tr-verdict"><small>カードの答え</small><b>'+v.big+'</b><p>'+v.txt+'</p></div>';var SS=(mode==='hex'||mode==='celtic')?spreadSum(picks,L,tp):null;if(SS)h+=SS[0];
+  picks.forEach(function(p,i){var c=p.c,pos=p.rev?'逆位置':'正位置',kws=(p.rev?c.kw_rev:c.kw_up).join('・'),th=ttext(p,(mode==='hex'||mode==='celtic')?ptp(L[i],tp):tp);
    var lab=JP[L[i]]||L[i];if(mode==='choice'){var mm2=q.match(/^(.+?)(?:と|か|、|or)(.+?)(?:[、,]?\s*)(?:どっち|どちら)/),nm2=(document.getElementById(i?'fh-b27-tr-b':'fh-b27-tr-a').value.trim()||(mm2?mm2[i+1]:(i?'B':'A')));lab='「'+esc(nm2)+'」を選んだら';}if(PD[L[i]]&&(mode==='hex'||mode==='celtic'))lab=(i+1)+'. '+lab+'｜'+PD[L[i]];h+='<div class="fh-b27-tr-rc"><small>'+lab+'</small><br><strong>'+esc(c.name)+'（'+pos+'）</strong><br><small>キーワード：'+esc(kws)+'</small>';
-   if(PL[L[i]]&&(mode==='hex'||mode==='celtic'))h+='<p><b>'+esc(PL[L[i]].replace('K',kw(p)))+'</b></p>';
-   if(th)h+='<p><b>'+TN[tp]+'では</b>　'+esc(th)+'</p>';
+   if(PL[L[i]]&&(mode==='hex'||mode==='celtic'))h+='<p><b>'+esc(PL[L[i]].replace('K',kw(p)).replace('相手',who(tp)))+'</b></p>';
+   if(th)h+='<p><b>'+((mode==='hex'||mode==='celtic')&&FR[L[i]]?esc(FR[L[i]][grp(tp)].replace('WHO',who(tp))):TN[tp]+'では')+'</b>　'+esc(th)+'</p>';
    h+='<p>'+esc(p.rev?c.rev:c.up)+'</p>';
    if(!th&&mode==='one')h+='<p><b>恋愛</b>　'+esc(c.love)+'</p><p><b>仕事</b>　'+esc(c.work)+'</p>';
    h+='<p><a href="'+(root.getAttribute('data-base')||'')+'#'+c.a+'">'+esc(c.name)+'の意味をくわしく見る →</a></p></div>';});
-  h+='<div class="fh-b27-tr-sum fh-b27-tr-adv"><small>カードからのひとこと</small><p>'+esc(picks[picks.length-1].c.advice)+'</p></div>';
+  if(SS)h+=SS[1];else h+='<div class="fh-b27-tr-sum fh-b27-tr-adv"><small>カードからのひとこと</small><p>'+esc(picks[picks.length-1].c.advice)+'</p></div>';
   res.innerHTML=h;},400+L.length*500+600);});
 slots();})();</script>
 <!--Ads1-->
