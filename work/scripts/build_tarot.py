@@ -113,6 +113,15 @@ CSS = """<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;70
 .fh-b27-tr-qa p{margin-top:6px;font-size:14.5px}
 @media (max-width:640px){.fh-b27-tr-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.fh-b27-tr-two,.fh-b27-tr-spreads{grid-template-columns:1fr}.fh-b27[data-fh-page="tarot"] .fh-b27-toc ol{columns:1}.fh-b27-tr-card{width:94px;height:156px}.fh-b27-tr-face .s{font-size:32px}.fh-b27-tr-emb{flex-basis:120px;transform:scale(.85)}.fh-b27[data-fh-page="tarot"] .fh-b27-title{font-size:26px}}
 @media (prefers-reduced-motion:reduce){.fh-b27-tr-in{transition:none}.fh-b27-tr-emb:before{animation:none}}
+ .fh-b27-tr-ql{display:block;text-align:center;font:700 20px 'Shippori Mincho',serif;color:var(--gold);margin-bottom:6px}
+textarea.fh-b27-tr-q{resize:vertical;min-height:64px;line-height:1.6}
+.fh-b27-tr-topics{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0}
+.fh-b27-tr-topics button{min-height:36px;border:1px solid rgba(217,180,90,.45);border-radius:999px;background:transparent;color:var(--gold);font:700 14px inherit;padding:0 14px;cursor:pointer}
+.fh-b27-tr-topics button[aria-pressed="true"]{background:var(--gold);color:#2A0F1A}
+.fh-b27-tr-ask{border:1px dashed rgba(217,180,90,.6);border-radius:8px;padding:10px 14px;margin-bottom:10px;background:rgba(0,0,0,.25);text-align:center}
+.fh-b27 .fh-b27-tr-ask p{font:700 17px 'Shippori Mincho',serif;color:var(--gold2,#F3E2B0);margin:2px 0}
+.fh-b27-tr-sum{margin-top:10px;border-radius:8px;padding:10px 14px;background:linear-gradient(135deg,rgba(217,180,90,.18),rgba(90,31,51,.3));border:1px solid rgba(217,180,90,.4)}
+.fh-b27-tr-sum small{color:var(--gold)}
 </style>"""
 
 JS = r"""(function(){var MA=__MAJOR__,MI=__MINOR__;var root=document.getElementById('fh-b27-tr');if(!root)return;
@@ -129,15 +138,28 @@ document.getElementById('fh-b27-tr-go').addEventListener('click',function(){slot
  for(var i=0;i<L.length;i++){var k=rnd(pool.length);picks.push({c:pool.splice(k,1)[0],rev:rnd(2)===1});}
  var cards=table.querySelectorAll('.fh-b27-tr-card');
  picks.forEach(function(p,i){var el=cards[i];el.querySelector('.fh-b27-tr-face').innerHTML=face(p.c);if(p.rev)el.classList.add('is-rev');setTimeout(function(){el.classList.add('is-open');},300+i*500);});
- var q=(document.getElementById('fh-b27-tr-q').value||'').trim();
- setTimeout(function(){var h=q?'<p class="fh-b27-small">質問：'+esc(q)+'</p>':'';
-  picks.forEach(function(p,i){var c=p.c,pos=p.rev?'逆位置':'正位置',kw=(p.rev?c.kw_rev:c.kw_up).join('・');
+ var q=(document.getElementById('fh-b27-tr-q').value||'').trim(),tp=topic(q),yn=isYN(q),TN={love:'恋愛',work:'仕事',money:'お金',people:'人間関係',day:'今日の運勢',gen:'全体の流れ'};
+ setTimeout(function(){var h='';
+  if(q)h+='<div class="fh-b27-tr-ask"><small>あなたの相談</small><p>「'+esc(q)+'」</p><small>テーマ：'+TN[tp]+(yn?'・Yes/Noの質問':'')+'</small></div>';
+  picks.forEach(function(p,i){var c=p.c,pos=p.rev?'逆位置':'正位置',kw=(p.rev?c.kw_rev:c.kw_up).join('・'),main=p.rev?c.rev:c.up,th=(tp==='love'||tp==='people')?c.love:tp==='work'?c.work:tp==='money'?c.money:'';
    h+='<div class="fh-b27-tr-rc"><small>'+JP[L[i]]+'</small><br><strong>'+esc(c.name)+'（'+pos+'）</strong><br><small>キーワード：'+esc(kw)+'</small>';
-   if(mode==='yes')h+='<p class="fh-b27-tr-yes">'+yes(c,p.rev)+'</p>';
-   h+='<p>'+esc(p.rev?c.rev:c.up)+'</p>';
-   if(mode!=='three')h+='<p><b>恋愛</b>　'+esc(c.love)+'</p><p><b>仕事</b>　'+esc(c.work)+'</p>';
-   h+='<p><b>アドバイス</b>　'+esc(c.advice)+'</p><p><a href="#'+c.a+'">'+esc(c.name)+'の意味をくわしく見る →</a></p></div>';});
+   if(mode==='yes'||(yn&&mode==='one'))h+='<p class="fh-b27-tr-yes">'+yes(c,p.rev)+'</p>';
+   h+='<p>'+esc(main)+'</p>';
+   if(th)h+='<p><b>'+TN[tp]+'では</b>　'+esc(th)+(p.rev?'（逆位置なので、思いどおりに進まない場面もあります。焦らず一つずつ確かめましょう。）':'')+'</p>';
+   else if(mode!=='three')h+='<p><b>恋愛</b>　'+esc(c.love)+'</p><p><b>仕事</b>　'+esc(c.work)+'</p>';
+   h+='<p><a href="#'+c.a+'">'+esc(c.name)+'の意味をくわしく見る →</a></p></div>';});
+  var last=picks[picks.length-1];
+  if(mode==='three')h+='<div class="fh-b27-tr-sum"><small>3枚の流れ</small><p>過去は「'+esc((picks[0].rev?picks[0].c.kw_rev:picks[0].c.kw_up)[0])+'」、今は「'+esc((picks[1].rev?picks[1].c.kw_rev:picks[1].c.kw_up)[0])+'」、この先は「'+esc((picks[2].rev?picks[2].c.kw_rev:picks[2].c.kw_up)[0])+'」へ向かう流れです。'+(q?'「'+esc(q)+'」について、':'')+'今の「'+esc(picks[1].c.name)+'」のテーマを意識すると、未来のカードの良い面が出やすくなります。</p></div>';
+  if(yn&&mode!=='yes'&&mode!=='one'){var y=yes(last.c,last.rev);h+='<div class="fh-b27-tr-sum"><small>Yes/Noで言うと</small><p class="fh-b27-tr-yes">'+y+'</p><p>未来の位置に出た「'+esc(last.c.name)+'」から読んだ答えです。</p></div>';}
+  h+='<div class="fh-b27-tr-sum fh-b27-tr-adv"><small>カードからのひとこと</small><p>'+esc(last.c.advice)+'</p></div>';
   res.innerHTML=h;},400+L.length*500+600);});
+function topic(q){if(window.__trTopic)return window.__trTopic;if(/恋|好き|片思い|片想い|彼氏|彼女|彼|復縁|結婚|告白|デート|元カレ|元カノ|婚活|出会い|浮気|夫|妻|パートナー/.test(q))return 'love';
+ if(/仕事|転職|職場|就職|上司|部下|会社|昇進|昇給|試験|受験|勉強|資格|面接|起業|独立|キャリア/.test(q))return 'work';
+ if(/お金|金運|収入|貯金|貯蓄|買う|買い|投資|副業|借金|節約|宝くじ|給料/.test(q))return 'money';
+ if(/友達|友人|人間関係|家族|親|子ども|子供|同僚|ママ友|兄弟|姉妹|仲直り/.test(q))return 'people';if(/今日|明日|今週/.test(q))return 'day';return 'gen';}
+function isYN(q){return /(か[？?]?$|[？?]$|べき|ほうがいい|方がいい|大丈夫|できる|うまくいく|叶う|かなう|来る|くる)/.test(q);}
+root.querySelectorAll('[data-topic]').forEach(function(b){b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')==='true';root.querySelectorAll('[data-topic]').forEach(function(x){x.setAttribute('aria-pressed','false')});
+ if(!on){b.setAttribute('aria-pressed','true');window.__trTopic=b.getAttribute('data-topic');var qq=document.getElementById('fh-b27-tr-q');if(!qq.value){qq.placeholder={love:'例：あの人の気持ちは？／この恋はうまくいく？',work:'例：転職したほうがいい？／今の仕事を続けるべき？',money:'例：今月の金運は？／大きな買い物をしても大丈夫？',people:'例：友達と仲直りできる？／職場の人とうまくやるには？',day:'例：今日はどんな一日？'}[window.__trTopic];}}else window.__trTopic=null;});});
 slots();})();"""
 SUITS = [("wands", "ワンド", "Wands", "♣︎", "火", "情熱・行動・仕事への意欲",
           "棒（杖）が描かれるスートで、四大元素の火に当たります。やる気や挑戦、新しく始めること、仕事への意欲など、前へ進むエネルギーを表します。ワンドが多く出たときは、考えるより動くことが鍵になりやすいときです。"),

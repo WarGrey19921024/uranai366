@@ -10,13 +10,15 @@
 <!--HOW--><section class="fh-b27-sec" id="b27-tr-play">
   @@H2@@
   <div id="fh-b27-tr" class="fh-b27-tr-felt">
+    <label class="fh-b27-tr-ql" for="fh-b27-tr-q">何を占いますか？</label>
+    <textarea class="fh-b27-tr-q" id="fh-b27-tr-q" rows="2" maxlength="80" placeholder="例：片思いの人と付き合える？／転職したほうがいい？／今月の金運は？" aria-label="占いたいこと"></textarea>
+    <div class="fh-b27-tr-topics" role="group" aria-label="占うテーマ"><button type="button" data-topic="love">恋愛</button><button type="button" data-topic="work">仕事</button><button type="button" data-topic="money">お金</button><button type="button" data-topic="people">人間関係</button><button type="button" data-topic="day">今日の運勢</button></div>
     <div class="fh-b27-tr-modes" role="group" aria-label="占い方を選ぶ"><button type="button" data-mode="one" aria-pressed="true">1枚引き</button><button type="button" data-mode="three" aria-pressed="false">3枚引き（過去・現在・未来）</button><button type="button" data-mode="yes" aria-pressed="false">Yes/No占い</button></div>
     <div class="fh-b27-tr-modes" role="group" aria-label="使うカードを選ぶ"><button type="button" data-deck="major" aria-pressed="true">大アルカナ22枚</button><button type="button" data-deck="all" aria-pressed="false">78枚すべて</button></div>
-    <input class="fh-b27-tr-q" id="fh-b27-tr-q" type="text" maxlength="60" placeholder="占いたいことを1つ（書かなくても占えます）" aria-label="占いたいこと">
     <div style="text-align:center"><button type="button" class="fh-b27-tr-draw" id="fh-b27-tr-go">シャッフルして引く</button></div>
     <div class="fh-b27-tr-table" id="fh-b27-tr-table" aria-live="polite"></div>
     <div class="fh-b27-tr-res" id="fh-b27-tr-res" aria-live="polite"></div>
-    <p class="fh-b27-small">カードは毎回ランダムに選び、上下（正位置・逆位置）も半分ずつの確率で決めます。入力した質問は送信も保存もしません。</p>
+    <p class="fh-b27-small">相談を書くと、言葉から「恋愛・仕事・お金・人間関係」のどれについての質問かを読み取り、そのテーマに合わせてカードを読みます。「〜できる？」「〜したほうがいい？」のような質問には、Yes/Noの答えも出します。カードは毎回ランダムに選び、上下（正位置・逆位置）も半分ずつの確率で決めます。入力した文は送信も保存もしません。</p>
   </div>
   <p><b>じっくり占いたいときは</b>、もっと多くのカードを並べる本格的な占い方もあります。</p>
   <div class="fh-b27-tr-spreads">@@SPREADS@@</div>
