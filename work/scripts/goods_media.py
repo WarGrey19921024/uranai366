@@ -1,7 +1,7 @@
 """商品ボックスの「商品の写真」と「商品ページへのリンク」（fetch_goods.py が集めた work/data/goods_*.json を使う）。
 データの無い検索語は、これまでどおり自前の絵と検索ページへのボタンになる（ページは壊れない）。
 写真は楽天・Yahoo!の画像サーバーのものをそのまま表示する（両社の商品検索APIの結果。商品ページへのリンクとセットで使う）。"""
-import html, json, os, urllib.parse
+import html, json, os, re, urllib.parse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
@@ -72,7 +72,8 @@ def price_html(q, short=False):
         return ""
     at = it.get("at", "")
     when = f"{int(at[5:7])}月{int(at[8:10])}日時点" if len(at) >= 10 else ""
-    name = (it.get("name") or "").strip()
+    name = re.sub(r"[！!【】★☆＼／◆◇■□♪]+", " ", it.get("name") or "").strip()
+    name = re.sub(r"\s+", " ", name)
     name = name if len(name) <= 30 else name[:30] + "…"
     prod = "" if short else f'<span class="fh-b27-shop-prod">{html.escape(name)}</span>'
     return (f'{prod}<span class="fh-b27-shop-price">{shop} <b>{int(it["price"]):,}円</b>'
