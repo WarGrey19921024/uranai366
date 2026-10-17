@@ -15,8 +15,15 @@ def _load(shop):
     return _D[shop]
 
 
+_SEEN = set()
+
+
 def item(shop, q):
     """検索語 q の代表商品（楽天 or Yahoo!）。無ければ None"""
+    _SEEN.add(q)
+    if os.environ.get("FH_GOODS_LOG"):  # 使っている検索語を書き出す（写真集めの一覧づくり用）
+        with open(os.environ["FH_GOODS_LOG"], "a", encoding="utf-8") as fp:
+            fp.write(q + "\n")
     return (_load(shop).get(q) or None) if shop in ("rakuten", "yahoo") else None
 
 
