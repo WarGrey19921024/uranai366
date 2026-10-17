@@ -495,6 +495,87 @@ def alt_pick(stone):
     return pickup(f"{stone}の代わりに", alt, f"本物の{stone}は高価なので、{why}を手ごろなお守りに。", q, "fh-b27-pick-alt")
 
 
+# 2026-10-17 色ごと・石ごとの「使いまわしの広告パーツ」（その色・石に写真つきの商品が無いときに使う。data/goods_family.json）
+_FAM = json.load(open(os.path.join(DATA, "goods_family.json"), encoding="utf-8"))
+STONE_MAX = 15000  # これより高い石の商品は出さない（占いのお守りとしては高すぎる）
+
+
+def fam_of(name, hx):
+    """色の名前と色コードから、色の系統（赤・緑・白…）を決める"""
+    import colorsys
+    n = name or ""
+    if any(k in n for k in ("金", "ゴールド", "黄金")):
+        return "金"
+    if any(k in n for k in ("銀", "シルバー")):
+        return "銀"
+    hx = color_hex(n, hx)
+    if not hx:
+        return "白"
+    r, g, b = (int(hx[i:i + 2], 16) / 255 for i in (1, 3, 5))
+    h, l, s_ = colorsys.rgb_to_hls(r, g, b)
+    h *= 360
+    if l > 0.88 or (s_ < 0.18 and l > 0.75):
+        return "白"
+    if l < 0.16:
+        return "黒"
+    if s_ < 0.15:
+        return "グレー"
+    if 15 <= h < 50 and l < 0.42:
+        return "茶"
+    if 20 <= h < 55 and l > 0.68 and s_ < 0.55:
+        return "ベージュ"
+    if h < 12 or h >= 345:
+        return "ピンク" if l > 0.7 else "赤"
+    if h < 40:
+        return "オレンジ"
+    if h < 66:
+        return "黄"
+    if h < 95:
+        return "黄緑"
+    if h < 165:
+        return "緑"
+    if h < 200:
+        return "水色" if l > 0.5 else "青"
+    if h < 245:
+        return "紺" if l < 0.33 else ("水色" if l > 0.72 else "青")
+    if h < 300:
+        return "紫"
+    return "ピンク" if l > 0.45 else "赤"
+
+
+def _ok(q, cap=None):
+    it = GM.item("rakuten", q)
+    return bool(it and it.get("img") and GM.photo(q) and (cap is None or int(it.get("price") or 0) <= cap))
+
+
+def color_pick(name, hx):
+    """ラッキーカラーの商品：その色の名前で写真があればそれ、無ければ色の系統の小物（使いまわし）"""
+    own = (name + " 小物").strip()
+    if _ok(own, 8000):
+        return own, "この色の小物を見る"
+    f = fam_of(name, hx)
+    return _FAM["color"][f], f"{f}系のマグカップを見る"
+
+
+def color_btns(name, hx):
+    q, _ = color_pick(name, hx)
+    return mono_btns(q)
+
+
+def stone_q(name, hx=None, jewel=False):
+    """石の商品：手ごろな値段で写真のある検索語。無ければ石の色の系統のパワーストーン（使いまわし）"""
+    cands = [f"{name} ブレスレット", f"{name} 天然石"] + ([f"{name} ネックレス"] if jewel else [])
+    for q in cands:
+        if _ok(q, STONE_MAX):
+            return q
+    return _FAM["stone"][fam_of(name, hx)]
+
+
+def flower_q(name):
+    q = name + " 花 ギフト"
+    return q if _ok(q) else _FAM["flower"]
+
+
 PICK_CSS = ("<style>"
     ".fh-b27 .fh-b27-pick{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px 12px;align-items:start;background:var(--p-cream,#F6EEDC);color:#2E2A26;border-radius:12px;padding:12px;margin:14px 0;box-shadow:0 4px 12px rgba(0,0,0,.25)}"
     ".fh-b27 .fh-b27-pick-pic{width:92px;height:92px;background:#fff;border-radius:10px;padding:3px;overflow:hidden}"
@@ -519,6 +600,9 @@ PICK_CSS = ("<style>"
     ".fh-b27 img.fh-b27-tz-img{width:72px;height:72px;border-radius:10px;object-fit:contain;background:#fff}"
     ".fh-b27 .fh-b27-luckyteaser li .fh-b27-ic{width:56px;height:56px}"
     ".fh-b27 .fh-b27-luckyteaser li em{font-style:normal;font-size:11.5px;color:#B3261E;font-weight:700}"
+    ".fh-b27 a.fh-b27-luckyteaser b.fh-b27-tz-go{display:block;margin-top:4px;padding:10px 12px;border-radius:10px;background:#8A4B12;color:#fff;text-align:center;font-size:14.5px}"
+    ".fh-b27 a.fh-b27-luckyteaser small.fh-b27-tz-note{text-align:center;color:#6B5A2E;font-size:11.5px}"
+    ".fh-b27 .fh-b27-mono-card .fh-b27-mono-btns{margin-top:10px}"
     "</style>")
 
 
@@ -734,7 +818,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         _chips = "".join(f'<li>{GM.img_tag(x, "", "fh-b27-tz-img") or ic(item_cat(x))}<span>{esc(x)}</span>{_pr(x)}</li>' for x in _its[:3])
         a(LUCKY_CSS)
         a(PICK_CSS)
-        a(f'''<a class="fh-b27-luckyteaser" href="#b27-omamori"><small>{md}生まれの2027年のラッキーアイテム</small><ul>{_chips}</ul><b>ほか{len(_its) - min(3, len(_its))}つ・ラッキーカラーと守護石もお守りリストで見る ↓</b></a>''')
+        a(f'''<a class="fh-b27-luckyteaser" href="#b27-omamori"><small>{md}生まれの2027年のラッキーアイテム</small><ul>{_chips}</ul><b class="fh-b27-tz-go">▼ 残り{len(_its) - min(3, len(_its))}つのアイテムとラッキーカラー・守護石を見る</b><small class="fh-b27-tz-note">このページの下の「2027年のお守りリスト」へ移動します</small></a>''')
 
     # 2 暦と星
     sekki_dd = K["sekki"].get(e["sekki"], "")
@@ -771,12 +855,12 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     a(f'''<section class="fh-b27-sec" id="b27-mono">
   {h2(3, "mono", f"{md}の誕生花・誕生石・誕生日石・誕生色")}
   <div class="fh-b27-mono">
-    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{mono_btns(re.sub(r"[（(].*", "", flower["flower"]) + " 花 ギフト")}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{alt_pick(bm_list[0]) or mono_btns(bm_list[0] + " ネックレス")}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone"><small>誕生日石（{md}）</small><b>{esc(std["stone"])}</b><p>{md}の誕生日石として、多くの一覧で紹介されている石です。</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-days">366日の誕生日石の一覧 →</a>{alt_pick(std["stone"]) or mono_btns(re.sub(r"[（(].*", "", std["stone"]) + " 天然石")}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-color">{sw(std["color_hex"])}<small>誕生色（{md}）</small><b>{esc(std["color"])}</b><p>{md}の誕生色として、多くの一覧で紹介されている色です。</p></div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{alt_pick(e["birthday_stone"]["name"]) or mono_btns(e["birthday_stone"]["name"] + " ブレスレット")}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-color fh-b27-mc-own">{sw(col_hex)}<small>ラッキーカラー（当サイト独自）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）</b><p>{esc(col_desc)}</p></div>
+    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{mono_btns(flower_q(re.sub(r"[（(].*", "", flower["flower"])))}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{alt_pick(bm_list[0]) or mono_btns(stone_q(bm_list[0], bm_first.get("color_hex"), True))}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone"><small>誕生日石（{md}）</small><b>{esc(std["stone"])}</b><p>{md}の誕生日石として、多くの一覧で紹介されている石です。</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-days">366日の誕生日石の一覧 →</a>{alt_pick(std["stone"]) or mono_btns(stone_q(re.sub(r"[（(].*", "", std["stone"]), (st_idx.get(re.sub(r"[（(].*", "", std["stone"])) or {}).get("color_hex")))}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-color">{sw(std["color_hex"])}<small>誕生色（{md}）</small><b>{esc(std["color"])}</b><p>{md}の誕生色として、多くの一覧で紹介されている色です。</p>{color_btns(std["color"], std["color_hex"])}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{alt_pick(e["birthday_stone"]["name"]) or mono_btns(stone_q(e["birthday_stone"]["name"], bd_stone.get("color_hex")))}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-color fh-b27-mc-own">{sw(col_hex)}<small>ラッキーカラー（当サイト独自）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）</b><p>{esc(col_desc)}</p>{color_btns(e["birthday_color"]["name"], col_hex)}</div>
   </div>
   {paras(fx.get("items"))}
   <p class="fh-b27-small">誕生日石と誕生色は、ネットや本で広く使われている一覧に合わせています（もとは斉藤貴子『366日誕生石の本』、野村順一『誕生色事典』とされます）。守護石とラッキーカラーは、その日の星と七十二候からこのサイトが独自に選んだものです（決め方はページ下の「この占いについて」）。{"お店のボタンは広告（アフィリエイトリンク）です。" if AFF_TPL else ""}</p>''')
@@ -881,7 +965,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     _pool = [_am_items[i] for i in (1, 3, 4, 5, 2, 0) if i < len(_am_items) and GM.photo(_am_items[i].get("name", "")) and GM.item("rakuten", _am_items[i].get("name", ""))]
     if _pool:
         _it = _pool.pop(0)
-        a("  " + pickup("毎日の運を整えるラッキーアイテム", _it.get("name", ""), _it.get("why", "")))
+        a("  " + pickup(f"{md}生まれの2027年のラッキーアイテム｜毎日の運を整える", _it.get("name", ""), _it.get("why", "")))
     a("</section>")
 
     a(f'''<section class="fh-b27-sec" id="b27-grow">
@@ -969,7 +1053,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     if _pool:
         _it = _pool.pop(0)
         _pk = [i + 1 for i in range(12) if i < len(marks) and marks[i] == "◎"]
-        a("  " + pickup(f"{_pk[0]}月の山場に持ちたいお守り" if _pk else "山場の月に持ちたいお守り", _it.get("name", ""), _it.get("why", "")))
+        a("  " + pickup(f"{md}生まれの2027年のラッキーアイテム｜" + (f"{_pk[0]}月の山場のお守りに" if _pk else "山場の月のお守りに"), _it.get("name", ""), _it.get("why", "")))
     a('  <p class="fh-b27-small">◎ とても良い ／ ○ 良い ／ △ 慎重に。数字は上のグラフの「総合」で、366日×12か月の総合点の上位4分の1を◎、下位4分の1を△にしています。</p>\n</section>')
     a("<!--Ads2-->")  # WP QUADS の広告位置2：12か月の運勢の後
 
@@ -982,13 +1066,13 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
             t = x.get("title", "") + x.get("text", "")
             stn_n = ((yr.get("amulet") or {}).get("stone") or {}).get("name", "")
             if stn_n and stn_n in x.get("title", ""):
-                return alt_pick(stn_n) or pickup("この行動のおともに", stn_n, "", stn_n + " 天然石")
+                return "" if alt_stone(stn_n) else pickup("この行動のおともに（あなたの守護石）", stn_n, "", stone_q(stn_n, (st_idx.get(stn_n) or {}).get("color_hex")))
             if _flw and _flw in x.get("title", ""):
-                return pickup("この行動のおともに", _flw, f"{md}の誕生花。", _flw + " 花 ギフト")
+                return pickup("この行動のおともに（あなたの誕生花）", _flw, f"{md}の誕生花。", flower_q(_flw))
             for nm, q in _cands:
                 core = nm.split("の")[-1]
                 if len(core) >= 2 and core in t:
-                    return pickup("この行動のおともに", nm, "", q)
+                    return pickup("この行動のおともに（あなたのラッキーアイテム）", nm, "", q)
             return ""
         li = "\n    ".join(f'<li><span><b>{inline(x.get("title", ""))}</b>{inline(x.get("text", ""))}{_act_pick(x)}</span></li>' for x in acts)
         a(f'<section class="fh-b27-sec" id="b27-action">\n  {h2(13, "action", "2027年の開運アクション")}\n  <ol class="fh-b27-acts">\n    {li}\n  </ol>\n</section>')
@@ -1006,9 +1090,9 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
             tag = ["メイン", "サブ", "アクセント"][i] if i < 3 else ""
             hx = color_hex(c.get("name", ""), c.get("hex"))
             swh = f'<span class="fh-b27-sw" style="background:{esc(hx)}"></span>' if hx else '<span></span>'
-            cq = (c.get("name", "") + " 小物").strip()
+            cq, clab = color_pick(c.get("name", ""), hx)
             cph = photo_link(cq)
-            cbt = aff_buttons(["rakuten"], cq, "この色の小物を見る", "fh-b27-btn")
+            cbt = aff_buttons(["rakuten"], cq, clab, "fh-b27-btn")
             cshop = ((f'<div class="fh-b27-colshop"><div class="fh-b27-pick-pic">{cph}</div><div>{cbt}{GM.price_html(cq, short=True)}</div></div>' if cph
                       else f'<div class="fh-b27-colshop fh-b27-colshop-np">{cbt}</div>') if cbt else "")
             a(f'''    <div class="fh-b27-colrow">
@@ -1040,7 +1124,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     a(f'  <p>{inline(stn["effect"])}</p>' if stn.get("effect") else "  " + miss_p())
     if stn.get("name"):
         _alt = alt_pick(stn["name"])
-        a("  " + (_alt or mono_btns(stn["name"] + " 天然石")))
+        a("  " + (_alt or mono_btns(stone_q(stn["name"], (st_idx.get(stn["name"]) or {}).get("color_hex")))))
     a("</section>")
 
     # 15 誕生日プレゼント
