@@ -26,6 +26,13 @@ SIGN_COLORS = {"aries": "レッド、ターコイズブルー", "taurus": "グ�
                "cancer": "シルバー、パステルブルー", "leo": "ゴールド、オレンジ", "virgo": "ラベンダー、ミントグリーン",
                "libra": "ペールピンク、シルバー", "scorpio": "ディープレッド、マリンブルー", "sagittarius": "ターコイズブルー、パープル",
                "capricorn": "ディープグリーン、グレー", "aquarius": "エレクトリックブルー、シルバー", "pisces": "アクアブルー、ラベンダー"}
+# 記事のラッキーアイテム①〜⑤の順に並べるための目印（記事の5つすべてに商品を出す。2026-10-17 本人「アイテム数分あったほうがいい」）
+ORDER = {"aries": ["財布", "腕時計", "スポーツ", "日記", "赤い"], "taurus": ["マグ", "観葉", "スカーフ", "天然石", "木製"],
+         "gemini": ["イヤホン", "本や雑誌", "メモ", "ボールペン", "旅"], "cancer": ["シーグラス", "クッション", "キャンドル", "写真", "ガラス"],
+         "leo": ["ライオン", "サングラス", "ゴールド", "ボディ", "スケジュール"], "virgo": ["ノート", "ハーブ", "文房具", "時計", "クリスタル"],
+         "libra": ["ミラー", "アロマ", "アクセサリー", "ノート", "ハンカチ"], "scorpio": ["ブレスレット", "本革", "アンティーク", "日記", "キャンドル"],
+         "sagittarius": ["パスポート", "帽子", "バッグ", "語学", "地図"], "capricorn": ["手帳", "ビジネス", "時計", "マグ", "登山"],
+         "aquarius": ["イヤホン", "ウォッチ", "水筒", "講座", "未来"], "pisces": ["シェル", "キャンドル", "ディフューザー", "ノート", "音楽"]}
 SIGN_JA = {"aries": "おひつじ座", "taurus": "おうし座", "gemini": "ふたご座", "cancer": "かに座", "leo": "しし座", "virgo": "おとめ座",
            "libra": "てんびん座", "scorpio": "さそり座", "sagittarius": "いて座", "capricorn": "やぎ座", "aquarius": "みずがめ座", "pisces": "うお座"}
 
@@ -76,7 +83,9 @@ def main():
         for c in cols:
             q = FAM["color"][COLOR_FAM[c]]
             ccards.append(card(f"{c}系のマグカップ", q, gr[q], small=f"ラッキーカラー {c}"))
-        items = [card(label, q, it, small=f"{ja}のラッキーアイテム") for label, q, it in rows[sl]]
+        order = ORDER[sl]
+        rs = sorted(rows[sl], key=lambda r: next((i for i, k in enumerate(order) if k in r[0]), 9))
+        items = [card(label, q, it, small=f"{ja}のラッキーアイテム") for label, q, it in rs]
         phone = (f'<!-- sign-ad:phone 2026-10-17 --><div class="fh-b27 om-ad"><div class="fh-b27-ad fh-b27-adphone"><small>{esc(ja)}の相性や今年の流れを、人に相談したいときは</small>'
                  f'<p>星座の相性は、生まれた日や時間まで見るとさらにくわしくわかります。気になる相手がいるなら、占い師に直接たずねてみるのもひとつの方法です。</p>'
                  f'<a class="fh-b27-btn" href="{esc(AX.href("phone"))}" rel="nofollow sponsored" data-aff="phone">電話占いで相談してみる</a>{t["phone"]["impression"]}'
