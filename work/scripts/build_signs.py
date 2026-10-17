@@ -179,8 +179,7 @@ def build(en, sample, updated):
     a(aff_extra.CSS)
     a(f'<div class="fh-b27" data-fh-page="sign" style="--el:{EC[el]}">\n<div class="fh-b27-note">')
     best = max(range(1, 13), key=lambda m: M[str(m)]["総合"])
-    up_ = "/wp-content/uploads/2025/12/" + en
-    a(f'<figure class="fh-b27-sg-eye"><img src="{up_}-1024x558.jpg" srcset="{up_}-768x419.jpg 768w, {up_}-1024x558.jpg 1024w, {up_}-1536x838.jpg 1536w" sizes="(max-width:880px) 100vw, 880px" width="1024" height="558" alt="{ja}" decoding="async" fetchpriority="high"></figure>')
+    # アイキャッチはテーマが記事の上に出すので、本文には入れない（2026-10-18 本人「2回出てる」）
     a(f'''<header class="fh-b27-hero">
   <div class="fh-b27-sg-glyph" aria-hidden="true">{GLYPH[en]}&#xFE0E;</div>
   <div class="fh-b27-hero-body">
