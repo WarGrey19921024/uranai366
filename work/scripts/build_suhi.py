@@ -12,6 +12,8 @@ sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, shell  # noqa: E402
 from calc_maya_num_bio import life_path, reduce  # noqa: E402
 import suhi_texts as S  # noqa: E402
+import aff_extra as AX  # noqa: E402
+PY_GOODS = {1: [('手帳 2027', '2027年の手帳', '「新しい9年の始まり」の年。始めたいことと目標を書き出す手帳を。', 'stationery'), ('やりたいことリストのノート', 'やりたいことリストのノート', '今年やってみたいことを、思いつくまま書き出して。', 'stationery')], 2: [('ペアのマグカップ', 'ペアのマグカップ', '人との協力が実る年。大切な人とそろえて使えるものを。', 'tableware'), ('ペアのキーホルダー', 'ペアのキーホルダー', 'パートナーや仲間とのおそろいに。', 'accessory')], 3: [('アイデアノート', 'アイデアノート', '表現が広がる年。思いついたことをすぐ書きとめられるノートを。', 'stationery'), ('一冊のノート', '気に入った一冊のノート', '作ったものや考えを、人に見せる前の下書きに。', 'stationery')], 4: [('家計簿', '家計簿', '土台を固める年。お金の流れを整える家計簿を。', 'stationery'), ('家計簿ノート', '家計簿ノート', '毎日続ける習慣づくりに。', 'stationery')], 5: [('小さな旅行バッグ', '小さな旅行バッグ', '変化と移動の年。身軽に出かけられるバッグを。', 'travel'), ('旅のお守り袋', '旅のお守り袋', '移動の多い年の、お守りに。', 'omamori')], 6: [('ヒノキの入浴剤セット', 'ヒノキの入浴剤セット', '身近な人を大切にする年。家族でくつろげる時間に。', 'bath'), ('カップル ペア ギフト 名入れ', '名入れのペアギフト', '家族や大切な人への贈り物に。', 'gift')], 7: [('しおり付きの文庫本', 'しおり付きの文庫本', '学びと見直しの年。ひとりで読書する時間を。', 'book'), ('ノート型の日記', 'ノート型の日記', '考えたことを書き残す、ひとりの時間に。', 'stationery')], 8: [('上質な財布', '上質な財布', '実りを受け取る年。お金を大切に扱う財布を。', 'wallet'), ('がま口の財布', 'がま口の財布', '「お金が入る口が大きい」縁起物としても。', 'wallet')], 9: [('アロマキャンドル', 'アロマキャンドル', '締めくくりと手放しの年。気持ちをリセットする香りを。', 'aroma'), ('入浴剤の詰め合わせ', '入浴剤の詰め合わせ', '一日の終わりに、心と体の疲れを手放して。', 'bath')]}
 
 URL = "/suhijutsu/"
 ORDER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33]
@@ -129,7 +131,7 @@ $('sh-go').addEventListener('click',function(){var b=parse($('sh-bd').value),r=$
  +'<p class="ct">ライフパス'+L+'「'+esc(x.name)+'」</p><p><b>'+esc(x.catch)+'</b>（'+esc(x.kw)+'）</p><p>'+esc(x.text)+'</p>'
  +'<p><b>恋愛：</b>'+esc(x.love)+'</p><p><b>仕事：</b>'+esc(x.work)+'</p><p><b>開運のヒント：</b>'+esc(x.tip)+'</p>'
  +'<div class="py"><b>2027年の数'+P+'：'+esc(py.theme)+'</b><br>'+esc(py.text)+'<br><b>やるといいこと：</b>'+esc(py.do)+'</div>'
- +'<p><a href="#sh-n'+L+'">ライフパス'+L+'の説明へ →</a>　<a href="/366uranai/'+(b.m<10?'0':'')+b.m+'-'+(b.d<10?'0':'')+b.d+'/">'+b.m+'月'+b.d+'日生まれの誕生日占いへ →</a></p>';});
+ +'<p><a href="#sh-n'+L+'">ライフパス'+L+'の説明へ →</a>　<a href="/366uranai/'+(b.m<10?'0':'')+b.m+'-'+(b.d<10?'0':'')+b.d+'/">'+b.m+'月'+b.d+'日生まれの誕生日占いへ →</a></p>';for(var q=1;q<=9;q++){var e=$('sh-ad-'+q);if(e)e.hidden=(q!==P)}$('sh-ads').hidden=false;});
 $('sh-cgo').addEventListener('click',function(){var a=parse($('sh-ca').value),b=parse($('sh-cb').value),r=$('sh-cres');r.hidden=false;if(!a||!b){r.innerHTML='<p>二人の生年月日を入れてください。</p>';return}
  var A=lp(a),B=lp(b),k=ck(A,B),c=C[k];
  r.innerHTML='<div class="fh-b27-sh-big"><div><small>あなた</small><b class="pop">'+A+'</b></div><div><small>お相手</small><b class="pop">'+B+'</b></div></div><p class="ct">'+hearts(c.score)+'</p><p><b>'+esc(GI[grp(A)].name)+'×'+esc(GI[grp(B)].name)+'</b></p><p>'+esc(c.text)+'</p><p><a href="#sh-n'+A+'">あなたの数</a>・<a href="#sh-n'+B+'">お相手の数</a>の説明も読んでみてください。</p>';});
@@ -161,12 +163,14 @@ def build(sample, updated):
         n[0] += 1
         return f'<h2><span class="fh-b27-n">{n[0]}</span><span>{t}</span></h2>'
 
+    ads = AX.result_boxes("sh-ad", {k: (f"2027年の数が{k}のあなたに", v) for k, v in PY_GOODS.items()}, lead="2027年の数（パーソナルイヤー）の「やるといいこと」に合わせて選びました。楽天・Yahoo!ショッピングの商品ページへ移ります。")
     a(f'''<section class="fh-b27-sec" id="b27-sh-calc">
   {h2("ライフパスナンバーを計算する")}
   <div class="fh-b27-sh-box">
     <div class="fh-b27-sh-row"><label>あなたの生年月日<input type="date" id="sh-bd" min="1900-01-01" max="2030-12-31" value="1995-01-01"></label></div>
     <button type="button" class="fh-b27-sh-go" id="sh-go">数を計算する</button>
     <div class="fh-b27-sh-res" id="sh-res" aria-live="polite" hidden></div>
+    <div id="sh-ads" style="width:100%" hidden>{ads}</div>
   </div>
 </section>''')
     # 計算のしかた（例はスクリプトで計算）

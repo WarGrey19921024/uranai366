@@ -192,7 +192,7 @@ PAGES = {
             ("手帳 2027", "2027年の手帳", "このページで見た「いい月」「気をつけたい月」を書き込んでおくと、1年の計画が立てやすくなります。", "stationery")])),
 }
 
-CSS = ("<style>.fh-b27 .fh-b27-shop>.fh-b27-shop-btns{grid-column:1/-1;margin-top:0}.fh-b27 .fh-b27-shop>.fh-b27-shop-btns a.fh-b27-shopbtn{flex:1 1 0;min-height:42px;font-size:14px}.fh-b27 .fh-b27-shop-prod{display:block;font-size:12px;line-height:1.5;color:#5E5546;margin-top:4px}.fh-b27 .fh-b27-shop-price{display:block;font-size:12.5px;color:#4A3F30;margin-top:2px}.fh-b27 .fh-b27-shop-price b{font-size:16px;color:#B3261E;margin:0 2px}.fh-b27 .fh-b27-shop-price small{font-size:11px;color:#7A6E5C}.fh-b27 .fh-b27-mono-btns .fh-b27-shop-price{flex-basis:100%;margin:0}.fh-b27 .fh-b27-adgoods{display:flex;flex-direction:column;gap:12px;margin:8px 0 24px}"
+CSS = ("<style>.fh-b27 a.fh-b27-shopbtn,.fh-b27 a.fh-b27-shopbtn:visited{color:#fff}.fh-b27 .fh-b27-shop>.fh-b27-shop-btns{grid-column:1/-1;margin-top:0}.fh-b27 .fh-b27-shop>.fh-b27-shop-btns a.fh-b27-shopbtn{flex:1 1 0;min-height:42px;font-size:14px}.fh-b27 .fh-b27-shop-prod{display:block;font-size:12px;line-height:1.5;color:#5E5546;margin-top:4px}.fh-b27 .fh-b27-shop-price{display:block;font-size:12.5px;color:#4A3F30;margin-top:2px}.fh-b27 .fh-b27-shop-price b{font-size:16px;color:#B3261E;margin:0 2px}.fh-b27 .fh-b27-shop-price small{font-size:11px;color:#7A6E5C}.fh-b27 .fh-b27-mono-btns .fh-b27-shop-price{flex-basis:100%;margin:0}.fh-b27 .fh-b27-adgoods{display:flex;flex-direction:column;gap:12px;margin:8px 0 24px}"
        ".fh-b27 .fh-b27-adgoods-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin:0;"
        "font-family:'Klee One',cursive;font-size:17px}"
        ".fh-b27 .fh-b27-adgoods .fh-b27-pr,.fh-b27 .fh-b27-adphone .fh-b27-pr{font-family:inherit;font-size:11px;opacity:.8}"
@@ -236,6 +236,11 @@ def goods_box(title, items, lead=""):
     return (f'<aside class="fh-b27-adgoods"><p class="fh-b27-adgoods-h"><span>{esc(title)}</span>'
             f'<span class="fh-b27-pr">PR（広告）</span></p>' + (f'<p class="fh-b27-adgoods-l">{esc(lead)}</p>' if lead else "") + f'<div class="fh-b27-shops">{"".join(boxes)}</div></aside>')
 
+
+def result_boxes(prefix, groups, lead="結果に合わせて選んだアイテムです。楽天・Yahoo!ショッピングの商品ページへ移ります。"):
+    """占いの結果ごとの商品の箱（2026-10-18）。groups = {key: (見出し, [(検索語, 商品名, ひとこと, アイコン), ...])}。
+    すべて hidden で出し、ページの JS が結果に合う id（prefix-key）だけを表示する（JS に画像タグを書かないため）"""
+    return "".join(f'<div id="{prefix}-{k}" hidden>' + goods_box(t, items, lead=lead) + "</div>" for k, (t, items) in groups.items())
 
 def inject(body, url):
     """本文に広告を入れる。目印のセクションが無いときは、その広告は入れない"""

@@ -10,6 +10,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, shell  # noqa: E402
 import rune_texts as R  # noqa: E402
+import aff_extra as AX  # noqa: E402
+RN_FAM = {'Fehu': 'yutaka', 'Jera': 'yutaka', 'Othala': 'yutaka', 'Ingwaz': 'yutaka', 'Gebo': 'tsunagari', 'Wunjo': 'tsunagari', 'Berkana': 'tsunagari', 'Laguz': 'tsunagari', 'Ehwaz': 'tsunagari', 'Mannaz': 'tsunagari', 'Thurisaz': 'mamori', 'Algiz': 'mamori', 'Eihwaz': 'mamori', 'Hagalaz': 'mamori', 'Nauthiz': 'mamori', 'Isa': 'mamori', 'Uruz': 'zenshin', 'Raidho': 'zenshin', 'Tiwaz': 'zenshin', 'Sowilo': 'zenshin', 'Dagaz': 'zenshin', 'Ansuz': 'chie', 'Kenaz': 'chie', 'Perthro': 'chie', 'Wyrd': 'chie'}
+RN_GOODS = {'yutaka': ('豊かさのルーンが出たあなたに', [('上質な財布', '上質な財布', '実りを表すルーンの日に、受け取ったものを大切にしまう財布を。', 'wallet'), ('小さな鈴のお守り', '鈴のお守り', 'よい流れを呼びこむ、澄んだ音のお守りに。', 'omamori')]), 'tsunagari': ('つながりのルーンが出たあなたに', [('ペアのキーホルダー', 'ペアのキーホルダー', '人との絆を表すルーンの日に、おそろいの小物を。', 'accessory'), ('ふたり分のマグカップ', 'ふたり分のマグカップ', '大切な人とゆっくり話す時間に。', 'tableware')]), 'mamori': ('守りのルーンが出たあなたに', [('勾玉のお守り', '勾玉のお守り', '立ち止まって身を守るルーンの日に、厄よけの縁起物を。', 'omamori'), ('水晶 天然石', '浄化用の水晶さざれ', '部屋に置いて、気持ちを整えるお守りに。', 'stone')]), 'zenshin': ('前へ進むルーンが出たあなたに', [('小さな旅行バッグ', '小さな旅行バッグ', '動き出すルーンの日に、身軽に出かけられるバッグを。', 'travel'), ('手帳 2027', '2027年の手帳', '次の目標と計画を書き出して。', 'stationery')]), 'chie': ('知恵のルーンが出たあなたに', [('しおり付きの文庫本', 'しおり付きの文庫本', 'ひらめきや知らせを表すルーンの日に、ゆっくり読む一冊を。', 'book'), ('アイデアノート', 'アイデアノート', '思いついたことを、その日のうちに書きとめて。', 'stationery')])}
 # 注意：WordPress（Diver）は [sp] [pc] などをショートコードとして消すので、JSで SP[sp] のような書き方をしない（2026-10-18）
 
 URL = "/rune/"
@@ -84,7 +87,7 @@ CSS = """<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Runic&di
 @media (prefers-reduced-motion:reduce){.fh-b27-rn-emb .fh-b27-rn-stone,.fh-b27-rn-pick .fh-b27-rn-stone,.fh-b27-rn-card{animation:none;opacity:1}}
 </style>"""
 
-JS = r"""(function(){var RN=__R__,SP=__S__,TH=__T__;function $(i){return document.getElementById(i)}
+JS = r"""(function(){var RN=__R__,SP=__S__,TH=__T__,FM=__F__;function $(i){return document.getElementById(i)}
 if(!$('rn-go'))return;var spK='three',thK='all';
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function bind(id,set){document.querySelectorAll('#'+id+' button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#'+id+' button').forEach(function(z){z.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');set(b.getAttribute('data-v'));})})}
@@ -96,7 +99,7 @@ $('rn-go').addEventListener('click',function(){var pos=SP[spK].pos,bag=RN.map(fu
  var cards=picks.map(function(p,k){var r=p.r,ext=thK==='love'?r.love:thK==='work'?r.work:'';
   return '<div class="fh-b27-rn-card" style="--i:'+k+'"><p><span class="pos">'+esc(pos[k])+'</span><span class="nm">'+esc(r.name)+'</span>　'+(p.rev?'逆位置':'正位置')+'<br><small>'+esc(r.en)+'｜もとの意味：'+esc(r.orig)+'｜'+esc(r.kw)+'</small></p>'
   +'<p>'+esc(p.rev?r.rev:r.up)+'</p>'+(ext?'<p><b>'+esc(TH[thK])+'では：</b>'+esc(ext)+'</p>':'')+'<p><b>ひとこと：</b>'+esc(r.advice)+'</p><p><a href="#rn-'+p.i+'">'+esc(r.name)+'の意味をくわしく →</a></p></div>'}).join('');
- var r=$('rn-res');r.hidden=false;r.innerHTML=lay+cards;$('rn-go').textContent='もう一度引く';});
+ var r=$('rn-res');r.hidden=false;r.innerHTML=lay+cards;var mi=pos.indexOf('現在');if(mi<0)mi=0;var fam=FM[picks[mi].r.en]||'chie';['yutaka','tsunagari','mamori','zenshin','chie'].forEach(function(k){var e=$('rn-ad-'+k);if(e)e.hidden=(k!==fam)});$('rn-ads').hidden=false;$('rn-go').textContent='もう一度引く';});
 })();"""
 
 
@@ -125,6 +128,7 @@ def build(sample, updated):
 
     spb = "".join(f'<button type="button" data-v="{k}" aria-pressed="{"true" if k == "three" else "false"}">{esc(v["name"])}</button>' for k, v in R.SPREADS.items())
     thb = "".join(f'<button type="button" data-v="{k}" aria-pressed="{"true" if k == "all" else "false"}">{esc(v)}</button>' for k, v in R.THEMES.items())
+    ads = AX.result_boxes("rn-ad", RN_GOODS, lead="「現在」（1つ引きは「答え」）に出たルーンに合わせて選びました。楽天・Yahoo!ショッピングの商品ページへ移ります。")
     a(f'''<section class="fh-b27-sec" id="b27-rn-draw">
   {h2("ルーンを引く")}
   <div class="fh-b27-rn-box">
@@ -133,6 +137,7 @@ def build(sample, updated):
     <p class="fh-b27-rn-bag">心の中で聞きたいことをひとつ思い浮かべてから、ボタンを押してください。</p>
     <button type="button" class="fh-b27-rn-go" id="rn-go">ルーンを引く</button>
     <div class="fh-b27-rn-res" id="rn-res" aria-live="polite" hidden></div>
+    <div id="rn-ads" style="width:100%" hidden>{ads}</div>
   </div>
 </section>''')
     aett = "".join(f'<div><b>{esc(nm)}</b><br>{esc(ds)}。{"・".join(r["name"] for r in R.RUNES[i * 8:(i + 1) * 8])}</div>' for i, (nm, ds) in enumerate(R.AETT))
@@ -188,7 +193,7 @@ def build(sample, updated):
     <a href="/angel-number/"><b>エンジェルナンバー →</b><small>くり返し見る数字の意味</small></a>
   </div>
 </section>''')
-    js = (JS.replace("__R__", json.dumps(R.RUNES, ensure_ascii=False)).replace("__S__", json.dumps(R.SPREADS, ensure_ascii=False))
+    js = (JS.replace("__F__", json.dumps(RN_FAM)).replace("__R__", json.dumps(R.RUNES, ensure_ascii=False)).replace("__S__", json.dumps(R.SPREADS, ensure_ascii=False))
           .replace("__T__", json.dumps(R.THEMES, ensure_ascii=False)))
     up = dt.date.fromisoformat(updated)
     a(f'<p class="fh-b27-foot">ルーン占いは、気持ちを整理するための読み物として楽しむもので、未来を決めるものではありません。ルーンの意味は、広く知られている文字の由来と解説をもとに、このサイトで書いたものです。'

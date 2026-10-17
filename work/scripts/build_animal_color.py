@@ -13,6 +13,9 @@ sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, shell  # noqa: E402
 from calc_animal_color import animal_color  # noqa: E402
 import animal_color_texts as A  # noqa: E402
+import aff_extra as AX  # noqa: E402
+GF = json.load(open(os.path.join(os.path.dirname(HERE), "data", "goods_family.json"), encoding="utf-8"))
+FAM = {'red': '赤', 'gold': '金', 'green': '緑', 'blue': '青', 'purple': '紫'}
 
 URL = "/animal-color/"
 CYCLE = [c["key"] for c in A.COLORS]
@@ -112,7 +115,7 @@ $('ac-go').addEventListener('click',function(){var b=parse($('ac-bd').value),r=$
  +'<p><span class="fh-b27-ac-dot" style="--c:'+c.hex+'"></span><b>'+esc(c.name)+'（'+esc(c.kw)+'）：</b>'+esc(c.text)+'</p>'
  +'<div class="sec"><p><b>恋愛：</b>'+esc(a.love)+'</p><p><b>仕事：</b>'+esc(a.work)+'</p><p><b>友だち：</b>'+esc(a.friend)+'</p><p><b>いいところ：</b>'+esc(a.strength)+'<br><b>気をつけたいところ：</b>'+esc(a.care)+'<br><b>開運のヒント：</b>'+esc(a.tip)+'</p></div>'
  +'<div class="sec"><p><b>相性のいい動物：</b>同じ'+esc(g.name)+'（'+esc(same.join('・'))+'）と、補い合う'+esc(pg.name)+'（'+esc(part.join('・'))+'）。<br><b>相性のいい色：</b>'+esc(near.join('・'))+'</p></div>'
- +'<p><a href="#ac-'+a.key+'">'+esc(a.name)+'の説明へ →</a>　<a href="/366uranai/'+(b.m<10?'0':'')+b.m+'-'+(b.d<10?'0':'')+b.d+'/">'+b.m+'月'+b.d+'日生まれの誕生日占いへ →</a></p>';});
+ +'<p><a href="#ac-'+a.key+'">'+esc(a.name)+'の説明へ →</a>　<a href="/366uranai/'+(b.m<10?'0':'')+b.m+'-'+(b.d<10?'0':'')+b.d+'/">'+b.m+'月'+b.d+'日生まれの誕生日占いへ →</a></p>';CO.forEach(function(x){var e=$('ac-ad-'+x.key);if(e)e.hidden=(x.key!==c.key)});$('ac-ads').hidden=false;});
 $('ac-cgo').addEventListener('click',function(){var x=parse($('ac-ca').value),y=parse($('ac-cb').value),r=$('ac-cres');r.hidden=false;if(!x||!y){r.innerHTML='<p>二人の生年月日を入れてください。</p>';return}
  var p=calc(x),q=calc(y),s=sc(p,q),ga=AN[p.a].group,gb=AN[q.a].group,rel=ga===gb?'same':(PT[ga]===gb?'partner':'diff'),d=((p.c-q.c)%5+5)%5,cr=d===0?'csame':((d===1||d===4)?'cnear':'cfar');
  r.innerHTML='<div class="fh-b27-ac-big">'+badge(p)+'<span class="fh-b27-ac-mark">'+mk(s)+'</span>'+badge(q)+'</div><p style="text-align:center"><b>'+esc(tname(p))+'</b> × <b>'+esc(tname(q))+'</b></p><p>'+esc(CT[rel])+'</p><p>'+esc(CT[cr])+'</p>';});
@@ -151,12 +154,14 @@ def build(sample, updated):
         n[0] += 1
         return f'<h2><span class="fh-b27-n">{n[0]}</span><span>{t}</span></h2>'
 
+    ads = AX.result_boxes("ac-ad", {c["key"]: (f'{c["name"]}のタイプのあなたに', [(GF["stone"][FAM[c["key"]]], f'{c["name"]}系の天然石ブレスレット', f'タイプの色「{c["name"]}」の石を、身につけるお守りに。', "stone"), (GF["color"][FAM[c["key"]]], f'{c["name"]}のマグカップ', f'毎日使うものに「{c["name"]}」を取り入れて、色の力を身近に。', "tableware")]) for c in A.COLORS}, lead="診断したタイプの色に合わせて選びました。楽天・Yahoo!ショッピングの商品ページへ移ります。")
     a(f'''<section class="fh-b27-sec" id="b27-ac-calc">
   {h2("タイプを診断する")}
   <div class="fh-b27-ac-box">
     <div class="fh-b27-ac-row"><label>あなたの生年月日<input type="date" id="ac-bd" min="1900-01-01" max="2030-12-31" value="1995-01-01"></label></div>
     <button type="button" class="fh-b27-ac-go" id="ac-go">タイプを診断する</button>
     <div class="fh-b27-ac-res" id="ac-res" aria-live="polite" hidden></div>
+    <div class="fh-b27-ac-ads" id="ac-ads" style="width:100%" hidden>{ads}</div>
   </div>
 </section>''')
     a(f'''<section class="fh-b27-sec" id="b27-ac-compat">

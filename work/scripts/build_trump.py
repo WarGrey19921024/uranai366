@@ -12,6 +12,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, shell  # noqa: E402
 import trump_texts as T  # noqa: E402
+import aff_extra as AX  # noqa: E402
+TP_GOODS = {'heart': ('ハートが出たあなたに', [('ペアのキーホルダー', 'ペアのキーホルダー', '気持ちのつながりを表すハートの日に、おそろいの小物を。', 'accessory'), ('ペアのマグカップ', 'ペアのマグカップ', '大切な人と過ごす時間を、もっと楽しく。', 'tableware')]), 'diamond': ('ダイヤが出たあなたに', [('上質な財布', '上質な財布', 'お金と現実を表すダイヤの日に、お金を大切に扱う財布を。', 'wallet'), ('家計簿', '家計簿', '数字や条件を確かめる習慣づくりに。', 'stationery')]), 'club': ('クラブが出たあなたに', [('手帳 2027', '2027年の手帳', '行動と成長を表すクラブの日に、やることを書き出す手帳を。', 'stationery'), ('名刺入れ', '名刺入れ', '人との協力や新しい出会いの場に。', 'accessory')]), 'spade': ('スペードが出たあなたに', [('勾玉のお守り', '勾玉のお守り', '試練と知恵を表すスペードの日に、厄よけのお守りを。', 'omamori'), ('アロマキャンドル', 'アロマキャンドル', '冷静に考えたい夜に、気持ちを落ち着ける香りを。', 'aroma')])}
 
 URL = "/trump/"
 SO = ["heart", "diamond", "club", "spade"]
@@ -109,7 +111,7 @@ $('tp-go').addEventListener('click',function(){var pos=SPS[spK].pos,picks=[];
  var cards=picks.map(function(p,k){var nm,x;if(p.su==='joker'){nm='ジョーカー';x=[JK[1],JK[2],JK[3],JK[4]]}else{nm=SU[p.su].mark+' '+SU[p.su].name+'の'+rk(p.n);x=C[p.su][p.n]}
   var ext=thK==='love'?x[1]:thK==='work'?x[2]:'';var id=p.su==='joker'?'tp-joker':'tp-'+p.su+'-'+p.n;
   return '<div class="fh-b27-tp-cardtxt" style="--i:'+k+'"><p><span class="pos">'+esc(pos[k])+'</span><span class="nm">'+esc(nm)+'</span></p><p>'+esc(x[0])+'</p>'+(ext?'<p><b>'+esc(THS[thK])+'では：</b>'+esc(ext)+'</p>':'')+'<p><b>ひとこと：</b>'+esc(x[3])+'</p><p><a href="#'+id+'">このカードの意味をくわしく →</a></p></div>'}).join('');
- var r=$('tp-res');r.hidden=false;r.innerHTML=lay+sum+cards;if(mdK==='screen')$('tp-go').textContent='もう一度引く';});
+ var r=$('tp-res');r.hidden=false;r.innerHTML=lay+sum+cards;var best='',bc=0;ORD.forEach(function(su){if((cnt[su]||0)>bc){bc=cnt[su];best=su}});if(!best)best='club';ORD.forEach(function(su){var e=$('tp-ad-'+su);if(e)e.hidden=(su!==best)});$('tp-ads').hidden=false;if(mdK==='screen')$('tp-go').textContent='もう一度引く';});
 })();"""
 
 
@@ -144,6 +146,7 @@ def build(sample, updated):
 
     spb = "".join(f'<button type="button" data-v="{k}" aria-pressed="{"true" if k == "one" else "false"}">{esc(v["name"])}</button>' for k, v in T.SPREADS.items())
     thb = "".join(f'<button type="button" data-v="{k}" aria-pressed="{"true" if k == "all" else "false"}">{esc(v)}</button>' for k, v in T.THEMES.items())
+    ads = AX.result_boxes("tp-ad", TP_GOODS, lead="いちばん多く出たマークに合わせて選びました。楽天・Yahoo!ショッピングの商品ページへ移ります。")
     a(f'''<section class="fh-b27-sec" id="b27-tp-draw">
   {h2("トランプで占う")}
   <div class="fh-b27-tp-box">
@@ -153,6 +156,7 @@ def build(sample, updated):
     <div class="fh-b27-tp-own" id="tp-own" hidden></div>
     <button type="button" class="fh-b27-tp-go" id="tp-go">カードを引く</button>
     <div class="fh-b27-tp-res" id="tp-res" aria-live="polite" hidden></div>
+    <div id="tp-ads" style="width:100%" hidden>{ads}</div>
   </div>
 </section>''')
     sps = "".join(f'<li><b>{esc(v["name"])}</b>：{esc(v["desc"])}（{"・".join(v["pos"])}）</li>' for v in T.SPREADS.values())
