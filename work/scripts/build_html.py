@@ -596,6 +596,17 @@ def stone_btns(name, hx=None, jewel=False):
     return note + mono_btns(q)
 
 
+def mono_stone(name, hx=None, jewel=False):
+    """誕生石などのカード用：高い石は「代わりの石」を、ほかのカードと同じ見た目（写真＋ボタン＋値段）で出す"""
+    a = alt_stone(name)
+    if a:
+        alt, why = a
+        q = best_q([f"{alt} ブレスレット", f"{alt} 天然石", f"{alt} ネックレス"])
+        return (f'<small class="fh-b27-mono-alt">{esc(name)}は高価なので、{esc(why)}（{esc(alt)}）を手ごろなお守りとして紹介します</small>'
+                + mono_btns(q))
+    return stone_btns(name, hx, jewel)
+
+
 def flower_q(name):
     q = name + " 花 ギフト"
     return q if _ok(q) else _FAM["flower"]
@@ -882,10 +893,10 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   {h2(3, "mono", f"{md}の誕生花・誕生石・誕生日石・誕生色")}
   <div class="fh-b27-mono">
     <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{mono_btns(flower_q(re.sub(r"[（(].*", "", flower["flower"])))}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{alt_pick(bm_list[0]) or stone_btns(bm_list[0], bm_first.get("color_hex"), True)}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone"><small>誕生日石（{md}）</small><b>{esc(std["stone"])}</b><p>{md}の誕生日石として、多くの一覧で紹介されている石です。</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-days">366日の誕生日石の一覧 →</a>{alt_pick(std["stone"]) or stone_btns(re.sub(r"[（(].*", "", std["stone"]), (st_idx.get(re.sub(r"[（(].*", "", std["stone"])) or {}).get("color_hex"))}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{mono_stone(bm_list[0], bm_first.get("color_hex"), True)}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone"><small>誕生日石（{md}）</small><b>{esc(std["stone"])}</b><p>{md}の誕生日石として、多くの一覧で紹介されている石です。</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-days">366日の誕生日石の一覧 →</a>{mono_stone(re.sub(r"[（(].*", "", std["stone"]), (st_idx.get(re.sub(r"[（(].*", "", std["stone"])) or {}).get("color_hex"))}</div>
     <div class="fh-b27-mono-card fh-b27-mc-color">{sw(std["color_hex"])}<small>誕生色（{md}）</small><b>{esc(std["color"])}</b><p>{md}の誕生色として、多くの一覧で紹介されている色です。</p>{color_btns(std["color"], std["color_hex"])}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{alt_pick(e["birthday_stone"]["name"]) or stone_btns(e["birthday_stone"]["name"], bd_stone.get("color_hex"))}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{mono_stone(e["birthday_stone"]["name"], bd_stone.get("color_hex"))}</div>
     <div class="fh-b27-mono-card fh-b27-mc-color fh-b27-mc-own">{sw(col_hex)}<small>ラッキーカラー（当サイト独自）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）</b><p>{esc(col_desc)}</p>{color_btns(e["birthday_color"]["name"], col_hex)}</div>
   </div>
   {paras(fx.get("items"))}
