@@ -175,7 +175,7 @@ def build(en, sample, updated):
   <div class="fh-b27-sg-glyph" aria-hidden="true">{GLYPH[en]}&#xFE0E;</div>
   <div class="fh-b27-hero-body">
     <span class="fh-b27-tape">星座占い 2027</span>
-    <h1 class="fh-b27-title">{ja}の2027年の運勢</h1>
+    <p class="fh-b27-title">{ja}の2027年の運勢</p>
     <p class="fh-b27-lead">{esc(T["lead"])}</p>
     <div class="fh-b27-sg-chips"><span>{rng}生まれ</span><span>{el}のエレメント</span><span>守護星：{esc(RULER[en])}</span><span>2027年のピーク：{best}月</span></div>
   </div>
@@ -304,7 +304,7 @@ def build(en, sample, updated):
     a("</div>\n</div>")
     js = JS.replace("__CAL__", json.dumps(cal, ensure_ascii=False, separators=(",", ":"))).replace("__PH__", json.dumps(ph, ensure_ascii=False))
     a(f"<script>document.addEventListener('DOMContentLoaded',function(){{{js}}});</script>")
-    title = f"{ja}の2027年の運勢｜月ごとの運勢グラフ・ラッキーデーのカレンダー・12星座の順位【無料】"
+    title = f"{ja}の2027年の運勢｜運勢グラフ・ラッキーデーのカレンダー・12星座の順位"
     desc = f"{ja}（{rng}生まれ）の2027年の運勢を、星の位置から計算。月ごとの運勢グラフ、木星・土星が入る部屋、ラッキーデーのカレンダー、12星座の順位、恋愛・仕事・金運、性格と相性、ラッキーアイテムまで。"
     body = "\n".join(H)
     out = shell(title, desc, f"/{en}/", body, sample, ("fh-b27.js",))
