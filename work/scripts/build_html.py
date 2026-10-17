@@ -549,12 +549,9 @@ def _ok(q, cap=None):
 
 
 def color_pick(name, hx):
-    """ラッキーカラーの商品：その色の名前で写真があればそれ、無ければ色の系統の小物（使いまわし）"""
-    own = (name + " 小物").strip()
-    if _ok(own, 8000):
-        return own, "この色の小物を見る"
+    """ラッキーカラーの商品：色の系統ごとに決めたマグカップ（使いまわしの広告パーツ。data/goods_family.json）"""
     f = fam_of(name, hx)
-    return _FAM["color"][f], f"{f}系のマグカップを見る"
+    return _FAM["color"][f], f"{f}系のマグを見る"
 
 
 def color_btns(name, hx):
@@ -614,11 +611,11 @@ PICK_CSS = ("<style>"
     ".fh-b27 .fh-b27-pick-body>span{font-size:13px;line-height:1.6;color:#4A3F30}"
     ".fh-b27 .fh-b27-pick>.fh-b27-shop-btns{grid-column:1/-1;margin:0}.fh-b27 .fh-b27-pick>.fh-b27-shop-btns a.fh-b27-shopbtn{flex:1 1 0;min-height:40px;font-size:14px}"
     ".fh-b27 .fh-b27-pick-alt{background:#EAF1F7}"
-    ".fh-b27 .fh-b27-colrow{display:grid;grid-template-columns:46px minmax(0,1fr) 210px;gap:12px;align-items:center;padding:12px 14px;background:var(--deep);border:1.5px dashed var(--line);border-radius:8px}"
+    ".fh-b27 .fh-b27-colrow{display:grid;grid-template-columns:46px minmax(0,1fr) 230px;gap:12px;align-items:center;padding:12px 14px;background:var(--deep);border:1.5px dashed var(--line);border-radius:8px}"
     ".fh-b27 .fh-b27-colrow .fh-b27-sw{width:46px;height:46px;box-shadow:0 0 0 3px rgba(255,255,255,.15)}"
     ".fh-b27 .fh-b27-colshop{display:grid;grid-template-columns:64px minmax(0,1fr);gap:8px;align-items:center;background:#fff;border-radius:10px;padding:6px;color:#2E2A26}"
     ".fh-b27 .fh-b27-colshop .fh-b27-pick-pic{width:64px;height:64px;padding:2px}"
-    ".fh-b27 .fh-b27-colshop a.fh-b27-btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:38px;font-size:13px;padding:0 10px;margin:0;border-radius:8px;white-space:nowrap}"
+    ".fh-b27 .fh-b27-colshop a.fh-b27-btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:38px;font-size:13px;line-height:1.3;padding:4px 8px;margin:0;border-radius:8px;white-space:normal;text-align:center}"
     ".fh-b27 .fh-b27-colshop-np{display:block;background:none;padding:0}"
     ".fh-b27 .fh-b27-colrow .fh-b27-who{display:flex;flex-direction:column}"
     ".fh-b27 .fh-b27-colshop .fh-b27-shop-price{font-size:11.5px}.fh-b27 .fh-b27-colshop .fh-b27-shop-price b{font-size:14px}"
