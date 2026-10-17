@@ -10,6 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, shell  # noqa: E402
 import rune_texts as R  # noqa: E402
+# 注意：WordPress（Diver）は [sp] [pc] などをショートコードとして消すので、JSで SP[sp] のような書き方をしない（2026-10-18）
 
 URL = "/rune/"
 
@@ -84,17 +85,17 @@ CSS = """<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Runic&di
 </style>"""
 
 JS = r"""(function(){var RN=__R__,SP=__S__,TH=__T__;function $(i){return document.getElementById(i)}
-if(!$('rn-go'))return;var sp='three',th='all';
+if(!$('rn-go'))return;var spK='three',thK='all';
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function bind(id,set){document.querySelectorAll('#'+id+' button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#'+id+' button').forEach(function(z){z.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');set(b.getAttribute('data-v'));})})}
-bind('rn-sp',function(v){sp=v});bind('rn-th',function(v){th=v});
+bind('rn-sp',function(v){spK=v});bind('rn-th',function(v){thK=v});
 function rnd(n){if(window.crypto&&crypto.getRandomValues){var a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]%n}return Math.floor(Math.random()*n)}
-$('rn-go').addEventListener('click',function(){var pos=SP[sp].pos,bag=RN.map(function(_,i){return i}),picks=[];
+$('rn-go').addEventListener('click',function(){var pos=SP[spK].pos,bag=RN.map(function(_,i){return i}),picks=[];
  for(var k=0;k<pos.length;k++){var j=rnd(bag.length),idx=bag.splice(j,1)[0],r=RN[idx];picks.push({r:r,i:idx,rev:!!(r.rev&&rnd(3)===0)})}
- var lay='<div class="fh-b27-rn-lay '+sp+'">'+picks.map(function(p,k){return '<div class="fh-b27-rn-pick"><div class="fh-b27-rn-stone fh-b27-rn-g'+(p.rev?' rev':'')+'" style="--i:'+k+'"><span>'+p.r.ch+'</span></div>'+esc(pos[k])+'</div>'}).join('')+'</div>';
- var cards=picks.map(function(p,k){var r=p.r,ext=th==='love'?r.love:th==='work'?r.work:'';
+ var lay='<div class="fh-b27-rn-lay '+spK+'">'+picks.map(function(p,k){return '<div class="fh-b27-rn-pick"><div class="fh-b27-rn-stone fh-b27-rn-g'+(p.rev?' rev':'')+'" style="--i:'+k+'"><span>'+p.r.ch+'</span></div>'+esc(pos[k])+'</div>'}).join('')+'</div>';
+ var cards=picks.map(function(p,k){var r=p.r,ext=thK==='love'?r.love:thK==='work'?r.work:'';
   return '<div class="fh-b27-rn-card" style="--i:'+k+'"><p><span class="pos">'+esc(pos[k])+'</span><span class="nm">'+esc(r.name)+'</span>　'+(p.rev?'逆位置':'正位置')+'<br><small>'+esc(r.en)+'｜もとの意味：'+esc(r.orig)+'｜'+esc(r.kw)+'</small></p>'
-  +'<p>'+esc(p.rev?r.rev:r.up)+'</p>'+(ext?'<p><b>'+esc(TH[th])+'では：</b>'+esc(ext)+'</p>':'')+'<p><b>ひとこと：</b>'+esc(r.advice)+'</p><p><a href="#rn-'+p.i+'">'+esc(r.name)+'の意味をくわしく →</a></p></div>'}).join('');
+  +'<p>'+esc(p.rev?r.rev:r.up)+'</p>'+(ext?'<p><b>'+esc(TH[thK])+'では：</b>'+esc(ext)+'</p>':'')+'<p><b>ひとこと：</b>'+esc(r.advice)+'</p><p><a href="#rn-'+p.i+'">'+esc(r.name)+'の意味をくわしく →</a></p></div>'}).join('');
  var r=$('rn-res');r.hidden=false;r.innerHTML=lay+cards;$('rn-go').textContent='もう一度引く';});
 })();"""
 
