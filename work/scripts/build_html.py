@@ -432,6 +432,96 @@ LUCKY_CSS = ("<style>.fh-b27 a.fh-b27-luckyteaser{display:flex;flex-direction:co
              '.fh-b27 .fh-b27-shop>.fh-b27-shop-btns{grid-column:1/-1;margin-top:0}.fh-b27 .fh-b27-shop>.fh-b27-shop-btns a.fh-b27-shopbtn{flex:1 1 0;min-height:42px;font-size:14px}.fh-b27 .fh-b27-shop-prod{display:block;font-size:12px;line-height:1.5;color:#5E5546;margin-top:4px}.fh-b27 .fh-b27-shop-price{display:block;font-size:12.5px;color:#4A3F30;margin-top:2px}.fh-b27 .fh-b27-shop-price b{font-size:16px;color:#B3261E;margin:0 2px}.fh-b27 .fh-b27-shop-price small{font-size:11px;color:#7A6E5C}.fh-b27 .fh-b27-mono-btns .fh-b27-shop-price{flex-basis:100%;margin:0}' + "</style>")
 
 
+# 2026-10-17 広告の見せ方（色・中盤のピックアップ・高価な石の代わり）
+COLOR_KW = [("若葉", "#9CC46B"), ("若草", "#B5CF6B"), ("萌黄", "#A9C25D"), ("水色", "#8EC5E6"), ("空色", "#8EC5E6"), ("桜", "#F5C6D0"),
+            ("桃", "#F2A0B4"), ("ピンク", "#F2A0B4"), ("紅", "#C73E5A"), ("朱", "#E2541C"), ("赤", "#C0392B"), ("橙", "#EE8A2E"),
+            ("オレンジ", "#EE8A2E"), ("山吹", "#F2A93B"), ("金", "#C9A23A"), ("黄", "#E8C547"), ("緑", "#5E9E5A"), ("翠", "#3E9A7A"),
+            ("藍", "#2B4C7E"), ("紺", "#22325B"), ("青", "#3F6FB5"), ("瑠璃", "#2A5CAA"), ("紫", "#7E5AA6"), ("藤", "#A99BCB"),
+            ("茶", "#8A5A3B"), ("栗", "#7A4B2A"), ("ベージュ", "#D9C3A0"), ("生成", "#EFE6D2"), ("クリーム", "#F6EBC2"),
+            ("銀", "#BFC3C7"), ("灰", "#9A9A9A"), ("グレー", "#9A9A9A"), ("鼠", "#9A9A9A"), ("黒", "#2B2B2B"), ("墨", "#3A3A3A"),
+            ("白", "#F4F1EA")]
+
+
+def color_hex(name, hx=None):
+    if hx and re.fullmatch(r"#[0-9A-Fa-f]{6}", hx):
+        return hx
+    for k, v in COLOR_KW:
+        if k in (name or ""):
+            return v
+    return None
+
+
+ALT_STONE = [("ハーキマー", None), ("ダイヤモンド", ("ハーキマーダイヤモンド", "水晶の一種で、ダイヤモンドのような透明な輝きを持つ石")),
+             ("ルビー", ("ガーネット", "ルビーと同じ深い赤色の石")), ("サファイア", ("アイオライト", "サファイアに似た青紫色の石")),
+             ("タンザナイト", ("アイオライト", "タンザナイトに似た青紫色の石")), ("エメラルド", ("ペリドット", "エメラルドと同じ緑色の石")),
+             ("アレキサンドライト", ("ラブラドライト", "光の当たり方で色が変わって見える石")), ("パライバ", ("アクアマリン", "明るい水色の石")),
+             ("真珠", ("ムーンストーン", "真珠のようなやわらかい光沢の石")), ("パール", ("ムーンストーン", "真珠のようなやわらかい光沢の石"))]
+
+
+def alt_stone(name):
+    """高価な宝石の、手ごろな代わりの石（無ければ None）"""
+    for k, v in ALT_STONE:
+        if k in (name or ""):
+            return v
+    return None
+
+
+def best_q(cands):
+    """写真のある検索語を優先して選ぶ"""
+    for q in cands:
+        if GM.photo(q) and GM.item("rakuten", q):
+            return q
+    return cands[0]
+
+
+def pickup(label, name, why, q=None, cls=""):
+    """中盤に置く小さなピックアップ（写真・名前・ひとこと・値段・ボタン）。写真が無ければ出さない"""
+    q = q or name
+    ph = photo_link(q)
+    btns = shop_buttons(q)
+    if not ph or not btns:
+        return ""
+    return (f'<aside class="fh-b27-pick{(" " + cls) if cls else ""}"><div class="fh-b27-pick-pic">{ph}</div>'
+            f'<div class="fh-b27-pick-body"><small>{esc(label)}<span class="fh-b27-pr-s">PR</span></small><b>{esc(name)}</b>'
+            f'<span>{inline(why)}</span>{GM.price_html(q, short=True)}</div><div class="fh-b27-shop-btns">{btns}</div></aside>')
+
+
+def alt_pick(stone):
+    a = alt_stone(stone)
+    if not a:
+        return ""
+    alt, why = a
+    q = best_q([f"{alt} ブレスレット", f"{alt} 天然石", f"{alt} ネックレス"])
+    return pickup(f"{stone}の代わりに", alt, f"本物の{stone}は高価なので、{why}を手ごろなお守りに。", q, "fh-b27-pick-alt")
+
+
+PICK_CSS = ("<style>"
+    ".fh-b27 .fh-b27-pick{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px 12px;align-items:start;background:var(--p-cream,#F6EEDC);color:#2E2A26;border-radius:12px;padding:12px;margin:14px 0;box-shadow:0 4px 12px rgba(0,0,0,.25)}"
+    ".fh-b27 .fh-b27-pick-pic{width:92px;height:92px;background:#fff;border-radius:10px;padding:3px;overflow:hidden}"
+    ".fh-b27 .fh-b27-pick-pic a{display:block;width:100%;height:100%}"
+    ".fh-b27 .fh-b27-pick-body{display:flex;flex-direction:column;gap:2px;min-width:0}"
+    ".fh-b27 .fh-b27-pick-body small{font-size:11.5px;color:#6B5A2E}.fh-b27 .fh-b27-pr-s{margin-left:6px;font-size:10px;border:1px solid #B9A77A;border-radius:3px;padding:0 4px}"
+    ".fh-b27 .fh-b27-pick-body b{font-family:'Klee One',cursive;font-size:16.5px;color:#2E2A26}"
+    ".fh-b27 .fh-b27-pick-body>span{font-size:13px;line-height:1.6;color:#4A3F30}"
+    ".fh-b27 .fh-b27-pick>.fh-b27-shop-btns{grid-column:1/-1;margin:0}.fh-b27 .fh-b27-pick>.fh-b27-shop-btns a.fh-b27-shopbtn{flex:1 1 0;min-height:40px;font-size:14px}"
+    ".fh-b27 .fh-b27-pick-alt{background:#EAF1F7}"
+    ".fh-b27 .fh-b27-colrow{display:grid;grid-template-columns:46px minmax(0,1fr) 210px;gap:12px;align-items:center;padding:12px 14px;background:var(--deep);border:1.5px dashed var(--line);border-radius:8px}"
+    ".fh-b27 .fh-b27-colrow .fh-b27-sw{width:46px;height:46px;box-shadow:0 0 0 3px rgba(255,255,255,.15)}"
+    ".fh-b27 .fh-b27-colshop{display:grid;grid-template-columns:64px minmax(0,1fr);gap:8px;align-items:center;background:#fff;border-radius:10px;padding:6px;color:#2E2A26}"
+    ".fh-b27 .fh-b27-colshop .fh-b27-pick-pic{width:64px;height:64px;padding:2px}"
+    ".fh-b27 .fh-b27-colshop a.fh-b27-btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:38px;font-size:13px;padding:0 10px;margin:0;border-radius:8px;white-space:nowrap}"
+    ".fh-b27 .fh-b27-colshop-np{display:block;background:none;padding:0}"
+    ".fh-b27 .fh-b27-colrow .fh-b27-who{display:flex;flex-direction:column}"
+    ".fh-b27 .fh-b27-colshop .fh-b27-shop-price{font-size:11.5px}.fh-b27 .fh-b27-colshop .fh-b27-shop-price b{font-size:14px}"
+    "@media (max-width:640px){.fh-b27 .fh-b27-colrow{grid-template-columns:46px minmax(0,1fr)}.fh-b27 .fh-b27-colshop{grid-column:1/-1}}"
+    ".fh-b27 a.fh-b27-luckyteaser ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}"
+    ".fh-b27 .fh-b27-luckyteaser li{flex-direction:column;align-items:center;border-radius:12px;padding:8px 6px;text-align:center;gap:4px}"
+    ".fh-b27 img.fh-b27-tz-img{width:72px;height:72px;border-radius:10px;object-fit:contain;background:#fff}"
+    ".fh-b27 .fh-b27-luckyteaser li .fh-b27-ic{width:56px;height:56px}"
+    ".fh-b27 .fh-b27-luckyteaser li em{font-style:normal;font-size:11.5px;color:#B3261E;font-weight:700}"
+    "</style>")
+
+
 def photo_link(q):
     """商品の写真（押すと楽天の商品ページへ。写真が無い・楽天の商品が無いときは空）"""
     tag = GM.img_tag(q, q)
@@ -638,8 +728,12 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     # 2026-10-16 ラッキーアイテムの予告（ページの下まで読まなくても、お守りリストがあることがわかるように。広告ではなくページ内の案内）
     _its = [x.get("name", "") for x in ((yr.get("amulet") or {}).get("items") or []) if x.get("name")]
     if _its:
-        _chips = "".join(f'<li>{GM.img_tag(x, "", "fh-b27-tz-img") or ic(item_cat(x))}<span>{esc(x)}</span></li>' for x in _its[:3])
+        def _pr(x):
+            it = GM.item("rakuten", x)
+            return f'<em>{int(it["price"]):,}円〜</em>' if it and it.get("price") else ""
+        _chips = "".join(f'<li>{GM.img_tag(x, "", "fh-b27-tz-img") or ic(item_cat(x))}<span>{esc(x)}</span>{_pr(x)}</li>' for x in _its[:3])
         a(LUCKY_CSS)
+        a(PICK_CSS)
         a(f'''<a class="fh-b27-luckyteaser" href="#b27-omamori"><small>{md}生まれの2027年のラッキーアイテム</small><ul>{_chips}</ul><b>ほか{len(_its) - min(3, len(_its))}つ・ラッキーカラーと守護石もお守りリストで見る ↓</b></a>''')
 
     # 2 暦と星
@@ -678,10 +772,10 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   {h2(3, "mono", f"{md}の誕生花・誕生石・誕生日石・誕生色")}
   <div class="fh-b27-mono">
     <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{mono_btns(re.sub(r"[（(].*", "", flower["flower"]) + " 花 ギフト")}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{mono_btns(bm_list[0] + " ネックレス")}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone"><small>誕生日石（{md}）</small><b>{esc(std["stone"])}</b><p>{md}の誕生日石として、多くの一覧で紹介されている石です。</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-days">366日の誕生日石の一覧 →</a>{mono_btns(re.sub(r"[（(].*", "", std["stone"]) + " 天然石")}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{alt_pick(bm_list[0]) or mono_btns(bm_list[0] + " ネックレス")}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone"><small>誕生日石（{md}）</small><b>{esc(std["stone"])}</b><p>{md}の誕生日石として、多くの一覧で紹介されている石です。</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-days">366日の誕生日石の一覧 →</a>{alt_pick(std["stone"]) or mono_btns(re.sub(r"[（(].*", "", std["stone"]) + " 天然石")}</div>
     <div class="fh-b27-mono-card fh-b27-mc-color">{sw(std["color_hex"])}<small>誕生色（{md}）</small><b>{esc(std["color"])}</b><p>{md}の誕生色として、多くの一覧で紹介されている色です。</p></div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{mono_btns(e["birthday_stone"]["name"] + " ブレスレット")}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{alt_pick(e["birthday_stone"]["name"]) or mono_btns(e["birthday_stone"]["name"] + " ブレスレット")}</div>
     <div class="fh-b27-mono-card fh-b27-mc-color fh-b27-mc-own">{sw(col_hex)}<small>ラッキーカラー（当サイト独自）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）</b><p>{esc(col_desc)}</p></div>
   </div>
   {paras(fx.get("items"))}
@@ -783,6 +877,11 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         if key == "恋愛":
             a(f'  <p class="fh-b27-small"><a href="/dream/keyword/{dream[0]}/">{dream[1]}（夢解き図鑑）→</a></p>')
         a("  </div>")
+    _am_items = ((yr.get("amulet") or {}).get("items") or [])
+    _pool = [_am_items[i] for i in (1, 3, 4, 5, 2, 0) if i < len(_am_items) and GM.photo(_am_items[i].get("name", "")) and GM.item("rakuten", _am_items[i].get("name", ""))]
+    if _pool:
+        _it = _pool.pop(0)
+        a("  " + pickup("毎日の運を整えるラッキーアイテム", _it.get("name", ""), _it.get("why", "")))
     a("</section>")
 
     a(f'''<section class="fh-b27-sec" id="b27-grow">
@@ -867,13 +966,31 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   {ad}''')
     if ml2:
         a(f'  <div class="fh-b27-monthlist">\n    {"".join(ml2)}\n  </div>')
+    if _pool:
+        _it = _pool.pop(0)
+        _pk = [i + 1 for i in range(12) if i < len(marks) and marks[i] == "◎"]
+        a("  " + pickup(f"{_pk[0]}月の山場に持ちたいお守り" if _pk else "山場の月に持ちたいお守り", _it.get("name", ""), _it.get("why", "")))
     a('  <p class="fh-b27-small">◎ とても良い ／ ○ 良い ／ △ 慎重に。数字は上のグラフの「総合」で、366日×12か月の総合点の上位4分の1を◎、下位4分の1を△にしています。</p>\n</section>')
     a("<!--Ads2-->")  # WP QUADS の広告位置2：12か月の運勢の後
 
     # 13 開運アクション
     acts = yr.get("actions") or []
     if acts:
-        li = "\n    ".join(f'<li><span><b>{inline(x.get("title", ""))}</b>{inline(x.get("text", ""))}</span></li>' for x in acts)
+        _cands = [(it.get("name", ""), it.get("name", "")) for it in _am_items]
+        _flw = re.sub(r"[（(].*", "", flower["flower"])
+        def _act_pick(x):
+            t = x.get("title", "") + x.get("text", "")
+            stn_n = ((yr.get("amulet") or {}).get("stone") or {}).get("name", "")
+            if stn_n and stn_n in x.get("title", ""):
+                return alt_pick(stn_n) or pickup("この行動のおともに", stn_n, "", stn_n + " 天然石")
+            if _flw and _flw in x.get("title", ""):
+                return pickup("この行動のおともに", _flw, f"{md}の誕生花。", _flw + " 花 ギフト")
+            for nm, q in _cands:
+                core = nm.split("の")[-1]
+                if len(core) >= 2 and core in t:
+                    return pickup("この行動のおともに", nm, "", q)
+            return ""
+        li = "\n    ".join(f'<li><span><b>{inline(x.get("title", ""))}</b>{inline(x.get("text", ""))}{_act_pick(x)}</span></li>' for x in acts)
         a(f'<section class="fh-b27-sec" id="b27-action">\n  {h2(13, "action", "2027年の開運アクション")}\n  <ol class="fh-b27-acts">\n    {li}\n  </ol>\n</section>')
     else:
         a(f'<section class="fh-b27-sec" id="b27-action">\n  {h2(13, "action", "2027年の開運アクション")}\n  {miss_p()}\n</section>')
@@ -887,11 +1004,16 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         a('  <div class="fh-b27-rows">')
         for i, c in enumerate(cols):
             tag = ["メイン", "サブ", "アクセント"][i] if i < 3 else ""
-            hx = c.get("hex")
-            swh = f'<span class="fh-b27-sw" style="background:{esc(hx)}"></span>' if hx and re.fullmatch(r"#[0-9A-Fa-f]{6}", hx) else ""
-            a(f'''    <div class="fh-b27-row">
+            hx = color_hex(c.get("name", ""), c.get("hex"))
+            swh = f'<span class="fh-b27-sw" style="background:{esc(hx)}"></span>' if hx else '<span></span>'
+            cq = (c.get("name", "") + " 小物").strip()
+            cph = photo_link(cq)
+            cbt = aff_buttons(["rakuten"], cq, "この色の小物を見る", "fh-b27-btn")
+            cshop = ((f'<div class="fh-b27-colshop"><div class="fh-b27-pick-pic">{cph}</div><div>{cbt}{GM.price_html(cq, short=True)}</div></div>' if cph
+                      else f'<div class="fh-b27-colshop fh-b27-colshop-np">{cbt}</div>') if cbt else "")
+            a(f'''    <div class="fh-b27-colrow">
       {swh}<div class="fh-b27-who"><b>{esc(c.get("name", ""))}{f"（{tag}）" if tag else ""}</b><small>{inline(c.get("why", ""))}</small></div>
-      {aff_buttons(["rakuten"], (c.get("name", "") + " 小物").strip(), "この色の小物を見る", "fh-b27-btn" if i == 0 else "fh-b27-btn fh-b27-ghost")}
+      {cshop}
     </div>''')
         a("  </div>")
     else:
@@ -917,7 +1039,8 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     a(f'  <h3>守護石 {esc(stn.get("name", ""))}</h3>')
     a(f'  <p>{inline(stn["effect"])}</p>' if stn.get("effect") else "  " + miss_p())
     if stn.get("name"):
-        a("  " + mono_btns(stn["name"] + " 天然石"))
+        _alt = alt_pick(stn["name"])
+        a("  " + (_alt or mono_btns(stn["name"] + " 天然石")))
     a("</section>")
 
     # 15 誕生日プレゼント
