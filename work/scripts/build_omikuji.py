@@ -1,5 +1,5 @@
 """おみくじ（/omikuji/、固定ページ ID 4194）を作り直す（2026-10-18 本人の要望：大きな神社のようにパターンを増やす）。
-12段階の吉凶＋総合のことば＋10項目（願望〜病気）の言葉＋ラッキーな方角・色・時間。引くたびに組み合わせが変わる。
+2026-10-18 本人の決定で50番に：神社のように番号ごとに中身が固定（吉凶18種類・題・総合のことば・心がけ・10項目・ラッキー）。文章は omikuji50.py と omikuji_texts.ITEMS。
 結果の帯（よい・まずまず・気をつけたい）に合わせて、開運アイテムの広告を出し分ける（商品は build_omikuji_ads.py の CATS）。
 文章：work/scripts/omikuji_texts.py。注意：Diver は JS の [sp] [pc] を消す・WordPress は絵文字を &#x…; にする・
 遅延読み込みがスクリプト内の画像タグを書き換える → JS では絵文字と画像タグを使わない（広告の箱はHTMLで3つ用意して出し分ける）。
@@ -13,10 +13,11 @@ sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, shell  # noqa: E402
 import aff_extra as AX  # noqa: E402
 import omikuji_texts as O  # noqa: E402
+import omikuji50 as F  # noqa: E402
 from build_omikuji_ads import CATS  # noqa: E402
 
 URL = "/omikuji/"
-BAND = {"good": ("よい運勢", "#C2273A"), "mid": ("まずまずの運勢", "#B7791F"), "bad": ("気をつけたい運勢", "#4A5568")}
+BAND = {"good": ("よい運勢", "#C2273A"), "mid": ("まずまずの運勢", "#8A5A12"), "bad": ("気をつけたい運勢", "#4A5568")}
 
 
 def esc(s):
@@ -60,6 +61,14 @@ CSS = """<style id="fh-b27-om-css">
 .fh-b27-om-lucky{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
 .fh-b27-om-lucky span{border:1px solid #E2D3BA;border-radius:999px;padding:2px 10px;font-size:13px;background:#FFF8EA;color:#5A4E45}
 .fh-b27-om-ads{width:100%}
+.fh-b27-om-ttl{text-align:center;font:800 18px 'Shippori Mincho',serif;color:#7A1520;margin:4px 0 0}
+.fh-b27[data-fh-page="omikuji"] .fh-b27-om-kk,.fh-b27[data-fh-page="omikuji"] .fh-b27-om-link{margin:10px 4px 0;font-size:14.5px;color:#2B2420}
+.fh-b27-om-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.fh-b27-om-list details{border:1px solid #E2D3BA;border-radius:10px;background:#FFFDF8;padding:6px 10px;font-size:14px;line-height:1.8}
+.fh-b27-om-list summary{cursor:pointer;color:#2B2420}
+.fh-b27[data-fh-page="omikuji"] .fh-b27-om-list p,.fh-b27[data-fh-page="omikuji"] .fh-b27-om-list small{color:#2B2420;margin:4px 0}
+.fh-b27-om-scroll{overflow-x:auto}
+@media (max-width:640px){.fh-b27-om-list{grid-template-columns:1fr}}
 .fh-b27-om-ads>div[hidden]{display:none}
 .fh-b27-om-tbl{width:100%;border-collapse:collapse;font-size:14px}
 .fh-b27-om-tbl th,.fh-b27-om-tbl td{border-bottom:1px dashed #E2D3BA;padding:6px;text-align:left;color:#2B2420}
@@ -76,25 +85,49 @@ CSS = """<style id="fh-b27-om-css">
 @media (prefers-reduced-motion:reduce){.fh-b27-om-box.shake,.fh-b27-om-box.out i{animation:none}.fh-b27-om-paper{transition:none}}
 </style>"""
 
-JS = r"""(function(){var LV=__LV__,SM=__SM__,IT=__IT__,IO=__IO__,LD=__LD__,LC=__LC__,LT=__LT__,BC=__BC__;function $(i){return document.getElementById(i)}
+JS = r"""(function(){var SL=__SL__,BC=__BC__,NK=__NK__;function $(i){return document.getElementById(i)}
 if(!$('om-go'))return;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function rnd(n){if(window.crypto&&crypto.getRandomValues){var a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]%n}return Math.floor(Math.random()*n)}
-function pick(a){return a[rnd(a.length)]}
-function lot(){var t=0,i,r=rnd(100);for(i=0;i<LV.length;i++){t+=LV[i][2];if(r<t)return LV[i]}return LV[LV.length-1]}
+var IO=['願望','待人','失物','旅行','商売','学問','争事','恋愛','縁談','病気'];
+var KN=['一','二','三','四','五','六','七','八','九','十'];
+function kan(n){if(n<=10)return n===10?'十':KN[n-1];var t=Math.floor(n/10),o=n%10;return (t>1?KN[t-1]:'')+'十'+(o?KN[o-1]:'')}
 var busy=false;
 $('om-go').addEventListener('click',function(){if(busy)return;busy=true;var box=$('om-box'),p=$('om-paper');p.classList.remove('on');box.classList.remove('out');void box.offsetWidth;box.classList.add('shake');
  setTimeout(function(){box.classList.remove('shake');box.classList.add('out');
-  var L=lot(),nm=L[0],bd=L[3],no=1+rnd(100),rows=IO.map(function(k){return '<tr><th scope="row">'+esc(k)+'</th><td>'+esc(pick(IT[k][bd]))+'</td></tr>'}).join('');
-  p.innerHTML='<div class="fh-b27-om-no">第 '+no+' 番</div><div class="fh-b27-om-lv" style="color:'+BC[bd][1]+'">'+esc(nm)+'</div><div class="fh-b27-om-band" style="background:'+BC[bd][1]+'">'+esc(BC[bd][0])+'（12段階の'+(LV.map(function(x){return x[0]}).indexOf(nm)+1)+'番目）</div>'
-   +'<p class="fh-b27-om-sum">'+esc(pick(SM[nm]))+'</p><table class="fh-b27-om-items"><tbody>'+rows+'</tbody></table>'
-   +'<div class="fh-b27-om-lucky"><span>方角：'+esc(pick(LD))+'</span><span>色：'+esc(pick(LC))+'</span><span>時間：'+esc(pick(LT))+'</span></div>';
+  var s=SL[rnd(SL.length)],no=s[0],nm=s[1],bd=s[2],rows=IO.map(function(k,j){return '<tr><th scope="row">'+esc(k)+'</th><td>'+esc(s[6][j])+'</td></tr>'}).join('');
+  p.innerHTML='<div class="fh-b27-om-no">第 '+kan(no)+' 番</div><div class="fh-b27-om-lv" style="color:'+BC[bd][1]+'">'+esc(nm)+'</div><div class="fh-b27-om-band" style="background:'+BC[bd][1]+'">'+esc(BC[bd][0])+'（18種類の'+(NK.indexOf(nm)+1)+'番目）</div>'
+   +'<p class="fh-b27-om-ttl">'+esc(s[3])+'</p><p class="fh-b27-om-sum">'+esc(s[4])+'</p><table class="fh-b27-om-items"><tbody>'+rows+'</tbody></table>'
+   +'<p class="fh-b27-om-kk"><b>心がけ：</b>'+esc(s[5])+'</p>'
+   +'<div class="fh-b27-om-lucky"><span>方角：'+esc(s[7][0])+'</span><span>色：'+esc(s[7][1])+'</span><span>時間：'+esc(s[7][2])+'</span></div><p class="fh-b27-om-link"><a href="#om-n'+no+'">50番の一覧でこのおみくじを見る →</a></p>';
   p.hidden=false;setTimeout(function(){p.classList.add('on')},30);
   ['good','mid','bad'].forEach(function(k){var e=$('om-ad-'+k);if(e)e.hidden=(k!==bd)});$('om-ads').hidden=false;
   $('om-go').textContent='もう一度引く';busy=false;
   setTimeout(function(){p.scrollIntoView({behavior:'smooth',block:'start'})},400);
  },1100);});
 })();"""
+
+
+KAN = "一二三四五六七八九"
+
+
+def kan(n):
+    if n < 10:
+        return KAN[n - 1]
+    t, o = divmod(n, 10)
+    return (KAN[t - 1] if t > 1 else "") + "十" + (KAN[o - 1] if o else "")
+
+
+def slips():
+    """50番それぞれの中身（番号で固定）。項目の言葉とラッキーは番号から決めた位置で選ぶ"""
+    band = {k[0]: k[2] for k in F.KINDS}
+    out = []
+    for n, (kind, ttl, summ, kk) in enumerate(F.SLIPS, 1):
+        bd = band[kind]
+        items = [O.ITEMS[k][bd][(n * 7 + j * 5 + n // 6) % 6] for j, k in enumerate(O.ITEM_ORDER)]
+        lucky = [O.LUCKY_DIR[(n * 3) % 8], O.LUCKY_COLOR[(n * 5 + 1) % 12], O.LUCKY_TIME[(n * 7 + 2) % 6]]
+        out.append([n, kind, bd, ttl, summ, kk, items, lucky])
+    return out
 
 
 def build(sample, updated):
@@ -105,12 +138,12 @@ def build(sample, updated):
   <div class="fh-b27-om-box" aria-hidden="true"><i></i></div>
   <div class="fh-b27-hero-body">
     <span class="fh-b27-tape">人生予報 おみくじ</span>
-    <h1 class="fh-b27-title">おみくじ<br>12段階の吉凶と10の項目で今日を占う</h1>
-    <p class="fh-b27-lead">大吉から大凶までの12段階の吉凶に、願望・待人・失物・旅行・商売・学問・争事・恋愛・縁談・病気の10項目の言葉がつく、神社のおみくじのような無料のおみくじです。言葉の組み合わせは引くたびに変わります。</p>
+    <h1 class="fh-b27-title">おみくじ<br>50番・18種類の吉凶で今日を占う</h1>
+    <p class="fh-b27-lead">神社のおみくじのように、第一番から第五十番までの50枚から1枚を引きます。大大吉から大凶までの18種類の吉凶に、総合のことば・心がけと、願望・待人・失物・旅行・商売・学問・争事・恋愛・縁談・病気の10項目の言葉がつきます。同じ番号なら、いつ引いても同じ中身です。</p>
   </div>
 </header>''')
-    items = [("b27-om-draw", "おみくじを引く"), ("b27-om-order", "12段階の吉凶の順番"), ("b27-om-items", "項目の読み方"),
-             ("b27-om-after", "引いたおみくじはどうする？"), ("b27-om-faq", "よくある質問")]
+    items = [("b27-om-draw", "おみくじを引く"), ("b27-om-order", "18種類の吉凶の順番"), ("b27-om-items", "項目の読み方"),
+             ("b27-om-after", "引いたおみくじはどうする？"), ("b27-om-list", "50番の一覧"), ("b27-om-faq", "よくある質問")]
     a('<nav class="fh-b27-toc" aria-label="目次"><strong>このページの内容</strong><ol>' + "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in items) + "</ol></nav>")
     n = [0]
 
@@ -133,13 +166,14 @@ def build(sample, updated):
     <div class="fh-b27-om-ads" id="om-ads" hidden>{ads}</div>
   </div>
 </section>''')
-    rows = "".join(f'<tr><td>{i + 1}</td><td><b>{esc(nm)}</b>（{esc(yomi)}）</td><td>{esc(BAND[bd][0])}</td><td>{pct}%</td></tr>' for i, (nm, yomi, pct, bd) in enumerate(O.LEVELS))
-    assert sum(x[2] for x in O.LEVELS) == 100
+    cnt = {k[0]: sum(1 for s in F.SLIPS if s[0] == k[0]) for k in F.KINDS}
+    rows = "".join(f'<tr><td>{i + 1}</td><td><b style="color:{BAND[bd][1]}">{esc(nm)}</b><br><small>{esc(yomi)}</small></td><td>{esc(mean)}</td><td>{cnt[nm]}枚</td></tr>' for i, (nm, yomi, bd, mean) in enumerate(F.KINDS))
+    assert sum(cnt.values()) == 50
     a(f'''<section class="fh-b27-sec" id="b27-om-order">
-  {h2("12段階の吉凶の順番")}
-  <p>大きな神社やお寺のおみくじには、大吉・吉・凶だけでなく、半吉や末小吉、小凶など、たくさんの段階があります。順番は社寺によって違い、「吉」を「中吉」より上にするところもあります。このページのおみくじは、次の12段階の順番と出やすさで作っています。</p>
-  <table class="fh-b27-om-tbl"><thead><tr><th>順</th><th>吉凶</th><th>分け方</th><th>出やすさ</th></tr></thead><tbody>{rows}</tbody></table>
-  <p>「末」がつくものは「今はまだでも、後でよくなる（悪くなる）」、「半」がつくものは「よいことと気がかりが半分ずつ」という意味で読まれます。順番よりも、書かれている言葉の中身を大切にするのがおみくじの楽しみ方です。</p>
+  {h2("18種類の吉凶の順番")}
+  <p>大きな神社やお寺のおみくじは、番号のついた紙が何十枚も用意されていて、吉凶の種類もたくさんあります。たとえば京都の伏見稲荷大社は32枚、東京の浅草寺は第一番から第百番までの100枚と言われます。このページのおみくじは、第一番から第五十番までの50枚で、吉凶は次の18種類です。順番は社寺によって違い、このページの並びはこのサイトで決めたものです。</p>
+  <div class="fh-b27-om-scroll"><table class="fh-b27-om-tbl"><thead><tr><th>順</th><th>吉凶</th><th>意味</th><th>50枚中</th></tr></thead><tbody>{rows}</tbody></table></div>
+  <p>「末」がつくものは「今はまだでも、後でよくなる（悪くなる）」、「半」や「相半」がつくものは「よいことと気がかりが半分ずつ」、「凶後吉」のように「後」がつくものは「はじめは苦しくても、後でよくなる」という意味で読まれます。順番よりも、書かれている言葉の中身を大切にするのがおみくじの楽しみ方です。</p>
 </section>''')
     ex = {"願望": "いま心の中で願っていることが、どう進みそうか", "待人": "会いたい人や、助けてくれる人が来るかどうか", "失物": "なくした物が見つかるかどうか、どのあたりを探すとよいか",
           "旅行": "旅や外出、引っ越しなどの移動の運", "商売": "仕事やお金のやりとり、取引の運", "学問": "勉強や試験、学び事の進み方",
@@ -157,6 +191,12 @@ def build(sample, updated):
   <p>神社やお寺で引いたおみくじは、境内の「おみくじ掛け」に結んで帰っても、持ち帰ってお守りのように手元に置いてもかまいません。よくない結果を結んで帰り、よい結果は持ち帰って読み返す、という人も多くいます。木の枝に結ぶと木が傷むため、結ぶ場所を決めている社寺もあります。結ぶときは、決められた場所に結びましょう。</p>
   <p>おみくじの始まりには諸説あり、平安時代の僧・良源（元三大師）にちなむ「観音籤（かんのんくじ）」が、今のおみくじのもとのひとつと言われています。昔の人も、迷ったときにくじを引いて、心を決めるきっかけにしていました。</p>
 </section>''')
+    lst = "".join(f'<details id="om-n{x[0]}"><summary>第{kan(x[0])}番　<b style="color:{BAND[x[2]][1]}">{esc(x[1])}</b>　{esc(x[3])}</summary><p>{esc(x[4])}</p><p><small>心がけ：{esc(x[5])}</small></p></details>' for x in slips())
+    a(f'''<section class="fh-b27-sec" id="b27-om-list">
+  {h2("50番の一覧")}
+  <p>このおみくじに入っている50枚の一覧です。番号を押すと、総合のことばと心がけが開きます。10項目の言葉は、引いたときのお楽しみです。</p>
+  <div class="fh-b27-om-list">{lst}</div>
+</section>''')
     qa = "".join(f'<details{" open" if i == 0 else ""}><summary>Q. {esc(q)}</summary><p>A. {esc(x)}</p></details>' for i, (q, x) in enumerate(O.FAQ))
     ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": x}} for q, x in O.FAQ]}
     a(f'''<section class="fh-b27-sec" id="b27-om-faq">
@@ -172,10 +212,8 @@ def build(sample, updated):
     <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日ごとの2027年の運勢</small></a>
   </div>
 </section>''')
-    js = (JS.replace("__LV__", json.dumps(O.LEVELS, ensure_ascii=False)).replace("__SM__", json.dumps(O.SUMMARY, ensure_ascii=False))
-          .replace("__IT__", json.dumps(O.ITEMS, ensure_ascii=False)).replace("__IO__", json.dumps(O.ITEM_ORDER, ensure_ascii=False))
-          .replace("__LD__", json.dumps(O.LUCKY_DIR, ensure_ascii=False)).replace("__LC__", json.dumps(O.LUCKY_COLOR, ensure_ascii=False))
-          .replace("__LT__", json.dumps(O.LUCKY_TIME, ensure_ascii=False)).replace("__BC__", json.dumps(BAND, ensure_ascii=False)))
+    js = (JS.replace("__SL__", json.dumps(slips(), ensure_ascii=False)).replace("__BC__", json.dumps(BAND, ensure_ascii=False))
+          .replace("__NK__", json.dumps([k[0] for k in F.KINDS], ensure_ascii=False)))
     assert not re.findall(r"\[(sp|pc|tab|mobile)\]", js) and "<img" not in js
     assert not re.search(r"[\U0001F000-\U0001FFFF]", js)
     up = dt.date.fromisoformat(updated)
@@ -183,9 +221,9 @@ def build(sample, updated):
       f'最終更新日：{up.year}年{up.month}月{up.day}日／<a href="/about/">この記事の作成方針について</a></p>')
     a("</div>\n</div>")
     a(f"<script>document.addEventListener('DOMContentLoaded',function(){{{js}}});</script>")
-    title = "おみくじ【無料】12段階の吉凶と10項目で今日の運勢｜大吉〜大凶・願望・待人・恋愛・商売"
-    desc = ("大吉から大凶までの12段階の吉凶に、願望・待人・失物・旅行・商売・学問・争事・恋愛・縁談・病気の10項目の言葉がつく無料のおみくじ。"
-            "引くたびに言葉の組み合わせが変わります。吉凶の順番、項目の読み方、引いたおみくじの扱い方も紹介します。")
+    title = "おみくじ【無料】50番・18種類の吉凶と10項目で今日の運勢｜大大吉〜大凶・願望・待人・恋愛・商売"
+    desc = ("神社のおみくじのように、第一番〜第五十番の50枚から1枚を引く無料のおみくじ。大大吉から大凶まで18種類の吉凶に、総合のことば・心がけと、"
+            "願望・待人・失物・旅行・商売・学問・争事・恋愛・縁談・病気の10項目の言葉がつきます。50番の一覧、吉凶の順番、項目の読み方も紹介します。")
     out = shell(title, desc, URL, "\n".join(H), sample)
     assert "！" not in out and "動物占い" not in out
     return out
