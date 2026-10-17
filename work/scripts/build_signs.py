@@ -61,10 +61,11 @@ CSS = """<style id="fh-b27-sg-css">
 .fh-b27-sg-chart .ln{fill:none;stroke-width:3;stroke-linejoin:round;stroke-linecap:round;transition:opacity .3s}
 .fh-b27-sg-chart .ln.off,.fh-b27-sg-chart .dt.off{opacity:0}
 .fh-b27-sg-chart text{fill:#C9CDE0;font-size:11px}
-.fh-b27-sg-tl{display:grid;grid-template-columns:64px repeat(12,minmax(0,1fr));gap:2px;font-size:11.5px;align-items:stretch}
-.fh-b27-sg-tl .m{text-align:center;color:var(--mute)}
-.fh-b27-sg-tl .p{color:var(--sub);font-weight:700;display:flex;align-items:center}
-.fh-b27-sg-tl .seg{border-radius:6px;padding:4px 6px;color:#10142A;font-weight:700;line-height:1.35;overflow:hidden;min-height:38px;display:flex;align-items:center}
+.fh-b27-sg-tl{display:grid;grid-template-columns:52px minmax(0,1fr);gap:4px 6px;font-size:11.5px;align-items:center}
+.fh-b27-sg-tl .p{color:var(--sub);font-weight:700}
+.fh-b27-sg-tl .bar{position:relative;height:34px;background:rgba(255,255,255,.04);border-radius:6px}
+.fh-b27-sg-tl .bar.mh{height:18px;background:none}.fh-b27-sg-tl .bar.mh span{position:absolute;top:0;color:var(--mute);font-size:11px}
+.fh-b27-sg-tl .seg{position:absolute;top:0;bottom:0;border-radius:5px;color:#10142A;font-weight:700;font-size:11px;line-height:1.25;padding:2px 4px;overflow:hidden;box-shadow:inset -1px 0 0 rgba(0,0,0,.35);display:flex;align-items:center}
 .fh-b27-sg-months{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .fh-b27-sg-months div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:8px;padding:10px 12px;font-size:14px;line-height:1.8}
 .fh-b27-sg-months b{font-size:16px}.fh-b27-sg-months small{float:right;color:var(--mute);font-size:12px}
@@ -99,7 +100,7 @@ CSS = """<style id="fh-b27-sg-css">
 .fh-b27-sg-lk b{display:block;color:var(--gold);font-size:13px}.fh-b27-sg-lk span{font-size:15px}
 .fh-b27[data-fh-page="sign"] .om-ad{margin:12px 0}
 @media (max-width:640px){.fh-b27-sg-kw,.fh-b27-sg-tips,.fh-b27-sg-two,.fh-b27-sg-months,.fh-b27-sg-lk{grid-template-columns:1fr}.fh-b27 .fh-b27-sg-why ul{grid-template-columns:1fr}
- .fh-b27-sg-glyph{width:84px;height:84px;font-size:46px}.fh-b27-sg-tl{grid-template-columns:44px repeat(12,minmax(0,1fr));font-size:9.5px}.fh-b27-sg-tl .seg{padding:2px 3px;font-size:9.5px}
+ .fh-b27-sg-glyph{width:84px;height:84px;font-size:46px}.fh-b27-sg-tl .seg{font-size:9.5px;padding:1px 2px}.fh-b27-sg-tl .bar.mh span{font-size:9px}
  .fh-b27-sg-cal td{height:54px;padding:2px}.fh-b27-sg-cal td small{display:none}}
 </style>"""
 
@@ -136,35 +137,21 @@ def chart_svg(months):
 
 
 def timeline(houses):
-    rows = ['<div class="p"></div>' + "".join(f'<div class="m">{m}月</div>' for m in range(1, 13))]
+    """1年を横棒にして、天体がどの部屋にいるかを日数どおりの長さで描く"""
+    y0 = dt.date(2027, 1, 1)
+    hd = '<div class="fh-b27-sg-tl"><div class="p"></div><div class="bar mh">' + "".join(
+        f'<span style="left:{(dt.date(2027, m, 1) - y0).days / 365 * 100:.2f}%">{m}月</span>' for m in range(1, 13)) + "</div>"
+    rows = []
     for p in ("木星", "土星", "火星", "金星"):
         segs = []
         for s in houses[p]:
-            a = dt.date.fromisoformat(s["from"])
-            b = dt.date.fromisoformat(s["to"])
-            c0 = a.month + (a.day - 1) / 31
-            c1 = b.month + b.day / 31
-            segs.append((c0, c1, s))
-        cells = []
-        for c0, c1, s in segs:
-            start = int(round(c0))
-            end = max(start + 1, int(round(c1 + 0.0001)) + (0 if round(c1) > c1 else 0))
-            start = max(1, min(12, int(c0 + 0.5)))
-            end = max(start + 1, min(13, int(c1 + 0.5) + (1 if c1 - int(c1) > 0.5 else 0)))
-            cells.append((start, end, s))
-        # 重なりや隙間をならす
-        out = []
-        cur = 1
-        for start, end, s in cells:
-            start = max(start, cur)
-            if start >= 13:
-                continue
-            end = max(end, start + 1)
-            end = min(end, 13)
-            out.append(f'<div class="seg" style="grid-column:{start + 1}/{end + 1};background:{PLAN_COL[p]}" title="{esc(s["from"])}〜{esc(s["to"])}">{s["house"]}番目｜{esc(s["theme"].split("・")[0])}</div>')
-            cur = end
-        rows.append(f'<div class="p" style="grid-column:1">{p}</div>' + "".join(out))
-    return '<div class="fh-b27-sg-tl">' + "".join(rows) + "</div>"
+            a = (dt.date.fromisoformat(s["from"]) - y0).days
+            b = (dt.date.fromisoformat(s["to"]) - y0).days + 1
+            w = (b - a) / 365 * 100
+            lab = f'{s["house"]}番目' + (f'｜{esc(s["theme"].split("・")[0])}' if w > 14 else "")
+            segs.append(f'<span class="seg" style="left:{a / 365 * 100:.2f}%;width:{w:.2f}%;background:{PLAN_COL[p]}" title="{esc(s["from"])}〜{esc(s["to"])}：{s["house"]}番目の部屋（{esc(s["theme"])}）">{lab}</span>')
+        rows.append(f'<div class="p">{p}</div><div class="bar">{"".join(segs)}</div>')
+    return hd + "".join(rows) + "</div>"
 
 
 def build(en, sample, updated):
@@ -185,7 +172,7 @@ def build(en, sample, updated):
     a(f'<div class="fh-b27" data-fh-page="sign" style="--el:{EC[el]}">\n<div class="fh-b27-note">')
     best = max(range(1, 13), key=lambda m: M[str(m)]["総合"])
     a(f'''<header class="fh-b27-hero">
-  <div class="fh-b27-sg-glyph" aria-hidden="true">{GLYPH[en]}</div>
+  <div class="fh-b27-sg-glyph" aria-hidden="true">{GLYPH[en]}&#xFE0E;</div>
   <div class="fh-b27-hero-body">
     <span class="fh-b27-tape">星座占い 2027</span>
     <h1 class="fh-b27-title">{ja}の2027年の運勢</h1>
