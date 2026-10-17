@@ -409,8 +409,8 @@ def shop_box(kind, name, why, cls=""):
     return (f'<div class="fh-b27-shop{(" " + cls) if cls else ""}">'
             f'<div class="fh-b27-shop-pic">{photo_link(name) or ic(item_cat(name))}</div>'
             f'<div class="fh-b27-shop-body"><small>{esc(kind)}</small><b class="fh-b27-shop-name">{esc(name)}</b>'
-            f'<span class="fh-b27-shop-why">{inline(why)}</span>'
-            + (f'<div class="fh-b27-shop-btns">{btns}</div>' if btns else "") + '</div></div>')
+            f'<span class="fh-b27-shop-why">{inline(why)}</span>{GM.price_html(name)}</div>'
+            + (f'<div class="fh-b27-shop-btns">{btns}</div>' if btns else "") + '</div>')
 
 
 LUCKY_CSS = ("<style>.fh-b27 a.fh-b27-luckyteaser{display:flex;flex-direction:column;gap:6px;margin:4px 0 20px;padding:14px 16px;border-radius:12px;"
@@ -418,6 +418,7 @@ LUCKY_CSS = ("<style>.fh-b27 a.fh-b27-luckyteaser{display:flex;flex-direction:co
              ".fh-b27 a.fh-b27-luckyteaser small{font-size:12.5px;color:#6B5A2E}"
              ".fh-b27-luckyteaser ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}"
              ".fh-b27 .fh-b27-luckyteaser li{margin:0;display:flex;align-items:center;gap:6px;background:#FFFDF6;border-radius:999px;padding:4px 12px 4px 6px;font-weight:700;font-size:14.5px}"
+             ".fh-b27 img.fh-b27-tz-img{width:30px;height:30px;border-radius:50%;object-fit:cover;margin:0;background:#fff}"
              ".fh-b27 .fh-b27-luckyteaser li::before{content:none}.fh-b27-luckyteaser li .fh-b27-ic{width:26px;height:26px}"
              ".fh-b27 a.fh-b27-luckyteaser b{font-size:13.5px;color:#8A4B12}"
              ".fh-b27 .fh-b27-mono-btns .fh-b27-shopbtn{font-size:12.5px;padding:4px 10px;min-height:36px}"
@@ -426,8 +427,9 @@ LUCKY_CSS = ("<style>.fh-b27 a.fh-b27-luckyteaser{display:flex;flex-direction:co
              ".fh-b27 .fh-b27-shop:has(.fh-b27-shop-photo){grid-template-columns:112px minmax(0,1fr)}"
              ".fh-b27 .fh-b27-shop-pic:has(img){width:112px;height:112px;background:#fff;padding:4px;overflow:hidden;border-radius:10px}"
              ".fh-b27 img.fh-b27-shop-img{display:block;width:100%;height:100%;object-fit:contain;background:#fff;border-radius:8px;margin:0}"
-             ".fh-b27 .fh-b27-mono-btns{align-items:center}.fh-b27 .fh-b27-mono-btns>a.fh-b27-shop-photo{flex:0 0 64px;width:64px;height:64px}"
-             ".fh-b27 .fh-b27-mono-btns>span{display:flex;flex-wrap:wrap;gap:6px}</style>")
+             ".fh-b27 .fh-b27-mono-btns{align-items:center}.fh-b27 .fh-b27-mono-btns>a.fh-b27-shop-photo{flex:0 0 84px;width:84px;height:84px}"
+             ".fh-b27 .fh-b27-mono-btns>span{display:flex;flex-wrap:wrap;gap:6px}"
+             '.fh-b27 .fh-b27-shop>.fh-b27-shop-btns{grid-column:1/-1;margin-top:0}.fh-b27 .fh-b27-shop>.fh-b27-shop-btns a.fh-b27-shopbtn{flex:1 1 0;min-height:42px;font-size:14px}.fh-b27 .fh-b27-shop-prod{display:block;font-size:12px;line-height:1.5;color:#5E5546;margin-top:4px}.fh-b27 .fh-b27-shop-price{display:block;font-size:12.5px;color:#4A3F30;margin-top:2px}.fh-b27 .fh-b27-shop-price b{font-size:16px;color:#B3261E;margin:0 2px}.fh-b27 .fh-b27-shop-price small{font-size:11px;color:#7A6E5C}.fh-b27 .fh-b27-mono-btns .fh-b27-shop-price{flex-basis:100%;margin:0}' + "</style>")
 
 
 def photo_link(q):
@@ -443,7 +445,7 @@ def mono_btns(q):
     """誕生花・誕生石・誕生日石のカードの下に置く小さな店ボタン（楽天・Yahoo!。ひな形のある店だけ）"""
     b = shop_buttons(q)
     ph = photo_link(q)
-    return (f'<div class="fh-b27-shop-btns fh-b27-mono-btns">{ph}<span>{b}</span></div>' if ph else
+    return (f'<div class="fh-b27-shop-btns fh-b27-mono-btns">{ph}<span>{b}{GM.price_html(q, short=True)}</span></div>' if ph else
             f'<div class="fh-b27-shop-btns fh-b27-mono-btns">{b}</div>') if b else ""
 
 
@@ -636,7 +638,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     # 2026-10-16 ラッキーアイテムの予告（ページの下まで読まなくても、お守りリストがあることがわかるように。広告ではなくページ内の案内）
     _its = [x.get("name", "") for x in ((yr.get("amulet") or {}).get("items") or []) if x.get("name")]
     if _its:
-        _chips = "".join(f'<li>{ic(item_cat(x))}<span>{esc(x)}</span></li>' for x in _its[:3])
+        _chips = "".join(f'<li>{GM.img_tag(x, "", "fh-b27-tz-img") or ic(item_cat(x))}<span>{esc(x)}</span></li>' for x in _its[:3])
         a(LUCKY_CSS)
         a(f'''<a class="fh-b27-luckyteaser" href="#b27-omamori"><small>{md}生まれの2027年のラッキーアイテム</small><ul>{_chips}</ul><b>ほか{len(_its) - min(3, len(_its))}つ・ラッキーカラーと守護石もお守りリストで見る ↓</b></a>''')
 
