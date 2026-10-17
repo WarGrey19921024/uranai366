@@ -39,7 +39,7 @@ CSS = """<style id="fh-b27-ac-css">
 .fh-b27[data-fh-page="acolor"] a{color:#FFD58A}
 .fh-b27[data-fh-page="acolor"] .fh-b27-sec>p,.fh-b27[data-fh-page="acolor"] .fh-b27-lead{text-shadow:0 1px 2px rgba(0,0,0,.6)}
 .fh-b27[data-fh-page="acolor"] .fh-b27-note{border-left:0;border-radius:24px;background-color:var(--paper);
- background-image:radial-gradient(circle at 8% 0%,rgba(224,87,91,.18),transparent 35%),radial-gradient(circle at 50% 0%,rgba(226,179,60,.14),transparent 35%),radial-gradient(circle at 92% 10%,rgba(79,174,122,.16),transparent 35%),radial-gradient(circle at 20% 100%,rgba(76,143,214,.16),transparent 40%),radial-gradient(circle at 90% 90%,rgba(154,107,203,.2),transparent 40%);box-shadow:0 18px 40px rgba(0,0,0,.3)}
+ background-image:radial-gradient(circle at 8% 0%,rgba(224,87,91,.18),transparent 35%),radial-gradient(circle at 50% 0%,rgba(226,179,60,.14),transparent 35%),radial-gradient(circle at 92% 10%,rgba(79,174,122,.16),transparent 35%),radial-gradient(circle at 20% 100%,rgba(76,143,214,.16),transparent 40%),radial-gradient(circle at 90% 90%,rgba(154,107,203,.2),transparent 40%);box-shadow:0 18px 40px rgba(0,0,0,.3);background-size:auto;background-repeat:no-repeat}
 .fh-b27[data-fh-page="acolor"] .fh-b27-hero{align-items:center}
 .fh-b27-ac-emb{display:grid;grid-template-columns:repeat(4,40px);gap:6px;flex:0 0 auto}
 .fh-b27-ac-emb span{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--c);box-shadow:0 3px 8px rgba(0,0,0,.3);animation:fh-b27-ac-bob 3.2s ease-in-out infinite;animation-delay:calc(var(--i)*.25s)}

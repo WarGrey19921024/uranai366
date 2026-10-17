@@ -30,7 +30,7 @@ CSS = """<style id="fh-b27-tp-css">
 .fh-b27[data-fh-page="trump"] a{color:#F2D99A}
 .fh-b27[data-fh-page="trump"] .fh-b27-sec>p,.fh-b27[data-fh-page="trump"] .fh-b27-lead{text-shadow:0 1px 2px rgba(0,0,0,.6)}
 .fh-b27[data-fh-page="trump"] .fh-b27-note{border-left:0;border-radius:24px;background-color:var(--paper);
- background-image:radial-gradient(ellipse at 50% 0%,rgba(46,110,80,.55),transparent 60%),radial-gradient(circle at 100% 100%,rgba(232,199,122,.10),transparent 40%);box-shadow:0 18px 40px rgba(0,0,0,.3),inset 0 0 0 1px rgba(232,199,122,.35)}
+ background-image:radial-gradient(ellipse at 50% 0%,rgba(46,110,80,.55),transparent 60%),radial-gradient(circle at 100% 100%,rgba(232,199,122,.10),transparent 40%);box-shadow:0 18px 40px rgba(0,0,0,.3),inset 0 0 0 1px rgba(232,199,122,.35);background-size:auto;background-repeat:no-repeat}
 .fh-b27[data-fh-page="trump"] .fh-b27-hero{align-items:center}
 .fh-b27-tp-emb{position:relative;width:150px;height:130px;flex:0 0 auto}
 .fh-b27-tp-emb .fh-b27-tp-card{position:absolute;left:44px;top:6px;transform-origin:50% 120%}

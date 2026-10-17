@@ -43,7 +43,7 @@ CSS = """<style id="fh-b27-hs-css">
 .fh-b27[data-fh-page="hoshi"] a{color:#FFE2A3}
 .fh-b27[data-fh-page="hoshi"] .fh-b27-sec>p,.fh-b27[data-fh-page="hoshi"] .fh-b27-lead{text-shadow:0 1px 2px rgba(0,0,0,.6)}
 .fh-b27[data-fh-page="hoshi"] .fh-b27-note{border-left:0;border-radius:24px;background-color:var(--paper);
- background-image:radial-gradient(1px 1px at 10% 20%,#fff,transparent),radial-gradient(1px 1px at 30% 70%,#fff,transparent),radial-gradient(1.5px 1.5px at 70% 30%,#fff,transparent),radial-gradient(1px 1px at 85% 80%,#fff,transparent),radial-gradient(circle at 80% 0%,rgba(244,213,138,.18),transparent 40%);box-shadow:0 18px 40px rgba(0,0,0,.3)}
+ background-image:radial-gradient(1.5px 1.5px at 8% 3%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 22% 1.5%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 47% 4%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 63% 2%,#fff 50%,transparent 51%),radial-gradient(2px 2px at 88% 3.5%,#FFE9B0 50%,transparent 51%),radial-gradient(1px 1px at 95% 1%,#fff 50%,transparent 51%),linear-gradient(180deg,#1C2448 0%,#141A33 35%,#10152B 100%);background-size:auto;background-repeat:no-repeat;box-shadow:0 18px 40px rgba(0,0,0,.3)}
 .fh-b27[data-fh-page="hoshi"] .fh-b27-hero{align-items:center}
 .fh-b27-hs-moon{width:110px;height:110px;border-radius:50%;flex:0 0 auto;background:radial-gradient(circle at 35% 35%,#FFF7DC,#F4D58A 55%,#C9A24F);box-shadow:0 0 40px rgba(244,213,138,.55);position:relative;overflow:hidden}
 .fh-b27-hs-moon:after{content:"";position:absolute;inset:0;border-radius:50%;background:#141A33;transform:translateX(60%);animation:fh-b27-hs-phase 8s ease-in-out infinite alternate}
