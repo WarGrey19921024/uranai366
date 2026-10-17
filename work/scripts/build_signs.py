@@ -10,6 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from build_hub import OUT, WORK, shell  # noqa: E402
 from build_sign_ads import SIGN_COLORS  # noqa: E402
+import aff_extra  # noqa: E402
 
 DATA = os.path.join(WORK, "data")
 EN = {"牡羊座": "aries", "牡牛座": "taurus", "双子座": "gemini", "蟹座": "cancer", "獅子座": "leo", "乙女座": "virgo",
@@ -98,16 +99,13 @@ CSS = """<style id="fh-b27-sg-css">
 .fh-b27-sg-lk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .fh-b27-sg-lk div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .fh-b27-sg-lk b{display:block;color:var(--gold);font-size:13px}.fh-b27-sg-lk span{font-size:15px}
-.fh-b27[data-fh-page="sign"] .om-ad{margin:12px 0}
+.fh-b27-sg-ad{margin:12px 0}
+.fh-b27[data-fh-page="sign"] .fh-b27-adphone a.fh-b27-btn{color:#fff}
 .fh-b27-sg-eye{margin:0 0 14px;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .fh-b27-sg-eye img{display:block;width:100%;height:auto;margin:0}
 .fh-b27-sg-hint{font-size:12.5px;color:var(--sub);margin:0 0 6px}
 .fh-b27-sg-tabs button[aria-pressed="true"]::before{content:"✓ "}
 .fh-b27-sg-tabs button[aria-pressed="false"]{text-decoration:line-through;opacity:.7}
-.fh-b27[data-fh-page="sign"] .om-ad a.fh-b27-btn,.fh-b27[data-fh-page="sign"] .fh-b27-adphone a.fh-b27-btn{background:#5B3C88!important;color:#fff!important;border:0}
-.fh-b27[data-fh-page="sign"] .om-ad a.fh-b27-shopbtn{color:#fff!important}
-.fh-b27[data-fh-page="sign"] .om-ad .fh-b27-adgoods{color:#2E2A26}
-.fh-b27[data-fh-page="sign"] .om-ad .fh-b27-adgoods-h,.fh-b27[data-fh-page="sign"] .om-ad .fh-b27-adgoods-h span,.fh-b27[data-fh-page="sign"] .om-ad .fh-b27-shop-name,.fh-b27[data-fh-page="sign"] .om-ad .fh-b27-adgoods-l{color:#2E2A26}
 @media (max-width:640px){.fh-b27-sg-kw,.fh-b27-sg-tips,.fh-b27-sg-two,.fh-b27-sg-months,.fh-b27-sg-lk{grid-template-columns:1fr}.fh-b27 .fh-b27-sg-why ul{grid-template-columns:1fr}
  .fh-b27-sg-glyph{width:84px;height:84px;font-size:46px}.fh-b27-sg-tl .seg{font-size:9.5px;padding:1px 2px}.fh-b27-sg-tl .bar.mh span{font-size:9px}
  .fh-b27-sg-cal td{height:54px;padding:2px}.fh-b27-sg-cal td small{display:none}}
@@ -178,6 +176,7 @@ def build(en, sample, updated):
     H = []
     a = H.append
     a(CSS)
+    a(aff_extra.CSS)
     a(f'<div class="fh-b27" data-fh-page="sign" style="--el:{EC[el]}">\n<div class="fh-b27-note">')
     best = max(range(1, 13), key=lambda m: M[str(m)]["総合"])
     up_ = "/wp-content/uploads/2025/12/" + en
@@ -261,7 +260,7 @@ def build(en, sample, updated):
   {h2("恋愛・仕事・お金・健康・人間関係")}
   <div class="fh-b27-sg-fields">{"".join(fc)}</div>
 </section>''')
-    a(A["signs"][en]["phone"].replace('<div class="fh-b27 om-ad">', '<div class="om-ad">'))
+    a(A["signs"][en]["phone"].replace('<div class="fh-b27 om-ad">', '<div class="fh-b27-sg-ad">'))
     hd = "".join(f"<th>{m}月</th>" for m in range(1, 13))
     rows = []
     for r in range(12):
@@ -285,8 +284,8 @@ def build(en, sample, updated):
     a(f'''<section class="fh-b27-sec" id="b27-sg-lucky">
   {h2(ja + "のラッキーカラーとアイテム")}
   <div class="fh-b27-sg-lk"><div><b>ラッキーカラー</b><span>{esc(SIGN_COLORS[en])}</span></div><div><b>ラッキーナンバー</b><span>{esc(NUMBERS[en])}</span></div></div>
-  {A["signs"][en]["colors"].replace('<div class="fh-b27 om-ad">', '<div class="om-ad">')}
-  {A["signs"][en]["items"].replace('<div class="fh-b27 om-ad">', '<div class="om-ad">')}
+  {A["signs"][en]["colors"].replace('<div class="fh-b27 om-ad">', '<div class="fh-b27-sg-ad">')}
+  {A["signs"][en]["items"].replace('<div class="fh-b27 om-ad">', '<div class="fh-b27-sg-ad">')}
 </section>''')
     tips = "".join(f'<div><b>{esc(h)}</b>{esc(t)}</div>' for h, t in T["tips"])
     dl = "".join(f'<a href="/366uranai/{k[:2]}-{k[2:]}/">{int(k[:2])}/{int(k[2:])}</a>' for k in days)
