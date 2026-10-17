@@ -49,7 +49,7 @@ def main():
                  f'<p class="fh-b27-adgoods-l">{esc(lead)}</p><div class="fh-b27-shops">{"".join(cards)}</div></aside>')
         phone = (f'<div class="fh-b27-ad fh-b27-adphone"><small>{esc(ph_t)}</small><p>{esc(ph_p)}</p>'
                  f'<a class="fh-b27-btn" href="{esc(AX.href("phone"))}" rel="nofollow sponsored" data-aff="phone">電話占いで相談してみる</a>{t["phone"]["impression"]}<span class="fh-b27-pr">広告</span></div>')
-        block = f'<!-- st-ad:start 2026-10-18 -->\n<div class="fh-b27 om-ad">{css}{goods}{phone}</div>\n<!-- st-ad:end -->\n'
+        block = f'<!-- st-ad:start 2026-10-18 -->\n<div class="fh-b27 om-ad" style="position:relative;z-index:2">{css}{goods}{phone}</div>\n<!-- st-ad:end -->\n'
         open(os.path.join(OUT, f"{g}.html"), "w", encoding="utf-8").write(block)
         # 結果の画面の商品カード（JS で出すページ用。<img> を書かずに '<'+'img' で組み立てるため、写真は src だけ持たせる）
         prods = [dict(name=label, description=it["name"][:24], img=it["img"], link=AX.tpl()["rakuten"]["href"].replace("{url}", __import__("urllib.parse").parse.quote(it["url"], safe="")),
