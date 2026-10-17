@@ -21,6 +21,7 @@ def texts(d):
     out = [d["catch"], d["lead"], d["year"], d["jupiter"], d["saturn"], d["personality"]]
     out += [v for _, v in d["keywords"]] + list(d["months"].values()) + list(d["fields"].values())
     out += [v for _, v in d["compat"]["good"]] + [v for _, v in d["compat"]["care"]] + [v for _, v in d["tips"]] + [a for _, a in d["faq"]]
+    out += [v for _, v in d.get("faq_extra", [])]
     return out
 
 
@@ -49,12 +50,20 @@ def main():
     for en, d in T.items():
         s = re.sub(r"(牡羊|牡牛|双子|蟹|獅子|乙女|天秤|蠍|射手|山羊|水瓶|魚)座", "〇座", "".join(texts(d)))
         s = re.sub(r"\d+", "#", s)
+        s = re.sub(r"（[^）]{1,24}）", "", s)  # 天体や部屋の説明（「（幸運と拡大の星）」など）は決まった言い方なので除く
         for i in range(len(s) - N):
             grams.setdefault(s[i:i + N], set()).add(en)
     dup = [(g, sorted(v)) for g, v in grams.items() if len(v) > 1 and not re.search(r"[（）「」]", g)]
     print("14字の一致：", len(dup))
-    for g, v in dup[:40]:
+    only = sys.argv[1:]
+    shown = 0
+    for g, v in dup:
+        if only and not set(only) & set(v):
+            continue
         print("  ", g, v)
+        shown += 1
+        if shown >= 60:
+            break
     print("点検終わり。問題", bad, "件")
 
 

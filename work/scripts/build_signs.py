@@ -296,6 +296,18 @@ def build(en, sample, updated):
   <h3>2027年を過ごすコツ</h3>
   <div class="fh-b27-sg-tips">{tips}</div>
 </section>''')
+    PL = json.load(open(os.path.join(DATA, "planets_2027.json"), encoding="utf-8"))
+    sun = [x for x in PL["ingress"] if x["planet"] == "太陽"]
+    nxt = list(EN)[(list(EN).index(sg) + 1) % 12]
+    fin = [x for x in sun if x["to"] == sg]
+    fout = [x for x in sun if x["to"] == nxt]
+    jp = lambda x: f'{int(x["jst"][5:7])}月{int(x["jst"][8:10])}日{int(x["jst"][11:13])}時{int(x["jst"][14:16])}分'  # noqa: E731
+    if sg == "山羊座":
+        pa = f"2027年は1月{int(fout[0]['jst'][8:10])}日{int(fout[0]['jst'][11:13])}時{int(fout[0]['jst'][14:16])}分まで{ja}で、12月{int(fin[0]['jst'][8:10])}日{int(fin[0]['jst'][11:13])}時{int(fin[0]['jst'][14:16])}分にふたたび{ja}の期間に入ります（日本時間）。"
+    else:
+        pa = f"2027年は太陽が{jp(fin[0])}に{ja}に入り、{jp(fout[0])}に{JA[EN[nxt]]}へ移ります（日本時間）。"
+    period_q = (f"{ja}は何月何日生まれですか。", f"およそ{rng}生まれの人です。{pa}境目の日は年と生まれた時刻で星座が変わることがあるので、その日の生まれの人は誕生日ページの説明も見てください。")
+    T["faq"] = [period_q] + [x for x in T["faq"] if not re.search(r"期間|境目|誕生日占いとの|ちがい|違い", x[0])][:4]
     qa = "".join(f'<details{" open" if i == 0 else ""}><summary>Q. {esc(q)}</summary><p>A. {esc(x)}</p></details>' for i, (q, x) in enumerate(T["faq"]))
     ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": x}} for q, x in T["faq"]]}
     a(f'''<section class="fh-b27-sec" id="b27-sg-faq">
