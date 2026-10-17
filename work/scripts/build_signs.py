@@ -99,6 +99,15 @@ CSS = """<style id="fh-b27-sg-css">
 .fh-b27-sg-lk div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .fh-b27-sg-lk b{display:block;color:var(--gold);font-size:13px}.fh-b27-sg-lk span{font-size:15px}
 .fh-b27[data-fh-page="sign"] .om-ad{margin:12px 0}
+.fh-b27-sg-eye{margin:0 0 14px;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.fh-b27-sg-eye img{display:block;width:100%;height:auto;margin:0}
+.fh-b27-sg-hint{font-size:12.5px;color:var(--sub);margin:0 0 6px}
+.fh-b27-sg-tabs button[aria-pressed="true"]::before{content:"✓ "}
+.fh-b27-sg-tabs button[aria-pressed="false"]{text-decoration:line-through;opacity:.7}
+.fh-b27[data-fh-page="sign"] .om-ad a.fh-b27-btn,.fh-b27[data-fh-page="sign"] .fh-b27-adphone a.fh-b27-btn{background:#5B3C88!important;color:#fff!important;border:0}
+.fh-b27[data-fh-page="sign"] .om-ad a.fh-b27-shopbtn{color:#fff!important}
+.fh-b27[data-fh-page="sign"] .om-ad .fh-b27-adgoods{color:#2E2A26}
+.fh-b27[data-fh-page="sign"] .om-ad .fh-b27-adgoods-h,.fh-b27[data-fh-page="sign"] .om-ad .fh-b27-shop-name{color:#2E2A26}
 @media (max-width:640px){.fh-b27-sg-kw,.fh-b27-sg-tips,.fh-b27-sg-two,.fh-b27-sg-months,.fh-b27-sg-lk{grid-template-columns:1fr}.fh-b27 .fh-b27-sg-why ul{grid-template-columns:1fr}
  .fh-b27-sg-glyph{width:84px;height:84px;font-size:46px}.fh-b27-sg-tl .seg{font-size:9.5px;padding:1px 2px}.fh-b27-sg-tl .bar.mh span{font-size:9px}
  .fh-b27-sg-cal td{height:54px;padding:2px}.fh-b27-sg-cal td small{display:none}}
@@ -128,7 +137,7 @@ def chart_svg(months):
         g.append(f'<text x="{x(i):.1f}" y="{H - 8}" text-anchor="middle">{i + 1}月</text>')
     for f in FIELDS:
         pts = " ".join(f"{x(i):.1f},{y(months[str(i + 1)][f]):.1f}" for i in range(12))
-        off = "" if f == "総合" else " off"
+        off = ""
         g.append(f'<polyline class="ln{off}" data-f="{f}" stroke="{FCOL[f]}" points="{pts}"/>')
         for i in range(12):
             v = months[str(i + 1)][f]
@@ -171,6 +180,8 @@ def build(en, sample, updated):
     a(CSS)
     a(f'<div class="fh-b27" data-fh-page="sign" style="--el:{EC[el]}">\n<div class="fh-b27-note">')
     best = max(range(1, 13), key=lambda m: M[str(m)]["総合"])
+    up_ = "/wp-content/uploads/2025/12/" + en
+    a(f'<figure class="fh-b27-sg-eye"><img src="{up_}-1024x558.jpg" srcset="{up_}-768x419.jpg 768w, {up_}-1024x558.jpg 1024w, {up_}-1536x838.jpg 1536w" sizes="(max-width:880px) 100vw, 880px" width="1024" height="558" alt="{ja}" decoding="async" fetchpriority="high"></figure>')
     a(f'''<header class="fh-b27-hero">
   <div class="fh-b27-sg-glyph" aria-hidden="true">{GLYPH[en]}&#xFE0E;</div>
   <div class="fh-b27-hero-body">
@@ -202,11 +213,11 @@ def build(en, sample, updated):
   <p>{esc(T["year"])}</p>
   <div class="fh-b27-sg-kw">{kw}</div>
 </section>''')
-    tabs = "".join(f'<button type="button" data-f="{f}" aria-pressed="{"true" if f == "総合" else "false"}" style="--c:{FCOL[f]}">{f}</button>' for f in FIELDS)
+    tabs = "".join(f'<button type="button" data-f="{f}" aria-pressed="true" style="--c:{FCOL[f]}">{f}</button>' for f in FIELDS)
     a(f'''<section class="fh-b27-sec" id="b27-sg-graph">
   {h2(f"{ja}の運勢グラフ（2027年）")}
-  <p>月ごとの追い風の強さを、総合・恋愛・仕事・金運・健康で見られます。ボタンを押すと線を重ねられます。点は12星座×12か月の中での位置（35〜95）なので、ほかの星座のページの点と比べることもできます。</p>
-  <div class="fh-b27-sg-chart"><div class="fh-b27-sg-tabs">{tabs}</div>{chart_svg(M)}</div>
+  <p>月ごとの追い風の強さを、総合・恋愛・仕事・金運・健康で見られます。5本の線は下のボタンで1本ずつ消せます。点は12星座×12か月の中での位置（35〜95）なので、ほかの星座のページの点と比べることもできます。</p>
+  <div class="fh-b27-sg-chart"><p class="fh-b27-sg-hint">ボタンを押すと、その線を消したり戻したりできます（見たい線だけ残せます）</p><div class="fh-b27-sg-tabs">{tabs}</div>{chart_svg(M)}</div>
   <p class="fh-b27-small">毎日12時の太陽・水星・金星・火星・木星・土星の星座から、{ja}との角度（同じ星座・120度は追い風、90度・180度は向かい風）と、天体が入る部屋（恋愛なら5番目と7番目など）で点を出し、月ごとに平均しています。</p>
 </section>''')
     a("<!--Ads1-->")
