@@ -85,6 +85,11 @@ def main():
             colors=wrap(f"{ja}のラッキーカラーの小物", "毎日使うマグカップなら、ラッキーカラーを無理なく取り入れられます。楽天・Yahoo!ショッピングの商品ページへ移ります。", ccards, "colors"),
             items=wrap(f"{ja}のラッキーアイテムを探す", "上のラッキーアイテムに合う商品です。楽天・Yahoo!ショッピングの商品ページへ移ります。", items, "items"),
             phone=phone)
+    # /star/（一覧ページ）：FAQ の前に商品3つ、ほかの占いとの組み合わせの前に電話占い
+    out["star"] = dict(
+        items=wrap("星座をもっと楽しむアイテム", "自分の星座を身につけたり、夜空で探したり。楽天・Yahoo!ショッピングの商品ページへ移ります。",
+                   [card(label, q, it, small="おすすめ") for label, q, it in rows["star"]], "items"),
+        phone=out["signs"]["aries"]["phone"].replace("おひつじ座の相性や今年の流れを、人に相談したいときは", "星座の相性や今年の流れを、人に相談したいときは"))
     json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("ok", len(out["signs"]))
 
