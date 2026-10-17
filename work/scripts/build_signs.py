@@ -100,7 +100,7 @@ CSS = """<style id="fh-b27-sg-css">
 .fh-b27-sg-lk div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .fh-b27-sg-lk b{display:block;color:var(--gold);font-size:13px}.fh-b27-sg-lk span{font-size:15px}
 .fh-b27-sg-ad{margin:12px 0}
-.fh-b27[data-fh-page="sign"] .fh-b27-adphone a.fh-b27-btn{color:#fff}
+.fh-b27[data-fh-page="sign"] a.fh-b27-btn{color:#10142A}.fh-b27[data-fh-page="sign"] a.fh-b27-shopbtn{color:#fff}
 .fh-b27-sg-eye{margin:0 0 14px;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .fh-b27-sg-eye img{display:block;width:100%;height:auto;margin:0}
 .fh-b27-sg-hint{font-size:12.5px;color:var(--sub);margin:0 0 6px}
