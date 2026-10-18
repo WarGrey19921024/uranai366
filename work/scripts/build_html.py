@@ -791,6 +791,9 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     SLOTS[0] = 0
     PLAN.clear()
     LEAD = LEADS.get(mmdd, {})
+    _ck = LEAD.get("check") or {}
+    FLOWER_OK = _ck.get("flower_ok", True)  # 誕生花の商品が花の贈り物として合わない日は、商品と説明を出さない
+    STONE_OK = _ck.get("stone_ok", True)    # 守護石の商品が石の種類・色と合わない日も同じ
 
     title = f"{md}生まれの性格と相性｜{sign}・誕生花・有名人と2027年の運勢"  # 2026-10-15 年の入らない検索向けに日付から始める（本人の決定）
     desc = (f"{md}生まれの性格と2027年の運勢。{sign}・七十二候「{e['kou']}」・誕生花の{flower['flower']}から読む本質と、"
@@ -941,11 +944,11 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     a(f'''<section class="fh-b27-sec" id="b27-mono">
   {h2(3, "mono", f"{md}の誕生花・誕生石・誕生日石・誕生色")}
   <div class="fh-b27-mono">
-    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{lead_p(LEAD.get("flower"))}{mono_btns(flower_q(re.sub(r"[（(].*", "", flower["flower"])))}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{(lead_p(LEAD.get("flower")) + mono_btns(flower_q(re.sub(r"[（(].*", "", flower["flower"])))) if FLOWER_OK else ""}</div>
     <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{mono_stone(bm_list[0], bm_first.get("color_hex"), True)}</div>
     <div class="fh-b27-mono-card fh-b27-mc-dstone"><small>誕生日石（{md}）</small><b>{esc(std["stone"])}</b><p>{md}の誕生日石として、多くの一覧で紹介されている石です。</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-days">366日の誕生日石の一覧 →</a></div>
     <div class="fh-b27-mono-card fh-b27-mc-color">{sw(std["color_hex"])}<small>誕生色（{md}）</small><b>{esc(std["color"])}</b><p>{md}の誕生色として、多くの一覧で紹介されている色です。</p></div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{lead_p(LEAD.get("stone"))}{mono_stone(e["birthday_stone"]["name"], bd_stone.get("color_hex"))}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{(lead_p(LEAD.get("stone")) + mono_stone(e["birthday_stone"]["name"], bd_stone.get("color_hex"))) if STONE_OK else ""}</div>
     <div class="fh-b27-mono-card fh-b27-mc-color fh-b27-mc-own">{sw(col_hex)}<small>生まれ持ちのラッキーカラー（当サイト独自）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）</b><p>{esc(col_desc)}。2027年のラッキーカラーは<a href="#b27-omamori">お守りリスト</a>にあります。</p></div>
   </div>
   {paras(fx.get("items"))}
