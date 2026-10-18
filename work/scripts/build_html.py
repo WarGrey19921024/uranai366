@@ -405,6 +405,8 @@ def shop_buttons(q):
 
 # 2026-10-18 本人の改善依頼書：広告枠は1ページ10〜12、同じ商品を2回出さない
 USED = set()   # このページで出した検索語
+PLAN = {}      # このページで箱にした品（説明文づくり用に out/box_plan.json へ）
+LEADS = {}     # 広告の前に置く本文の説明（data/ad_leads/MMDD.json。2026-10-18 依頼書 4-1）
 SLOTS = [0]    # このページの商品枠の数
 
 
@@ -430,13 +432,18 @@ def take(q):
 PR = '<span class="fh-b27-pr-s">PR</span>'
 
 
+def lead_p(t):
+    """広告の前に置く本文（2〜3文）。無ければ空"""
+    return f'<p class="fh-b27-lead-ad">{inline(t)}</p>' if t else ""
+
+
 def shop_box(kind, name, why, cls=""):
     """カエレバ風の小さな商品ボックス：左に品目の絵（自前のSVG）、右に名前・短い説明、下に店ボタン"""
     btns = shop_buttons(name)
     return (f'<div class="fh-b27-shop{(" " + cls) if cls else ""}">'
             f'<div class="fh-b27-shop-pic">{photo_link(name) or ic(item_cat(name))}</div>'
             f'<div class="fh-b27-shop-body"><small>{PR}{esc(kind)}</small><b class="fh-b27-shop-name">{esc(name)}</b>'
-            f'<span class="fh-b27-shop-why">{inline(why)}</span>{GM.price_html(name)}</div>'
+            + (f'<span class="fh-b27-shop-why">{inline(why)}</span>' if why else "") + f'{GM.price_html(name)}</div>'
             + (f'<div class="fh-b27-shop-btns">{btns}</div>' if btns else "") + '</div>')
 
 
@@ -670,6 +677,9 @@ PICK_CSS = ("<style>"
     ".fh-b27 .fh-b27-mono-card .fh-b27-mono-btns{margin-top:10px}"
     ".fh-b27 small.fh-b27-mono-alt{display:block;margin-top:10px;font-size:12px;line-height:1.6;color:#5E5546}"
     ".fh-b27 .fh-b27-colrow.fh-b27-colrow-np{grid-template-columns:46px minmax(0,1fr)}"
+    ".fh-b27 p.fh-b27-lead-ad{margin:10px 0 8px;font-size:14.5px;line-height:1.85}"
+    ".fh-b27 .fh-b27-mono-card p.fh-b27-lead-ad{color:inherit}"
+    ".fh-b27 .fh-b27-leadbox{display:flex;flex-direction:column;gap:6px}.fh-b27 .fh-b27-leadbox>p.fh-b27-lead-ad{margin:0;padding:0 2px}"
     ".fh-b27 ul.fh-b27-restitems{margin:8px 0 0;padding-left:1.2em;font-size:14.5px;line-height:1.8}"
     ".fh-b27 .fh-b27-mono-btns>span .fh-b27-pr-s,.fh-b27 .fh-b27-ad small .fh-b27-pr-s,.fh-b27 .fh-b27-shop-body small .fh-b27-pr-s{margin:0 6px 0 0;font-size:10px;border:1px solid #B9A77A;border-radius:3px;padding:0 4px;align-self:center}"
     "</style>")
@@ -779,6 +789,8 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     warnings = []
     USED.clear()
     SLOTS[0] = 0
+    PLAN.clear()
+    LEAD = LEADS.get(mmdd, {})
 
     title = f"{md}生まれの性格と相性｜{sign}・誕生花・有名人と2027年の運勢"  # 2026-10-15 年の入らない検索向けに日付から始める（本人の決定）
     desc = (f"{md}生まれの性格と2027年の運勢。{sign}・七十二候「{e['kou']}」・誕生花の{flower['flower']}から読む本質と、"
@@ -929,11 +941,11 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     a(f'''<section class="fh-b27-sec" id="b27-mono">
   {h2(3, "mono", f"{md}の誕生花・誕生石・誕生日石・誕生色")}
   <div class="fh-b27-mono">
-    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{mono_btns(flower_q(re.sub(r"[（(].*", "", flower["flower"])))}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{lead_p(LEAD.get("flower"))}{mono_btns(flower_q(re.sub(r"[（(].*", "", flower["flower"])))}</div>
     <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{mono_stone(bm_list[0], bm_first.get("color_hex"), True)}</div>
     <div class="fh-b27-mono-card fh-b27-mc-dstone"><small>誕生日石（{md}）</small><b>{esc(std["stone"])}</b><p>{md}の誕生日石として、多くの一覧で紹介されている石です。</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-days">366日の誕生日石の一覧 →</a></div>
     <div class="fh-b27-mono-card fh-b27-mc-color">{sw(std["color_hex"])}<small>誕生色（{md}）</small><b>{esc(std["color"])}</b><p>{md}の誕生色として、多くの一覧で紹介されている色です。</p></div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{mono_stone(e["birthday_stone"]["name"], bd_stone.get("color_hex"))}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{lead_p(LEAD.get("stone"))}{mono_stone(e["birthday_stone"]["name"], bd_stone.get("color_hex"))}</div>
     <div class="fh-b27-mono-card fh-b27-mc-color fh-b27-mc-own">{sw(col_hex)}<small>生まれ持ちのラッキーカラー（当サイト独自）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）</b><p>{esc(col_desc)}。2027年のラッキーカラーは<a href="#b27-omamori">お守りリスト</a>にあります。</p></div>
   </div>
   {paras(fx.get("items"))}
@@ -1187,9 +1199,11 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         _ord = sorted(range(len(items)), key=lambda i: (0 if GM.photo(items[i].get("name", "")) else 1, i))
         _box = [i for i in _ord if items[i].get("name") and not used(items[i]["name"])][:3]
         a('  <div class="fh-b27-shops">')
+        PLAN["items"] = [items[i]["name"] for i in sorted(_box)]
         for i in sorted(_box):
             take(items[i]["name"])
-            a("    " + shop_box(f"ラッキーアイテム {i + 1}", items[i].get("name", ""), items[i].get("why", "")))
+            _ld = (LEAD.get("items") or {}).get(items[i]["name"])
+            a("    " + (f'<div class="fh-b27-leadbox">{lead_p(_ld)}' if _ld else "") + shop_box(f"ラッキーアイテム {i + 1}", items[i].get("name", ""), "" if _ld else items[i].get("why", "")) + ("</div>" if _ld else ""))
         a("  </div>")
         _rest = [i for i in range(len(items)) if i not in _box]
         if _rest:
@@ -1399,6 +1413,9 @@ def main():
         ap.error(f"不明な日付: {bad}")
     AFF_TPL.update(load_aff_templates())
     ctx = make_ctx(mats, args.text_dir)
+    for _p in glob.glob(os.path.join(DATA, "ad_leads", "*.json")):
+        LEADS[os.path.basename(_p)[:4]] = json.load(open(_p, encoding="utf-8"))
+    plans = {}
     build_assets(ctx["gen"])
     odir = os.path.join(OUT, "sample" if args.sample else "html")
     os.makedirs(odir, exist_ok=True)
@@ -1409,6 +1426,7 @@ def main():
         ctx_k["bday_label"] = (f"2027年{int(b[5:7])}月{int(b[8:])}日（誕生日）" if b[5:] == f"{k[:2]}-{k[2:]}"
                                else f"2027年{int(b[5:7])}月{int(b[8:])}日（2月29日生まれの2027年の誕生日）")
         page, w, info = render(k, mats, ctx["texts"], ctx_k, sample=args.sample, updated=args.updated)
+        plans[k] = dict(PLAN)
         allw += w
         if not info["has_text"]:
             notext.append(k)
@@ -1424,6 +1442,8 @@ def main():
             json.dump({"pages": len(targets), "templates": sorted(AFF_TPL),
                        "links": {sh: AFF_COUNT[sh] for sh in shops},
                        "skipped_buttons": {sh: AFF_SKIP[sh] for sh in shops}}, f, ensure_ascii=False, indent=1)
+    if args.all and not args.sample:
+        json.dump(plans, open(os.path.join(OUT, "box_plan.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     if notext:
         print(f"文章が未作成の日: {len(notext)}件（例: {', '.join(notext[:5])}）")
     for w in allw:
