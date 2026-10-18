@@ -33,7 +33,8 @@ def romaji(k):
     return s.replace('ou', 'o').replace('uu', 'u')
 
 def clean(s):
-    return s.strip().replace('<', '').replace('>', '')
+    s = s.strip().replace('<', '').replace('>', '')
+    return re.sub(r'臲\W*觯\W*', '臲卼，', s)  # 出典の文字化け（困の上六「臲卼」）を直す
 
 def main():
     hexes = []
@@ -50,7 +51,7 @@ def main():
         for l in c[3:]:
             m = re.match(r'^(初[九六]|[九六][二三四五]|上[九六])[：:，,](.*)$', l)
             if m and len(yao) < 6:
-                yao.append([m.group(1), clean(m.group(2))])
+                yao.append([m.group(1), clean(m.group(2).split('象曰')[0].split('<象>')[0])])
         assert len(yao) == 6, n
         for i, (lab, t) in enumerate(yao):
             right = (POS[i] + ('九' if lines[i] else '六')) if i in (0, 5) else (('九' if lines[i] else '六') + POS[i])

@@ -38,8 +38,11 @@ def chk(n):
         x = d.get('extra', {})
         if not (x.get('kudashi') and 20 <= len(x.get('mean', '')) <= 90): e.append(f'{n}: extra（用九/用六）が必要')
     txt = json.dumps(d, ensure_ascii=False)
-    for bad in ['http', '<', '>', '必ず治', '絶対に', '死']:
+    for bad in ['http', '<', '>', '必ず治', '絶対に']:
         if bad in txt: e.append(f'{n}: 使わない言葉「{bad}」')
+    # 「死」は古典の書き下し（原文どおり）だけ許す
+    mod = json.dumps({k: v for k, v in d.items() if k not in ('kudashi', 'xiang_kudashi', 'yao', 'extra')}, ensure_ascii=False) + json.dumps([{k: v for k, v in z.items() if k != 'kudashi'} for z in y], ensure_ascii=False)
+    if '死' in mod: e.append(f'{n}: 使わない言葉「死」（書き下し以外）')
     return e
 ns = [int(x) for x in sys.argv[1:]] or range(1, 65)
 errs = [m for n in ns for m in chk(n)]
