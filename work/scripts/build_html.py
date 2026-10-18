@@ -408,11 +408,21 @@ USED = set()   # このページで出した検索語
 SLOTS = [0]    # このページの商品枠の数
 
 
+def ukey(q):
+    """同じ商品かどうかの目印（楽天の商品ページ。無ければ検索語）"""
+    it = GM.item("rakuten", q) if q else None
+    return (it or {}).get("url") or q
+
+
+def used(q):
+    return ukey(q) in USED
+
+
 def take(q):
-    """この検索語の枠を使ってよいか（同じページで2回目なら False）"""
-    if not q or q in USED:
+    """この検索語の枠を使ってよいか（同じページで同じ商品が2回目なら False）"""
+    if not q or used(q):
         return False
-    USED.add(q)
+    USED.add(ukey(q))
     SLOTS[0] += 1
     return True
 
@@ -495,7 +505,7 @@ def pickup(label, name, why, q=None, cls=""):
     """中盤に置く小さなピックアップ（写真・名前・ひとこと・値段・ボタン）。写真が無ければ出さない"""
     q = q or name
     ph = photo_link(q)
-    if not ph or q in USED:
+    if not ph or used(q):
         return ""
     btns = shop_buttons(q)
     if not btns or not take(q):
@@ -676,7 +686,7 @@ def photo_link(q):
 
 def mono_btns(q):
     """誕生花・誕生石・誕生日石のカードの下に置く小さな店ボタン（楽天・Yahoo!。ひな形のある店だけ）"""
-    if q in USED:
+    if used(q):
         return ""
     b = shop_buttons(q)
     ph = photo_link(q)
@@ -1175,7 +1185,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     items = am.get("items") or []
     if items:
         _ord = sorted(range(len(items)), key=lambda i: (0 if GM.photo(items[i].get("name", "")) else 1, i))
-        _box = [i for i in _ord if items[i].get("name") and items[i]["name"] not in USED][:3]
+        _box = [i for i in _ord if items[i].get("name") and not used(items[i]["name"])][:3]
         a('  <div class="fh-b27-shops">')
         for i in sorted(_box):
             take(items[i]["name"])
@@ -1202,7 +1212,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     a(f'<section class="fh-b27-sec" id="b27-gift">\n  {h2(15, "gift", f"{md}生まれの人への誕生日プレゼント")}')
     if pres:
         _ord = sorted(range(len(pres)), key=lambda i: (0 if GM.photo(pres[i].get("item", "")) else 1, i))
-        _box = [i for i in _ord if pres[i].get("item") and pres[i]["item"] not in USED][:3]
+        _box = [i for i in _ord if pres[i].get("item") and not used(pres[i]["item"])][:3]
         a('  <div class="fh-b27-shops fh-b27-gifts">')
         for i in sorted(_box):
             take(pres[i]["item"])
@@ -1327,7 +1337,8 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     head_assets = (f'<link rel="preconnect" href="https://fonts.googleapis.com">\n'
                    f'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
                    f'<link href="{FONTS}" rel="stylesheet">\n'
-                   f'<link rel="stylesheet" href="{pre}fh-b27.css{v}">')
+                   f'<link rel="stylesheet" href="{pre}fh-b27.css{v}">\n'
+                   '<style>figure.single_thumbnail{display:none}</style>')  # 2026-10-18 アイキャッチはOGP用（ページには出さない）
     tail_assets = (f'<script src="{pre}fh-b27-setsuiri.js{v}"></script>\n<script src="{pre}fh-b27-kyureki.js{v}"></script>\n'
                    f'<script src="{pre}fh-b27.js{v}"></script>')
     page = f'''<!DOCTYPE html>

@@ -88,7 +88,7 @@ chk("干支・九星・天体・四半期", lambda s, t, m: 'id="b27-eto"' in s 
 chk("月別グラフ＋良い月／慎重な月のまとめ", lambda s, t, m: 'id="b27-graph"' in s and "慎重" in t)
 chk("12か月の運勢（12件）", lambda s, t, m: 'id="b27-month"' in s and all(f"{i}月" in t for i in range(1, 13)))
 chk("開運アクション5つ", lambda s, t, m: 'id="b27-action"' in s and len(re.findall(r'<li', s[s.find('id="b27-action"'):s.find('</section>', s.find('id="b27-action"'))])) >= 5)
-chk("ラッキーカラー・ナンバー・アイテム5以上・守護石（効果）", lambda s, t, m: all(x in t for x in ("ラッキーカラー", "ラッキーナンバー", "ラッキーアイテム", "守護石")) and s[s.find('id="b27-omamori"'):s.find('id="b27-gift"')].count('class="fh-b27-shop"') >= 5)
+chk("ラッキーカラー・ナンバー・アイテム5以上・守護石（効果）", lambda s, t, m: all(x in t for x in ("ラッキーカラー", "ラッキーナンバー", "ラッキーアイテム", "守護石")) and (lambda o: 1 <= o.count('class="fh-b27-shop"') <= 3 and o.count('class="fh-b27-shop"') + o.count("<li><b>") >= 5)(s[s.find('id="b27-omamori"'):s.find('id="b27-gift"')]))  # 2026-10-18 商品ボックスは3つまで、残りは文章で
 chk("相性：良い5日・気をつけたい3日（一言つき）", lambda s, t, m: "相性の良い誕生日" in t and "気をつけたい誕生日" in t and all(f'href="{url(x["mmdd"])}"' in s for x in m["compat_good"] + m["compat_bad"]))
 chk("有名人（日本・海外・肩書き）", lambda s, t, m: 'id="b27-famous"' in s and (not m["famous"]["jp"] or m["famous"]["jp"][0]["name"] in t))
 chk("バイオリズムカレンダー（日別表・凡例）", lambda s, t, m: 'id="b27-bio"' in s and "★" in t and "▽" in t)
@@ -108,8 +108,8 @@ chk("Yahoo!のリンクは Yahoo!ショッピングの検索ページか商品�
     urllib.parse.unquote(urllib.parse.parse_qs(urllib.parse.urlsplit(x[1]).query)["url"][0]).startswith(("https://shopping.yahoo.co.jp/search?p=", "https://store.shopping.yahoo.co.jp/", "https://paypaymall.yahoo.co.jp/"))
     for x in aff_links(s) if x[0] == "yahoo"))
 chk("各リンクの直後に表示計測の画像", lambda s, t, m: all(x[3].startswith(TPL[x[0]]["impression"]) for x in aff_links(s) if x[0] in TPL))
-chk("「広告を含みます」がある", lambda s, t, m: t.count("広告") >= 2)
-chk("誕生日プレゼント4枠（商品ボックス）", lambda s, t, m: s.count('class="fh-b27-shop fh-b27-gift"') == 4)
+chk("広告の枠の頭に「PR」がある（2026-10-18 表記を統一）", lambda s, t, m: s.count('fh-b27-pr-s">PR</span>') >= 5 and "広告を含みます" not in t)
+chk("誕生日プレゼント3枠まで（商品ボックス。2026-10-18 広告枠を減らした）", lambda s, t, m: 1 <= s.count('class="fh-b27-shop fh-b27-gift"') <= 3)
 chk("プレゼントとお守りリストで同じ商品が無い", lambda s, t, m: not (set(re.findall(r'class="fh-b27-shop-name">([^<]+)', s[s.find('id="b27-gift"'):s.find('id="b27-today"')])) & set(re.findall(r'class="fh-b27-shop-name">([^<]+)', s[s.find('id="b27-omamori"'):s.find('id="b27-gift"')]))))
 chk("商品ボックスに品目の絵と店ボタン（ひな形のある店：楽天・Yahoo!）", lambda s, t, m: all(
     re.search(r'class="fh-b27-shop-pic"><i class="fh-b27-ic fh-b27-ic-[a-z-]+"', b) and all(f'data-aff="{sh}"' in b for sh in ("rakuten", "yahoo", "amazon") if sh in TPL)
