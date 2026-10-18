@@ -35,7 +35,7 @@ def item(shop, q):
     if os.environ.get("FH_GOODS_LOG"):  # 使っている検索語を書き出す（写真集めの一覧づくり用）
         with open(os.environ["FH_GOODS_LOG"], "a", encoding="utf-8") as fp:
             fp.write(q + "\n")
-    if shop == "rakuten" and q in _ng():  # 品物が合わない商品は使わない（goods_ng.json）
+    if q in _ng():  # 品物が合わない商品は使わない（goods_ng.json。2026-10-18 楽天・Yahoo!とも）
         return None
     return (_load(shop).get(q) or None) if shop in ("rakuten", "yahoo") else None
 
@@ -63,7 +63,7 @@ def moshimo_item_href(tpl_href, item_url):
 
 
 def price_html(q, short=False):
-    """写真のある商品の値段（○月○日時点）と商品名。無ければ空"""
+    """写真のある商品の商品名（実際にリンク先で出る商品）。2026-10-18 本人の改善依頼書 3-3 B案で値段の表示はやめた（古くなるため）"""
     it = item("rakuten", q)
     shop = "楽天"
     if not it or not it.get("price"):
@@ -75,6 +75,4 @@ def price_html(q, short=False):
     name = re.sub(r"[！!【】★☆＼／◆◇■□♪]+", " ", it.get("name") or "").strip()
     name = re.sub(r"\s+", " ", name)
     name = name if len(name) <= 30 else name[:30] + "…"
-    prod = "" if short else f'<span class="fh-b27-shop-prod">{html.escape(name)}</span>'
-    return (f'{prod}<span class="fh-b27-shop-price">{shop} <b>{int(it["price"]):,}円</b>'
-            f'<small>（{when}）</small></span>')
+    return "" if short else f'<span class="fh-b27-shop-prod">商品例：{html.escape(name)}</span>'
