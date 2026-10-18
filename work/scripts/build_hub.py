@@ -227,6 +227,23 @@ USED = [
 ]
 
 
+YC_CSS = """<style>
+.fh-b27-yc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.fh-b27-yc-m{border:1.5px solid var(--line);border-radius:12px;background:var(--deep);padding:10px 12px;scroll-margin-top:80px}
+.fh-b27 .fh-b27-yc-m h3{margin:0 0 6px;font-size:18px;display:flex;flex-direction:column;gap:2px}
+.fh-b27 .fh-b27-yc-m h3 small{font-family:'Zen Kaku Gothic New',sans-serif;font-size:11.5px;font-weight:400;color:var(--mute);line-height:1.5}
+.fh-b27-yc-d{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.fh-b27 .fh-b27-yc-d a{display:flex;align-items:center;justify-content:center;min-height:36px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid var(--line);
+ text-decoration:none;color:var(--ink);font-family:'Klee One',cursive;font-size:15px;font-weight:600}
+.fh-b27 .fh-b27-yc-d a:hover,.fh-b27 .fh-b27-yc-d a:focus-visible{border-color:var(--gold);color:var(--gold);outline:none}
+.fh-b27 .fh-b27-yc-d a.fh-b27-bd{border-style:dashed;border-color:var(--gold)}
+.fh-b27 .fh-b27-yc-d a.is-today{background:var(--gold);color:var(--paper);border-color:var(--gold)}
+@media (max-width:900px){.fh-b27-yc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fh-b27 .fh-b27-hx-go label{width:100%;font-size:14px;color:var(--sub)}
+@media (max-width:560px){.fh-b27-yc{grid-template-columns:1fr}.fh-b27 .fh-b27-yc-d a{min-height:40px}.fh-b27-hero .fh-b27-kou{display:none}}
+</style>"""
+
+
 def build(mats, sample, updated):
     rng = sign_ranges(mats)
     H = []
@@ -236,48 +253,41 @@ def build(mats, sample, updated):
   <div class="fh-b27-kou" aria-hidden="true">三百六十六日</div>
   <div class="fh-b27-hero-body">
     <span class="fh-b27-tape">2027年版 誕生日占い</span>
-    <h1 class="fh-b27-title">誕生日占い 366日<br>生年月日でわかる性格・相性と2027年の運勢</h1>
-    <p class="fh-b27-lead">1月1日から12月31日まで、2月29日も入れた366日に1ページずつ。太陽の星座と七十二候、誕生花、数秘術、干支と九星など、その日だけの材料から、変わらない本質と2027年の歩き方を読み解いています。性格・相性の良い誕生日・誕生花・同じ誕生日の有名人まで、すべて無料で読めます。</p>
+    <h1 class="fh-b27-title">誕生日占い 366日<br>あなたの誕生日のページを探す</h1>
+    <p class="fh-b27-lead">ここは、366日の誕生日占い（2027年版）の入口です。誕生日を選ぶと、その日生まれの人だけのページ（性格・相性の良い誕生日・誕生花・同じ誕生日の有名人・2027年の月ごとの運勢）が開きます。すべて無料です。</p>
     ''' + hub_extra.picker(mats) + '''
   </div>
 </header>''')
-    a('''<a class="fh-b27-promo" href="/seinengappi/">
+    PROMO = '''<a class="fh-b27-promo" href="/seinengappi/">
   <i class="fh-b27-ic fh-b27-ic-card fh-b27-promoic" aria-hidden="true"></i><small>生まれた年までわかる人は</small>
   <b>生年月日まるごと診断 →</b>
   <span>星座・九星・干支・四柱推命・宿曜・マヤ暦・数秘・動物×色を、1枚のカードにまとめて表示します。</span>
-</a>''')
+</a>'''
     a('''<nav class="fh-b27-toc" aria-label="目次">
   <strong>目次</strong>
   <ol>
-    <li><a href="#b27-days">誕生日から選ぶ（1月〜12月）</a></li>
-    <li><a href="#b27-signs">星座から選ぶ</a></li>
-    <li><a href="#b27-know">誕生日占いでわかること</a></li>
-    <li><a href="#b27-kind">誕生日占いと生年月日占いの違い</a></li>
+    <li><a href="#b27-days">誕生日から探す（366日のカレンダー）</a></li>
+    <li><a href="#b27-signs">星座から探す</a></li>
+    <li><a href="#b27-know">誕生日のページで読めること</a></li>
     <li><a href="#b27-2027">2027年はどんな年？</a></li>
     <li><a href="#b27-month">誕生月ごとの特徴</a></li>
     <li><a href="#b27-table">366日の早見表（星座・誕生花・七十二候）</a></li>
-    <li><a href="#b27-how">このページ群の作り方</a></li>
-    <li><a href="#b27-used">使った占いと出典</a></li>
-    <li><a href="#b27-calc">計算のしかた</a></li>
-    <li><a href="#b27-src">出典の考え方</a></li>
     <li><a href="#b27-faq">よくある質問</a></li>
-    <li><a href="#b27-more">ほかの占い</a></li>
+    <li><a href="#b27-how">この占いの作り方と出典</a></li>
   </ol>
 </nav>''')
 
     # 1 誕生日から選ぶ
+    a(YC_CSS)
     a(f'''<section class="fh-b27-sec" id="b27-days">
-  {h2(1, "cake", "誕生日から選ぶ")}
-  <p>月を押すと、その月の日付が出ます。誕生日の数字を押してください（数字の下は、その日の太陽の星座です）。</p>
-  <nav class="fh-b27-mnav" aria-label="月を選ぶ">''')
-    for m in range(1, 13):
-        a(f'    <a href="#b27-m{m:02d}">{m}月</a>')
-    a('  </nav>')
+  {h2(1, "cake", "誕生日から探す")}
+  <p>366日のカレンダーです。誕生日の数字を押すと、その日のページが開きます。今日の日付には印がつきます。</p>
+  <div class="fh-b27-yc">''')
     for m in range(1, 13):
         ks = [k for k in sorted(mats) if int(k[:2]) == m]
-        a(f'''  <div class="fh-b27-month" id="b27-m{m:02d}">
-    <h3>{ic(SEASON_OF_MONTH[m], "fh-b27-h3ic")}{m}月<small>{esc(month_heading(mats, m))}</small></h3>
-    <div class="fh-b27-days">''')
+        a(f'''  <div class="fh-b27-yc-m" id="b27-m{m:02d}">
+    <h3>{m}月<small>{esc(month_heading(mats, m))}</small></h3>
+    <div class="fh-b27-yc-d">''')
         for k in ks:
             e = mats[k]
             d = int(k[2:])
@@ -285,19 +295,20 @@ def build(mats, sample, updated):
             if e["sign_border"]:
                 other = "・".join(e["sign_border_other"])
                 lab = f"{m}月{d}日生まれ（{s}。年と時刻によっては{other}）"
-                a(f'      <a class="fh-b27-bd" href="{day_url(k)}" aria-label="{esc(lab)}" title="{esc(lab)}"><b>{d}</b><small>{esc(s)}</small></a>')
+                a(f'      <a class="fh-b27-bd" data-md="{k}" href="{day_url(k)}" aria-label="{esc(lab)}" title="{esc(lab)}">{d}</a>')
             else:
                 lab = f"{m}月{d}日生まれ（{s}）"
-                a(f'      <a href="{day_url(k)}" aria-label="{esc(lab)}"><b>{d}</b><small>{esc(s)}</small></a>')
+                a(f'      <a data-md="{k}" href="{day_url(k)}" aria-label="{esc(lab)}" title="{esc(lab)}">{d}</a>')
         a('    </div>\n  </div>')
-    a('''  <p class="fh-b27-small">金色の点線の日は星座の境目の日です。太陽が星座を移る時刻は年によって違うので、生まれた年と時刻によっては隣の星座になります（くわしくは各ページに書いています）。</p>
+    a('''  </div>
+  <p class="fh-b27-small">点線の日は星座の境目の日です。太陽が星座を移る時刻は年によって違うので、生まれた年と時刻によっては隣の星座になります（くわしくは各ページに書いています）。</p>
 </section>''')
-    a(hub_extra.month_js())
+    a("<script>(function(){var n=new Date(),k=('0'+(n.getMonth()+1)).slice(-2)+('0'+n.getDate()).slice(-2),e=document.querySelector('.fh-b27-yc [data-md=\\''+k+'\\']');if(e){e.classList.add('is-today');e.setAttribute('aria-current','date');}})();</script>")
     a("<!--Ads1-->")
 
     # 2 星座から選ぶ
     a(f'''<section class="fh-b27-sec" id="b27-signs">
-  {h2(2, "stars", "星座から選ぶ")}
+  {h2(2, "stars", "星座から探す")}
   <p>星座ごとの性格と2027年の運勢は、星座のページにまとめています。</p>
   <div class="fh-b27-signs">''')
     for s in SIGNS:
@@ -305,39 +316,30 @@ def build(mats, sample, updated):
     a('''  </div>
   <p class="fh-b27-small">日付は、1930〜2027年の太陽の位置の平均から決めたものです。境目の日は年によって前後します。</p>
 </section>''')
+    a(PROMO)
 
-    # 2026-10-15 検索向けの解説を追加（hub_extra.py）
-    extra, n = hub_extra.sections(mats, 3, h2)
-    a(extra)
-    # 作り方
-    a(f'''<section class="fh-b27-sec" id="b27-how">
-  {h2(n, "links", "このページ群の作り方")}
+    def HOW(k):
+        o = []
+        a2 = o.append
+        a2(f'''<section class="fh-b27-sec" id="b27-how">
+  {h2(k, "links", "この占いの作り方と出典")}
+  <p>366日のページを、どんな材料と決め方で作っているかをまとめました。押すと開きます。</p>
+  <div class="fh-b27-hx-list"><details><summary>このページ群の作り方</summary>
   <p>366日のページは、日ごとに<b>その日にしかない材料</b>を集めてから書いています。太陽の星座とデーカン、七十二候、誕生花、誕生日の数、その日の記念日、同じ誕生日の有名人などです。</p>
   <p>はじめに366日分の材料を1つの表にまとめ、どの日も必ずその日の材料を使って文章を書きました。書いたあとは、<b>別の日と同じような文章になっていないかを機械で調べ</b>、似すぎているところは書き直しています。</p>
   <p>1ページは2部に分かれています。第1部は<b>ずっと変わらない本質</b>（性格・暦と星・誕生花と誕生石・相性・有名人）、第2部は<b>2027年の運勢</b>（分野別の運勢・月別のグラフ・12か月の運勢・ラッキーカラーなど）です。生まれ年を選ぶと、あなた専用の結果も加わります。</p>
-</section>''')
-
-    # 4 使った占いと出典
-    a(f'''<section class="fh-b27-sec" id="b27-used">
-  {h2(n + 1, "about", "使った占いと出典")}
+</details>''')
+        a2('''<details><summary>使った占いと出典</summary>
   <dl class="fh-b27-koyomi fh-b27-kcards">''')
-    for name, sub, text in USED:
-        a(f'    <div>{ic(USED_IC.get(name, "stars"), "fh-b27-kcic")}<dt><b>{esc(name)}</b>{esc(sub)}</dt><dd>{esc(text)}</dd></div>')
-    a('''  </dl>
+        for name, sub, text in USED:
+            a2(f'    <div>{ic(USED_IC.get(name, "stars"), "fh-b27-kcic")}<dt><b>{esc(name)}</b>{esc(sub)}</dt><dd>{esc(text)}</dd></div>')
+        a2('''  </dl>
   <p class="fh-b27-small">同じ誕生日の有名人は、運営者がまとめた一覧から載せています。文章はすべてこのサイトで書いたものです。</p>
-</section>''')
-
-    # 5 計算のしかた
-    a(f'''<section class="fh-b27-sec" id="b27-calc">
-  {h2(n + 2, "graph", "計算のしかた")}
+</details><details><summary>計算のしかた</summary>
   <p>太陽や月、惑星の位置は、天文計算のプログラム（Swiss Ephemeris）で求めています。二十四節気・七十二候・干支・九星・旧暦・宿曜は、その計算で出した日時（日本時間）から決めました。<b>手で書き写した日付や、記憶にたよった値は使っていません。</b></p>
   <p>計算の結果は、外の資料とも突き合わせています。2027年の二十四節気は国立天文台の暦要項と24件すべて日付が一致し、日食・月食はNASAの一覧と、干支・九星・旧正月・マヤ暦も公開されている値と一致することを確かめました。</p>
   <p>生まれた時刻はわからないので、<b>正午（日本時間）に生まれたとして計算</b>しています。節入りの日（月や年の干支が切り替わる日）や星座の境目の日は、生まれた時刻で結果が変わることがあるため、各ページにそのことを書いています。</p>
-</section>''')
-
-    # 6 出典の考え方
-    a(f'''<section class="fh-b27-sec" id="b27-src">
-  {h2(n + 3, "book", "出典の考え方")}
+</details><details><summary>出典の考え方</summary>
   <ul class="fh-b27-acts">
     <li><span><b>計算で出せるものは計算で</b>天体・節気・干支・九星・旧暦・宿曜・マヤ暦・数秘は、決まった式で計算して出しています。</span></li>
     <li><span><b>計算できないものは、出典を1つに決める</b>誕生花は日本花普及センター、誕生石は全国宝石卸商協同組合（2021年）の一覧だけを使い、ほかのサイトの値と混ぜていません。</span></li>
@@ -345,12 +347,19 @@ def build(mats, sample, updated):
     <li><span><b>決まった出典がないものは「当サイト独自」と書く</b>守護石・ラッキーカラー・相性の選び方・月別スコア・動物×色占いは、このサイトで作った決め方です。各ページにもそう書いています。</span></li>
   </ul>
   <p class="fh-b27-small">占いは、自分を振り返るきっかけや、毎日の楽しみとしてお読みください。バイオリズムは科学的な根拠が認められていない読み物として扱っています。</p>
+</details></div>
 </section>''')
+        return "\n".join(o)
 
-    a(hub_extra.faq(n + 4, h2))
+
+    # 2026-10-15 検索向けの解説を追加（hub_extra.py）
+    extra, n = hub_extra.sections(mats, 3, h2)
+    a(extra)
+    a(hub_extra.faq(n, h2))
+    a(HOW(n + 1))
     # ほかの占い
     a(f'''<section class="fh-b27-sec" id="b27-more">
-  {h2(n + 5, "omikuji", "ほかの占い")}
+  {h2(n + 2, "omikuji", "ほかの占い")}
   <div class="fh-b27-lcards">''')
     for href, b, small in LINKS:
         icn, tone = LINK_IC.get(href, ("goods", "cream"))

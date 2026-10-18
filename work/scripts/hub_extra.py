@@ -124,7 +124,7 @@ def picker(mats=None):
            ".fh-b27-hx-today{min-height:40px;border:1.5px solid currentColor;border-radius:999px;background:transparent;color:inherit;font:inherit;padding:0 14px;cursor:pointer}"
            "@media (prefers-reduced-motion:reduce){.fh-b27-hx-card.on .in{animation:none}}</style>")
     return (css + f'<form class="fh-b27-hx-go" id="fh-b27-hx-go" action="/366uranai/" aria-label="誕生日のカードを見る">'
-            f'<label class="fh-b27-small" for="fh-b27-hx-m">誕生日を選んでカードをめくる</label>'
+            f'<label class="fh-b27-small" for="fh-b27-hx-m">誕生日を選んでください</label>'
             f'<select id="fh-b27-hx-m" name="m" aria-label="月">{mo}</select><select name="d" aria-label="日">{do}</select>'
             f'<button type="submit">めくる →</button><button type="button" class="fh-b27-hx-today" id="fh-b27-hx-today">今日の誕生日</button></form>'
             f'<div class="fh-b27-hx-card" id="fh-b27-hx-card" aria-live="polite" hidden></div><script>{js}</script>')
@@ -154,10 +154,11 @@ def sections(mats, n, h2):
               f'<p style="margin-top:8px">ページでは、これらの材料から性格・相性・2027年の運勢を読み解いています。'
               f'{"同じ誕生日の有名人には" + esc(fam) + "さんなど。" if fam else ""}<a href="{url("0101")}">1月1日のページを見る →</a></p></div>')
     out.append(f'''<section class="fh-b27-sec" id="b27-know">
-  {h2(n, "card", "誕生日占いでわかること")}
-  <p>366日の誕生日占いでは、1つの誕生日につき1ページ、次のことがわかります。</p>
+  {h2(n, "card", "誕生日のページで読めること")}
+  <p>1つの誕生日につき1ページ。どのページにも、次のことがそろっています。</p>
   <ul class="fh-b27-hx-know">{lis}</ul>
   {sample}
+  @@KIND@@
 </section>''')
     n += 1
     # 誕生日占いと生年月日占い
@@ -172,12 +173,10 @@ def sections(mats, n, h2):
         ("ライフパス・動物×色占い", "生年月日", "生まれ年を選ぶ・まるごと診断"),
     ]
     tr = "".join(f"<tr><th scope=\"row\">{esc(a)}</th><td>{b}</td><td>{c}</td></tr>" for a, b, c in rows)
-    out.append(f'''<section class="fh-b27-sec" id="b27-kind">
-  {h2(n, "about", "誕生日占いと生年月日占いの違い")}
+    kind = (f'''<h3>誕生日占いと生年月日占いの違い</h3>
   <p>占いには、<b>月日だけで決まるもの</b>（誕生日占い）と、<b>生まれた年も必要なもの</b>（生年月日占い）があります。366日のページは誕生日で占い、ページの中で生まれ年を選ぶと生年月日占いの結果も加わります。1枚のカードにまとめて見たいときは<a href="/seinengappi/">生年月日まるごと診断</a>が便利です。</p>
-  <table class="fh-b27-hx-t"><caption>占いと、必要なもの</caption><thead><tr><th scope="col">占い</th><th scope="col">必要なもの</th><th scope="col">見られる場所</th></tr></thead><tbody>{tr}</tbody></table>
-</section>''')
-    n += 1
+  <details class="fh-b27-hx-list"><summary>占いと、必要なもの（表）</summary><table class="fh-b27-hx-t"><thead><tr><th scope="col">占い</th><th scope="col">必要なもの</th><th scope="col">見られる場所</th></tr></thead><tbody>{tr}</tbody></table></details>''')
+    out[-1] = out[-1].replace("@@KIND@@", kind)
     # 2027年はどんな年
     py = {}
     for k in sorted(mats):
@@ -220,7 +219,7 @@ def sections(mats, n, h2):
             rows += (f'<tr><th scope="row"><a href="{url(k)}">{m}月{d}日</a></th><td>{esc(x["sign"])}</td>'
                      f'<td>{esc(x["flower"]["flower"])}<small style="color:var(--mute)">（{esc(x["flower"]["hanakotoba"])}）</small></td>'
                      f'<td>{esc(x["kou"])}</td><td>{esc(x["birthday_number"])}</td></tr>')
-        det += (f'<details{" open" if m == 1 else ""}><summary>{m}月生まれ</summary><div class="fh-b27-hx-wrap"><table class="fh-b27-hx-t">'
+        det += (f'<details><summary>{m}月生まれ</summary><div class="fh-b27-hx-wrap"><table class="fh-b27-hx-t">'
                 f'<caption>{m}月の誕生日の星座・誕生花・七十二候・誕生日の数</caption><thead><tr><th scope="col">誕生日</th><th scope="col">星座</th>'
                 f'<th scope="col">誕生花（花言葉）</th><th scope="col">七十二候</th><th scope="col">誕生日の数</th></tr></thead><tbody>{rows}</tbody></table></div></details>')
     out.append(f'''<section class="fh-b27-sec" id="b27-table">
