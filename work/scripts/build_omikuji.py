@@ -208,6 +208,7 @@ def build(sample, updated):
   <div class="fh-b27-links">
     <a href="/tarot/"><b>タロット占い →</b><small>悩みを相談して答えをもらう</small></a>
     <a href="/coin/"><b>コイン占い →</b><small>表と裏で今日の運勢を</small></a>
+    <a href="/eki/"><b>易占い →</b><small>六十四卦で答えを読む</small></a>
     <a href="/hoshi/"><b>星のこよみ2027 →</b><small>新月・満月・逆行の日付</small></a>
     <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日ごとの2027年の運勢</small></a>
   </div>

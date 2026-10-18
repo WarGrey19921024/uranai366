@@ -208,6 +208,7 @@ def build(sample, updated):
     <a href="/tarot/"><b>タロット占い →</b><small>78枚のカードで相談に答える</small></a>
     <a href="/rune/"><b>ルーン占い →</b><small>25のルーンで短い答えを</small></a>
     <a href="/dice/"><b>サイコロ占い →</b><small>1〜4個のサイコロで今日の運勢</small></a>
+    <a href="/eki/"><b>易占い →</b><small>六十四卦で答えを読む</small></a>
     <a href="/omikuji/"><b>おみくじ →</b><small>今日の運勢を一枚で</small></a>
   </div>
 </section>''')
