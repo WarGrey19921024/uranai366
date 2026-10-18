@@ -61,6 +61,8 @@ def main():
         xiang = next(l for l in c if l.startswith('<象>曰') or l.startswith('象曰'))
         xiang = re.sub(r'[“”](\w{1,3})[“”]\.', r'\1。', xiang.split('曰', 1)[1].lstrip('：:'))
         xiang = clean(xiang.split('“')[0])
+        if xiang.startswith('出附于地'):  # 出典の誤記（剥の大象は通行本で「山附于地」）
+            FIX.append(f'{n} 大象 出附于地→山附于地'); xiang = '山' + xiang[1:]
         hexes.append({'n': n, 'short': short, 'name': name, 'yomi': YOMI[n - 1], 'slug': f'{n:02d}-{romaji(YOMI[n - 1])}',
                       'lower': lo, 'upper': up, 'lines': lines, 'gua_src': clean(gua), 'yao_src': yao, 'xiang_src': xiang,
                       'extra_src': clean(next((l for l in c[3:] if l.startswith('用九') or l.startswith('用六')), ''))[3:]})

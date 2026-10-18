@@ -128,6 +128,7 @@ CSS = """<style id="fh-b27-ek-css">
 .fh-b27-ek-yao{display:flex;flex-direction:column;gap:10px}
 .fh-b27-ek-yao>div{display:grid;grid-template-columns:70px minmax(0,1fr);gap:12px;border:1px solid rgba(224,184,104,.22);border-radius:14px;background:var(--deep);padding:12px;font-size:14.5px;line-height:1.85}
 .fh-b27-ek-yao .lb{text-align:center;font-family:'Shippori Mincho',serif;font-weight:800;color:#F6E2B8}
+.fh-b27-ek-yao .lb svg{display:block;margin:0 auto 4px}
 .fh-b27-ek-yao .lb small{display:block;font-family:inherit;font-weight:400;color:var(--mute);font-size:11.5px}
 .fh-b27-ek-yao p{margin:4px 0}
 .fh-b27-ek-yao .kd{font-family:'Shippori Mincho',serif;color:#F6E2B8}
@@ -139,7 +140,7 @@ CSS = """<style id="fh-b27-ek-css">
 .fh-b27-ek-th b{display:block;color:#F6E2B8}
 @media (max-width:640px){.fh-b27-ek-list,.fh-b27-ek-cols,.fh-b27-ek-th{grid-template-columns:1fr}.fh-b27-ek-tri{grid-template-columns:repeat(2,minmax(0,1fr))}
  .fh-b27[data-fh-page="eki"] .fh-b27-toc ol{columns:1}.fh-b27[data-fh-page="eki"] .fh-b27-title{font-size:25px}.fh-b27-ek-emb{width:88px;height:88px}
- .fh-b27-ek-yao>div{grid-template-columns:1fr}.fh-b27-ek-yao .lb{text-align:left}}
+ .fh-b27-ek-yao>div{grid-template-columns:1fr}.fh-b27-ek-yao .lb{text-align:left;display:flex;gap:10px;align-items:center}.fh-b27-ek-yao .lb svg{margin:0}}
 @media (prefers-reduced-motion:reduce){.fh-b27-ek-emb .fh-b27-ek-svg,.fh-b27-ek-card{animation:none}.fh-b27-ek-sticks i{transition:none}}
 </style>"""
 
@@ -157,14 +158,17 @@ $('ek-go').addEventListener('click',function(){if(busy)return;busy=true;$('ek-re
  split(a.left,function(){$('ek-s1').innerHTML='<b>'+TO[a.r-1]+'（'+TN[TO[a.r-1]]+'）</b>下の卦｜余り'+a.r;
  split(b.left,function(){$('ek-s2').innerHTML='<b>'+TO[b.r-1]+'（'+TN[TO[b.r-1]]+'）</b>上の卦｜余り'+b.r;
  split(c.left,function(){$('ek-s3').innerHTML='<b>'+PN[c.r-1]+'</b>変わる爻｜余り'+c.r;show(TO[a.r-1],TO[b.r-1],c.r-1)})})})});
+function pick(doc,yi){var o={y:'',t:''};try{var y=doc.getElementById('ek-y'+(yi+1));if(y){y.querySelectorAll('p').forEach(function(p){var b=p.querySelector('b');if(b&&b.textContent.indexOf('占いでは')===0)o.y=p.textContent.replace(/^占いでは：/,'')})}
+ if(thK!=='総合'){doc.querySelectorAll('#ek-theme .fh-b27-ek-th div').forEach(function(d){var b=d.querySelector('b');if(b&&b.textContent===thK)o.t=d.textContent.slice(thK.length)})}}catch(e){}return o}
 function show(lo,up,yi){var h=null;for(var k in H){if(H[k].lo===lo&&H[k].up===up){h=H[k];break}}var z=H[h.zhi[yi]];
- var th=thK==='総合'?'':'<p><b>'+esc(thK)+'：</b>'+esc(h.th[thK])+'</p>';
  var r=$('ek-res');r.innerHTML='<div class="fh-b27-ek-card"><div class="fh-b27-ek-head">'+svg(h.L,yi)+'<div><small>本卦（いまの状態）第'+h.n+'卦</small><div class="nm">'+esc(h.nm)+'</div><small>'+esc(h.yo)+'</small></div></div>'
- +'<p><span class="fh-b27-ek-tag">'+esc(h.jd)+'</span><b>'+esc(h.ca)+'</b></p><p>'+esc(h.now)+'</p>'+th+'<p><b>心がけ：</b>'+esc(h.ad)+'</p>'
- +'<p><b>変わる爻は「'+esc(h.yl[yi])+'」（'+PN[yi]+'）：</b>'+esc(h.yr[yi])+'</p><p><a href="'+h.u+'#ek-y'+(yi+1)+'">'+esc(h.nm)+'の意味をくわしく読む →</a></p></div>'
+ +'<p><span class="fh-b27-ek-tag">'+esc(h.jd)+'</span><b>'+esc(h.ca)+'</b></p><p>'+esc(h.now)+'</p><p id="ek-r-th"></p><p><b>心がけ：</b>'+esc(h.ad)+'</p>'
+ +'<p id="ek-r-y"><b>変わる爻は「'+esc(h.yl[yi])+'」（'+PN[yi]+'）</b></p><p><a href="'+h.u+'#ek-y'+(yi+1)+'">'+esc(h.nm)+'の意味と'+esc(h.yl[yi])+'の言葉をくわしく読む →</a></p></div>'
  +'<div class="fh-b27-ek-card" style="animation-delay:.3s"><div class="fh-b27-ek-head">'+svg(z.L)+'<div><small>之卦（これからの流れ）第'+z.n+'卦</small><div class="nm">'+esc(z.nm)+'</div><small>'+esc(z.yo)+'</small></div></div>'
  +'<p><b>'+esc(z.ca)+'</b></p><p>'+esc(z.now)+'</p><p><a href="'+z.u+'">'+esc(z.nm)+'の意味をくわしく読む →</a></p></div>';
- r.hidden=false;var g=JG[h.jd];['go','care','wait'].forEach(function(k){var e=$('ek-ad-'+k);if(e)e.hidden=(k!==g)});$('ek-ads').hidden=false;$('ek-go').textContent='もう一度、易を立てる';busy=false;}
+ r.hidden=false;var g=JG[h.jd];['go','care','wait'].forEach(function(k){var e=$('ek-ad-'+k);if(e)e.hidden=(k!==g)});$('ek-ads').hidden=false;$('ek-go').textContent='もう一度、易を立てる';busy=false;
+ fetch(h.u,{credentials:'same-origin'}).then(function(x){return x.text()}).then(function(t){var o=pick(new DOMParser().parseFromString(t,'text/html'),yi);
+  if(o.y)$('ek-r-y').innerHTML='<b>変わる爻は「'+esc(h.yl[yi])+'」（'+PN[yi]+'）：</b>'+esc(o.y);if(o.t)$('ek-r-th').innerHTML='<b>'+esc(thK)+'：</b>'+esc(o.t)}).catch(function(){});}
 })();"""
 
 
@@ -300,7 +304,7 @@ def hub(sample, updated):
 </section>''')
     data = {str(h["n"]): dict(n=h["n"], nm=h["name"], yo=h["yomi"], u=url(h), L=h["lines"], lo=h["lower"], up=h["upper"], zhi=h["zhi"],
                               ca=T[h["n"]]["catch"], jd=T[h["n"]]["judge"], now=T[h["n"]]["now"], ad=T[h["n"]]["advice"],
-                              th=T[h["n"]]["themes"], yl=[y[0] for y in h["yao_src"]], yr=[y["read"] for y in T[h["n"]]["yao"]]) for h in HX}
+                              yl=[y[0] for y in h["yao_src"]]) for h in HX}
     js = (JS.replace("__H__", json.dumps(data, ensure_ascii=False)).replace("__TO__", json.dumps(TRI_ORDER, ensure_ascii=False))
           .replace("__JG__", json.dumps(JG, ensure_ascii=False)).replace("__TN__", json.dumps({k: v["nature"] for k, v in TRI.items()}, ensure_ascii=False))
           .replace("__PN__", json.dumps(POSN, ensure_ascii=False)))
