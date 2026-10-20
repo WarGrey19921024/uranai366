@@ -408,7 +408,7 @@ def aff_href(shop, q):
     if it and it.get("url") and "{url}" in href:  # 2026-10-16 商品データがあれば、その商品のページへ
         return GM.moshimo_item_href(href, it["url"])
     if "{url}" in href:
-        dest = t["target"].replace("{q}", urllib.parse.quote_plus(CURQ.get(q) or norm_q(other_q(shop, q))))
+        dest = t["target"].replace("{q}", urllib.parse.quote_plus(norm_q(CURQ.get(q) or other_q(shop, q))))
         href = href.replace("{url}", urllib.parse.quote(dest, safe=""))
     return href
 
