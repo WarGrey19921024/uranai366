@@ -8,11 +8,11 @@
  "links": {
   "amazon": 0,
   "phone": 366,
-  "rakuten": 3611,
-  "yahoo": 3611
+  "rakuten": 3434,
+  "yahoo": 3434
  },
  "skipped_buttons": {
-  "amazon": 3611,
+  "amazon": 3434,
   "phone": 0,
   "rakuten": 0,
   "yahoo": 0

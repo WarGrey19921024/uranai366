@@ -356,6 +356,48 @@ def load_aff_templates():
     return out
 
 
+_DROP = ("小さな", "大きな", "小さい", "大きい", "ゆとりのある", "歩きやすい", "香りのよい", "厚手の", "一人用の", "二人用の", "お気に入りの", "こだわりの", "ふかふかの")
+_KEEPNO = ("湯のみ", "きのこ", "のど", "ふきのとう", "のれん", "のし", "のり", "木の実", "の実", "このは", "ののはな", "あのね", "の字", "手のひら", "のびのび")
+
+
+def norm_q(q):
+    """2026-10-20 修正指示書v2 A：検索語を「名詞中心・助詞なし・3語まで」にする（日ごとの queries が無い品名用）"""
+    for d in _DROP:
+        q = q.replace(d, " " if d.endswith("の") or len(d) > 3 else "")
+    keep = {f"\x00{i}\x00": k for i, k in enumerate(_KEEPNO)}
+    for ph, k in keep.items():
+        q = q.replace(k, ph)
+    ws = [w for w in re.split(r"[\sの]+", q) if w]
+    for ph, k in keep.items():
+        ws = [w.replace(ph, k) for w in ws]
+    while len(ws) > 3:
+        for g in ("ギフト", "セット", "詰め合わせ"):
+            if g in ws:
+                ws.remove(g)
+                break
+        else:
+            ws = ws[:3]
+    return " ".join(ws) or q
+
+
+def other_q(shop, q):
+    """2026-10-20 修正指示書v2 A/D：ほかの店では商品ページに飛ぶのに、この店だけ検索になるとき、
+    検索語を実際の商品名に合う語だけにする（例：ヘリオドール ブレスレット → 商品は粒なので「ヘリオドール」）"""
+    oth = next((GM.item(o, q) for o in ("rakuten", "yahoo") if o != shop and GM.item(o, q)), None)
+    if not oth or not oth.get("name"):
+        return q
+    name = oth["name"]
+    keep = []
+    for w in q.split():
+        if w in name:
+            keep.append(w)
+            continue
+        m = re.split(r"(?:な|の)", w)  # 「小さな方位磁針」→「方位磁針」
+        if len(m) > 1 and m[-1] and m[-1] in name:
+            keep.append(m[-1])
+    return " ".join(keep) or q
+
+
 def aff_href(shop, q):
     """実リンク。{url} には target（{q}＝商品名をURLエンコード）をさらにURLエンコードして入れる"""
     t = AFF_TPL.get(shop)
@@ -366,7 +408,7 @@ def aff_href(shop, q):
     if it and it.get("url") and "{url}" in href:  # 2026-10-16 商品データがあれば、その商品のページへ
         return GM.moshimo_item_href(href, it["url"])
     if "{url}" in href:
-        dest = t["target"].replace("{q}", urllib.parse.quote_plus(CURQ.get(q, q)))
+        dest = t["target"].replace("{q}", urllib.parse.quote_plus(CURQ.get(q) or norm_q(other_q(shop, q))))
         href = href.replace("{url}", urllib.parse.quote(dest, safe=""))
     return href
 
