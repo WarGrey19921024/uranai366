@@ -200,7 +200,7 @@ CSS = ("<style>.fh-b27 a.fh-b27-shopbtn,.fh-b27 a.fh-b27-shopbtn:visited{color:#
        ".fh-b27 .fh-b27-shop:has(.fh-b27-shop-photo){grid-template-columns:112px minmax(0,1fr)}"
        ".fh-b27 .fh-b27-shop-pic:has(img){width:112px;height:112px;background:#fff;padding:4px;overflow:hidden;border-radius:10px}"
        ".fh-b27 .fh-b27-shop-pic a.fh-b27-shop-photo{display:block;width:100%;height:100%}"
-       ".fh-b27 img.fh-b27-shop-img{display:block;width:100%;height:100%;object-fit:contain;background:#fff;border-radius:8px;margin:0}"
+       ".fh-b27 img[data-fh=fh-b27-shop-img]{display:block;width:100%;height:100%;object-fit:contain;background:#fff;border-radius:8px;margin:0}"
        "@media(max-width:560px){.fh-b27 .fh-b27-adgoods .fh-b27-shops{grid-template-columns:minmax(0,1fr)}}</style>")
 
 

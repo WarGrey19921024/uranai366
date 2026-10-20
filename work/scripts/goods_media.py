@@ -53,7 +53,8 @@ def img_tag(q, alt, cls="fh-b27-shop-img"):
     it = photo(q)
     if not it:
         return ""
-    return (f'<img class="{cls}" src="{html.escape(it["img"], quote=True)}" alt="{html.escape(alt, quote=True)}" '
+    # 2026-10-20 class="" にしておくと Diver の遅延読み込み（src を data-src に書き換える）にかからない。見た目は data-fh で当てる
+    return (f'<img class="" data-fh="{cls}" src="{html.escape(it["img"], quote=True)}" alt="{html.escape(alt, quote=True)}" '
             f'width="128" height="128" loading="lazy" decoding="async" referrerpolicy="no-referrer">')
 
 
