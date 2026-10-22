@@ -1077,8 +1077,15 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
 </section>''')
 
     # 5 有名人
+    _fy_p = os.path.join(WORK, "data", "famous_years", f"{mmdd}.json")
+    _fy = (json.load(open(_fy_p, encoding="utf-8")).get("years") or {}) if os.path.exists(_fy_p) else {}
+
     def fam(lst):
-        return "\n        ".join(f'<li>{esc(p["name"])}<small>{esc(p["job"])}</small></li>' for p in lst) or "<li>—</li>"
+        # 2026-10-22 修正指示書v2 F：生年（出典：日本語版ウィキペディアの日付のページ「誕生日」の節。data/famous_years/）
+        def _yr(n):
+            y = _fy.get(n)
+            return f"（{y}年）" if isinstance(y, int) else ""
+        return "\n        ".join(f'<li>{esc(p["name"])}{_yr(p["name"])}<small>{esc(p["job"])}</small></li>' for p in lst) or "<li>—</li>"
     a(f'''<section class="fh-b27-sec" id="b27-famous">
   {h2(5, "famous", f"{md}生まれの有名人")}
   {paras(fx.get("famous_note"))}
@@ -1096,6 +1103,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
       </ul>
     </div>
   </div>
+  {'<p class="fh-b27-small">生まれた年は、日本語版ウィキペディアの日付のページ（「誕生日」の節）に載っている人だけ書いています。</p>' if _fy else ''}
 </section>''')
     a("</div>")
     a("<!--Ads1-->")  # WP QUADS の広告位置1：第1部の終わり（カード・付箋の外）
