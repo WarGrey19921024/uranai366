@@ -1079,6 +1079,9 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     # 5 有名人
     _fy_p = os.path.join(WORK, "data", "famous_years", f"{mmdd}.json")
     _fy = (json.load(open(_fy_p, encoding="utf-8")).get("years") or {}) if os.path.exists(_fy_p) else {}
+    _fy = dict(_fy)
+    for _n, _v in (json.load(open(os.path.join(WORK, "data", "famous_years_manual.json"), encoding="utf-8")).get(mmdd) or {}).items():
+        _fy.setdefault(_n, _v[0])
 
     def fam(lst):
         # 2026-10-22 修正指示書v2 F：生年（出典：日本語版ウィキペディアの日付のページ「誕生日」の節。data/famous_years/）
