@@ -497,7 +497,7 @@ def a8_line(key, lead, label, cap=12):
     if not v or SLOTS[0] >= cap:
         return ""
     SLOTS[0] += 1
-    AFF_COUNT["a8_" + key] += 1
+    AFF_COUNT["a8-" + key] += 1
     return (f'<p class="fh-b27-a8line">{PR}{inline(lead)} '
             f'<a href="{esc(v["href"])}" rel="nofollow sponsored" data-aff="a8-{esc(key)}">{esc(label)} →</a>{v["impression"]}</p>')
 

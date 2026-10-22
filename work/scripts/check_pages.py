@@ -13,6 +13,9 @@ files = sorted(glob.glob(os.path.join(W, "out", d, "[0-9][0-9][0-9][0-9].html"))
 _tp = os.path.join(W, "out", "affiliate_templates.json")
 TPL = {k: v for k, v in (json.load(open(_tp, encoding="utf-8")) if os.path.exists(_tp) else {}).items()
        if not k.startswith("_") and isinstance(v, dict) and v.get("href")}  # ひな形のある店だけ
+# 2026-10-22 A8 の専門店のテキストリンク（data-aff="a8-<名前>"）
+TPL.update({"a8-" + k: v for k, v in ((json.load(open(_tp, encoding="utf-8")) if os.path.exists(_tp) else {}).get("a8_shops") or {}).items()
+            if not k.startswith("_") and isinstance(v, dict) and v.get("href")})
 AFF_HOSTS = ("af.moshimo.com", "px.a8.net")
 SHOP_NAME = {"rakuten": "楽天市場", "yahoo": "Yahoo!ショッピング", "amazon": "Amazon", "phone": "電話占い"}
 
@@ -100,7 +103,7 @@ chk("太字（10〜150か所）", lambda s, t, m: 10 <= len(re.findall(r"<b>|<st
 chk("アフィリエイトはすべて rel=nofollow sponsored", lambda s, t, m: all(re.search(r'rel="nofollow sponsored"', x[2]) for x in aff_links(s)) and (aff_links(s) or not TPL))
 chk("仮リンクが0か所（#affiliate-TODO- なし）", lambda s, t, m: "affiliate-TODO" not in s and all(x[1].startswith("https://") for x in aff_links(s)))
 chk("アフィリエイトの href は af.moshimo.com か px.a8.net だけ", lambda s, t, m: all(urllib.parse.urlsplit(x[1]).hostname in AFF_HOSTS for x in aff_links(s)))
-chk("ひな形のある店だけボタンを出している（Amazon など空の店は0）", lambda s, t, m: all(x[0] in TPL for x in aff_links(s)))
+chk("ひな形のある店だけボタンを出している（Amazon など空の店は0）", lambda s, t, m: all(x[0] in TPL for x in aff_links(s) if 'class="fh-b27-shop-photo"' not in x[2]))
 chk("楽天のリンクは楽天の検索ページか商品ページへ（url= に二重エンコード）", lambda s, t, m: all(
     urllib.parse.unquote(urllib.parse.parse_qs(urllib.parse.urlsplit(x[1]).query)["url"][0]).startswith(("https://search.rakuten.co.jp/search/mall/", "https://item.rakuten.co.jp/", "https://hb.afl.rakuten.co.jp/"))
     for x in aff_links(s) if x[0] == "rakuten"))
@@ -112,8 +115,8 @@ chk("広告の枠の頭に「PR」がある（2026-10-18 表記を統一）", la
 chk("誕生日プレゼント3枠まで（商品ボックス。2026-10-18 広告枠を減らした）", lambda s, t, m: 1 <= s.count('class="fh-b27-shop fh-b27-gift"') <= 3)
 chk("プレゼントとお守りリストで同じ商品が無い", lambda s, t, m: not (set(re.findall(r'class="fh-b27-shop-name">([^<]+)', s[s.find('id="b27-gift"'):s.find('id="b27-today"')])) & set(re.findall(r'class="fh-b27-shop-name">([^<]+)', s[s.find('id="b27-omamori"'):s.find('id="b27-gift"')]))))
 chk("商品ボックスに品目の絵と店ボタン（ひな形のある店：楽天・Yahoo!）", lambda s, t, m: all(
-    re.search(r'class="fh-b27-shop-pic"><i class="fh-b27-ic fh-b27-ic-[a-z-]+"', b) and all(f'data-aff="{sh}"' in b for sh in ("rakuten", "yahoo", "amazon") if sh in TPL)
-    for b in re.findall(r'<div class="fh-b27-shop[ "].*?</div></div>', s)) and len(re.findall(r'<div class="fh-b27-shop[ "]', s)) == 10)
+    re.search(r'class="fh-b27-shop-pic">(<i class="fh-b27-ic fh-b27-ic-[a-z-]+"|<a class="fh-b27-shop-photo"[^>]*><span class="" data-fh="fh-b27-shop-img")', b) and all(f'data-aff="{sh}"' in b for sh in ("rakuten", "yahoo", "amazon") if sh in TPL)
+    for b in re.findall(r'<div class="fh-b27-shop[ "].*?</div></div>', s)) and 1 <= len(re.findall(r'<div class="fh-b27-shop[ "]', s)) <= 12)  # 2026-10-22 写真は span・箱の数は12まで
 chk("電話占いの案内が1か所（ひな形があるとき）", lambda s, t, m: len([x for x in aff_links(s) if x[0] == "phone"]) == (1 if "phone" in TPL else 0))
 chk("電話占いのボタンに金額・特典の言葉が無い", lambda s, t, m: not any(re.search(r"円|特典|初回|無料|割引|%|％|ポイント", x[4]) for x in aff_links(s) if x[0] == "phone"))
 # 確認4：テーマ・プラグインとのぶつかり
@@ -123,7 +126,7 @@ chk("広告の位置の目印（OffDef・Ads1〜3、カード・付箋の外）"
 ICON_CSS = open(os.path.join(HERE, "templates", "fh-b27-icons.css"), encoding="utf-8").read()
 chk("本文に \\ が無い（取り込みで消えるため）", lambda s, t, m: "\\" not in s[s.find("<!-- fh-b27:start"):s.find("<!-- fh-b27:end -->")])
 chk("使っているイラストがすべて共通CSSにある", lambda s, t, m: all(f".fh-b27-ic-{n}{{" in ICON_CSS for n in set(re.findall(r'fh-b27-ic-([a-z-]+)', s))))
-chk("見出しH2（1〜19）にイラスト", lambda s, t, m: len(re.findall(r'<h2><span class="fh-b27-n">\d+</span><i class="fh-b27-ic ', s)) == 19)
+chk("見出しH2（1〜20）にイラスト", lambda s, t, m: len(re.findall(r'<h2><span class="fh-b27-n">\d+</span><i class="fh-b27-ic ', s)) == 20)  # 2026-10-20「誕生日の運勢」に番号16
 chk("相性の日付はチップ（矢印つき）8つ", lambda s, t, m: len(re.findall(r'<a class="fh-b27-chip" href="/366uranai/\d{2}-\d{2}/">.*?→</i></a>', s)) == 8)
 chk("生まれ年の選択欄：上部・グラフ・生まれ年・バイオリズム・画面下の5か所", lambda s, t, m: len(re.findall(r"data-fh-year[ >]", s)) == 5 and 'id="fh-b27-y"' in s and 'id="fh-b27-yfloat"' in s)
 chk("バイオリズム：カレンダー・表示切り替え・その日のひとことの場所", lambda s, t, m: all(x in s for x in ('id="fh-b27-cal"', 'data-fh-view="cal"', 'data-fh-view="graph"', 'id="fh-b27-dayout"')))
@@ -141,7 +144,7 @@ chk("誕生日石・誕生色に「当サイト独自の選び方」", lambda s,
 chk("誕生花の出典（日本花普及センター）", lambda s, t, m: "日本花普及センター" in t)
 chk("相性の見出しに「ぶつかる」を使っていない", lambda s, t, m: not re.search(r"<h[23][^>]*>[^<]*ぶつか", s))
 chk("「動物占い」「六星占術」を使っていない", lambda s, t, m: "動物占い" not in t and "六星" not in t)
-chk("本文に度数の数字を出していない（この占いについて以外）", lambda s, t, m: not re.search(r"(?<!東経)(?<!マイナス)(?<![0-9])[0-9０-９]+度", body_text(s[:s.find('id="b27-about"')])))
+chk("本文に度数の数字を出していない（この占いについて以外）", lambda s, t, m: not re.search(r"(?<!東経)(?<!マイナス)(?<![0-9])[0-9０-９]+度", body_text(re.sub(r'<span class="fh-b27-shop-prod">.*?</span>', "", s[:s.find('id="b27-about"')]))))  # 商品名（例：180度回転）は除く
 chk("「！」は3回まで", lambda s, t, m: t.count("！") + t.replace("Yahoo!", "").count("!") <= 3 + body_text(s).count("!=") )
 chk("文章が入っている", lambda s, t, m: "文章は未作成" not in t)
 chk("CSSは fh-b27- 接頭辞のみ", lambda s, t, m: all(c.startswith("fh-b27") for cl in re.findall(r'class="([^"]+)"', s) for c in cl.split()))
@@ -170,6 +173,8 @@ if lens: L.append(f"\n- ページ全体の字数：最小 {min(lens)}／平均 {
 cnt = collections.Counter()
 for f in files:
     for x in aff_links(open(f, encoding="utf-8").read()):
+        if 'class="fh-b27-shop-photo"' in x[2]:  # 写真のリンク（同じ商品へのボタンと重複）は数えない
+            continue
         cnt[x[0] or "（店不明）"] += 1
 _cp = os.path.join(W, "reports", "affiliate_count.json")
 bc = json.load(open(_cp, encoding="utf-8")) if d == "html" and os.path.exists(_cp) else None
