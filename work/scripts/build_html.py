@@ -491,10 +491,10 @@ def load_a8_shops():
     return out
 
 
-def a8_line(key, lead, label):
+def a8_line(key, lead, label, cap=12):
     """2026-10-22 A8 の専門店へのテキストリンク1行（PR つき）。商品枠に数える。12枠を超えるときは出さない"""
     v = A8S.get(key)
-    if not v or SLOTS[0] >= 12:
+    if not v or SLOTS[0] >= cap:
         return ""
     SLOTS[0] += 1
     AFF_COUNT["a8_" + key] += 1
@@ -1292,6 +1292,8 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         _rest = [i for i in range(len(items)) if i not in _box]
         if _rest:
             a('  <ul class="fh-b27-restitems">' + "".join(f'<li><b>{esc(items[i].get("name", ""))}</b>：{inline(items[i].get("why", ""))}</li>' for i in _rest) + "</ul>")
+        if STONE_OK:  # 2026-10-22 守護石をお守りとして持つ人向け。あとのプレゼントの箱（3つまで）と体験ギフトの枠を残す
+            a("  " + a8_line("hariqua", f"守護石の{e['birthday_stone']['name']}をお守りとして身につけるなら、パワーストーンの専門店で選ぶ方法もあります。", "Hariqua（ハリックァ）で天然石を見る", cap=11 - min(3, len(fx.get("present") or []))))
     else:
         a("  " + miss_p())
     num = am.get("number") or {}
