@@ -1145,6 +1145,8 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         # 2026-10-22 修正指示書v2 F：生年（出典：日本語版ウィキペディアの日付のページ「誕生日」の節。data/famous_years/）
         def _yr(n):
             y = _fy.get(n)
+            if isinstance(y, str) and y.startswith("紀元前"):
+                return f"（{y}年）"
             return f"（{y}年）" if isinstance(y, int) else ""
         return "\n        ".join(f'<li>{esc(p["name"])}{_yr(p["name"])}<small>{esc(p["job"])}</small></li>' for p in lst) or "<li>—</li>"
     a(f'''<section class="fh-b27-sec" id="b27-famous">
@@ -1164,7 +1166,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
       </ul>
     </div>
   </div>
-  {'<p class="fh-b27-small">生まれた年は、日本語版ウィキペディアの日付のページ（「誕生日」の節）に載っている人だけ書いています。</p>' if _fy else ''}
+  {'<p class="fh-b27-small">生まれた年は、日本語版ウィキペディアの日付のページ（「誕生日」の節）か、その人の記事で確かめられた人だけ書いています。</p>' if _fy else ''}
 </section>''')
     a("</div>")
     a("<!--Ads1-->")  # WP QUADS の広告位置1：第1部の終わり（カード・付箋の外）
