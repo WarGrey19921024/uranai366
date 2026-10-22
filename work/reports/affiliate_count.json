@@ -6,12 +6,20 @@
   "yahoo"
  ],
  "links": {
+  "a8_bellebeaufleur": 25,
+  "a8_bizoux": 366,
+  "a8_pascle": 47,
+  "a8_sowexp": 345,
   "amazon": 0,
   "phone": 366,
   "rakuten": 3434,
   "yahoo": 3434
  },
  "skipped_buttons": {
+  "a8_bellebeaufleur": 0,
+  "a8_bizoux": 0,
+  "a8_pascle": 0,
+  "a8_sowexp": 0,
   "amazon": 3434,
   "phone": 0,
   "rakuten": 0,
