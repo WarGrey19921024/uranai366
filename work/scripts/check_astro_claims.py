@@ -12,7 +12,7 @@ SEQ = rf"(?:{PLR})(?:[、と](?:{PLR}))*"
 PAT = [re.compile(rf"({SG})の({SEQ})"),
        re.compile(rf"({SEQ})(?:が|は)({SG})(?:に|を|で|へ|入り|に入)")]
 OWN = re.compile(rf"({SEQ})が(?:あなたの)?(?:太陽|星座)(?:に|と)重な")
-OPP = re.compile(rf"(?:({SG})の)?({SEQ})が(?:向かい|向こう正面)")
+OPP = re.compile(rf"(?:({SG})の)?({SEQ})が(?:向かい(?!風)|向こう正面)")
 _cache = {}
 
 
