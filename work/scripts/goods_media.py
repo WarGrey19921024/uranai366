@@ -75,7 +75,13 @@ def price_html(q, short=False):
         return ""
     at = it.get("at", "")
     when = f"{int(at[5:7])}月{int(at[8:10])}日時点" if len(at) >= 10 else ""
-    name = re.sub(r"[！!【】★☆＼／◆◇■□♪]+", " ", it.get("name") or "").strip()
+    name = re.sub(r"\{[^}]*\}|[［\[][^］\]]*[］\]]", " ", it.get("name") or "")  # {P10}・[送料無料] など店の飾り
+    name = re.sub(r"[！!【】★☆＼／◆◇■□♪●○◎▼▽△▲※〓]+", " ", name).strip()
     name = re.sub(r"\s+", " ", name)
     name = name if len(name) <= 30 else name[:30] + "…"
+    # 2026-10-22 切ったあとに閉じていないかっこが残らないように
+    for o, c in ("「」", "『』", "（）", "()", "〈〉", "《》"):
+        if name.count(o) > name.count(c):
+            name = name[:name.rfind(o)].rstrip(" 　・、") + ("…" if not name.endswith("…") else "")
+    name = name.strip() or "（商品名は店のページで）"
     return "" if short else f'<span class="fh-b27-shop-prod">商品例：{html.escape(name)}</span>'

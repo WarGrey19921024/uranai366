@@ -380,22 +380,22 @@ def norm_q(q):
     return " ".join(ws) or q
 
 
+GENERIC_Q = {"グレー", "セット", "ブレスレット", "置物", "ギフト", "小物", "雑貨", "カップ", "ブルー", "レッド", "グリーン", "ピンク", "ホワイト", "ブラック"}
+
+
 def other_q(shop, q):
     """2026-10-20 修正指示書v2 A/D：ほかの店では商品ページに飛ぶのに、この店だけ検索になるとき、
-    検索語を実際の商品名に合う語だけにする（例：ヘリオドール ブレスレット → 商品は粒なので「ヘリオドール」）"""
+    検索語を実際の商品名に合う語だけにする（例：ヘリオドール ブレスレット → 商品は粒なので「ヘリオドール」）。
+    2026-10-22 点検の指摘：語の途中で切らない（湯のみ→「み」になっていた）。残るのが色・「セット」など1語だけなら、品名を整えた語にする"""
     oth = next((GM.item(o, q) for o in ("rakuten", "yahoo") if o != shop and GM.item(o, q)), None)
     if not oth or not oth.get("name"):
         return q
     name = oth["name"]
-    keep = []
-    for w in q.split():
-        if w in name:
-            keep.append(w)
-            continue
-        m = re.split(r"(?:な|の)", w)  # 「小さな方位磁針」→「方位磁針」
-        if len(m) > 1 and m[-1] and m[-1] in name:
-            keep.append(m[-1])
-    return " ".join(keep) or q
+    words = norm_q(q).split()
+    keep = [w for w in words if w in name]
+    if not keep or (len(keep) == 1 and (keep[0] in GENERIC_Q or len(keep[0]) <= 1)):
+        return q
+    return " ".join(keep)
 
 
 def aff_href(shop, q):
@@ -546,9 +546,50 @@ COLOR_KW = [("若葉", "#9CC46B"), ("若草", "#B5CF6B"), ("萌黄", "#A9C25D"),
             ("白", "#F4F1EA")]
 
 
+COLOR_KW += [("グリーン", "#5E9E5A"), ("イエロー", "#E8C547"), ("レッド", "#C0392B"), ("ブルー", "#3F6FB5"), ("パープル", "#7E5AA6"),
+             ("ブラウン", "#8A5A3B"), ("ホワイト", "#F4F1EA"), ("ブラック", "#2B2B2B"), ("ゴールド", "#C9A23A"), ("シルバー", "#BFC3C7"),
+             ("ネイビー", "#22325B"), ("ターコイズ", "#3AAFA9"), ("ミント", "#98D7C2"), ("ラベンダー", "#B8A6D9"), ("ワイン", "#722F37"),
+             ("ボルドー", "#6C2735"), ("カーキ", "#7C7A4A"), ("オリーブ", "#808040"), ("アイボリー", "#F3EBD8"), ("コーラル", "#F28B74"),
+             ("サーモン", "#F4A285"), ("ローズ", "#D6667A"), ("スカイ", "#8EC5E6"), ("エメラルド", "#2E9E73"), ("マリン", "#2A5CAA"),
+             ("インディゴ", "#2B4C7E"), ("セピア", "#6B4A2B"), ("チョコ", "#5A3A22"), ("キャメル", "#B5835A"), ("テラコッタ", "#C4643F"),
+             ("丹", "#C94E3E"), ("錆", "#8C4A33"), ("柿", "#E07B3C"), ("蜜柑", "#EE8A2E"), ("萱", "#C9A86A"), ("草", "#7BA05B"),
+             ("苔", "#69821B"), ("鶯", "#928C36"), ("松", "#4A6B4A"), ("竹", "#68A47A"), ("葡萄", "#6C3A5C"), ("小豆", "#96514D"),
+             ("鳶", "#95483F"), ("檜皮", "#965036"), ("琥珀", "#BF783A"), ("蜂蜜", "#D9A441"), ("橡", "#7B6C4E"), ("砂", "#D8C9A8"), ("からし", "#D0AF4C"), ("ばら", "#E9546B"), ("たんぽぽ", "#F4D03F"), ("はちみつ", "#D9A441"),
+             ("カナリア", "#F2E55C"), ("すみれ", "#7058A3"), ("梔子", "#FFDB4F"), ("蛍", "#C3D825"), ("ヒスイ", "#38B48B"),
+             ("れんが", "#B55233"), ("臙脂", "#B94047"), ("常盤", "#007B43"), ("ひよこ", "#F7E07A"), ("麦わら", "#E3C77E")]
+_EXACT = None
+
+
+def _exact_colors():
+    """2026-10-22 色の名前 → 色コード（和色大辞典で確かめた七十二候の色・生まれ持ちのラッキーカラー・一般的な誕生色）"""
+    global _EXACT
+    if _EXACT is None:
+        _EXACT = {}
+        for fn in ("src_colors_kou01-36.json", "src_colors_kou37-72.json"):
+            p = os.path.join(WORK, "data", fn)
+            if os.path.exists(p):
+                for k in json.load(open(p, encoding="utf-8")).get("kou", []):
+                    for c in k.get("colors", []):
+                        if c.get("hex_checked") and re.fullmatch(r"#[0-9A-Fa-f]{6}", c.get("hex") or ""):
+                            _EXACT.setdefault(c["name"], c["hex"])
+        try:
+            for v in json.load(open(os.path.join(WORK, "data", "materials_366.json"), encoding="utf-8")).values():
+                bc = (v or {}).get("birthday_color") or {}
+                parts = (bc.get("note") or "").split("／")
+                if bc.get("name") and len(parts) > 1 and re.fullmatch(r"#[0-9A-Fa-f]{6}", parts[1]):
+                    _EXACT.setdefault(bc["name"], parts[1])
+        except Exception:
+            pass
+    return _EXACT
+
+
 def color_hex(name, hx=None):
     if hx and re.fullmatch(r"#[0-9A-Fa-f]{6}", hx):
         return hx
+    n0 = re.sub(r"[（(].*", "", name or "").strip()
+    ex = _exact_colors()
+    if n0 in ex:
+        return ex[n0]
     for k, v in COLOR_KW:
         if k in (name or ""):
             return v
@@ -559,6 +600,7 @@ ALT_STONE = [("ハーキマー", None), ("ダイヤモンド", ("ハーキマー
              ("ルビー", ("ガーネット", "ルビーと同じ深い赤色の石")), ("サファイア", ("アイオライト", "サファイアに似た青紫色の石")),
              ("タンザナイト", ("アイオライト", "タンザナイトに似た青紫色の石")), ("エメラルド", ("ペリドット", "エメラルドと同じ緑色の石")),
              ("アレキサンドライト", ("ラブラドライト", "光の当たり方で色が変わって見える石")), ("パライバ", ("アクアマリン", "明るい水色の石")),
+             ("オパール", ("ムーンストーン", "オパールのように光がゆらめく乳白色の石")),
              ("真珠", ("ムーンストーン", "真珠のようなやわらかい光沢の石")), ("パール", ("ムーンストーン", "真珠のようなやわらかい光沢の石"))]
 
 
@@ -1016,17 +1058,22 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     # 3 誕生日もの・記念日
     def sw(hexv):
         return f'<span class="fh-b27-mono-sw" style="background:{esc(hexv)}"></span>' if hexv and re.fullmatch(r"#[0-9A-Fa-f]{6}", hexv) else ""
-    _a8_fl = "" if FLOWER_OK else a8_line("bellebeaufleur", "誕生花そのものの商品は見つからなかったので、季節の花を贈るなら花ギフトの専門店からどうぞ。", "ベルビーフルールで花ギフトを見る")
+    # 2026-10-22 説明文は、直後に商品が出るときだけ（商品が出ないのに「リンク先は〜」が残らないように）
+    _fl_box = mono_btns(flower_q(re.sub(r"[（(].*", "", flower["flower"]))) if FLOWER_OK else ""
+    _fl_html = (lead_p(LEAD.get("flower")) + _fl_box) if _fl_box else ""
+    _ds_box = mono_stone(e["birthday_stone"]["name"], bd_stone.get("color_hex")) if STONE_OK else ""
+    _ds_html = (lead_p(LEAD.get("stone")) + _ds_box) if _ds_box else ""
+    _a8_fl = "" if _fl_box else a8_line("bellebeaufleur", "誕生花そのものの商品は見つからなかったので、季節の花を贈るなら花ギフトの専門店からどうぞ。", "ベルビーフルールで花ギフトを見る")
     _a8_bs = a8_line("bizoux", f"{M}月の誕生石をジュエリーで持つなら、誕生石の専門店も見てみてください。", f"Bizoux（ビズー）で{M}月の誕生石を見る")
-    _a8_ds = "" if STONE_OK else a8_line("pascle", "天然石のブレスレットを探すなら、パワーストーンの専門店も。石の種類や色から選べます。", "Pascle（パスクル）で天然石を見る")
+    _a8_ds = "" if _ds_box else a8_line("pascle", "天然石のブレスレットを探すなら、パワーストーンの専門店も。石の種類や色から選べます。", "Pascle（パスクル）で天然石を見る")
     a(f'''<section class="fh-b27-sec" id="b27-mono">
   {h2(3, "mono", f"{md}の誕生花・誕生石・誕生日石・誕生色")}
   <div class="fh-b27-mono">
-    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{(lead_p(LEAD.get("flower")) + mono_btns(flower_q(re.sub(r"[（(].*", "", flower["flower"])))) if FLOWER_OK else _a8_fl}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{_fl_html or _a8_fl}</div>
     <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{mono_stone(bm_list[0], bm_first.get("color_hex"), True)}{_a8_bs}</div>
     <div class="fh-b27-mono-card fh-b27-mc-dstone"><small>誕生日石（{md}）</small><b>{esc(std["stone"])}</b><p>{md}の誕生日石として、多くの一覧で紹介されている石です。</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-days">366日の誕生日石の一覧 →</a></div>
     <div class="fh-b27-mono-card fh-b27-mc-color">{sw(std["color_hex"])}<small>誕生色（{md}）</small><b>{esc(std["color"])}</b><p>{md}の誕生色として、多くの一覧で紹介されている色です。</p></div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{(lead_p(LEAD.get("stone")) + mono_stone(e["birthday_stone"]["name"], bd_stone.get("color_hex"))) if STONE_OK else _a8_ds}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{_ds_html or _a8_ds}</div>
     <div class="fh-b27-mono-card fh-b27-mc-color fh-b27-mc-own">{sw(col_hex)}<small>生まれ持ちのラッキーカラー（当サイト独自）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）</b><p>{esc(col_desc)}。2027年のラッキーカラーは<a href="#b27-omamori">お守りリスト</a>にあります。</p></div>
   </div>
   {paras(fx.get("items"))}
@@ -1117,9 +1164,9 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   {h2(6, "fate", "2027年の運命")}
   {paras(yr.get("fate"))}
   <div class="fh-b27-peaks">
-    <div class="fh-b27-peak fh-b27-peak-up"><small>山場の月</small><b>{months_label(e["peak_months"])}</b></div>
-    <div class="fh-b27-peak fh-b27-peak-low"><small>慎重にしたい月</small><b>{months_label(e["low_months"])}</b></div>
-    <p class="fh-b27-small">3つの占いを重ねた結果です（<a href="#b27-graph">月別グラフ</a>）。</p>
+    <div class="fh-b27-peak fh-b27-peak-up"><small>山場の月（よい順）</small><b>{months_label(e["peak_months"])}</b></div>
+    <div class="fh-b27-peak fh-b27-peak-low"><small>慎重にしたい月（この1年の中で低め）</small><b>{months_label(e["low_months"])}</b></div>
+    <p class="fh-b27-small">3つの占いを重ねた結果です（<a href="#b27-graph">月別グラフ</a>）。12か月の表の◎○△は366日全体と比べた印なので、慎重にしたい月が○のこともあります。</p>
   </div>
   <div class="fh-b27-guide">
     <h3>天からの導き</h3>
@@ -1268,7 +1315,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         a('  <div class="fh-b27-rows">')
         for i, c in enumerate(cols):
             tag = ["メイン", "サブ", "アクセント"][i] if i < 3 else ""
-            hx = color_hex(c.get("name", ""), c.get("hex")) or (col_hex if c.get("name") == e["birthday_color"]["name"] and re.fullmatch(r"#[0-9A-Fa-f]{6}", col_hex or "") else None)
+            hx = (col_hex if c.get("name") == e["birthday_color"]["name"] and re.fullmatch(r"#[0-9A-Fa-f]{6}", col_hex or "") else None) or color_hex(c.get("name", ""), c.get("hex"))
             swh = f'<span class="fh-b27-sw" style="background:{esc(hx)}"></span>' if hx else '<span></span>'
             why = re.sub(r"^ラッキーカラー([。、のに])", r"生まれ持ちのラッキーカラー\1", c.get("why", ""))
             a(f'''    <div class="fh-b27-colrow fh-b27-colrow-np">
@@ -1303,7 +1350,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         _rest = [i for i in range(len(items)) if i not in _box]
         if _rest:
             a('  <ul class="fh-b27-restitems">' + "".join(f'<li><b>{esc(items[i].get("name", ""))}</b>：{inline(items[i].get("why", ""))}</li>' for i in _rest) + "</ul>")
-        if STONE_OK:  # 2026-10-22 守護石をお守りとして持つ人向け。あとのプレゼントの箱（3つまで）と体験ギフトの枠を残す
+        if _ds_box:  # 2026-10-22 守護石をお守りとして持つ人向け。あとのプレゼントの箱（3つまで）と体験ギフトの枠を残す
             a("  " + a8_line("hariqua", f"守護石の{e['birthday_stone']['name']}をお守りとして身につけるなら、パワーストーンの専門店で選ぶ方法もあります。", "Hariqua（ハリックァ）で天然石を見る", cap=11 - min(3, len(fx.get("present") or []))))
     else:
         a("  " + miss_p())
