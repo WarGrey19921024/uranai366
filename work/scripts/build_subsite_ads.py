@@ -15,22 +15,22 @@ OUT = os.path.join(HERE, "..", "out", "subsite_ads")
 SKIP = re.compile(r"/(privacy|privacy-policy|disclaimer|contact|operator|about|articles|glossary|unconfirmed)/$")
 esc = lambda s: html.escape(s or "", quote=True)
 
-CSS = ("<style>.fhad{margin:28px auto;max-width:760px;border:1px solid #D8C9A8;border-radius:14px;background:#F7F1E3;color:#2E2A26;"
+CSS = ("<style>#fhad.fhad{margin:28px auto;max-width:760px;border:1px solid #D8C9A8;border-radius:14px;background:#F7F1E3!important;color:#2E2A26!important;"
        "padding:16px 18px;font-size:15px;line-height:1.8;box-sizing:border-box}"
-       ".fhad *{box-sizing:border-box}.fhad p{margin:0 0 10px;color:#2E2A26}.fhad b{color:#2E2A26}"
-       ".fhad-h{font-weight:700;font-size:14px;color:#5E574D;margin:0 0 8px}.fhad-pr{display:inline-block;border:1px solid #8A6A2A;"
-       "color:#6B4E10;border-radius:4px;font-size:11px;line-height:1.4;padding:0 5px;margin-right:6px;background:#FFF9EA}"
-       ".fhad a.fhad-line{color:#8A3B12;font-weight:700;text-decoration:underline}"
-       ".fhad-box{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;background:#FFFDF7;border:1px solid #E6DCC6;"
+       "#fhad,#fhad *{box-sizing:border-box}#fhad.fhad p{margin:0 0 10px;color:#2E2A26!important}#fhad.fhad b{color:#2E2A26!important}"
+       "#fhad .fhad-h{font-weight:700;font-size:14px;color:#5E574D!important;margin:0 0 8px}#fhad .fhad-pr{display:inline-block;border:1px solid #8A6A2A;"
+       "color:#6B4E10!important;border-radius:4px;font-size:11px;line-height:1.4;padding:0 5px;margin-right:6px;background:#FFF9EA!important}"
+       "#fhad.fhad a.fhad-line{color:#8A3B12!important;font-weight:700;text-decoration:underline!important}"
+       "#fhad .fhad-box{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;background:#FFFDF7!important;border:1px solid #E6DCC6;"
        "border-radius:12px;padding:10px;margin-top:10px}"
-       ".fhad-pic{display:block;width:96px;height:96px;border-radius:8px;background:#fff center/contain no-repeat}"
-       ".fhad-name{display:block;font-weight:700;color:#2E2A26;font-size:15px;line-height:1.5}"
-       ".fhad-prod{display:block;color:#5E574D;font-size:12px;line-height:1.5;margin-top:2px}"
-       ".fhad-btns{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}"
-       ".fhad a.fhad-btn{flex:1 1 140px;display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:999px;"
-       "font-weight:700;font-size:14px;color:#FFFFFF;text-decoration:none}"
-       ".fhad a.fhad-rk{background:#BF0000}.fhad a.fhad-yh{background:#C7004C}"
-       "@media(max-width:480px){.fhad{padding:14px}.fhad-box{grid-template-columns:72px minmax(0,1fr)}.fhad-pic{width:72px;height:72px}}</style>")
+       "#fhad .fhad-pic{display:block;width:96px;height:96px;border-radius:8px;background-color:#fff!important;background-position:center;background-size:contain;background-repeat:no-repeat}"
+       "#fhad .fhad-name{display:block;font-weight:700;color:#2E2A26!important;font-size:15px;line-height:1.5}"
+       "#fhad .fhad-prod{display:block;color:#5E574D!important;font-size:12px;line-height:1.5;margin-top:2px}"
+       "#fhad .fhad-btns{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}"
+       "#fhad.fhad a.fhad-btn{flex:1 1 140px;display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:999px;"
+       "font-weight:700;font-size:14px;color:#FFFFFF!important;text-decoration:none!important}"
+       "#fhad.fhad a.fhad-rk{background:#BF0000!important}#fhad.fhad a.fhad-yh{background:#C7004C!important}"
+       "@media(max-width:480px){#fhad.fhad{padding:14px}#fhad .fhad-box{grid-template-columns:72px minmax(0,1fr)}#fhad .fhad-pic{width:72px;height:72px}}</style>")
 
 PHONE_LINE = {"enmusubi": "ご縁や相手の気持ちについて、ひとりで考えこむより人に話して整理したいときは、占い師に直接相談できる電話占いもひとつの方法です。",
               "dream": "気になる夢が続くときは、夢の内容を人に話すだけで気持ちが整理されることもあります。占い師に直接相談できる電話占いもひとつの方法です。"}
@@ -105,7 +105,7 @@ def build(site, path):
     body = a8_line(kind, site) + product_box(q, lead)
     if not body:
         return None
-    return ("<!-- fh-sub-ad:start -->" + CSS + '<aside class="fhad" aria-label="広告">'
+    return ("<!-- fh-sub-ad:start -->" + CSS + '<aside class="fhad" id="fhad" aria-label="広告">'
             '<p class="fhad-h">この記事に関連して（広告）</p>' + body + "</aside><!-- fh-sub-ad:end -->")
 
 
