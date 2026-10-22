@@ -503,7 +503,7 @@ LUCKY_CSS = ("<style>.fh-b27 a.fh-b27-luckyteaser{display:flex;flex-direction:co
              ".fh-b27 .fh-b27-shop-pic a.fh-b27-shop-photo{display:block;width:100%;height:100%}"
              ".fh-b27 .fh-b27-shop:has(.fh-b27-shop-photo){grid-template-columns:112px minmax(0,1fr)}"
              ".fh-b27 .fh-b27-shop-pic:has(img){width:112px;height:112px;background:#fff;padding:4px;overflow:hidden;border-radius:10px}"
-             ".fh-b27 img[data-fh=fh-b27-shop-img]{display:block;width:100%;height:100%;object-fit:contain;background:#fff;border-radius:8px;margin:0}"
+             ".fh-b27 [data-fh=fh-b27-shop-img]{background-size:contain;aspect-ratio:1/1;background-position:center;background-repeat:no-repeat;display:block;width:100%;height:100%;object-fit:contain;background-color:#fff;border-radius:8px;margin:0}"
              ".fh-b27 .fh-b27-mono-btns{align-items:center}.fh-b27 .fh-b27-mono-btns>a.fh-b27-shop-photo{flex:0 0 84px;width:84px;height:84px}"
              ".fh-b27 .fh-b27-mono-btns>span{display:flex;flex-wrap:wrap;gap:6px}"
              '.fh-b27 .fh-b27-shop>.fh-b27-shop-btns{grid-column:1/-1;margin-top:0}.fh-b27 .fh-b27-shop>.fh-b27-shop-btns a.fh-b27-shopbtn{flex:1 1 0;min-height:42px;font-size:14px}.fh-b27 .fh-b27-shop-prod{display:block;font-size:12px;line-height:1.5;color:#5E5546;margin-top:4px}.fh-b27 .fh-b27-shop-price{display:block;font-size:12.5px;color:#4A3F30;margin-top:2px}.fh-b27 .fh-b27-shop-price b{font-size:16px;color:#B3261E;margin:0 2px}.fh-b27 .fh-b27-shop-price small{font-size:11px;color:#7A6E5C}.fh-b27 .fh-b27-mono-btns .fh-b27-shop-price{flex-basis:100%;margin:0}' + "</style>")

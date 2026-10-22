@@ -53,9 +53,11 @@ def img_tag(q, alt, cls="fh-b27-shop-img"):
     it = photo(q)
     if not it:
         return ""
-    # 2026-10-20 class="" にしておくと Diver の遅延読み込み（src を data-src に書き換える）にかからない。見た目は data-fh で当てる
-    return (f'<img class="" data-fh="{cls}" src="{html.escape(it["img"], quote=True)}" alt="{html.escape(alt, quote=True)}" '
-            f'width="128" height="128" loading="lazy" decoding="async" referrerpolicy="no-referrer">')
+    # 2026-10-22 Diver は本文の <img> の src を data-src に移す（class が空でも）。読み込みの class が付かず写真が出なかったので、
+    # 写真は背景画像の span で出す（テーマの書き換えにかからない）。見た目は [data-fh=...] で当てる
+    u = html.escape(it["img"], quote=True)
+    return (f'<span class="" data-fh="{cls}" role="img" aria-label="{html.escape(alt, quote=True)}" '
+            f"style=\"background-image:url('{u}')\"></span>")
 
 
 def moshimo_item_href(tpl_href, item_url):

@@ -64,7 +64,7 @@ OM_CSS = ("<style>.om-ad{max-width:880px;margin:24px auto;padding:0 16px;box-siz
           ".om-ad .fh-b27-shops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}"
           ".om-ad .fh-b27-shop{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid #EEE4CF;border-radius:12px;padding:10px}"
           ".om-ad .fh-b27-shop-pic{width:100%;aspect-ratio:1/1;background:#fff;border-radius:10px;overflow:hidden}"
-          ".om-ad .fh-b27-shop-pic a{display:block;width:100%;height:100%}.om-ad img[data-fh=fh-b27-shop-img]{width:100%;height:100%;object-fit:contain;margin:0}"
+          ".om-ad .fh-b27-shop-pic a{display:block;width:100%;height:100%}.om-ad [data-fh=fh-b27-shop-img]{background-size:contain;aspect-ratio:1/1;background-position:center;background-repeat:no-repeat;width:100%;height:100%;object-fit:contain;margin:0}"
           ".om-ad .fh-b27-shop-body{display:flex;flex-direction:column;gap:2px}.om-ad .fh-b27-shop-body small{font-size:11px;color:#8A4B12;font-weight:700}"
           ".om-ad .fh-b27-shop-name{font-size:15px}.om-ad .fh-b27-shop-why{font-size:12.5px;line-height:1.6;color:#4A3F30}"
           ".om-ad .fh-b27-shop-prod{display:none}.om-ad .fh-b27-shop-price{font-size:12px;color:#4A3F30}.om-ad .fh-b27-shop-price b{color:#B3261E;font-size:15px;margin:0 2px}"

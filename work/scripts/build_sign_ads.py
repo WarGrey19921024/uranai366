@@ -53,7 +53,7 @@ def card(label, q, it, small="おすすめ"):
     t = AX.tpl()
     when = f"{int(it['at'][5:7])}月{int(it['at'][8:10])}日時点"
     return (f'<div class="fh-b27-shop"><div class="fh-b27-shop-pic"><a class="fh-b27-shop-photo" href="{esc(rk)}" rel="nofollow sponsored" tabindex="-1" aria-hidden="true">'
-            f'<img class="" data-fh="fh-b27-shop-img" src="{esc(it["img"])}" alt="{esc(label)}" width="128" height="128" loading="lazy" decoding="async" referrerpolicy="no-referrer"></a></div>'
+            f'<span class="" data-fh="fh-b27-shop-img" role="img" aria-label="{esc(label)}" style="background-image:url(\'{esc(it["img"])}\')"></span></a></div>'
             f'<div class="fh-b27-shop-body"><small>{esc(small)}</small><b class="fh-b27-shop-name">{esc(label)}</b>'
             f'<span class="fh-b27-shop-price">楽天 <b>{int(it["price"]):,}円</b><small>（{when}）</small></span></div>'
             f'<div class="fh-b27-shop-btns"><a class="fh-b27-shopbtn fh-b27-shop-rakuten" href="{esc(rk)}" rel="nofollow sponsored" data-aff="rakuten">楽天で見る</a>{t["rakuten"]["impression"]}'
