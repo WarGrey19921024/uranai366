@@ -14,5 +14,33 @@
   "phone": {
     "href": "https://px.a8.net/svt/ejp?a8mat=45KFSU+5VYGRM+4PSI+BXQOI",
     "impression": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www11.a8.net/0.gif?a8mat=45KFSU+5VYGRM+4PSI+BXQOI\" alt=\"\">"
+  },
+  "a8_shops": {
+    "_note": "2026-10-22 本人が貼ったA8のテキスト広告（通常広告用）。誕生日ページの誕生花・誕生石・守護石・プレゼントの枠で使う",
+    "bellebeaufleur": {
+      "href": "https://px.a8.net/svt/ejp?a8mat=4BEK9C+1L5RHE+3SJA+NV9N6",
+      "impression": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www17.a8.net/0.gif?a8mat=4BEK9C+1L5RHE+3SJA+NV9N6\" alt=\"\">",
+      "name": "ベルビーフルール"
+    },
+    "pascle": {
+      "href": "https://px.a8.net/svt/ejp?a8mat=4BEK9C+17GSKI+2KAI+2TD9GI",
+      "impression": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www13.a8.net/0.gif?a8mat=4BEK9C+17GSKI+2KAI+2TD9GI\" alt=\"\">",
+      "name": "Pascle（パスクル）"
+    },
+    "bizoux": {
+      "href": "https://px.a8.net/svt/ejp?a8mat=4BEK9C+1JDGO2+3EY4+631SY",
+      "impression": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www15.a8.net/0.gif?a8mat=4BEK9C+1JDGO2+3EY4+631SY\" alt=\"\">",
+      "name": "Bizoux（ビズー）"
+    },
+    "sowexp": {
+      "href": "https://px.a8.net/svt/ejp?a8mat=4BEK9C+20N17M+45RE+60WN6",
+      "impression": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www10.a8.net/0.gif?a8mat=4BEK9C+20N17M+45RE+60WN6\" alt=\"\">",
+      "name": "ソウ・エクスペリエンス"
+    },
+    "hariqua": {
+      "href": "https://px.a8.net/svt/ejp?a8mat=45KFSU+62I8F6+5N7K+5YRHE",
+      "impression": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www10.a8.net/0.gif?a8mat=45KFSU+62I8F6+5N7K+5YRHE\" alt=\"\">",
+      "name": "Hariqua（ハリックァ）"
+    }
   }
 }

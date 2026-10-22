@@ -475,6 +475,33 @@ def take(q):
 PR = '<span class="fh-b27-pr-s">PR</span>'
 
 
+A8S = {}  # affiliate_templates.json の a8_shops（A8の専門店のテキスト広告。main で読む）
+
+
+def load_a8_shops():
+    p = os.path.join(OUT, "affiliate_templates.json")
+    t = (json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {}).get("a8_shops") or {}
+    out = {}
+    for k, v in t.items():
+        if k.startswith("_") or not isinstance(v, dict) or not v.get("href") or not v.get("impression"):
+            continue
+        if urllib.parse.urlsplit(v["href"]).hostname != "px.a8.net":
+            raise SystemExit(f"a8_shops の {k} のリンク先は px.a8.net だけ")
+        out[k] = v
+    return out
+
+
+def a8_line(key, lead, label):
+    """2026-10-22 A8 の専門店へのテキストリンク1行（PR つき）。商品枠に数える。12枠を超えるときは出さない"""
+    v = A8S.get(key)
+    if not v or SLOTS[0] >= 12:
+        return ""
+    SLOTS[0] += 1
+    AFF_COUNT["a8_" + key] += 1
+    return (f'<p class="fh-b27-a8line">{PR}{inline(lead)} '
+            f'<a href="{esc(v["href"])}" rel="nofollow sponsored" data-aff="a8-{esc(key)}">{esc(label)} →</a>{v["impression"]}</p>')
+
+
 def lead_p(t):
     """広告の前に置く本文（2〜3文）。無ければ空"""
     return f'<p class="fh-b27-lead-ad">{inline(t)}</p>' if t else ""
@@ -721,6 +748,7 @@ PICK_CSS = ("<style>"
     ".fh-b27 small.fh-b27-mono-alt{display:block;margin-top:10px;font-size:12px;line-height:1.6;color:#5E5546}"
     ".fh-b27 .fh-b27-colrow.fh-b27-colrow-np{grid-template-columns:46px minmax(0,1fr)}"
     ".fh-b27 p.fh-b27-lead-ad{margin:10px 0 8px;font-size:14.5px;line-height:1.85}"
+    ".fh-b27 p.fh-b27-a8line{margin:10px 0 4px;font-size:14px;line-height:1.8}.fh-b27 p.fh-b27-a8line a{font-weight:700}.fh-b27 p.fh-b27-a8line .fh-b27-pr-s{margin-right:6px}"
     ".fh-b27 .fh-b27-mono-card p.fh-b27-lead-ad{color:inherit}"
     ".fh-b27 .fh-b27-leadbox{display:flex;flex-direction:column;gap:6px}.fh-b27 .fh-b27-leadbox>p.fh-b27-lead-ad{margin:0;padding:0 2px}"
     ".fh-b27 ul.fh-b27-restitems{margin:8px 0 0;padding-left:1.2em;font-size:14.5px;line-height:1.8}"
@@ -988,14 +1016,17 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     # 3 誕生日もの・記念日
     def sw(hexv):
         return f'<span class="fh-b27-mono-sw" style="background:{esc(hexv)}"></span>' if hexv and re.fullmatch(r"#[0-9A-Fa-f]{6}", hexv) else ""
+    _a8_fl = "" if FLOWER_OK else a8_line("bellebeaufleur", "誕生花そのものの商品は見つからなかったので、季節の花を贈るなら花ギフトの専門店からどうぞ。", "ベルビーフルールで花ギフトを見る")
+    _a8_bs = a8_line("bizoux", f"{M}月の誕生石をジュエリーで持つなら、誕生石の専門店も見てみてください。", f"Bizoux（ビズー）で{M}月の誕生石を見る")
+    _a8_ds = "" if STONE_OK else a8_line("pascle", "天然石のブレスレットを探すなら、パワーストーンの専門店も。石の種類や色から選べます。", "Pascle（パスクル）で天然石を見る")
     a(f'''<section class="fh-b27-sec" id="b27-mono">
   {h2(3, "mono", f"{md}の誕生花・誕生石・誕生日石・誕生色")}
   <div class="fh-b27-mono">
-    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{(lead_p(LEAD.get("flower")) + mono_btns(flower_q(re.sub(r"[（(].*", "", flower["flower"])))) if FLOWER_OK else ""}</div>
-    <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{mono_stone(bm_list[0], bm_first.get("color_hex"), True)}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-flower">{ic("flower", "fh-b27-mcic")}<small>誕生花</small><b>{esc(flower["flower"])}</b><p>花言葉は「{esc(flower["hanakotoba"])}」。</p><span class="fh-b27-src">出典：日本花普及センター「誕生花」一覧</span>{(lead_p(LEAD.get("flower")) + mono_btns(flower_q(re.sub(r"[（(].*", "", flower["flower"])))) if FLOWER_OK else _a8_fl}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-stone">{sw(bm_first.get("color_hex"))}<small>誕生石（{M}月）</small><b>{esc(e["birthstone_month"])}</b><p>{esc(bm_first.get("meaning", ""))}</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-m{M:02d}">{M}月の誕生石をくわしく →</a>{mono_stone(bm_list[0], bm_first.get("color_hex"), True)}{_a8_bs}</div>
     <div class="fh-b27-mono-card fh-b27-mc-dstone"><small>誕生日石（{md}）</small><b>{esc(std["stone"])}</b><p>{md}の誕生日石として、多くの一覧で紹介されている石です。</p><a class="fh-b27-mono-more" href="/birthstone/#b27-bs-days">366日の誕生日石の一覧 →</a></div>
     <div class="fh-b27-mono-card fh-b27-mc-color">{sw(std["color_hex"])}<small>誕生色（{md}）</small><b>{esc(std["color"])}</b><p>{md}の誕生色として、多くの一覧で紹介されている色です。</p></div>
-    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{(lead_p(LEAD.get("stone")) + mono_stone(e["birthday_stone"]["name"], bd_stone.get("color_hex"))) if STONE_OK else ""}</div>
+    <div class="fh-b27-mono-card fh-b27-mc-dstone fh-b27-mc-own">{sw(bd_stone.get("color_hex"))}<small>守護石（当サイト独自）</small><b>{esc(e["birthday_stone"]["name"])}</b><p>{esc(e["birthday_stone"]["note"])}</p>{(lead_p(LEAD.get("stone")) + mono_stone(e["birthday_stone"]["name"], bd_stone.get("color_hex"))) if STONE_OK else _a8_ds}</div>
     <div class="fh-b27-mono-card fh-b27-mc-color fh-b27-mc-own">{sw(col_hex)}<small>生まれ持ちのラッキーカラー（当サイト独自）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）</b><p>{esc(col_desc)}。2027年のラッキーカラーは<a href="#b27-omamori">お守りリスト</a>にあります。</p></div>
   </div>
   {paras(fx.get("items"))}
@@ -1290,6 +1321,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         _rest = [i for i in range(len(pres)) if i not in _box]
         if _rest:
             a('  <ul class="fh-b27-restitems">' + "".join(f'<li><b>{esc(pres[i].get("item", ""))}</b>：{inline(pres[i].get("why", ""))}</li>' for i in _rest) + "</ul>")
+        a("  " + a8_line("sowexp", "形の残る物より、一緒に過ごす時間を贈りたい相手には、体験ギフトという選び方もあります。", "ソウ・エクスペリエンスの体験ギフトを見る"))
         am_names = {x.get("name") for x in items}
         dup = [p.get("item") for p in pres if p.get("item") in am_names]
         if dup:
@@ -1467,6 +1499,7 @@ def main():
     if bad:
         ap.error(f"不明な日付: {bad}")
     AFF_TPL.update(load_aff_templates())
+    A8S.update(load_a8_shops())
     ctx = make_ctx(mats, args.text_dir)
     for _p in glob.glob(os.path.join(DATA, "ad_leads", "*.json")):
         LEADS[os.path.basename(_p)[:4]] = json.load(open(_p, encoding="utf-8"))
