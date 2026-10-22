@@ -797,6 +797,7 @@ PICK_CSS = ("<style>"
     ".fh-b27 .fh-b27-colrow.fh-b27-colrow-np{grid-template-columns:46px minmax(0,1fr)}"
     ".fh-b27 p.fh-b27-lead-ad{margin:10px 0 8px;font-size:14.5px;line-height:1.85}"
     # 2026-10-22 本人の絶対ルール：淡い色の上に白っぽい文字・濃い色の上に黒っぽい文字を置かない
+    ".fh-b27 .fh-b27-monthlist .fh-b27-mark.fh-b27-care{color:#C9C1AC}"
     ".fh-b27 .fh-b27-card dd{color:var(--cream-ink)}.fh-b27 .fh-b27-today h2 .fh-b27-n{color:#6B4E10;border-color:#6B4E10}"
     ".fh-b27 .fh-b27-sticky p,.fh-b27 .fh-b27-sticky span,.fh-b27 .fh-b27-sticky li{color:var(--cream-ink)}"
     ".fh-b27 .fh-b27-guide b,.fh-b27 .fh-b27-guide strong,.fh-b27 .fh-b27-guide p,.fh-b27 .fh-b27-guide li,.fh-b27 .fh-b27-guide dd,.fh-b27 .fh-b27-guide dt,.fh-b27 .fh-b27-sticky b,.fh-b27 .fh-b27-sticky strong,.fh-b27 .fh-b27-sticky p,.fh-b27 .fh-b27-sticky li,.fh-b27 .fh-b27-sticky dd,.fh-b27 .fh-b27-sticky dt,.fh-b27 .fh-b27-paper b,.fh-b27 .fh-b27-paper strong,.fh-b27 .fh-b27-paper p,.fh-b27 .fh-b27-paper li,.fh-b27 .fh-b27-paper dd,.fh-b27 .fh-b27-paper dt,.fh-b27 .fh-b27-mono-card b,.fh-b27 .fh-b27-mono-card strong,.fh-b27 .fh-b27-mono-card p,.fh-b27 .fh-b27-mono-card li,.fh-b27 .fh-b27-mono-card dd,.fh-b27 .fh-b27-mono-card dt,.fh-b27 .fh-b27-today b,.fh-b27 .fh-b27-today strong,.fh-b27 .fh-b27-today p,.fh-b27 .fh-b27-today li,.fh-b27 .fh-b27-today dd,.fh-b27 .fh-b27-today dt,.fh-b27 .fh-b27-card b,.fh-b27 .fh-b27-card strong,.fh-b27 .fh-b27-card p,.fh-b27 .fh-b27-card li,.fh-b27 .fh-b27-card dd,.fh-b27 .fh-b27-card dt{color:var(--cream-ink)}"
