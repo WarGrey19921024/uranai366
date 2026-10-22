@@ -8,13 +8,13 @@
  "links": {
   "a8-bellebeaufleur": 25,
   "a8-bizoux": 366,
-  "a8-hariqua": 160,
+  "a8-hariqua": 168,
   "a8-pascle": 47,
   "a8-sowexp": 344,
   "amazon": 0,
   "phone": 366,
-  "rakuten": 3444,
-  "yahoo": 3444
+  "rakuten": 3436,
+  "yahoo": 3436
  },
  "skipped_buttons": {
   "a8-bellebeaufleur": 0,
@@ -22,7 +22,7 @@
   "a8-hariqua": 0,
   "a8-pascle": 0,
   "a8-sowexp": 0,
-  "amazon": 3444,
+  "amazon": 3436,
   "phone": 0,
   "rakuten": 0,
   "yahoo": 0

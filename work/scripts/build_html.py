@@ -910,7 +910,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     _ck = LEAD.get("check") or {}
     FLOWER_OK = _ck.get("flower_ok", True)  # 誕生花の商品が花の贈り物として合わない日は、商品と説明を出さない
     STONE_OK = _ck.get("stone_ok", True)    # 守護石の商品が石の種類・色と合わない日も同じ
-    MUG_OK = _ck.get("mug_ok", True)        # ラッキーカラーの器の色が合わない日は出さない
+    MUG_OK = _ck.get("mug_ok", False)       # ラッキーカラーの器の色が合わない日・まだ確かめていない日は出さない（2026-10-22）
 
     title = f"{md}生まれの性格と相性｜{sign}・誕生花・有名人と2027年の運勢"  # 2026-10-15 年の入らない検索向けに日付から始める（本人の決定）
     desc = (f"{md}生まれの性格と2027年の運勢。{sign}・七十二候「{e['kou']}」・誕生花の{flower['flower']}から読む本質と、"
