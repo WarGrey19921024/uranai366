@@ -83,5 +83,7 @@ def price_html(q, short=False):
     for o, c in ("「」", "『』", "（）", "()", "〈〉", "《》"):
         if name.count(o) > name.count(c):
             name = name[:name.rfind(o)].rstrip(" 　・、") + ("…" if not name.endswith("…") else "")
-    name = name.strip() or "（商品名は店のページで）"
+    name = name.strip()
+    if not name:
+        return ""
     return "" if short else f'<span class="fh-b27-shop-prod">商品例：{html.escape(name)}</span>'
