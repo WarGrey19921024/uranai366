@@ -15,7 +15,7 @@ OUT = os.path.join(HERE, "..", "out", "subsite_ads")
 SKIP = re.compile(r"/(privacy|privacy-policy|disclaimer|contact|operator|about|articles|glossary|unconfirmed)/$")
 esc = lambda s: html.escape(s or "", quote=True)
 
-CSS = ("<style>#fhad.fhad{margin:28px auto;max-width:760px;border:1px solid #D8C9A8;border-radius:14px;background:#F7F1E3!important;color:#2E2A26!important;"
+CSS = ("<style>#fhad.fhad{position:relative;z-index:5;margin:28px auto;max-width:760px;border:1px solid #D8C9A8;border-radius:14px;background:#F7F1E3!important;color:#2E2A26!important;"
        "padding:16px 18px;font-size:15px;line-height:1.8;box-sizing:border-box}"
        "#fhad,#fhad *{box-sizing:border-box}#fhad.fhad p{margin:0 0 10px;color:#2E2A26!important}#fhad.fhad b{color:#2E2A26!important}"
        "#fhad .fhad-h{font-weight:700;font-size:14px;color:#5E574D!important;margin:0 0 8px}#fhad .fhad-pr{display:inline-block;border:1px solid #8A6A2A;"
