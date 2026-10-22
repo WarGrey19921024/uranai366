@@ -507,12 +507,18 @@ def lead_p(t):
     return f'<p class="fh-b27-lead-ad">{inline(t)}</p>' if t else ""
 
 
+def disp_name(n):
+    """2026-10-22 「スギライト ブレスレット」のような検索語の形の品名は、読む人向けに「スギライトのブレスレット」と出す"""
+    m = re.fullmatch(r"(\S+) (ブレスレット|ネックレス|ペンダント|ピアス|リング|丸玉|天然石|小物)", n or "")
+    return f"{m.group(1)}の{m.group(2)}" if m else n
+
+
 def shop_box(kind, name, why, cls=""):
     """カエレバ風の小さな商品ボックス：左に品目の絵（自前のSVG）、右に名前・短い説明、下に店ボタン"""
     btns = shop_buttons(name)
     return (f'<div class="fh-b27-shop{(" " + cls) if cls else ""}">'
             f'<div class="fh-b27-shop-pic">{photo_link(name) or ic(item_cat(name))}</div>'
-            f'<div class="fh-b27-shop-body"><small>{PR}{esc(kind)}</small><b class="fh-b27-shop-name">{esc(name)}</b>'
+            f'<div class="fh-b27-shop-body"><small>{PR}{esc(kind)}</small><b class="fh-b27-shop-name">{esc(disp_name(name))}</b>'
             + (f'<span class="fh-b27-shop-why">{inline(why)}</span>' if why else "") + f'{GM.price_html(name)}</div>'
             + (f'<div class="fh-b27-shop-btns">{btns}</div>' if btns else "") + '</div>')
 
@@ -793,6 +799,7 @@ PICK_CSS = ("<style>"
     # 2026-10-22 本人の絶対ルール：淡い色の上に白っぽい文字・濃い色の上に黒っぽい文字を置かない
     ".fh-b27 .fh-b27-card dd{color:var(--cream-ink)}.fh-b27 .fh-b27-today h2 .fh-b27-n{color:#6B4E10;border-color:#6B4E10}"
     ".fh-b27 .fh-b27-sticky p,.fh-b27 .fh-b27-sticky span,.fh-b27 .fh-b27-sticky li{color:var(--cream-ink)}"
+    ".fh-b27 .fh-b27-guide b,.fh-b27 .fh-b27-guide strong,.fh-b27 .fh-b27-guide p,.fh-b27 .fh-b27-guide li,.fh-b27 .fh-b27-guide dd,.fh-b27 .fh-b27-guide dt,.fh-b27 .fh-b27-sticky b,.fh-b27 .fh-b27-sticky strong,.fh-b27 .fh-b27-sticky p,.fh-b27 .fh-b27-sticky li,.fh-b27 .fh-b27-sticky dd,.fh-b27 .fh-b27-sticky dt,.fh-b27 .fh-b27-paper b,.fh-b27 .fh-b27-paper strong,.fh-b27 .fh-b27-paper p,.fh-b27 .fh-b27-paper li,.fh-b27 .fh-b27-paper dd,.fh-b27 .fh-b27-paper dt,.fh-b27 .fh-b27-mono-card b,.fh-b27 .fh-b27-mono-card strong,.fh-b27 .fh-b27-mono-card p,.fh-b27 .fh-b27-mono-card li,.fh-b27 .fh-b27-mono-card dd,.fh-b27 .fh-b27-mono-card dt,.fh-b27 .fh-b27-today b,.fh-b27 .fh-b27-today strong,.fh-b27 .fh-b27-today p,.fh-b27 .fh-b27-today li,.fh-b27 .fh-b27-today dd,.fh-b27 .fh-b27-today dt,.fh-b27 .fh-b27-card b,.fh-b27 .fh-b27-card strong,.fh-b27 .fh-b27-card p,.fh-b27 .fh-b27-card li,.fh-b27 .fh-b27-card dd,.fh-b27 .fh-b27-card dt{color:var(--cream-ink)}"
     ".fh-b27 p.fh-b27-a8line{margin:10px 0 4px;font-size:14px;line-height:1.8}.fh-b27 p.fh-b27-a8line a{font-weight:700}.fh-b27 p.fh-b27-a8line .fh-b27-pr-s{margin-right:6px}"
     ".fh-b27 .fh-b27-mono-card p.fh-b27-lead-ad{color:inherit}"
     ".fh-b27 .fh-b27-leadbox{display:flex;flex-direction:column;gap:6px}.fh-b27 .fh-b27-leadbox>p.fh-b27-lead-ad{margin:0;padding:0 2px}"
@@ -1352,7 +1359,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         a("  </div>")
         _rest = [i for i in range(len(items)) if i not in _box]
         if _rest:
-            a('  <ul class="fh-b27-restitems">' + "".join(f'<li><b>{esc(items[i].get("name", ""))}</b>：{inline(items[i].get("why", ""))}</li>' for i in _rest) + "</ul>")
+            a('  <ul class="fh-b27-restitems">' + "".join(f'<li><b>{esc(disp_name(items[i].get("name", "")))}</b>：{inline(items[i].get("why", ""))}</li>' for i in _rest) + "</ul>")
         if _ds_box:  # 2026-10-22 守護石をお守りとして持つ人向け。あとのプレゼントの箱（3つまで）と体験ギフトの枠を残す
             a("  " + a8_line("hariqua", f"守護石の{e['birthday_stone']['name']}をお守りとして身につけるなら、パワーストーンの専門店で選ぶ方法もあります。", "Hariqua（ハリックァ）で天然石を見る", cap=11 - min(3, len(fx.get("present") or []))))
     else:
@@ -1383,7 +1390,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         a("  </div>")
         _rest = [i for i in range(len(pres)) if i not in _box]
         if _rest:
-            a('  <ul class="fh-b27-restitems">' + "".join(f'<li><b>{esc(pres[i].get("item", ""))}</b>：{inline(pres[i].get("why", ""))}</li>' for i in _rest) + "</ul>")
+            a('  <ul class="fh-b27-restitems">' + "".join(f'<li><b>{esc(disp_name(pres[i].get("item", "")))}</b>：{inline(pres[i].get("why", ""))}</li>' for i in _rest) + "</ul>")
         a("  " + a8_line("sowexp", "形の残る物より、一緒に過ごす時間を贈りたい相手には、体験ギフトという選び方もあります。", "ソウ・エクスペリエンスの体験ギフトを見る"))
         am_names = {x.get("name") for x in items}
         dup = [p.get("item") for p in pres if p.get("item") in am_names]
