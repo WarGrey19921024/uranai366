@@ -475,6 +475,15 @@ def take(q):
 PR = '<span class="fh-b27-pr-s">PR</span>'
 
 
+def load_kou_media():
+    """七十二候の挿絵（水彩・AI生成）。data/kou_media.json = {候の名前: 画像URL}（WordPress のメディアに上げたもの）"""
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "kou_media.json")
+    return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {}
+
+
+KOU_MEDIA = load_kou_media()
+
+
 A8S = {}  # affiliate_templates.json の a8_shops（A8の専門店のテキスト広告。main で読む）
 
 
@@ -800,6 +809,9 @@ PICK_CSS = ("<style>"
     ".fh-b27 .fh-b27-monthlist .fh-b27-mark.fh-b27-care{color:#C9C1AC}"
     ".fh-b27 .fh-b27-card dd{color:var(--cream-ink)}.fh-b27 .fh-b27-today h2 .fh-b27-n{color:#6B4E10;border-color:#6B4E10}"
     ".fh-b27 .fh-b27-sticky p,.fh-b27 .fh-b27-sticky span,.fh-b27 .fh-b27-sticky li{color:var(--cream-ink)}"
+    ".fh-b27 .fh-b27-kouimg{margin:18px 0 6px;padding:8px 8px 6px;background:#F7F1E3;border:1px solid rgba(232,199,122,.45);border-radius:14px}"
+    ".fh-b27 .fh-b27-kouimg [data-fh=fh-b27-kou-img]{display:block;width:100%;aspect-ratio:16/7;border-radius:10px;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#EFE6D2}"
+    ".fh-b27 .fh-b27-kouimg figcaption{margin:6px 2px 0;font-size:12px;line-height:1.6;color:#5E574D;text-align:right}"
     ".fh-b27 .fh-b27-guide b,.fh-b27 .fh-b27-guide strong,.fh-b27 .fh-b27-guide p,.fh-b27 .fh-b27-guide li,.fh-b27 .fh-b27-guide dd,.fh-b27 .fh-b27-guide dt,.fh-b27 .fh-b27-sticky b,.fh-b27 .fh-b27-sticky strong,.fh-b27 .fh-b27-sticky p,.fh-b27 .fh-b27-sticky li,.fh-b27 .fh-b27-sticky dd,.fh-b27 .fh-b27-sticky dt,.fh-b27 .fh-b27-paper b,.fh-b27 .fh-b27-paper strong,.fh-b27 .fh-b27-paper p,.fh-b27 .fh-b27-paper li,.fh-b27 .fh-b27-paper dd,.fh-b27 .fh-b27-paper dt,.fh-b27 .fh-b27-mono-card b,.fh-b27 .fh-b27-mono-card strong,.fh-b27 .fh-b27-mono-card p,.fh-b27 .fh-b27-mono-card li,.fh-b27 .fh-b27-mono-card dd,.fh-b27 .fh-b27-mono-card dt,.fh-b27 .fh-b27-today b,.fh-b27 .fh-b27-today strong,.fh-b27 .fh-b27-today p,.fh-b27 .fh-b27-today li,.fh-b27 .fh-b27-today dd,.fh-b27 .fh-b27-today dt,.fh-b27 .fh-b27-card b,.fh-b27 .fh-b27-card strong,.fh-b27 .fh-b27-card p,.fh-b27 .fh-b27-card li,.fh-b27 .fh-b27-card dd,.fh-b27 .fh-b27-card dt{color:var(--cream-ink)}"
     ".fh-b27 p.fh-b27-a8line{margin:10px 0 4px;font-size:14px;line-height:1.8}.fh-b27 p.fh-b27-a8line a{font-weight:700}.fh-b27 p.fh-b27-a8line .fh-b27-pr-s{margin-right:6px}"
     ".fh-b27 .fh-b27-mono-card p.fh-b27-lead-ad{color:inherit}"
@@ -949,6 +961,10 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     <p class="fh-b27-lead">{esc(e["sekki"])}の{esc(kou_pos)}「{esc(e["kou"])}（{esc(e["kou_yomi"])}）」。{esc(lead_first)}この頃に生まれた人の、変わらない本質と、2027年の歩き方を読み解きます。</p>
   </div>
 </header>''')
+    if KOU_MEDIA.get(e["kou"]):
+        a(f'<figure class="fh-b27-kouimg"><span class="" data-fh="fh-b27-kou-img" role="img" aria-label="七十二候「{esc(e["kou"])}」の水彩画" '
+          f'style="background-image:url(\'{esc(KOU_MEDIA[e["kou"]])}\')"></span>'
+          f'<figcaption>七十二候「{esc(e["kou"])}」のころの風景（水彩・AI生成）</figcaption></figure>')
 
     # 誕生日カード
     card_title = fx.get("card_title") or f"{e['kou']}の生まれ"
