@@ -964,7 +964,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     if KOU_MEDIA.get(e["kou"]):
         a(f'<figure class="fh-b27-kouimg"><span class="" data-fh="fh-b27-kou-img" role="img" aria-label="七十二候「{esc(e["kou"])}」の水彩画" '
           f'style="background-image:url(\'{esc(KOU_MEDIA[e["kou"]])}\')"></span>'
-          f'<figcaption>七十二候「{esc(e["kou"])}」のころの風景（水彩・AI生成）</figcaption></figure>')
+          f'<figcaption>七十二候「{esc(e["kou"])}」のころの風景</figcaption></figure>')
 
     # 誕生日カード
     card_title = fx.get("card_title") or f"{e['kou']}の生まれ"
