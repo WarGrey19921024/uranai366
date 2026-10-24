@@ -8,6 +8,7 @@ SITES = {
  "dream": dict(name="夢解き図鑑", sub="夢の意味を、やさしく辞典風に", fg=(240, 236, 224), sub_fg=(196, 210, 200), acc=(214, 190, 120)),
  "kokoro": dict(name="心コンパス", sub="性格を、いくつかの軸で重ねて読む", fg=(234, 246, 255), sub_fg=(147, 182, 203), acc=(111, 211, 255)),
  "enmusubi": dict(name="縁結び診断室", sub="相性・ご縁・縁日の読みもの", fg=(246, 238, 231), sub_fg=(198, 174, 176), acc=(217, 169, 76)),
+ "main": dict(name="人生予報", sub="生年月日と星から読む、2027年の運勢", fg=(244, 238, 222), sub_fg=(200, 196, 214), acc=(214, 180, 100)),
  "kaiun": dict(name="開運ライフ", sub="風水・暦・暮らしの開運", fg=(21, 37, 64), sub_fg=(90, 80, 64), acc=(178, 58, 72)),
 }
 def make(site, src, out):
@@ -24,7 +25,7 @@ def make(site, src, out):
     d.rectangle([x, 214, x + 56, 218], fill=c["acc"])
     d.text((x, 240), c["name"], font=f1, fill=c["fg"])
     d.text((x, 372), c["sub"], font=f2, fill=c["sub_fg"])
-    d.text((x, 540), "人生予報  uranai.epoch-compass.com", font=f3, fill=c["sub_fg"])
+    d.text((x, 540), "uranai.epoch-compass.com" if site == "main" else "人生予報  uranai.epoch-compass.com", font=f3, fill=c["sub_fg"])
     im.save(out, "JPEG", quality=88, optimize=True)
 if __name__ == "__main__":
     make(sys.argv[1], sys.argv[2], sys.argv[3])
