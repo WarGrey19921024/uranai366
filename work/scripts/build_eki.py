@@ -70,7 +70,7 @@ def ylabel(h, i):
 CSS = """<style id="fh-b27-ek-css">
 .fh-b27[data-fh-page="eki"]{--ink:#F1ECE4;--sub:#D8CFC2;--mute:#AFA597;--paper:#1C1A1E;--deep:#151317;--line:#4A4038;--gold:#E0B868;--shu:#D9573B;--cream:#F6F0E4;--cream-ink:#2A2420}
 .fh-b27[data-fh-page="eki"] a{color:#F0C98A}
-.fh-b27[data-fh-page="eki"] a.fh-b27-btn{color:var(--paper)}.fh-b27[data-fh-page="eki"] a.fh-b27-btn.fh-b27-ghost{color:var(--gold)}
+.single_thumbnail{display:none!important}.fh-b27[data-fh-page="eki"] a.fh-b27-btn{color:var(--paper)}.fh-b27[data-fh-page="eki"] a.fh-b27-btn.fh-b27-ghost{color:var(--gold)}
 .fh-b27[data-fh-page="eki"] .fh-b27-note{border-left:0;border-radius:24px;background-color:var(--paper);background-image:radial-gradient(circle at 10% 0%,rgba(217,87,59,.14),transparent 40%),radial-gradient(circle at 100% 80%,rgba(224,184,104,.12),transparent 45%);background-size:auto;background-repeat:no-repeat;box-shadow:0 18px 40px rgba(0,0,0,.3)}
 .fh-b27[data-fh-page="eki"] .fh-b27-sec>p,.fh-b27[data-fh-page="eki"] .fh-b27-lead{text-shadow:0 1px 2px rgba(0,0,0,.5)}
 .fh-b27[data-fh-page="eki"] .fh-b27-tape{transform:none;border-radius:4px;background:var(--shu);color:#fff}
