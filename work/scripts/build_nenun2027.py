@@ -38,7 +38,8 @@ CSS = """<style id="fh-b27-ny-css">
 .fh-b27-ny-gm ul{margin:0;padding:10px 12px 10px 1.6em;border-radius:4px;font-size:13.5px;line-height:1.8}
 .fh-b27 .fh-b27-ny-gm ul.g{background:#E6F0E2;color:#1E3B24}.fh-b27 .fh-b27-ny-gm ul.c{background:#F6E4DF;color:#4E1F17}
 .fh-b27 .fh-b27-ny-gm ul li{color:inherit;margin:2px 0}
-.fh-b27-ny-gm ul strong{display:block;margin-left:-1em;font-size:14px}
+.fh-b27 .fh-b27-ny-gm ul strong{display:block;margin-left:-1em;font-size:14px;color:inherit}
+.fh-b27 .fh-b27-ny-gm ul.g strong{color:#1E5A2C}.fh-b27 .fh-b27-ny-gm ul.c strong{color:#8A2A1C}
 .fh-b27-ny-mt{min-width:560px}
 .fh-b27-ny-mt td.m{white-space:nowrap;font-weight:700}
 .fh-b27-ny-mt td.p{white-space:nowrap}
@@ -48,6 +49,10 @@ CSS = """<style id="fh-b27-ny-css">
 .fh-b27-ny-act{margin:6px 0 0;padding-left:1.2em;font-size:14px}
 .fh-b27-ny-hy{min-width:520px}.fh-b27-ny-hy td{font-size:13px;line-height:1.7}
 .fh-b27-ny-hy th[scope=row] i{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--c);margin-right:6px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
+.fh-b27-ny-mb{min-width:560px}.fh-b27-ny-mb small{color:var(--mute)}
+@media (max-width:640px){.fh-b27-ny-mt{min-width:0}.fh-b27-ny-mt thead{display:none}.fh-b27-ny-mt tr{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;padding:8px 0;border-bottom:1px solid rgba(212,175,90,.18)}
+.fh-b27 .fh-b27-ny-mt td{border:0;padding:1px 2px}.fh-b27-ny-mt td:nth-child(3){grid-column:1/-1}.fh-b27-ny-mt td:nth-child(4){grid-column:1/-1;color:var(--sub);font-size:13px}.fh-b27-ny-mt td:nth-child(4)::before{content:"月の吉方位：";color:var(--gold)}
+.fh-b27-ny-mt td.m br{display:none}.fh-b27-ny-mt td.m small{margin-left:6px}}
 @media (max-width:640px){.fh-b27-ny-jump{grid-template-columns:repeat(2,minmax(0,1fr))}.fh-b27-ny-4,.fh-b27-ny-gm{grid-template-columns:1fr}}
 </style>"""
 
@@ -164,7 +169,7 @@ def build(sample, updated):
     a(f'''<section class="fh-b27-sec" id="ny-months">
   {h2("2027年の月盤と凶方位")}
   <p>月は節入りの日時で切り替わります。五黄土星が中央に入る月（2月と11月）は、五黄殺・暗剣殺の方位がありません。</p>
-  <div class="fh-b27-ky-wrap"><table class="fh-b27-ky-t fh-b27-ny-mt"><thead><tr><th>月</th><th>節</th><th>月の干支</th><th>月盤の中央</th><th>五黄殺</th><th>暗剣殺</th><th>月破</th></tr></thead><tbody>{"".join(mr)}</tbody></table></div>
+  <div class="fh-b27-ky-wrap"><table class="fh-b27-ky-t fh-b27-ny-mb"><thead><tr><th>月</th><th>節</th><th>月の干支</th><th>月盤の中央</th><th>五黄殺</th><th>暗剣殺</th><th>月破</th></tr></thead><tbody>{"".join(mr)}</tbody></table></div>
   <p>年の切り替わりと同じく、月の切り替わりも日付の途中になることがあります。旅行や引っ越しの日取りは、<a href="/kaiun/kichijitsu-2027/">2027年の吉日カレンダー</a>（開運ライフ）とあわせて見ると選びやすくなります。</p>
 </section>''')
     qa = "".join(f'<details{" open" if i == 0 else ""}><summary>Q. {q}</summary><p>A. {x}</p></details>' for i, (q, x) in enumerate(FAQ))
