@@ -291,7 +291,7 @@ def build(sample, updated):
     yy = "".join(f'<details id="ky-y{i}" style="--c:{COLOR[i - 1]}"{" open" if i == 1 else ""}><summary>{STARS[i - 1]}<small>{esc(YEAR2027[i][0])}｜{esc(YEAR2027[i][1])}</small></summary><p>{esc(YEAR2027[i][2])}</p></details>' for i in range(1, 10))
     a(f'''<section class="fh-b27-sec" id="b27-ky-2027">
   {h2("本命星別 2027年の運勢")}
-  <p>2027年は九紫火星が中央に入る年です。明るさ・知性・名誉を表す星の年なので、物事がはっきりし、学びや表現に追い風が吹く一方、勢い任せの判断や見栄の出費には注意したい年と読みます。本命星が2027年の年盤でどこに入るかで、その人の一年の流れを見ます。</p>
+  <p>2027年は九紫火星が中央に入る年です。明るさ・知性・名誉を表す星の年なので、物事がはっきりし、学びや表現に追い風が吹く一方、勢い任せの判断や見栄の出費には注意したい年と読みます。本命星が2027年の年盤でどこに入るかで、その人の一年の流れを見ます。恋愛・仕事・金運・健康や月ごとのヒントまで詳しく読みたいときは、<a href="/kyusei/unsei-2027/">2027年の運勢（本命星別）</a>へ。</p>
   <div class="fh-b27-ky-y">{yy}</div>
   <p class="fh-b27-small">九星の年は2027年2月4日の立春から2028年2月4日の立春までです。月ごとの流れは、366日の誕生日ページで生まれ年を選ぶと見られます。</p>
 </section>''')
@@ -347,6 +347,7 @@ def build(sample, updated):
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <section class="fh-b27-sec">
   <div class="fh-b27-links">
+    <a href="/kyusei/unsei-2027/"><b>2027年の運勢 →</b><small>本命星別の総合運・恋愛・仕事・金運と月ごとの運勢</small></a>
     <a href="/seinengappi/"><b>生年月日まるごと診断 →</b><small>九星・宿曜・四柱推命・マヤ暦などを1枚に</small></a>
     <a href="/shukuyo/"><b>宿曜占星術 →</b><small>月の暦で本命宿と相性を見る</small></a>
     <a href="/maya/"><b>マヤ暦占い →</b><small>KINと太陽の紋章・銀河の音</small></a>
