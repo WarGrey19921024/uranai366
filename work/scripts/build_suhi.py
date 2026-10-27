@@ -211,7 +211,7 @@ def build(sample, updated):
     pyc = "".join(f'<div><b>{k}の年</b>　{esc(S.PY[k]["theme"])}<br>{esc(S.PY[k]["text"])}<br><small>やるといいこと：{esc(S.PY[k]["do"])}／気をつけたいこと：{esc(S.PY[k]["care"])}</small></div>' for k in range(1, 10))
     a(f'''<section class="fh-b27-sec" id="b27-sh-py">
   {h2("2027年の数（パーソナルイヤー）")}
-  <p>パーソナルイヤーは、1から9までの9年でひと回りする流れのうち、今年がどの段階かを表す数です。1で種をまき、9で締めくくって、また1から新しい周期が始まります。</p>
+  <p>パーソナルイヤーは、1から9までの9年でひと回りする流れのうち、今年がどの段階かを表す数です。1で種をまき、9で締めくくって、また1から新しい周期が始まります。恋愛・仕事・金運や月ごとの数まで詳しく読みたいときは、<a href="/unsei-2027/suhi/">数秘術 2027年の運勢（1〜9別）</a>へ。</p>
   <div class="fh-b27-sh-scroll"><div class="fh-b27-sh-cyc" aria-label="9年の流れ">{cyc}</div></div>
   <div class="fh-b27-sh-py">{pyc}</div>
 </section>''')
@@ -258,6 +258,7 @@ def build(sample, updated):
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <section class="fh-b27-sec" id="b27-sh-more">
   <div class="fh-b27-links">
+    <a href="/unsei-2027/suhi/"><b>数秘術 2027年の運勢 →</b><small>2027年の数1〜9別の総合運と月ごとの数</small></a>
     <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日ごとの性格と2027年の運勢</small></a>
     <a href="/seinengappi/"><b>生年月日まるごと診断 →</b><small>数秘術を含む8つの占いをまとめて</small></a>
     <a href="/angel-number/"><b>エンジェルナンバー →</b><small>くり返し見る数字の意味</small></a>
