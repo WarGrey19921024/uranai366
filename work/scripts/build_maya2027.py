@@ -34,7 +34,7 @@ def build(sample, updated):
     a = H.append
     a(KY_CSS)
     a(NY_CSS)
-    a("""<style>.fh-b27-mx-big{display:flex;flex-direction:column;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFFFFF,#E2DCCD);color:#2A2418;font:800 20px 'Shippori Mincho',serif;box-shadow:0 0 0 3px rgba(212,175,90,.6),0 10px 30px rgba(0,0,0,.45);margin:10px;text-align:center;line-height:1.3}
+    a("""<style>.fh-b27-mx-big{display:flex;flex-direction:column;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFFFFF,#E2DCCD);color:#2A2418;font:800 15px 'Shippori Mincho',serif;word-break:keep-all;box-shadow:0 0 0 3px rgba(212,175,90,.6),0 10px 30px rgba(0,0,0,.45);margin:10px;text-align:center;line-height:1.3}
 .fh-b27-mx-big small{font:700 12px 'Zen Kaku Gothic New',sans-serif;color:#5A4E3A}
 .fh-b27-mx-calc{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
 .fh-b27-mx-calc select{min-height:44px;border-radius:2px;border:1px solid var(--line);background:var(--deep);color:var(--ink);font:inherit;padding:0 8px}
@@ -46,7 +46,7 @@ def build(sample, updated):
 .fh-b27-mx-days{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
 .fh-b27-mx-days span{border-radius:999px;background:#EFE4C8;color:#4A3B1C;padding:1px 9px;font-size:12.5px;font-weight:700}
 .fh-b27-mx-rel{display:inline-block;border-radius:2px;padding:1px 8px;font-size:12.5px;font-weight:700;background:#EFE4C8;color:#4A3B1C;margin-left:6px}
-@media (max-width:640px){.fh-b27-mx-big{width:96px;height:96px;font-size:16px}.fh-b27-mx-half{grid-template-columns:1fr}}</style>""")
+@media (max-width:640px){.fh-b27-mx-big{width:100px;height:100px;font-size:12.5px}.fh-b27-mx-half{grid-template-columns:1fr}}</style>""")
     a('<div class="fh-b27" data-fh-page="kyusei">\n<div class="fh-b27-note">')
     a(f'''<header class="fh-b27-hero">
   <div class="fh-b27-mx-big" aria-hidden="true"><small>7月26日から</small>{Y["seal"]}<small>KIN{Y["kin"]}・音{Y["tone_no"]}</small></div>
