@@ -126,7 +126,7 @@ def build(sample, updated):
 <section class="fh-b27-sec">
   <div class="fh-b27-links">
     <a href="/kyusei/unsei-2027/"><b>2027年の運勢（九星気学）→</b><small>本命星別の総合運と月ごとの吉方位</small></a>
-    <a href="/unsei-2027/"><b>2027年の運勢まとめ →</b><small>九星・干支・星座・誕生日から</small></a>
+    <a href="/unsei-2027/"><b>2027年の運勢まとめ →</b><small>九星・干支・数秘術・星座・誕生日から</small></a>
     <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日ごとの2027年の運勢</small></a>
     <a href="/kaiun/kichijitsu-2027/"><b>2027年の吉日カレンダー →</b><small>開運ライフ｜天赦日・一粒万倍日</small></a>
   </div>
@@ -145,6 +145,7 @@ def build(sample, updated):
 HUB_LINKS = [
     ("/kyusei/unsei-2027/", "九星気学", "本命星別（一白水星〜九紫火星）", "総合運・恋愛・仕事・金運、月ごとのヒントと吉方位"),
     ("/unsei-2027/eto/", "干支", "十二支別（子年〜亥年）", "生まれ年の支と「未」の関係から読む一年"),
+    ("/unsei-2027/suhi/", "数秘術", "2027年の数（1〜9）別", "誕生月と誕生日から出す、9年周期のいまの位置"),
     ("/star/", "星座", "12星座別", "星の動きから見る2027年のランキングと月ごとの運勢"),
     ("/366uranai/", "誕生日", "366日の誕生日別", "誕生日ごとの性格と2027年の月ごとの運勢"),
     ("/kaiun/kichijitsu-2027/", "吉日", "2027年の吉日カレンダー", "天赦日・一粒万倍日・寅の日など（開運ライフ）"),
@@ -160,7 +161,7 @@ def build_hub(sample, updated):
     a('''<header class="fh-b27-hero">
   <div class="fh-b27-hero-body">
     <span class="fh-b27-tape">2027年の運勢</span>
-    <h1 class="fh-b27-title">2027年の運勢まとめ<br>九星・干支・星座・誕生日から</h1>
+    <h1 class="fh-b27-title">2027年の運勢まとめ<br>九星・干支・数秘術・星座・誕生日から</h1>
     <p class="fh-b27-lead">2027年は九紫火星が年盤の中央に入る、丁未（ひのとひつじ）の年です。このサイトで公開している2027年の運勢を、占い別にまとめました。生まれ年から読むなら九星気学と干支、生まれた月日から読むなら星座と誕生日のページがおすすめです。</p>
   </div>
 </header>''')
@@ -176,7 +177,7 @@ def build_hub(sample, updated):
     up = dt.date.fromisoformat(updated)
     a(f'<p class="fh-b27-foot">最終更新日：{up.year}年{up.month}月{up.day}日／<a href="/about/">この記事の作成方針について</a></p>')
     a("</div>\n</div>")
-    title = "2027年の運勢まとめ｜九星気学・干支・星座・誕生日から読む一年【無料】"
+    title = "2027年の運勢まとめ｜九星気学・干支・数秘術・星座・誕生日から読む一年【無料】"
     desc = "2027年（丁未・九紫火星中宮）の運勢を、九星気学の本命星別、干支（十二支）別、12星座別、366日の誕生日別にまとめた入口ページ。吉日カレンダーもあわせてどうぞ。"
     out = shell(title, desc, HUB, "\n".join(H), sample, ())
     assert "！" not in out
