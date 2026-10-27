@@ -1234,7 +1234,8 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   <div class="fh-b27-topic"><h3>{ic("eto", "fh-b27-h3ic")}{esc(Y["eto"])}（{esc(Y["eto_yomi"])}）の年</h3>
   {paras(yr.get("eto"))}</div>
   <div class="fh-b27-topic"><h3>{ic("kyusei", "fh-b27-h3ic")}{esc(Y["star"])}が中宮に入る年</h3>
-  {paras(yr.get("kyusei"))}</div>
+  {paras(yr.get("kyusei"))}
+  <p><a href="/kyusei/unsei-2027/">本命星別の2027年の運勢（総合・恋愛・仕事・金運と月ごとの吉方位）を見る →</a></p></div>
   <h3>{ic("stars", "fh-b27-h3ic")}2027年の主な星の動き</h3>
   <div class="fh-b27-rows">
     {rows}
@@ -1437,7 +1438,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     <p class="fh-b27-paneltip" data-fh-noyear>生まれ年を選ぶと、九星気学・干支・四柱推命・宿曜・マヤ暦・数秘・動物×色の結果がここに出ます。</p>
     <div id="fh-b27-mine" hidden>
       <div class="fh-b27-res">
-        <div>{ic("kyusei", "fh-b27-resic")}<small>九星気学の本命星</small><b id="fh-b27-star">—</b><span id="fh-b27-star-n"></span><a id="fh-b27-dir" href="/kaiun/compass/">この方角の意味を開運ライフで見る →</a></div>
+        <div>{ic("kyusei", "fh-b27-resic")}<small>九星気学の本命星</small><b id="fh-b27-star">—</b><span id="fh-b27-star-n"></span><a id="fh-b27-dir" href="/kaiun/compass/">この方角の意味を開運ライフで見る →</a><a id="fh-b27-star27" href="/kyusei/unsei-2027/">2027年の運勢を詳しく見る →</a></div>
         <div>{ic("eto", "fh-b27-resic")}<small>干支（生まれ年）</small><b id="fh-b27-eto">—</b><span id="fh-b27-eto-n"></span></div>
         <div class="fh-b27-wide">{ic("shichu", "fh-b27-resic")}<small>四柱推命の命式（年柱・月柱・日柱）</small><b id="fh-b27-pillars">—</b><span id="fh-b27-nikkan-n"></span></div>
         <div>{ic("shuku", "fh-b27-resic")}<small>宿曜の本命宿</small><b id="fh-b27-shuku">—</b><span id="fh-b27-shuku-n"></span></div>
@@ -1448,6 +1449,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
       <p class="fh-b27-calcnote fh-b27-small">生まれた時刻は正午として計算しています。節入りの日や立春の日に生まれた人は、時刻によって結果が変わることがあります。</p>
     </div>
   </div>
+  <script>(function(){{var b=document.getElementById('fh-b27-star'),a=document.getElementById('fh-b27-star27');if(!b||!a)return;var S=['一白水星','二黒土星','三碧木星','四緑木星','五黄土星','六白金星','七赤金星','八白土星','九紫火星'];function u(){{var i=S.indexOf(b.textContent.trim());a.href='/kyusei/unsei-2027/'+(i>=0?'#ny-s'+(i+1):'');a.textContent=(i>=0?S[i]+'の':'')+'2027年の運勢を詳しく見る →';}}new MutationObserver(u).observe(b,{{childList:true,characterData:true,subtree:true}});}})();</script>
 </section>''')
 
     # 17 バイオリズム＋日付を選んで見る「その日のひとこと」（改善第1弾 6）
@@ -1496,6 +1498,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   <div class="fh-b27-lcards">
     {lcard(f"/{en}/", en, "el-" + e["element"], f"{SIGN_HIRA[sign]}の運勢", f"{sign_rng}生まれの性格と2027年")}
     {lcard("/compatibility/", "compat", "rose", "誕生日相性占い", "2人の誕生日で相性を見る")}
+    {lcard("/kyusei/unsei-2027/", "kyusei", "lav", "2027年の運勢（九星気学）", "本命星別の総合運・月ごとの吉方位")}
     {lcard("/kaiun/compass/", "compass", "sage", "8方位の読み方", "開運ライフ｜本命星の吉方位に")}
     {lcard("/animal-color/", "animal", "yellow", "動物×色占い", "生年月日で60タイプ")}
     {lcard("/mbti/", "mbti", "blue", "MBTI占い", "性格タイプで見る2027年")}
