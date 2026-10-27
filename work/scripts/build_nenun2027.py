@@ -181,6 +181,8 @@ def build(sample, updated):
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <section class="fh-b27-sec">
   <div class="fh-b27-links">
+    <a href="/unsei-2027/eto/"><b>2027年の運勢（干支）→</b><small>子年〜亥年の十二支別</small></a>
+    <a href="/unsei-2027/"><b>2027年の運勢まとめ →</b><small>九星・干支・星座・誕生日から</small></a>
     <a href="/kyusei/"><b>九星気学 →</b><small>生年月日から本命星を計算・相性・月ごとの吉方位</small></a>
     <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日ごとの2027年の運勢</small></a>
     <a href="/seinengappi/"><b>生年月日まるごと診断 →</b><small>九星・宿曜・マヤ暦などを1枚に</small></a>
