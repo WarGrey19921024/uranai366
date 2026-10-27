@@ -256,6 +256,7 @@ def build(sample, updated):
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <section class="fh-b27-sec">
   <div class="fh-b27-links">
+    <a href="/unsei-2027/maya/"><b>マヤ暦 2027年の運勢 →</b><small>20の紋章別・白い魔法使いの年と紋章の日</small></a>
     <a href="/seinengappi/"><b>生年月日まるごと診断 →</b><small>マヤ暦・九星・宿曜・四柱推命などを1枚に</small></a>
     <a href="/shukuyo/"><b>宿曜占星術 →</b><small>月の暦で本命宿と相性を見る</small></a>
     <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日から性格・相性・2027年の運勢</small></a>
