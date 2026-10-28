@@ -177,6 +177,7 @@ def build(sample, updated):
   <h2><span class="fh-b27-n">{nn}</span>あわせて占う</h2>
   <div class="fh-b27-links">
     <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日から性格と2027年の運勢を見る</small></a>
+    <a href="/unsei-2027/"><b>2027年の運勢まとめ →</b><small>九星・干支・数秘術・マヤ暦から</small></a>
     <a href="/seinengappi/"><b>生年月日まるごと診断 →</b><small>8つの占いを1枚のカードに</small></a>
     <a href="/enmusubi/pair/"><b>ご縁の相性診断 →</b><small>縁結び診断室</small></a>
     <a href="/mbti-compatibility/"><b>MBTI相性占い →</b><small>性格タイプどうしの相性</small></a>

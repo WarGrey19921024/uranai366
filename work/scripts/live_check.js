@@ -48,6 +48,7 @@
   }
   async function links(url) {
     const R = (window._ll = { state: 'run', n: 0, bad: [] });
+    url = new URL(url, location.href).href; // 相対URLでも動くように（2026-10-29 修正）
     const t = await (await fetch(url, { cache: 'no-store' })).text();
     const d = new DOMParser().parseFromString(t, 'text/html');
     const set = new Set();
