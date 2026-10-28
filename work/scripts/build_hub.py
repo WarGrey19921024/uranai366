@@ -262,6 +262,11 @@ def build(mats, sample, updated):
   <i class="fh-b27-ic fh-b27-ic-card fh-b27-promoic" aria-hidden="true"></i><small>生まれた年までわかる人は</small>
   <b>生年月日まるごと診断 →</b>
   <span>星座・九星・干支・四柱推命・宿曜・マヤ暦・数秘・動物×色を、1枚のカードにまとめて表示します。</span>
+</a>
+<a class="fh-b27-promo" href="/unsei-2027/">
+  <i class="fh-b27-ic fh-b27-ic-year fh-b27-promoic" aria-hidden="true"></i><small>生まれ年や星から1年を読みたい人は</small>
+  <b>2027年の運勢まとめ →</b>
+  <span>九星気学・干支・数秘術・マヤ暦・星座・誕生日の2027年の運勢を、占い別にまとめました。</span>
 </a>'''
     a('''<nav class="fh-b27-toc" aria-label="目次">
   <strong>目次</strong>
