@@ -222,6 +222,8 @@ def build(sample, updated):
     <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日ごとの性格と2027年の運勢</small></a>
     <a href="/suhijutsu/"><b>数秘術 →</b><small>生年月日でライフパスを計算</small></a>
     <a href="/compatibility/"><b>誕生日相性占い →</b><small>2人の生年月日で相性を見る</small></a>
+    <a href="/unsei-2027/"><b>2027年の運勢まとめ →</b><small>九星・干支・数秘術・マヤ暦から</small></a>
+    <a href="/unsei-2027/eto/"><b>干支別 2027年の運勢 →</b><small>生まれ年の十二支から2027年を読む</small></a>
   </div>
 </section>''')
     an = [{k: v for k, v in x.items() if k != "emoji"} | {"cp": [ord(ch) for ch in x["emoji"]]} for x in A.ANIMALS]
