@@ -291,8 +291,8 @@ def theme_css():
 {P} .fh-b27-cpx-signs .fh-b27-cpx-sn b{{font:800 18px 'Shippori Mincho',serif;color:#2B1F30;margin-right:6px}}
 {P} .fh-b27-cpx-signs .fh-b27-cpx-sn small{{color:#5E4A55;font-size:12px}}
 {P} .fh-b27-cpx-signs em{{font-style:normal;font-weight:800;font-size:12px;color:#5E4A55;min-width:5.2em}}
-{P} .fh-b27-cpx-chip{{display:inline-block;border-radius:999px;padding:1px 10px;font-weight:700;font-size:13px;background:var(--el);color:#fff}}
-{P} .fh-b27-el-fire{{--el:#D9654E;--elbg:#FCE6DF}}{P} .fh-b27-el-earth{{--el:#5E9A55;--elbg:#E5F1DD}}{P} .fh-b27-el-air{{--el:#C99A1E;--elbg:#FBF1D2}}{P} .fh-b27-el-water{{--el:#3F7CC0;--elbg:#DDEBF8}}
+{P} .fh-b27-cpx-chip{{display:inline-block;border-radius:999px;padding:1px 10px;font-weight:700;font-size:13px;background:var(--elc);color:#fff}}
+{P} .fh-b27-el-fire{{--el:#D9654E;--elbg:#FCE6DF;--elc:#B5452F}}{P} .fh-b27-el-earth{{--el:#5E9A55;--elbg:#E5F1DD;--elc:#3F7A37}}{P} .fh-b27-el-air{{--el:#C99A1E;--elbg:#FBF1D2;--elc:#86650F}}{P} .fh-b27-el-water{{--el:#3F7CC0;--elbg:#DDEBF8;--elc:#2F65A6}}
 {P} .fh-b27-cpx-types div{{border:0;color:#2B1F30;box-shadow:0 4px 12px rgba(0,0,0,.25)}}
 {P} .fh-b27-cpx-types div p,{P} .fh-b27-cpx-types div h3{{color:#2B1F30}}{P} .fh-b27-cpx-types h3 b{{color:#F3E9EC}}{P} .fh-b27-cpx-types small{{color:#6A5560}}
 {P} .fh-b27-cpx-ty0{{background:#FCF1EF}}{P} .fh-b27-cpx-ty1{{background:#E3F2EE}}{P} .fh-b27-cpx-ty2{{background:#ECE6F7}}{P} .fh-b27-cpx-ty3{{background:#FBF3DC}}{P} .fh-b27-cpx-ty4{{background:#F9E1E4}}{P} .fh-b27-cpx-ty5{{background:#E2ECF7}}
