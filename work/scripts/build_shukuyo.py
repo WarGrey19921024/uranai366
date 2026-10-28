@@ -300,6 +300,7 @@ def build(sample, updated):
     <a href="/seinengappi/"><b>生年月日まるごと診断 →</b><small>宿曜・九星・四柱推命・マヤ暦などを1枚に</small></a>
     <a href="/366uranai/"><b>366日の誕生日占い →</b><small>誕生日から性格・相性・2027年の運勢</small></a>
     <a href="/compatibility/"><b>誕生日相性占い →</b><small>2人の誕生日で相性を見る</small></a>
+    <a href="/unsei-2027/"><b>2027年の運勢まとめ →</b><small>九星・干支・数秘術・マヤ暦から</small></a>
   </div>
 </section>''')
     data = {s: {"yomi": d[s]["yomi"], "kw": d[s]["kw"], "text": d[s]["text"]} for s in ORDER}
