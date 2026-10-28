@@ -113,6 +113,7 @@ CSS = """<style id="fh-b27-ky-css">
 .fh-b27-ky-rv span small{font:400 10.5px 'Zen Kaku Gothic New',sans-serif;color:var(--mute)}
 .fh-b27-ky-rv span.me{background:var(--c);color:#1A1F1C;border-color:var(--gold);animation:fh-b27-ky-in .45s ease forwards,fh-b27-ky-glow 1.6s ease-in-out .9s 3;animation-delay:calc(var(--i)*.08s),.9s}
 .fh-b27-ky-rv span.me small{color:#1A1F1C;font-weight:700}
+/* 2026-10-29 濃い色（七赤・九紫・二黒）の上は白い文字に */.fh-b27-ky-ban span[style*="#7A4D9C"],.fh-b27-ky-ban span[style*="#C8463C"],.fh-b27-ky-ban span[style*="#3A3530"],.fh-b27-ky-rv span.me[style*="#7A4D9C"],.fh-b27-ky-rv span.me[style*="#C8463C"],.fh-b27-ky-rv span.me[style*="#3A3530"],.fh-b27-ky-rv span.me[style*="#7A4D9C"] small,.fh-b27-ky-rv span.me[style*="#C8463C"] small,.fh-b27-ky-rv span.me[style*="#3A3530"] small{color:#fff}
 @keyframes fh-b27-ky-in{to{opacity:1;transform:none}}
 @keyframes fh-b27-ky-glow{50%{box-shadow:0 0 0 4px rgba(212,175,90,.6),0 0 26px 6px var(--c)}}
 .fh-b27-ky-card{opacity:0;transform:translateY(16px);animation:fh-b27-ky-in .6s ease 1s forwards}
