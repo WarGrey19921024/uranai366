@@ -1232,10 +1232,12 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     a(f'''<section class="fh-b27-sec" id="b27-eto">
   {h2(9, "stars", "2027年の干支・九星・星の動き")}
   <div class="fh-b27-topic"><h3>{ic("eto", "fh-b27-h3ic")}{esc(Y["eto"])}（{esc(Y["eto_yomi"])}）の年</h3>
-  {paras(yr.get("eto"))}</div>
+  {paras(yr.get("eto"))}
+  <p><a href="/unsei-2027/eto/">生まれ年の十二支別に、2027年の運勢を見る →</a></p></div>
   <div class="fh-b27-topic"><h3>{ic("kyusei", "fh-b27-h3ic")}{esc(Y["star"])}が中宮に入る年</h3>
   {paras(yr.get("kyusei"))}
-  <p><a href="/kyusei/unsei-2027/">本命星別の2027年の運勢（総合・恋愛・仕事・金運と月ごとの吉方位）を見る →</a></p></div>
+  <p><a href="/kyusei/unsei-2027/">本命星別の2027年の運勢（総合・恋愛・仕事・金運と月ごとの吉方位）を見る →</a></p>
+  <p><a href="/unsei-2027/suhi/#su-{e["py2027"]}">この誕生日の2027年の数は「{e["py2027"]}」。数秘術で見る2027年の運勢へ →</a></p></div>
   <h3>{ic("stars", "fh-b27-h3ic")}2027年の主な星の動き</h3>
   <div class="fh-b27-rows">
     {rows}
@@ -1439,17 +1441,17 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     <div id="fh-b27-mine" hidden>
       <div class="fh-b27-res">
         <div>{ic("kyusei", "fh-b27-resic")}<small>九星気学の本命星</small><b id="fh-b27-star">—</b><span id="fh-b27-star-n"></span><a id="fh-b27-dir" href="/kaiun/compass/">この方角の意味を開運ライフで見る →</a><a id="fh-b27-star27" href="/kyusei/unsei-2027/">2027年の運勢を詳しく見る →</a></div>
-        <div>{ic("eto", "fh-b27-resic")}<small>干支（生まれ年）</small><b id="fh-b27-eto">—</b><span id="fh-b27-eto-n"></span></div>
+        <div>{ic("eto", "fh-b27-resic")}<small>干支（生まれ年）</small><b id="fh-b27-eto">—</b><span id="fh-b27-eto-n"></span><a id="fh-b27-eto27" href="/unsei-2027/eto/">2027年の運勢を詳しく見る →</a></div>
         <div class="fh-b27-wide">{ic("shichu", "fh-b27-resic")}<small>四柱推命の命式（年柱・月柱・日柱）</small><b id="fh-b27-pillars">—</b><span id="fh-b27-nikkan-n"></span></div>
         <div>{ic("shuku", "fh-b27-resic")}<small>宿曜の本命宿</small><b id="fh-b27-shuku">—</b><span id="fh-b27-shuku-n"></span></div>
-        <div>{ic("maya", "fh-b27-resic")}<small>マヤ暦（KIN）</small><b id="fh-b27-kin">—</b><span id="fh-b27-kin-n"></span></div>
+        <div>{ic("maya", "fh-b27-resic")}<small>マヤ暦（KIN）</small><b id="fh-b27-kin">—</b><span id="fh-b27-kin-n"></span><a id="fh-b27-kin27" href="/unsei-2027/maya/">2027年の運勢を詳しく見る →</a></div>
         <div>{ic("suhi", "fh-b27-resic")}<small>数秘のライフパス</small><b id="fh-b27-lp">—</b><span id="fh-b27-lp-n"></span></div>
         <div>{ic("animal", "fh-b27-resic")}<small>動物×色占い</small><b id="fh-b27-animal">—</b><span><a href="/animal-color/">60タイプの性格を見る →</a></span></div>
       </div>
       <p class="fh-b27-calcnote fh-b27-small">生まれた時刻は正午として計算しています。節入りの日や立春の日に生まれた人は、時刻によって結果が変わることがあります。</p>
     </div>
   </div>
-  <script>(function(){{var b=document.getElementById('fh-b27-star'),a=document.getElementById('fh-b27-star27');if(!b||!a)return;var S=['一白水星','二黒土星','三碧木星','四緑木星','五黄土星','六白金星','七赤金星','八白土星','九紫火星'];function u(){{var i=S.indexOf(b.textContent.trim());a.href='/kyusei/unsei-2027/'+(i>=0?'#ny-s'+(i+1):'');a.textContent=(i>=0?S[i]+'の':'')+'2027年の運勢を詳しく見る →';}}new MutationObserver(u).observe(b,{{childList:true,characterData:true,subtree:true}});}})();</script>
+  <script>(function(){{var b=document.getElementById('fh-b27-star'),a=document.getElementById('fh-b27-star27');if(!b||!a)return;var S=['一白水星','二黒土星','三碧木星','四緑木星','五黄土星','六白金星','七赤金星','八白土星','九紫火星'];function u(){{var i=S.indexOf(b.textContent.trim());a.href='/kyusei/unsei-2027/'+(i>=0?'#ny-s'+(i+1):'');a.textContent=(i>=0?S[i]+'の':'')+'2027年の運勢を詳しく見る →';}}new MutationObserver(u).observe(b,{{childList:true,characterData:true,subtree:true}});var O={{childList:true,characterData:true,subtree:true}},SH='子丑寅卯辰巳午未申酉戌亥',AN=['ねずみ','うし','とら','うさぎ','たつ','へび','うま','ひつじ','さる','とり','いぬ','いのしし'],E=document.getElementById('fh-b27-eto'),EN=document.getElementById('fh-b27-eto-n'),EA=document.getElementById('fh-b27-eto27');function ue(){{if(!E||!EA)return;var t=E.textContent.trim(),m=(EN&&EN.textContent.match(/前年の「(..)」/)),k=m?m[1]:t.slice(0,2),i=SH.indexOf(k.charAt(1));EA.href='/unsei-2027/eto/'+(i>=0?'#et-'+i:'');EA.textContent=(i>=0?SH.charAt(i)+'年（'+AN[i]+'年）生まれの':'')+'2027年の運勢を詳しく見る →';}}if(E){{new MutationObserver(ue).observe(E,O);if(EN)new MutationObserver(ue).observe(EN,O);}}var SE=['赤い龍','白い風','青い夜','黄色い種','赤い蛇','白い世界の橋渡し','青い手','黄色い星','赤い月','白い犬','青い猿','黄色い人','赤い空歩く人','白い魔法使い','青い鷲','黄色い戦士','赤い地球','白い鏡','青い嵐','黄色い太陽'],KN=document.getElementById('fh-b27-kin-n'),KA=document.getElementById('fh-b27-kin27');function uk(){{if(!KN||!KA)return;var m=KN.textContent.match(/紋章「([^」]+)」/),i=m?SE.indexOf(m[1]):-1;KA.href='/unsei-2027/maya/'+(i>=0?'#mx-'+(i+1):'');KA.textContent=(i>=0?SE[i]+'の':'')+'2027年の運勢を詳しく見る →';}}if(KN)new MutationObserver(uk).observe(KN,O);}})();</script>
 </section>''')
 
     # 17 バイオリズム＋日付を選んで見る「その日のひとこと」（改善第1弾 6）
