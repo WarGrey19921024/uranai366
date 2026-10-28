@@ -84,7 +84,7 @@ CSS = """<style id="fh-b27-sh-css">
 .fh-b27-sh-steps{counter-reset:s;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
 .fh-b27-sh-steps li{counter-increment:s;border:1px solid rgba(246,193,119,.25);border-radius:14px;background:var(--deep);padding:10px 14px 10px 48px;position:relative;line-height:1.8}
 .fh-b27-sh-steps li::before{content:counter(s);position:absolute;left:12px;top:10px;width:26px;height:26px;border-radius:50%;background:var(--gold);color:#1C1838;font-weight:800;display:flex;align-items:center;justify-content:center}
-.fh-b27-sh-steps code{font-family:inherit;background:rgba(255,255,255,.08);border-radius:6px;padding:1px 6px;color:#FFE3B8}
+.fh-b27-sh-steps code,.fh-b27 p code{font-family:inherit;background:rgba(255,255,255,.08);border:0;margin:0;border-radius:6px;padding:1px 6px;color:#FFE3B8}
 .fh-b27-sh-nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .fh-b27-sh-nums details{border:1px solid rgba(246,193,119,.22);border-top:5px solid var(--c);border-radius:14px;background:var(--deep);padding:8px 14px;font-size:14.5px;line-height:1.85}
 .fh-b27-sh-nums summary{cursor:pointer;font-weight:800;color:#FFE3B8;list-style:none;display:flex;gap:10px;align-items:center}
