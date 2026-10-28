@@ -58,6 +58,7 @@ CSS = """<style id="fh-b27-bl-css">
 .fh-b27-bl-pick input:focus-visible+span{outline:2px solid #fff}
 .fh-b27-bl-x{font:800 26px 'Shippori Mincho',serif;color:var(--gold)}
 .fh-b27-bl-go{min-height:48px;border:0;border-radius:999px;background:linear-gradient(90deg,#E8707E,#9C7BD0);color:#fff;font:inherit;font-weight:800;padding:0 22px;cursor:pointer;align-self:center}
+/* 2026-10-29 明るい色（血液型の4色・ピンク〜紫）の上は濃い文字に（絶対ルール） */.fh-b27-bl-drop,.fh-b27-bl-pick input:checked+span,.fh-b27-bl-go,.fh-b27[data-fh-page="blood"] .fh-b27-tape,.fh-b27[data-fh-page="blood"] h2 .fh-b27-n{color:#2A2233}
 .fh-b27-bl-res{background:var(--cream);color:var(--cream-ink);border-radius:18px;padding:16px 18px;line-height:1.85}
 .fh-b27 .fh-b27-bl-res p,.fh-b27 .fh-b27-bl-res b{color:var(--cream-ink)}
 .fh-b27 .fh-b27-bl-res a{color:#A23B52;font-weight:700}
