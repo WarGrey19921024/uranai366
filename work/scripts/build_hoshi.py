@@ -67,7 +67,7 @@ CSS = """<style id="fh-b27-hs-css">
 .fh-b27-hs-cards b{color:#FFE2A3;font-size:15.5px}
 .fh-b27-hs-bar{position:relative;height:30px;border-radius:8px;background:rgba(255,255,255,.06);margin:6px 0 2px;overflow:hidden}
 .fh-b27-hs-bar span{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:800;color:#141A33;white-space:nowrap;overflow:hidden}
-.fh-b27-hs-bar .sh{background:rgba(244,213,138,.45)}.fh-b27-hs-bar .rx{background:#F4D58A}
+.fh-b27-hs-bar .sh{background:rgba(244,213,138,.65)}.fh-b27-hs-bar .rx{background:#F4D58A}
 .fh-b27-hs-signs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .fh-b27-hs-signs details{border:1px solid rgba(244,213,138,.2);border-radius:12px;background:var(--deep);padding:6px 12px;font-size:14px;line-height:1.85}
 .fh-b27-hs-signs summary{cursor:pointer;font-weight:800;color:#FFE2A3}
