@@ -1,0 +1,1 @@
+{"site":"kaiun","id":747,"before":"本文に上書きCSSなし（変更前の本文＝git の kaiun_cal/out_kichijitsu_2027.html @4a4dcfff を wp:html で包んだもの）","after":"出典の前に <style>#kzf .k-src .k-st,#kzf .k-pager .k-pl,#kzf .k-meta{color:#6B6455}</style> を追加","戻し方":"この style 1行を消す"}
