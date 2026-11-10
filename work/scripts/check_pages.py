@@ -136,7 +136,8 @@ for path in ("/kokoro/", "/compatibility/", "/enmusubi/pair/", "/mbti-compatibil
     chk(f"リンク {path}", (lambda p: (lambda s, t, m: f'href="{p}' in s))(path))
 chk("前後の日へのリンク（/366uranai/MM-DD/）", lambda s, t, m: f'href="{url(m["prev"])}"' in s and f'href="{url(m["next"])}"' in s)
 chk("誕生日ページへのリンクはすべて /366uranai/MM-DD/ の形（/birthday/ なし）", lambda s, t, m: "/birthday/" not in s and all(
-    re.fullmatch(r"\d{2}-\d{2}", x) and x.replace("-", "") in M for x in re.findall(r'href="/366uranai/([^"]*)/"', s)) and re.search(r'href="/366uranai/\d{2}-\d{2}/"', s))
+    (x == "guide" or (re.fullmatch(r"\d{2}-\d{2}", x) and x.replace("-", "") in M))  # guide＝説明ページ（2026-11-11 GUIDE_SLIM）
+    for x in re.findall(r'href="/366uranai/([^"]*)/"', s)) and re.search(r'href="/366uranai/\d{2}-\d{2}/"', s))
 chk("canonical が /366uranai/MM-DD/", lambda s, t, m: f'<link rel="canonical" href="https://www.uranai.epoch-compass.com{url(m["key"])}">' in s)
 # 本人の決定
 chk("星座の境目の注記（境目の日だけ）", lambda s, t, m: (not m["sign_border"]) or "生まれた年" in t)

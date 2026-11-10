@@ -63,6 +63,15 @@ MARK_CLS = {"◎": "good", "○": "ok", "△": "care"}
 MISSING = "（文章は未作成）"
 SITE = "https://www.uranai.epoch-compass.com"
 HUB = "/366uranai/"  # 親ページ（既存の固定ページ ID 2743「366日生年月日占い」）
+GUIDE = HUB + "guide/"  # 説明ページ（固定ページ ID 19839「366日誕生日占い（2027年版）の読み方と計算のしかた」。原稿 work/out/guide_366.html）
+# 説明ページ方式（2026-11-11 試験5本）：ここに入れた日付だけ、366本で同じだった説明の文章を短くし、説明ページへのリンクにする。
+# 日付ごとに変わる部品（グラフ・表・カレンダー・生まれ年の結果・12か月の◎○△と文・電話占いの箱・Ads2）は変えない。
+# 全体に広げるときは None にする（None＝366日すべて説明ページ方式）。
+GUIDE_SLIM = {"0429", "0714", "1114", "1218", "0603"}
+
+
+def guide_slim(mmdd):
+    return GUIDE_SLIM is None or mmdd in GUIDE_SLIM
 
 
 def page_url(mmdd):
@@ -939,6 +948,8 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     desc = (f"{md}生まれの性格と2027年の運勢。{sign}・七十二候「{e['kou']}」・誕生花の{flower['flower']}から読む本質と、"
             f"{Y['eto']}・{Y['star']}の年の月ごとの運勢、ラッキーカラー、相性の良い誕生日、同じ誕生日の有名人まで。")
 
+    slim = guide_slim(mmdd)  # 説明ページ方式（GUIDE_SLIM）
+
     H = []
     a = H.append
     base = [
@@ -953,12 +964,18 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
 
     # ヒーロー
     lead_first = e["kou_meaning"].split("。")[0] + "。"
+    lead_rest = (f"誕生花は{esc(flower['flower'])}、誕生石は{esc(bm_list[0])}。" if slim
+                 else "この頃に生まれた人の、変わらない本質と、2027年の歩き方を読み解きます。")
+    # 説明ページ方式のときの短い注記（説明ページへのリンク）。そうでないときは元の文
+    mono_how = f'<a href="{GUIDE}#mono">説明ページ</a>' if slim else "ページ下の「この占いについて」"
+    aisho_how = (f'太陽の位置どうしの関係と誕生日の数で選んでいます（<a href="{GUIDE}#aisho">選び方</a>）。' if slim
+                 else "選び方：生まれた日の太陽の位置どうしの関係と、誕生日の数の組み合わせから選んでいます（くわしくはページ下の「この占いについて」）。")
     a(f'''<header class="fh-b27-hero">
   <div class="fh-b27-kou" aria-hidden="true">{esc(e["kou"])}</div>
   <div class="fh-b27-hero-body">
     <span class="fh-b27-tape">2027年版 誕生日占い</span>
     <p class="fh-b27-title">{md}生まれの性格と<br>2027年の運勢</p>
-    <p class="fh-b27-lead">{esc(e["sekki"])}の{esc(kou_pos)}「{esc(e["kou"])}（{esc(e["kou_yomi"])}）」。{esc(lead_first)}この頃に生まれた人の、変わらない本質と、2027年の歩き方を読み解きます。</p>
+    <p class="fh-b27-lead">{esc(e["sekki"])}の{esc(kou_pos)}「{esc(e["kou"])}（{esc(e["kou_yomi"])}）」。{esc(lead_first)}{lead_rest}</p>
   </div>
 </header>''')
     if KOU_MEDIA.get(e["kou"]):
@@ -992,9 +1009,11 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         a(f'<p class="fh-b27-signnote">{md}は星座の境目の日です。生まれた年と時刻によっては<b>{esc(other)}</b>の場合があります（太陽が星座を移る時刻は年によって違うため）。</p>')
 
     # 生まれ年
+    yb_note = ('生まれ年を選ぶと、<a href="#b27-year">九星・四柱推命など</a>の結果も出ます（送信しません）。' if slim
+               else '生まれ年を選ぶと、<a href="#b27-year">九星・四柱推命・宿曜など</a>の結果も出ます（任意・送信しません）。')
     a(f'''<div class="fh-b27-yearbar" id="b27-yearbar">
   <div class="fh-b27-pick"><label for="fh-b27-y">生まれ年（任意）</label><select id="fh-b27-y" data-fh-year></select></div>
-  <p class="fh-b27-small">生まれ年を選ぶと、<a href="#b27-year">九星・四柱推命・宿曜など</a>の結果も出ます（任意・送信しません）。</p>
+  <p class="fh-b27-small">{yb_note}</p>
 </div>
 <div class="fh-b27-yfloat" id="fh-b27-yfloat" hidden><label><span>生まれ年</span><select data-fh-year aria-label="生まれ年（画面下の選択欄）"></select></label></div>''')
 
@@ -1104,7 +1123,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     <div class="fh-b27-mono-card fh-b27-mc-color fh-b27-mc-own">{sw(col_hex)}<small>生まれ持ちのラッキーカラー（当サイト独自）</small><b>{esc(e["birthday_color"]["name"])}（{esc(col_yomi)}）</b><p>{esc(col_desc)}。2027年のラッキーカラーは<a href="#b27-omamori">お守りリスト</a>にあります。</p></div>
   </div>
   {paras(fx.get("items"))}
-  <p class="fh-b27-small">誕生日石と誕生色は、ネットや本で広く使われている一覧に合わせています（もとは斉藤貴子『366日誕生石の本』、野村順一『誕生色事典』とされます）。守護石とラッキーカラーは、その日の星と七十二候からこのサイトが独自に選んだものです（決め方はページ下の「この占いについて」）。</p>''')
+  <p class="fh-b27-small">誕生日石と誕生色は、ネットや本で広く使われている一覧に合わせています（もとは斉藤貴子『366日誕生石の本』、野村順一『誕生色事典』とされます）。守護石とラッキーカラーは、その日の星と七十二候からこのサイトが独自に選んだものです（決め方は{mono_how}）。</p>''')
     evs = e.get("events") or []
     if evs:
         a(f'  <h3>{md}の記念日・できごと</h3>\n  <div class="fh-b27-rows">')
@@ -1146,7 +1165,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
       </ul>
     </div>
   </div>
-  <p class="fh-b27-small">選び方：生まれた日の太陽の位置どうしの関係と、誕生日の数の組み合わせから選んでいます（くわしくはページ下の「この占いについて」）。</p>
+  <p class="fh-b27-small">{aisho_how}</p>
   <div class="fh-b27-nexts"><a class="fh-b27-next" href="/compatibility/">{ic("compat", "fh-b27-nextic")}<span><small>人生予報</small><b>2人の誕生日で相性を見る →</b></span></a><a class="fh-b27-next" href="/enmusubi/pair/">{ic("love", "fh-b27-nextic")}<span><small>縁結び診断室</small><b>ご縁の相性診断 →</b></span></a><a class="fh-b27-next" href="/mbti-compatibility/">{ic("mbti", "fh-b27-nextic")}<span><small>人生予報</small><b>MBTI相性占い →</b></span></a></div>
 </section>''')
 
@@ -1256,21 +1275,27 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
       + "\n    ".join(tl) + "\n  </div>\n</section>")
 
     gg = ELEM_GOGYO[e["element"]]
-    a(f'''<section class="fh-b27-sec" id="b27-graph">
-  {h2(11, "graph", "占いごとの月別グラフ")}
-  <p>西洋占星術・数秘術・暦の五行の3つで、2027年の月ごとの運気を出して重ねました。線がそろって上がる月は「どの占いで見ても追い風」の月です。</p>
-  <div class="fh-b27-ypick"><label>{ic("year")}<span>生まれ年</span><select data-fh-year aria-label="生まれ年"></select></label><span class="fh-b27-ypick-note" data-fh-yearnote></span></div>
-  <div class="fh-b27-leg" id="fh-b27-leg" role="group" aria-label="グラフに表示する占い"></div>
-  <div class="fh-b27-chart" id="fh-b27-chart"></div>
-  <details class="fh-b27-table"><summary>数値を表で見る</summary><div id="fh-b27-tbl"></div></details>
-  <h3>それぞれの線の出し方</h3>
+    if slim:
+        g_intro = f'{md}生まれの2027年を、西洋占星術・数秘術（2027年の数「{e["py2027"]}」）・暦の五行（{esc(sign)}の「{gg}」）の3つで月ごとに重ねました。'
+        g_howto = f'  <p class="fh-b27-small">線がそろって上がる月が追い風の月です。それぞれの線の出し方は<a href="{GUIDE}#line">説明ページ</a>にまとめています。</p>'
+    else:
+        g_intro = "西洋占星術・数秘術・暦の五行の3つで、2027年の月ごとの運気を出して重ねました。線がそろって上がる月は「どの占いで見ても追い風」の月です。"
+        g_howto = f'''  <h3>それぞれの線の出し方</h3>
   <dl class="fh-b27-koyomi fh-b27-howto">
     <div><dt><b>星座</b>西洋占星術</dt><dd>2027年の毎日の太陽・金星・火星・木星・土星の位置と、{md}生まれの太陽の位置との関係を月ごとにまとめた点です。調和の関係が多い月ほど高くなります。</dd></div>
     <div><dt><b>数秘</b>数秘術</dt><dd>2027年の数「{e["py2027"]}」に月を足した「月の数」で判定。始まり・表現・実りの月は高く、見直し・締めくくりの月は低めです。</dd></div>
     <div><dt><b>暦の五行</b>干支</dt><dd>その月の干支の五行と、{esc(sign)}の「{gg}」の関係で判定。{gg}を生む月は高く、{gg}を抑える月は低くなります。</dd></div>
     <div><dt><b>九星・バイオリズム</b>生まれ年を選んだとき</dt><dd>九星は、月ごとの九星とあなたの本命星の五行の関係。バイオリズムは、身体・感情・知性の月平均です。</dd></div>
     <div><dt><b>総合</b>平均</dt><dd>表示している線の平均。下の◎○△は、生まれ年を選ばないときの総合で決めています。</dd></div>
-  </dl>
+  </dl>'''
+    a(f'''<section class="fh-b27-sec" id="b27-graph">
+  {h2(11, "graph", "占いごとの月別グラフ")}
+  <p>{g_intro}</p>
+  <div class="fh-b27-ypick"><label>{ic("year")}<span>生まれ年</span><select data-fh-year aria-label="生まれ年"></select></label><span class="fh-b27-ypick-note" data-fh-yearnote></span></div>
+  <div class="fh-b27-leg" id="fh-b27-leg" role="group" aria-label="グラフに表示する占い"></div>
+  <div class="fh-b27-chart" id="fh-b27-chart"></div>
+  <details class="fh-b27-table"><summary>数値を表で見る</summary><div id="fh-b27-tbl"></div></details>
+{g_howto}
 </section>''')
 
     # 12 12か月
@@ -1303,7 +1328,10 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   {ad}''')
     if ml2:
         a(f'  <div class="fh-b27-monthlist">\n    {"".join(ml2)}\n  </div>')
-    a('  <p class="fh-b27-small">◎ とても良い ／ ○ 良い ／ △ 慎重に。数字は上のグラフの「総合」で、366日×12か月の総合点の上位4分の1を◎、下位4分の1を△にしています。</p>\n</section>')
+    if slim:
+        a(f'  <p class="fh-b27-small">◎ とても良い ／ ○ 良い ／ △ 慎重に（<a href="{GUIDE}#mark">決め方</a>）</p>\n</section>')
+    else:
+        a('  <p class="fh-b27-small">◎ とても良い ／ ○ 良い ／ △ 慎重に。数字は上のグラフの「総合」で、366日×12か月の総合点の上位4分の1を◎、下位4分の1を△にしています。</p>\n</section>')
     a("<!--Ads2-->")  # WP QUADS の広告位置2：12か月の運勢の後
 
     # 13 開運アクション
@@ -1432,12 +1460,20 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
 </section>''')
 
     # 16 生まれ年
+    if slim:
+        y_intro = "生まれ年を選ぶと表示されます（ページ全体に反映されます）。"
+        y_tip = "生まれ年を選ぶと、ここに7つの占いの結果が出ます。"
+        y_calc = f'生まれた時刻は正午として計算しています（<a href="{GUIDE}#year">くわしく</a>）。'
+    else:
+        y_intro = "ここから先の2つは、月日だけでは決まらない占いです。生まれ年を選ぶと表示されます（ここで選び直しても、ページ全体に反映されます）。"
+        y_tip = "生まれ年を選ぶと、九星気学・干支・四柱推命・宿曜・マヤ暦・数秘・動物×色の結果がここに出ます。"
+        y_calc = "生まれた時刻は正午として計算しています。節入りの日や立春の日に生まれた人は、時刻によって結果が変わることがあります。"
     a(f'''<section class="fh-b27-sec" id="b27-year">
   {h2(17, "year", "生まれ年でわかること")}
-  <p>ここから先の2つは、月日だけでは決まらない占いです。生まれ年を選ぶと表示されます（ここで選び直しても、ページ全体に反映されます）。</p>
+  <p>{y_intro}</p>
   <div class="fh-b27-panel" data-fh-panel>
     <div class="fh-b27-ypick"><label>{ic("year")}<span>生まれ年</span><select data-fh-year aria-label="生まれ年"></select></label><span class="fh-b27-ypick-note" data-fh-yearnote></span></div>
-    <p class="fh-b27-paneltip" data-fh-noyear>生まれ年を選ぶと、九星気学・干支・四柱推命・宿曜・マヤ暦・数秘・動物×色の結果がここに出ます。</p>
+    <p class="fh-b27-paneltip" data-fh-noyear>{y_tip}</p>
     <div id="fh-b27-mine" hidden>
       <div class="fh-b27-res">
         <div>{ic("kyusei", "fh-b27-resic")}<small>九星気学の本命星</small><b id="fh-b27-star">—</b><span id="fh-b27-star-n"></span><a id="fh-b27-dir" href="/kaiun/compass/">この方角の意味を開運ライフで見る →</a><a id="fh-b27-star27" href="/kyusei/unsei-2027/">2027年の運勢を詳しく見る →</a></div>
@@ -1448,7 +1484,7 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
         <div>{ic("suhi", "fh-b27-resic")}<small>数秘のライフパス</small><b id="fh-b27-lp">—</b><span id="fh-b27-lp-n"></span></div>
         <div>{ic("animal", "fh-b27-resic")}<small>動物×色占い</small><b id="fh-b27-animal">—</b><span><a href="/animal-color/">60タイプの性格を見る →</a></span></div>
       </div>
-      <p class="fh-b27-calcnote fh-b27-small">生まれた時刻は正午として計算しています。節入りの日や立春の日に生まれた人は、時刻によって結果が変わることがあります。</p>
+      <p class="fh-b27-calcnote fh-b27-small">{y_calc}</p>
     </div>
   </div>
   <script>(function(){{var b=document.getElementById('fh-b27-star'),a=document.getElementById('fh-b27-star27');if(!b||!a)return;var S=['一白水星','二黒土星','三碧木星','四緑木星','五黄土星','六白金星','七赤金星','八白土星','九紫火星'];function u(){{var i=S.indexOf(b.textContent.trim());a.href='/kyusei/unsei-2027/'+(i>=0?'#ny-s'+(i+1):'');a.textContent=(i>=0?S[i]+'の':'')+'2027年の運勢を詳しく見る →';}}new MutationObserver(u).observe(b,{{childList:true,characterData:true,subtree:true}});var O={{childList:true,characterData:true,subtree:true}},SH='子丑寅卯辰巳午未申酉戌亥',AN=['ねずみ','うし','とら','うさぎ','たつ','へび','うま','ひつじ','さる','とり','いぬ','いのしし'],E=document.getElementById('fh-b27-eto'),EN=document.getElementById('fh-b27-eto-n'),EA=document.getElementById('fh-b27-eto27');function ue(){{if(!E||!EA)return;var t=E.textContent.trim(),m=(EN&&EN.textContent.match(/前年の「(..)」/)),k=m?m[1]:t.slice(0,2),i=SH.indexOf(k.charAt(1));EA.href='/unsei-2027/eto/'+(i>=0?'#et-'+i:'');EA.textContent=(i>=0?SH.charAt(i)+'年（'+AN[i]+'年）生まれの':'')+'2027年の運勢を詳しく見る →';}}if(E){{new MutationObserver(ue).observe(E,O);if(EN)new MutationObserver(ue).observe(EN,O);}}var SE=['赤い龍','白い風','青い夜','黄色い種','赤い蛇','白い世界の橋渡し','青い手','黄色い星','赤い月','白い犬','青い猿','黄色い人','赤い空歩く人','白い魔法使い','青い鷲','黄色い戦士','赤い地球','白い鏡','青い嵐','黄色い太陽'],KN=document.getElementById('fh-b27-kin-n'),KA=document.getElementById('fh-b27-kin27');function uk(){{if(!KN||!KA)return;var m=KN.textContent.match(/紋章「([^」]+)」/),i=m?SE.indexOf(m[1]):-1;KA.href='/unsei-2027/maya/'+(i>=0?'#mx-'+(i+1):'');KA.textContent=(i>=0?SE[i]+'の':'')+'2027年の運勢を詳しく見る →';}}if(KN)new MutationObserver(uk).observe(KN,O);}})();</script>
@@ -1457,9 +1493,21 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
     # 17 バイオリズム＋日付を選んで見る「その日のひとこと」（改善第1弾 6）
     ypick = ('<div class="fh-b27-ypick"><label>' + ic("year") + '<span>生まれ年</span><select data-fh-year aria-label="生まれ年"></select></label>'
              '<span class="fh-b27-ypick-note" data-fh-yearnote></span></div>')
+    if slim:
+        b_intro = (f'<b>身体（23日）・感情（28日）・知性（33日）</b>の周期で、日ごとの体調の波を見る読み物です。<mark class="fh-b27-mk">大切な予定は「好調日」に。</mark>'
+                   f'好調日・注意日の決め方は<a href="{GUIDE}#bio">説明ページ</a>へ。')
+        b_legend = "凡例：★ 絶好調 ／ ◎ 好調 ／ 〇 普通 ／ △ 低調 ／ ▽ 注意（科学的な根拠のない読み物としてお楽しみください）"
+        b_day = "日付を押すと、その日のひとことが出ます（ページの中で計算・送信しません）。"
+    else:
+        b_intro = ('バイオリズムは、<b>身体（23日）・感情（28日）・知性（33日）</b>の3つの周期で、体調や気分の波を見る考え方です。<mark class="fh-b27-mk">大切な予定は「好調日」に、「注意日」は無理をしない日に。</mark>'
+                   '上の月別グラフが「月ごとの運勢」なのに対し、こちらは「日ごとの体調の波」です。')
+        b_legend = ("凡例：★ 絶好調 ／ ◎ 好調 ／ 〇 普通 ／ △ 低調 ／ ▽ 注意。好調日＝3本の平均が0.6以上の日、注意日＝どれかの線が0を横切る日（切り替わりの日）。"
+                    "バイオリズムは科学的な根拠が認められていない読み物として楽しんでください。")
+        b_day = ("日付を押すと、その日の数（数秘）・日の干支・バイオリズムから「その日のひとこと」を出します（ページの中で計算。生年月日は送信・保存しません）。"
+                 "生まれ年を選ばないときは、数秘と日の干支だけで読みます。")
     a(f'''<section class="fh-b27-sec" id="b27-bio">
   {h2(18, "bio", "2027年バイオリズムカレンダー")}
-  <p>バイオリズムは、<b>身体（23日）・感情（28日）・知性（33日）</b>の3つの周期で、体調や気分の波を見る考え方です。<mark class="fh-b27-mk">大切な予定は「好調日」に、「注意日」は無理をしない日に。</mark>上の月別グラフが「月ごとの運勢」なのに対し、こちらは「日ごとの体調の波」です。</p>
+  <p>{b_intro}</p>
   {ypick}
   <div class="fh-b27-calbox" data-view="cal">
     <div class="fh-b27-mbtn" id="fh-b27-mbtn" role="group" aria-label="月を選ぶ"></div>
@@ -1471,10 +1519,10 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
   </div>
   <div id="fh-b27-biowrap" hidden>
     <details class="fh-b27-table"><summary id="fh-b27-btitle">日ごとの表</summary><div id="fh-b27-btable"></div></details>
-    <p class="fh-b27-small">凡例：★ 絶好調 ／ ◎ 好調 ／ 〇 普通 ／ △ 低調 ／ ▽ 注意。好調日＝3本の平均が0.6以上の日、注意日＝どれかの線が0を横切る日（切り替わりの日）。バイオリズムは科学的な根拠が認められていない読み物として楽しんでください。</p>
+    <p class="fh-b27-small">{b_legend}</p>
     <div class="fh-b27-bio" id="fh-b27-bio"></div>
   </div>
-  <p class="fh-b27-small">日付を押すと、その日の数（数秘）・日の干支・バイオリズムから「その日のひとこと」を出します（ページの中で計算。生年月日は送信・保存しません）。生まれ年を選ばないときは、数秘と日の干支だけで読みます。</p>
+  <p class="fh-b27-small">{b_day}</p>
 </section>''')
 
     # 18 2028年に向けて
@@ -1511,7 +1559,13 @@ def render(mmdd, mats, texts, ctx, sample=False, updated="2026-10-10"):
 </section>''')
 
     # この占いについて（根拠の注記は1か所だけ）
-    a(f'''<section class="fh-b27-about" id="b27-about">
+    if slim:  # section と id="b27-about" は残す（ほかの場所からリンクされている）。根拠は説明ページへ
+        a(f'''<section class="fh-b27-about" id="b27-about">
+  <h3>この占いについて</h3>
+  <p>{md}生まれの太陽は、{esc(sign)}の約{int(e["sun_deg_in_sign"])}度（1930〜2027年の平均）です。相性・月別スコア・◎○△・誕生石と誕生色・暦の決め方は、<a href="{GUIDE}">366日誕生日占いの読み方と計算のしかた</a>にまとめています。</p>
+</section>''')
+    else:
+        a(f'''<section class="fh-b27-about" id="b27-about">
   <h3>この占いについて</h3>
   <ul>
     <li><b>星座と度数：</b>{md}生まれの太陽の位置は、1930〜2027年の各年の{md}正午（日本時間）の太陽の位置の平均で、{esc(sign)}の約{int(e["sun_deg_in_sign"])}度にあたります。星座の境目の日は、生まれた年と時刻で星座が変わることがあります。</li>
